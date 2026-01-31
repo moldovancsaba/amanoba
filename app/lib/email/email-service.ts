@@ -498,7 +498,7 @@ export async function sendReminderEmail(
     if (!courseSlug) return { success: false, error: 'Course slug missing' };
 
     const subject = renderReminderEmailSubject({ locale: emailLocale, dayNumber, courseName });
-    const body = renderReminderEmailHtml({
+    let body = renderReminderEmailHtml({
       locale: emailLocale,
       playerName: player.displayName,
       courseName,
@@ -507,6 +507,18 @@ export async function sendReminderEmail(
       appUrl: APP_URL,
       tokens: EMAIL_TOKENS,
     });
+
+    // P0: Append localized unsubscribe footer (same as lesson emails — reminder is course-related)
+    const unsubscribeToken = await getOrGenerateUnsubscribeToken(player);
+    const unsubscribeUrl = `${APP_URL}/api/email/unsubscribe?token=${unsubscribeToken}`;
+    body =
+      body +
+      renderLessonUnsubscribeFooterHtml({
+        locale: emailLocale,
+        unsubscribeUrl,
+        courseName,
+        tokens: EMAIL_TOKENS,
+      });
 
     const integrity = ensureEmailLanguageIntegrity({
       locale: emailLocale,

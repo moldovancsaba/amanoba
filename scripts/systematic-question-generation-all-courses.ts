@@ -109,7 +109,7 @@ async function processAllCourses() {
 
     let totalLessons = 0;
     let totalQuestionsCreated = 0;
-    let totalQuestionsFixed = 0;
+    const totalQuestionsFixed = 0;
     const courseStats: Array<{
       courseId: string;
       courseName: string;
@@ -134,7 +134,7 @@ async function processAllCourses() {
       console.log(`   📝 Found ${lessons.length} lessons\n`);
 
       let courseQuestionsCreated = 0;
-      let courseQuestionsFixed = 0;
+      const courseQuestionsFixed = 0;
 
       for (const lesson of lessons) {
         totalLessons++;

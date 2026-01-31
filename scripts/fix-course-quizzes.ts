@@ -150,7 +150,7 @@ async function fixCourseQuizzes() {
         const neededApplication = Math.max(0, targetApplication - applicationCount);
         const neededCritical = Math.max(0, targetCritical - criticalCount);
 
-        let questionsToCreate = missingCount;
+        const questionsToCreate = missingCount;
         let recallCreated = 0;
         let applicationCreated = 0;
         let criticalCreated = 0;

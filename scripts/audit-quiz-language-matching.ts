@@ -158,7 +158,7 @@ async function auditQuizLanguageMatching() {
 
     let totalQuestions = 0;
     let totalMismatches = 0;
-    let daysWithIssues = new Set<number>();
+    const daysWithIssues = new Set<number>();
 
     for (const result of results) {
       totalQuestions += result.questionCount;

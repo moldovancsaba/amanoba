@@ -62,7 +62,7 @@ async function fixTemplateQuestions() {
 
     for (const q of allQuestions) {
       let shouldDelete = false;
-      let shouldFix = false;
+      const shouldFix = false;
       const issues: string[] = [];
 
       // Check for template question patterns

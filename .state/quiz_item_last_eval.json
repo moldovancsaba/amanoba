@@ -1,12 +1,12 @@
 {
   "question": {
-    "_id": "697b1ffade117f992bb9be94",
-    "question": "Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért jobb a guide, mint a sima grid?",
+    "_id": "697b1fdf08e9997876a4692d",
+    "question": "You're working on a task and need to decide next steps. Why add caveats to recommendations?",
     "options": [
-      "Gyorsabb döntés, idézhetőbb tartalom",
-      "Konret opcio: Csak szebb.",
-      "Konret opcio: Nem jobb.",
-      "Konret opcio: Csak SEO miatt."
+      "Highlight risks and conditions",
+      "To weaken the advice unnecessarily",
+      "A concrete option: No reason.",
+      "A concrete option: To add fluff."
     ],
     "correctIndex": 0,
     "difficulty": "MEDIUM",
@@ -14,37 +14,20 @@
     "hashtags": [],
     "isActive": true,
     "isCourseSpecific": true,
-    "courseId": "697675a6c10a5ffb62961a79",
-    "lessonId": "GEO_SHOPIFY_30_DAY_16",
+    "courseId": "696eb1b43acf07a2e163b299",
+    "lessonId": "AI_30_DAY_EN_DAY_17",
     "relatedCourseIds": [],
     "metadata": {
-      "createdAt": "2026-01-29T08:53:14.552Z",
-      "updatedAt": "2026-01-30T19:03:34.842Z"
+      "createdAt": "2026-01-29T08:52:47.881Z",
+      "updatedAt": "2026-01-31T08:55:07.813Z"
     },
     "showCount": 0,
     "correctCount": 0
   },
   "evaluation": {
-    "questionId": "697b1ffade117f992bb9be94",
-    "violations": [
-      {
-        "code": "OPTION_TOO_SHORT",
-        "message": "Option 3 is shorter than 25 characters.",
-        "fields": [
-          "options[2]"
-        ],
-        "severity": "warning",
-        "docRef": "docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type"
-      }
-    ],
-    "needsUpdate": true,
-    "autoPatch": {
-      "options": [
-        "Gyorsabb döntés, idézhetőbb tartalom",
-        "Konret opcio: Csak szebb.",
-        "Konret opcio: Nem jobb (rovid valasz).",
-        "Konret opcio: Csak SEO miatt."
-      ]
-    }
+    "questionId": "697b1fdf08e9997876a4692d",
+    "violations": [],
+    "needsUpdate": false,
+    "autoPatch": {}
   }
 }

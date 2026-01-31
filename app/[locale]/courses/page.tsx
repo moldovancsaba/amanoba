@@ -55,7 +55,7 @@ export default function CoursesPage() {
   const t = useTranslations('courses');
   const _tCommon = useTranslations('common');
   const tAuth = useTranslations('auth');
-  const _locale = useLocale();
+  const locale = useLocale();
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -65,11 +65,9 @@ export default function CoursesPage() {
       setLoading(true);
       const params = new URLSearchParams();
       params.append('status', 'active');
-      
+      params.append('locale', locale);
       // SHOW ALL COURSES: No language filter
-      // Each course card displays in its native language via courseCardTranslations
-      // User can see courses in all languages and choose to enroll
-      
+      // Each course card displays in requested locale when translations exist (P0 catalog language integrity)
       if (search) {
         params.append('search', search);
       }
@@ -85,7 +83,7 @@ export default function CoursesPage() {
     } finally {
       setLoading(false);
     }
-  }, [search]);
+  }, [search, locale]);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {

@@ -7,9 +7,9 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
 import Image from 'next/image';
 import {
@@ -40,22 +40,17 @@ interface CourseProgress {
 
 export default function MyCoursesPage() {
   const { data: session } = useSession();
+  const locale = useLocale();
   const t = useTranslations('dashboard');
   const tCourses = useTranslations('courses');
   const tAuth = useTranslations('auth');
   const [courses, setCourses] = useState<CourseProgress[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (session) {
-      fetchMyCourses();
-    }
-  }, [session]);
-
-  const fetchMyCourses = async () => {
+  const fetchMyCourses = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/my-courses');
+      const response = await fetch(`/api/my-courses?locale=${locale}`);
       const data = await response.json();
 
       if (data.success) {
@@ -66,7 +61,13 @@ export default function MyCoursesPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [locale]);
+
+  useEffect(() => {
+    if (session) {
+      fetchMyCourses();
+    }
+  }, [session, fetchMyCourses]);
 
   if (!session) {
     return (

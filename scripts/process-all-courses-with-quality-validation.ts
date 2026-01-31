@@ -100,7 +100,7 @@ async function processAllCoursesWithQuality() {
         const CANDIDATES_PER_ATTEMPT = 8;
         const stamp = new Date().toISOString().replace(/[:.]/g, '-');
 
-        let currentValid = [...validQuestions];
+        const currentValid = [...validQuestions];
         const existingTextKeys = new Set<string>(currentValid.map(q => normalizeQuestionText(q.question ?? '')));
         let insertedCount = 0;
         let replacedCount = 0;

@@ -117,7 +117,7 @@ async function migratePhase1Data() {
     }
 
     let totalUpdated = 0;
-    let totalAdded = 0;
+    const totalAdded = 0;
     let totalErrors = 0;
 
     // Process each lesson

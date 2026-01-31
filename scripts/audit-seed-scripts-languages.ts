@@ -114,8 +114,8 @@ function auditSeedScripts(): void {
   console.log('═══════════════════════════════════════════════════════════════\n');
 
   let totalIssues = 0;
-  let daysWithIssues: number[] = [];
-  let daysMissing: number[] = [];
+  const daysWithIssues: number[] = [];
+  const daysMissing: number[] = [];
 
   for (const result of results) {
     const hasIssues = result.errors.length > 0 || result.hasFallback;

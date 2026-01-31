@@ -12,7 +12,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "type-check": "tsc --noEmit",
     "release:patch": "node scripts/versioning/bump-version.mjs --type patch --reason \"Patch release\" && git add -A && git commit -m \"release: v$(node scripts/versioning/get-version.mjs) — Patch release\"",
     "release:minor": "node scripts/versioning/bump-version.mjs --type minor --reason \"Minor release\" && git add -A && git commit -m \"release: v$(node scripts/versioning/get-version.mjs) — Minor release\"",
@@ -118,6 +118,7 @@
   },
   "overrides": {
     "brace-expansion": "^2.0.2",
-    "nanoid": "^3.3.8"
+    "nanoid": "^3.3.8",
+    "baseline-browser-mapping": "^2.9.0"
   }
 }

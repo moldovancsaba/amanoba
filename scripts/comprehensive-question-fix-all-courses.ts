@@ -66,7 +66,7 @@ async function fixAllCourses() {
     console.log(`📖 Found ${courses.length} active courses\n`);
 
     let totalLessons = 0;
-    let totalFixed = 0;
+    const totalFixed = 0;
     let totalCreated = 0;
 
     for (const course of courses) {

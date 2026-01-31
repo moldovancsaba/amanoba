@@ -142,7 +142,7 @@ async function processAllCourses() {
 
     let totalLessons = 0;
     let totalQuestionsCreated = 0;
-    let totalQuestionsFixed = 0;
+    const totalQuestionsFixed = 0;
 
     for (const course of courses) {
       console.log(`\n${'═'.repeat(70)}`);

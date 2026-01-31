@@ -172,7 +172,7 @@ async function auditFullSystem() {
     console.log(`📊 COMPREHENSIVE AUDIT SUMMARY`);
     console.log(`${'═'.repeat(60)}\n`);
 
-    let totalCourses = results.length;
+    const totalCourses = results.length;
     let totalLessons = 0;
     let totalLessonsWithQuizzes = 0;
     let totalLessonsWithoutQuizzes = 0;

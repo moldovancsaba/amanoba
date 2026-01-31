@@ -190,7 +190,7 @@ async function processCourse() {
       const CANDIDATES_PER_ATTEMPT = 8;
       const stamp = new Date().toISOString().replace(/[:.]/g, '-');
 
-      let currentValid = [...validExisting];
+      const currentValid = [...validExisting];
       const existingTextKeys = new Set<string>(currentValid.map(q => normalizeQuestionText(q.question)));
       let insertedCount = 0;
       let replacedCount = 0;

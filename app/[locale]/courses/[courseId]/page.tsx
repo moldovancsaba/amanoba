@@ -619,7 +619,7 @@ export default function CourseDetailPage({
 
   const fetchCourse = useCallback(async (cid: string) => {
     try {
-      const response = await fetch(`/api/courses/${cid}`);
+      const response = await fetch(`/api/courses/${cid}?locale=${locale}`);
       const data = await response.json();
       if (data.success) {
         const courseData = data.course;
@@ -632,7 +632,7 @@ export default function CourseDetailPage({
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [locale]);
 
   const fetchEntitlement = useCallback(async (cid: string) => {
     try {

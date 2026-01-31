@@ -9,6 +9,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import { Course, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { resolveCourseNameForLocale, resolveCourseDescriptionForLocale } from '@/app/lib/utils/course-i18n';
+import type { Locale } from '@/app/lib/i18n/locales';
+
+const VALID_LOCALES: Locale[] = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru'];
+function parseLocale(value: string | null): Locale | null {
+  if (!value) return null;
+  return VALID_LOCALES.includes(value as Locale) ? (value as Locale) : null;
+}
 
 /**
  * GET /api/courses
@@ -23,6 +31,7 @@ export async function GET(request: NextRequest) {
     const status = searchParams.get('status'); // 'all' | 'active'
     const language = searchParams.get('language');
     const search = searchParams.get('search');
+    const locale = parseLocale(searchParams.get('locale'));
 
     // Build query - only show active courses to students
     const query: Record<string, unknown> = {};
@@ -50,8 +59,12 @@ export async function GET(request: NextRequest) {
       ];
     }
 
+    const selectFields =
+      locale != null
+        ? 'courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig price certification translations'
+        : 'courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig price certification';
     const courses = await Course.find(query)
-      .select('courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig price certification')
+      .select(selectFields)
       .sort({ createdAt: -1 })
       .lean();
 
@@ -66,11 +79,23 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    // Add default thumbnail to courses that don't have one
-    const coursesWithThumbnails = courses.map(course => ({
-      ...course,
-      thumbnail: course.thumbnail || defaultThumbnail || null,
-    }));
+    // Add default thumbnail; resolve name/description for locale when requested (P0 catalog language integrity)
+    const coursesWithThumbnails = courses.map((course) => {
+      const base = {
+        ...course,
+        thumbnail: course.thumbnail || defaultThumbnail || null,
+      };
+      if (locale != null && base.name != null && base.description != null) {
+        const { translations: _translations, ...rest } = base as typeof base & { translations?: unknown };
+        return {
+          ...rest,
+          name: resolveCourseNameForLocale(base as Parameters<typeof resolveCourseNameForLocale>[0], locale),
+          description: resolveCourseDescriptionForLocale(base as Parameters<typeof resolveCourseDescriptionForLocale>[0], locale),
+        };
+      }
+      const { translations: _t, ...rest } = base as typeof base & { translations?: unknown };
+      return _t != null ? rest : base;
+    });
 
     logger.info({ 
       count: courses.length, 

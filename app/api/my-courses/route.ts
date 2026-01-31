@@ -10,6 +10,14 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { CourseProgress, Player } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { resolveCourseNameForLocale, resolveCourseDescriptionForLocale } from '@/app/lib/utils/course-i18n';
+import type { Locale } from '@/app/lib/i18n/locales';
+
+const VALID_LOCALES: Locale[] = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru'];
+function parseLocale(value: string | null): Locale | null {
+  if (!value) return null;
+  return VALID_LOCALES.includes(value as Locale) ? (value as Locale) : null;
+}
 
 /**
  * Calculate the current day (first uncompleted lesson) based on completed days
@@ -41,8 +49,9 @@ function calculateCurrentDay(completedDays: number[], totalDays: number): number
  * GET /api/my-courses
  * 
  * What: Get all courses student is enrolled in
+ * Query: locale — optional; when set, course name/description are resolved for that locale (P0 catalog language integrity)
  */
-export async function GET(_request: NextRequest) {
+export async function GET(request: NextRequest) {
   try {
     const session = await auth();
     if (!session?.user) {
@@ -58,9 +67,19 @@ export async function GET(_request: NextRequest) {
       return NextResponse.json({ error: 'Player not found' }, { status: 404 });
     }
 
+    const { searchParams } = new URL(request.url);
+    const locale =
+      parseLocale(searchParams.get('locale')) ??
+      (VALID_LOCALES.includes((player.locale as Locale) ?? '') ? (player.locale as Locale) : null);
+
+    const populateFields =
+      locale != null
+        ? 'courseId name description thumbnail language durationDays isDraft translations'
+        : 'courseId name description thumbnail language durationDays isDraft';
+
     // Get all course progress for this player
     const progressList = await CourseProgress.find({ playerId: player._id })
-      .populate('courseId', 'courseId name description thumbnail language durationDays isDraft')
+      .populate('courseId', populateFields)
       .sort({ startedAt: -1 })
       .lean();
 
@@ -71,9 +90,9 @@ export async function GET(_request: NextRequest) {
       (p) => p.courseId && typeof p.courseId === 'object' && (p.courseId as { isDraft?: boolean }).isDraft !== true
     );
 
-    // Calculate progress for each course
+    // Calculate progress for each course; resolve name/description for locale when set (P0 catalog language integrity)
     const courses = filteredProgress.map((progress) => {
-      const course = progress.courseId as ProgressWithCourse['courseId'];
+      const course = progress.courseId as ProgressWithCourse['courseId'] & { translations?: unknown };
       const completedDaysArray = Array.isArray(progress.completedDays) ? progress.completedDays : [];
       const completedDays = completedDaysArray.length;
       const totalDays = (course?.durationDays as number) || 30;
@@ -82,11 +101,18 @@ export async function GET(_request: NextRequest) {
       // Calculate correct currentDay based on completed days
       const correctCurrentDay = calculateCurrentDay(completedDaysArray, totalDays);
 
+      let name = course?.name ?? '';
+      let description = course?.description ?? '';
+      if (locale != null && course?.name != null && course?.description != null) {
+        name = resolveCourseNameForLocale(course as Parameters<typeof resolveCourseNameForLocale>[0], locale);
+        description = resolveCourseDescriptionForLocale(course as Parameters<typeof resolveCourseDescriptionForLocale>[0], locale);
+      }
+
       return {
         course: {
           courseId: course?.courseId,
-          name: course?.name,
-          description: course?.description,
+          name,
+          description,
           thumbnail: course?.thumbnail,
           language: course?.language,
           durationDays: course?.durationDays,

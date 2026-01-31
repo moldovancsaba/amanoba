@@ -3193,12 +3193,12 @@ async function main() {
   }
 
   await mongoose.disconnect();
-  // eslint-disable-next-line no-console
+   
   console.log(`Seeded The Playbook 2026 (EN) (${APPLY ? 'APPLY' : 'DRY-RUN'}).`);
 }
 
 main().catch((err) => {
-  // eslint-disable-next-line no-console
+   
   console.error(err);
   process.exit(1);
 });

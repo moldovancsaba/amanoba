@@ -214,7 +214,7 @@ export default function Dashboard() {
     
     try {
       setLoadingRecommendations(true);
-      const response = await fetch('/api/courses/recommendations?limit=3');
+      const response = await fetch(`/api/courses/recommendations?limit=3&locale=${locale}`);
       const data = await response.json();
       
       if (data.success && data.recommendations) {
@@ -225,7 +225,7 @@ export default function Dashboard() {
     } finally {
       setLoadingRecommendations(false);
     }
-  }, [session, status]);
+  }, [session, status, locale]);
 
   useEffect(() => {
     void fetchPlayerData();

@@ -473,12 +473,12 @@ Based on current priorities (see Tech Debt P0/P1 and TASKLIST.md). Certificate v
 
 ### 2. Onboarding Survey / Email Automation / Multi-Format Forking (P2)
 
-**Status**: 🟡 PLANNED  
-**Docs**: ROADMAP § Onboarding Survey, Email Automation, Multi-Format Forking
+**Status**: 🟡 PARTIAL — Onboarding survey implemented; email automation and multi-format forking planned  
+**Docs**: ROADMAP § Onboarding Survey, Email Automation, Multi-Format Forking; **P2 status**: `docs/2026-01-28_P2_STATUS.md`
 
-- Onboarding survey (multi-step, recommendations, segmentation)
-- Email automation and personalization
-- Multi-format course forking
+- **Onboarding survey**: ✅ Implemented (API, page, models, recommendations, admin). See `docs/2026-01-28_P2_STATUS.md`.
+- Email automation and personalization — planned
+- Multi-format course forking — planned
 
 ---
 

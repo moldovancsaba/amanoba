@@ -1153,7 +1153,7 @@ async function seedLesson9() {
   await connectDB();
   console.log('✅ Connected to MongoDB\n');
 
-  let totalCourses = 0;
+  const totalCourses = 0;
   let totalLessons = 0;
   let totalQuizzes = 0;
 

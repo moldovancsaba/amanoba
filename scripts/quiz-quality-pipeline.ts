@@ -460,7 +460,7 @@ async function main() {
 
       let insertedCount = 0;
       let replacedCount = 0;
-      let currentValid = [...dedupedValidExisting];
+      const currentValid = [...dedupedValidExisting];
       const existingTextKeys = new Set<string>(currentValid.map(q => normalizeQuestionText(q.question)));
       const existingOptionSigs = new Set<string>(currentValid.map(q => optionSig(q.options)).filter(Boolean));
 

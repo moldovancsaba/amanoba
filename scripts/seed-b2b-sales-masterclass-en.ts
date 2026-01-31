@@ -3837,12 +3837,12 @@ async function main() {
   }
 
   await mongoose.disconnect();
-  // eslint-disable-next-line no-console
+   
   console.log(`Seeded B2B Sales 2026 Masterclass (EN) (${APPLY ? 'APPLY' : 'DRY-RUN'}).`);
 }
 
 main().catch((err) => {
-  // eslint-disable-next-line no-console
+   
   console.error(err);
   process.exit(1);
 });

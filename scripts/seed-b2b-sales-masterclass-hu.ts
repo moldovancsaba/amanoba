@@ -3460,12 +3460,12 @@ async function main() {
   }
 
   await mongoose.disconnect();
-  // eslint-disable-next-line no-console
+   
   console.log('Seeded B2B Értékesítés 2026 Masterclass (HU) with first 30 lessons.');
 }
 
 main().catch((err) => {
-  // eslint-disable-next-line no-console
+   
   console.error(err);
   process.exit(1);
 });

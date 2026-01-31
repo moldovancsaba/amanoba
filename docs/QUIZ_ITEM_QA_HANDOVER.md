@@ -46231,3 +46231,4735 @@ Now log ..." described in the lesson in your own work?
 - Question: Egy vezető a következő elv szerint dönt: „Gyakorlat: írd meg az első GEO promptjaidat (10-15 perc)”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
 - Violations: 0
 - State stored in `.state/quiz_item_qa_state.json`
+## 2026-01-31T08:29:11.870Z — 697b9218cf21eba1283e72a6
+- Updated at (current): 2026-01-29T17:00:08.508Z
+- Question: Egy vezető a következő elv szerint dönt: „fontos ez neked? Az AI-válaszokban a boltod csak akkor jelenik meg, ha”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:11.929Z — 697b9218cf21eba1283e72a9
+- Updated at (current): 2026-01-29T17:00:08.559Z
+- Question: Egy vezető a következő elv szerint dönt: „Mit fogsz ma megtanulni?”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:11.982Z — 697b9218cf21eba1283e72ab
+- Updated at (current): 2026-01-29T17:00:08.587Z
+- Question: Egy projektben a „Pontosan tudod, mit várhatsz a GEO-tól: idézést, bevonást és következetességet” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.038Z — 697b9218cf21eba1283e72ad
+- Updated at (current): 2026-01-29T17:00:08.617Z
+- Question: Egy projektben a „Gyakorlat: írd meg az első GEO promptjaidat (10-15 perc)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.091Z — 697b9218cf21eba1283e72af
+- Updated at (current): 2026-01-29T17:00:08.640Z
+- Question: Egy projektben a „Mi a GEO, és mi nem az (Shopify kontextusban)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.148Z — 697b9218cf21eba1283e72b1
+- Updated at (current): 2026-01-29T17:00:08.669Z
+- Question: Egy projektben a „GEO vs SEO: mi a különbség?” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.218Z — 697b9218cf21eba1283e72b3
+- Updated at (current): 2026-01-29T17:00:08.696Z
+- Question: Egy új gyakorlatot vezetsz be: „Megvan 5 saját GEO promptod Érted a különbséget a GEO és az ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.279Z — 697b9218cf21eba1283e72b7
+- Updated at (current): 2026-01-29T17:00:08.765Z
+- Question: Egy vezető a következő elv szerint dönt: „Shopify”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.340Z — 697b9218cf21eba1283e72ba
+- Updated at (current): 2026-01-29T17:00:08.813Z
+- Question: Egy vezető a következő elv szerint dönt: „figyelj?”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.401Z — 697b9218cf21eba1283e72bd
+- Updated at (current): 2026-01-29T17:00:08.865Z
+- Question: Egy vezető a következő elv szerint dönt: „Ma ezt a két dolgot fogod elérni: Pontosan megérted, mi az SEO-first”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.460Z — 697b9218cf21eba1283e72c0
+- Updated at (current): 2026-01-29T17:00:08.908Z
+- Question: Egy vezető a következő elv szerint dönt: „Ma megtanulod, mely elemek számítanak a generatív felületekben, és hogyan egészí”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.518Z — 697b9218cf21eba1283e72c3
+- Updated at (current): 2026-01-29T17:00:08.966Z
+- Question: Egy vezető a következő elv szerint dönt: „SEO-first vs GEO-first: mi a különbség?”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.570Z — 697b9218cf21eba1283e72c5
+- Updated at (current): 2026-01-29T17:00:08.989Z
+- Question: Egy projektben a „Mit fogsz ma megtanulni?” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.629Z — 697b9219cf21eba1283e72c7
+- Updated at (current): 2026-01-29T17:00:09.013Z
+- Question: Egy projektben a „Ma ezt a két dolgot fogod elérni: Pontosan megérted, mi az SEO-first és mi a GEO” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.691Z — 697b9219cf21eba1283e72c9
+- Updated at (current): 2026-01-29T17:00:09.036Z
+- Question: Egy projektben a „fontos ez neked? Az AI válaszok gyakran összefoglalják a fő termékadatokat” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.750Z — 697b9219cf21eba1283e72cb
+- Updated at (current): 2026-01-29T17:00:09.058Z
+- Question: Egy új gyakorlatot vezetsz be: „Jó GEO-alap Termékoldal tetején tömör összegzés Jól struktur”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.807Z — 697b9219cf21eba1283e72cd
+- Updated at (current): 2026-01-29T17:00:09.087Z
+- Question: Egy új gyakorlatot vezetsz be: „Megvan a 10 pontos GEO checklisted Egy PDP-n kipipáltad, mi ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.885Z — 697b9219cf21eba1283e72d1
+- Updated at (current): 2026-01-29T17:00:09.159Z
+- Question: Egy vezető a következő elv szerint dönt: „Hogyan változtatja meg az AI a vásárlói utat”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:12.943Z — 697b9219cf21eba1283e72d4
+- Updated at (current): 2026-01-29T17:00:09.205Z
+- Question: Egy vezető a következő elv szerint dönt: „A keresőlistáról az „answer + ajánlás” élményre váltunk – mit jelent ez”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.003Z — 697b9219cf21eba1283e72d7
+- Updated at (current): 2026-01-29T17:00:09.265Z
+- Question: Egy vezető a következő elv szerint dönt: „változtatja”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.063Z — 697b9219cf21eba1283e72da
+- Updated at (current): 2026-01-29T17:00:09.313Z
+- Question: Egy vezető a következő elv szerint dönt: „Ha mélyebbre szeretnél menni”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.157Z — 697b9219cf21eba1283e72dd
+- Updated at (current): 2026-01-29T17:00:09.356Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat (vezetett, 10-15 perc)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.208Z — 697b9219cf21eba1283e72df
+- Updated at (current): 2026-01-29T17:00:09.385Z
+- Question: Egy projektben a „Hogyan változtatja meg az AI a vásárlói utat” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.261Z — 697b9219cf21eba1283e72e1
+- Updated at (current): 2026-01-29T17:00:09.414Z
+- Question: Egy projektben a „Hogyan változtatja meg az AI a vásárlói utat?” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.318Z — 697b9219cf21eba1283e72e3
+- Updated at (current): 2026-01-29T17:00:09.447Z
+- Question: Egy projektben a „Ha mélyebbre szeretnél menni” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.372Z — 697b9219cf21eba1283e72e5
+- Updated at (current): 2026-01-29T17:00:09.469Z
+- Question: Egy projektben a „változtatja” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.428Z — 697b9219cf21eba1283e72ee
+- Updated at (current): 2026-01-29T17:00:09.622Z
+- Question: Egy vezető a következő elv szerint dönt: „„Sell”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.490Z — 697b9219cf21eba1283e72f1
+- Updated at (current): 2026-01-29T17:00:09.678Z
+- Question: Egy vezető a következő elv szerint dönt: „chat””. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.550Z — 697b9219cf21eba1283e72f7
+- Updated at (current): 2026-01-29T17:00:09.830Z
+- Question: Egy vezető a következő elv szerint dönt: „Napi cél Világosan látod, mi az AI-ban a befolyás vs”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.608Z — 697b9219cf21eba1283e72f9
+- Updated at (current): 2026-01-29T17:00:09.853Z
+- Question: Egy projektben a „„Sell in chat”: befolyás vs tranzakció” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.660Z — 697b9219cf21eba1283e72fd
+- Updated at (current): 2026-01-29T17:00:09.906Z
+- Question: Egy projektben a „„Sell” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.718Z — 697b9219cf21eba1283e7301
+- Updated at (current): 2026-01-29T17:00:09.955Z
+- Question: Egy projektben a „Opcionális mélyítés” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.773Z — 697b921acf21eba1283e7305
+- Updated at (current): 2026-01-29T17:00:10.338Z
+- Question: Egy vezető a következő elv szerint dönt: „ChatGPT”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.827Z — 697b921acf21eba1283e7308
+- Updated at (current): 2026-01-29T17:00:10.402Z
+- Question: Egy vezető a következő elv szerint dönt: „Platform térkép: ChatGPT, Copilot, Google AI Áttekinted a fő AI bevásárló felüle”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.883Z — 697b921acf21eba1283e730b
+- Updated at (current): 2026-01-29T17:00:10.475Z
+- Question: Egy vezető a következő elv szerint dönt: „térkép”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.941Z — 697b921acf21eba1283e730e
+- Updated at (current): 2026-01-29T17:00:10.519Z
+- Question: Egy vezető a következő elv szerint dönt: „Napi cél Felsorolod a 3 fő platformot és a boltra vonatkozó korlátokat”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:13.997Z — 697b921acf21eba1283e7311
+- Updated at (current): 2026-01-29T17:00:10.566Z
+- Question: Egy vezető a következő elv szerint dönt: „Rossz”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.058Z — 697b921acf21eba1283e7313
+- Updated at (current): 2026-01-29T17:00:10.589Z
+- Question: Egy projektben a „Copilot” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.113Z — 697b921acf21eba1283e7315
+- Updated at (current): 2026-01-29T17:00:10.646Z
+- Question: Egy projektben a „Platform” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.173Z — 697b921acf21eba1283e7317
+- Updated at (current): 2026-01-29T17:00:10.669Z
+- Question: Egy projektben a „Készítesz egy 1 oldalas „hol jelenhetek meg?” összefoglalót” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.230Z — 697b921acf21eba1283e731f
+- Updated at (current): 2026-01-29T17:00:10.853Z
+- Question: Egy vezető a következő elv szerint dönt: „prompt”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.290Z — 697b921acf21eba1283e7325
+- Updated at (current): 2026-01-29T17:00:10.989Z
+- Question: Egy vezető a következő elv szerint dönt: „Elkészíted prompt set-et”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.360Z — 697b921bcf21eba1283e7328
+- Updated at (current): 2026-01-29T17:00:11.036Z
+- Question: Egy vezető a következő elv szerint dönt: „Sikerdefiníció: GEO prompt set + KPI-k”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.420Z — 697b921bcf21eba1283e732b
+- Updated at (current): 2026-01-29T17:00:11.095Z
+- Question: Egy vezető a következő elv szerint dönt: „Kereskedelmi hatás: referral”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.478Z — 697b921bcf21eba1283e732d
+- Updated at (current): 2026-01-29T17:00:11.119Z
+- Question: Egy projektben a „Összeállítod GEO/KPI baseline” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.538Z — 697b921bcf21eba1283e732f
+- Updated at (current): 2026-01-29T17:00:11.142Z
+- Question: Egy projektben a „Sikerdefiníció: prompt KPI-k” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.591Z — 697b921bcf21eba1283e7331
+- Updated at (current): 2026-01-29T17:00:11.166Z
+- Question: Egy projektben a „Kereskedelmi hatás: referral” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.648Z — 697b921bcf21eba1283e7333
+- Updated at (current): 2026-01-29T17:00:11.198Z
+- Question: Egy projektben a „Napi cél” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.702Z — 697b921bcf21eba1283e7335
+- Updated at (current): 2026-01-29T17:00:11.242Z
+- Question: Egy projektben a „Magyarázat” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.760Z — 697b921bcf21eba1283e7339
+- Updated at (current): 2026-01-29T17:00:11.319Z
+- Question: Egy vezető a következő elv szerint dönt: „Felméred a feed és a PDP közti eltéréseket 5 terméken”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.821Z — 697b921bcf21eba1283e733c
+- Updated at (current): 2026-01-29T17:00:11.385Z
+- Question: Egy vezető a következő elv szerint dönt: „Miért”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.891Z — 697b921bcf21eba1283e733f
+- Updated at (current): 2026-01-29T17:00:11.436Z
+- Question: Egy vezető a következő elv szerint dönt: „„offer”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:14.952Z — 697b921bcf21eba1283e7342
+- Updated at (current): 2026-01-29T17:00:11.484Z
+- Question: Egy vezető a következő elv szerint dönt: „fontos”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.012Z — 697b921bcf21eba1283e7345
+- Updated at (current): 2026-01-29T17:00:11.538Z
+- Question: Egy vezető a következő elv szerint dönt: „fontos a feed és az „offer truth” Megérted, miért kell a feednek”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.067Z — 697b921bcf21eba1283e7347
+- Updated at (current): 2026-01-29T17:00:11.564Z
+- Question: Egy projektben a „Felméred a feed és a PDP közti eltéréseket 5 terméken” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.129Z — 697b921bcf21eba1283e7349
+- Updated at (current): 2026-01-29T17:00:11.590Z
+- Question: Egy projektben a „Miért fontos a feed és az „offer truth” Megérted, miért kell a feednek egyeznie ” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.183Z — 697b921bcf21eba1283e734b
+- Updated at (current): 2026-01-29T17:00:11.615Z
+- Question: Egy projektben a „Miért” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.236Z — 697b921bcf21eba1283e734d
+- Updated at (current): 2026-01-29T17:00:11.641Z
+- Question: Egy projektben a „fontos a feed és az „offer truth” Megérted, miért kell a feednek egyeznie a való” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.291Z — 697b921bcf21eba1283e734f
+- Updated at (current): 2026-01-29T17:00:11.663Z
+- Question: Egy projektben a „Napi cél Listázod az offer truth elemeit (ár, készlet, szállítás, visszaküldés, ” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.349Z — 697b921bcf21eba1283e7353
+- Updated at (current): 2026-01-29T17:00:11.744Z
+- Question: Egy vezető a következő elv szerint dönt: „termékoldal”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.402Z — 697b921bcf21eba1283e7356
+- Updated at (current): 2026-01-29T17:00:11.806Z
+- Question: Egy vezető a következő elv szerint dönt: „Átdolgozol 1 termékoldalt a blueprint szerint”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.459Z — 697b921bcf21eba1283e735c
+- Updated at (current): 2026-01-29T17:00:11.914Z
+- Question: Egy vezető a következő elv szerint dönt: „blueprint”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.511Z — 697b921bcf21eba1283e7361
+- Updated at (current): 2026-01-29T17:00:11.986Z
+- Question: Egy projektben a „Idézhető termékoldal blueprint” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.566Z — 697b921ccf21eba1283e7363
+- Updated at (current): 2026-01-29T17:00:12.013Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló, 5-10 perc) Ismételd meg egy másik terméko”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.621Z — 697b921ccf21eba1283e7365
+- Updated at (current): 2026-01-29T17:00:12.035Z
+- Question: Egy projektben a „tiszta szerkezet csökkenti” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.676Z — 697b921ccf21eba1283e7367
+- Updated at (current): 2026-01-29T17:00:12.065Z
+- Question: Egy projektben a „Idézhető termékoldal blueprint Olyan PDP szerkezetet építesz, amit az AI biztons” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.741Z — 697b921ccf21eba1283e7370
+- Updated at (current): 2026-01-29T17:00:12.274Z
+- Question: Egy vezető a következő elv szerint dönt: „Answer capsule: 5 soros összegzés a PDP tetején”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.799Z — 697b921ccf21eba1283e7373
+- Updated at (current): 2026-01-29T17:00:12.324Z
+- Question: Egy vezető a következő elv szerint dönt: „Magyarázat”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.859Z — 697b921ccf21eba1283e7376
+- Updated at (current): 2026-01-29T17:00:12.378Z
+- Question: Egy vezető a következő elv szerint dönt: „Answer capsule: 5 soros összegzés a PDP tetején Megírod a rövid blokkot,”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.919Z — 697b921ccf21eba1283e7379
+- Updated at (current): 2026-01-29T17:00:12.444Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat (önálló, 5-10 perc)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:15.977Z — 697b921ccf21eba1283e737b
+- Updated at (current): 2026-01-29T17:00:12.475Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10-15 perc) Írj 2 answer capsule-t a le”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.030Z — 697b921ccf21eba1283e737d
+- Updated at (current): 2026-01-29T17:00:12.498Z
+- Question: Egy projektben a „Gyakorlat (vezetett, 10-15 perc)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.087Z — 697b921ccf21eba1283e737f
+- Updated at (current): 2026-01-29T17:00:12.525Z
+- Question: Egy projektben a „A modell rövid válaszokat keres a hajtás felett” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.139Z — 697b921ccf21eba1283e7381
+- Updated at (current): 2026-01-29T17:00:12.572Z
+- Question: Egy projektben a „tetején” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.201Z — 697b921ccf21eba1283e7383
+- Updated at (current): 2026-01-29T17:00:12.605Z
+- Question: Egy projektben a „összegzés” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.259Z — 697b921ccf21eba1283e7387
+- Updated at (current): 2026-01-29T17:00:12.704Z
+- Question: Egy vezető a következő elv szerint dönt: „policy”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.316Z — 697b921ccf21eba1283e738a
+- Updated at (current): 2026-01-29T17:00:12.773Z
+- Question: Egy vezető a következő elv szerint dönt: „Hozzárendeled a releváns kollekciót/PDP-t”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.372Z — 697b921ccf21eba1283e738d
+- Updated at (current): 2026-01-29T17:00:12.837Z
+- Question: Egy vezető a következő elv szerint dönt: „Best”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.431Z — 697b921ccf21eba1283e7393
+- Updated at (current): 2026-01-29T17:00:12.962Z
+- Question: Egy vezető a következő elv szerint dönt: „alternatives”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.488Z — 697b921dcf21eba1283e7397
+- Updated at (current): 2026-01-29T17:00:13.024Z
+- Question: Egy projektben a „intent” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.547Z — 697b921dcf21eba1283e7399
+- Updated at (current): 2026-01-29T17:00:13.059Z
+- Question: Egy projektben a „alternatives” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.600Z — 697b921dcf21eba1283e739b
+- Updated at (current): 2026-01-29T17:00:13.083Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10-15 perc) Készíts táblát: Intent | Pr”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.661Z — 697b921dcf21eba1283e73a1
+- Updated at (current): 2026-01-29T17:00:13.178Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat (vezetett, 10-15 perc)”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.719Z — 697b921dcf21eba1283e73a4
+- Updated at (current): 2026-01-29T17:00:13.227Z
+- Question: Egy vezető a következő elv szerint dönt: „futtatás”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.777Z — 697b921dcf21eba1283e73a7
+- Updated at (current): 2026-01-29T17:00:13.275Z
+- Question: Egy vezető a következő elv szerint dönt: „heti”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.842Z — 697b921dcf21eba1283e73aa
+- Updated at (current): 2026-01-29T17:00:13.356Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat (önálló, 5-10 perc)”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.898Z — 697b921dcf21eba1283e73ad
+- Updated at (current): 2026-01-29T17:00:13.406Z
+- Question: Egy vezető a következő elv szerint dönt: „Nélkül nincs bizonyíték a fejlődésre”. Melyik hatás a legvalószínűbb a GEO elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:16.957Z — 697b921dcf21eba1283e73b1
+- Updated at (current): 2026-01-29T17:00:13.483Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló, 5-10 perc) Tölts ki 5 promptot és jegyezd”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.010Z — 697b921dcf21eba1283e73b5
+- Updated at (current): 2026-01-29T17:00:13.558Z
+- Question: Egy projektben a „heti” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.067Z — 697b921dcf21eba1283e73b7
+- Updated at (current): 2026-01-29T17:00:13.583Z
+- Question: Egy projektben a „Mérési rendszer: heti GEO futtatás és riport Felállítod a heti mérési rutint a p” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.128Z — 697b921ecf21eba1283e73c2
+- Updated at (current): 2026-01-29T17:00:14.038Z
+- Question: Egy vezető a következő elv szerint dönt: „Ízlésből rendszerbe: hogyan skálázod a döntést”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.191Z — 697b921ecf21eba1283e73c5
+- Updated at (current): 2026-01-29T17:00:14.097Z
+- Question: Egy vezető a következő elv szerint dönt: „Tanulási cél Fel tudsz írni 3 design döntést szabályként”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.248Z — 697b921ecf21eba1283e73c8
+- Updated at (current): 2026-01-29T17:00:14.157Z
+- Question: Egy vezető a következő elv szerint dönt: „Ismered a „Rule → Pattern → Doc” láncot”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.313Z — 697b921ecf21eba1283e73cd
+- Updated at (current): 2026-01-29T17:00:14.240Z
+- Question: Egy projektben a „rendszerbe” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.366Z — 697b921ecf21eba1283e73d1
+- Updated at (current): 2026-01-29T17:00:14.287Z
+- Question: Egy projektben a „Ízlésből rendszerbe: hogyan skálázod a döntést” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.418Z — 697b921ecf21eba1283e73d3
+- Updated at (current): 2026-01-29T17:00:14.316Z
+- Question: Egy projektben a „skálázod” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.480Z — 697b921ecf21eba1283e73d9
+- Updated at (current): 2026-01-29T17:00:14.414Z
+- Question: Egy vezető a következő elv szerint dönt: „Készítesz tartalomjegyzéket saját”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.538Z — 697b921ecf21eba1283e73df
+- Updated at (current): 2026-01-29T17:00:14.525Z
+- Question: Egy vezető a következő elv szerint dönt: „Tanulási cél Ismered a Playbook 6 fő fejezetét”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.590Z — 697b921ecf21eba1283e73e2
+- Updated at (current): 2026-01-29T17:00:14.581Z
+- Question: Egy vezető a következő elv szerint dönt: „Design”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.645Z — 697b921ecf21eba1283e73e4
+- Updated at (current): 2026-01-29T17:00:14.606Z
+- Question: Egy projektben a „Miért fontos struktúra” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.699Z — 697b921ecf21eba1283e73e6
+- Updated at (current): 2026-01-29T17:00:14.641Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10-15 perc) Hozz létre Playbook tartalo”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.756Z — 697b921ecf21eba1283e73e8
+- Updated at (current): 2026-01-29T17:00:14.665Z
+- Question: Egy projektben a „Hozzárendelsz felelősöket és frissítési ritmust” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.811Z — 697b921ecf21eba1283e73ea
+- Updated at (current): 2026-01-29T17:00:14.691Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló, 5-10 perc) Készíts egy „Release Notes” sa”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.869Z — 697b921ecf21eba1283e73ec
+- Updated at (current): 2026-01-29T17:00:14.714Z
+- Question: Egy projektben a „Playbook” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.929Z — 697b921ecf21eba1283e73f0
+- Updated at (current): 2026-01-29T17:00:14.784Z
+- Question: Egy vezető a következő elv szerint dönt: „Trend:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:17.988Z — 697b921ecf21eba1283e73f6
+- Updated at (current): 2026-01-29T17:00:14.934Z
+- Question: Egy vezető a következő elv szerint dönt: „Alapelv:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:18.046Z — 697b921fcf21eba1283e73fb
+- Updated at (current): 2026-01-29T17:00:15.004Z
+- Question: Egy projektben a „Alapelv:” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:18.107Z — 697b921fcf21eba1283e7401
+- Updated at (current): 2026-01-29T17:00:15.113Z
+- Question: Egy projektben a „Trend:” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:18.167Z — 697b921fcf21eba1283e7403
+- Updated at (current): 2026-01-29T17:00:15.144Z
+- Question: Egy projektben a „Minden trendhez ki tudod vezetni az alapelvet és a rendszer-szabályt” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:18.230Z — 697b921fcf21eba1283e7407
+- Updated at (current): 2026-01-29T17:00:15.220Z
+- Question: Egy vezető a következő elv szerint dönt: „Vizuális szándék (VIS) megfogalmazása”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:18.288Z — 697b921fcf21eba1283e740a
+- Updated at (current): 2026-01-29T17:00:15.264Z
+- Question: Egy vezető a következő elv szerint dönt: „[merészség]”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:18.349Z — 697b921fcf21eba1283e7410
+- Updated at (current): 2026-01-29T17:00:15.353Z
+- Question: Egy vezető a következő elv szerint dönt: „[sűrűség]”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:18.406Z — 697b921fcf21eba1283e7414
+- Updated at (current): 2026-01-29T17:00:15.404Z
+- Question: Egy projektben a „Tanulási cél Megírsz egy tömör Visual Intent Statementet (hang, tonalitás, sűrűs” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:18.467Z — 697b921fcf21eba1283e7416
+- Updated at (current): 2026-01-29T17:00:15.428Z
+- Question: Egy projektben a „[üzleti cél]” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:18.707Z — 697b921fcf21eba1283e7418
+- Updated at (current): 2026-01-29T17:00:15.457Z
+- Question: Egy projektben a „[mozgás]” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:18.779Z — 697b921fcf21eba1283e741a
+- Updated at (current): 2026-01-29T17:00:15.484Z
+- Question: Egy projektben a „Rossz:” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:18.848Z — 697b921fcf21eba1283e7424
+- Updated at (current): 2026-01-29T17:00:15.674Z
+- Question: Egy vezető a következő elv szerint dönt: „mint”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:18.912Z — 697b921fcf21eba1283e7427
+- Updated at (current): 2026-01-29T17:00:15.718Z
+- Question: Egy vezető a következő elv szerint dönt: „Tanulási cél Létrehozol egy szemantikus színkészletet (brand + funkcionális stát”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:18.967Z — 697b921fcf21eba1283e742d
+- Updated at (current): 2026-01-29T17:00:15.809Z
+- Question: Egy projektben a „Kontraszt-értékeket rendelsz (WCAG 4.5:1 / 7:1)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.025Z — 697b921fcf21eba1283e742f
+- Updated at (current): 2026-01-29T17:00:15.834Z
+- Question: Egy projektben a „jelentés” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.086Z — 697b921fcf21eba1283e7431
+- Updated at (current): 2026-01-29T17:00:15.858Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10-15 perc) Rajzold fel a szemantikus s”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.148Z — 697b921fcf21eba1283e7438
+- Updated at (current): 2026-01-29T17:00:15.993Z
+- Question: Egy vezető a következő elv szerint dönt: „Tipográfia”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.208Z — 697b9220cf21eba1283e743e
+- Updated at (current): 2026-01-29T17:00:16.086Z
+- Question: Egy vezető a következő elv szerint dönt: „hang”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.270Z — 697b9220cf21eba1283e7440
+- Updated at (current): 2026-01-29T17:00:16.114Z
+- Question: Egy projektben a „Tanulási cél Definiálsz tipó szerepeket (display, h1–h6, body, caption, code)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.327Z — 697b9220cf21eba1283e7448
+- Updated at (current): 2026-01-29T17:00:16.208Z
+- Question: Egy projektben a „magyarul” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.388Z — 697b9220cf21eba1283e744c
+- Updated at (current): 2026-01-29T17:00:16.283Z
+- Question: Egy vezető a következő elv szerint dönt: „Tanulási Definiálsz időzítéseket”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.459Z — 697b9220cf21eba1283e744f
+- Updated at (current): 2026-01-29T17:00:16.334Z
+- Question: Egy vezető a következő elv szerint dönt: „Tanulási cél Definiálsz alap időzítéseket (150–300ms) és easing görbéket”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.519Z — 697b9220cf21eba1283e7457
+- Updated at (current): 2026-01-29T17:00:16.465Z
+- Question: Egy projektben a „Mozgás visszajelzés nyelve” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.612Z — 697b9220cf21eba1283e745d
+- Updated at (current): 2026-01-29T17:00:16.538Z
+- Question: Egy projektben a „Elkerülöd mozgás-zajt, preferálod” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.680Z — 697b9220cf21eba1283e745f
+- Updated at (current): 2026-01-29T17:00:16.565Z
+- Question: Egy projektben a „Állapotokra szabályt (hover,” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.748Z — 697b9220cf21eba1283e746c
+- Updated at (current): 2026-01-29T17:00:16.810Z
+- Question: Egy vezető a következő elv szerint dönt: „Tanulási Definiálsz típust”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.807Z — 697b9220cf21eba1283e746e
+- Updated at (current): 2026-01-29T17:00:16.835Z
+- Question: Egy projektben a „Kezelsz töréspontokat (xs–xl) konzisztens szabályokkal” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.867Z — 697b9220cf21eba1283e7470
+- Updated at (current): 2026-01-29T17:00:16.865Z
+- Question: Egy projektben a „Grid, ami skálázódik” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:19.928Z — 697b9220cf21eba1283e7474
+- Updated at (current): 2026-01-29T17:00:16.946Z
+- Question: Egy projektben a „skálázódik” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.000Z — 697b9221cf21eba1283e747a
+- Updated at (current): 2026-01-29T17:00:17.061Z
+- Question: Egy vezető a következő elv szerint dönt: „reszponzivitás”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.059Z — 697b9221cf21eba1283e747d
+- Updated at (current): 2026-01-29T17:00:17.117Z
+- Question: Egy vezető a következő elv szerint dönt: „Sűrűségmódok reszponzivitás Levegős”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.116Z — 697b9221cf21eba1283e7483
+- Updated at (current): 2026-01-29T17:00:17.240Z
+- Question: Egy vezető a következő elv szerint dönt: „Reszponzív spacing táblázat”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.177Z — 697b9221cf21eba1283e7485
+- Updated at (current): 2026-01-29T17:00:17.265Z
+- Question: Egy projektben a „Reszponzív spacing táblázat” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.229Z — 697b9221cf21eba1283e7487
+- Updated at (current): 2026-01-29T17:00:17.287Z
+- Question: Egy projektben a „reszponzivitás” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.300Z — 697b9221cf21eba1283e7494
+- Updated at (current): 2026-01-29T17:00:17.544Z
+- Question: Egy vezető a következő elv szerint dönt: „Változó címhossz, többnyelvűség”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.359Z — 697b9221cf21eba1283e7497
+- Updated at (current): 2026-01-29T17:00:17.604Z
+- Question: Egy vezető a következő elv szerint dönt: „Folyamatos terhelés: skeleton”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.428Z — 697b9221cf21eba1283e749a
+- Updated at (current): 2026-01-29T17:00:17.668Z
+- Question: Egy vezető a következő elv szerint dönt: „Magyarázat”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.486Z — 697b9221cf21eba1283e749c
+- Updated at (current): 2026-01-29T17:00:17.695Z
+- Question: Egy projektben a „Ismeretlen tartalomra tervezés Megtanulod, hogyan tartsd meg a struktúrát ismere” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.548Z — 697b9221cf21eba1283e749e
+- Updated at (current): 2026-01-29T17:00:17.726Z
+- Question: Egy projektben a „Tanulási Placeholder állapot” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.605Z — 697b9221cf21eba1283e74a0
+- Updated at (current): 2026-01-29T17:00:17.754Z
+- Question: Egy projektben a „Ismeretlen tartalomra tervezés” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.690Z — 697b9221cf21eba1283e74ab
+- Updated at (current): 2026-01-29T17:00:17.935Z
+- Question: Egy vezető a következő elv szerint dönt: „Tanulási Variáns-mátrix: méret”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.747Z — 697b9221cf21eba1283e74ae
+- Updated at (current): 2026-01-29T17:00:17.977Z
+- Question: Egy vezető a következő elv szerint dönt: „Variánsok”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.807Z — 697b9222cf21eba1283e74b1
+- Updated at (current): 2026-01-29T17:00:18.025Z
+- Question: Egy vezető a következő elv szerint dönt: „állapotlogika”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.879Z — 697b9222cf21eba1283e74b3
+- Updated at (current): 2026-01-29T17:00:18.055Z
+- Question: Egy projektben a „Gyakorlat (vezetett)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:29:20.935Z — 697b9222cf21eba1283e74b7
+- Updated at (current): 2026-01-29T17:00:18.114Z
+- Question: Egy projektben a „Állapot-szabályok: mi változik (szín, keret, árnyék, ikon)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:56.767Z — 697b9222cf21eba1283e74b9
+- Updated at (current): 2026-01-29T17:00:18.144Z
+- Question: Egy projektben a „Variánsok és állapotlogika” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:56.833Z — 697b9222cf21eba1283e74bb
+- Updated at (current): 2026-01-29T17:00:18.173Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló) Implementálj egy komponenst a táblázat al”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:56.894Z — 697b9222cf21eba1283e74bf
+- Updated at (current): 2026-01-29T17:00:18.246Z
+- Question: Egy vezető a következő elv szerint dönt: „rendszer tanítása csapatnak”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:56.954Z — 697b9222cf21eba1283e74c2
+- Updated at (current): 2026-01-29T17:00:18.294Z
+- Question: Egy vezető a következő elv szerint dönt: „tanítása”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.008Z — 697b9222cf21eba1283e74c5
+- Updated at (current): 2026-01-29T17:00:18.336Z
+- Question: Egy vezető a következő elv szerint dönt: „A rendszer tanítása a csapatnak Bevezetési terv: tréning, nyitott konzultáció, d”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.084Z — 697b9222cf21eba1283e74c8
+- Updated at (current): 2026-01-29T17:00:18.425Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat (önálló)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.143Z — 697b9222cf21eba1283e74ca
+- Updated at (current): 2026-01-29T17:00:18.454Z
+- Question: Egy projektben a „Office hours és support csatorna” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.211Z — 697b9222cf21eba1283e74ce
+- Updated at (current): 2026-01-29T17:00:18.503Z
+- Question: Egy projektben a „rendszer tanítása csapatnak” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.266Z — 697b9222cf21eba1283e74d0
+- Updated at (current): 2026-01-29T17:00:18.526Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló) Tarts egy 20 perces walkthrough-t egy új ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.322Z — 697b9222cf21eba1283e74d2
+- Updated at (current): 2026-01-29T17:00:18.553Z
+- Question: Egy projektben a „Gyakorlat (önálló)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.378Z — 697b9222cf21eba1283e74d7
+- Updated at (current): 2026-01-29T17:00:18.696Z
+- Question: Egy vezető a következő elv szerint dönt: „Mi a modern B2B értékesítés 2026-ban Megérted, hogy a sales feladata nem”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.434Z — 697b9222cf21eba1283e74da
+- Updated at (current): 2026-01-29T17:00:18.767Z
+- Question: Egy vezető a következő elv szerint dönt: „Taktika”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.493Z — 697b9222cf21eba1283e74df
+- Updated at (current): 2026-01-29T17:00:18.846Z
+- Question: Egy projektben a „Mi a modern B2B értékesítés 2026-ban Megérted, hogy a sales feladata nem a pitch” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.552Z — 697b9222cf21eba1283e74e1
+- Updated at (current): 2026-01-29T17:00:18.875Z
+- Question: Egy projektben a „Rossz (taktika):” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.605Z — 697b9222cf21eba1283e74e3
+- Updated at (current): 2026-01-29T17:00:18.897Z
+- Question: Egy projektben a „Mi a modern B2B értékesítés 2026-ban” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.662Z — 697b9222cf21eba1283e74e5
+- Updated at (current): 2026-01-29T17:00:18.950Z
+- Question: Egy projektben a „CRM adminisztráció.” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.715Z — 697b9222cf21eba1283e74e7
+- Updated at (current): 2026-01-29T17:00:18.974Z
+- Question: Egy projektben a „Felismered 3 tipikus tévedést és a helyes csereelvet” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.775Z — 697b9223cf21eba1283e74eb
+- Updated at (current): 2026-01-29T17:00:19.054Z
+- Question: Egy vezető a következő elv szerint dönt: „Napi cél Felrajzolod a folyamatot: sourcing → qualification → discovery → propos”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.847Z — 697b9223cf21eba1283e74ee
+- Updated at (current): 2026-01-29T17:00:19.102Z
+- Question: Egy vezető a következő elv szerint dönt: „Sourcing”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.915Z — 697b9223cf21eba1283e74f1
+- Updated at (current): 2026-01-29T17:00:19.152Z
+- Question: Egy vezető a következő elv szerint dönt: „Discovery”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:57.976Z — 697b9223cf21eba1283e74f8
+- Updated at (current): 2026-01-29T17:00:19.256Z
+- Question: Egy projektben a „Close/Expansion” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.044Z — 697b9223cf21eba1283e74fa
+- Updated at (current): 2026-01-29T17:00:19.283Z
+- Question: Egy projektben a „Proposal/Negotiation” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.099Z — 697b9223cf21eba1283e74fc
+- Updated at (current): 2026-01-29T17:00:19.313Z
+- Question: Egy projektben a „A B2B sales rendszer térképe Felrajzolod a teljes folyamatot sourcingtól a close” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.152Z — 697b9223cf21eba1283e74fe
+- Updated at (current): 2026-01-29T17:00:19.345Z
+- Question: Egy projektben a „Sourcing” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.214Z — 697b9223cf21eba1283e7505
+- Updated at (current): 2026-01-29T17:00:19.465Z
+- Question: Egy vezető a következő elv szerint dönt: „ICP 2026: probléma, nem iparág”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.274Z — 697b9223cf21eba1283e750b
+- Updated at (current): 2026-01-29T17:00:19.572Z
+- Question: Egy vezető a következő elv szerint dönt: „Jó ICP (probléma-alapú):”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.332Z — 697b9223cf21eba1283e750d
+- Updated at (current): 2026-01-29T17:00:19.597Z
+- Question: Egy projektben a „iparág” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.393Z — 697b9223cf21eba1283e750f
+- Updated at (current): 2026-01-29T17:00:19.623Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló, 5-10 perc) Fogj egy futó leadet, és érték”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.453Z — 697b9223cf21eba1283e7513
+- Updated at (current): 2026-01-29T17:00:19.688Z
+- Question: Egy projektben a „Azonosítasz 3-5 „rossz illeszkedés” jelet” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.515Z — 697b9223cf21eba1283e751c
+- Updated at (current): 2026-01-29T17:00:19.825Z
+- Question: Egy vezető a következő elv szerint dönt: „Buyer persona és döntési egység”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.574Z — 697b9223cf21eba1283e7522
+- Updated at (current): 2026-01-29T17:00:19.950Z
+- Question: Egy vezető a következő elv szerint dönt: „Pénzügy/beszerzés”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.633Z — 697b9224cf21eba1283e7526
+- Updated at (current): 2026-01-29T17:00:20.013Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló, 5-10 perc) Egy aktív dealen egészítsd ki ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.692Z — 697b9224cf21eba1283e752a
+- Updated at (current): 2026-01-29T17:00:20.064Z
+- Question: Egy projektben a „Buyer persona és döntési egység” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.755Z — 697b9224cf21eba1283e7536
+- Updated at (current): 2026-01-29T17:00:20.263Z
+- Question: Egy vezető a következő elv szerint dönt: „Value proposition: mérhető, ellenőrizhető állítások”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.814Z — 697b9224cf21eba1283e7539
+- Updated at (current): 2026-01-29T17:00:20.324Z
+- Question: Egy vezető a következő elv szerint dönt: „állítások”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.872Z — 697b9224cf21eba1283e753b
+- Updated at (current): 2026-01-29T17:00:20.353Z
+- Question: Egy projektben a „állítások” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.925Z — 697b9224cf21eba1283e753f
+- Updated at (current): 2026-01-29T17:00:20.401Z
+- Question: Egy projektben a „Value proposition: mérhető, ellenőrizhető állítások” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:58.983Z — 697b9224cf21eba1283e7541
+- Updated at (current): 2026-01-29T17:00:20.433Z
+- Question: Egy projektben a „Napi cél Megírsz egy 3 mondatos value statementet” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:59.071Z — 697b9224cf21eba1283e7543
+- Updated at (current): 2026-01-29T17:00:20.458Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10-15 perc) Írd meg a 3 mondatos value ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:59.133Z — 697b9224cf21eba1283e7547
+- Updated at (current): 2026-01-29T17:00:20.542Z
+- Question: Egy vezető a következő elv szerint dönt: „heti”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:59.196Z — 697b9224cf21eba1283e754a
+- Updated at (current): 2026-01-29T17:00:20.598Z
+- Question: Egy vezető a következő elv szerint dönt: „metrikák”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:59.254Z — 697b9224cf21eba1283e754d
+- Updated at (current): 2026-01-29T17:00:20.645Z
+- Question: Egy vezető a következő elv szerint dönt: „Napi cél Definiálod: mi a lead, mi az SQL, mi a qualified”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:59.312Z — 697b9224cf21eba1283e754f
+- Updated at (current): 2026-01-29T17:00:20.668Z
+- Question: Egy projektben a „Ideális” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:59.373Z — 697b9224cf21eba1283e7555
+- Updated at (current): 2026-01-29T17:00:20.743Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10-15 perc) Írd le a 3 definíciót (lead”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:59.643Z — 697b9224cf21eba1283e7557
+- Updated at (current): 2026-01-29T17:00:20.768Z
+- Question: Egy projektben a „Napi cél Definiálod: mi a lead, mi az SQL, mi a qualified discovery” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:59.702Z — 697b9224cf21eba1283e755b
+- Updated at (current): 2026-01-29T17:00:20.842Z
+- Question: Egy vezető a következő elv szerint dönt: „Inbound”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:59.762Z — 697b9224cf21eba1283e7563
+- Updated at (current): 2026-01-29T17:00:20.956Z
+- Question: Egy projektben a „Lead” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:59.821Z — 697b9225cf21eba1283e7567
+- Updated at (current): 2026-01-29T17:00:21.013Z
+- Question: Egy projektben a „térkép” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:59.887Z — 697b9225cf21eba1283e7569
+- Updated at (current): 2026-01-29T17:00:21.038Z
+- Question: Egy projektben a „Napi cél Kiválasztasz 3 elsődleges csatornát az ICP-hez illesztve” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:44:59.944Z — 697b9225cf21eba1283e756f
+- Updated at (current): 2026-01-29T17:00:21.148Z
+- Question: Egy vezető a következő elv szerint dönt: „Készítesz egy mentett keresést (NAV) vagy sima LinkedIn keresést mentve”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:00.003Z — 697b9225cf21eba1283e7572
+- Updated at (current): 2026-01-29T17:00:21.205Z
+- Question: Egy vezető a következő elv szerint dönt: „folyamat”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:00.063Z — 697b9225cf21eba1283e7575
+- Updated at (current): 2026-01-29T17:00:21.403Z
+- Question: Egy vezető a következő elv szerint dönt: „LinkedIn és Sales Navigator alap folyamat Megtanulod a keresés, mentés, listaépí”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:00.133Z — 697b9225cf21eba1283e7578
+- Updated at (current): 2026-01-29T17:00:21.455Z
+- Question: Egy vezető a következő elv szerint dönt: „LinkedIn”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:00.192Z — 697b9225cf21eba1283e757a
+- Updated at (current): 2026-01-29T17:00:21.477Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10-15 perc) Állíts be 1-2 mentett keres”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:00.247Z — 697b9225cf21eba1283e757c
+- Updated at (current): 2026-01-29T17:00:21.500Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló, 5-10 perc) Válassz 5 céget a listából, ír”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:00.302Z — 697b9225cf21eba1283e7580
+- Updated at (current): 2026-01-29T17:00:21.554Z
+- Question: Egy projektben a „alap” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:00.553Z — 697b9225cf21eba1283e7586
+- Updated at (current): 2026-01-29T17:00:21.662Z
+- Question: Egy vezető a következő elv szerint dönt: „adatellenőrzés”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:00.613Z — 697b9225cf21eba1283e7589
+- Updated at (current): 2026-01-29T17:00:21.723Z
+- Question: Egy vezető a következő elv szerint dönt: „Összeállítasz minimális adatmező”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:00.673Z — 697b9225cf21eba1283e758f
+- Updated at (current): 2026-01-29T17:00:21.818Z
+- Question: Egy vezető a következő elv szerint dönt: „Enrichment”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:00.732Z — 697b9225cf21eba1283e7591
+- Updated at (current): 2026-01-29T17:00:21.843Z
+- Question: Egy projektben a „Auditálsz leadet, javítod” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:00.792Z — 697b9225cf21eba1283e7593
+- Updated at (current): 2026-01-29T17:00:21.866Z
+- Question: Egy projektben a „Összeállítasz minimális adatmező” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:00.847Z — 697b9226cf21eba1283e759d
+- Updated at (current): 2026-01-29T17:00:22.010Z
+- Question: Egy vezető a következő elv szerint dönt: „AI-alapú kutatás: cég, szerep, trigger”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:00.904Z — 697b9226cf21eba1283e75a6
+- Updated at (current): 2026-01-29T17:00:22.157Z
+- Question: Egy vezető a következő elv szerint dönt: „AI-alapú kutatás: cég, szerep, trigger Felépítesz egy kutatási prompt csomagot é”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:00.961Z — 697b9226cf21eba1283e75a8
+- Updated at (current): 2026-01-29T17:00:22.181Z
+- Question: Egy projektben a „Készítesz egy 1 oldalas account brief sablont” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.014Z — 697b9226cf21eba1283e75ac
+- Updated at (current): 2026-01-29T17:00:22.225Z
+- Question: Egy projektben a „trigger” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.075Z — 697b9226cf21eba1283e75ae
+- Updated at (current): 2026-01-29T17:00:22.262Z
+- Question: Egy projektben a „AI-alapú kutatás: cég, szerep, trigger” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.134Z — 697b9226cf21eba1283e75b4
+- Updated at (current): 2026-01-29T17:00:22.370Z
+- Question: Egy vezető a következő elv szerint dönt: „Outbound”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.192Z — 697b9226cf21eba1283e75b7
+- Updated at (current): 2026-01-29T17:00:22.411Z
+- Question: Egy vezető a következő elv szerint dönt: „személyre”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.247Z — 697b9226cf21eba1283e75ba
+- Updated at (current): 2026-01-29T17:00:22.457Z
+- Question: Egy vezető a következő elv szerint dönt: „Outbound üzenet: személyre szabás nélkül nincs válasz Megtanulod a 3 részes stru”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.304Z — 697b9226cf21eba1283e75bd
+- Updated at (current): 2026-01-29T17:00:22.511Z
+- Question: Egy vezető a következő elv szerint dönt: „Készítesz 2 sablont és 2 jó/2 rossz példát”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.361Z — 697b9226cf21eba1283e75bf
+- Updated at (current): 2026-01-29T17:00:22.543Z
+- Question: Egy projektben a „Probléma” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.423Z — 697b9226cf21eba1283e75c1
+- Updated at (current): 2026-01-29T17:00:22.566Z
+- Question: Egy projektben a „üzenet” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.664Z — 697b9226cf21eba1283e75c3
+- Updated at (current): 2026-01-29T17:00:22.587Z
+- Question: Egy projektben a „Next step” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.721Z — 697b9226cf21eba1283e75c5
+- Updated at (current): 2026-01-29T17:00:22.609Z
+- Question: Egy projektben a „Outbound üzenet: személyre szabás nélkül nincs válasz Megtanulod a 3 részes stru” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.774Z — 697b9226cf21eba1283e75c7
+- Updated at (current): 2026-01-29T17:00:22.632Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10-15 perc) Írj 2 sablont (A/B) a 3 ele”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.833Z — 697b9226cf21eba1283e75d1
+- Updated at (current): 2026-01-29T17:00:22.796Z
+- Question: Egy vezető a következő elv szerint dönt: „Lista tisztítás és lead hygiene”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.892Z — 697b9226cf21eba1283e75d6
+- Updated at (current): 2026-01-29T17:00:22.872Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló, 5-10 perc) Állíts be egy automatizmust va”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.945Z — 697b9226cf21eba1283e75da
+- Updated at (current): 2026-01-29T17:00:22.983Z
+- Question: Egy projektben a „Duplikáció és „do not contact” szabályok beállítása” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:01.996Z — 697b9227cf21eba1283e75dc
+- Updated at (current): 2026-01-29T17:00:23.006Z
+- Question: Egy projektben a „hygiene” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.055Z — 697b9227cf21eba1283e75e2
+- Updated at (current): 2026-01-29T17:00:23.436Z
+- Question: Egy vezető a következő elv szerint dönt: „MQL vs SQL és a qualification döntési pont”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.113Z — 697b9227cf21eba1283e75e8
+- Updated at (current): 2026-01-29T17:00:23.566Z
+- Question: Egy vezető a következő elv szerint dönt: „döntési”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.166Z — 697b9227cf21eba1283e75eb
+- Updated at (current): 2026-01-29T17:00:23.629Z
+- Question: Egy vezető a következő elv szerint dönt: „qualification”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.221Z — 697b9227cf21eba1283e75ed
+- Updated at (current): 2026-01-29T17:00:23.650Z
+- Question: Egy projektben a „MQL vs SQL és a qualification döntési pont” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.277Z — 697b9227cf21eba1283e75ef
+- Updated at (current): 2026-01-29T17:00:23.672Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló, 5-10 perc) Fogj 10 leadet, alkalmazd a dö”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.331Z — 697b9227cf21eba1283e75f3
+- Updated at (current): 2026-01-29T17:00:23.717Z
+- Question: Egy projektben a „qualification döntési Felismered,” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.388Z — 697b9227cf21eba1283e75f5
+- Updated at (current): 2026-01-29T17:00:23.740Z
+- Question: Egy projektben a „Írsz egy 5 kérdéses qualification döntési pontot” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.442Z — 697b9227cf21eba1283e75fc
+- Updated at (current): 2026-01-29T17:00:23.858Z
+- Question: Egy vezető a következő elv szerint dönt: „Qualification”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.504Z — 697b9227cf21eba1283e75ff
+- Updated at (current): 2026-01-29T17:00:23.905Z
+- Question: Egy vezető a következő elv szerint dönt: „Qualification keretrendszer: MEDDPICC (egyszerűsítve) Gyakorlati kérdéslistát ka”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.557Z — 697b9227cf21eba1283e7604
+- Updated at (current): 2026-01-29T17:00:23.975Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10-15 perc) Írj 8-10 kérdést a fenti el”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.626Z — 697b9228cf21eba1283e7608
+- Updated at (current): 2026-01-29T17:00:24.033Z
+- Question: Egy projektben a „Qualification keretrendszer: MEDDPICC (egyszerűsítve)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.685Z — 697b9228cf21eba1283e760a
+- Updated at (current): 2026-01-29T17:00:24.054Z
+- Question: Egy projektben a „Magyarázat (egyszerűsített MEDDPICC)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.757Z — 697b9228cf21eba1283e760c
+- Updated at (current): 2026-01-29T17:00:24.081Z
+- Question: Egy projektben a „Qualification” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.816Z — 697b9228cf21eba1283e7616
+- Updated at (current): 2026-01-29T17:00:24.254Z
+- Question: Egy vezető a következő elv szerint dönt: „blokk)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.875Z — 697b9228cf21eba1283e7619
+- Updated at (current): 2026-01-29T17:00:24.296Z
+- Question: Egy vezető a következő elv szerint dönt: „felépítése”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:02.941Z — 697b9228cf21eba1283e761b
+- Updated at (current): 2026-01-29T17:00:24.321Z
+- Question: Egy projektben a „blokk)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.002Z — 697b9228cf21eba1283e761d
+- Updated at (current): 2026-01-29T17:00:24.343Z
+- Question: Egy projektben a „Napi cél Összeállítasz egy 5 blokkból álló discovery scriptet (30 perc)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.061Z — 697b9228cf21eba1283e761f
+- Updated at (current): 2026-01-29T17:00:24.365Z
+- Question: Egy projektben a „Listázod a tiltott kérdéseket (időrablók)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.130Z — 697b9228cf21eba1283e7621
+- Updated at (current): 2026-01-29T17:00:24.385Z
+- Question: Egy projektben a „hívás” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.192Z — 697b9228cf21eba1283e7623
+- Updated at (current): 2026-01-29T17:00:24.410Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló, 5-10 perc) Frissíts egy közelgő discovery”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.253Z — 697b9228cf21eba1283e7627
+- Updated at (current): 2026-01-29T17:00:24.487Z
+- Question: Egy vezető a következő elv szerint dönt: „gyorsítja összefoglalót, struktúra”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.324Z — 697b9228cf21eba1283e762a
+- Updated at (current): 2026-01-29T17:00:24.534Z
+- Question: Egy vezető a következő elv szerint dönt: „jegyzetelés”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.387Z — 697b9228cf21eba1283e762d
+- Updated at (current): 2026-01-29T17:00:24.582Z
+- Question: Egy vezető a következő elv szerint dönt: „Kitöltesz sablont közelgő”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.446Z — 697b9228cf21eba1283e7630
+- Updated at (current): 2026-01-29T17:00:24.641Z
+- Question: Egy vezető a következő elv szerint dönt: „Napi cél Megírsz egy meeting prep promptot (előtte)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.504Z — 697b9228cf21eba1283e7632
+- Updated at (current): 2026-01-29T17:00:24.662Z
+- Question: Egy projektben a „előkészítés” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.560Z — 697b9228cf21eba1283e7636
+- Updated at (current): 2026-01-29T17:00:24.714Z
+- Question: Egy projektben a „Miért fontos Konzisztens” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.621Z — 697b9228cf21eba1283e7638
+- Updated at (current): 2026-01-29T17:00:24.752Z
+- Question: Egy projektben a „jegyzetelés” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.679Z — 697b9228cf21eba1283e763a
+- Updated at (current): 2026-01-29T17:00:24.782Z
+- Question: Egy projektben a „Kitöltesz sablont közelgő” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.739Z — 697b9228cf21eba1283e763e
+- Updated at (current): 2026-01-29T17:00:24.855Z
+- Question: Egy vezető a következő elv szerint dönt: „kérése”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.801Z — 697b9228cf21eba1283e7641
+- Updated at (current): 2026-01-29T17:00:24.912Z
+- Question: Egy vezető a következő elv szerint dönt: „kötelezettség”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.862Z — 697b9229cf21eba1283e7649
+- Updated at (current): 2026-01-29T17:00:25.042Z
+- Question: Egy projektben a „Következő lépés és kötelezettség kérése” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.920Z — 697b9229cf21eba1283e764d
+- Updated at (current): 2026-01-29T17:00:25.103Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10-15 perc) Írj 5 next step sablont kül”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:03.970Z — 697b9229cf21eba1283e764f
+- Updated at (current): 2026-01-29T17:00:25.132Z
+- Question: Egy projektben a „kötelezettség” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.023Z — 697b9229cf21eba1283e7651
+- Updated at (current): 2026-01-29T17:00:25.152Z
+- Question: Egy projektben a „Napi cél Írsz 5 next step sablont (idő, felelős, deliverable)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.083Z — 697b9229cf21eba1283e7658
+- Updated at (current): 2026-01-29T17:00:25.264Z
+- Question: Egy vezető a következő elv szerint dönt: „Napi cél Megírsz egy 3 lépcsős nurture flow-t (érték, proof, ajánlat)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.135Z — 697b9229cf21eba1283e765e
+- Updated at (current): 2026-01-29T17:00:25.374Z
+- Question: Egy vezető a következő elv szerint dönt: „Nurture”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.200Z — 697b9229cf21eba1283e7660
+- Updated at (current): 2026-01-29T17:00:25.400Z
+- Question: Egy projektben a „Nurture és visszahozás Egyszerű 3 lépcsős nurture flow-t építesz a nemet mondott” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.253Z — 697b9229cf21eba1283e7662
+- Updated at (current): 2026-01-29T17:00:25.423Z
+- Question: Egy projektben a „Miért fontos Hosszú” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.309Z — 697b9229cf21eba1283e7664
+- Updated at (current): 2026-01-29T17:00:25.445Z
+- Question: Egy projektben a „Megírsz lépcsős nurture” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.394Z — 697b9229cf21eba1283e7666
+- Updated at (current): 2026-01-29T17:00:25.466Z
+- Question: Egy projektben a „Nurture” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.456Z — 697b9229cf21eba1283e766f
+- Updated at (current): 2026-01-29T17:00:25.613Z
+- Question: Egy vezető a következő elv szerint dönt: „Összeírsz minimum mezőket (deal, kontakt, aktivitás)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.513Z — 697b9229cf21eba1283e7672
+- Updated at (current): 2026-01-29T17:00:25.664Z
+- Question: Egy vezető a következő elv szerint dönt: „Napi cél Azonosítod a „váltási jeleket” (Excel → CRM)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.579Z — 697b9229cf21eba1283e7677
+- Updated at (current): 2026-01-29T17:00:25.742Z
+- Question: Egy projektben a „miért” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.641Z — 697b9229cf21eba1283e767b
+- Updated at (current): 2026-01-29T17:00:25.798Z
+- Question: Egy projektben a „Napi cél Azonosítod a „váltási jeleket” (Excel → CRM)” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.700Z — 697b9229cf21eba1283e767f
+- Updated at (current): 2026-01-29T17:00:25.847Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10-15 perc) Írd le 5 váltási jelet (mik”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.761Z — 697b922acf21eba1283e7683
+- Updated at (current): 2026-01-29T17:00:26.042Z
+- Question: Egy vezető a következő elv szerint dönt: „Pipeline”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.822Z — 697b922acf21eba1283e7686
+- Updated at (current): 2026-01-29T17:00:26.102Z
+- Question: Egy vezető a következő elv szerint dönt: „Minimum kötelező mezők stage-enként”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.888Z — 697b922acf21eba1283e7689
+- Updated at (current): 2026-01-29T17:00:26.150Z
+- Question: Egy vezető a következő elv szerint dönt: „Napi cél Stage lista és definíció (belépés/kilépés) elkészítése”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:04.951Z — 697b922acf21eba1283e7690
+- Updated at (current): 2026-01-29T17:00:26.241Z
+- Question: Egy projektben a „definíciók” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:05.009Z — 697b922acf21eba1283e7694
+- Updated at (current): 2026-01-29T17:00:26.293Z
+- Question: Egy projektben a „Pipeline design: stagenkénti definíciók” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:05.063Z — 697b922acf21eba1283e7696
+- Updated at (current): 2026-01-29T17:00:26.315Z
+- Question: Egy projektben a „design” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:05.122Z — 697b922acf21eba1283e769d
+- Updated at (current): 2026-01-29T17:00:26.451Z
+- Question: Egy vezető a következő elv szerint dönt: „Pipedrive”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:05.177Z — 697b922acf21eba1283e76ab
+- Updated at (current): 2026-01-29T17:00:26.672Z
+- Question: Egy projektben a „Napi cél Megnevezed a Pipedrive erősségeit és korlátait” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:05.246Z — 697b922acf21eba1283e76ad
+- Updated at (current): 2026-01-29T17:00:26.701Z
+- Question: Egy projektben a „Beállítasz egy minimál pipeline-t és kötelező mezőket” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:05.308Z — 697b922acf21eba1283e76b4
+- Updated at (current): 2026-01-29T17:00:26.831Z
+- Question: Egy vezető a következő elv szerint dönt: „HubSpot: erősségek, mikor jó választás Megérted, mikor éri meg a HubSpot a”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:05.367Z — 697b922acf21eba1283e76ba
+- Updated at (current): 2026-01-29T17:00:26.930Z
+- Question: Egy vezető a következő elv szerint dönt: „HubSpot”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:05.423Z — 697b922acf21eba1283e76bc
+- Updated at (current): 2026-01-29T17:00:26.958Z
+- Question: Egy projektben a „Napi cél Megnevezed a HubSpot erősségeit és korlátait” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:05.473Z — 697b922acf21eba1283e76be
+- Updated at (current): 2026-01-29T17:00:26.986Z
+- Question: Egy projektben a „választás” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:05.532Z — 697b922bcf21eba1283e76cb
+- Updated at (current): 2026-01-29T17:00:27.221Z
+- Question: Egy vezető a következő elv szerint dönt: „Megrajzolod adatáramlást: források”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:05.606Z — 697b922bcf21eba1283e76ce
+- Updated at (current): 2026-01-29T17:00:27.274Z
+- Question: Egy vezető a következő elv szerint dönt: „Integrációk adatáramlás alapok”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:05.666Z — 697b922bcf21eba1283e76d1
+- Updated at (current): 2026-01-29T17:00:27.319Z
+- Question: Egy vezető a következő elv szerint dönt: „Integrációk és adatáramlás alapok”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:05.723Z — 697b922bcf21eba1283e76d3
+- Updated at (current): 2026-01-29T17:00:27.349Z
+- Question: Egy projektben a „Megrajzolod adatáramlást: források” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:05.972Z — 697b922bcf21eba1283e76d5
+- Updated at (current): 2026-01-29T17:00:27.374Z
+- Question: Egy projektben a „Integrációk adatáramlás alapok” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.052Z — 697b922bcf21eba1283e76d7
+- Updated at (current): 2026-01-29T17:00:27.402Z
+- Question: Egy projektben a „Integrációk és adatáramlás alapok Feltérképezed, honnan jön az adat (form, email” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.120Z — 697b922bcf21eba1283e76db
+- Updated at (current): 2026-01-29T17:00:27.457Z
+- Question: Egy projektben a „Napi cél Megrajzolod az adatáramlást: források → feldolgozás → CRM → riport” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.183Z — 697b922bcf21eba1283e76e2
+- Updated at (current): 2026-01-29T17:00:27.571Z
+- Question: Egy vezető a következő elv szerint dönt: „Napi cél Összeállítasz egy napi 10 perces checklistet”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.254Z — 697b922bcf21eba1283e76e8
+- Updated at (current): 2026-01-29T17:00:27.684Z
+- Question: Egy vezető a következő elv szerint dönt: „CRM higiénia és napi routine”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.309Z — 697b922bcf21eba1283e76ea
+- Updated at (current): 2026-01-29T17:00:27.706Z
+- Question: Egy projektben a „napi” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.364Z — 697b922bcf21eba1283e76ec
+- Updated at (current): 2026-01-29T17:00:27.760Z
+- Question: Egy projektben a „Összeállítasz perces checklistet” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.422Z — 697b922bcf21eba1283e76f0
+- Updated at (current): 2026-01-29T17:00:27.812Z
+- Question: Egy projektben a „CRM higiénia és napi routine” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.483Z — 697b922bcf21eba1283e76f9
+- Updated at (current): 2026-01-29T17:00:27.963Z
+- Question: Egy vezető a következő elv szerint dönt: „Beállítasz 3 kötelező mezőt a CRM-ben az ajánlat stage-hez”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.543Z — 697b922ccf21eba1283e76ff
+- Updated at (current): 2026-01-29T17:00:28.061Z
+- Question: Egy vezető a következő elv szerint dönt: „Ajánlat struktúra: dönthető proposal Olyan ajánlatot írsz, ami döntést támogat:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.632Z — 697b922ccf21eba1283e7701
+- Updated at (current): 2026-01-29T17:00:28.092Z
+- Question: Egy projektben a „Ajánlat struktúra: dönthető proposal” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.690Z — 697b922ccf21eba1283e7709
+- Updated at (current): 2026-01-29T17:00:28.201Z
+- Question: Egy projektben a „dönthető” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.753Z — 697b922ccf21eba1283e7710
+- Updated at (current): 2026-01-29T17:00:28.350Z
+- Question: Egy vezető a következő elv szerint dönt: „Árazás 2026-ban: csomagolás és érték Értékalapú árlogikát építesz: minimum csoma”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.812Z — 697b922ccf21eba1283e7713
+- Updated at (current): 2026-01-29T17:00:28.401Z
+- Question: Egy vezető a következő elv szerint dönt: „Írsz diszkont szabályt (ki, mikor, mennyi, jóváhagyás)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.873Z — 697b922ccf21eba1283e7716
+- Updated at (current): 2026-01-29T17:00:28.451Z
+- Question: Egy vezető a következő elv szerint dönt: „”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.931Z — 697b922ccf21eba1283e7718
+- Updated at (current): 2026-01-29T17:00:28.473Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló, 5-10 perc) Alkalmazd 1 élő dealre az új á”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:06.994Z — 697b922ccf21eba1283e771a
+- Updated at (current): 2026-01-29T17:00:28.494Z
+- Question: Egy projektben a „Napi cél Összeállítasz 3 csomagot (good/better/best) vagy 1 minimum + add-on mod” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:07.049Z — 697b922ccf21eba1283e771e
+- Updated at (current): 2026-01-29T17:00:28.547Z
+- Question: Egy projektben a „Árazás” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:07.106Z — 697b922ccf21eba1283e7724
+- Updated at (current): 2026-01-29T17:00:28.663Z
+- Question: Egy vezető a következő elv szerint dönt: „kérdések”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:07.159Z — 697b922ccf21eba1283e772a
+- Updated at (current): 2026-01-29T17:00:28.783Z
+- Question: Egy projektben a „Készítesz „legal/biztonság checklistet”” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:07.214Z — 697b922ccf21eba1283e772f
+- Updated at (current): 2026-01-29T17:00:28.862Z
+- Question: Egy projektben a „Előkészítesz 1 oldalas security/DPA összefoglalót” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:07.270Z — 697b922ccf21eba1283e7731
+- Updated at (current): 2026-01-29T17:00:28.885Z
+- Question: Egy projektben a „kérdések” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:07.325Z — 697b922dcf21eba1283e7739
+- Updated at (current): 2026-01-29T17:00:29.003Z
+- Question: Egy vezető a következő elv szerint dönt: „handling”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:07.382Z — 697b922dcf21eba1283e773f
+- Updated at (current): 2026-01-29T17:00:29.090Z
+- Question: Egy vezető a következő elv szerint dönt: „Rossz:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:07.443Z — 697b922dcf21eba1283e7742
+- Updated at (current): 2026-01-29T17:00:29.139Z
+- Question: Egy vezető a következő elv szerint dönt: „Készítesz visszakérdezés sablont („Mi az aggodalom pontosan?”)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:07.500Z — 697b922dcf21eba1283e7744
+- Updated at (current): 2026-01-29T17:00:29.213Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló, 5-10 perc) Válaszolj 2 valós kifogásra a ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:07.560Z — 697b922dcf21eba1283e7746
+- Updated at (current): 2026-01-29T17:00:29.317Z
+- Question: Egy projektben a „visszakérdezés” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:07.619Z — 697b922dcf21eba1283e7748
+- Updated at (current): 2026-01-29T17:00:29.338Z
+- Question: Egy projektben a „Rossz:” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:07.860Z — 697b922dcf21eba1283e774a
+- Updated at (current): 2026-01-29T17:00:29.371Z
+- Question: Egy projektben a „Objection handling: minták és visszakérdezés 3 lépéses kifogáskezelést gyakorols” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:07.950Z — 697b922dcf21eba1283e774c
+- Updated at (current): 2026-01-29T17:00:29.403Z
+- Question: Egy projektben a „Napi cél Írsz 5 gyakori kifogást és 3 lépéses válaszát” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:08.012Z — 697b922dcf21eba1283e7753
+- Updated at (current): 2026-01-29T17:00:29.530Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat (vezetett, 10-15 perc)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:08.072Z — 697b922dcf21eba1283e7759
+- Updated at (current): 2026-01-29T17:00:29.630Z
+- Question: Egy vezető a következő elv szerint dönt: „Miért fontos”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:08.133Z — 697b922dcf21eba1283e775b
+- Updated at (current): 2026-01-29T17:00:29.661Z
+- Question: Egy projektben a „Closing: döntés és következő lépés Close checklistet és „decision email” sablont” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:08.189Z — 697b922dcf21eba1283e775d
+- Updated at (current): 2026-01-29T17:00:29.684Z
+- Question: Egy projektben a „Closing” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:08.250Z — 697b922dcf21eba1283e775f
+- Updated at (current): 2026-01-29T17:00:29.710Z
+- Question: Egy projektben a „döntés” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:08.311Z — 697b922dcf21eba1283e7761
+- Updated at (current): 2026-01-29T17:00:29.730Z
+- Question: Egy projektben a „Closing: döntés és következő lépés” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:08.381Z — 697b922dcf21eba1283e7763
+- Updated at (current): 2026-01-29T17:00:29.753Z
+- Question: Egy projektben a „Napi cél Írsz close checklistet (döntéshozó, kockázat, next step, aláírás folyam” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:08.443Z — 697b922dcf21eba1283e7767
+- Updated at (current): 2026-01-29T17:00:29.826Z
+- Question: Egy vezető a következő elv szerint dönt: „Capstone sprint: teljes B2B sales kör Valós accounton lefuttatod a teljes folyam”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:08.504Z — 697b922dcf21eba1283e776a
+- Updated at (current): 2026-01-29T17:00:29.870Z
+- Question: Egy vezető a következő elv szerint dönt: „Napi cél”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:08.572Z — 697b922dcf21eba1283e7770
+- Updated at (current): 2026-01-29T17:00:29.984Z
+- Question: Egy vezető a következő elv szerint dönt: „sprint”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:08.823Z — 697b922ecf21eba1283e7772
+- Updated at (current): 2026-01-29T17:00:30.011Z
+- Question: Egy projektben a „sprint” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:08.890Z — 697b922ecf21eba1283e7774
+- Updated at (current): 2026-01-29T17:00:30.041Z
+- Question: Egy projektben a „Napi cél” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:08.955Z — 697b922ecf21eba1283e7776
+- Updated at (current): 2026-01-29T17:00:30.071Z
+- Question: Egy projektben a „Capstone sprint: teljes B2B sales kör Valós accounton lefuttatod a teljes folyam” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.019Z — 697b922ecf21eba1283e7778
+- Updated at (current): 2026-01-29T17:00:30.101Z
+- Question: Egy projektben a „Miért fontos” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.078Z — 697b922ecf21eba1283e777a
+- Updated at (current): 2026-01-29T17:00:30.131Z
+- Question: Egy projektben a „Magyarázat” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.138Z — 697b922ecf21eba1283e777f
+- Updated at (current): 2026-01-29T17:00:30.273Z
+- Question: Egy vezető a következő elv szerint dönt: „Mire NEM való?”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.202Z — 697b922ecf21eba1283e7782
+- Updated at (current): 2026-01-29T17:00:30.320Z
+- Question: Egy vezető a következő elv szerint dönt: „Kritikus döntések (pénzügy, HR, egészségügy) emberi felülvizsgálat nélkül Személ”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.261Z — 697b922ecf21eba1283e7785
+- Updated at (current): 2026-01-29T17:00:30.380Z
+- Question: Egy vezető a következő elv szerint dönt: „Mi az AI valójában – és mire NEM való?”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.314Z — 697b922ecf21eba1283e778b
+- Updated at (current): 2026-01-29T17:00:30.486Z
+- Question: Egy vezető a következő elv szerint dönt: „Hasznos:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.375Z — 697b922ecf21eba1283e778e
+- Updated at (current): 2026-01-29T17:00:30.536Z
+- Question: Egy vezető a következő elv szerint dönt: „Eszköz, nem varázslat”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.432Z — 697b922ecf21eba1283e7791
+- Updated at (current): 2026-01-29T17:00:30.583Z
+- Question: Egy projektben a „Hogyan használd biztonságosan?” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.491Z — 697b922ecf21eba1283e7794
+- Updated at (current): 2026-01-29T17:00:30.631Z
+- Question: Egy vezető a következő elv szerint dönt: „eszköz”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.549Z — 697b922ecf21eba1283e7796
+- Updated at (current): 2026-01-29T17:00:30.661Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló) – Tiltólista Készíts listát 5 feladatról,”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.618Z — 697b922ecf21eba1283e7798
+- Updated at (current): 2026-01-29T17:00:30.691Z
+- Question: Egy projektben a „A cél, hogy tudatosan és biztonságosan használd” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.674Z — 697b922ecf21eba1283e779a
+- Updated at (current): 2026-01-29T17:00:30.741Z
+- Question: Egy projektben a „eszköz” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.731Z — 697b922ecf21eba1283e77a0
+- Updated at (current): 2026-01-29T17:00:30.855Z
+- Question: Egy vezető a következő elv szerint dönt: „Hogyan irányítsd az AI válaszát”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.791Z — 697b922ecf21eba1283e77a3
+- Updated at (current): 2026-01-29T17:00:30.911Z
+- Question: Egy vezető a következő elv szerint dönt: „Miért kapsz más választ ugyanarra a kérdésre?”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.853Z — 697b922ecf21eba1283e77a6
+- Updated at (current): 2026-01-29T17:00:30.960Z
+- Question: Egy vezető a következő elv szerint dönt: „Forma”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:45:09.914Z — 697b922fcf21eba1283e77a9
+- Updated at (current): 2026-01-29T17:00:31.057Z
+- Question: Egy vezető a következő elv szerint dönt: „A jó prompt 4 eleme”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:52.968Z — 697b922fcf21eba1283e77af
+- Updated at (current): 2026-01-29T17:00:31.155Z
+- Question: Egy vezető a következő elv szerint dönt: „Jobb:”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.027Z — 697b922fcf21eba1283e77b5
+- Updated at (current): 2026-01-29T17:00:31.250Z
+- Question: Egy vezető a következő elv szerint dönt: „A cél: tudatosan irányítani a kimenetet”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.094Z — 697b922fcf21eba1283e77bb
+- Updated at (current): 2026-01-29T17:00:31.350Z
+- Question: Egy projektben a „Stílus” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.154Z — 697b922fcf21eba1283e77bf
+- Updated at (current): 2026-01-29T17:00:31.394Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló) Válassz egy valós helyzetet a saját munká”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.214Z — 697b922fcf21eba1283e77c1
+- Updated at (current): 2026-01-29T17:00:31.420Z
+- Question: Egy projektben a „Konkrét prompt sablon” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.275Z — 697b922fcf21eba1283e77c3
+- Updated at (current): 2026-01-29T17:00:31.452Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett) Fogalmazz meg egy promptot az alábbi he”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.337Z — 697b922fcf21eba1283e77c7
+- Updated at (current): 2026-01-29T17:00:31.520Z
+- Question: Egy vezető a következő elv szerint dönt: „Az „OK, de…” művészete”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.400Z — 697b922fcf21eba1283e77ca
+- Updated at (current): 2026-01-29T17:00:31.593Z
+- Question: Egy vezető a következő elv szerint dönt: „Az AI nem találja ki a hiányzó részleteket – te irányítasz”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.459Z — 697b922fcf21eba1283e77cd
+- Updated at (current): 2026-01-29T17:00:31.650Z
+- Question: Egy vezető a következő elv szerint dönt: „Pontosíts”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.519Z — 697b922fcf21eba1283e77d0
+- Updated at (current): 2026-01-29T17:00:31.700Z
+- Question: Egy vezető a következő elv szerint dönt: „Korlátozz”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.577Z — 697b922fcf21eba1283e77d3
+- Updated at (current): 2026-01-29T17:00:31.752Z
+- Question: Egy vezető a következő elv szerint dönt: „Iteráció és visszakérdezés – hogyan lesz tényleg használható a válasz”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.635Z — 697b922fcf21eba1283e77d5
+- Updated at (current): 2026-01-29T17:00:31.781Z
+- Question: Egy új gyakorlatot vezetsz be: „practice: <a href="https://www”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.695Z — 697b922fcf21eba1283e77d7
+- Updated at (current): 2026-01-29T17:00:31.811Z
+- Question: Egy projektben a „Az „OK, de…” művészete” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.755Z — 697b922fcf21eba1283e77d9
+- Updated at (current): 2026-01-29T17:00:31.835Z
+- Question: Egy projektben a „Gyakorlat (önálló) – Iterációs kör” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.814Z — 697b922fcf21eba1283e77db
+- Updated at (current): 2026-01-29T17:00:31.861Z
+- Question: Egy projektben a „Korlátozz” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.877Z — 697b922fcf21eba1283e77e1
+- Updated at (current): 2026-01-29T17:00:31.952Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat (vezetett) – Saját szöveg elemzése”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.936Z — 697b922fcf21eba1283e77e4
+- Updated at (current): 2026-01-29T17:00:31.993Z
+- Question: Egy vezető a következő elv szerint dönt: „Következetes márkahang kevesebb utómunkával”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:53.996Z — 697b9230cf21eba1283e77e7
+- Updated at (current): 2026-01-29T17:00:32.039Z
+- Question: Egy vezető a következő elv szerint dönt: „Nevezd meg”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.056Z — 697b9230cf21eba1283e77ea
+- Updated at (current): 2026-01-29T17:00:32.085Z
+- Question: Egy vezető a következő elv szerint dönt: „Adj feedbacket”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.116Z — 697b9230cf21eba1283e77ed
+- Updated at (current): 2026-01-29T17:00:32.131Z
+- Question: Egy vezető a következő elv szerint dönt: „Nem csak hangnemet, hanem struktúrát is adsz, és visszajelzéssel pontosítasz”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.172Z — 697b9230cf21eba1283e77f0
+- Updated at (current): 2026-01-29T17:00:32.180Z
+- Question: Egy vezető a következő elv szerint dönt: „Példa: gyenge vs. jó stílus brief”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.229Z — 697b9230cf21eba1283e77f3
+- Updated at (current): 2026-01-29T17:00:32.237Z
+- Question: Egy vezető a következő elv szerint dönt: „Mutasd meg”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.288Z — 697b9230cf21eba1283e77f6
+- Updated at (current): 2026-01-29T17:00:32.300Z
+- Question: Egy vezető a következő elv szerint dönt: „Napi cél Stílus-definíció (hang, mondathossz, formalitás) Mintaszövegből tanítta”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.354Z — 697b9230cf21eba1283e77fd
+- Updated at (current): 2026-01-29T17:00:32.401Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló) – Új szöveg ugyanabban a stílusban Kérj ú”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.414Z — 697b9230cf21eba1283e77ff
+- Updated at (current): 2026-01-29T17:00:32.431Z
+- Question: Egy projektben a „Mutasd meg” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.470Z — 697b9230cf21eba1283e7801
+- Updated at (current): 2026-01-29T17:00:32.462Z
+- Question: Egy projektben a „Stílus és hang – tanítsd meg „úgy írni, mint te” Következetes márkahang kevesebb” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.525Z — 697b9230cf21eba1283e7803
+- Updated at (current): 2026-01-29T17:00:32.484Z
+- Question: Egy projektben a „lépés a stílustanításhoz” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.591Z — 697b9230cf21eba1283e780a
+- Updated at (current): 2026-01-29T17:00:32.623Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat (vezetett) – 3 email”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.648Z — 697b9230cf21eba1283e780d
+- Updated at (current): 2026-01-29T17:00:32.672Z
+- Question: Egy vezető a következő elv szerint dönt: „Email percek alatt – profi hangon”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.715Z — 697b9230cf21eba1283e7810
+- Updated at (current): 2026-01-29T17:00:32.734Z
+- Question: Egy vezető a következő elv szerint dönt: „A cél: gyors váz, több változat, tudatos finomítás”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.775Z — 697b9230cf21eba1283e7813
+- Updated at (current): 2026-01-29T17:00:32.782Z
+- Question: Egy vezető a következő elv szerint dönt: „Hossz”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.836Z — 697b9230cf21eba1283e7819
+- Updated at (current): 2026-01-29T17:00:32.890Z
+- Question: Egy vezető a következő elv szerint dönt: „jó Gyenge: „Írj emailt a határidő módosításáról.” Jó: „Írj udvarias, rövid email”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.895Z — 697b9230cf21eba1283e781f
+- Updated at (current): 2026-01-29T17:00:32.986Z
+- Question: Egy vezető a következő elv szerint dönt: „Email percek alatt – profi hangon 2–3 perces levelek, konzisztens hangon Ma”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:54.954Z — 697b9231cf21eba1283e7824
+- Updated at (current): 2026-01-29T17:00:33.087Z
+- Question: Egy projektben a „Gyakorlat (önálló) – Két hangnem” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:55.016Z — 697b9231cf21eba1283e782a
+- Updated at (current): 2026-01-29T17:00:33.349Z
+- Question: Egy projektben a „Forma” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:55.075Z — 697b9231cf21eba1283e782e
+- Updated at (current): 2026-01-29T17:00:33.420Z
+- Question: Egy vezető a következő elv szerint dönt: „teendőlista”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:55.143Z — 697b9231cf21eba1283e7834
+- Updated at (current): 2026-01-29T17:00:33.509Z
+- Question: Egy vezető a következő elv szerint dönt: „Döntések”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:55.206Z — 697b9231cf21eba1283e7837
+- Updated at (current): 2026-01-29T17:00:33.562Z
+- Question: Egy vezető a következő elv szerint dönt: „Meeting jegyzetből teendőlista Összefoglaló, döntések, action itemek – 5 perc al”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:55.265Z — 697b9231cf21eba1283e783a
+- Updated at (current): 2026-01-29T17:00:33.609Z
+- Question: Egy vezető a következő elv szerint dönt: „Meeting”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:55.325Z — 697b9231cf21eba1283e783d
+- Updated at (current): 2026-01-29T17:00:33.660Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat (vezetett) – Saját jegyzet”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:55.390Z — 697b9231cf21eba1283e7840
+- Updated at (current): 2026-01-29T17:00:33.710Z
+- Question: Egy vezető a következő elv szerint dönt: „jegyzetből”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:55.443Z — 697b9231cf21eba1283e7842
+- Updated at (current): 2026-01-29T17:00:33.740Z
+- Question: Egy projektben a „Mi legyen a kimenet?” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:55.502Z — 697b9231cf21eba1283e7844
+- Updated at (current): 2026-01-29T17:00:33.777Z
+- Question: Egy projektben a „Jó bemenet: mit adj meg?” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:55.564Z — 697b9231cf21eba1283e7846
+- Updated at (current): 2026-01-29T17:00:33.801Z
+- Question: Egy projektben a „Napi cél 3 blokkban gondolkodsz: Összefoglaló – Döntések – Teendők Minden teendő” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:55.623Z — 697b9231cf21eba1283e7848
+- Updated at (current): 2026-01-29T17:00:33.831Z
+- Question: Egy projektben a „Teendők” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:55.683Z — 697b9231cf21eba1283e784a
+- Updated at (current): 2026-01-29T17:00:33.860Z
+- Question: Egy projektben a „teendőlista” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:55.746Z — 697b9231cf21eba1283e784e
+- Updated at (current): 2026-01-29T17:00:33.950Z
+- Question: Egy vezető a következő elv szerint dönt: „Napi cél Oszlopok előre definiálása Feladat → felelős → határidő → státusz/prior”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:55.805Z — 697b9232cf21eba1283e7851
+- Updated at (current): 2026-01-29T17:00:34.000Z
+- Question: Egy vezető a következő elv szerint dönt: „CSV-t exporthoz.” Gyakorlat”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.057Z — 697b9232cf21eba1283e7854
+- Updated at (current): 2026-01-29T17:00:34.080Z
+- Question: Egy vezető a következő elv szerint dönt: „Példa: gyenge vs. jó prompt”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.118Z — 697b9232cf21eba1283e7857
+- Updated at (current): 2026-01-29T17:00:34.140Z
+- Question: Egy vezető a következő elv szerint dönt: „Oszlopok, amik működnek”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.186Z — 697b9232cf21eba1283e785a
+- Updated at (current): 2026-01-29T17:00:34.192Z
+- Question: Egy vezető a következő elv szerint dönt: „gondolkodás”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.248Z — 697b9232cf21eba1283e785d
+- Updated at (current): 2026-01-29T17:00:34.240Z
+- Question: Egy vezető a következő elv szerint dönt: „Szövegből struktúra, azonnal exportálható”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.313Z — 697b9232cf21eba1283e785f
+- Updated at (current): 2026-01-29T17:00:34.262Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló) – Pro/kontra tábla Válassz egy döntést (p”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.372Z — 697b9232cf21eba1283e7861
+- Updated at (current): 2026-01-29T17:00:34.291Z
+- Question: Egy projektben a „Táblázat” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.433Z — 697b9232cf21eba1283e7863
+- Updated at (current): 2026-01-29T17:00:34.327Z
+- Question: Egy projektben a „Gyakorlat (önálló) Pro/kontra” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.493Z — 697b9232cf21eba1283e7865
+- Updated at (current): 2026-01-29T17:00:34.350Z
+- Question: Egy projektben a „prompt Gyenge: „Csinálj” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.555Z — 697b9232cf21eba1283e786b
+- Updated at (current): 2026-01-29T17:00:34.451Z
+- Question: Egy vezető a következő elv szerint dönt: „Debug lépések (3) Diagnózis : mi hiányzik”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.620Z — 697b9232cf21eba1283e7871
+- Updated at (current): 2026-01-29T17:00:34.562Z
+- Question: Egy vezető a következő elv szerint dönt: „Hibakeresés = gyors fejlődés”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.685Z — 697b9232cf21eba1283e7874
+- Updated at (current): 2026-01-29T17:00:34.605Z
+- Question: Egy vezető a következő elv szerint dönt: „Tipikus hibák”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.745Z — 697b9232cf21eba1283e7877
+- Updated at (current): 2026-01-29T17:00:34.659Z
+- Question: Egy vezető a következő elv szerint dönt: „Ismétlés &amp; prompt-debug nap Hibakeresés = gyors fejlődés Ma visszanézed az e”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.805Z — 697b9232cf21eba1283e787a
+- Updated at (current): 2026-01-29T17:00:34.773Z
+- Question: Egy vezető a következő elv szerint dönt: „Debug lépések (3)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.865Z — 697b9232cf21eba1283e787d
+- Updated at (current): 2026-01-29T17:00:34.830Z
+- Question: Egy vezető a következő elv szerint dönt: „bekezdés Nincs stílus: üzleti, empatikus, tömör”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.924Z — 697b9232cf21eba1283e787f
+- Updated at (current): 2026-01-29T17:00:34.853Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett) – Rossz → Jó Válassz egy rossz promptot”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:56.984Z — 697b9232cf21eba1283e7881
+- Updated at (current): 2026-01-29T17:00:34.888Z
+- Question: Egy projektben a „Debug lépések (3) Diagnózis : mi hiányzik” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:57.236Z — 697b9232cf21eba1283e7883
+- Updated at (current): 2026-01-29T17:00:34.909Z
+- Question: Egy projektben a „Ismétlés” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:57.304Z — 697b9232cf21eba1283e7885
+- Updated at (current): 2026-01-29T17:00:34.960Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló) – Formátum váltás Ugyanaz a tartalom: kér”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:57.363Z — 697b9232cf21eba1283e7887
+- Updated at (current): 2026-01-29T17:00:34.982Z
+- Question: Egy projektben a „bekezdés Nincs stílus: üzleti, empatikus, tömör” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:57.427Z — 697b9233cf21eba1283e788b
+- Updated at (current): 2026-01-29T17:00:35.082Z
+- Question: Egy vezető a következő elv szerint dönt: „Biztonságosan kezeled az inputot (anonimizálás, tisztítás)”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:57.486Z — 697b9233cf21eba1283e788e
+- Updated at (current): 2026-01-29T17:00:35.141Z
+- Question: Egy vezető a következő elv szerint dönt: „Output”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:57.545Z — 697b9233cf21eba1283e7891
+- Updated at (current): 2026-01-29T17:00:35.189Z
+- Question: Egy vezető a következő elv szerint dönt: „Ellenőrzés”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:57.608Z — 697b9233cf21eba1283e7897
+- Updated at (current): 2026-01-29T17:00:35.279Z
+- Question: Egy vezető a következő elv szerint dönt: „A 4 lépés”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:57.681Z — 697b9233cf21eba1283e789a
+- Updated at (current): 2026-01-29T17:00:35.342Z
+- Question: Egy vezető a következő elv szerint dönt: „Miért működik?”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:57.743Z — 697b9233cf21eba1283e789c
+- Updated at (current): 2026-01-29T17:00:35.369Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat 1 – Vezetett pipeline Válassz egy napi feladatot (”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:57.803Z — 697b9233cf21eba1283e789e
+- Updated at (current): 2026-01-29T17:00:35.389Z
+- Question: Egy projektben a „Workflow: input → feldolgozás → output” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.056Z — 697b9233cf21eba1283e78a0
+- Updated at (current): 2026-01-29T17:00:35.433Z
+- Question: Egy projektben a „Napi cél Felépítesz egy 4 lépéses, újrahasználható AI-workflow-t” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.123Z — 697b9233cf21eba1283e78a2
+- Updated at (current): 2026-01-29T17:00:35.470Z
+- Question: Egy új gyakorlatot vezetsz be: „Gyakorlat 3 – Automatizálási ötlet Írd le, mely részt lehet ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.186Z — 697b9233cf21eba1283e78a4
+- Updated at (current): 2026-01-29T17:00:35.493Z
+- Question: Egy projektben a „Workflow: Input → Feldolgozás → Output → Ellenőrzés Rendszerben gondolkodsz, nem” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.251Z — 697b9233cf21eba1283e78ab
+- Updated at (current): 2026-01-29T17:00:35.599Z
+- Question: Egy vezető a következő elv szerint dönt: „Rossz vs. jó”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.315Z — 697b9233cf21eba1283e78ae
+- Updated at (current): 2026-01-29T17:00:35.653Z
+- Question: Egy vezető a következő elv szerint dönt: „Ismétlés: rossz prompt → jó prompt”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.376Z — 697b9233cf21eba1283e78b1
+- Updated at (current): 2026-01-29T17:00:35.709Z
+- Question: Egy vezető a következő elv szerint dönt: „Napi cél Felismered a tipikus hibákat (hiányzó cél/kontextus/forma/stílus/hossz/”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.435Z — 697b9233cf21eba1283e78b4
+- Updated at (current): 2026-01-29T17:00:35.751Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat 1 – 3 rossz prompt javítása”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.503Z — 697b9233cf21eba1283e78b6
+- Updated at (current): 2026-01-29T17:00:35.773Z
+- Question: Egy projektben a „Ismétlés: rossz prompt → jó prompt” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.559Z — 697b9233cf21eba1283e78ba
+- Updated at (current): 2026-01-29T17:00:35.829Z
+- Question: Egy projektben a „Gyakorlat 2 – Formátum váltás” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.616Z — 697b9233cf21eba1283e78bc
+- Updated at (current): 2026-01-29T17:00:35.854Z
+- Question: Egy projektben a „Debug lépések” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.670Z — 697b9233cf21eba1283e78be
+- Updated at (current): 2026-01-29T17:00:35.880Z
+- Question: Egy projektben a „Rossz:” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.724Z — 697b9234cf21eba1283e78c5
+- Updated at (current): 2026-01-29T17:00:36.009Z
+- Question: Egy vezető a következő elv szerint dönt: „Szerep-példák”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.785Z — 697b9234cf21eba1283e78c8
+- Updated at (current): 2026-01-29T17:00:36.052Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat (önálló) – 3 prompt sablon”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.845Z — 697b9234cf21eba1283e78cb
+- Updated at (current): 2026-01-29T17:00:36.108Z
+- Question: Egy vezető a következő elv szerint dönt: „Szerephez illesztett AI – belépő nap A saját feladataidra optimalizálsz: Marketi”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.906Z — 697b9234cf21eba1283e78d1
+- Updated at (current): 2026-01-29T17:00:36.209Z
+- Question: Egy vezető a következő elv szerint dönt: „Szerephez illesztett AI – belépő nap”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:58.964Z — 697b9234cf21eba1283e78d5
+- Updated at (current): 2026-01-29T17:00:36.259Z
+- Question: Egy projektben a „Napi cél Feltérképezed a top 5 napi feladatodat” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.023Z — 697b9234cf21eba1283e78d7
+- Updated at (current): 2026-01-29T17:00:36.283Z
+- Question: Egy projektben a „belépő” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.083Z — 697b9234cf21eba1283e78d9
+- Updated at (current): 2026-01-29T17:00:36.313Z
+- Question: Egy projektben a „Szerephez illesztett AI – belépő nap A saját feladataidra optimalizálsz: Marketi” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.134Z — 697b9234cf21eba1283e78db
+- Updated at (current): 2026-01-29T17:00:36.339Z
+- Question: Egy projektben a „Szerephez” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.187Z — 697b9234cf21eba1283e78df
+- Updated at (current): 2026-01-29T17:00:36.412Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat (önálló) – Teszt és QA”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.293Z — 697b9234cf21eba1283e78e2
+- Updated at (current): 2026-01-29T17:00:36.459Z
+- Question: Egy vezető a következő elv szerint dönt: „Integráció”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.365Z — 697b9234cf21eba1283e78e5
+- Updated at (current): 2026-01-29T17:00:36.511Z
+- Question: Egy vezető a következő elv szerint dönt: „sabloncsomag”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.425Z — 697b9234cf21eba1283e78e8
+- Updated at (current): 2026-01-29T17:00:36.552Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat (vezetett) – 3 sablon”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.485Z — 697b9234cf21eba1283e78eb
+- Updated at (current): 2026-01-29T17:00:36.612Z
+- Question: Egy vezető a következő elv szerint dönt: „Szerephez illesztett sabloncsomag II”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.545Z — 697b9234cf21eba1283e78ee
+- Updated at (current): 2026-01-29T17:00:36.662Z
+- Question: Egy vezető a következő elv szerint dönt: „Szerephez illesztett sabloncsomag II.”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.602Z — 697b9234cf21eba1283e78f0
+- Updated at (current): 2026-01-29T17:00:36.692Z
+- Question: Egy projektben a „Szerephez illesztett sabloncsomag II.” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.660Z — 697b9234cf21eba1283e78f2
+- Updated at (current): 2026-01-29T17:00:36.712Z
+- Question: Egy projektben a „Szerephez illesztett sabloncsomag II” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.720Z — 697b9234cf21eba1283e78f4
+- Updated at (current): 2026-01-29T17:00:36.740Z
+- Question: Egy projektben a „Gyakorlat (önálló) – Teszt és QA” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.775Z — 697b9234cf21eba1283e78f8
+- Updated at (current): 2026-01-29T17:00:36.799Z
+- Question: Egy új gyakorlatot vezetsz be: „példa (vázlat → bővítés → QA): <a href="https://www”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.832Z — 697b9234cf21eba1283e78ff
+- Updated at (current): 2026-01-29T17:00:36.922Z
+- Question: Egy vezető a következő elv szerint dönt: „Elkerülés + ellenőrzés”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.891Z — 697b9234cf21eba1283e7902
+- Updated at (current): 2026-01-29T17:00:36.980Z
+- Question: Egy vezető a következő elv szerint dönt: „Tipikus”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:54:59.949Z — 697b9235cf21eba1283e7905
+- Updated at (current): 2026-01-29T17:00:37.029Z
+- Question: Egy vezető a következő elv szerint dönt: „Tipikus csapdák az adott szerepben Red flag lista + elkerülés + ellenőrzés”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.006Z — 697b9235cf21eba1283e7908
+- Updated at (current): 2026-01-29T17:00:37.083Z
+- Question: Egy vezető a következő elv szerint dönt: „szerepben”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.066Z — 697b9235cf21eba1283e790b
+- Updated at (current): 2026-01-29T17:00:37.129Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat (vezetett) – Csapdalista”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.142Z — 697b9235cf21eba1283e790d
+- Updated at (current): 2026-01-29T17:00:37.159Z
+- Question: Egy új gyakorlatot vezetsz be: „példa: <a href="https://www”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.197Z — 697b9235cf21eba1283e790f
+- Updated at (current): 2026-01-29T17:00:37.187Z
+- Question: Egy projektben a „Tipikus csapdák az adott szerepben Red flag lista + elkerülés + ellenőrzés” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.252Z — 697b9235cf21eba1283e7911
+- Updated at (current): 2026-01-29T17:00:37.211Z
+- Question: Egy új gyakorlatot vezetsz be: „Példa csapdák Marketing: kitalált statok, nem mérhető output”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.315Z — 697b9235cf21eba1283e7913
+- Updated at (current): 2026-01-29T17:00:37.232Z
+- Question: Egy projektben a „Napi cél Írsz egy 5 pontos csapdalistát a szerepedre” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.371Z — 697b9235cf21eba1283e7915
+- Updated at (current): 2026-01-29T17:00:37.259Z
+- Question: Egy projektben a „Sales” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.426Z — 697b9235cf21eba1283e7919
+- Updated at (current): 2026-01-29T17:00:37.349Z
+- Question: Egy vezető a következő elv szerint dönt: „Opcionális mélyítés”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.483Z — 697b9235cf21eba1283e791c
+- Updated at (current): 2026-01-29T17:00:37.395Z
+- Question: Egy vezető a következő elv szerint dönt: „Skill-check & szintlépés”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.545Z — 697b9235cf21eba1283e791f
+- Updated at (current): 2026-01-29T17:00:37.438Z
+- Question: Egy vezető a következő elv szerint dönt: „Skill-check &amp; szintlépés Az eszközhasználattól a tudatos működésig Ez a nap”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.604Z — 697b9235cf21eba1283e7922
+- Updated at (current): 2026-01-29T17:00:37.492Z
+- Question: Egy vezető a következő elv szerint dönt: „A legtöbben azért ragadnak meg egy szinten az AI használatában, mert soha”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.657Z — 697b9235cf21eba1283e7925
+- Updated at (current): 2026-01-29T17:00:37.549Z
+- Question: Egy vezető a következő elv szerint dönt: „fejlesztendő területet”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.714Z — 697b9235cf21eba1283e7928
+- Updated at (current): 2026-01-29T17:00:37.606Z
+- Question: Egy vezető a következő elv szerint dönt: „Önértékelő prompt”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.771Z — 697b9235cf21eba1283e792a
+- Updated at (current): 2026-01-29T17:00:37.640Z
+- Question: Egy projektben a „két konkrét fejlesztési célt” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.824Z — 697b9235cf21eba1283e792c
+- Updated at (current): 2026-01-29T17:00:37.665Z
+- Question: Egy projektben a „Arról szól, hogy láthatóvá teszed a fejlődésed , nevet adsz a hiányaidnak , és r” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.880Z — 697b9235cf21eba1283e792e
+- Updated at (current): 2026-01-29T17:00:37.690Z
+- Question: Egy projektben a „Skill-check & szintlépés” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.935Z — 697b9235cf21eba1283e7930
+- Updated at (current): 2026-01-29T17:00:37.715Z
+- Question: Egy projektben a „Skill-check &amp; szintlépés Az eszközhasználattól a tudatos működésig Ez a nap ” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:00.991Z — 697b9235cf21eba1283e7932
+- Updated at (current): 2026-01-29T17:00:37.745Z
+- Question: Egy projektben a „szintlépési pontod” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.054Z — 697b9235cf21eba1283e7936
+- Updated at (current): 2026-01-29T17:00:37.812Z
+- Question: Egy vezető a következő elv szerint dönt: „Este”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.114Z — 697b9235cf21eba1283e7939
+- Updated at (current): 2026-01-29T17:00:37.869Z
+- Question: Egy vezető a következő elv szerint dönt: „Napközben”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.174Z — 697b9236cf21eba1283e7942
+- Updated at (current): 2026-01-29T17:00:38.029Z
+- Question: Egy vezető a következő elv szerint dönt: „Reggel”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.242Z — 697b9236cf21eba1283e7945
+- Updated at (current): 2026-01-29T17:00:38.165Z
+- Question: Egy vezető a következő elv szerint dönt: „Gyakorlat (vezetett) – Rutin váz”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.293Z — 697b9236cf21eba1283e7947
+- Updated at (current): 2026-01-29T17:00:38.235Z
+- Question: Egy projektben a „Blokkok és példák” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.363Z — 697b9236cf21eba1283e7949
+- Updated at (current): 2026-01-29T17:00:38.257Z
+- Question: Egy projektben a „Saját AI-rutin kialakítása Reggel–napközben–este blokkok, időkeret, QA, biztonsá” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.418Z — 697b9236cf21eba1283e794b
+- Updated at (current): 2026-01-29T17:00:38.279Z
+- Question: Egy projektben a „Napközben” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.471Z — 697b9236cf21eba1283e794d
+- Updated at (current): 2026-01-29T17:00:38.302Z
+- Question: Egy projektben a „Biztonság” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.527Z — 697b9236cf21eba1283e794f
+- Updated at (current): 2026-01-29T17:00:38.349Z
+- Question: Egy projektben a „Variáció” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.578Z — 6974910ec01d5c374fe90346
+- Updated at (current): 2026-01-30T08:49:25.133Z
+- Question: أنت تقود اجتماع مراجعة أسبوعي عبر Zoom لفريق منتج صغير؛ ما أكثر ما يحافظ على كفاءته؟
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.632Z — 6974910ec01d5c374fe9034b
+- Updated at (current): 2026-01-30T08:56:30.093Z
+- Question: بعد أسبوعين من ضغط العمل، لاحظت أن إنتاجيتك تنهار لأنك لا تتوقف أبداً. ما الإجراء الأكثر فاعلية لإدارة الإجهاد بطريقة مستدامة؟
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.693Z — 6974910ec01d5c374fe9034f
+- Updated at (current): 2026-01-30T08:57:17.840Z
+- Question: في فريقك يقول شخص: "الإنتاجية مهمة للمديرين فقط". بناءً على مبادئ اليوم، من الذي يستفيد فعلاً من ممارسات الإنتاجية؟
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.752Z — 6974910ec01d5c374fe9034d
+- Updated at (current): 2026-01-30T08:58:04.627Z
+- Question: أنت تبني عادة إنتاجية جديدة وتريد نجاحاً طويل الأجل، لكنك تلاحظ أنك تتحمس أسبوعاً ثم تتوقف. ما الذي يدعم النجاح على المدى الطويل بشكل أفضل؟
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.810Z — 6974910ec01d5c374fe90349
+- Updated at (current): 2026-01-30T09:02:09.999Z
+- Question: أنت تدير فريقاً متعدد التخصصات يعمل عن بعد، وتلاحظ تداخل المسؤوليات وتأخر التسليم. ما العامل الأكثر احتمالاً لتحسين فعالية الفريق؟
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.862Z — 697485cfa29f6c252cb77ddd
+- Updated at (current): 2026-01-30T09:02:44.901Z
+- Question: Планираш седмична цел за проекта си, но екипът се колебае дали напредвате. Кое е основното предимство на измерима цел?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.912Z — 697485cfa29f6c252cb77dd6
+- Updated at (current): 2026-01-30T09:03:26.094Z
+- Question: Екипът ти планира тримесечието и някой предлага да работите с OKR. Кое тълкуване на OKR е правилното в този контекст?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:01.962Z — 697485cfa29f6c252cb77dd3
+- Updated at (current): 2026-01-30T09:04:02.463Z
+- Question: Пишеш SMART цел за седмицата и текущата ти формулировка е "Да подобря работата си". Кое описание най-добре отговаря на буквата S (Specific) в SMART?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.021Z — 697485cfa29f6c252cb77de5
+- Updated at (current): 2026-01-30T09:05:03.218Z
+- Question: Поставяш цел за подобрение на продуктивността и искаш период, който е достатъчно дълъг за резултат, но достатъчно кратък за фокус. Кой период е най-подходящ?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.079Z — 697485cfa29f6c252cb77dd9
+- Updated at (current): 2026-01-30T09:08:56.820Z
+- Question: Екипът ти внедрява OKR и искаш да обясниш структурата на колега. Колко нива (Objectives, Key Results, Initiatives) включва OKR структурата според урока?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.136Z — 69748dca96372147482053cd
+- Updated at (current): 2026-01-30T09:09:33.596Z
+- Question: Искаш да изградиш навик за 15 минути фокус всеки ден, но често пропускаш. Кое е най-голямото практическо предимство да имаш партньор за отчетност?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.191Z — 69748dca96372147482053d1
+- Updated at (current): 2026-01-30T09:10:15.031Z
+- Question: Поставил си седмична цел и пропускаш ключова веха. Кой отговор показва най-добрата реакция според принципите за устойчив напредък?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.251Z — 69748dca96372147482053ca
+- Updated at (current): 2026-01-30T09:11:12.528Z
+- Question: Искаш да повишиш вероятността да постигнеш целта си и решаваш да я заявиш публично (в екипния чат). Според урока, приблизително какъв процент от публично заявени цели се постигат?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.304Z — 69748dca96372147482053d4
+- Updated at (current): 2026-01-30T09:12:00.657Z
+- Question: Кой е най-важният елемент на система за проследяване?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.359Z — 69748dca96372147482053cf
+- Updated at (current): 2026-01-30T09:17:04.221Z
+- Question: Колко често трябва партньорът на отчетност да преглежда напредъка?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.406Z — 697485cea29f6c252cb77d8f
+- Updated at (current): 2026-01-30T09:24:30.117Z
+- Question: You're working on a task and need to decide next steps. What does OKR stand for?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.456Z — 69748f7cb7f52a06fe0779ca
+- Updated at (current): 2026-01-30T09:24:41.591Z
+- Question: What does the "80-20 rule" mean in decision-making?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.505Z — 69748dc9963721474820538b
+- Updated at (current): 2026-01-30T09:26:37.545Z
+- Question: What percentage of publicly stated goals are achieved?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.571Z — 697485d1a29f6c252cb77e38
+- Updated at (current): 2026-01-30T09:26:58.324Z
+- Question: कल्पना करें कि आप एक कार्य पर काम कर रहे हैं और आपको निर्णय लेना है। OKR का अर्थ क्या है?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.626Z — 69748dcb9637214748205439
+- Updated at (current): 2026-01-30T09:27:07.365Z
+- Question: सार्वजनिक रूप से संचार किए गए लक्ष्यों का कितना प्रतिशत प्राप्त होता है?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.675Z — 697485cda29f6c252cb77d08
+- Updated at (current): 2026-01-30T09:27:23.836Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. OKR szó jelentése?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.726Z — 697485d0a29f6c252cb77e0f
+- Updated at (current): 2026-01-30T09:28:00.016Z
+- Question: Bayangkan kamu sedang mengerjakan tugas dan perlu mengambil keputusan. Apa singkatan OKR?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.774Z — 69748dca9637214748205408
+- Updated at (current): 2026-01-30T09:28:08.374Z
+- Question: Berapa persentase tujuan yang diumumkan secara publik yang dicapai?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.821Z — 697485d0a29f6c252cb77df2
+- Updated at (current): 2026-01-30T09:28:20.927Z
+- Question: Wyobraź sobie, że pracujesz nad zadaniem i musisz podjąć decyzję. Co oznacza OKR?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.868Z — 69748dca96372147482053df
+- Updated at (current): 2026-01-30T09:29:22.053Z
+- Question: Jaki procent publicznie podanych celów zostaje osiągnięty?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.915Z — 69748f7db7f52a06fe077a17
+- Updated at (current): 2026-01-30T09:29:23.062Z
+- Question: Co oznacza "reguła 80-20" w podejmowaniu decyzji?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:02.962Z — 697485d1a29f6c252cb77e2b
+- Updated at (current): 2026-01-30T09:29:33.572Z
+- Question: Imagine que você está trabalhando em uma tarefa e precisa tomar uma decisão. O que significa OKR?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:03.015Z — 69748dcb9637214748205429
+- Updated at (current): 2026-01-30T09:30:15.043Z
+- Question: Que porcentagem de objetivos comunicados publicamente é alcançada?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:03.075Z — 69748f7eb7f52a06fe077a58
+- Updated at (current): 2026-01-30T09:30:17.981Z
+- Question: O que significa a "regra 80-20" na tomada de decisão?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:03.126Z — 697485cfa29f6c252cb77db8
+- Updated at (current): 2026-01-30T09:30:25.924Z
+- Question: Bir görev üzerinde çalıştığını ve bir karar vermen gerektiğini düşün. OKR ne anlama gelir?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:03.175Z — 697485d0a29f6c252cb77dff
+- Updated at (current): 2026-01-30T09:30:52.314Z
+- Question: Hãy tưởng tượng bạn đang làm một nhiệm vụ và cần đưa ra quyết định. OKR viết tắt của gì?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:03.226Z — 69748dca96372147482053f3
+- Updated at (current): 2026-01-30T09:30:55.394Z
+- Question: Bao nhiêu phần trăm các mục tiêu được công bố công khai được đạt được?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:03.277Z — 697485d0a29f6c252cb77e1e
+- Updated at (current): 2026-01-30T09:44:37.068Z
+- Question: تخيل أنك تعمل على مهمة وتحتاج لاتخاذ قرار. ماذا تعني OKR؟
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:03.327Z — 69748dcb9637214748205419
+- Updated at (current): 2026-01-30T09:44:42.085Z
+- Question: ما نسبة الأهداف المعلنة علنًا التي تم تحقيقها؟
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:03.378Z — 69776a0a934727fc0613f4a0
+- Updated at (current): 2026-01-30T09:56:23.013Z
+- Question: How important is Need Strength in the context of Lead Scoring & Prioritization – Which Lead Do You Handle First?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:03.685Z — 697b0d23b2df7b6c12d00291
+- Updated at (current): 2026-01-31T08:55:03.426Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:08.069Z
+- Question: When should you revisit your chosen path and backup?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:03.750Z — 697b0d24b2df7b6c12d002a5
+- Updated at (current): 2026-01-30T09:57:11.641Z
+- Question: You're working on a task and need to decide next steps. Why is vague done dangerous?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:03.808Z — 697b0d25b2df7b6c12d002d4
+- Updated at (current): 2026-01-30T09:57:18.620Z
+- Question: You're working on a task and need to decide next steps. Why avoid vanity metrics?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:03.934Z — 697b0d27b2df7b6c12d00309
+- Updated at (current): 2026-01-31T08:55:03.866Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:26.956Z
+- Question: Hiding unknowns to look in control tends to:
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:04.078Z — 697b0d27b2df7b6c12d00313
+- Updated at (current): 2026-01-31T08:55:03.985Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:29.450Z
+- Question: Hiding problems to preserve the relationship short-term can lead to:
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:04.145Z — 697b0d27b2df7b6c12d00321
+- Updated at (current): 2026-01-30T09:57:30.845Z
+- Question: A team wants to run a reflection but is unsure about the format. How long can a useful reflection be?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:04.205Z — 697b0d27b2df7b6c12d00320
+- Updated at (current): 2026-01-30T09:57:32.725Z
+- Question: A team runs a reflection after a project. What should reflection produce?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:04.334Z — 697b1fd28f79f136a28b8a0e
+- Updated at (current): 2026-01-31T08:55:04.256Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:39.217Z
+- Question: You're working on a task and need to decide next steps. Bad example?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:04.473Z — 697b1fdc08e9997876a46865
+- Updated at (current): 2026-01-31T08:55:04.393Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:40.576Z
+- Question: You're working on a task and need to decide next steps. Which is NOT one of the 4 parts?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:04.603Z — 697b1fd28f79f136a28b8a0f
+- Updated at (current): 2026-01-31T08:55:04.523Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:41.216Z
+- Question: You're working on a task and need to decide next steps. What does the checklist verify?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:04.747Z — 697b1fdc08e9997876a46867
+- Updated at (current): 2026-01-31T08:55:04.665Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:42.506Z
+- Question: You're working on a task and need to decide next steps. Which prompt is better?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:04.899Z — 697b1fdc08e9997876a46869
+- Updated at (current): 2026-01-31T08:55:04.815Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:43.145Z
+- Question: You're working on a task and need to decide next steps. What should you do after generation?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:05.126Z — 697b1fdc08e9997876a46888
+- Updated at (current): 2026-01-31T08:55:04.966Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:44.515Z
+- Question: You're working on a task and need to decide next steps. Which feedback is better?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:05.342Z — 697b1fdc08e9997876a4688b
+- Updated at (current): 2026-01-31T08:55:05.193Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:45.818Z
+- Question: You're working on a task and need to decide next steps. What if tone is wrong?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:05.477Z — 697b1fdd08e9997876a468b1
+- Updated at (current): 2026-01-31T08:55:05.408Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:47.255Z
+- Question: You're working on a task and need to decide next steps. Why use a QA checklist?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:05.624Z — 697b1fdd08e9997876a468bf
+- Updated at (current): 2026-01-31T08:55:05.541Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:48.463Z
+- Question: You're working on a task and need to decide next steps. Why build prompt templates?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:05.753Z — 697b1fdd08e9997876a468c1
+- Updated at (current): 2026-01-31T08:55:05.680Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:49.655Z
+- Question: You're working on a task and need to decide next steps. What is a good storage practice?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:06.084Z — 697b1fdd08e9997876a468ce
+- Updated at (current): 2026-01-31T08:55:05.814Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:50.851Z
+- Question: You're working on a task and need to decide next steps. What is a good role example?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:06.223Z — 697b1fdd08e9997876a468d6
+- Updated at (current): 2026-01-31T08:55:06.144Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:52.072Z
+- Question: You're working on a task and need to decide next steps. Why request sources/uncertainty?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:06.343Z — 697b1fdd08e9997876a468da
+- Updated at (current): 2026-01-31T08:55:06.274Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:53.275Z
+- Question: You're working on a task and need to decide next steps. How do risks help?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:06.483Z — 697b1fde08e9997876a468e3
+- Updated at (current): 2026-01-31T08:55:06.407Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:54.560Z
+- Question: You're working on a task and need to decide next steps. Why specify actions with who/what/when?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:06.603Z — 697b1fde08e9997876a468e5
+- Updated at (current): 2026-01-31T08:55:06.533Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:55.781Z
+- Question: What should you do if actions lack owners?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:06.734Z — 697b1fde08e9997876a468ef
+- Updated at (current): 2026-01-31T08:55:06.655Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:56.983Z
+- Question: You're working on a task and need to decide next steps. Which prompt is better for executives?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:06.863Z — 697b1fde08e9997876a468f8
+- Updated at (current): 2026-01-31T08:55:06.794Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:58.177Z
+- Question: You're working on a task and need to decide next steps. What is a storyboard note?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:06.994Z — 697b1fde08e9997876a468fa
+- Updated at (current): 2026-01-31T08:55:06.915Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:57:59.372Z
+- Question: You're working on a task and need to decide next steps. What is a poor outline prompt?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:07.114Z — 697b1fde08e9997876a46902
+- Updated at (current): 2026-01-31T08:55:07.042Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:00.651Z
+- Question: What must follow AI research suggestions?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:07.234Z — 697b1fde08e9997876a4690a
+- Updated at (current): 2026-01-31T08:55:07.163Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:01.877Z
+- Question: You're working on a task and need to decide next steps. What QA step is recommended?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:07.393Z — 697b1fdf08e9997876a46915
+- Updated at (current): 2026-01-31T08:55:07.305Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:03.163Z
+- Question: You're working on a task and need to decide next steps. Why save a format-switch prompt?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:07.513Z — 697b1fdf08e9997876a4691a
+- Updated at (current): 2026-01-31T08:55:07.443Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:04.499Z
+- Question: Why define prompt steps with inputs/outputs?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:07.633Z — 697b1fdf08e9997876a4691d
+- Updated at (current): 2026-01-31T08:55:07.563Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:05.690Z
+- Question: You're working on a task and need to decide next steps. What is a weak step definition?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:07.752Z — 697b1fdf08e9997876a46925
+- Updated at (current): 2026-01-31T08:55:07.683Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:06.907Z
+- Question: Why list risks/assumptions for chosen ideas?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T08:55:07.894Z — 697b1fdf08e9997876a4692d
+- Updated at (current): 2026-01-31T08:55:07.813Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:08.171Z
+- Question: You're working on a task and need to decide next steps. Why add caveats to recommendations?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:44.843Z — 697b1fdf08e9997876a46930
+- Updated at (current): 2026-01-31T09:07:44.755Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:09.373Z
+- Question: You're working on a task and need to decide next steps. Why test different weights?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:44.983Z — 697b1fe008e9997876a46936
+- Updated at (current): 2026-01-31T09:07:44.905Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:10.597Z
+- Question: You're working on a task and need to decide next steps. What should the output include?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:45.106Z — 697b1fe008e9997876a46938
+- Updated at (current): 2026-01-31T09:07:45.036Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:11.776Z
+- Question: You're working on a task and need to decide next steps. What should you check after generation?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:45.227Z — 697b1fe008e9997876a46940
+- Updated at (current): 2026-01-31T09:07:45.154Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:13.047Z
+- Question: Why ask “does this address goals/pains?”
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:45.362Z — 697b1fe008e9997876a46947
+- Updated at (current): 2026-01-31T09:07:45.277Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:14.309Z
+- Question: You're working on a task and need to decide next steps. Why include human feedback?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:45.483Z — 697b1fe008e9997876a4694b
+- Updated at (current): 2026-01-31T09:07:45.409Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:15.523Z
+- Question: You're working on a task and need to decide next steps. Why save a peer-review prompt?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:45.616Z — 697b1fe008e9997876a46950
+- Updated at (current): 2026-01-31T09:07:45.534Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:16.741Z
+- Question: You're working on a task and need to decide next steps. Why structure FAQs with sources?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:45.742Z — 697b1fe008e9997876a4695b
+- Updated at (current): 2026-01-31T09:07:45.672Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:18.109Z
+- Question: You're working on a task and need to decide next steps. What is a weak evaluation prompt?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:46.032Z — 697b1fe108e9997876a46963
+- Updated at (current): 2026-01-31T09:07:45.793Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:19.421Z
+- Question: You're working on a task and need to decide next steps. What should weights sum to?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:46.152Z — 697b1fe108e9997876a46966
+- Updated at (current): 2026-01-31T09:07:46.079Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:20.651Z
+- Question: You're working on a task and need to decide next steps. Why adjust weights later?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:46.292Z — 697b1fe108e9997876a4696b
+- Updated at (current): 2026-01-31T09:07:46.206Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:21.854Z
+- Question: What should a refusal/uncertainty clause do?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:46.432Z — 697b1fe108e9997876a46974
+- Updated at (current): 2026-01-31T09:07:46.353Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:23.066Z
+- Question: You're working on a task and need to decide next steps. What should privacy guardrails forbid?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:46.582Z — 697b1fe108e9997876a46978
+- Updated at (current): 2026-01-31T09:07:46.502Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:24.311Z
+- Question: You're working on a task and need to decide next steps. What is a bad practice?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:46.718Z — 697b1fe108e9997876a46980
+- Updated at (current): 2026-01-31T09:07:46.642Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:25.581Z
+- Question: You're working on a task and need to decide next steps. What is a good operation set?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:46.843Z — 697b1fe208e9997876a46987
+- Updated at (current): 2026-01-31T09:07:46.773Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:26.856Z
+- Question: Why use placeholders ({{name}}, {{company}})?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:47.042Z — 697b1fe208e9997876a4698a
+- Updated at (current): 2026-01-31T09:07:46.902Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:28.055Z
+- Question: You're working on a task and need to decide next steps. What should you do before sending?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:47.193Z — 697b1fe208e9997876a4698f
+- Updated at (current): 2026-01-31T09:07:47.101Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:29.240Z
+- Question: You're working on a task and need to decide next steps. What should slide prompts include?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:47.322Z — 697b1fe208e9997876a46991
+- Updated at (current): 2026-01-31T09:07:47.254Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:30.451Z
+- Question: You're working on a task and need to decide next steps. What should you forbid in slide drafts?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:47.471Z — 697b1fe208e9997876a46998
+- Updated at (current): 2026-01-31T09:07:47.380Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:31.715Z
+- Question: You're working on a task and need to decide next steps. What should the morning prompt produce?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:47.600Z — 697b1fe208e9997876a4699c
+- Updated at (current): 2026-01-31T09:07:47.530Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:32.895Z
+- Question: You're working on a task and need to decide next steps. What must actions include?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:47.720Z — 697b1fe208e9997876a469a2
+- Updated at (current): 2026-01-31T09:07:47.653Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:34.088Z
+- Question: You're working on a task and need to decide next steps. What should the playbook include?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:47.861Z — 697b1fe208e9997876a469a4
+- Updated at (current): 2026-01-31T09:07:47.786Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:35.273Z
+- Question: You're working on a task and need to decide next steps. What should you log after the run?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:47.985Z — 697b1ff8de117f992bb9be3f
+- Updated at (current): 2026-01-31T09:07:47.912Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:36.570Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért fontos a variáns tisztaság?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:48.111Z — 697b1ff9de117f992bb9be53
+- Updated at (current): 2026-01-31T09:07:48.034Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:37.847Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mit ellenőrizz az azonosító auditban?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:48.240Z — 697b1ff9de117f992bb9be57
+- Updated at (current): 2026-01-31T09:07:48.165Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:39.039Z
+- Question: Miért fontos a brand mező következetessége?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:48.371Z — 697b1ff9de117f992bb9be61
+- Updated at (current): 2026-01-31T09:07:48.295Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:40.345Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért kell egységes link a policy-ra?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:48.492Z — 697b1ff9de117f992bb9be69
+- Updated at (current): 2026-01-31T09:07:48.422Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:41.554Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a rossz példa trustra?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:48.612Z — 697b1ff9de117f992bb9be6b
+- Updated at (current): 2026-01-31T09:07:48.541Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:42.778Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért tüntesd fel a support válaszidőt?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:48.814Z — 697b1ff9de117f992bb9be71
+- Updated at (current): 2026-01-31T09:07:48.661Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:44.015Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a readiness checklist célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:48.987Z — 697b1ff9de117f992bb9be72
+- Updated at (current): 2026-01-31T09:07:48.862Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:45.199Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mit tartalmazzon a top 10 javítás?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:49.171Z — 697b1ffade117f992bb9be8d
+- Updated at (current): 2026-01-31T09:07:49.101Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:46.385Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért kell variáns képpárosítás?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:49.323Z — 697b1ffade117f992bb9be8f
+- Updated at (current): 2026-01-31T09:07:49.223Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:47.586Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mit jegyezz fel a gyakori hibákhoz?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:49.461Z — 697b1ffade117f992bb9be97
+- Updated at (current): 2026-01-31T09:07:49.383Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:48.563Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért dokumentáld a szekció sablont?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:49.574Z — 697b1ffade117f992bb9be9d
+- Updated at (current): 2026-01-31T09:07:49.510Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:49.549Z
+- Question: Mi a jó gyakorlat review adatokkal schema-ban?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:49.700Z — 697b1ffade117f992bb9bea6
+- Updated at (current): 2026-01-31T09:07:49.630Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:50.547Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a jó példa ár megjelenítésre?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:49.821Z — 697b1ffbde117f992bb9beae
+- Updated at (current): 2026-01-31T09:07:49.752Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:51.536Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mit adj a videóhoz?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:49.941Z — 697b1ffbde117f992bb9beb3
+- Updated at (current): 2026-01-31T09:07:49.868Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:52.509Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a minimum tartalom része?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:50.063Z — 697b1ffbde117f992bb9beb6
+- Updated at (current): 2026-01-31T09:07:49.991Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:53.494Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért dokumentáld a minimum standardot?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:50.213Z — 697b1ffbde117f992bb9bec4
+- Updated at (current): 2026-01-31T09:07:50.144Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:54.473Z
+- Question: Miért kell rövid indoklás a top választáshoz?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:50.327Z — 697b1ffbde117f992bb9becd
+- Updated at (current): 2026-01-31T09:07:50.262Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:55.418Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a rossz példa „vs” tartalomra?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:50.457Z — 697b1ffcde117f992bb9bed4
+- Updated at (current): 2026-01-31T09:07:50.373Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:56.404Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi legyen a hero blokkban?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:50.584Z — 697b1ffcde117f992bb9bed7
+- Updated at (current): 2026-01-31T09:07:50.505Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:57.453Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mit adj hozzá a policy/fit blokkban?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:50.701Z — 697b1ffcde117f992bb9bedb
+- Updated at (current): 2026-01-31T09:07:50.630Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:58.487Z
+- Question: Mi a hasznos off-site forrás jellemzője?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:50.829Z — 697b1ffcde117f992bb9bedd
+- Updated at (current): 2026-01-31T09:07:50.754Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:58:59.464Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mit listázz ma?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:50.951Z — 697b1ffcde117f992bb9bee3
+- Updated at (current): 2026-01-31T09:07:50.881Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:00.486Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a jó anti-spam gyakorlat?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:51.072Z — 697b1ffcde117f992bb9beed
+- Updated at (current): 2026-01-31T09:07:50.996Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:01.479Z
+- Question: Mi a kockázat a feed hibák figyelmen kívül hagyásánál?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:51.198Z — 697b1ffcde117f992bb9bef4
+- Updated at (current): 2026-01-31T09:07:51.124Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:02.454Z
+- Question: Miért kell verifikáció és policy megfelelés?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:51.321Z — 697b1ffcde117f992bb9bef5
+- Updated at (current): 2026-01-31T09:07:51.251Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:03.486Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a rossz gyakorlat onboardingnál?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:51.512Z — 697b1ffdde117f992bb9bf04
+- Updated at (current): 2026-01-31T09:07:51.371Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:04.506Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mely lépések tartoznak a sprintbe?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:51.642Z — 697b1ffdde117f992bb9bf06
+- Updated at (current): 2026-01-31T09:07:51.560Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:05.573Z
+- Question: Miért kell backlogot írni a következő 30 napra?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:51.770Z — 697b200402f89b2246e06dfc
+- Updated at (current): 2026-01-31T09:07:51.701Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:06.547Z
+- Question: What should the shipping/returns block include?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:51.890Z — 697b200402f89b2246e06dff
+- Updated at (current): 2026-01-31T09:07:51.820Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:07.505Z
+- Question: You're working on a task and need to decide next steps. What to check in the feed?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:52.011Z — 697b200402f89b2246e06e12
+- Updated at (current): 2026-01-31T09:07:51.940Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:08.448Z
+- Question: You're working on a task and need to decide next steps. Which is a good checklist item?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:52.128Z — 697b200402f89b2246e06e1b
+- Updated at (current): 2026-01-31T09:07:52.060Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:09.428Z
+- Question: You're working on a task and need to decide next steps. Why place policy block high?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:52.249Z — 697b200502f89b2246e06e26
+- Updated at (current): 2026-01-31T09:07:52.178Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:10.405Z
+- Question: You're working on a task and need to decide next steps. Why save a capsule template?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:52.373Z — 697b200502f89b2246e06e2b
+- Updated at (current): 2026-01-31T09:07:52.293Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:11.375Z
+- Question: You're working on a task and need to decide next steps. What is a clear variant name example?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:52.497Z — 697b200502f89b2246e06e2e
+- Updated at (current): 2026-01-31T09:07:52.420Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:12.315Z
+- Question: You're working on a task and need to decide next steps. What should you log from common errors?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:52.620Z — 697b200502f89b2246e06e33
+- Updated at (current): 2026-01-31T09:07:52.543Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:13.353Z
+- Question: Why is a guide better than a plain grid?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:52.742Z — 697b200502f89b2246e06e3a
+- Updated at (current): 2026-01-31T09:07:52.679Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:14.414Z
+- Question: Which fields are required in product/offer schema?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:52.860Z — 697b200502f89b2246e06e3e
+- Updated at (current): 2026-01-31T09:07:52.791Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:15.379Z
+- Question: You're working on a task and need to decide next steps. What to do when you find an error?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:52.981Z — 697b200502f89b2246e06e42
+- Updated at (current): 2026-01-31T09:07:52.910Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:16.331Z
+- Question: You're working on a task and need to decide next steps. How should you display a discount?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:53.121Z — 697b200502f89b2246e06e4c
+- Updated at (current): 2026-01-31T09:07:53.034Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:17.333Z
+- Question: You're working on a task and need to decide next steps. Why pair images per variant?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:53.265Z — 697b200502f89b2246e06e4e
+- Updated at (current): 2026-01-31T09:07:53.185Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:18.314Z
+- Question: You're working on a task and need to decide next steps. Why create an alt template?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:53.390Z — 697b200602f89b2246e06e55
+- Updated at (current): 2026-01-31T09:07:53.316Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:19.285Z
+- Question: You're working on a task and need to decide next steps. Why document the minimum standard?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:53.511Z — 697b200602f89b2246e06e5a
+- Updated at (current): 2026-01-31T09:07:53.440Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:20.279Z
+- Question: You're working on a task and need to decide next steps. Which intent buckets do we use?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:53.630Z — 697b200602f89b2246e06e5d
+- Updated at (current): 2026-01-31T09:07:53.556Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:21.321Z
+- Question: You're working on a task and need to decide next steps. Why prioritize prompts A/B/C?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:53.750Z — 697b200602f89b2246e06e63
+- Updated at (current): 2026-01-31T09:07:53.675Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:22.276Z
+- Question: You're working on a task and need to decide next steps. Why add short reasons to top picks?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:53.870Z — 697b200602f89b2246e06e6b
+- Updated at (current): 2026-01-31T09:07:53.800Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:23.221Z
+- Question: You're working on a task and need to decide next steps. Why be honest about tradeoffs?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:53.990Z — 697b200602f89b2246e06e73
+- Updated at (current): 2026-01-31T09:07:53.921Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:24.176Z
+- Question: You're working on a task and need to decide next steps. What belongs in the hero?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:54.120Z — 697b200702f89b2246e06e83
+- Updated at (current): 2026-01-31T09:07:54.040Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:25.159Z
+- Question: You're working on a task and need to decide next steps. Why need a quality/anti-spam checklist?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:54.244Z — 697b200702f89b2246e06e8d
+- Updated at (current): 2026-01-31T09:07:54.169Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:26.189Z
+- Question: You're working on a task and need to decide next steps. What is a good refresh frequency?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:54.367Z — 697b200702f89b2246e06e93
+- Updated at (current): 2026-01-31T09:07:54.290Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:27.147Z
+- Question: Why need verification and policy compliance?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:54.490Z — 697b200702f89b2246e06ea3
+- Updated at (current): 2026-01-31T09:07:54.421Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:28.105Z
+- Question: You're working on a task and need to decide next steps. Which steps are in the sprint?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:54.623Z — 697b200da4fdadb3ed6aca33
+- Updated at (current): 2026-01-31T09:07:54.545Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:29.071Z
+- Question: Melyik a három fő modell az Amanoba kurzusrendszerben?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:54.768Z — 697b200da4fdadb3ed6aca52
+- Updated at (current): 2026-01-31T09:07:54.679Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:30.047Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mit kell publikáláshoz bekapcsolni?
+- Violations: 1
+- State stored in `.state/quiz_item_qa_state.json`
+- Notes:
+  - Manual review required
+
+## 2026-01-31T09:07:54.885Z — 697b200da4fdadb3ed6aca67
+- Updated at (current): 2026-01-31T09:07:54.814Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:31.027Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Hány napos a standard kurzus struktúra?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:55.015Z — 697b200da4fdadb3ed6aca77
+- Updated at (current): 2026-01-31T09:07:54.941Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:32.001Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi küldi ki a napi leckéket emailben?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:55.140Z — 697b200ea4fdadb3ed6aca83
+- Updated at (current): 2026-01-31T09:07:55.064Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:32.998Z
+- Question: Hol látod az összes kurzust az adminban?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:55.266Z — 697b200ea4fdadb3ed6aca90
+- Updated at (current): 2026-01-31T09:07:55.192Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:33.969Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mit tárol a CourseProgress modell?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:55.400Z — 697b200ea4fdadb3ed6aca99
+- Updated at (current): 2026-01-31T09:07:55.322Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:34.990Z
+- Question: Mi történik, ha a Lesson.isActive = false?
+- Violations: 1
+- State stored in `.state/quiz_item_qa_state.json`
+- Notes:
+  - Manual review required
+
+## 2026-01-31T09:07:55.519Z — 697b200ea4fdadb3ed6acaa6
+- Updated at (current): 2026-01-31T09:07:55.452Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:35.918Z
+- Question: Melyik változó kell az adatbázis kapcsolathoz?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:55.654Z — 697b200ea4fdadb3ed6acaab
+- Updated at (current): 2026-01-31T09:07:55.570Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:36.851Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi kell az emailküldéshez?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:55.802Z — 697b200ea4fdadb3ed6acab1
+- Updated at (current): 2026-01-31T09:07:55.723Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:37.804Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a cron feladata?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:55.930Z — 697b200ea4fdadb3ed6acab5
+- Updated at (current): 2026-01-31T09:07:55.861Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:38.759Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Hol ellenőrzöd az admin hozzáférést?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:56.060Z — 697b200ea4fdadb3ed6acab9
+- Updated at (current): 2026-01-31T09:07:55.983Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:39.731Z
+- Question: Mit teszel, ha egy előfeltétel hiányzik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:56.186Z — 697b200fa4fdadb3ed6acac1
+- Updated at (current): 2026-01-31T09:07:56.110Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:40.721Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Milyen formátumú lehet a courseId?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:56.411Z — 697b200fa4fdadb3ed6acac5
+- Updated at (current): 2026-01-31T09:07:56.309Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:41.709Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a courseId regex-e?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:56.529Z — 697b200fa4fdadb3ed6acac9
+- Updated at (current): 2026-01-31T09:07:56.459Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:42.802Z
+- Question: Mi a minimális kötelező mező a kurzushoz?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:56.669Z — 697b200fa4fdadb3ed6acacd
+- Updated at (current): 2026-01-31T09:07:56.593Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:44.557Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi az ajánlott durationDays?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:56.939Z — 697b200fa4fdadb3ed6acad1
+- Updated at (current): 2026-01-31T09:07:56.791Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:46.025Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mikor állítsd requiresPremium = true?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:57.061Z — 697b200fa4fdadb3ed6acad4
+- Updated at (current): 2026-01-31T09:07:56.990Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:46.204Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért legyen tömör a description?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:57.181Z — 697b2010a4fdadb3ed6acad9
+- Updated at (current): 2026-01-31T09:07:57.112Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:47.445Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mit jelent a completionPoints mező?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:57.301Z — 697b2010a4fdadb3ed6acadc
+- Updated at (current): 2026-01-31T09:07:57.229Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:48.722Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mit jelent a lessonPoints?
+- Violations: 1
+- State stored in `.state/quiz_item_qa_state.json`
+- Notes:
+  - Manual review required
+
+## 2026-01-31T09:07:57.440Z — 697b2010a4fdadb3ed6acadf
+- Updated at (current): 2026-01-31T09:07:57.359Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:50.130Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mikor jár perfectCourseBonus?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:57.559Z — 697b2010a4fdadb3ed6acae2
+- Updated at (current): 2026-01-31T09:07:57.491Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:51.349Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi az XP mezők célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:57.728Z — 697b2010a4fdadb3ed6acae5
+- Updated at (current): 2026-01-31T09:07:57.609Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:52.700Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért dokumentáld a pont/XP értékeket?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:57.853Z — 697b2010a4fdadb3ed6acaea
+- Updated at (current): 2026-01-31T09:07:57.779Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:54.037Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért kell brandId a kurzushoz?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:57.979Z — 697b2010a4fdadb3ed6acaed
+- Updated at (current): 2026-01-31T09:07:57.904Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:55.361Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi történik, ha nincs brandId?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:58.098Z — 697b2010a4fdadb3ed6acaf0
+- Updated at (current): 2026-01-31T09:07:58.029Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:56.638Z
+- Question: Mit ellenőrizz az allowedDomains mezőben?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:58.401Z — 697b2011a4fdadb3ed6acaf3
+- Updated at (current): 2026-01-31T09:07:58.150Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:57.821Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi legyen a brand slug formátuma?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:58.529Z — 697b2011a4fdadb3ed6acaf6
+- Updated at (current): 2026-01-31T09:07:58.450Z
+- Cursor updatedAt (pre-fix): 2026-01-30T09:59:59.015Z
+- Question: Miért jó külön brandet létrehozni teszteléshez?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:58.659Z — 697b2011a4fdadb3ed6acafb
+- Updated at (current): 2026-01-31T09:07:58.591Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:00.239Z
+- Question: Mi a(z) "Lecke létrehozása: Alapok" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:58.779Z — 697b2011a4fdadb3ed6acafe
+- Updated at (current): 2026-01-31T09:07:58.709Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:01.439Z
+- Question: Mit kell tenned a(z) "Lecke létrehozása: Alapok" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:58.899Z — 697b2011a4fdadb3ed6acb01
+- Updated at (current): 2026-01-31T09:07:58.829Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:02.641Z
+- Question: Melyik állítás igaz a(z) "Lecke létrehozása: Alapok" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:59.019Z — 697b2011a4fdadb3ed6acb06
+- Updated at (current): 2026-01-31T09:07:58.950Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:03.941Z
+- Question: Mi a(z) "Lecke tartalom struktúra" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:59.139Z — 697b2011a4fdadb3ed6acb09
+- Updated at (current): 2026-01-31T09:07:59.070Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:05.149Z
+- Question: Mit kell tenned a(z) "Lecke tartalom struktúra" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:59.269Z — 697b2012a4fdadb3ed6acb0c
+- Updated at (current): 2026-01-31T09:07:59.195Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:06.347Z
+- Question: Melyik állítás igaz a(z) "Lecke tartalom struktúra" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:59.388Z — 697b2012a4fdadb3ed6acb11
+- Updated at (current): 2026-01-31T09:07:59.320Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:07.575Z
+- Question: Mi a(z) "Email sablonok és helyőrzők" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:59.528Z — 697b2012a4fdadb3ed6acb14
+- Updated at (current): 2026-01-31T09:07:59.460Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:08.788Z
+- Question: Mit kell tenned a(z) "Email sablonok és helyőrzők" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:59.649Z — 697b2012a4fdadb3ed6acb17
+- Updated at (current): 2026-01-31T09:07:59.580Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:09.976Z
+- Question: Melyik állítás igaz a(z) "Email sablonok és helyőrzők" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:59.768Z — 697b2012a4fdadb3ed6acb1c
+- Updated at (current): 2026-01-31T09:07:59.696Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:11.186Z
+- Question: Mi a(z) "Rich Text Editor használata" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:07:59.889Z — 697b2012a4fdadb3ed6acb1f
+- Updated at (current): 2026-01-31T09:07:59.814Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:12.396Z
+- Question: Mit kell tenned a(z) "Rich Text Editor használata" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:00.019Z — 697b2013a4fdadb3ed6acb22
+- Updated at (current): 2026-01-31T09:07:59.948Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:13.580Z
+- Question: Melyik állítás igaz a(z) "Rich Text Editor használata" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:00.178Z — 697b2013a4fdadb3ed6acb27
+- Updated at (current): 2026-01-31T09:08:00.067Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:14.777Z
+- Question: Mi a(z) "30 lecke létrehozása: Terv és struktúra" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:00.311Z — 697b2013a4fdadb3ed6acb2a
+- Updated at (current): 2026-01-31T09:08:00.237Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:15.972Z
+- Question: Mit kell tenned a(z) "30 lecke létrehozása: Terv és struktúra" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:00.449Z — 697b2013a4fdadb3ed6acb2d
+- Updated at (current): 2026-01-31T09:08:00.359Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:17.184Z
+- Question: Melyik állítás igaz a(z) "30 lecke létrehozása: Terv és struktúra" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:00.590Z — 697b2013a4fdadb3ed6acb32
+- Updated at (current): 2026-01-31T09:08:00.512Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:18.413Z
+- Question: Mi a(z) "Quiz értékelések: Bevezetés" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:00.791Z — 697b2013a4fdadb3ed6acb35
+- Updated at (current): 2026-01-31T09:08:00.644Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:19.608Z
+- Question: Mit kell tenned a(z) "Quiz értékelések: Bevezetés" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:00.909Z — 697b2014a4fdadb3ed6acb38
+- Updated at (current): 2026-01-31T09:08:00.839Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:20.895Z
+- Question: Melyik állítás igaz a(z) "Quiz értékelések: Bevezetés" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:01.039Z — 697b2014a4fdadb3ed6acb3d
+- Updated at (current): 2026-01-31T09:08:00.959Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:22.148Z
+- Question: Mi a(z) "Quiz kérdések létrehozása" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:01.169Z — 697b2014a4fdadb3ed6acb40
+- Updated at (current): 2026-01-31T09:08:01.098Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:23.348Z
+- Question: Mit kell tenned a(z) "Quiz kérdések létrehozása" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:01.288Z — 697b2014a4fdadb3ed6acb43
+- Updated at (current): 2026-01-31T09:08:01.218Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:24.557Z
+- Question: Melyik állítás igaz a(z) "Quiz kérdések létrehozása" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:01.410Z — 697b2014a4fdadb3ed6acb48
+- Updated at (current): 2026-01-31T09:08:01.339Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:25.747Z
+- Question: Mi a(z) "Quiz konfiguráció ajánlott gyakorlatai" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:01.559Z — 697b2014a4fdadb3ed6acb4b
+- Updated at (current): 2026-01-31T09:08:01.489Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:26.926Z
+- Question: Mit kell tenned a(z) "Quiz konfiguráció ajánlott gyakorlatai" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:01.679Z — 697b2014a4fdadb3ed6acb4e
+- Updated at (current): 2026-01-31T09:08:01.608Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:28.119Z
+- Question: Melyik állítás igaz a(z) "Quiz konfiguráció ajánlott gyakorlatai" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:01.801Z — 697b2015a4fdadb3ed6acb53
+- Updated at (current): 2026-01-31T09:08:01.729Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:29.339Z
+- Question: Mi a(z) "Quiz kérdések szerkesztése és törlése" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:01.918Z — 697b2015a4fdadb3ed6acb56
+- Updated at (current): 2026-01-31T09:08:01.848Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:30.528Z
+- Question: Mit kell tenned a(z) "Quiz kérdések szerkesztése és törlése" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:02.040Z — 697b2015a4fdadb3ed6acb59
+- Updated at (current): 2026-01-31T09:08:01.969Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:31.725Z
+- Question: Melyik állítás igaz a(z) "Quiz kérdések szerkesztése és törlése" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:02.158Z — 697b2015a4fdadb3ed6acb5e
+- Updated at (current): 2026-01-31T09:08:02.088Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:32.925Z
+- Question: Mi a(z) "Quiz tesztelés: Tanulói nézet" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:02.287Z — 697b2015a4fdadb3ed6acb61
+- Updated at (current): 2026-01-31T09:08:02.208Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:34.121Z
+- Question: Mit kell tenned a(z) "Quiz tesztelés: Tanulói nézet" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:02.419Z — 697b2015a4fdadb3ed6acb64
+- Updated at (current): 2026-01-31T09:08:02.338Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:35.351Z
+- Question: Melyik állítás igaz a(z) "Quiz tesztelés: Tanulói nézet" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:02.540Z — 697b2016a4fdadb3ed6acb69
+- Updated at (current): 2026-01-31T09:08:02.467Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:36.575Z
+- Question: Mi a(z) "Kurzus publikálása" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:02.659Z — 697b2016a4fdadb3ed6acb6c
+- Updated at (current): 2026-01-31T09:08:02.588Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:37.776Z
+- Question: Mit kell tenned a(z) "Kurzus publikálása" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:02.777Z — 697b2016a4fdadb3ed6acb6f
+- Updated at (current): 2026-01-31T09:08:02.710Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:39.000Z
+- Question: Melyik állítás igaz a(z) "Kurzus publikálása" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:02.898Z — 697b2016a4fdadb3ed6acb74
+- Updated at (current): 2026-01-31T09:08:02.826Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:40.213Z
+- Question: Mi a(z) "Beiratkozás és lecke hozzáférés tesztelése" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:03.019Z — 697b2016a4fdadb3ed6acb77
+- Updated at (current): 2026-01-31T09:08:02.948Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:41.430Z
+- Question: Mit kell tenned a(z) "Beiratkozás és lecke hozzáférés tesztelése" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:03.335Z — 697b2016a4fdadb3ed6acb7a
+- Updated at (current): 2026-01-31T09:08:03.250Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:42.642Z
+- Question: Melyik állítás igaz a(z) "Beiratkozás és lecke hozzáférés tesztelése" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:03.458Z — 697b2016a4fdadb3ed6acb7f
+- Updated at (current): 2026-01-31T09:08:03.388Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:43.860Z
+- Question: Mi a(z) "Email kézbesítés tesztelése" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:03.590Z — 697b2017a4fdadb3ed6acb82
+- Updated at (current): 2026-01-31T09:08:03.507Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:45.154Z
+- Question: Mit kell tenned a(z) "Email kézbesítés tesztelése" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:03.719Z — 697b2017a4fdadb3ed6acb85
+- Updated at (current): 2026-01-31T09:08:03.639Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:46.511Z
+- Question: Melyik állítás igaz a(z) "Email kézbesítés tesztelése" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:03.839Z — 697b2017a4fdadb3ed6acb8a
+- Updated at (current): 2026-01-31T09:08:03.768Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:47.811Z
+- Question: Mi a(z) "Hibakeresés: Gyakori problémák" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:04.144Z — 697b2017a4fdadb3ed6acb8d
+- Updated at (current): 2026-01-31T09:08:04.056Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:49.018Z
+- Question: Mit kell tenned a(z) "Hibakeresés: Gyakori problémák" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:04.271Z — 697b2017a4fdadb3ed6acb90
+- Updated at (current): 2026-01-31T09:08:04.195Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:50.223Z
+- Question: Melyik állítás igaz a(z) "Hibakeresés: Gyakori problémák" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:04.388Z — 697b2017a4fdadb3ed6acb95
+- Updated at (current): 2026-01-31T09:08:04.318Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:51.430Z
+- Question: Mi a(z) "Gyors ellenőrzőlista" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:04.517Z — 697b2018a4fdadb3ed6acb98
+- Updated at (current): 2026-01-31T09:08:04.444Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:52.633Z
+- Question: Mit kell tenned a(z) "Gyors ellenőrzőlista" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:04.638Z — 697b2018a4fdadb3ed6acb9b
+- Updated at (current): 2026-01-31T09:08:04.569Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:53.955Z
+- Question: Melyik állítás igaz a(z) "Gyors ellenőrzőlista" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:04.767Z — 697b2018a4fdadb3ed6acba0
+- Updated at (current): 2026-01-31T09:08:04.690Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:55.193Z
+- Question: Mi a(z) "Seed script használata" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:04.898Z — 697b2018a4fdadb3ed6acba3
+- Updated at (current): 2026-01-31T09:08:04.818Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:56.470Z
+- Question: Mit kell tenned a(z) "Seed script használata" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:05.199Z — 697b2018a4fdadb3ed6acba6
+- Updated at (current): 2026-01-31T09:08:04.943Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:57.696Z
+- Question: Melyik állítás igaz a(z) "Seed script használata" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:05.317Z — 697b2018a4fdadb3ed6acbab
+- Updated at (current): 2026-01-31T09:08:05.249Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:00:58.905Z
+- Question: Mi a(z) "Metadata használata" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:05.449Z — 697b2018a4fdadb3ed6acbae
+- Updated at (current): 2026-01-31T09:08:05.381Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:00.275Z
+- Question: Mit kell tenned a(z) "Metadata használata" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:05.577Z — 697b2019a4fdadb3ed6acbb1
+- Updated at (current): 2026-01-31T09:08:05.503Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:01.486Z
+- Question: Melyik állítás igaz a(z) "Metadata használata" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:05.696Z — 697b2019a4fdadb3ed6acbb6
+- Updated at (current): 2026-01-31T09:08:05.628Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:02.681Z
+- Question: Mi a(z) "Lecke elnevezés és konvenciók" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:05.828Z — 697b2019a4fdadb3ed6acbb9
+- Updated at (current): 2026-01-31T09:08:05.748Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:03.696Z
+- Question: Mit kell tenned a(z) "Lecke elnevezés és konvenciók" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:05.966Z — 697b2019a4fdadb3ed6acbbc
+- Updated at (current): 2026-01-31T09:08:05.884Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:04.724Z
+- Question: Melyik állítás igaz a(z) "Lecke elnevezés és konvenciók" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:06.089Z — 697b2019a4fdadb3ed6acbc1
+- Updated at (current): 2026-01-31T09:08:06.014Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:05.714Z
+- Question: Mi a(z) "Email sablon ajánlott gyakorlatai" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:06.207Z — 697b2019a4fdadb3ed6acbc4
+- Updated at (current): 2026-01-31T09:08:06.134Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:06.750Z
+- Question: Mit kell tenned a(z) "Email sablon ajánlott gyakorlatai" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:06.367Z — 697b201aa4fdadb3ed6acbc7
+- Updated at (current): 2026-01-31T09:08:06.256Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:07.791Z
+- Question: Melyik állítás igaz a(z) "Email sablon ajánlott gyakorlatai" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:06.526Z — 697b201aa4fdadb3ed6acbcc
+- Updated at (current): 2026-01-31T09:08:06.414Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:08.816Z
+- Question: Mi a(z) "Kurzus fázisok tervezése" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:06.651Z — 697b201aa4fdadb3ed6acbcf
+- Updated at (current): 2026-01-31T09:08:06.579Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:09.828Z
+- Question: Mit kell tenned a(z) "Kurzus fázisok tervezése" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:06.766Z — 697b201aa4fdadb3ed6acbd2
+- Updated at (current): 2026-01-31T09:08:06.699Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:10.832Z
+- Question: Melyik állítás igaz a(z) "Kurzus fázisok tervezése" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:06.890Z — 697b201aa4fdadb3ed6acbd7
+- Updated at (current): 2026-01-31T09:08:06.811Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:11.794Z
+- Question: Mi a(z) "Kurzus optimalizálása" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:07.043Z — 697b201aa4fdadb3ed6acbda
+- Updated at (current): 2026-01-31T09:08:06.937Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:12.811Z
+- Question: Mit kell tenned a(z) "Kurzus optimalizálása" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:07.167Z — 697b201aa4fdadb3ed6acbdd
+- Updated at (current): 2026-01-31T09:08:07.095Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:13.810Z
+- Question: Melyik állítás igaz a(z) "Kurzus optimalizálása" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:07.288Z — 697b201ba4fdadb3ed6acbe2
+- Updated at (current): 2026-01-31T09:08:07.218Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:14.810Z
+- Question: Mi a(z) "Kurzus dokumentáció" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:07.488Z — 697b201ba4fdadb3ed6acbe5
+- Updated at (current): 2026-01-31T09:08:07.337Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:15.822Z
+- Question: Mit kell tenned a(z) "Kurzus dokumentáció" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:07.617Z — 697b201ba4fdadb3ed6acbe8
+- Updated at (current): 2026-01-31T09:08:07.538Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:16.867Z
+- Question: Melyik állítás igaz a(z) "Kurzus dokumentáció" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:07.758Z — 697b201ba4fdadb3ed6acbed
+- Updated at (current): 2026-01-31T09:08:07.670Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:17.908Z
+- Question: Mi a(z) "Kurzus karbantartása" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:07.876Z — 697b201ba4fdadb3ed6acbf0
+- Updated at (current): 2026-01-31T09:08:07.807Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:18.912Z
+- Question: Mit kell tenned a(z) "Kurzus karbantartása" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:08.007Z — 697b201ba4fdadb3ed6acbf3
+- Updated at (current): 2026-01-31T09:08:07.922Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:19.918Z
+- Question: Melyik állítás igaz a(z) "Kurzus karbantartása" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:08.126Z — 697b201ca4fdadb3ed6acbf8
+- Updated at (current): 2026-01-31T09:08:08.059Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:20.911Z
+- Question: Mi a(z) "Kurzus elemzése és visszajelzés" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:08.247Z — 697b201ca4fdadb3ed6acbfb
+- Updated at (current): 2026-01-31T09:08:08.177Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:21.924Z
+- Question: Mit kell tenned a(z) "Kurzus elemzése és visszajelzés" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:08.396Z — 697b201ca4fdadb3ed6acbfe
+- Updated at (current): 2026-01-31T09:08:08.325Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:22.956Z
+- Question: Melyik állítás igaz a(z) "Kurzus elemzése és visszajelzés" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:08.517Z — 697b201ca4fdadb3ed6acc03
+- Updated at (current): 2026-01-31T09:08:08.447Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:23.959Z
+- Question: Mi a(z) "Zárás: Merre tovább?" lecke fő célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:08.637Z — 697b201ca4fdadb3ed6acc06
+- Updated at (current): 2026-01-31T09:08:08.567Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:24.988Z
+- Question: Mit kell tenned a(z) "Zárás: Merre tovább?" lecke után?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:08.787Z — 697b201ca4fdadb3ed6acc09
+- Updated at (current): 2026-01-31T09:08:08.707Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:26.060Z
+- Question: Melyik állítás igaz a(z) "Zárás: Merre tovább?" leckére?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:08.917Z — 697b2030d8669994531f73c3
+- Updated at (current): 2026-01-31T09:08:08.841Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:28.077Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért nem skálázódik a stílus?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:09.035Z — 697b2032d8669994531f7478
+- Updated at (current): 2026-01-31T09:08:08.967Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:29.156Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mit jelent a következetes radius skála?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:09.167Z — 697b2033d8669994531f748b
+- Updated at (current): 2026-01-31T09:08:09.086Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:30.158Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a fókusz szabály lényege?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:09.296Z — 697b2033d8669994531f749e
+- Updated at (current): 2026-01-31T09:08:09.226Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:31.142Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mit tartalmazzon a spacing dokumentum?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:09.429Z — 697b2033d8669994531f74ae
+- Updated at (current): 2026-01-31T09:08:09.347Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:32.162Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Milyen eszközökkel építesz hierarchiát?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:09.546Z — 697b2034d8669994531f74c1
+- Updated at (current): 2026-01-31T09:08:09.477Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:33.190Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mit dokumentálj?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:09.733Z — 697b2034d8669994531f74c8
+- Updated at (current): 2026-01-31T09:08:09.598Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:34.175Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a pipeline célja?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:09.867Z — 697b2034d8669994531f74d4
+- Updated at (current): 2026-01-31T09:08:09.783Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:35.167Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mikor térhetsz el komponensben?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:09.986Z — 697b2034d8669994531f74dc
+- Updated at (current): 2026-01-31T09:08:09.916Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:36.187Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a rossz példa elnevezésre?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:10.110Z — 697b2035d8669994531f74e1
+- Updated at (current): 2026-01-31T09:08:10.037Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:01:37.231Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a design debt jele?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:10.219Z — 697b2035d8669994531f74e8
+- Updated at (current): 2026-01-31T09:08:10.153Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:03:01.067Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi az RFC tartalma?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:10.338Z — 697b2035d8669994531f74f0
+- Updated at (current): 2026-01-31T09:08:10.267Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:03:02.071Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a blokkoló komment?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:10.642Z — 697b2035d8669994531f7500
+- Updated at (current): 2026-01-31T09:08:10.522Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:03:03.041Z
+- Question: Egy vezető a következő elv szerint dönt: „Mintavétel: képernyők véletlen auditja”. Melyik hatás a legvalószínűbb a célok elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:10.775Z — 697b2035d8669994531f7505
+- Updated at (current): 2026-01-31T09:08:10.689Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:03:04.043Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért kell scope?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:10.920Z — 697b2036d8669994531f750b
+- Updated at (current): 2026-01-31T09:08:10.841Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:03:05.017Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a jó példa?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:11.069Z — 697b2036d8669994531f7510
+- Updated at (current): 2026-01-31T09:08:10.979Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:03:06.004Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért kell variánst csökkenteni?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:11.197Z — 697b2036d8669994531f7516
+- Updated at (current): 2026-01-31T09:08:11.117Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:03:06.969Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Miért kell verziószám?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:11.316Z — 697b2036d8669994531f751e
+- Updated at (current): 2026-01-31T09:08:11.245Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:03:07.950Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a jó metrika?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:11.945Z — 697b2050060240540231b346
+- Updated at (current): 2026-01-31T09:08:11.535Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:03:14.416Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Melyik adatot nem adod be az AI-nak?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:12.076Z — 697b2050060240540231b348
+- Updated at (current): 2026-01-31T09:08:11.999Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:03:15.401Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mi a helyes anonimizálás névre?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:12.204Z — 697b2050060240540231b34a
+- Updated at (current): 2026-01-31T09:08:12.127Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:03:16.372Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Melyik közepes kockázatú tartalom?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:12.250Z — 697b2050060240540231b34c
+- Updated at (current): 2026-01-30T10:03:17.304Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Mikor kerüld az AI használatát?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:12.375Z — 697b2050060240540231b350
+- Updated at (current): 2026-01-31T09:08:12.299Z
+- Cursor updatedAt (pre-fix): 2026-01-30T10:03:19.146Z
+- Question: Mi az alap szabály, ha bizonytalan vagy?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+
+## 2026-01-31T09:08:12.434Z — 697b2050060240540231b352
+- Updated at (current): 2026-01-30T10:03:20.070Z
+- Question: Képzeld el, hogy egy feladaton dolgozol, és döntened kell. Melyik jó prompt-rész biztonsághoz?
+- Violations: 0
+- State stored in `.state/quiz_item_qa_state.json`
+

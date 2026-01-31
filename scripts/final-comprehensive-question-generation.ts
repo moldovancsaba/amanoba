@@ -188,7 +188,7 @@ async function regenerateAll() {
           );
         }
 
-        let currentValid = [...validExisting];
+        const currentValid = [...validExisting];
         const existingTextKeys = new Set<string>(currentValid.map(q => normalizeQuestionText(q.question)));
         let insertedCount = 0;
         let replacedCount = 0;

@@ -10,6 +10,14 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Player, CourseProgress } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { resolveCourseNameForLocale, resolveCourseDescriptionForLocale } from '@/app/lib/utils/course-i18n';
+import type { Locale } from '@/app/lib/i18n/locales';
+
+const VALID_LOCALES: Locale[] = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru'];
+function parseLocale(value: string | null): Locale | null {
+  if (!value) return null;
+  return VALID_LOCALES.includes(value as Locale) ? (value as Locale) : null;
+}
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -49,9 +57,12 @@ export async function GET(request: NextRequest) {
 
     const { searchParams } = new URL(request.url);
     const limit = parseInt(searchParams.get('limit') || '5', 10);
+    const locale =
+      parseLocale(searchParams.get('locale')) ??
+      (VALID_LOCALES.includes((player.locale as Locale) ?? '') ? (player.locale as Locale) : null);
 
-    // Get recommendations based on player data
-    const recommendations = await getCourseRecommendations(player, limit);
+    // Get recommendations based on player data (P0: resolve name/description for locale when set)
+    const recommendations = await getCourseRecommendations(player, limit, locale);
 
     logger.info(
       {
@@ -80,10 +91,12 @@ export async function GET(request: NextRequest) {
 /**
  * Get Course Recommendations
  * Why: Matches courses based on player's skill level, interests, and enrollment status
+ * When locale is set, name/description are resolved for that locale (P0 catalog language integrity).
  */
 async function getCourseRecommendations(
   player: Record<string, unknown>,
-  limit: number
+  limit: number,
+  locale: Locale | null = null
 ): Promise<Record<string, unknown>[]> {
   // Get player's enrolled courses to exclude them
   const enrolledCourses = await CourseProgress.find({
@@ -106,9 +119,14 @@ async function getCourseRecommendations(
     query['metadata.difficulty'] = player.skillLevel;
   }
 
+  const selectFields =
+    locale != null
+      ? 'courseId name description language thumbnail requiresPremium durationDays pointsConfig xpConfig price metadata translations'
+      : 'courseId name description language thumbnail requiresPremium durationDays pointsConfig xpConfig price metadata';
+
   // Get all matching courses
   const courses = await Course.find(query)
-    .select('courseId name description language thumbnail requiresPremium durationDays pointsConfig xpConfig price metadata')
+    .select(selectFields)
     .lean();
 
   type PlayerWithInterests = { interests?: string[] };
@@ -149,13 +167,28 @@ async function getCourseRecommendations(
     // Sort by score (highest first)
     scoredCourses.sort((a, b) => b.score - a.score);
 
-    // Return top courses
-    return scoredCourses
+    // Return top courses (resolve name/description for locale when set)
+    const top = scoredCourses
       .filter((item) => item.score > 0) // Only courses with positive scores
       .slice(0, limit)
       .map((item) => item.course);
+    return resolveCoursesForLocale(top, locale);
   }
 
   // If no interests, return courses matching skill level (or all if no skill level)
-  return courses.slice(0, limit);
+  const slice = courses.slice(0, limit);
+  return resolveCoursesForLocale(slice, locale);
+}
+
+function resolveCoursesForLocale(
+  courses: Record<string, unknown>[],
+  locale: Locale | null
+): Record<string, unknown>[] {
+  if (locale == null) return courses;
+  return courses.map((course) => {
+    const name = resolveCourseNameForLocale(course as Parameters<typeof resolveCourseNameForLocale>[0], locale);
+    const description = resolveCourseDescriptionForLocale(course as Parameters<typeof resolveCourseDescriptionForLocale>[0], locale);
+    const { translations: _translations, ...rest } = course as Record<string, unknown> & { translations?: unknown };
+    return { ...rest, name, description };
+  });
 }
