@@ -1,6 +1,6 @@
 # Amanoba Task List
 
-**Version**: 2.9.25  
+**Version**: 2.9.26  
 **Last Updated**: 2026-01-28
 
 ---
@@ -46,4 +46,4 @@ No open P0 tasks. Completed work (Certificate v0.1, Editor User, User profile cu
 
 **Maintained By**: AI Agent  
 **Review Cycle**: Updated after each major release  
-**Last Major Update**: v2.9.25 (P2 tech debt: APP_URL, cert colors, SSO docs, auth analytics)
+**Last Major Update**: v2.9.26 (Docs/code sync: operating doc, .state in gitignore, code/docs aligned)
