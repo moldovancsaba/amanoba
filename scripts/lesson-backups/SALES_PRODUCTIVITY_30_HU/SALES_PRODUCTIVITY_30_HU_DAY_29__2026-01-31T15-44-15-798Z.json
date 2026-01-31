@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:44:15.803Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_29",
+  "title": "Záró projekt – Futtasd a rendszert 7 napig",
+  "content": "<h1>Záró projekt – Futtasd a rendszert 7 napig</h1>\n<p><em>Végrehajtási hét: fókusz blokkok, pipeline higiénia, follow-up és mérés.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>7 napos végrehajtási tervet készítesz a playbookból.</li>\n  <li>Napi 2 vezető indikátort mérsz.</li>\n  <li>Azonosítasz 1 szűk keresztmetszetet és javítod.</li>\n</ul>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Van 7 napos tervem.</li>\n  <li>Napi mérés van.</li>\n  <li>Van 1 fókuszált kísérletem.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 29. nap: Záró projekt",
+  "emailBody": "<h1>Sales Productivity 30 – 29. nap</h1>\n<p>Futtasd a rendszert egy héten át: fókusz, higiénia, follow-up, mérés.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

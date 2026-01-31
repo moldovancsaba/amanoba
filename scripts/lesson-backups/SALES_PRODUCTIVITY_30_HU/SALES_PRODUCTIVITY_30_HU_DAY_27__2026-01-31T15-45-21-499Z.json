@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:45:22.905Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_27",
+  "title": "Mérőszámok – Vezető indikátorok, amiket irányítasz",
+  "content": "<h1>Mérőszámok – Vezető indikátorok, amiket irányítasz</h1>\n<p><em>Ne csak az eredményt mérd. Vezető indikátorokból lesz konzisztens teljesítmény.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Definiálsz 5 vezető indikátort heti célértékkel.</li>\n  <li>Egyszerű dashboardot készítesz.</li>\n  <li>Heti review + 1 kísérlet (experiment).</li>\n</ul>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Egyszerű és következetes a dashboard.</li>\n  <li>Hetente review-zok.</li>\n  <li>Van egy konkrét kísérletem.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 27. nap: Mérőszámok",
+  "emailBody": "<h1>Sales Productivity 30 – 27. nap</h1>\n<p>Vezető indikátorok, heti review és kísérletek.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

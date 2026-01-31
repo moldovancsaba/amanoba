@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:44:15.803Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_23",
+  "title": "Follow-up – A beszélgetésből elköteleződés",
+  "content": "<h1>Follow-up – A beszélgetésből elköteleződés</h1>\n<p><em>A follow-up recap + döntési útvonal. Ne küldj “csak ránéznék” üzenetet.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Megírsz egy recap e-mail struktúrát, ami next stepet hoz.</li>\n  <li>Rögzíted: döntések, felelősök, dátumok.</li>\n  <li>Választási lehetőséget adsz (A/B/lezárás).</li>\n</ul>\n<hr />\n<h2>Recap sablon</h2>\n<ol>\n  <li>Rövid összefoglaló (2–3 bullet)</li>\n  <li>Döntések</li>\n  <li>Nyitott kérdések</li>\n  <li>Következő lépések (felelős + dátum)</li>\n  <li>Javasolt időpontok</li>\n</ol>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Név + dátum minden next stephez.</li>\n  <li>Nincs üres “check-in”.</li>\n  <li>Konkrét döntési útvonal van.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 23. nap: Follow-up",
+  "emailBody": "<h1>Sales Productivity 30 – 23. nap</h1>\n<p>Küldj recap-et, ami döntést és elköteleződést hoz.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

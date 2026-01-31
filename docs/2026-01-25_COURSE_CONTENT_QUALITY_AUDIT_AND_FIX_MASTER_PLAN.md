@@ -238,8 +238,8 @@ For each course (oldest first):
 ### Overall Progress
 - **Courses Completed**: 2 / 18 (11.1%)
 - **Lessons Completed**: 60 / 540 (11.1%)
-- **Current Course**: Next course (TBD)
-- **Current Lesson**: TBD
+- **Current Course**: — (set when running this plan; requirement: see `docs/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md` item 5)
+- **Current Lesson**: —
 - **Batches Complete**: 
   - ✅ GEO_SHOPIFY_30 (Hungarian) - ALL 30 LESSONS COMPLETE!
   - ✅ GEO_SHOPIFY_30_EN (English) - ALL 30 LESSONS COMPLETE!

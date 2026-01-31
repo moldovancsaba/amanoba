@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:40:08.903Z",
+  "courseId": "AI_30_NAP",
+  "lessonId": "AI_30_NAP_DAY_27",
+  "title": "60 másodperces pitch AI-val",
+  "content": "<h1>60 másodperces pitch AI-val</h1>\n<p><em>Probléma → Megoldás → Érték/Proof → CTA, 3 variánsban.</em></p>\n\n<hr />\n<h2>Napi cél</h2>\n<ul>\n<li>Készítesz 60 mp-es pitch-et AI-val, 3 verzióban (rövid/részletes/bullet-first).</li>\n<li>Időre gyakorolsz, felesleget vágva.</li>\n<li>CTA és proof mindig szerepel.</li>\n</ul>\n\n<hr />\n<h2>Struktúra</h2>\n<ul>\n<li>Probléma (10 mp) – kinek, mi fáj?</li>\n<li>Megoldás (30 mp) – mit adsz, hogyan működik?</li>\n<li>Érték/Proof (20 mp) – eredmény, példa, szám.</li>\n<li>CTA – következő lépés.</li>\n<li>Persona-fit – kinek szól?</li>\n</ul>\n\n<hr />\n<h2>Gyakorlat (vezetett)</h2>\n<ol>\n<li>Írd le a terméket röviden.</li>\n<li>Kérj pitch vázlatot a fenti struktúrában.</li>\n<li>Kérj 3 verziót (rövid/részletes/bullet).</li>\n<li>Olvasd fel, mérj időt, rövidíts, ha kell.</li>\n</ol>\n\n<h2>Gyakorlat (önálló)</h2>\n<p>Teszteld különböző personákra (C-suite vs. operatív), finomítsd a szóhasználatot.</p>\n\n<hr />\n<h2>Prompt minta</h2>\n<blockquote>\n<p>Készíts 60 mp pitch-et. Termék: [leírás]. Struktúra: Probléma (10 mp), Megoldás (30 mp), Érték/Proof (20 mp), CTA. Adj 3 verziót: 1) rövid, 2) részletes, 3) bullet-first. Tömör, magyar nyelven.</p>\n</blockquote>\n\n<hr />\n<h2>Tipp</h2>\n<ul>\n<li>60 mp nagyon rövid: vágj felesleget, CTA mindig maradjon.</li>\n<li>Gyakorold hangosan, mérj időt.</li>\n</ul>",
+  "emailSubject": "30-Day AI Catch-Up – 27. nap: 60 másodperces pitch",
+  "emailBody": "<h1>30-Day AI Catch-Up – 27. nap</h1>\n<h2>60 másodperces pitch AI-val</h2>\n<p>Ma 60 mp-es pitch-et készítesz 3 variánsban, időre gyakorolsz, és CTA-t/proofot építesz be.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_NAP/day/{{dayNumber}}\">Olvasd el a teljes leckét →</a></p>"
+}

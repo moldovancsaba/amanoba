@@ -1,13 +1,35 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.34  
-**Last Updated**: 2026-01-31
+**Current Version**: 2.9.35  
+**Last Updated**: 2026-01-28
 
 **Rule:** Each task exists in exactly one place. Completed work lives **only here** (not in ROADMAP or TASKLIST). Open/future work → ROADMAP.md or TASKLIST.md only.
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.35] — 2026-01-28 🛠️
+
+**Status**: UI/UX polish (TASKLIST) — mobile responsiveness, email templates, assessment result visuals  
+**Type**: UX (ROADMAP § UI/UX polish and reliability)
+
+### Mobile responsiveness (course/lesson flows)
+
+- **Lesson page** (`app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx`): Responsive lesson title (`text-2xl sm:text-3xl lg:text-4xl`), `break-words`; main padding `px-4 sm:px-6`; lesson card padding `p-4 sm:p-6 lg:p-8`; all primary actions use `min-h-[44px]` and `touch-manipulation` (Previous/Next day, Take Quiz, Mark as Complete, Go to Day, Play Assessment).
+- **Courses page** (`app/[locale]/courses/page.tsx`): Bottom padding `pb-24 sm:pb-10` for mobile nav clearance.
+
+### Email templates (layout, clarity, branding)
+
+- **Welcome email** (`app/lib/email/email-localization.ts`): Brand line "Amanoba" at top; system font stack; responsive container (max-width 600px, padding 20px 16px); card with border-radius 12px and light shadow; CTA button with `min-height: 44px` for tap targets; 16px base font size.
+
+### Assessment result visuals (LessonQuiz)
+
+- **LessonQuiz** (`app/components/LessonQuiz.tsx`): Pass/fail result shown in a single card (green/red background, border, icon + title + score); icon and text layout `flex flex-col sm:flex-row` for better hierarchy; score and threshold text in same block; Submit Quiz button uses `min-h-[44px]` and `touch-manipulation`.
+
+**Status**: ✅ TASKLIST UI/UX items 3, 4, 5 delivered
 
 ---
 

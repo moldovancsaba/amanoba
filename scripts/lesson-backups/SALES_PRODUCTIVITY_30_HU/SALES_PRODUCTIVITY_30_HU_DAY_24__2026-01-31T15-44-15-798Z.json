@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:44:15.803Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_24",
+  "title": "Pipeline higiénia – Tartsd valósnak a CRM-et",
+  "content": "<h1>Pipeline higiénia – Tartsd valósnak a CRM-et</h1>\n<p><em>A pipeline döntéstámogató rendszer. Rossz adat = rossz döntés.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Stage kilépési feltételeket írsz.</li>\n  <li>Heti pipeline review checklistet futtatsz.</li>\n  <li>Minimum mezőket kényszerítesz ki (next step + dátum, döntési dátum, kockázatok).</li>\n</ul>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Minden dealhez van next step dátummal.</li>\n  <li>A stage-eknek van exit criteria-ja.</li>\n  <li>Az előrejelzés valóság-alapú.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 24. nap: Pipeline higiénia",
+  "emailBody": "<h1>Sales Productivity 30 – 24. nap</h1>\n<p>Minimum mezők + exit criteria + heti review.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

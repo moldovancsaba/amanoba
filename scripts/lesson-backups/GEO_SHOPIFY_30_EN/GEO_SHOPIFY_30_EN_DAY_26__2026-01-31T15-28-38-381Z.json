@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:28:39.972Z",
+  "courseId": "GEO_SHOPIFY_30_EN",
+  "lessonId": "GEO_SHOPIFY_30_EN_DAY_26",
+  "title": "Anti-spam and quality for AI-assisted content",
+  "content": "<h1>Anti-spam and quality for AI-assisted content</h1>\n<p><em>Write with AI safely: no spam, all quality.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Build a quality/anti-spam checklist.</li>\n<li>Apply it to one guide.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Spammy AI content is risky and can get you excluded.</li>\n<li>Quality = citability + trust.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Avoid: keyword stuffing, false claims, source-less data.</li>\n<li>Use: cite sources, short blocks, real data.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: short, sourced claims, real data.</li>\n<li><strong>Poor</strong>: “best in the world” with no evidence.</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Create a 10-point quality/anti-spam checklist.</li>\n<li>Apply it to an existing guide and mark fixes.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Update one section using the checklist.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Checklist done.</li>\n<li>Guide reviewed.</li>\n<li>One section improved.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Google spam policies: <a href=\"https://developers.google.com/search/docs/essentials/spam-policies\" target=\"_blank\" rel=\"noreferrer\">https://developers.google.com/search/docs/essentials/spam-policies</a></li>\n</ul>",
+  "emailSubject": "GEO Shopify – Day 26: Anti-spam",
+  "emailBody": "<h1>GEO Shopify – Day 26</h1>\n<h2>Anti-spam</h2>\n<p>Today you build an anti-spam checklist and apply it to a guide.</p>\n<p><a href=\"http://localhost:3000/courses/GEO_SHOPIFY_30_EN/day/{{dayNumber}}\">Read the lesson →</a></p>"
+}

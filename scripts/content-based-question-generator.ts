@@ -3321,13 +3321,27 @@ interface LanguageTemplates {
 
 function getLanguageTemplates(language: string, title: string): LanguageTemplates {
   const lang = language.toLowerCase();
+  const titleSeed = String(title || '').trim();
+  const topicHint = (() => {
+    const cleaned = titleSeed.replace(/\s+/g, ' ').trim();
+    if (!cleaned) return '';
+    const parts = cleaned.split(/[—–-]/).map(s => s.trim()).filter(Boolean);
+    return parts[0] || cleaned;
+  })();
+  const pickOne = <T,>(seed: string, pool: T[]): T => pool[stableHash32(seed) % pool.length];
   
   // Russian templates
   if (lang === 'ru') {
     return {
       criticalThinking: {
-        question: (concept, goal) =>
-          `Руководитель принимает решение по принципу: «${concept}». Какой эффект наиболее вероятен для достижения ${goal}, и какой типичный риск возникает при неправильной интерпретации или измерении?`,
+        question: (concept, goal) => {
+          const variants = [
+            `Руководитель принимает решение по принципу: «${concept}». Какой эффект наиболее вероятен для достижения ${goal}, и какой типичный риск возникает при неправильной интерпретации или измерении?`,
+            `В теме «${topicHint}» команда опирается на принцип: «${concept}». Какой эффект это даёт для ${goal}, и какой риск возникает при плохом измерении?`,
+            `Менеджер применяет принцип «${concept}» как правило. Какой эффект наиболее вероятен для ${goal}, и какой риск типичен при неправильной реализации?`,
+          ];
+          return pickOne(`${concept}::${goal}::${titleSeed}::ru::ctq`, variants);
+        },
         options: (concept) => [
           'Фокус усиливает результат, потому что вы выбираете одну ключевую метрику и устраняете “шум” в действиях; риск: выбор неверной метрики даёт видимость прогресса без реального эффекта.',
           'Достаточно увеличить количество задач и звонков, потому что активность всегда равна результату; риск: растёт занятость, но падают качество, приоритизация и ценность для клиента.',
@@ -3336,23 +3350,61 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
         ]
       },
       application: {
-        practice: (practice) =>
-          `Вы внедряете новую практику: «${practice}». Какой план внедрения даст измеримый выход и быструю обратную связь?`,
-        keyTerm: (keyTerm) =>
-          `В проекте нужно перевести «${keyTerm}» в действия. Какой подход делает выход измеримым и проверяемым?`,
+        practice: (practice) => {
+          const p = String(practice || '').trim();
+          const variants = [
+            `Вы внедряете новую практику в продажах: «${p}». Какой план даст измеримый результат и быструю обратную связь?`,
+            `В работе по теме «${topicHint}» вы запускаете практику: «${p}». Какой план делает эффект проверяемым (до/после) и управляемым?`,
+            `Вы вводите «${p}» как правило команды. Какой план приводит к измеримому выходу и регулярной проверке?`,
+          ];
+          return pickOne(`${p}::${titleSeed}::ru::practice-q`, variants);
+        },
+        keyTerm: (keyTerm) => {
+          const k = String(keyTerm || '').trim();
+          const variants = [
+            `В процессе продаж по теме «${topicHint}» нужно перевести «${k}» в действия. Какой подход делает выход измеримым и проверяемым?`,
+            `В CRM-процессе вы хотите внедрить «${k}». Какой подход делает результат измеримым, а не «по ощущениям»?`,
+            `Команда обсуждает «${k}», но нужен понятный выход. Какой подход делает его проверяемым и повторяемым?`,
+          ];
+          return pickOne(`${k}::${titleSeed}::ru::keyterm-q`, variants);
+        },
         options: {
-          practice: [
-            'Внедряю по шагам: задаю критерии и метрики, делаю пилот на малом объёме, фиксирую “до/после” и корректирую одно правило за раз.',
-            'Меняю всё сразу без метрик и контрольных точек, а потом пытаюсь “угадать”, что сработало.',
-            'Делаю действия нерегулярно и без владельца, надеясь на эффект без измерения и контроля.',
-            'Делаю формально, но не проверяю результат по “до/после”, поэтому нельзя доказать улучшение.',
-          ],
-          keyTerm: [
-            'Определяю критерий “готово”, выбираю одну метрику, применяю на одном кейсе и расширяю только после подтверждения эффекта.',
-            'Использую термин как лозунг без чек‑листа и измерения, поэтому результат не проверяем и не повторяем.',
-            'Откладываю запуск, пытаясь сделать “идеально”; риск: теряется темп, копятся незавершённые задачи и падает качество решения.',
-            'Выполняю действия без владельца, сроков и порогов успеха; результат расплывается и не влияет на итоговую цель.',
-          ]
+          practice: (seedText: string) => {
+            const practiceCorrectVariants = [
+              'Внедряю по шагам: фиксирую базовую точку, задаю критерий успеха, делаю пилот на малом объёме и сравниваю “до/после” перед расширением.',
+              'Определяю владельца, критерий “готово” и одну метрику, запускаю пилот на небольшой выборке и меняю только одну переменную за итерацию.',
+            ];
+            const practiceDistractorPool = [
+              'Меняю всё сразу без метрик и контрольных точек, а затем пытаюсь “угадать”, что сработало.',
+              'Начинаю с максимального охвата (вся команда и все сделки), поэтому нет быстрой обратной связи и ясных причинно‑следственных связей.',
+              'Делаю действия нерегулярно и без владельца, надеясь на эффект без измерения и контроля.',
+              'Делаю формально, но не проверяю результат по “до/после”, поэтому нельзя доказать улучшение.',
+              'Ставлю метрику, но не задаю правило решения (что делаем при X), поэтому измерение не приводит к изменениям.',
+              'Меняю инструмент (таблица/CRM) вместо правил работы, поэтому выход остаётся неуправляемым и несопоставимым.',
+              'Добавляю больше статусов и созвонов вместо улучшения процесса; в итоге растёт занятость, но не растёт результат.',
+            ];
+            const correct = pickOne(`${seedText}::${titleSeed}::ru::practice-c`, practiceCorrectVariants);
+            const distractors = pickUniqueFromPool(`${seedText}::${titleSeed}::ru::practice-d`, practiceDistractorPool, 3);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
+          keyTerm: (seedText: string) => {
+            const keyTermCorrectVariants = [
+              'Определяю “готово” через конкретный артефакт/решение, выбираю одну метрику, тестирую на одном кейсе, фиксирую “до/после” и расширяю только после подтверждения эффекта.',
+              'Перевожу термин в чек‑лист действий с владельцем и порогом успеха, провожу короткий пилот и проверяю эффект на той же выборке.',
+            ];
+            const keyTermDistractorPool = [
+              'Использую термин как лозунг без чек‑листа и измерения, поэтому результат не проверяем и не повторяем.',
+              'Выполняю действия без владельца, сроков и порогов успеха; результат расплывается и не влияет на итоговую цель.',
+              'Откладываю запуск, пытаясь сделать “идеально”; риск: теряется темп, копятся незавершённые задачи и падает качество решения.',
+              'Оптимизирую сразу много параметров, поэтому невозможно понять, что именно дало эффект.',
+              'Считаю, что “больше активности” равно результату; итог — занятость растёт, а ценность для клиента не меняется.',
+              'Делаю один раз, но не документирую шаги; процесс не повторяется и не масштабируется.',
+              'Измеряю “занятость” вместо результата, поэтому можно улучшить метрику без улучшения исхода.',
+            ];
+            const correct = pickOne(`${seedText}::${titleSeed}::ru::keyterm-c`, keyTermCorrectVariants);
+            const distractors = pickUniqueFromPool(`${seedText}::${titleSeed}::ru::keyterm-d`, keyTermDistractorPool, 3);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
         }
       },
       recall: {
@@ -4369,9 +4421,11 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
   
   // Hungarian templates (existing)
   if (lang === 'hu') {
-    const practiceCorrect =
-      'Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.';
-    const practiceDistractors = [
+    const practiceCorrectVariants = [
+      'Lépésről lépésre vezetem be: baseline-t rögzítek, előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.',
+      'Owner + „kész” kritérium + 1 metrika: kis pilotot futtatok, hetente review-zok, és csak validált hatás után terjesztem ki.',
+    ];
+    const practiceDistractorPool = [
       'Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.',
       'Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.',
       'Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.',
@@ -4379,11 +4433,15 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
       'Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.',
       'Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.',
       'Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.',
+      'Egyszer bevezetem, de nem írom le a lépéseket; így nem ismételhető és nem auditálható.',
+      'A „busy outputot” mérem (aktivitás), ezért javulhat a mutató úgy, hogy az eredmény nem javul.',
     ];
 
-    const keyTermCorrect =
-      'Konkrét ellenőrzőlistát készítek, implementálom egy kis scope-on, mérek előtte/utána, majd csak validált hatás után terjesztem ki.';
-    const keyTermDistractors = [
+    const keyTermCorrectVariants = [
+      'Konkrét ellenőrzőlistát és „kész” kritériumot készítek, implementálom egy kis scope-on, mérek előtte/utána, majd csak validált hatás után terjesztem ki.',
+      'A fogalmat kimenetté fordítom: 1 mérőszám + döntési szabály + pilot, és csak bizonyított hatás után skálázom.',
+    ];
+    const keyTermDistractorPool = [
       'Csak definícióként kezelem, így nem derül ki, működik-e a gyakorlatban, és nincs ellenőrizhető kimenet.',
       'Bevezetem, de nem rendelek hozzá metrikát/küszöböt és nincs owner — a kimenet nem lesz verifikálható.',
       'Túl sok mindent akarok egyszerre optimalizálni, ezért nincs egyetlen változó és nincs tiszta tanulság.',
@@ -4391,6 +4449,8 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
       'A fogalmat címkének használom, de nem bontom lépésekre és nem jelölök felelőst/határidőt, ezért elcsúszik a végrehajtás.',
       'Döntést hozok, de nem mérek és nem review-zok, így nem derül ki, hogy nőtt-e a throughput vagy csökkent-e a carryover.',
       'A gyorsaságot prioritizálom és a minőséget „későbbre” hagyom; a rework és újranyitás elviszi a kapacitást.',
+      'A kimenetet aktivitással keverem, így a csapat „dolgozik”, de a valódi eredmény nem javul.',
+      'Mindent dokumentálok, de nincs valódi végrehajtás; a papírmunka nő, az eredmény nem.',
     ];
 
     return {
@@ -4402,7 +4462,12 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
             .split(/\s+/)
             .slice(0, 12)
             .join(' ');
-          return `Egy vezető a következő elv szerint dönt: „${phrase}”. Melyik hatás a legvalószínűbb a ${goal} elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?`;
+          const variants = [
+            `Egy vezető a következő elv szerint dönt: „${phrase}”. Melyik hatás a legvalószínűbb a ${goal} elérésében, és mi a tipikus kockázat, ha ezt rosszul értelmezik vagy rosszul mérik?`,
+            `A „${topicHint}” témában egy csapat a „${phrase}” elvhez igazodik. Melyik hatás a legvalószínűbb a ${goal} elérésében, és mi a tipikus kockázat rossz mérésnél?`,
+            `Egy menedzser a „${phrase}” elvet szabályként alkalmazza. Melyik hatás a legvalószínűbb a ${goal} elérésében, és mi a tipikus kockázat, ha rossz mérőszámra optimalizálnak?`,
+          ];
+          return pickOne(`${phrase}::${goal}::${titleSeed}::hu::ctq`, variants);
         },
         options: (concept) => [
           `A fókusz növelheti az eredményességet, mert a korlátok mellett a legnagyobb hatású kimenetre koncentrál; kockázat: rossz mérőszámra optimalizálva „látszat‑output” készül.`,
@@ -4412,23 +4477,35 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
         ]
       },
       application: {
-        practice: (practice) =>
-          `Egy új gyakorlatot vezetsz be: „${practice.substring(0, 60)}”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?`,
-        keyTerm: (keyTerm) =>
-          `Egy projektben a „${keyTerm}” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?`,
+        practice: (practice) => {
+          const p = String(practice || '').trim().substring(0, 60);
+          const variants = [
+            `Egy új gyakorlatot vezetsz be: „${p}”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?`,
+            `A „${topicHint}” témában új gyakorlatot próbálsz ki: „${p}”. Melyik bevezetési terv teszi a hatást ellenőrizhetővé (előtte/utána)?`,
+            `Egy csapatban szabályként vezeted be: „${p}”. Melyik terv ad mérhető kimenetet és gyors iterációt?`,
+          ];
+          return pickOne(`${p}::${titleSeed}::hu::practice-q`, variants);
+        },
+        keyTerm: (keyTerm) => {
+          const k = String(keyTerm || '').trim();
+          const variants = [
+            `Egy projektben a „${k}” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?`,
+            `A „${topicHint}” témában a „${k}” fogalmat akarod használni. Melyik megközelítés teszi a kimenetet tesztelhetővé, nem csak „érzésre” javulóvá?`,
+            `Egy folyamatban a „${k}” csak címke, amíg nem lesz kimenet. Melyik megközelítés teszi ellenőrizhetővé és ismételhetővé?`,
+          ];
+          return pickOne(`${k}::${titleSeed}::hu::keyterm-q`, variants);
+        },
         options: {
-          practice: (seedText: string) =>
-            buildVariedOptions({
-              correct: practiceCorrect,
-              distractorPool: practiceDistractors,
-              seed: `hu::practice::${seedText}`,
-            }).options,
-          keyTerm: (seedText: string) =>
-            buildVariedOptions({
-              correct: keyTermCorrect,
-              distractorPool: keyTermDistractors,
-              seed: `hu::keyterm::${seedText}`,
-            }).options,
+          practice: (seedText: string) => {
+            const correct = pickOne(`${seedText}::${titleSeed}::hu::practice-c`, practiceCorrectVariants);
+            const distractors = pickUniqueFromPool(`${seedText}::${titleSeed}::hu::practice-d`, practiceDistractorPool, 3);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
+          keyTerm: (seedText: string) => {
+            const correct = pickOne(`${seedText}::${titleSeed}::hu::keyterm-c`, keyTermCorrectVariants);
+            const distractors = pickUniqueFromPool(`${seedText}::${titleSeed}::hu::keyterm-d`, keyTermDistractorPool, 3);
+            return [correct, distractors[0], distractors[1], distractors[2]] as Options4;
+          },
         }
       },
       recall: {

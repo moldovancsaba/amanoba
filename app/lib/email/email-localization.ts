@@ -697,19 +697,32 @@ export function renderWelcomeEmailHtml(params: BasicEmailParams & { durationDays
   const bodyText = tokens.bodyText || '#333333';
 
   const dashboardUrl = `${appUrl}/${locale}/my-courses`;
+  const border = tokens.border || '#dddddd';
 
+  const brandName = 'Amanoba';
   return `
-    <html>
-      <body dir="${dir}" style="font-family: Arial, sans-serif; line-height: 1.6; color: ${bodyText};">
-        <h1>${s.welcomeHeading(courseName)}</h1>
-        <p>${s.welcomeIntro(playerName, courseName)}</p>
-        <p>${s.welcomeBody(durationDays)}</p>
-        <p style="margin-top: 24px;">
-          <a href="${dashboardUrl}" style="background-color: ${ctaBg}; color: ${ctaText}; padding: 10px 20px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold;">
-            ${s.welcomeCta}
-          </a>
-        </p>
-        <p style="margin-top: 20px;">${s.teamSignoff}</p>
+    <!DOCTYPE html>
+    <html lang="${locale}" dir="${dir}">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>${s.welcomeHeading(courseName)}</title>
+      </head>
+      <body dir="${dir}" style="margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; line-height: 1.6; color: ${bodyText}; background: #f5f5f5; font-size: 16px;">
+        <div style="max-width: 600px; margin: 0 auto; padding: 20px 16px;">
+          <div style="background: #ffffff; border: 1px solid ${border}; border-radius: 12px; padding: 32px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+            <p style="margin: 0 0 24px; font-size: 14px; font-weight: 600; color: ${tokens.muted || '#666666'};">${escapeHtml(brandName)}</p>
+            <h1 style="margin: 0 0 16px; font-size: 22px; line-height: 1.3; color: ${bodyText};">${s.welcomeHeading(courseName)}</h1>
+            <p style="margin: 0 0 12px;">${s.welcomeIntro(playerName, courseName)}</p>
+            <p style="margin: 0 0 28px;">${s.welcomeBody(durationDays)}</p>
+            <p style="margin: 0;">
+              <a href="${dashboardUrl}" style="background-color: ${ctaBg}; color: ${ctaText}; padding: 14px 28px; min-height: 44px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: bold; font-size: 16px; line-height: 1.2; box-sizing: border-box;">
+                ${s.welcomeCta}
+              </a>
+            </p>
+            <p style="margin: 28px 0 0; font-size: 14px; color: ${tokens.muted || '#666666'};">${s.teamSignoff}</p>
+          </div>
+        </div>
       </body>
     </html>
   `;

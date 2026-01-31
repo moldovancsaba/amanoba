@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:44:15.802Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_15",
+  "title": "Tárgyalás – Cserélj, ne adj",
+  "content": "<h1>Tárgyalás – Cserélj, ne adj</h1>\n<p><em>A tárgyalás scope-ról, kockázatról és feltételekről szól. Értéket védesz: cserébe kérsz.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Készítesz engedménytervet: mit adhatsz és mit kérsz cserébe.</li>\n  <li>Objektív kritériumokkal támasztod alá az árat.</li>\n  <li>A deal-t a kimenethez és kockázatcsökkentéshez kötöd.</li>\n</ul>\n<hr />\n<h2>Magyarázat</h2>\n<h3>Engedményterv</h3>\n<ul>\n  <li><strong>Adható</strong>: indulás dátuma, fizetési ütem, scope szűkítés, pilot.</li>\n  <li><strong>Kérj cserébe</strong>: gyorsabb döntés, referencia, hosszabb elköteleződés, access a döntéshöz.</li>\n  <li><strong>Ne add</strong>: a fő értéket ellenszolgáltatás nélkül.</li>\n</ul>\n<hr />\n<h2>Gyakorlat (vezetett, 10–15 perc) — Csere táblázat</h2>\n<ol>\n  <li>Írj 6 “Mit adhatok” és 6 “Mit kérek cserébe” elemet.</li>\n  <li>Válaszd ki a top 3 cserédet.</li>\n  <li>Írj 3 mondatot, ami az árat a kimenethez és kockázathoz köti.</li>\n</ol>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Van engedménytervem.</li>\n  <li>Cserébe kérek elköteleződést.</li>\n  <li>Nem “árversenyben” tárgyalok.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 15. nap: Tárgyalás",
+  "emailBody": "<h1>Sales Productivity 30 – 15. nap</h1>\n<p>Védd az értéket: engedményt csak cserébe adj.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

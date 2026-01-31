@@ -1,7 +1,7 @@
 # Amanoba Deployment Guide
 
 **Version**: 1.8.0  
-**Last Updated**: 2025-10-13T08:28:34.000Z
+**Last Updated**: 2026-01-28
 
 ---
 
@@ -156,12 +156,14 @@ Test the following after deployment:
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Lighthouse Performance | >90 | TBD |
-| First Contentful Paint | <1.5s | TBD |
-| Time to Interactive | <3.0s | TBD |
-| Cumulative Layout Shift | <0.1 | TBD |
-| API Response Time (p95) | <300ms | TBD |
-| Error Rate | <0.5% | TBD |
+| Lighthouse Performance | >90 | — |
+| First Contentful Paint | <1.5s | — |
+| Time to Interactive | <3.0s | — |
+| Cumulative Layout Shift | <0.1 | — |
+| API Response Time (p95) | <300ms | — |
+| Error Rate | <0.5% | — |
+
+_Current values: to be filled when baseline is measured. Requirement: see `docs/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md` item 2._
 
 ---
 

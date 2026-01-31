@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:45:22.528Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_20",
+  "title": "Megújítás és megtartás – Készíts mentő tervet",
+  "content": "<h1>Megújítás és megtartás – Készíts mentő tervet</h1>\n<p><em>A megújítás hónapokkal korábban dől el. Figyeld a kockázati jeleket és javíts proaktívan.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Meghatározod a korai churn jelzéseket.</li>\n  <li>Felépítesz 90/60/30 napos megújítási idővonalat.</li>\n  <li>Megírsz egy “save plan” sablont.</li>\n</ul>\n<hr />\n<h2>Kockázati jelek</h2>\n<ul>\n  <li>Adoptáció csökken</li>\n  <li>A champion eltűnik</li>\n  <li>Support ticketek nőnek</li>\n  <li>Nincs friss érték review</li>\n  <li>Procurement korán “spórolós” nyelvet használ</li>\n</ul>\n<hr />\n<h2>Mentő terv sablon</h2>\n<ul>\n  <li>Jelzés</li>\n  <li>Ok hipotézis</li>\n  <li>Fix akciók (felelős + dátum)</li>\n  <li>Visszaállás bizonyítéka (mérőszám)</li>\n  <li>Megújítás next step</li>\n</ul>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Van megújítási idővonalam.</li>\n  <li>Tudom a korai jeleket.</li>\n  <li>Tudok save plan-t írni.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 20. nap: Megújítás és megtartás",
+  "emailBody": "<h1>Sales Productivity 30 – 20. nap</h1>\n<p>Proaktív megújítás: kockázati jelek, idővonal, mentő terv.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

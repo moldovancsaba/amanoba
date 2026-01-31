@@ -240,7 +240,7 @@ export default function CoursesPage() {
             {!session && (
               <LocaleLink
                 href="/auth/signin"
-                className="bg-brand-accent text-brand-black px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-sm sm:text-base"
+                className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center bg-brand-accent text-brand-black px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-sm sm:text-base"
               >
                 {tAuth('signIn')}
               </LocaleLink>
@@ -249,7 +249,7 @@ export default function CoursesPage() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 py-8 sm:py-10">
+      <main className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 py-5 sm:py-10 pb-24 sm:pb-10 pb-safe">
         {/* Search */}
         <div className="mb-8">
           <div className="relative">
@@ -390,7 +390,7 @@ export default function CoursesPage() {
                       <span>{course.voteAggregate.down}</span>
                     </div>
                   )}
-                  <div className="bg-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base w-full">
+                  <div className="min-h-[44px] flex items-center justify-center bg-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base w-full touch-manipulation">
                     {courseTexts.viewCourse} →
                   </div>
                 </LocaleLink>

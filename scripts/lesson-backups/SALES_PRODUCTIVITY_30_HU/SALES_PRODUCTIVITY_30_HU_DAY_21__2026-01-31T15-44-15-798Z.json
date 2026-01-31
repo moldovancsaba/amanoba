@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:44:15.802Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_21",
+  "title": "Outbound e-mail – Személyre szabás időpazarlás nélkül",
+  "content": "<h1>Outbound e-mail – Személyre szabás időpazarlás nélkül</h1>\n<p><em>Jó outbound: rövid, specifikus és a vevő valóságára épít (trigger).</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Megírsz egy 3 részes outbound e-mail sablont.</li>\n  <li>Összeraksz egy 5 érintéses szekvenciát.</li>\n  <li>Triggerrel növeled a relevanciát.</li>\n</ul>\n<hr />\n<h2>3 részes sablon</h2>\n<ol>\n  <li><strong>Trigger</strong>: miért most írsz</li>\n  <li><strong>Hipotézis</strong>: mit sejtesz problémának</li>\n  <li><strong>Következő lépés</strong>: alacsony súrlódású akció (15 perc)</li>\n</ol>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Trigger alapú vagyok.</li>\n  <li>Rövid és specifikus a szöveg.</li>\n  <li>Konkrét CTA van.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 21. nap: Outbound e-mail",
+  "emailBody": "<h1>Sales Productivity 30 – 21. nap</h1>\n<p>Trigger alapú outbound és 5 érintéses szekvencia.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

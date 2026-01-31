@@ -118,6 +118,16 @@ async function getOrGenerateUnsubscribeToken(player: IPlayer & { save: () => Pro
 }
 
 /**
+ * Wrap email body in a container for consistent layout (max-width, padding).
+ * Improves readability and branding across clients.
+ */
+function wrapEmailBody(html: string): string {
+  if (/^\s*<!DOCTYPE|^\s*<html/i.test(html.trim())) return html;
+  const padding = '24px';
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f9fafb;"><tr><td align="center" style="padding:20px 16px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px; margin:0 auto; background-color:#ffffff; border-radius:8px; padding:${padding}; box-shadow:0 1px 3px rgba(0,0,0,0.08);"><tr><td>${html}</td></tr></table></td></tr></table>`;
+}
+
+/**
  * Inject open-tracking pixel and wrap links with click-tracking URL.
  * Used for lesson, reminder, welcome, payment emails (completion uses its own template).
  */
@@ -260,6 +270,7 @@ export async function sendLessonEmail(
     }
 
     const messageId = generateSecureToken(16);
+    body = wrapEmailBody(body);
     body = injectEmailTracking(body, messageId, APP_URL);
 
     // Delivery hard gate: do not send if language integrity fails for the final subject/body.

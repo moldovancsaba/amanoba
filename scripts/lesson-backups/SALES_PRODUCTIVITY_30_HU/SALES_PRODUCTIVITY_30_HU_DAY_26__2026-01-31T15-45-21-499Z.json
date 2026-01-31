@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:45:22.855Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_26",
+  "title": "AI használata salesben – Gyorsítás QA-val",
+  "content": "<h1>AI használata salesben – Gyorsítás QA-val</h1>\n<p><em>Az AI gyorsítja a research-et és az írást, de csak szigorú QA-val.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>AI-val készítesz research összefoglalót és e-mail draftot.</li>\n  <li>QA checklistet használsz (tény, tónus, adatbiztonság).</li>\n  <li>3 újrahasznosítható prompt sablont készítesz.</li>\n</ul>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Van 3 prompt sablonom.</li>\n  <li>Ellenőrzöm a tényeket küldés előtt.</li>\n  <li>Nem szivárog ki érzékeny adat.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 26. nap: AI salesben",
+  "emailBody": "<h1>Sales Productivity 30 – 26. nap</h1>\n<p>Research és írás gyorsítása AI-val, szigorú QA-val.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

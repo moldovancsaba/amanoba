@@ -1,7 +1,7 @@
 # Technology Stack
 
 **Version**: 2.8.0  
-**Last Updated**: 2025-01-20T23:00:00.000Z
+**Last Updated**: 2026-01-28
 
 ---
 
@@ -127,7 +127,7 @@
 
 ### DNS & Domain
 - **DNS**: Vercel DNS
-- **Domain**: TBD
+- **Domain**: — (set when production domain is final; requirement: see `docs/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md` item 3)
 
 ---
 

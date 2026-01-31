@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:45:22.635Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_22",
+  "title": "Cold call – Szerezz engedélyt gyorsan",
+  "content": "<h1>Cold call – Szerezz engedélyt gyorsan</h1>\n<p><em>Cold call akkor működik, ha tiszteled az időt és diagnosztizálsz, nem pitch-elsz.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Használsz 20 másodperces nyitást, ami engedélyt kér.</li>\n  <li>Felteszel 3 diagnosztikai kérdést pitch nélkül.</li>\n  <li>Konkrét kimenettel zársz: meeting vagy tiszta “nem”.</li>\n</ul>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>20 mp alatt nyitok.</li>\n  <li>Diagnosztizálok.</li>\n  <li>Van tiszta next step.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 22. nap: Cold call",
+  "emailBody": "<h1>Sales Productivity 30 – 22. nap</h1>\n<p>Gyors nyitás + diagnosztikai kérdések = több releváns meeting.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

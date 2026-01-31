@@ -1,33 +1,54 @@
 {
   "question": {
-    "_id": "697b1fdf08e9997876a4692d",
-    "question": "You're working on a task and need to decide next steps. Why add caveats to recommendations?",
+    "_id": "697df88ce6effdc191fbc2f5",
+    "uuid": "03dc09fe-6709-4607-9da5-67d4b252f979",
+    "question": "Egy projektben a „Lecke elnevezés és konvenciók Konzisztens lessonId és címek, hogy kereshető és é” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?",
     "options": [
-      "Highlight risks and conditions",
-      "To weaken the advice unnecessarily",
-      "A concrete option: No reason.",
-      "A concrete option: To add fluff."
+      "Konkrét ellenőrzőlistát készítek, implementálom egy kis scope-on, mérek előtte/utána, majd csak validált hatás után terjesztem ki.",
+      "Csak definícióként kezelem, így nem derül ki, működik-e a gyakorlatban, és nincs ellenőrizhető kimenet.",
+      "Bevezetem, de nem rendelek hozzá metrikát/küszöböt és nincs owner — a kimenet nem lesz verifikálható.",
+      "Megcsinálom egyszer, de nincs dokumentáció és ismételhető lépéssor, ezért nem skálázható és nem auditálható."
     ],
     "correctIndex": 0,
     "difficulty": "MEDIUM",
     "category": "Course Specific",
-    "hashtags": [],
+    "questionType": "application",
+    "hashtags": [
+      "#day23",
+      "#hu",
+      "#all-languages",
+      "#course-kurzus_keszites",
+      "#intermediate",
+      "#application"
+    ],
     "isActive": true,
     "isCourseSpecific": true,
-    "courseId": "696eb1b43acf07a2e163b299",
-    "lessonId": "AI_30_DAY_EN_DAY_17",
+    "courseId": "697b200bc10a5ffb6296cdbd",
+    "lessonId": "KURZUS_KESZITES_DAY_23",
     "relatedCourseIds": [],
     "metadata": {
-      "createdAt": "2026-01-29T08:52:47.881Z",
-      "updatedAt": "2026-01-31T08:55:07.813Z"
+      "createdAt": "2026-01-31T12:41:48.896Z",
+      "updatedAt": "2026-01-31T12:41:48.896Z",
+      "auditedAt": "2026-01-31T12:41:48.896Z",
+      "auditedBy": "quiz-quality-pipeline-tiny-loop"
     },
     "showCount": 0,
     "correctCount": 0
   },
   "evaluation": {
-    "questionId": "697b1fdf08e9997876a4692d",
-    "violations": [],
-    "needsUpdate": false,
+    "questionId": "697df88ce6effdc191fbc2f5",
+    "violations": [
+      {
+        "code": "HAS_LESSON_REF",
+        "message": "Question references course/lesson language (violates standalone rule).",
+        "fields": [
+          "question"
+        ],
+        "severity": "warning",
+        "docRef": "docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type"
+      }
+    ],
+    "needsUpdate": true,
     "autoPatch": {}
   }
 }

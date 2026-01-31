@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:45:23.055Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_30",
+  "title": "Folyamatos fejlődés – Havi áttekintő rutin",
+  "content": "<h1>Folyamatos fejlődés – Havi áttekintő rutin</h1>\n<p><em>A sales termelékenység kumulatív. Áttekintés → tanulság → kézikönyv frissítés.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Havi áttekintő sablont készítesz.</li>\n  <li>Megfogalmazod: stop / start / continue.</li>\n  <li>Havonta 1 kézikönyv-fejlesztést beépítesz.</li>\n</ul>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Van havi review sablonom.</li>\n  <li>Vezető indikátorokat követek.</li>\n  <li>Rendszeresen frissítem a playbookot.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 30. nap: Havi áttekintés",
+  "emailBody": "<h1>Sales Productivity 30 – 30. nap</h1>\n<p>Építs havi áttekintő rutint, és fejleszd folyamatosan a sales rendszered.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

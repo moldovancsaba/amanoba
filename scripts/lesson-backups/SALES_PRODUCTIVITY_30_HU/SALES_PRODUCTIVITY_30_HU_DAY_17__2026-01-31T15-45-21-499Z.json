@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:45:22.354Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_17",
+  "title": "Átadás és onboarding – Azt szállítsd, amit eladtál",
+  "content": "<h1>Átadás és onboarding – Azt szállítsd, amit eladtál</h1>\n<p><em>A jó átadás megelőzi a korai lemorzsolódást. Sikerkritérium, scope és felelősségek tisztázása.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Készítesz átadási checklistet sales → delivery.</li>\n  <li>Rögzíted a siker mérőszámait és az első mérföldkövet.</li>\n  <li>Dokumentálod a feltételezéseket, hogy ne legyen scope drift.</li>\n</ul>\n<hr />\n<h2>Átadási checklist</h2>\n<ul>\n  <li>Üzleti cél + hatás</li>\n  <li>Szereplők + döntéshozó + “champion”</li>\n  <li>In-scope / out-of-scope use case-ek</li>\n  <li>Idővonal + első mérföldkő</li>\n  <li>Kockázatok + mitigáció</li>\n  <li>Siker mérőszámok</li>\n</ul>\n<hr />\n<h2>Gyakorlat (vezetett, 10–15 perc)</h2>\n<ol>\n  <li>Készíts 1 oldalas átadási sablont.</li>\n  <li>Töltsd ki egy friss “closed won” deal-re.</li>\n  <li>Küldd el belsőleg kickoff előtt.</li>\n</ol>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Van átadási sablonom.</li>\n  <li>A siker mérhető és explicit.</li>\n  <li>A scope határok le vannak írva.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 17. nap: Átadás & onboarding",
+  "emailBody": "<h1>Sales Productivity 30 – 17. nap</h1>\n<p>Előzd meg a lemorzsolódást jó átadással: kontextus, siker-kritériumok, scope.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

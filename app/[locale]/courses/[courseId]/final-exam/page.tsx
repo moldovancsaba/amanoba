@@ -522,32 +522,43 @@ export default function FinalExamPage() {
       )}
 
       {result && (
-        <div className="bg-gray-800 border border-gray-700 rounded p-4 space-y-2">
-          <div className="flex items-center gap-2 text-xl font-semibold">
-            {result.passed ? (
-              <CheckCircle className="w-6 h-6 text-green-400" />
-            ) : (
-              <XCircle className="w-6 h-6 text-red-400" />
-            )}
-            <span>{result.passed ? getFinalExamText('passed', courseLanguage) : getFinalExamText('notPassed', courseLanguage)}</span>
-          </div>
-          <p className="text-gray-200">{getFinalExamText('score', courseLanguage)}: {result.score}%</p>
-          <div className="flex gap-2">
-            <button
-              onClick={() => {
-                setResult(null);
-                loadEntitlement();
-              }}
-              className="px-4 py-2 rounded bg-indigo-600 hover:bg-indigo-500"
-            >
-              {getFinalExamText('refreshStatus', courseLanguage)}
-            </button>
-            <button
-              onClick={() => router.push(`/${courseLanguage}/courses/${courseId}`)}
-              className="px-4 py-2 rounded bg-gray-700 hover:bg-gray-600"
-            >
-              {getFinalExamText('backToCourseButton', courseLanguage)}
-            </button>
+        <div className={`rounded-2xl border-2 p-6 sm:p-8 shadow-lg max-w-md mx-auto ${
+          result.passed
+            ? 'bg-green-500/10 border-green-500 text-green-900 dark:text-green-100'
+            : 'bg-red-500/10 border-red-500 text-red-900 dark:text-red-100'
+        }`}>
+          <div className="flex flex-col items-center text-center space-y-4">
+            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/80">
+              {result.passed ? (
+                <CheckCircle className="w-10 h-10 text-green-600" />
+              ) : (
+                <XCircle className="w-10 h-10 text-red-600" />
+              )}
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold">
+              {result.passed ? getFinalExamText('passed', courseLanguage) : getFinalExamText('notPassed', courseLanguage)}
+            </h2>
+            <p className="text-5xl sm:text-6xl font-bold tabular-nums">
+              {result.score}%
+            </p>
+            <p className="text-sm opacity-90">{getFinalExamText('score', courseLanguage)}</p>
+            <div className="flex flex-col sm:flex-row gap-3 w-full pt-2">
+              <button
+                onClick={() => {
+                  setResult(null);
+                  loadEntitlement();
+                }}
+                className="min-h-[44px] flex-1 px-4 py-3 rounded-lg font-bold bg-brand-accent text-brand-black hover:opacity-90 transition-opacity"
+              >
+                {getFinalExamText('refreshStatus', courseLanguage)}
+              </button>
+              <button
+                onClick={() => router.push(`/${courseLanguage}/courses/${courseId}`)}
+                className="min-h-[44px] flex-1 px-4 py-3 rounded-lg font-bold bg-brand-darkGrey text-brand-white hover:opacity-90 transition-opacity"
+              >
+                {getFinalExamText('backToCourseButton', courseLanguage)}
+              </button>
+            </div>
           </div>
         </div>
       )}

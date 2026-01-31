@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:45:21.963Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_16",
+  "title": "Zárás – Vezesd le a döntési folyamatot",
+  "content": "<h1>Zárás – Vezesd le a döntési folyamatot</h1>\n<p><em>A zárás nem nyomás, hanem egyértelmű döntési útvonal.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Készítesz Mutual Action Plan-t (közös akcióterv) egy aktív dealhez.</li>\n  <li>Meghatározod a végső stage kilépési feltételeit.</li>\n  <li>Megállítod a “talán” kimenetet konkrét lépésekkel.</li>\n</ul>\n<hr />\n<h2>Mutual Action Plan (MAP)</h2>\n<ol>\n  <li>Ki dönt és ki ír alá</li>\n  <li>Döntési kritériumok</li>\n  <li>Bizonyíték lépések (pilot, referencia, security)</li>\n  <li>Commercial lépések (terms, procurement)</li>\n  <li>Dátum + felelős minden lépéshez</li>\n</ol>\n<hr />\n<h2>Gyakorlat (vezetett, 10–15 perc)</h2>\n<ol>\n  <li>Válassz egy késői stage deal-t.</li>\n  <li>Írj 6 lépést dátummal és felelőssel.</li>\n  <li>Küldd el a MAP-et táblázatként a következő follow-upban.</li>\n</ol>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Van MAP-em.</li>\n  <li>Van stage kilépési feltétel.</li>\n  <li>Döntést ütemezek, nem “check-in”-t.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 16. nap: Zárás",
+  "emailBody": "<h1>Sales Productivity 30 – 16. nap</h1>\n<p>Zárj tisztán: Mutual Action Plan és konkrét döntési lépések.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

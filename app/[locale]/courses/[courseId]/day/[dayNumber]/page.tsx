@@ -518,19 +518,19 @@ export default function DailyLessonPage({
   }
 
   return (
-    <div className="min-h-screen bg-brand-black" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="min-h-screen bg-brand-black pb-safe" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
       {/* Header */}
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 py-4 sm:py-6">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0">
               <Logo size="sm" showText={false} linkTo={session?.user ? "/dashboard" : "/"} className="flex-shrink-0" />
               <LocaleLink
                 href={`/${courseLanguage}/courses/${courseId}`}
-                className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
+                className="min-h-[44px] inline-flex items-center gap-2 text-brand-white hover:text-brand-accent truncate"
               >
-                <ArrowLeft className="w-5 h-5" />
-                {getDayPageText('backToCourse', courseLanguage)}
+                <ArrowLeft className="w-5 h-5 flex-shrink-0" />
+                <span className="truncate">{getDayPageText('backToCourse', courseLanguage)}</span>
               </LocaleLink>
             </div>
             <div className="flex flex-col items-end gap-1">
@@ -548,9 +548,9 @@ export default function DailyLessonPage({
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10 py-10">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-10">
         {/* Lesson Header */}
-        <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg mb-8">
+        <div className="bg-brand-white rounded-2xl p-4 sm:p-6 lg:p-8 border-2 border-brand-accent shadow-lg mb-6 sm:mb-8">
           <div className="flex items-start justify-between mb-5">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
@@ -559,7 +559,7 @@ export default function DailyLessonPage({
                 ) : !lesson.isUnlocked ? (
                   <Lock className="w-6 h-6 text-brand-darkGrey" />
                 ) : null}
-                <h1 className="text-4xl font-bold text-brand-black leading-tight">{lesson.title}</h1>
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-black leading-tight break-words">{lesson.title}</h1>
               </div>
               {!lesson.isUnlocked && (
                 <div className="bg-brand-darkGrey/20 border border-brand-darkGrey rounded-lg p-3 mt-3">
@@ -589,14 +589,14 @@ export default function DailyLessonPage({
         {lesson.isUnlocked ? (
           <>
             {/* Actions - Moved to top */}
-            <div className="bg-brand-white rounded-2xl p-6 border-2 border-brand-accent shadow-lg mb-8">
+            <div className="bg-brand-white rounded-2xl p-4 sm:p-6 border-2 border-brand-accent shadow-lg mb-6 sm:mb-8">
               <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-4">
                 {/* Left: Previous Day */}
                 <div className="flex-1 flex justify-start">
                   {navigation?.previous && (
                     <LocaleLink
                       href={`/${courseLanguage}/courses/${courseId}/day/${navigation.previous.day}`}
-                      className="flex items-center justify-center gap-2 bg-brand-darkGrey text-brand-white px-6 py-3 rounded-lg font-bold hover:bg-brand-secondary-700 transition-colors w-full"
+                      className="min-h-[44px] flex items-center justify-center gap-2 bg-brand-darkGrey text-brand-white px-6 py-3 rounded-lg font-bold hover:bg-brand-secondary-700 transition-colors w-full touch-manipulation"
                     >
                       <ArrowLeft className="w-5 h-5" />
                       {getDayPageText('previousDay', courseLanguage)}
@@ -610,7 +610,7 @@ export default function DailyLessonPage({
                   {lesson.quizConfig?.enabled && !lesson.isCompleted && (
                     <LocaleLink
                       href={`/${courseLanguage}/courses/${courseId}/day/${dayNumber}/quiz`}
-                      className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold transition-colors text-base whitespace-nowrap ${
+                      className={`min-h-[44px] min-w-[44px] flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold transition-colors text-base whitespace-nowrap touch-manipulation ${
                         lesson.quizConfig.required && !quizPassed
                           ? 'bg-brand-accent text-brand-black hover:bg-brand-primary-400 px-7 py-3.5 w-full'
                           : 'bg-brand-white border-2 border-brand-accent text-brand-black hover:bg-brand-accent/80 w-full'
@@ -628,7 +628,7 @@ export default function DailyLessonPage({
                     <button
                       onClick={handleComplete}
                       disabled={completing}
-                      className="flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-7 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base whitespace-nowrap w-full"
+                      className="min-h-[44px] min-w-[44px] flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-7 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base whitespace-nowrap w-full touch-manipulation"
                     >
                       <CheckCircle className="w-5 h-5" />
                       {completing ? getDayPageText('completing', courseLanguage) : getDayPageText('markAsComplete', courseLanguage)}
@@ -649,7 +649,7 @@ export default function DailyLessonPage({
                   {navigation?.next && (
                     <LocaleLink
                       href={`/${courseLanguage}/courses/${courseId}/day/${navigation.next.day}`}
-                      className="flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors w-full"
+                      className="min-h-[44px] flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors w-full touch-manipulation"
                     >
                       {getDayPageText('nextDay', courseLanguage)}
                       <ArrowRight className="w-5 h-5" />
@@ -664,9 +664,9 @@ export default function DailyLessonPage({
               )}
             </div>
 
-            <div className="bg-brand-white rounded-2xl p-10 border-2 border-brand-accent shadow-lg mb-8">
+            <div className="bg-brand-white rounded-2xl p-6 sm:p-10 border-2 border-brand-accent shadow-lg mb-6 sm:mb-8">
               <div
-                className="prose prose-xl lesson-prose max-w-none text-brand-black"
+                className="prose prose-base sm:prose-lg lesson-prose max-w-none text-brand-black"
                 dangerouslySetInnerHTML={{ __html: lesson.content }}
               />
               <ContentVoteWidget
@@ -691,7 +691,7 @@ export default function DailyLessonPage({
                 {lesson.assessmentGameRoute ? (
                   <LocaleLink
                     href={`${lesson.assessmentGameRoute}?courseId=${courseId}&lessonDay=${dayNumber}&assessment=true`}
-                    className="inline-block bg-brand-accent text-brand-black px-7 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-base"
+                    className="min-h-[44px] inline-flex items-center justify-center bg-brand-accent text-brand-black px-7 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-base touch-manipulation"
                   >
                     {getDayPageText('playAssessment', courseLanguage)}
                   </LocaleLink>
@@ -724,7 +724,7 @@ export default function DailyLessonPage({
                         alert(getDayPageText('failedToStartAssessment', courseLanguage));
                       }
                     }}
-                    className="inline-block bg-brand-accent text-brand-black px-7 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-base"
+                    className="min-h-[44px] inline-flex items-center justify-center bg-brand-accent text-brand-black px-7 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-base touch-manipulation"
                   >
                     {getDayPageText('playAssessment', courseLanguage)}
                   </button>
@@ -742,7 +742,7 @@ export default function DailyLessonPage({
               {navigation?.previous && (
                 <LocaleLink
                   href={`/${courseLanguage}/courses/${courseId}/day/${navigation.previous.day}`}
-                  className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+                  className="min-h-[44px] inline-flex items-center justify-center bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors touch-manipulation"
                 >
                   {getDayPageText('goToDay', courseLanguage, { day: navigation.previous.day })}
                 </LocaleLink>

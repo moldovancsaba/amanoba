@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:44:15.802Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_19",
+  "title": "Bővítés (upsell) – Bizonyítékból, nem nyomásból",
+  "content": "<h1>Bővítés (upsell) – Bizonyítékból, nem nyomásból</h1>\n<p><em>A bővítés a következő problémát oldja meg. Trigger + bizonyíték + kis kockázatú next step.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Azonosítod a bővítési triggereket és szereplőket.</li>\n  <li>Megfogalmazol egy bővítési hipotézist (probléma → érték → bizonyíték).</li>\n  <li>Kis kockázatú validációs lépést javasolsz.</li>\n</ul>\n<hr />\n<h2>Triggerek</h2>\n<ul>\n  <li>Új csapat / régió / termékvonal</li>\n  <li>Új KPI kezdeményezés</li>\n  <li>Compliance/security igény</li>\n  <li>Magas adoptáció egy csapatban → terjesztés</li>\n</ul>\n<hr />\n<h2>Gyakorlat (vezetett, 10–15 perc)</h2>\n<ol>\n  <li>Válassz 1 “jó adoptációjú” accountot.</li>\n  <li>Írd le: “Ha kiterjesztjük X-re, elérjük Y-t, mert Z bizonyíték.”</li>\n  <li>Határozd meg a legkisebb következő lépést (pilot, workshop, add-on).</li>\n</ol>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Trigger alapján dolgozom.</li>\n  <li>Bizonyítékra építek.</li>\n  <li>Kis lépéssel validálok.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 19. nap: Bővítés (upsell)",
+  "emailBody": "<h1>Sales Productivity 30 – 19. nap</h1>\n<p>Növekedj accounton belül: trigger + bizonyíték + kis kockázatú következő lépés.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

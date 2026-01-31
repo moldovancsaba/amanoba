@@ -49,9 +49,9 @@ Completed items (formerly 1–4, 6–11) are not listed here; they live only in 
 |---|-------------|--------|
 | 1 | ~~Improve course cards~~ — Done: vote aggregate (↑/↓) on cards; layout already responsive. | ✅ |
 | 2 | ~~Improve lesson viewer and progress visualisation~~ — Done: "Day X / Y" + thin progress bar in header. | ✅ |
-| 3 | Improve mobile responsiveness across course/lesson flows. | ⏳ PENDING |
-| 4 | Improve email templates (layout, clarity, branding). | ⏳ PENDING |
-| 5 | Improve assessment result visuals (feedback, scores, explanations). | ⏳ PENDING |
+| 3 | ~~Improve mobile responsiveness across course/lesson flows~~ — Done: responsive title, padding, touch targets (min-h 44px, touch-manipulation) on course/lesson pages. | ✅ |
+| 4 | ~~Improve email templates (layout, clarity, branding)~~ — Done: welcome email with brand line, responsive layout, CTA min-height, system font stack. | ✅ |
+| 5 | ~~Improve assessment result visuals (feedback, scores, explanations)~~ — Done: pass/fail card with icon+score, clearer hierarchy, submit button touch target. | ✅ |
 
 ---
 

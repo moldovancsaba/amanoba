@@ -1,8 +1,8 @@
 # Amanoba
 
-**Current Version**: 2.9.16  
-**Last Updated**: 2026-01-29  
-**Status**: Production Stable — Quiz pipeline tiny-loop; ROADMAP & TASKLIST cleaned; SSO-only auth
+**Current Version**: 2.9.33  
+**Last Updated**: 2026-01-28  
+**Status**: Production Stable — ROADMAP & TASKLIST clean; RELEASE_NOTES current; SSO-only auth
 
 ## 🎓 Overview
 
@@ -146,15 +146,16 @@ Math duel on a Sudoku board with AI opponents (3 difficulty levels), ELO ranking
 
 ## 📖 Documentation
 
-- [ARCHITECTURE.md](./ARCHITECTURE.md) — System architecture and components
-- [TECH_STACK.md](./TECH_STACK.md) — Complete technology stack details
-- [ROADMAP.md](./ROADMAP.md) — Strategic milestones and future plans
-- [TASKLIST.md](./TASKLIST.md) — Active development tasks
-- [RELEASE_NOTES.md](./RELEASE_NOTES.md) — Version changelog
-- [LEARNINGS.md](./LEARNINGS.md) — Implementation insights
-- [WARP.md](./WARP.md) — AI operational guidance
-- [NAMING_GUIDE.md](./NAMING_GUIDE.md) — Naming conventions
-- [CONTRIBUTING.md](./CONTRIBUTING.md) — Contribution guidelines
+- [ARCHITECTURE.md](docs/ARCHITECTURE.md) — System architecture and components
+- [TECH_STACK.md](docs/TECH_STACK.md) — Complete technology stack details
+- [ROADMAP.md](docs/ROADMAP.md) — Future vision and client benefits (no tasks)
+- [TASKLIST.md](docs/TASKLIST.md) — Actionable tasks (no release refs)
+- [RELEASE_NOTES.md](docs/RELEASE_NOTES.md) — Completed work and version changelog
+- [LEARNINGS.md](docs/LEARNINGS.md) — Implementation insights and what to avoid
+- [WARP.md](docs/WARP.md) — AI operational guidance
+- [NAMING_GUIDE.md](docs/NAMING_GUIDE.md) — Naming conventions
+- [CONTRIBUTING.md](docs/CONTRIBUTING.md) — Contribution guidelines
+- [layout_grammar.md](docs/layout_grammar.md) — Layout and structure grammar (content, course, UI)
 
 ## 🔐 Admin Access
 

@@ -158,24 +158,24 @@ export default function GamesLauncher() {
   return (
     <div className="min-h-screen bg-brand-black">
       {/* Why: Header with branding and stats */}
-      <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-4">
+      <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-40 mobile-sticky-header">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
+            <div className="flex items-center gap-3 sm:gap-4">
               <Logo size="sm" showText={false} linkTo="/dashboard" className="flex-shrink-0" />
               <div>
-                <h1 className="text-3xl font-bold text-brand-white flex items-center gap-2">
+                <h1 className="text-2xl sm:text-3xl font-bold text-brand-white flex items-center gap-2">
                   🎮 {tCommon('appName')} {t('title')}
                 </h1>
-                <p className="text-brand-white/80 mt-1">{t('chooseChallenge')}</p>
+                <p className="text-brand-white/80 mt-1 text-sm sm:text-base">{t('chooseChallenge')}</p>
               </div>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold">
+            <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+              <div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold min-h-[44px] inline-flex items-center">
                 Level {playerLevel}
               </div>
               {isPremium && (
-                <div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold">
+                <div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold min-h-[44px] inline-flex items-center">
                   ⭐ Premium
                 </div>
               )}
@@ -185,7 +185,7 @@ export default function GamesLauncher() {
       </header>
 
       {/* Why: Game cards grid */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 pb-safe">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {AVAILABLE_GAMES.map((game) => {
             const available = isGameAvailable(game);

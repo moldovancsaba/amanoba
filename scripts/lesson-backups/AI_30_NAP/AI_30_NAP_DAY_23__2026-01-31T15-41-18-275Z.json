@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:41:19.297Z",
+  "courseId": "AI_30_NAP",
+  "lessonId": "AI_30_NAP_DAY_23",
+  "title": "Landing váz és szöveg",
+  "content": "<h1>Landing váz és szöveg</h1>\n<p><em>Hero → értékajánlat → funkciók → bizonyíték → CTA. 3 variánsban.</em></p>\n\n<hr />\n<h2>Napi cél</h2>\n<ul>\n<li>Landing vázlat a kulcs szekciókkal.</li>\n<li>3 szövegvariáns: rövid, részletes, bullet-first.</li>\n<li>CTA és proof következetesen jelenjen meg.</li>\n</ul>\n\n<hr />\n<h2>Struktúra</h2>\n<ol>\n<li>Hero: cím, alcím, CTA.</li>\n<li>Értékajánlat: 1–2 mondat, proof/példa.</li>\n<li>Funkciók/előnyök: 3–5 bullet.</li>\n<li>Social proof (ha nincs, helyőrző).</li>\n<li>CTA ismétlés.</li>\n<li>FAQ (opcionális).</li>\n</ol>\n\n<hr />\n<h2>Gyakorlat (vezetett)</h2>\n<p>Írd le a terméket/szolgáltatást. Kérj vázlatot a fenti struktúrával, majd 3 szövegvariánst (rövid/részletes/bullet-first).</p>\n\n<h2>Gyakorlat (önálló)</h2>\n<p>Válaszd ki a legjobb variánst, finomítsd: CTA konkretizálása, proof hozzáadása, fölösleges szöveg rövidítése.</p>\n\n<hr />\n<h2>Prompt minta</h2>\n<blockquote>\n<p>Készíts landing vázat és szöveget. Termék: [leírás]. Struktúra: Hero (cím, alcím, CTA), Értékajánlat, 3–5 bullet funkció, Social proof (ha nincs, írj helyőrzőt), CTA. Adj 3 variánst: rövid, részletes, bullet-first. Rövid, tömör, magyar nyelven.</p>\n</blockquote>\n\n<hr />\n<h2>Tipp</h2>\n<ul>\n<li>Kezdj vázlattal, utána kérj szöveget. Ne fordítva.</li>\n<li>CTA legyen konkrét („Próbáld ki ingyen”, „Időpontfoglalás”).</li>\n</ul>",
+  "emailSubject": "30-Day AI Catch-Up – 23. nap: Landing page",
+  "emailBody": "<h1>30-Day AI Catch-Up – 23. nap</h1>\n<h2>Landing váz és szöveg</h2>\n<p>Ma landing vázat és 3 szövegvariánst készítesz (rövid/részletes/bullet-first), erős CTA-val és proof-fal.</p>\n<p><a href=\"http://localhost:3000/courses/AI_30_NAP/day/{{dayNumber}}\">Olvasd el a teljes leckét →</a></p>"
+}

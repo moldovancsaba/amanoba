@@ -1,8 +1,8 @@
 # Amanoba Architecture
 
-**Version**: 2.9.16  
-**Last Updated**: 2026-01-29  
-**Status**: Active - Course System Complete - Certificate System Complete - Payment System Integrated - Google Analytics with Consent Mode v2 - Course Progress Fixed
+**Version**: 2.9.33  
+**Last Updated**: 2026-01-28  
+**Status**: Active — Course system, certificate system, payment, GA consent mode v2, course progress; course achievements/leaderboards, content voting, certificate enhancements (v2.9.33)
 
 ---
 
@@ -794,11 +794,13 @@ X-RateLimit-Reset: 1696000000
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| API P95 Latency | < 300ms | TBD |
-| Page Load (LCP) | < 2s | TBD |
-| Error Rate | < 0.5% | TBD |
-| Lighthouse Score | > 90 | TBD |
-| PWA Installability | 100% | TBD |
+| API P95 Latency | < 300ms | — |
+| Page Load (LCP) | < 2s | — |
+| Error Rate | < 0.5% | — |
+| Lighthouse Score | > 90 | — |
+| PWA Installability | 100% | — |
+
+_Current values: to be filled when baseline is measured. Requirement: see `docs/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md` item 1._
 
 ---
 

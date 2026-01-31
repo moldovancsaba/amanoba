@@ -162,6 +162,11 @@
   }
 }
 
+/* Safe area bottom padding for notched devices (use class pb-safe on main/page containers) */
+.pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
+}
+
 /* Touch gestures */
 .swipeable {
   touch-action: pan-y pinch-zoom;

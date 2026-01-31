@@ -31,17 +31,17 @@ Operating docs (workflow + logging):
 
 ---
 
-## Current snapshot (latest audit — 2026-01-31T15:09:11Z)
+## Current snapshot (latest audit — 2026-01-31T16:06:43Z)
 
 - Active courses: **25**
 - Active lessons: **720**
 - **Minimum required (at least)**: 720 × 7 = **5040**
 - Missing-to-minimum:
-  - Lessons below 7: **65**
-  - Questions missing (Σ max(0, 7 - poolSize)): **173**
+  - Lessons below 7: **0**
+  - Questions missing (Σ max(0, 7 - poolSize)): **0**
 - QA status (from NEW2OLD, latest entry per questionId):
-  - Checked total: **6521**
-  - Checked and passed: **6521**
+  - Checked total: **6845**
+  - Checked and passed: **6845**
   - Checked but failing (latest): **0**
   - Questions left to check: **0**
 
@@ -52,9 +52,9 @@ npx tsx --env-file=.env.local scripts/quiz-item-qa/audit-quiz-coverage.ts
 
 ---
 
-## TODO 1 — Eliminate missing questions (65 lessons, 173 questions)
+## ✅ DONE — Eliminate missing questions (0 lessons, 0 questions)
 
-Goal: `questionsMissing = 0` and `lessonsBelowMin = 0`.
+Goal achieved: `questionsMissing = 0` and `lessonsBelowMin = 0` (see snapshot above).
 
 1) Generate a fresh missing-lessons list (don’t rely on stale counts).
 2) For each affected lesson (course-by-course):
@@ -75,18 +75,7 @@ npx tsx --env-file=.env.local scripts/quiz-quality-pipeline.ts --course <COURSE_
 npx tsx --env-file=.env.local scripts/quiz-quality-pipeline.ts --course <COURSE_ID> --min-lesson-score 70
 ```
 
-### Current blocker (as of 2026-01-31)
-
-Dry-run pipeline results show every lesson that is currently below the 7-question minimum is blocked by the **lesson quality / language integrity gate** (`--min-lesson-score 70`), so quiz creation must wait until those lessons are refined (do not invent content).
-
-Generated refinement task reports:
-- `scripts/reports/quiz-quality-pipeline__2026-01-31T13-32-12-937Z__lesson-refine-tasks.md` (SALES_PRODUCTIVITY_30_RU)
-- `scripts/reports/quiz-quality-pipeline__2026-01-31T13-33-29-957Z__lesson-refine-tasks.md` (GEO_SHOPIFY_30_EN)
-- `scripts/reports/quiz-quality-pipeline__2026-01-31T13-34-46-211Z__lesson-refine-tasks.md` (AI_30_NAP)
-- `scripts/reports/quiz-quality-pipeline__2026-01-31T13-35-14-347Z__lesson-refine-tasks.md` (SALES_PRODUCTIVITY_30_HU)
-- `scripts/reports/quiz-quality-pipeline__2026-01-31T13-34-07-210Z__lesson-refine-tasks.md` (B2B_SALES_2026_30_EN)
-
-Acceptance criteria:
+Acceptance criteria met:
 - Every active lesson has `>= 7` active course-specific questions.
 - Re-run `audit-quiz-coverage.ts` and confirm `questionsMissing = 0`.
 

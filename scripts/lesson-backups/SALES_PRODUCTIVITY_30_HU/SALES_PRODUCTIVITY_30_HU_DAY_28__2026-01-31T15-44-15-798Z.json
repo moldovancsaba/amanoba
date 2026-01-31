@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:44:15.803Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_28",
+  "title": "Értékesítési kézikönyv – Tedd átadhatóvá a folyamatot",
+  "content": "<h1>Értékesítési kézikönyv – Tedd átadhatóvá a folyamatot</h1>\n<p><em>A kézikönyv csökkenti a véletlent. Dokumentált minimum standardok és sablonok.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Dokumentálod az ICP-t, stage-eket és sablonokat.</li>\n  <li>Összeraksz egy “minimum kézikönyvet”.</li>\n  <li>Leírod a nem-alkuképes minőségi szabályokat.</li>\n</ul>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Van playbook vázam.</li>\n  <li>Újrahasznosítható sablonjaim vannak.</li>\n  <li>Explicit minőségi standardok vannak.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 28. nap: Kézikönyv",
+  "emailBody": "<h1>Sales Productivity 30 – 28. nap</h1>\n<p>Dokumentáld a folyamatot, hogy skálázható és átadható legyen.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

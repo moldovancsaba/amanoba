@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:45:22.800Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_25",
+  "title": "Időmenedzsment salesben – Védd a fókuszt",
+  "content": "<h1>Időmenedzsment salesben – Védd a fókuszt</h1>\n<p><em>Termelékenység = fókusz blokkok + admin batching + pipeline prioritás.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Heti sablont készítesz 3 fókusz blokkal.</li>\n  <li>Admin munkát batch-elsz.</li>\n  <li>“Mai lista” a pipeline hatás alapján.</li>\n</ul>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Vannak védett fókusz blokkok.</li>\n  <li>Batch-elem az admin feladatokat.</li>\n  <li>Tudom, mi a legfontosabb ma.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 25. nap: Időmenedzsment",
+  "emailBody": "<h1>Sales Productivity 30 – 25. nap</h1>\n<p>Fókusz blokkok, admin batching, és pipeline hatás szerinti priorizálás.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

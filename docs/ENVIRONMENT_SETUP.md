@@ -2,7 +2,7 @@
 
 **Project**: Amanoba  
 **Version**: 1.0.0  
-**Last Updated**: 2025-10-10T10:58:22.000Z
+**Last Updated**: 2026-01-28
 
 ---
 

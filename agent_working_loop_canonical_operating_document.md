@@ -6,6 +6,47 @@
 
 ---
 
+# 🧭 Reminder — Use This When Your Context Is Reset
+
+**What this document is:** The single source of truth for agent development on Amanoba. If you have no memory of prior work or this repo, read this block and the two sections below first.
+
+**When to use it:** Every time you open this document; after a context wipe, new chat, or long pause; before planning, coding, or delivering.
+
+**Rules at a glance:**
+- **Rollback plan** required for every delivery (baseline + exact steps + verification). No exceptions.
+- **Documentation = code:** Update docs with every change. No placeholders, no TBD. If it’s not documented, it’s not done.
+- **Single-place rule:** ROADMAP = vision only. TASKLIST = what to do (no release refs). RELEASE_NOTES = what’s done. Do not duplicate tasks across the three.
+- **Layout / content / course / UI:** Read **`docs/layout_grammar.md`** first. For course/quiz quality work, read the SSOT set in “Mandatory Documentation for Course/Quiz Quality Work” below.
+- **Auth / NextAuth / service worker:** Do not modify without explicit approval. See “Authentication System (CRITICAL)” later in this document.
+
+---
+
+# How to Start (Cold Start)
+
+Do this when you are **starting fresh** (new session, new task, or no prior context):
+
+1. **Read this document** at least: this Reminder, “How to come back to the loop”, and “Ground Zero Prerequisite”.
+2. **Read `docs/TASKLIST.md`** — that is your list of actionable tasks. Pick the next open item.
+3. **Read `docs/ROADMAP.md`** (skim or full) for context — why we are building what we are building.
+4. **If the work touches content, course, lesson, quiz, or UI layout:** Read **`docs/layout_grammar.md`** before coding.
+5. **If the work touches courses, quizzes, or content quality:** Read the SSOT set in “Mandatory Documentation for Course/Quiz Quality Work” in this document.
+6. **Define your rollback plan** before making changes: identify current baseline (e.g. `git log -1 --oneline`), exact rollback steps, and how you will verify rollback.
+7. **Then start** with the next logical step. If anything is unclear, ask the user. Never assume.
+
+---
+
+# How to Come Back to the Loop (After Context Loss)
+
+Do this when you **lose context** (brain reset, new turn, or “where was I?”):
+
+1. **Re-anchor:** Read the **Reminder** block above and **Ground Zero Prerequisite** (rollback plan). Treat this doc as the active rulebook from this moment.
+2. **Re-orient:** Open **`docs/TASKLIST.md`** — what is the next open task? Open **`docs/RELEASE_NOTES.md`** (top entries) to see what was last delivered.
+3. **Re-scope:** If you were in the middle of something, re-read the task text and any linked feature doc or playbook. Run `git status` and `git log -3 --oneline` to see what was in progress.
+4. **Re-apply rules:** Documentation = code (update docs when you change code). Single-place rule (done → RELEASE_NOTES only; remove from TASKLIST). Layout/structure → **`docs/layout_grammar.md`**.
+5. **Then continue:** Proceed with the next logical step. If anything is not 100% clear, ask the user. Never assume. Never proceed on uncertainty.
+
+---
+
 # Ground Zero Prerequisite (Non-Negotiable)
 
 MANDATORY RULE: Every time you open or receive this document, you must immediately treat it as the active rulebook for the current work. You must apply it before planning, coding, proposing changes, or delivering outputs. Skipping, delaying, or partially applying these rules is prohibited.
@@ -153,6 +194,11 @@ TEAM:
 
 ## 📚 Table of Contents
 
+### Context reset (read these first)
+- [Reminder — Use This When Your Context Is Reset](#-reminder--use-this-when-your-context-is-reset)
+- [How to Start (Cold Start)](#how-to-start-cold-start)
+- [How to Come Back to the Loop (After Context Loss)](#how-to-come-back-to-the-loop-after-context-loss)
+
 ### Core Documentation
 - [Current Feature/Bug Document](#current-feature-bug-document)
 - [Documentation Reference](#documentation-reference)
@@ -164,7 +210,7 @@ TEAM:
 
 **Source of truth**: **`docs/ROADMAP.md`** = future vision and client benefits. **`docs/TASKLIST.md`** = actionable tasks to do (broken down from roadmap). **`docs/RELEASE_NOTES.md`** = completed work only. This section is a pointer; read TASKLIST and ROADMAP for current state.
 
-**As of last update**: Current version **v2.9.33** (see RELEASE_NOTES). TASKLIST holds remaining open items only: optional email A/B and MailerLite/ActiveCampaign (Task 5). Tasks 1–4, 6–11 are done and recorded in RELEASE_NOTES. ROADMAP holds future functions and client benefits only; completed work is listed in the single “Already delivered” line and in RELEASE_NOTES only.
+**As of last update**: Current version **v2.9.33** (see RELEASE_NOTES). TASKLIST holds remaining open items only: optional email A/B and MailerLite/ActiveCampaign. Completed work is not listed in TASKLIST; it lives only in RELEASE_NOTES. ROADMAP holds future functions and client benefits only; completed work is listed in the single “Already delivered” line and in RELEASE_NOTES only.
 
 **When starting work**:
 1. Read **`docs/TASKLIST.md`** for the next action items to do.

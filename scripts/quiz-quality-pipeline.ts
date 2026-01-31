@@ -577,10 +577,13 @@ async function main() {
       let fillAttempts = 0;
       const maxFillAttempts = (remainingNeededTotal + 2) * MAX_FILL_ATTEMPTS_PER_SLOT;
 
-      while ((remainingNeededTotal > 0 || remainingNeededApp > 0 || remainingNeededCritical > 0) && fillAttempts < maxFillAttempts) {
+      // IMPORTANT: `CRITICAL_THINKING >= 2` is a recommendation (warning), not a hard gate.
+      // We must never block reaching the hard minimum pool size (>=7 total, >=5 application) just because
+      // we can't immediately find a critical-thinking candidate.
+      while ((remainingNeededTotal > 0 || remainingNeededApp > 0) && fillAttempts < maxFillAttempts) {
         fillAttempts++;
-        const preferApp = remainingNeededApp > 0;
-        const preferCritical = !preferApp && remainingNeededCritical > 0;
+        const mustBeApplication = remainingNeededApp > 0;
+        const wouldBeNiceToAddCritical = !mustBeApplication && remainingNeededCritical > 0;
         const candidates = generateContentBasedQuestions(
           lesson.dayNumber,
           lesson.title || '',
@@ -592,37 +595,36 @@ async function main() {
           { seed: `${course.courseId}::${lesson.lessonId}::fill::${stamp}::${fillAttempts}` }
         );
         let added = false;
-        for (const q of candidates) {
+        const tryAdd = async (candidate: any) => {
           const v = validateQuestionQuality(
-            q.question,
-            q.options,
-            q.questionType as any,
-            q.difficulty as any,
+            candidate.question,
+            candidate.options,
+            candidate.questionType as any,
+            candidate.difficulty as any,
             course.language,
             lesson.title,
             lesson.content
           );
-          if (!v.isValid) continue;
-          const key = normalizeQuestionText(q.question);
-          if (!key || existingTextKeys.has(key) || courseSeenTextKeys.has(key)) continue;
-          const sig = optionSig(q.options);
-          if (!sig || existingOptionSigs.has(sig)) continue;
-          if (preferApp && q.questionType !== 'application') continue;
-          if (preferCritical && q.questionType !== 'critical-thinking') continue;
+          if (!v.isValid) return false;
+          const key = normalizeQuestionText(candidate.question);
+          if (!key || existingTextKeys.has(key) || courseSeenTextKeys.has(key)) return false;
+          const sig = optionSig(candidate.options);
+          if (!sig || existingOptionSigs.has(sig)) return false;
+          if (mustBeApplication && candidate.questionType !== 'application') return false;
           if (!DRY_RUN) {
             await QuizQuestion.insertMany([
               {
                 uuid: randomUUID(),
                 lessonId: lesson.lessonId,
                 courseId: course._id,
-                question: q.question,
-                options: q.options,
-                correctIndex: q.correctIndex,
-                difficulty: q.difficulty,
-                category: q.category ?? 'Course Specific',
+                question: candidate.question,
+                options: candidate.options,
+                correctIndex: candidate.correctIndex,
+                difficulty: candidate.difficulty,
+                category: candidate.category ?? 'Course Specific',
                 isCourseSpecific: true,
-                questionType: q.questionType as string,
-                hashtags: q.hashtags,
+                questionType: candidate.questionType as string,
+                hashtags: candidate.hashtags,
                 isActive: true,
                 displayOrder: nextDisplayOrder++,
                 showCount: 0,
@@ -640,13 +642,31 @@ async function main() {
           existingTextKeys.add(key);
           existingOptionSigs.add(sig);
           courseSeenTextKeys.add(key);
-          currentValid.push({ ...q, displayOrder: nextDisplayOrder - 1, _id: null });
+          currentValid.push({ ...candidate, displayOrder: nextDisplayOrder - 1, _id: null });
           insertedCount++;
-          if (q.questionType === 'application' && remainingNeededApp > 0) remainingNeededApp--;
-          if (q.questionType === 'critical-thinking' && remainingNeededCritical > 0) remainingNeededCritical--;
+          if (candidate.questionType === 'application' && remainingNeededApp > 0) remainingNeededApp--;
+          if (candidate.questionType === 'critical-thinking' && remainingNeededCritical > 0) remainingNeededCritical--;
           if (remainingNeededTotal > 0) remainingNeededTotal--;
-          added = true;
-          break;
+          return true;
+        };
+
+        // If we *want* a critical-thinking question, try to pick one first; otherwise accept any valid candidate.
+        if (wouldBeNiceToAddCritical) {
+          for (const q of candidates) {
+            if (q.questionType !== 'critical-thinking') continue;
+            if (await tryAdd(q)) {
+              added = true;
+              break;
+            }
+          }
+        }
+        if (!added) {
+          for (const q of candidates) {
+            if (await tryAdd(q)) {
+              added = true;
+              break;
+            }
+          }
         }
         if (!added) continue;
       }

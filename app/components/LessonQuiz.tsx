@@ -231,7 +231,7 @@ export default function LessonQuiz({
             <button
               onClick={handleSubmit}
               disabled={Object.keys(answers).length < questions.length}
-              className="px-6 py-3 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="min-h-[44px] px-6 py-3 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
             >
               {t('submitQuiz')}
             </button>
@@ -239,38 +239,48 @@ export default function LessonQuiz({
         </>
       ) : result ? (
         <div className="text-center">
-          <div className={`mb-6 ${result.passed ? 'text-green-600' : 'text-red-600'}`}>
-            {result.passed ? (
-              <CheckCircle className="w-16 h-16 mx-auto mb-4" />
-            ) : (
-              <XCircle className="w-16 h-16 mx-auto mb-4" />
-            )}
-            <h3 className="text-3xl font-bold mb-2">
-              {result.passed ? t('quizPassed') : t('quizFailed')}
-            </h3>
-            <p className="text-2xl font-bold">
-              {t('quizScore', { score: result.score, total: result.total, percentage: result.percentage })}
-            </p>
-            <p className="text-sm mt-2 text-brand-darkGrey">
-              {t('quizRequiredScore', { threshold: quizConfig.successThreshold })}
-            </p>
+          <div
+            className={`rounded-xl border-2 p-6 mb-4 text-left ${
+              result.passed
+                ? 'bg-green-50 dark:bg-green-950/30 border-green-500 text-green-800 dark:text-green-200'
+                : 'bg-red-50 dark:bg-red-950/30 border-red-500 text-red-800 dark:text-red-200'
+            }`}
+          >
+            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 gap-3">
+              {result.passed ? (
+                <CheckCircle className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 mx-auto sm:mx-0" aria-hidden />
+              ) : (
+                <XCircle className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 mx-auto sm:mx-0" aria-hidden />
+              )}
+              <div className="flex-1 min-w-0">
+                <h3 className="text-xl sm:text-2xl font-bold mb-1">
+                  {result.passed ? t('quizPassed') : t('quizFailed')}
+                </h3>
+                <p className="text-lg sm:text-xl font-bold opacity-90">
+                  {t('quizScore', { score: result.score, total: result.total, percentage: result.percentage })}
+                </p>
+                <p className="text-sm mt-1 opacity-80">
+                  {t('quizRequiredScore', { threshold: quizConfig.successThreshold })}
+                </p>
+              </div>
+            </div>
           </div>
 
           {result.passed ? (
-            <div className="bg-green-50 border-2 border-green-500 rounded-lg p-4 mb-4">
-              <p className="text-green-800 font-bold">
+            <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-500 rounded-xl p-5 mb-4 text-left">
+              <p className="text-green-800 dark:text-green-200 font-bold">
                 {t('quizPassedMessage')}
               </p>
             </div>
           ) : (
-            <div className="bg-red-50 border-2 border-red-500 rounded-lg p-4 mb-4">
-              <p className="text-red-800 font-bold mb-2">
+            <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-500 rounded-xl p-5 mb-4 text-left">
+              <p className="text-red-800 dark:text-red-200 font-bold mb-2">
                 {t('quizFailedMessage', { threshold: quizConfig.successThreshold })}
               </p>
               {canRetake && (
                 <button
                   onClick={handleRetake}
-                  className="mt-4 px-6 py-3 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors flex items-center gap-2 mx-auto"
+                  className="min-h-[44px] inline-flex items-center justify-center gap-2 mt-2 px-6 py-3 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors touch-manipulation"
                 >
                   <RotateCcw className="w-5 h-5" />
                   {t('retakeQuiz')}

@@ -238,15 +238,17 @@ PHASE N: [COURSE NAME]
 
 | Phase | Course | Lessons | Languages | Audit Units | Questions | Est. Duration |
 |-------|--------|---------|-----------|-------------|-----------|----------------|
-| 1 | Productivity 2026 | 30 | 10 | 300 | 2,100 | [TBD] |
-| 2 | [Course 2] | 30 | ~10 | 300 | 2,100 | [TBD] |
-| 3 | [Course 3] | 30 | ~10 | 300 | 2,100 | [TBD] |
-| 4 | [Course 4] | 30 | ~10 | 300 | 2,100 | [TBD] |
-| 5 | [Course 5] | 30 | ~10 | 300 | 2,100 | [TBD] |
-| 6 | [Course 6] | 30 | ~10 | 300 | 2,100 | [TBD] |
-| 7 | [Course 7] | 30 | ~10 | 300 | 2,100 | [TBD] |
-| 8 | [Course 8] | 30 | ~10 | 300 | 2,100 | [TBD] |
-| | **TOTAL** | **240** | **~80** | **~2,400** | **~16,800** | **[TBD]** |
+| 1 | Productivity 2026 | 30 | 10 | 300 | 2,100 | — |
+| 2 | [Course 2] | 30 | ~10 | 300 | 2,100 | — |
+| 3 | [Course 3] | 30 | ~10 | 300 | 2,100 | — |
+| 4 | [Course 4] | 30 | ~10 | 300 | 2,100 | — |
+| 5 | [Course 5] | 30 | ~10 | 300 | 2,100 | — |
+| 6 | [Course 6] | 30 | ~10 | 300 | 2,100 | — |
+| 7 | [Course 7] | 30 | ~10 | 300 | 2,100 | — |
+| 8 | [Course 8] | 30 | ~10 | 300 | 2,100 | — |
+| | **TOTAL** | **240** | **~80** | **~2,400** | **~16,800** | — |
+
+_Est. Duration: to be filled when rollout is decided. Requirement: see `docs/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md` item 6._
 
 ---
 

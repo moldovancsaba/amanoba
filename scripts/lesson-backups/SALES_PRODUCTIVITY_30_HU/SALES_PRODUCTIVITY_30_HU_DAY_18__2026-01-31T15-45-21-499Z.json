@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:45:22.414Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_18",
+  "title": "Account menedzsment – Tedd láthatóvá az értéket",
+  "content": "<h1>Account menedzsment – Tedd láthatóvá az értéket</h1>\n<p><em>A retention folyamat. Mérd az eredményt és tarts rendszeres érték review-t.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Készítesz egyszerű “account health” pontszámot.</li>\n  <li>Havi érték review-t vezetsz (QBR-lite).</li>\n  <li>Figyeled az adoptációt és a blokkoló tényezőket.</li>\n</ul>\n<hr />\n<h2>Account health (0–10)</h2>\n<ul>\n  <li>Adoptáció (0–3)</li>\n  <li>Üzleti kimenet (0–3)</li>\n  <li>Stakeholder aktivitás (0–2)</li>\n  <li>Support / kockázati jelzések (0–2)</li>\n</ul>\n<hr />\n<h2>Gyakorlat (vezetett, 10–15 perc)</h2>\n<ol>\n  <li>Definiáld a 4 kategóriát és pontozást.</li>\n  <li>Pontozz 3 accountot.</li>\n  <li>Válassz 1 akciót az “at risk” accountokra.</li>\n</ol>\n<hr />\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Gyorsan tudok health-et pontozni.</li>\n  <li>Van havi érték review rutinom.</li>\n  <li>Proaktív vagyok, nem reaktív.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 18. nap: Account menedzsment",
+  "emailBody": "<h1>Sales Productivity 30 – 18. nap</h1>\n<p>Tartsd láthatóvá az értéket: health score és havi érték review.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}

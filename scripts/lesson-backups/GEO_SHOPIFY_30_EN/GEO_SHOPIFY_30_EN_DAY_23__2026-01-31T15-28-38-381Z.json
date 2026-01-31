@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:28:39.857Z",
+  "courseId": "GEO_SHOPIFY_30_EN",
+  "lessonId": "GEO_SHOPIFY_30_EN_DAY_23",
+  "title": "Comparison pages: honest tradeoffs",
+  "content": "<h1>Comparison pages: honest tradeoffs</h1>\n<p><em>Create comparisons that AI can quote without distortion.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Build one comparison table for 2–3 products.</li>\n<li>Include who it’s for / not for.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>AI often gets “X vs Y”: provide real data.</li>\n<li>Honesty lowers returns.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Table: key features, price, policy, who for/not, PDP link.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: “X stable, Y lighter; X pricier; Y less warranty.”</li>\n<li><strong>Poor</strong>: “Both are awesome!” with no data.</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Create a table for 2–3 products: features, price, policy, who for/not, PDP link.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Make another for a different pair.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Table done with links.</li>\n<li>Who for/not included.</li>\n<li>Policy/price accurate.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Copilot merchant blog: <a href=\"https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/\" target=\"_blank\" rel=\"noreferrer\">https://www.microsoft.com/en-us/microsoft-copilot/blog/2025/04/18/introducing-the-copilot-merchant-program/</a></li>\n</ul>",
+  "emailSubject": "GEO Shopify – Day 23: Comparison pages",
+  "emailBody": "<h1>GEO Shopify – Day 23</h1>\n<h2>Comparison pages</h2>\n<p>Today you build an honest comparison with who for/not and PDP links.</p>\n<p><a href=\"http://localhost:3000/courses/GEO_SHOPIFY_30_EN/day/{{dayNumber}}\">Read the lesson →</a></p>"
+}

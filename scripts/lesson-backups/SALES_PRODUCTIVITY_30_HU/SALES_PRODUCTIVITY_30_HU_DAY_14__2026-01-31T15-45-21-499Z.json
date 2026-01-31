@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T15:45:21.741Z",
+  "courseId": "SALES_PRODUCTIVITY_30_HU",
+  "lessonId": "SALES_PRODUCTIVITY_30_HU_DAY_14",
+  "title": "Ajánlatírás – Tedd könnyűvé a következő lépést",
+  "content": "<h1>Ajánlatírás – Tedd könnyűvé a következő lépést</h1>\n<p><em>A jó ajánlat döntéstámogató dokumentum: kimenet, terv, bizonyíték, kockázatkezelés.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul>\n  <li>Összeraksz egy újrahasznosítható 1 oldalas ajánlat sablont.</li>\n  <li>A scope-ot a siker-kritériumokhoz és idővonalhoz kötöd.</li>\n  <li>Opciókkal és feltételezésekkel csökkented a kockázatot.</li>\n</ul>\n<hr />\n<h2>Magyarázat</h2>\n<h3>1 oldalas ajánlat sablon</h3>\n<ol>\n  <li>Probléma + hatás</li>\n  <li>Elérendő kimenet (mérhető)</li>\n  <li>Megközelítés (lépések + felelősségek)</li>\n  <li>Idővonal (mérföldkövek)</li>\n  <li>Bizonyíték (eset, referencia, pilot)</li>\n  <li>Kockázatok + feltételezések</li>\n  <li>Árazás + feltételek</li>\n  <li>Következő lépés (döntési dátum)</li>\n</ol>\n<hr />\n<h2>Gyakorlat (vezetett, 10–15 perc)</h2>\n<ol>\n  <li>Válassz egy aktív opportunity-t.</li>\n  <li>Töltsd ki a sablont bullet pontokkal.</li>\n  <li>Adj 2 opciót (Kezdő / Standard) anélkül, hogy feladnád a fő kimenetet.</li>\n</ol>\n<h2>Önellenőrzés</h2>\n<ul>\n  <li>Az ajánlat döntést segít, nem “brosúra”.</li>\n  <li>A scope a sikerhez van kötve.</li>\n  <li>A következő lépés konkrét.</li>\n</ul>",
+  "emailSubject": "Sales Productivity 30 – 14. nap: Ajánlat",
+  "emailBody": "<h1>Sales Productivity 30 – 14. nap</h1>\n<p>Írj 1 oldalas ajánlatot, ami gyors döntést tesz lehetővé.</p>\n<p><a href=\"http://localhost:3000/courses/SALES_PRODUCTIVITY_30_HU/day/{{dayNumber}}\">Nyisd meg →</a></p>"
+}
