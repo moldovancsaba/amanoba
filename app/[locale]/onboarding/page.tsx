@@ -20,6 +20,7 @@ import {
   Loader2,
   HelpCircle,
 } from 'lucide-react';
+import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 
 interface SurveyQuestion {
   questionId: string;
@@ -210,6 +211,10 @@ export default function OnboardingPage() {
       const data = await response.json();
 
       if (data.success) {
+        trackGAEvent('survey_complete', {
+          survey_id: 'onboarding',
+          time_spent_seconds: timeSpentSeconds,
+        });
         // Survey submitted successfully
         // Show success message and allow manual navigation
         alert(tOnboarding('submitSuccess') || 'Survey submitted successfully! Thank you.');

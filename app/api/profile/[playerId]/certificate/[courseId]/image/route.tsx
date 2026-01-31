@@ -25,9 +25,12 @@ import {
 } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { CERT_COLORS_DEFAULT, type CertColors } from '@/app/lib/constants/certificate-colors';
+import { getCertificateStrings, formatCertificateDate } from '@/app/lib/constants/certificate-strings';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
+
+type TemplateId = 'default' | 'minimal';
 
 /**
  * GET /api/profile/[playerId]/certificate/[courseId]/image
@@ -71,9 +74,10 @@ export async function GET(
       return new Response('Player or course not found', { status: 404 });
     }
 
-    // Resolve colors: use Brand themeColors when available, else defaults
+    // Resolve colors: per-course certification.themeColors > Brand themeColors > defaults
     let certColors: CertColors = { ...CERT_COLORS_DEFAULT };
-    if (course.brandId) {
+    const courseCert = course.certification as { themeColors?: { primary?: string; secondary?: string; accent?: string } } | undefined;
+    if (!courseCert?.themeColors?.accent && course.brandId) {
       const brand = await Brand.findById(course.brandId).lean();
       if (brand?.themeColors?.accent) {
         certColors = {
@@ -91,6 +95,21 @@ export async function GET(
         certColors = { ...certColors, bgMid: brand.themeColors.secondary };
       }
     }
+    if (courseCert?.themeColors?.accent && /^#[0-9a-fA-F]{6}$/.test(courseCert.themeColors.accent)) {
+      certColors = {
+        ...certColors,
+        border: courseCert.themeColors.accent,
+        accent: courseCert.themeColors.accent,
+        titleGradientEnd: courseCert.themeColors.accent,
+        borderMuted: `${courseCert.themeColors.accent}4D`,
+      };
+    }
+    if (courseCert?.themeColors?.primary && /^#[0-9a-fA-F]{6}$/.test(courseCert.themeColors.primary)) {
+      certColors = { ...certColors, bgStart: courseCert.themeColors.primary };
+    }
+    if (courseCert?.themeColors?.secondary && /^#[0-9a-fA-F]{6}$/.test(courseCert.themeColors.secondary)) {
+      certColors = { ...certColors, bgMid: courseCert.themeColors.secondary };
+    }
 
     // Get final exam score
     const finalExamAttempt = await FinalExamAttempt.findOne({
@@ -104,14 +123,15 @@ export async function GET(
     const finalExamScore = finalExamAttempt?.scorePercentInteger || null;
     const playerName = player.displayName || 'Unknown';
     const courseTitle = course.name || course.courseId;
-    const issuedDate = new Date().toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    });
+    const locale = searchParams.get('locale') || (course as { language?: string })?.language || 'en';
+    const strings = getCertificateStrings(locale);
+    const issuedDate = formatCertificateDate(new Date(), locale);
+    const templateId: TemplateId = ((course as { certification?: { templateId?: string } }).certification?.templateId as TemplateId) === 'minimal' ? 'minimal' : 'default';
 
     // Generate certificate ID
     const certificateId = `${playerId.slice(-8)}-${courseId.slice(-8)}`.toUpperCase();
+
+    const isMinimal = templateId === 'minimal';
 
     return new ImageResponse(
       (
@@ -128,7 +148,7 @@ export async function GET(
             padding: '80px',
           }}
         >
-          {/* Decorative border */}
+          {/* Decorative border (skip inner border for minimal) */}
           <div
             style={{
               position: 'absolute',
@@ -136,21 +156,23 @@ export async function GET(
               left: 0,
               right: 0,
               bottom: 0,
-              border: `8px solid ${certColors.border}`,
-              borderRadius: '16px',
+              border: `${isMinimal ? 4 : 8}px solid ${certColors.border}`,
+              borderRadius: isMinimal ? '8px' : '16px',
             }}
           />
-          <div
-            style={{
-              position: 'absolute',
-              top: '8px',
-              left: '8px',
-              right: '8px',
-              bottom: '8px',
-              border: `4px solid ${certColors.borderMuted}`,
-              borderRadius: '12px',
-            }}
-          />
+          {!isMinimal && (
+            <div
+              style={{
+                position: 'absolute',
+                top: '8px',
+                left: '8px',
+                right: '8px',
+                bottom: '8px',
+                border: `4px solid ${certColors.borderMuted}`,
+                borderRadius: '12px',
+              }}
+            />
+          )}
 
           {/* Main content */}
           <div
@@ -167,27 +189,29 @@ export async function GET(
             {/* Certificate Title */}
             <div
               style={{
-                fontSize: variant === 'print_a4' ? 72 : 56,
+                fontSize: variant === 'print_a4' ? (isMinimal ? 52 : 72) : (isMinimal ? 42 : 56),
                 fontWeight: 'bold',
                 background: `linear-gradient(90deg, ${certColors.accent} 0%, ${certColors.titleGradientEnd} 100%)`,
                 backgroundClip: 'text',
                 color: 'transparent',
-                marginBottom: '40px',
+                marginBottom: isMinimal ? '24px' : '40px',
                 lineHeight: 1.2,
               }}
             >
-              Certificate of Completion
+              {strings.title}
             </div>
 
-            {/* Decorative line */}
-            <div
-              style={{
-                width: '200px',
-                height: '4px',
-                background: `linear-gradient(90deg, transparent 0%, ${certColors.accent} 50%, transparent 100%)`,
-                marginBottom: '60px',
-              }}
-            />
+            {/* Decorative line (skip for minimal) */}
+            {!isMinimal && (
+              <div
+                style={{
+                  width: '200px',
+                  height: '4px',
+                  background: `linear-gradient(90deg, transparent 0%, ${certColors.accent} 50%, transparent 100%)`,
+                  marginBottom: '60px',
+                }}
+              />
+            )}
 
             {/* Course Title */}
             <div
@@ -211,7 +235,7 @@ export async function GET(
                 marginBottom: '20px',
               }}
             >
-              This is to certify that
+              {strings.certifyThat}
             </div>
 
             {/* Player Name */}
@@ -235,7 +259,7 @@ export async function GET(
                 marginBottom: '60px',
               }}
             >
-              has successfully completed the course
+              {strings.hasCompleted}
             </div>
 
             {/* Score (if available) */}
@@ -248,7 +272,7 @@ export async function GET(
                   fontWeight: 'bold',
                 }}
               >
-                Final Exam Score: {finalExamScore}%
+                {strings.finalExamScore}: {finalExamScore}%
               </div>
             )}
 

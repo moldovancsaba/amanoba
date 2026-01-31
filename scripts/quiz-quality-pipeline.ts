@@ -200,6 +200,9 @@ async function main() {
         emailBody: (lesson as any).emailBody || null,
       });
 
+      let needsRefine = false;
+      let gateBlocked = false;
+
       const lessonRow: any = {
         courseId: course.courseId,
         courseName: course.name,
@@ -215,7 +218,8 @@ async function main() {
       };
 
       if (!languageIntegrity.ok) {
-        pipelineReport.totals.lessonsNeedingRefine++;
+        needsRefine = true;
+        gateBlocked = true;
         lessonRow.action = 'REFINE_LESSON_FIRST';
         lessonRow.reason = `Language integrity failed: ${languageIntegrity.errors[0] || 'unknown'}`;
         refineTasks.push(
@@ -224,18 +228,21 @@ async function main() {
             `  - Error: ${languageIntegrity.errors[0] || 'unknown'}\n` +
             (languageIntegrity.findings?.[0]?.snippet ? `  - Example: ${languageIntegrity.findings[0].snippet}\n` : '')
         );
-        // Still proceed to ensure the lesson has at least 7 valid questions (no trimming if extra).
       }
 
       if (lessonQuality.score < MIN_LESSON_SCORE) {
-        pipelineReport.totals.lessonsNeedingRefine++;
+        needsRefine = true;
+        gateBlocked = true;
         lessonRow.action = 'REFINE_LESSON_FIRST';
         refineTasks.push(
           `- [ ] **${course.courseId}** Day ${lesson.dayNumber} — ${lesson.title} (lessonId: \`${lesson.lessonId}\`)\n` +
             `  - Score: **${lessonQuality.score}/100**\n` +
             `  - Issues: ${lessonQuality.issues.join(', ') || 'none'}\n`
         );
-        // Still proceed to ensure the lesson has at least 7 valid questions (no trimming if extra).
+      }
+
+      if (needsRefine) {
+        pipelineReport.totals.lessonsNeedingRefine++;
       }
 
       // Load and validate existing questions first.
@@ -247,6 +254,42 @@ async function main() {
       })
         .sort({ displayOrder: 1, _id: 1 })
         .lean();
+
+      if (gateBlocked) {
+        const validExisting: any[] = [];
+        const invalidExisting: any[] = [];
+        for (const q of existing) {
+          const v = validateQuestionQuality(
+            q.question || '',
+            q.options || [],
+            (q.questionType as any) || 'application',
+            (q.difficulty as any) || 'MEDIUM',
+            course.language,
+            lesson.title,
+            lesson.content
+          );
+          if (v.isValid) validExisting.push(q);
+          else invalidExisting.push(q);
+        }
+
+        const existingCounts = {
+          total: existing.length,
+          valid: validExisting.length,
+          invalid: invalidExisting.length,
+          missingToMin: Math.max(0, 7 - existing.length),
+        };
+
+        // Hard gate: Do not rewrite/generate quiz questions when the lesson fails quality or language integrity.
+        // This prevents inventing content and ensures quizzes stay grounded in a sufficiently strong lesson.
+        lessonRow.action = 'REFINE_LESSON_FIRST';
+        lessonRow.rewrite = {
+          skipped: true,
+          existingCounts,
+          note: 'Quiz rewrite skipped due to lesson gate (quality and/or language integrity).',
+        };
+        pipelineReport.lessons.push(lessonRow);
+        continue;
+      }
 
       // Tiny-loop: validate or replace only one question by index.
       if (LESSON_ID && QUESTION_INDEX !== undefined) {

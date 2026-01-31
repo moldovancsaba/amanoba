@@ -9,7 +9,8 @@
 
 import Script from 'next/script';
 
-const GA_MEASUREMENT_ID = 'G-53XPWHKJTM';
+const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_ID || 'G-53XPWHKJTM';
 
 /**
  * Google Analytics Component with Consent Mode v2

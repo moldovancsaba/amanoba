@@ -24,6 +24,8 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Logo from '@/components/Logo';
+import ContentVoteWidget from '@/components/ContentVoteWidget';
+import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 
 interface Course {
   _id: string;
@@ -737,7 +739,7 @@ export default function CourseDetailPage({
         if (session) {
           await checkEnrollment(id);
         }
-        // Show success message (optional: could use a toast notification)
+        trackGAEvent('purchase', { course_id: id });
         // Remove query param from URL
         window.history.replaceState({}, '', window.location.pathname);
       }
@@ -842,6 +844,10 @@ export default function CourseDetailPage({
       const data = await response.json();
 
       if (data.success) {
+        trackGAEvent('course_enroll', {
+          course_id: courseId,
+          course_name: course?.name,
+        });
         setEnrollment({
           enrolled: true,
           progress: {
@@ -969,6 +975,13 @@ export default function CourseDetailPage({
             <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
               <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">{getCourseDetailTexts().aboutThisCourse}</h2>
               <p className="text-brand-darkGrey leading-relaxed text-base sm:text-xl">{course.description}</p>
+              <ContentVoteWidget
+                targetType="course"
+                targetId={courseId}
+                playerId={(session?.user as { id?: string; playerId?: string } | undefined)?.playerId ?? (session?.user as { id?: string } | undefined)?.id ?? null}
+                label="Was this course helpful?"
+                className="mt-4 pt-4 border-t border-brand-darkGrey/20"
+              />
             </div>
 
             <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">

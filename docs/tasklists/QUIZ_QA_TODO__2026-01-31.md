@@ -31,19 +31,19 @@ Operating docs (workflow + logging):
 
 ---
 
-## Current snapshot (latest audit)
+## Current snapshot (latest audit — 2026-01-31T15:09:11Z)
 
 - Active courses: **25**
 - Active lessons: **720**
 - **Minimum required (at least)**: 720 × 7 = **5040**
 - Missing-to-minimum:
-  - Lessons below 7: **190**
-  - Questions missing (Σ max(0, 7 - poolSize)): **756**
+  - Lessons below 7: **65**
+  - Questions missing (Σ max(0, 7 - poolSize)): **173**
 - QA status (from NEW2OLD, latest entry per questionId):
-  - Checked total: **4869**
-  - Checked and passed: **4863**
-  - Checked but failing (latest): **6**
-  - Questions left to check: **689**
+  - Checked total: **6521**
+  - Checked and passed: **6521**
+  - Checked but failing (latest): **0**
+  - Questions left to check: **0**
 
 Recompute at any time using:
 ```bash
@@ -52,7 +52,7 @@ npx tsx --env-file=.env.local scripts/quiz-item-qa/audit-quiz-coverage.ts
 
 ---
 
-## TODO 1 — Eliminate missing questions (190 lessons, 756 questions)
+## TODO 1 — Eliminate missing questions (65 lessons, 173 questions)
 
 Goal: `questionsMissing = 0` and `lessonsBelowMin = 0`.
 
@@ -75,13 +75,24 @@ npx tsx --env-file=.env.local scripts/quiz-quality-pipeline.ts --course <COURSE_
 npx tsx --env-file=.env.local scripts/quiz-quality-pipeline.ts --course <COURSE_ID> --min-lesson-score 70
 ```
 
+### Current blocker (as of 2026-01-31)
+
+Dry-run pipeline results show every lesson that is currently below the 7-question minimum is blocked by the **lesson quality / language integrity gate** (`--min-lesson-score 70`), so quiz creation must wait until those lessons are refined (do not invent content).
+
+Generated refinement task reports:
+- `scripts/reports/quiz-quality-pipeline__2026-01-31T13-32-12-937Z__lesson-refine-tasks.md` (SALES_PRODUCTIVITY_30_RU)
+- `scripts/reports/quiz-quality-pipeline__2026-01-31T13-33-29-957Z__lesson-refine-tasks.md` (GEO_SHOPIFY_30_EN)
+- `scripts/reports/quiz-quality-pipeline__2026-01-31T13-34-46-211Z__lesson-refine-tasks.md` (AI_30_NAP)
+- `scripts/reports/quiz-quality-pipeline__2026-01-31T13-35-14-347Z__lesson-refine-tasks.md` (SALES_PRODUCTIVITY_30_HU)
+- `scripts/reports/quiz-quality-pipeline__2026-01-31T13-34-07-210Z__lesson-refine-tasks.md` (B2B_SALES_2026_30_EN)
+
 Acceptance criteria:
 - Every active lesson has `>= 7` active course-specific questions.
 - Re-run `audit-quiz-coverage.ts` and confirm `questionsMissing = 0`.
 
 ---
 
-## TODO 2 — Fix checked-but-failing (178)
+## TODO 2 — Fix checked-but-failing (0)
 
 Goal: `checkedButFailingLatest = 0`.
 
@@ -114,7 +125,7 @@ Acceptance criteria:
 
 ---
 
-## TODO 3 — Check remaining questions (1329)
+## TODO 3 — Check remaining questions (0)
 
 Goal: `toCheck = 0`.
 
@@ -134,8 +145,8 @@ Acceptance criteria:
 ## Safety Rollback Plan (Mandatory)
 
 Git rollback:
-- Baseline commit: `fd4224c`
-- Roll back: `git stash push -u -m "wip"` then `git reset --hard fd4224c`
+- Baseline commit: `b74d2db`
+- Roll back: `git stash push -u -m "wip"` then `git reset --hard b74d2db`
 - Verify: `npm run type-check` and rerun one QA command:
   - `npx tsx --env-file=.env.local scripts/quiz-item-qa/mongodb-cli.ts pick:next`
 

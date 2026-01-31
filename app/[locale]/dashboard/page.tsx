@@ -15,6 +15,7 @@ import Image from 'next/image';
 import { LocaleLink } from '@/components/LocaleLink';
 import { ReferralCard } from '@/components/ReferralCard';
 import Logo from '@/components/Logo';
+import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 import Icon, { 
   MdMenuBook, 
   MdAutoStories, 
@@ -82,6 +83,7 @@ export default function Dashboard() {
   const _pathname = usePathname();
   const locale = useLocale();
   const hasCheckedSurvey = useRef(false);
+  const hasFiredPaymentSuccessGA = useRef(false);
   const t = useTranslations('dashboard');
   const tCommon = useTranslations('common');
   const tAuth = useTranslations('auth');
@@ -237,6 +239,16 @@ export default function Dashboard() {
       setCanAccessAdmin(false);
     }
   }, [fetchAdminAccess, fetchFeatureFlags, fetchPlayerData, fetchRecommendations, session]);
+
+  // Fire GA purchase when redirected here after payment success (e.g. general premium)
+  useEffect(() => {
+    if (typeof window === 'undefined' || hasFiredPaymentSuccessGA.current) return;
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('payment_success') !== 'true') return;
+    hasFiredPaymentSuccessGA.current = true;
+    trackGAEvent('purchase', {});
+    window.history.replaceState({}, '', window.location.pathname);
+  }, []);
 
   if (loading) {
     return (

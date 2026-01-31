@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T14:05:06.351Z",
+  "courseId": "GEO_SHOPIFY_30_EN",
+  "lessonId": "GEO_SHOPIFY_30_EN_DAY_27",
+  "title": "Feed operations: refresh, monitor, error handling",
+  "content": "<h1>Feed operations: refresh, monitor, error handling</h1>\n<p><em>Set the cadence and error-handling routine for your feed.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Schedule feed refresh.</li>\n<li>Set up error list and logging.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Stale feed → wrong recommendations.</li>\n<li>Ignoring errors can lead to exclusion.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Refresh: daily/hourly based on stock/price changes.</li>\n<li>Monitor: error codes, missing fields, disapprovals.</li>\n<li>Log: date, error type, fix, SLA.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: weekly error report, SLA to fix.</li>\n<li><strong>Poor</strong>: “We’ll check later”.</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Set refresh frequency (e.g., daily) and note it.</li>\n<li>Create an error log template: Date | Error | Product | Fix | SLA.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Log 3 sample errors.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Refresh cadence set.</li>\n<li>Error log template ready.</li>\n<li>3 errors recorded.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>GMC error guide: <a href=\"https://support.google.com/merchants/answer/7052112\" target=\"_blank\" rel=\"noreferrer\">https://support.google.com/merchants/answer/7052112</a></li>\n</ul>",
+  "emailSubject": "GEO Shopify – Day 27: Feed ops",
+  "emailBody": "<h1>GEO Shopify – Day 27</h1>\n<h2>Feed ops</h2>\n<p>Today you schedule feed refresh and set an error log with SLA.</p>\n<p><a href=\"http://localhost:3000/courses/GEO_SHOPIFY_30_EN/day/{{dayNumber}}\">Read the lesson →</a></p>"
+}

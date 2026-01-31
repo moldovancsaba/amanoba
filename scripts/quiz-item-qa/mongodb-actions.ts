@@ -252,6 +252,7 @@ export async function loopRun(
   const allSorted = await getOldestByUpdatedAt(overrides);
   const loggedIds = config.skipAlreadyLoggedIds ? loadLoggedIdsFromNew2Old() : null;
   const processingList = loggedIds ? allSorted.filter((q) => !loggedIds.has(q._id)) : allSorted;
+  let wrappedUncheckedOnce = false;
   const courseQuestionCount = new Map<string, Map<string, number>>();
   const courseQuestionIds = new Map<string, Map<string, string[]>>();
   for (const item of processingList) {
@@ -351,6 +352,27 @@ export async function loopRun(
         // If we hit the end of the updatedAt-ordered stream, wrap once and keep going.
         // This enables continuous processing even when updates change updatedAt values.
         if (reason === 'No newer items found') {
+          // In "skip already logged" mode, we may need to wrap once if the cursor is beyond
+          // all unchecked items. After one wrap, stop to avoid re-processing the snapshot list.
+          if (config.skipAlreadyLoggedIds) {
+            if (wrappedUncheckedOnce) {
+              console.log('Reached end of unchecked stream; stopping (skip-logged mode)');
+              return;
+            }
+            wrappedUncheckedOnce = true;
+            const current = loadState();
+            saveState({
+              ...current,
+              lastCompletedItemUpdatedAt: undefined,
+              cursorUpdatedAt: undefined,
+              cursorItemId: undefined,
+              runTimestamp: new Date().toISOString(),
+              notes: [...(current.notes || []), 'Cursor wrapped (skip-logged: restarting from oldest unchecked)'],
+            });
+            console.log('Cursor wrapped (skip-logged mode): restarting from oldest unchecked');
+            processed -= 1;
+            continue;
+          }
           const current = loadState();
           saveState({
             ...current,

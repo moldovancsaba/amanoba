@@ -23,8 +23,8 @@
 ### 1.1 Stack (package.json)
 
 - **Node**: `>=24.0.0` (engines)
-- **Next.js**: 15.5.9 (pinned)
-- **React**: ^18
+- **Next.js**: 16.1.6 (Turbopack; upgraded from 15.x — see RELEASE_NOTES)
+- **React**: ^19 (19.2.x in use)
 - **MongoDB/Mongoose**: mongodb ^6.18.0, mongoose ^8.18.0
 - **Auth**: next-auth ^5.0.0-beta.29, @auth/mongodb-adapter ^3.11.0, jose ^6.1.3
 - **Payments**: stripe ^20.2.0, @stripe/stripe-js ^8.6.1
@@ -122,7 +122,7 @@
 
 | Location | Usage | Recommendation |
 |----------|--------|----------------|
-| `app/api/certificates/[slug]/image/route.tsx` | `CERT_COLORS_DEFAULT`: #1a1a1a, #2d2d2d, #FFD700, #FFA500, #FFFFFF, #CCCCCC, #999999, #ef4444 (revoked) | Already overridable by Brand; consider importing from design-system or a shared certificate theme module. |
+| `app/api/certificates/[slug]/image/route.tsx` | Default palette | **Done**: Both cert image APIs import from `app/lib/constants/certificate-colors.ts` (THEME_COLOR, SECONDARY_HEX); Brand.themeColors override at runtime. See RELEASE_NOTES v2.9.25. |
 | `app/api/profile/[playerId]/certificate/[courseId]/image/route.tsx` | Same certificate palette | Same as above. |
 | `app/[locale]/layout.tsx` | `themeColor: "#FAB908"` | Use CSS variable or Tailwind token. |
 | `app/lib/email/email-service.ts` | ctaBg, ctaText, bodyText, muted, border hex | Map to design tokens or a single email theme object. |
@@ -150,14 +150,16 @@
 
 ### 8.1 npm audit (2026-01-30)
 
-| Package | Severity | Issue | Fix |
-|---------|----------|--------|-----|
-| **js-yaml** | moderate | Prototype pollution in merge (<<) | `npm audit fix` |
-| **jws** | high | Improperly verifies HMAC signature | `npm audit fix` |
-| **next** | high | DoS via Image Optimizer remotePatterns; Unbounded memory (PPR); HTTP request deserialization DoS (RSC) | `npm audit fix --force` (Next 15.5.11) — verify changelog |
-| **next-auth** | moderate | Email misdelivery vulnerability | `npm audit fix` |
+**Status (updated)**: P0.1/P0.2 done — `npm audit fix` run; Next.js upgraded to 16.x. **0 vulnerabilities** reported after fixes. Re-run `npm audit` after any dependency change.
 
-**Actions**: Run `npm audit fix`; then evaluate `npm audit fix --force` for Next.js (test thoroughly). Track next-auth and Next.js advisories for fixes.
+| Package | Severity | Issue | Status |
+|---------|----------|--------|--------|
+| **js-yaml** | moderate | Prototype pollution | Fixed (audit fix). |
+| **jws** | high | HMAC signature | Fixed (audit fix). |
+| **next** | high | DoS/memory advisories | Addressed via Next 16 upgrade. |
+| **next-auth** | moderate | Email misdelivery | Fixed (audit fix). |
+
+**Actions**: Done. For future: run `npm audit fix` after dependency updates; track next-auth and Next.js advisories.
 
 ### 8.2 Application security
 

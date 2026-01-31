@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T14:05:06.352Z",
+  "courseId": "GEO_SHOPIFY_30_EN",
+  "lessonId": "GEO_SHOPIFY_30_EN_DAY_29",
+  "title": "Measurement system: weekly GEO run and report",
+  "content": "<h1>Measurement system: weekly GEO run and report</h1>\n<p><em>Set a weekly test routine using your prompt set and log results.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Schedule the weekly GEO test run.</li>\n<li>Create a report template.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>No measurement, no proof of progress.</li>\n<li>Shows consistency and errors.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Use the prompt set (best/vs/policy).</li>\n<li>Measure: inclusion, citation, consistency, AI referral KPIs.</li>\n<li>Log changes.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: weekly report: which prompts mention your store, linked or not.</li>\n<li><strong>Poor</strong>: “Feels better” with no record.</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Create a report template: Prompt | Inclusion | Citation | Consistency | Notes.</li>\n<li>Schedule the weekly run (day, owner).</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Fill 5 prompts and note results.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Template ready.</li>\n<li>Schedule set.</li>\n<li>First 5 measurements logged.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Measurement tools: <a href=\"https://clarity.microsoft.com/\" target=\"_blank\" rel=\"noreferrer\">https://clarity.microsoft.com/</a></li>\n</ul>",
+  "emailSubject": "GEO Shopify – Day 29: Measurement",
+  "emailBody": "<h1>GEO Shopify – Day 29</h1>\n<h2>Measurement</h2>\n<p>Today you schedule the weekly GEO run and prepare the report template.</p>\n<p><a href=\"http://localhost:3000/courses/GEO_SHOPIFY_30_EN/day/{{dayNumber}}\">Read the lesson →</a></p>"
+}

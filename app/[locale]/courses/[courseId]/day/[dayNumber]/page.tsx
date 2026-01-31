@@ -23,6 +23,7 @@ import {
 import { useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Logo from '@/components/Logo';
+import ContentVoteWidget from '@/components/ContentVoteWidget';
 
 interface Lesson {
   _id: string;
@@ -660,6 +661,13 @@ export default function DailyLessonPage({
               <div
                 className="prose prose-xl lesson-prose max-w-none text-brand-black"
                 dangerouslySetInnerHTML={{ __html: lesson.content }}
+              />
+              <ContentVoteWidget
+                targetType="lesson"
+                targetId={lesson._id}
+                playerId={(session?.user as { id?: string; playerId?: string } | undefined)?.playerId ?? (session?.user as { id?: string } | undefined)?.id ?? null}
+                label="Was this lesson helpful?"
+                className="mt-6 pt-6 border-t border-brand-darkGrey/20"
               />
             </div>
 

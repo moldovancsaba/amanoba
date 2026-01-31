@@ -1,11 +1,151 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.26  
+**Current Version**: 2.9.33  
 **Last Updated**: 2026-01-28
+
+**Rule:** Each task exists in exactly one place. Completed work lives **only here** (not in ROADMAP or TASKLIST). Open/future work → ROADMAP.md or TASKLIST.md only.
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.33] — 2026-01-28 🛠️
+
+**Status**: Certificate enhancements (TASKLIST Tasks 6, 7) — per-child overrides/templates, localized certificates, LinkedIn share, QR codes  
+**Type**: Feature (ROADMAP § Certificate enhancements)
+
+### Task 6: Per-child certificate overrides and multiple templates
+
+- **Course model**: `certification.themeColors` (primary, secondary, accent) and `certification.templateId` (`default` | `minimal`) already supported.
+- **Certificate image routes**: Profile route (`/api/profile/[playerId]/certificate/[courseId]/image`) and slug route (`/api/certificates/[slug]/image`) apply per-course themeColors (override Brand); templateId selects default (full border/decor) vs minimal layout.
+
+### Task 7a: Localized certificates
+
+- **Certificate strings**: `app/lib/constants/certificate-strings.ts` — `getCertificateStrings(locale)` and `formatCertificateDate(date, locale)` for en, hu, ar, ru, pt, vi, id, hi, tr, bg, pl.
+- **Image routes**: Both certificate image APIs accept `locale` query param (default: course language or `en`); all labels and dates use localized strings.
+
+### Task 7b: LinkedIn Add-to-Profile and QR codes
+
+- **Certificate page** (`/[locale]/profile/[playerId]/certificate/[courseId]`): "Share on LinkedIn" button (opens `linkedin.com/sharing/share-offsite/?url=VERIFICATION_URL`); QR code (api.qrserver.com) encoding verification URL for scan-to-verify; verification URL built client-side from `window.location.origin` and slug or verify path.
+
+**Status**: ✅ Tasks 6, 7 (options 1, 4, 5) delivered
+
+---
+
+## [v2.9.32] — 2026-01-31 🛠️
+
+**Status**: Tasks 3, 9, 10, 11 — imports/logging, course achievements, course leaderboards, content voting  
+**Type**: Quality + Feature (ROADMAP § Course achievements & leaderboards, Course and content voting)
+
+### Task 3: Standardise imports and logging
+
+- **Achievement engine**: Logger import changed to `import { logger } from '@/lib/logger'`; criteria evaluation debug log gated to `NODE_ENV !== 'production'` (logger.debug).
+- **SSO callback**: DEBUG logs already gated with `process.env.NODE_ENV !== 'production'` (unchanged).
+
+### Task 9: Course-specific achievements
+
+- **Achievement model**: New criteria types `first_lesson`, `lessons_completed`, `course_completed`, `course_master`; optional `criteria.courseId` (string).
+- **Achievement engine**: `AchievementCheckContext` extended with `courseId`, `courseProgress` (lessonsCompleted, status). `evaluateAchievementCriteria` handles course criteria. New `checkAndUnlockCourseAchievements(playerId, courseIdStr)` — called after every lesson completion from day route.
+- **Day route**: After lesson completion (and save), calls `checkAndUnlockCourseAchievements` so First Lesson, Week 1, etc. unlock.
+
+### Task 10: Course-specific leaderboards
+
+- **LeaderboardEntry**: Optional `courseId` (string); new metrics `course_points`, `course_completion_speed`; indexes for course-scoped entries.
+- **Leaderboard calculator**: `LeaderboardCalculationOptions.courseId`; `calculateCoursePointsLeaderboard(courseId, limit)` and `calculateCourseCompletionSpeedLeaderboard(courseId, limit)`; bulkOps support courseId filter.
+- **API**: `GET /api/leaderboards/course/[courseId]` — query params period, metric (course_points | course_completion_speed), limit, playerId.
+
+### Task 11: CourseVote / LessonVote / QuestionVote
+
+- **ContentVote model**: `targetType` (course | lesson | question), `targetId`, `playerId`, `value` (1 | -1). Index (targetType, targetId, playerId) unique.
+- **APIs**: `POST /api/votes` (submit vote, auth required); `GET /api/votes?targetType=&targetId=&playerId=` (aggregate + myVote); `GET /api/admin/votes/aggregates?targetType=` (admin list).
+- **Vote reset**: `resetVotesForLesson(lessonDoc, courseId)` in `app/lib/content-votes.ts` — deletes lesson and its quiz-question votes; called from admin lesson PATCH (import added).
+- **UI**: `ContentVoteWidget` on course detail page (Was this course helpful?) and lesson viewer (Was this lesson helpful?). Admin page `/[locale]/admin/votes` with vote aggregates table; nav "Votes" (ThumbsUp).
+
+**Status**: ✅ Tasks 3, 9, 10, 11 delivered
+
+---
+
+## [v2.9.29] — 2026-01-31 🛠️
+
+**Status**: Test harness and smoke tests (TASKLIST Task 1)  
+**Type**: Quality (ROADMAP § UI/UX polish and reliability)
+
+### Test harness and smoke tests
+
+- **Vitest**: Added `vitest`, `vite-tsconfig-paths`; `vitest.config.ts` with `environment: 'node'`, `include: ['__tests__/**/*.test.ts', '__tests__/**/*.test.tsx']`.
+- **Scripts**: `npm test` runs `vitest run`; `npm run test:watch` runs `vitest` (watch).
+- **Smoke tests**: `__tests__/smoke/health.test.ts` (GET /api/health, mocked DB); `__tests__/smoke/courses.test.ts` (GET /api/courses, mocked DB); `__tests__/smoke/feature-flags.test.ts` (GET /api/feature-flags, mocked DB). All three pass.
+
+**Status**: ✅ Test harness and smoke tests delivered
+
+---
+
+## [v2.9.30] — 2026-01-31 🛠️
+
+**Status**: Email tracking extended to lesson, reminder, welcome, payment (TASKLIST Task 4)  
+**Type**: Feature (ROADMAP § Email automation Phase 2)
+
+### Email tracking for all transactional types
+
+- **Helper**: `injectEmailTracking(html, messageId, appUrl)` in `app/lib/email/email-service.ts` — appends open-tracking pixel and wraps links with click-tracking URL.
+- **Lesson email**: `sendLessonEmail` now generates `messageId`, injects tracking into body, and saves `EmailActivity` (emailType: `lesson`, lessonDay) after send.
+- **Welcome email**: `sendWelcomeEmail` — same (emailType: `welcome`).
+- **Reminder email**: `sendReminderEmail` — same (emailType: `reminder`, lessonDay).
+- **Payment confirmation email**: `sendPaymentConfirmationEmail` — same (emailType: `payment`).
+
+Completion email already had tracking (v2.9.28). Admin email analytics (`/api/admin/email-analytics`) and open/click APIs already support all types.
+
+**Status**: ✅ Email tracking extended to lesson, reminder, welcome, payment
+
+---
+
+## [v2.9.31] — 2026-01-31 🛠️
+
+**Status**: Selective unsync/re-sync for child courses (TASKLIST Task 8)  
+**Type**: Feature (ROADMAP § Multi-format course enhancements)
+
+### Child course sync controls and admin alerts
+
+- **Course model**: Optional `syncStatus` (`'synced' | 'out_of_sync'`) and `lastSyncedAt` (Date) for child courses.
+- **Course helpers**: `getChildSyncStatus(childCourse)` — checks selectedLessonIds against parent lessons, returns status and missing ids; `reSyncChildFromParent(childCourse)` — validates refs, removes invalid, sets syncStatus and lastSyncedAt.
+- **APIs**: `POST /api/admin/courses/[courseId]/sync` (re-sync from parent); `POST /api/admin/courses/[courseId]/unsync` (mark out of sync); `GET /api/admin/courses/[courseId]/sync-status` (computed status for admin preview).
+- **Admin course editor**: For child courses, "Sync with parent" block with computed status (Synced / Out of sync), last synced time, missing-lesson warning, and buttons "Re-sync from parent" and "Mark out of sync".
+
+**Status**: ✅ Selective unsync/re-sync and sync alerts delivered
+
+---
+
+## [v2.9.28] — 2026-01-28 🛠️
+
+**Status**: Email Automation Phase 1 — segment templates, open/click tracking, admin analytics  
+**Type**: Feature (P2; ROADMAP § Email Automation)
+
+### Email Automation Phase 1 delivery
+
+- **Segment-specific completion email**: Optional `segment` (beginner/intermediate/advanced) in `renderCompletionEmailHtml`; upsell intro line by segment (EN). `sendCompletionEmail` passes `player.skillLevel` as segment.
+- **Email open/click tracking**: `EmailActivity` model (messageId, playerId, brandId, emailType, segment, sentAt, openedAt, clickedAt, clickCount). `GET /api/email/open/[messageId]` returns 1x1 pixel and sets `openedAt`. `GET /api/email/click/[messageId]?url=` redirects to URL and updates `clickedAt` and `clickCount`. Completion email: generated messageId, tracking pixel and click-wrapped links injected; activity saved after send.
+- **Admin email analytics**: `GET /api/admin/email-analytics?days=30` (summary + by type + by segment). Admin page `/[locale]/admin/email-analytics` with nav "Email Analytics"; 7/30/90 days selector.
+
+**Documentation**: `docs/2026-01-28_P2_ONBOARDING_AND_EMAIL_STATUS.md` updated; Phase 1 marked complete.
+
+**Status**: ✅ Email Automation Phase 1 delivered
+
+---
+
+## [v2.9.27] — 2026-01-28 📋
+
+**Status**: Docs alignment — ROADMAP, Tech Audit January, P2 status  
+**Type**: Documentation (DOCUMENTATION = CODE)
+
+### Docs alignment with audit and tasklist
+
+- **ROADMAP**: P0 item 1 (Global audit: communication + catalog language integrity) marked **Done**; Tech audit follow-up items 10–12 (P0 Security, P1 Lint/TS, P2 Deprecated/hardcoded) marked **Done**; item 13 (P3) updated to show admin Image and CTA audit done, remainder in `docs/P3_KNOWN_ISSUES_BACKLOG.md`.
+- **docs/2026-01-30_TECH_AUDIT_JANUARY.md**: §1.1 Stack updated to Next.js 16.1.6 and React 19; §6.2 Certificate colors updated to **Done** (certificate-colors.ts); §8.1 npm audit updated to **0 vulnerabilities** and actions done.
+- **docs/2026-01-28_P2_ONBOARDING_AND_EMAIL_STATUS.md**: New status doc — Onboarding Survey implemented (API, page, models, seed, recommendations API, dashboard widget, completion email upsell); Email Automation Phase 1: completion upsell done; next: segment-specific templates, email analytics (open/click, admin dashboard).
+
+**Status**: ✅ Docs alignment delivered
 
 ---
 

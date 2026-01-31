@@ -8,7 +8,7 @@
 import { Resend } from 'resend';
 import { logger } from '../logger';
 import connectDB from '../mongodb';
-import { Player, Course } from '@/app/lib/models';
+import { Player, Course, EmailActivity } from '@/app/lib/models';
 import type { ILesson } from '@/app/lib/models/lesson';
 import type { IPlayer } from '@/app/lib/models/player';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
@@ -115,6 +115,26 @@ async function getOrGenerateUnsubscribeToken(player: IPlayer & { save: () => Pro
     logger.info({ playerId: player._id }, 'Generated unsubscribe token for player');
   }
   return player.unsubscribeToken;
+}
+
+/**
+ * Inject open-tracking pixel and wrap links with click-tracking URL.
+ * Used for lesson, reminder, welcome, payment emails (completion uses its own template).
+ */
+function injectEmailTracking(html: string, messageId: string, appUrl: string): string {
+  const baseUrl = appUrl.replace(/\/$/, '');
+  const pixel = `<img src="${baseUrl}/api/email/open/${messageId}" width="1" height="1" alt="" style="display:block;" />`;
+  let out = html.replace(/<a\s+([^>]*?)href=["']([^"']+)["']([^>]*)>/gi, (_match, attrs, href, rest) => {
+    if (href.startsWith('mailto:') || href.startsWith('#')) return _match;
+    const wrapped = `${baseUrl}/api/email/click/${messageId}?url=${encodeURIComponent(href)}`;
+    return `<a ${attrs}href="${wrapped}"${rest}>`;
+  });
+  if (out.includes('</body>')) {
+    out = out.replace('</body>', pixel + '\n</body>');
+  } else {
+    out = out + pixel;
+  }
+  return out;
 }
 
 /**
@@ -239,6 +259,9 @@ export async function sendLessonEmail(
       }
     }
 
+    const messageId = generateSecureToken(16);
+    body = injectEmailTracking(body, messageId, APP_URL);
+
     // Delivery hard gate: do not send if language integrity fails for the final subject/body.
     const integrity = ensureEmailLanguageIntegrity({ locale: emailLocale, subject, html: body, context: 'sendLessonEmail' });
     if (!integrity.ok) {
@@ -269,12 +292,25 @@ export async function sendLessonEmail(
       return { success: false, error: error.message };
     }
 
+    const brandId = (player as { brandId?: unknown }).brandId;
+    if (brandId) {
+      await EmailActivity.create({
+        messageId,
+        playerId: player._id,
+        brandId,
+        emailType: 'lesson',
+        courseId: typeof course.courseId === 'string' ? course.courseId : undefined,
+        lessonDay: lesson.dayNumber,
+        sentAt: new Date(),
+      }).catch((err) => logger.warn({ err, messageId }, 'EmailActivity create failed'));
+    }
+
     logger.info(
-      { playerId, courseId, lessonId: lesson._id, messageId: data?.id },
+      { playerId, courseId, lessonId: lesson._id, messageId },
       'Lesson email sent successfully'
     );
 
-    return { success: true, messageId: data?.id };
+    return { success: true, messageId };
   } catch (error) {
     logger.error({ error, playerId, courseId }, 'Error sending lesson email');
     return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
@@ -317,8 +353,9 @@ export async function sendWelcomeEmail(
       if (translation) courseName = translation.name;
     }
 
+    const messageId = generateSecureToken(16);
     const subject = renderWelcomeEmailSubject({ locale: emailLocale, courseName });
-    const body = renderWelcomeEmailHtml({
+    let body = renderWelcomeEmailHtml({
       locale: emailLocale,
       playerName: player.displayName,
       courseName,
@@ -326,6 +363,7 @@ export async function sendWelcomeEmail(
       appUrl: APP_URL,
       tokens: EMAIL_TOKENS,
     });
+    body = injectEmailTracking(body, messageId, APP_URL);
 
     const integrity = ensureEmailLanguageIntegrity({
       locale: emailLocale,
@@ -361,8 +399,20 @@ export async function sendWelcomeEmail(
       return { success: false, error: error.message };
     }
 
-    logger.info({ playerId, courseId, messageId: data?.id }, 'Welcome email sent successfully');
-    return { success: true, messageId: data?.id };
+    const brandId = (player as { brandId?: unknown }).brandId;
+    if (brandId) {
+      await EmailActivity.create({
+        messageId,
+        playerId: player._id,
+        brandId,
+        emailType: 'welcome',
+        courseId: typeof course.courseId === 'string' ? course.courseId : undefined,
+        sentAt: new Date(),
+      }).catch((err) => logger.warn({ err, messageId }, 'EmailActivity create failed'));
+    }
+
+    logger.info({ playerId, courseId, messageId }, 'Welcome email sent successfully');
+    return { success: true, messageId };
   } catch (error) {
     logger.error({ error, playerId, courseId }, 'Error sending welcome email');
     return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
@@ -418,6 +468,8 @@ export async function sendCompletionEmail(
       excludeId
     ).catch(() => []);
 
+    const messageId = generateSecureToken(16);
+    const segment = (player as { skillLevel?: string }).skillLevel as 'beginner' | 'intermediate' | 'advanced' | undefined;
     const subject = renderCompletionEmailSubject({ locale: emailLocale, courseName });
     const body = renderCompletionEmailHtml({
       locale: emailLocale,
@@ -430,6 +482,8 @@ export async function sendCompletionEmail(
         recommendedCourses.length > 0
           ? recommendedCourses.map((c) => ({ name: c.name, courseId: c.courseId }))
           : undefined,
+      segment: segment && ['beginner', 'intermediate', 'advanced'].includes(segment) ? segment : undefined,
+      messageId,
     });
 
     const integrity = ensureEmailLanguageIntegrity({
@@ -466,8 +520,21 @@ export async function sendCompletionEmail(
       return { success: false, error: error.message };
     }
 
-    logger.info({ playerId, courseId, messageId: data?.id }, 'Completion email sent successfully');
-    return { success: true, messageId: data?.id };
+    const brandId = (player as { brandId?: unknown }).brandId;
+    if (brandId) {
+      await EmailActivity.create({
+        messageId,
+        playerId: player._id,
+        brandId,
+        emailType: 'completion',
+        segment: segment && ['beginner', 'intermediate', 'advanced'].includes(segment) ? segment : undefined,
+        courseId: (course as { courseId?: string }).courseId,
+        sentAt: new Date(),
+      }).catch((err) => logger.warn({ err, messageId }, 'EmailActivity create failed'));
+    }
+
+    logger.info({ playerId, courseId, messageId }, 'Completion email sent successfully');
+    return { success: true, messageId };
   } catch (error) {
     logger.error({ error, playerId, courseId }, 'Error sending completion email');
     return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
@@ -515,6 +582,7 @@ export async function sendReminderEmail(
     const courseSlug = typeof course.courseId === 'string' ? course.courseId : null;
     if (!courseSlug) return { success: false, error: 'Course slug missing' };
 
+    const messageId = generateSecureToken(16);
     const subject = renderReminderEmailSubject({ locale: emailLocale, dayNumber, courseName });
     let body = renderReminderEmailHtml({
       locale: emailLocale,
@@ -537,6 +605,7 @@ export async function sendReminderEmail(
         courseName,
         tokens: EMAIL_TOKENS,
       });
+    body = injectEmailTracking(body, messageId, APP_URL);
 
     const integrity = ensureEmailLanguageIntegrity({
       locale: emailLocale,
@@ -559,7 +628,7 @@ export async function sendReminderEmail(
       return { success: false, error: 'Email service not configured' };
     }
 
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
       to: player.email,
       subject,
@@ -572,8 +641,21 @@ export async function sendReminderEmail(
       return { success: false, error: error.message };
     }
 
-    logger.info({ playerId, courseId, dayNumber, messageId: data?.id }, 'Reminder email sent successfully');
-    return { success: true, messageId: data?.id };
+    const brandId = (player as { brandId?: unknown }).brandId;
+    if (brandId) {
+      await EmailActivity.create({
+        messageId,
+        playerId: player._id,
+        brandId,
+        emailType: 'reminder',
+        courseId: courseSlug,
+        lessonDay: dayNumber,
+        sentAt: new Date(),
+      }).catch((err) => logger.warn({ err, messageId }, 'EmailActivity create failed'));
+    }
+
+    logger.info({ playerId, courseId, dayNumber, messageId }, 'Reminder email sent successfully');
+    return { success: true, messageId };
   } catch (error) {
     logger.error({ error, playerId, courseId, dayNumber }, 'Error sending reminder email');
     return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
@@ -671,13 +753,15 @@ export async function sendPaymentConfirmationEmail(
     const unsubscribeToken = await getOrGenerateUnsubscribeToken(player);
     const unsubscribeUrl = `${APP_URL}/api/email/unsubscribe?token=${unsubscribeToken}`;
 
-    const finalBody =
+    const messageId = generateSecureToken(16);
+    let finalBody =
       rendered.html +
       renderPaymentUnsubscribeFooterHtml({
         locale: emailLocale,
         unsubscribeUrl,
         tokens: EMAIL_TOKENS,
       });
+    finalBody = injectEmailTracking(finalBody, messageId, APP_URL);
 
     const integrity = ensureEmailLanguageIntegrity({
       locale: emailLocale,
@@ -707,7 +791,7 @@ export async function sendPaymentConfirmationEmail(
       return { success: false, error: 'Email service not configured' };
     }
 
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
       to: player.email,
       subject: rendered.subject,
@@ -720,8 +804,20 @@ export async function sendPaymentConfirmationEmail(
       return { success: false, error: error.message };
     }
 
-    logger.info({ playerId, courseId, transactionId, messageId: data?.id }, 'Payment confirmation email sent successfully');
-    return { success: true, messageId: data?.id };
+    const brandId = (player as { brandId?: unknown }).brandId;
+    if (brandId) {
+      await EmailActivity.create({
+        messageId,
+        playerId: player._id,
+        brandId,
+        emailType: 'payment',
+        courseId: courseSlug || undefined,
+        sentAt: new Date(),
+      }).catch((err) => logger.warn({ err, messageId }, 'EmailActivity create failed'));
+    }
+
+    logger.info({ playerId, courseId, transactionId, messageId }, 'Payment confirmation email sent successfully');
+    return { success: true, messageId };
   } catch (error) {
     logger.error({ error, playerId, courseId }, 'Error sending payment confirmation email');
     return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };

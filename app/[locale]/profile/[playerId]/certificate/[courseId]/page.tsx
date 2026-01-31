@@ -9,11 +9,12 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
-import { CheckCircle, XCircle, Download, Link as LinkIcon, Check } from 'lucide-react';
+import { CheckCircle, XCircle, Download, Link as LinkIcon, Check, Share2, QrCode } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
@@ -44,6 +45,8 @@ export default function CertificatePage({
   const [certificateData, setCertificateData] = useState<CertificateStatus | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [linkCopied, setLinkCopied] = useState(false);
+  const [verificationUrlForShare, setVerificationUrlForShare] = useState('');
+  const hasFiredCertificateGA = useRef(false);
 
   // Unwrap async params - following pattern from ProfilePage
   useEffect(() => {
@@ -98,6 +101,23 @@ export default function CertificatePage({
 
     fetchCertificateStatus();
   }, [playerId, courseId]);
+
+  // Fire GA certificate_earned once when viewing own certificate (eligible)
+  useEffect(() => {
+    if (!certificateData?.certificateEligible || !courseId || !certificateData.courseTitle || hasFiredCertificateGA.current) return;
+    hasFiredCertificateGA.current = true;
+    trackGAEvent('certificate_earned', { course_id: courseId, course_name: certificateData.courseTitle });
+  }, [certificateData, courseId]);
+
+  // Build absolute verification URL for LinkedIn/QR (client-only)
+  useEffect(() => {
+    if (typeof window === 'undefined' || !playerId || !courseId) return;
+    const base = window.location.origin;
+    const url = certificateData?.verificationSlug
+      ? `${base}/${_locale}/certificate/${certificateData.verificationSlug}`
+      : `${base}/${_locale}/certificate/verify/${playerId}/${courseId}`;
+    setVerificationUrlForShare(url);
+  }, [certificateData?.verificationSlug, _locale, playerId, courseId]);
 
   if (loading) {
     return (
@@ -203,12 +223,12 @@ export default function CertificatePage({
     day: 'numeric' 
   });
 
-  // Download certificate image
+  // Download certificate image (with locale for localized labels)
   const handleDownloadImage = async (variant: 'share_1200x627' | 'print_a4' = 'share_1200x627') => {
     if (!playerId || !courseId || !certificateEligible) return;
     
     try {
-      const response = await fetch(`/api/profile/${playerId}/certificate/${courseId}/image?variant=${variant}`);
+      const response = await fetch(`/api/profile/${playerId}/certificate/${courseId}/image?variant=${variant}&locale=${encodeURIComponent(_locale)}`);
       if (!response.ok) {
         throw new Error('Failed to generate certificate image');
       }
@@ -376,23 +396,53 @@ export default function CertificatePage({
                     {/* Share Section */}
                     <div className="text-center mb-4">
                       <h4 className="text-lg font-bold text-white mb-2">Share Certificate</h4>
-                      <button
-                        onClick={handleCopyLink}
-                        className="flex items-center justify-center gap-2 bg-brand-darkGrey text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity border border-brand-accent mx-auto"
-                      >
-                        {linkCopied ? (
-                          <>
-                            <Check className="w-5 h-5" />
-                            Link Copied!
-                          </>
-                        ) : (
-                          <>
-                            <LinkIcon className="w-5 h-5" />
-                            Copy Verification Link
-                          </>
+                      <div className="flex flex-wrap gap-3 justify-center items-center">
+                        <button
+                          onClick={handleCopyLink}
+                          className="flex items-center justify-center gap-2 bg-brand-darkGrey text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity border border-brand-accent"
+                        >
+                          {linkCopied ? (
+                            <>
+                              <Check className="w-5 h-5" />
+                              Link Copied!
+                            </>
+                          ) : (
+                            <>
+                              <LinkIcon className="w-5 h-5" />
+                              Copy Verification Link
+                            </>
+                          )}
+                        </button>
+                        {verificationUrlForShare && (
+                          <a
+                            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(verificationUrlForShare)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2 bg-[#0A66C2] text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity"
+                          >
+                            <Share2 className="w-5 h-5" />
+                            Share on LinkedIn
+                          </a>
                         )}
-                      </button>
+                      </div>
                     </div>
+
+                    {/* QR code for verification */}
+                    {verificationUrlForShare && (
+                      <div className="text-center mb-4">
+                        <h4 className="text-lg font-bold text-white mb-2 flex items-center justify-center gap-2">
+                          <QrCode className="w-5 h-5" />
+                          Scan to verify
+                        </h4>
+                        <img
+                          src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(verificationUrlForShare)}`}
+                          alt="QR code to verify certificate"
+                          width={150}
+                          height={150}
+                          className="mx-auto border-2 border-brand-accent/50 rounded-lg bg-white p-1"
+                        />
+                      </div>
+                    )}
 
                     {/* Download Section */}
                     <div className="text-center">

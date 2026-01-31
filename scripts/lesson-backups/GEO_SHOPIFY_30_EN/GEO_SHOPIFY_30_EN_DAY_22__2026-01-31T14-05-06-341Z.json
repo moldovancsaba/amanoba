@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T14:05:06.350Z",
+  "courseId": "GEO_SHOPIFY_30_EN",
+  "lessonId": "GEO_SHOPIFY_30_EN_DAY_22",
+  "title": "Buying guide: AI-friendly structure",
+  "content": "<h1>Buying guide: AI-friendly structure</h1>\n<p><em>Write a guide the AI can summarize without distortion.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Draft one buying guide outline.</li>\n<li>Link 3 PDPs with reasons.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Guides are strong sources if sections are clear.</li>\n<li>Reduces misread and builds trust.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Hero: who, which situation.</li>\n<li>Decision criteria (3–5 bullets).</li>\n<li>Top picks with reasons and links.</li>\n<li>Policy short + link.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: Structured, linked PDPs, short reasons.</li>\n<li><strong>Poor</strong>: Wall of text, no links.</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Write a guide outline for your top category using the blocks above.</li>\n<li>Add 3 PDP links with short reasons.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Draft a second outline for another category.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Guide blocks present.</li>\n<li>Top picks with reasons/links.</li>\n<li>Policy block included.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Shopify content ideas: <a href=\"https://shopify.dev/docs/api/liquid/objects/product\" target=\"_blank\" rel=\"noreferrer\">https://shopify.dev/docs/api/liquid/objects/product</a></li>\n</ul>",
+  "emailSubject": "GEO Shopify – Day 22: Buying guide",
+  "emailBody": "<h1>GEO Shopify – Day 22</h1>\n<h2>Buying guide</h2>\n<p>Today you draft an AI-friendly buying guide and link your PDPs.</p>\n<p><a href=\"http://localhost:3000/courses/GEO_SHOPIFY_30_EN/day/{{dayNumber}}\">Read the lesson →</a></p>"
+}

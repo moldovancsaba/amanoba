@@ -43,6 +43,8 @@ interface Course {
   durationDays: number;
   parentCourseId?: string;
   selectedLessonIds?: string[];
+  syncStatus?: 'synced' | 'out_of_sync';
+  lastSyncedAt?: string;
   createdBy?: string;
   assignedEditors?: string[];
   pointsConfig: {
@@ -125,6 +127,12 @@ export default function CourseEditorPage({
   const [shortCertCount, setShortCertCount] = useState(25);
   const [shortCreating, setShortCreating] = useState(false);
   const [showShortsCreate, setShowShortsCreate] = useState(false);
+  const [syncStatusData, setSyncStatusData] = useState<{
+    computedStatus: 'synced' | 'out_of_sync';
+    missingLessonIds: string[];
+    lastSyncedAt: string | null;
+  } | null>(null);
+  const [syncActionLoading, setSyncActionLoading] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [editorNames, setEditorNames] = useState<Record<string, string>>({});
   const [editorSearch, setEditorSearch] = useState('');
@@ -163,6 +171,27 @@ export default function CourseEditorPage({
     } else {
       setShorts([]);
     }
+  }, [course?.courseId, course?.parentCourseId]);
+
+  useEffect(() => {
+    if (!course?.courseId || !course.parentCourseId) {
+      setSyncStatusData(null);
+      return;
+    }
+    fetch(`/api/admin/courses/${course.courseId}/sync-status`)
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.success) {
+          setSyncStatusData({
+            computedStatus: d.computedStatus ?? 'out_of_sync',
+            missingLessonIds: d.missingLessonIds ?? [],
+            lastSyncedAt: d.lastSyncedAt ?? null,
+          });
+        } else {
+          setSyncStatusData(null);
+        }
+      })
+      .catch(() => setSyncStatusData(null));
   }, [course?.courseId, course?.parentCourseId]);
 
   useEffect(() => {
@@ -1032,9 +1061,124 @@ export default function CourseEditorPage({
           )}
         </div>
         {course.parentCourseId && (
-          <p className="text-sm text-brand-darkGrey mb-4">
-            This is a short course. Lesson and quiz content are managed in the parent course. Only preview is available here.
-          </p>
+          <>
+            {/* Sync status and actions for child courses */}
+            <div className="mb-4 p-4 rounded-lg border-2 border-brand-accent/50 bg-brand-accent/5">
+              <p className="text-sm font-medium text-brand-black mb-2">Sync with parent</p>
+              {syncStatusData ? (
+                <>
+                  <div className="flex flex-wrap items-center gap-3 mb-2">
+                    <span
+                      className={`inline-flex items-center gap-1.5 px-2 py-1 rounded text-sm font-medium ${
+                        syncStatusData.computedStatus === 'synced'
+                          ? 'bg-green-100 text-green-800'
+                          : 'bg-amber-100 text-amber-800'
+                      }`}
+                    >
+                      {syncStatusData.computedStatus === 'synced' ? (
+                        <>Synced</>
+                      ) : (
+                        <>
+                          <AlertTriangle className="w-4 h-4" />
+                          Out of sync
+                        </>
+                      )}
+                    </span>
+                    {syncStatusData.lastSyncedAt && (
+                      <span className="text-sm text-brand-darkGrey">
+                        Last synced: {new Date(syncStatusData.lastSyncedAt).toLocaleString()}
+                      </span>
+                    )}
+                  </div>
+                  {syncStatusData.missingLessonIds.length > 0 && (
+                    <p className="text-sm text-amber-700 mb-2">
+                      {syncStatusData.missingLessonIds.length} lesson(s) in this short no longer exist on the parent. Re-sync to remove them.
+                    </p>
+                  )}
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      disabled={syncActionLoading}
+                      onClick={async () => {
+                        if (!course?.courseId) return;
+                        setSyncActionLoading(true);
+                        try {
+                          const r = await fetch(`/api/admin/courses/${course.courseId}/sync`, { method: 'POST' });
+                          const d = await r.json();
+                          if (d.success) {
+                            setCourse((prev) =>
+                              prev
+                                ? {
+                                    ...prev,
+                                    syncStatus: 'synced',
+                                    lastSyncedAt: d.course?.lastSyncedAt ?? prev.lastSyncedAt,
+                                    selectedLessonIds: d.course?.selectedLessonIds ?? prev.selectedLessonIds,
+                                  }
+                                : null
+                            );
+                            setSyncStatusData((prev) =>
+                              prev
+                                ? {
+                                    ...prev,
+                                    computedStatus: 'synced',
+                                    missingLessonIds: [],
+                                    lastSyncedAt: d.course?.lastSyncedAt ?? prev.lastSyncedAt,
+                                  }
+                                : null
+                            );
+                            if ((d.removedLessonIds?.length ?? 0) > 0) {
+                              alert(`Re-synced. ${d.removedLessonIds.length} invalid lesson reference(s) were removed.`);
+                            }
+                            fetchLessons(course.courseId);
+                          } else {
+                            alert(d.message || d.error || 'Re-sync failed');
+                          }
+                        } finally {
+                          setSyncActionLoading(false);
+                        }
+                      }}
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-brand-accent text-brand-black font-medium hover:bg-brand-primary-400 disabled:opacity-50"
+                    >
+                      <RefreshCw className={`w-4 h-4 ${syncActionLoading ? 'animate-spin' : ''}`} />
+                      Re-sync from parent
+                    </button>
+                    <button
+                      type="button"
+                      disabled={syncActionLoading}
+                      onClick={async () => {
+                        if (!course?.courseId) return;
+                        setSyncActionLoading(true);
+                        try {
+                          const r = await fetch(`/api/admin/courses/${course.courseId}/unsync`, { method: 'POST' });
+                          const d = await r.json();
+                          if (d.success) {
+                            setCourse((prev) =>
+                              prev ? { ...prev, syncStatus: 'out_of_sync' } : null
+                            );
+                            setSyncStatusData((prev) =>
+                              prev ? { ...prev, computedStatus: 'out_of_sync' } : null
+                            );
+                          } else {
+                            alert(d.message || d.error || 'Mark unsync failed');
+                          }
+                        } finally {
+                          setSyncActionLoading(false);
+                        }
+                      }}
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded border-2 border-brand-darkGrey/50 text-brand-black font-medium hover:bg-brand-darkGrey/10 disabled:opacity-50"
+                    >
+                      Mark out of sync
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <p className="text-sm text-brand-darkGrey">Loading sync status…</p>
+              )}
+            </div>
+            <p className="text-sm text-brand-darkGrey mb-4">
+              This is a short course. Lesson and quiz content are managed in the parent course. Only preview is available here.
+            </p>
+          </>
         )}
         {/* Lessons Grid — when Create short is on, lesson cards get a "Include in short" checkbox */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T14:05:06.350Z",
+  "courseId": "GEO_SHOPIFY_30_EN",
+  "lessonId": "GEO_SHOPIFY_30_EN_DAY_20",
+  "title": "Minimum content: no “thin” PDP",
+  "content": "<h1>Minimum content: no “thin” PDP</h1>\n<p><em>Eliminate low-content product pages.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>Define the minimum content standard.</li>\n<li>Fix 3 thin pages.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>Low content is harder to cite and leads to bad recommendations.</li>\n<li>Returns rise if users lack info.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Minimum: capsule, price/stock, policy, 3 USPs, specs, 2 images with variants.</li>\n<li>If missing: fill from template, add specs table.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: Capsule + 3 USPs + specs + 4 images.</li>\n<li><strong>Poor</strong>: One-line description, one image, no policy.</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Build a minimum standard checklist.</li>\n<li>Pick 3 thin PDPs and fill missing blocks.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Document the standard for new products.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Minimum list ready.</li>\n<li>3 PDPs enriched.</li>\n<li>Specs table present.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Helpful content guidance: <a href=\"https://developers.google.com/search/docs/fundamentals/creating-helpful-content\" target=\"_blank\" rel=\"noreferrer\">https://developers.google.com/search/docs/fundamentals/creating-helpful-content</a></li>\n</ul>",
+  "emailSubject": "GEO Shopify – Day 20: Minimum content",
+  "emailBody": "<h1>GEO Shopify – Day 20</h1>\n<h2>Minimum content</h2>\n<p>Today you set a minimum standard and fix 3 thin PDPs.</p>\n<p><a href=\"http://localhost:3000/courses/GEO_SHOPIFY_30_EN/day/{{dayNumber}}\">Read the lesson →</a></p>"
+}

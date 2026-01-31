@@ -145,7 +145,9 @@ TEAM:
 
 ## Loopback by Agent
 
-**You work here**: Amanoba repository. Current priorities and active work live in **`docs/TASKLIST.md`** and **`docs/ROADMAP.md`**. Before starting any task, check TASKLIST and ROADMAP for the recommended next items and for references to feature docs. For layout and structure, follow **`docs/layout_grammar.md`**.
+**You work here**: Amanoba repository. **`docs/ROADMAP.md`** = future vision and client benefits (what we want to build). **`docs/TASKLIST.md`** = actionable tasks broken down from the roadmap (what to do). Before starting work, read TASKLIST for the next action items and ROADMAP for context. For layout and structure, follow **`docs/layout_grammar.md`**.
+
+**Single-place rule:** Completed work → **`docs/RELEASE_NOTES.md`** only. When you complete a task from TASKLIST, add it to RELEASE_NOTES and remove it from TASKLIST. ROADMAP stays vision-only; do not put completed tasks there.
 
 ---
 
@@ -160,14 +162,15 @@ TEAM:
 
 ## 📋 Current Feature/Bug Document
 
-**Source of truth**: **`docs/TASKLIST.md`** and **`docs/ROADMAP.md`** define active work and recommended next items. This section is a pointer; always read TASKLIST and ROADMAP for the current state.
+**Source of truth**: **`docs/ROADMAP.md`** = future vision and client benefits. **`docs/TASKLIST.md`** = actionable tasks to do (broken down from roadmap). **`docs/RELEASE_NOTES.md`** = completed work only. This section is a pointer; read TASKLIST and ROADMAP for current state.
 
-**As of last update**: Certificate System v0.1, Editor User, and User profile customization are delivered (see `docs/RELEASE_NOTES.md`). Recommended next: Global audit (P0), Onboarding Survey / Email Automation / Multi-Format Forking (P2), P1 tech debt (design system, debug logs, Facebook cleanup).
+**As of last update**: Current version **v2.9.33** (see RELEASE_NOTES). TASKLIST holds remaining open items only: optional email A/B and MailerLite/ActiveCampaign (Task 5). Tasks 1–4, 6–11 are done and recorded in RELEASE_NOTES. ROADMAP holds future functions and client benefits only; completed work is listed in the single “Already delivered” line and in RELEASE_NOTES only.
 
 **When starting work**:
-1. Read **`docs/TASKLIST.md`** for active tasks and recommended next 3 items.
-2. Read **`docs/ROADMAP.md`** for strategy and tech debt.
-3. For any content, course, UI, or doc structure: read **`docs/layout_grammar.md`** and follow the layout grammar.
+1. Read **`docs/TASKLIST.md`** for the next action items to do.
+2. Read **`docs/ROADMAP.md`** for context (what we want to build and why).
+3. When you complete a task: add it to **RELEASE_NOTES.md** and remove it from TASKLIST.
+4. For any content, course, UI, or doc structure: read **`docs/layout_grammar.md`** and follow the layout grammar.
 
 ---
 
@@ -177,8 +180,8 @@ TEAM:
 
 | Location | Document Name | Summary |
 |----------|---------------|---------|
-| `/docs/TASKLIST.md` | Task List | Complete list of active tasks, completed work, and upcoming features. Updated daily during development. Contains priority-ordered tasks with status tracking. |
-| `/docs/ROADMAP.md` | Roadmap | Strategic vision and future plans for the platform. Includes tech debt, upcoming milestones, and long-term goals. Updated when new features are planned. |
+| `/docs/TASKLIST.md` | Task List | **Actionable tasks** broken down from the roadmap. One place for "what to do." When a task is done, move it to RELEASE_NOTES and remove from here. |
+| `/docs/ROADMAP.md` | Roadmap | **Future vision and client benefits** only. What functions we want to implement, what benefits we want to give clients. Not a task list; ideas here are broken down into tasks in TASKLIST. |
 | `/docs/ARCHITECTURE.md` | Architecture | Complete system architecture documentation. Covers tech stack, data models, API structure, authentication flow, and component organization. Essential for understanding system design. |
 | `/docs/RELEASE_NOTES.md` | Release Notes | Changelog of all completed work in reverse chronological order. Documents bug fixes, features, and improvements for each version. Updated with every release. |
 | `/docs/LEARNINGS.md` | Learnings | Knowledge base of issues faced, solutions implemented, and best practices discovered. Categorized by topic (architecture, database, API, etc.). Prevents repeated mistakes. |
@@ -262,7 +265,7 @@ TEAM:
 
 ### Critical System State
 
-**Current version and status**: See **`docs/RELEASE_NOTES.md`** (current version) and **`docs/TASKLIST.md`** (active work). Build and deployment status are verified on release.
+**Current version and status**: **v2.9.33** (see **`docs/RELEASE_NOTES.md`**). **`docs/TASKLIST.md`** lists remaining actionable tasks only. Build and deployment status are verified on release.
 
 **Layout and structure**: For any work that affects **content layout**, **course/lesson/quiz layout**, **UI layout**, or **documentation layout**, follow **`docs/layout_grammar.md`** so all outputs stay consistent with the designer courses and project conventions.
 
@@ -282,9 +285,10 @@ TEAM:
 
 1. **All feature documents** go in `/docs` folder
 2. **Format**: `YYYY-MM-DD_FEATURE.md` (e.g., `2026-01-23_ADMIN_UI_IMPROVEMENTS.md`)
-3. **Feature documents** must be referenced in TASKLIST.md, ROADMAP.md, RELEASE_NOTES.md
+3. **Feature documents** must be referenced in TASKLIST.md, ROADMAP.md, or RELEASE_NOTES.md as appropriate (single-place rule: each task in exactly one of the three)
 4. **Update immediately** after code changes - documentation = code
 5. **No placeholders** - every document must reflect current state
+6. **Single-place rule**: ROADMAP = vision and benefits only. TASKLIST = actionable tasks only. Completed tasks → RELEASE_NOTES only; remove from TASKLIST when done. Do not duplicate the same task across the three docs.
 
 ### Tech Stack Constraints
 
@@ -320,5 +324,5 @@ TEAM:
 
 ---
 
-**Last Updated**: 2026-01-28  
-**Current Work**: See `docs/TASKLIST.md` and `docs/ROADMAP.md`. For layout and structure, follow `docs/layout_grammar.md`.
+**Last Updated**: 2026-01-31  
+**Current Version**: v2.9.33 (see `docs/RELEASE_NOTES.md`). **Current Work**: See `docs/TASKLIST.md` for remaining action items; `docs/ROADMAP.md` for future vision and client benefits. Completed work → `docs/RELEASE_NOTES.md` only. For layout and structure, follow `docs/layout_grammar.md`.

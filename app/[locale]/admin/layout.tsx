@@ -32,6 +32,8 @@ import {
   LogOut,
   Award,
   HelpCircle,
+  Mail,
+  ThumbsUp,
 } from 'lucide-react';
 import Logo from '@/components/Logo';
 
@@ -40,7 +42,9 @@ const allNavigationItems = [
   { key: 'dashboard', href: '/admin', icon: LayoutDashboard },
   { key: 'analytics', href: '/admin/analytics', icon: BarChart3 },
   { key: 'payments', href: '/admin/payments', icon: CreditCard },
+  { key: 'emailAnalytics', href: '/admin/email-analytics', icon: Mail },
   { key: 'surveys', href: '/admin/surveys', icon: ClipboardList },
+  { key: 'votes', href: '/admin/votes', icon: ThumbsUp },
   { key: 'courses', href: '/admin/courses', icon: BookOpen },
   { key: 'questions', href: '/admin/questions', icon: HelpCircle },
   { key: 'certificates', href: '/admin/certificates', icon: Award },

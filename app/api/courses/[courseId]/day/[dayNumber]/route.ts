@@ -11,7 +11,7 @@ import connectDB from '@/lib/mongodb';
 import mongoose from 'mongoose';
 import { Course, Lesson, CourseProgress, Player, CourseProgressStatus } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import { checkAndUnlockCourseCompletionAchievements } from '@/lib/gamification';
+import { checkAndUnlockCourseAchievements, checkAndUnlockCourseCompletionAchievements } from '@/lib/gamification';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 import { resolveLessonForChildDay } from '@/lib/course-helpers';
 
@@ -309,6 +309,25 @@ export async function POST(
       }
 
       await progress.save();
+
+      // Check course-specific achievements (First Lesson, Week 1, etc.) after every lesson completion
+      try {
+        const courseAchievements = await checkAndUnlockCourseAchievements(
+          player._id as mongoose.Types.ObjectId,
+          courseId
+        );
+        if (courseAchievements.length > 0) {
+          logger.info(
+            { courseId, playerId: (player._id as mongoose.Types.ObjectId).toString(), unlocked: courseAchievements.length },
+            'Course achievements unlocked'
+          );
+        }
+      } catch (courseAchievementError) {
+        logger.warn(
+          { error: courseAchievementError, courseId, playerId: (player._id as mongoose.Types.ObjectId).toString() },
+          'Failed to check course achievements'
+        );
+      }
 
       // Award points and XP (Player document may have points/xp from schema; type assertion for TS)
       const pointsReward = lesson?.pointsReward ?? 0;

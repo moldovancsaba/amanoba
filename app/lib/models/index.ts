@@ -35,10 +35,11 @@ export { default as LeaderboardEntry, type ILeaderboardEntry } from './leaderboa
 export { default as Reward, type IReward } from './reward';
 export { default as RewardRedemption, type IRewardRedemption } from './reward-redemption';
 
-// Analytics and System Models (3)
+// Analytics and System Models (4)
 export { default as EventLog, type IEventLog } from './event-log';
 export { default as AnalyticsSnapshot, type IAnalyticsSnapshot } from './analytics-snapshot';
 export { default as SystemVersion, type ISystemVersion } from './system-version';
+export { default as EmailActivity, type IEmailActivity, type EmailType, type EmailSegment } from './email-activity';
 
 // Referral System Model (1)
 export { default as ReferralTracking, type IReferralTracking } from './referral-tracking';
@@ -99,4 +100,7 @@ export { default as FeatureFlags, type IFeatureFlags } from './feature-flags';
 export { default as Survey, type ISurvey, QuestionType } from './survey';
 export { default as SurveyResponse, type ISurveyResponse } from './survey-response';
 
-// Total: 32 models
+// Content Voting (CourseVote / LessonVote / QuestionVote)
+export { default as ContentVote, type IContentVote, type VoteTargetType } from './content-vote';
+
+// Total: 33 models

@@ -12,10 +12,10 @@
  */
 
 import mongoose from 'mongoose';
-import { Achievement, AchievementUnlock, PlayerProgression } from '../models';
-import { IAchievement } from '../models/achievement';
-import { IPlayerProgression } from '../models/player-progression';
-import logger from '../logger';
+import { Achievement, AchievementUnlock, PlayerProgression } from '@/lib/models';
+import { IAchievement } from '@/lib/models/achievement';
+import { IPlayerProgression } from '@/lib/models/player-progression';
+import { logger } from '@/lib/logger';
 
 /**
  * Interface: Achievement Check Context
@@ -31,6 +31,12 @@ export interface AchievementCheckContext {
     accuracy?: number;
     duration: number;
     outcome: 'win' | 'loss' | 'draw';
+  };
+  /** For course-specific achievements (first_lesson, lessons_completed, course_completed, course_master). */
+  courseId?: string;
+  courseProgress?: {
+    lessonsCompleted: number;
+    status: string;
   };
 }
 
@@ -173,6 +179,44 @@ export function evaluateAchievementCriteria(
       };
     }
   }
+
+  // Course-specific achievements: require courseProgress when criteria is course-scoped
+  const courseCriteriaTypes = ['first_lesson', 'lessons_completed', 'course_completed', 'course_master'];
+  if (courseCriteriaTypes.includes(criteria.type)) {
+    const criteriaCourseId = (criteria as { courseId?: string }).courseId?.toUpperCase?.();
+    if (criteriaCourseId && context.courseId && criteriaCourseId !== context.courseId.toUpperCase()) {
+      return { meetsRequirements: false, currentValue: 0, targetValue, progress: 0 };
+    }
+    if (!context.courseProgress) {
+      return { meetsRequirements: false, currentValue: 0, targetValue, progress: 0 };
+    }
+    const { lessonsCompleted, status } = context.courseProgress;
+    switch (criteria.type) {
+      case 'first_lesson':
+        currentValue = lessonsCompleted >= 1 ? 1 : 0;
+        break;
+      case 'lessons_completed':
+        currentValue = lessonsCompleted;
+        break;
+      case 'course_completed':
+        currentValue = status === 'completed' ? 1 : 0;
+        break;
+      case 'course_master':
+        currentValue = status === 'completed' ? 1 : 0; // Same as course_completed; can later add perfect/final-exam
+        break;
+      default:
+        break;
+    }
+    const progressOut = targetValue > 0 ? Math.min(100, (currentValue / targetValue) * 100) : 0;
+    const meetsOut = currentValue >= targetValue;
+    if (process.env.NODE_ENV !== 'production') {
+      logger.debug(
+        { achievement: achievement.name, criteriaType: criteria.type, currentValue, targetValue, meetsRequirements: meetsOut },
+        'Course achievement criteria evaluated'
+      );
+    }
+    return { meetsRequirements: meetsOut, currentValue, targetValue, progress: progressOut };
+  }
   
   // Evaluate based on criteria type
   switch (criteria.type) {
@@ -225,27 +269,28 @@ export function evaluateAchievementCriteria(
   
   const progress = targetValue > 0 ? Math.min(100, (currentValue / targetValue) * 100) : 0;
   const meetsRequirements = currentValue >= targetValue;
-  
-  // Why: Debug logging to diagnose false unlock issue - LOG EVERYTHING
-  logger.info(
-    {
-      achievement: achievement.name,
-      criteriaType: criteria.type,
-      currentValue,
-      targetValue,
-      meetsRequirements,
-      comparison: `${currentValue} >= ${targetValue} = ${meetsRequirements}`,
-      stats: {
-        gamesPlayed: context.progression.statistics.totalGamesPlayed,
-        wins: context.progression.statistics.totalWins,
-        losses: context.progression.statistics.totalLosses,
-        streak: context.progression.statistics.currentStreak,
-        level: context.progression.level,
+
+  if (process.env.NODE_ENV !== 'production') {
+    logger.debug(
+      {
+        achievement: achievement.name,
+        criteriaType: criteria.type,
+        currentValue,
+        targetValue,
+        meetsRequirements,
+        stats: context.progression?.statistics
+          ? {
+              gamesPlayed: context.progression.statistics.totalGamesPlayed,
+              wins: context.progression.statistics.totalWins,
+              streak: context.progression.statistics.currentStreak,
+              level: context.progression.level,
+            }
+          : undefined,
       },
-    },
-    meetsRequirements ? '✅ Achievement criteria MET' : '❌ Achievement criteria NOT MET'
-  );
-  
+      meetsRequirements ? 'Achievement criteria MET' : 'Achievement criteria NOT MET'
+    );
+  }
+
   return {
     meetsRequirements,
     currentValue,
@@ -467,6 +512,110 @@ export async function getPlayerAchievementsByCategory(
   }
   
   return grouped;
+}
+
+/**
+ * Check and unlock course-specific achievements (First Lesson, Week 1, lessons_completed, course_completed, course_master).
+ * Call after lesson completion or course completion so milestones unlock.
+ *
+ * @param playerId - The player
+ * @param courseIdStr - Course ID string (e.g. from API)
+ * @returns Array of newly unlocked achievements
+ */
+export async function checkAndUnlockCourseAchievements(
+  playerId: mongoose.Types.ObjectId,
+  courseIdStr: string
+): Promise<AchievementUnlockResult[]> {
+  const results: AchievementUnlockResult[] = [];
+  const courseIdUpper = String(courseIdStr || '').toUpperCase();
+  if (!courseIdUpper) return results;
+
+  try {
+    const { Course, CourseProgress, PlayerProgression } = await import('@/lib/models');
+    const course = await Course.findOne({ courseId: courseIdUpper }).lean();
+    if (!course) return results;
+    const courseObjectId = (course as { _id: mongoose.Types.ObjectId })._id;
+
+    const progress = await CourseProgress.findOne({
+      playerId,
+      courseId: courseObjectId,
+    }).lean();
+    if (!progress) return results;
+
+    const progression = await PlayerProgression.findOne({ playerId }).lean();
+    if (!progression) return results;
+
+    const lessonsCompleted = Array.isArray((progress as { completedDays?: number[] }).completedDays)
+      ? (progress as { completedDays: number[] }).completedDays.length
+      : 0;
+    const status = String((progress as { status?: string }).status ?? 'not_started');
+
+    const courseCriteriaTypes = ['first_lesson', 'lessons_completed', 'course_completed', 'course_master'];
+    const achievements = await Achievement.find({
+      'metadata.isActive': true,
+      'criteria.type': { $in: courseCriteriaTypes },
+      $or: [
+        { 'criteria.courseId': { $exists: false } },
+        { 'criteria.courseId': { $in: [null, ''] } },
+        { 'criteria.courseId': courseIdUpper },
+      ],
+    }).lean();
+
+    const existingUnlocks = await AchievementUnlock.find({
+      playerId,
+      achievementId: { $in: achievements.map((a) => a._id) },
+    }).lean();
+    const unlockedIds = new Set(
+      existingUnlocks.filter((u) => u.progress >= 100).map((u) => u.achievementId.toString())
+    );
+
+    const context: AchievementCheckContext = {
+      playerId,
+      progression: progression as IPlayerProgression,
+      courseId: courseIdUpper,
+      courseProgress: { lessonsCompleted, status },
+    };
+
+    for (const achievement of achievements) {
+      const achievementId = achievement._id.toString();
+      if (unlockedIds.has(achievementId)) continue;
+
+      const evaluation = evaluateAchievementCriteria(
+        achievement as unknown as IAchievement,
+        context
+      );
+      if (!evaluation.meetsRequirements) continue;
+
+      logger.info(
+        {
+          achievement: (achievement as { name?: string }).name,
+          playerId,
+          courseId: courseIdUpper,
+          currentValue: evaluation.currentValue,
+          targetValue: evaluation.targetValue,
+        },
+        'Unlocking course achievement'
+      );
+      const result = await unlockAchievement(
+        playerId,
+        achievement as unknown as IAchievement,
+        evaluation.currentValue,
+        undefined
+      );
+      if (result) {
+        results.push(result);
+        unlockedIds.add(achievementId);
+      }
+    }
+
+    return results;
+  } catch (error) {
+    logger.error(
+      { err: error, playerId, courseId: courseIdStr },
+      'Failed to check course achievements'
+    );
+    return results;
+  }
 }
 
 /**

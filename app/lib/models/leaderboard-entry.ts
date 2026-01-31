@@ -20,7 +20,8 @@ import mongoose, { Schema, Document, Model } from 'mongoose';
  */
 export interface ILeaderboardEntry extends Document {
   playerId: mongoose.Types.ObjectId;
-  gameId?: mongoose.Types.ObjectId; // Null for global leaderboards
+  gameId?: mongoose.Types.ObjectId; // Null for global/course leaderboards
+  courseId?: string; // Course ID string for course-specific leaderboards
   period: 'daily' | 'weekly' | 'monthly' | 'all_time';
   metric: 'score' | 'wins' | 'points' | 'xp' | 'streak' | 'accuracy';
   rank: number;
@@ -52,7 +53,14 @@ const LeaderboardEntrySchema = new Schema<ILeaderboardEntry>(
       type: Schema.Types.ObjectId,
       ref: 'Game',
       index: true,
-      // Why: Null for global leaderboards, specific game for game leaderboards
+      // Why: Null for global/course leaderboards, specific game for game leaderboards
+    },
+    courseId: {
+      type: String,
+      uppercase: true,
+      trim: true,
+      index: true,
+      // Why: Course ID for course-specific leaderboards (points, completion speed)
     },
     period: {
       type: String,
@@ -70,7 +78,8 @@ const LeaderboardEntrySchema = new Schema<ILeaderboardEntry>(
         values: [
           'score', 'wins', 'points', 'xp', 'streak', 'accuracy', // Legacy values
           'points_balance', 'points_lifetime', 'xp_total', 'level', // Current wallet/progression metrics
-          'win_streak', 'daily_streak', 'games_won', 'win_rate', 'elo' // Competitive metrics
+          'win_streak', 'daily_streak', 'games_won', 'win_rate', 'elo', // Competitive metrics
+          'course_points', 'course_completion_speed' // Course-specific (points earned in course; days to complete)
         ],
         message: 'Metric must be valid',
       },
@@ -140,9 +149,14 @@ LeaderboardEntrySchema.index(
   { gameId: 1, period: 1, metric: 1, playerId: 1 },
   { unique: true }
 );
-// Why: One entry per player per leaderboard variant
+LeaderboardEntrySchema.index(
+  { courseId: 1, period: 1, metric: 1, playerId: 1 },
+  { unique: true }
+);
+// Why: One entry per player per leaderboard variant (game or course)
 
 LeaderboardEntrySchema.index({ gameId: 1, period: 1, metric: 1, rank: 1 });
+LeaderboardEntrySchema.index({ courseId: 1, period: 1, metric: 1, rank: 1 });
 // Why: Fetch top N rankings efficiently
 
 LeaderboardEntrySchema.index({ playerId: 1, period: 1, metric: 1 });

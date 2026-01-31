@@ -62,6 +62,10 @@ export interface ICourse extends Document {
   assignedEditors?: mongoose.Types.ObjectId[];
   /** For shorts: draft until editor publishes. Catalog shows only non-draft. */
   isDraft?: boolean;
+  /** Child courses only: 'synced' | 'out_of_sync'. Used for selective unsync/re-sync and admin sync alerts. */
+  syncStatus?: 'synced' | 'out_of_sync';
+  /** Child courses only: when this child was last re-synced from parent. */
+  lastSyncedAt?: Date;
   certification?: {
     enabled: boolean;
     poolCourseId?: string;
@@ -236,6 +240,8 @@ const CourseSchema = new Schema<ICourse>(
     createdBy: { type: Schema.Types.ObjectId, ref: 'Player', default: null },
     assignedEditors: [{ type: Schema.Types.ObjectId, ref: 'Player', default: undefined }],
     isDraft: { type: Boolean, default: false },
+    syncStatus: { type: String, enum: ['synced', 'out_of_sync'], trim: true },
+    lastSyncedAt: { type: Date },
 
     // Certification configuration
     // Why: Controls premium gating, pricing, and pool mapping for final exam
@@ -279,6 +285,11 @@ const CourseSchema = new Schema<ICourse>(
       credentialTitleId: {
         type: String,
         trim: true,
+      },
+      themeColors: {
+        primary: { type: String, trim: true },
+        secondary: { type: String, trim: true },
+        accent: { type: String, trim: true },
       },
     },
 

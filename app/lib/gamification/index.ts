@@ -34,6 +34,7 @@ export {
 // Achievement Engine
 export {
   checkAndUnlockAchievements,
+  checkAndUnlockCourseAchievements,
   checkAndUnlockCourseCompletionAchievements,
   evaluateAchievementCriteria,
   getAchievementCompletionRate,

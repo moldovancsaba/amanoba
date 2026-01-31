@@ -11,6 +11,7 @@ import connectDB from '@/lib/mongodb';
 import { Course, Lesson } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
+import { resetVotesForLesson } from '@/lib/content-votes';
 import mongoose from 'mongoose';
 
 /**
@@ -110,6 +111,12 @@ export async function PATCH(
 
     if (!lesson) {
       return NextResponse.json({ error: 'Lesson not found' }, { status: 404 });
+    }
+
+    try {
+      await resetVotesForLesson(lesson, course._id);
+    } catch (voteErr) {
+      logger.warn({ error: voteErr, courseId, lessonId }, 'Vote reset on lesson update failed');
     }
 
     logger.info({ courseId, lessonId }, 'Admin updated lesson');

@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-01-31T14:05:06.351Z",
+  "courseId": "GEO_SHOPIFY_30_EN",
+  "lessonId": "GEO_SHOPIFY_30_EN_DAY_25",
+  "title": "Off-site GEO: when it helps, when it harms",
+  "content": "<h1>Off-site GEO: when it helps, when it harms</h1>\n<p><em>List external mentions that support citation, and avoid spam.</em></p>\n<hr />\n<h2>Learning goal</h2>\n<ul>\n<li>List useful off-site sources (reviews, media, partners).</li>\n<li>Avoid spammy mentions.</li>\n</ul>\n<hr />\n<h2>Why it matters</h2>\n<ul>\n<li>AI may consider external mentions.</li>\n<li>Spammy links can hurt.</li>\n</ul>\n<hr />\n<h2>Explanation</h2>\n<ul>\n<li>Useful: credible review sites, relevant media, partner blogs.</li>\n<li>Harmful: link farms, paid spam, irrelevant directories.</li>\n</ul>\n<hr />\n<h2>Examples</h2>\n<ul>\n<li><strong>Good</strong>: real test article link, partner Q&A.</li>\n<li><strong>Poor</strong>: link farm, keyword-stuffed page.</li>\n</ul>\n<hr />\n<h2>Guided exercise (10–15 min)</h2>\n<ol>\n<li>Create lists: useful vs avoid sources.</li>\n<li>Select 2 credible sources and draft placement.</li>\n</ol>\n<h2>Independent exercise (5–10 min)</h2>\n<p>Write an outreach draft for a partner article or Q&A.</p>\n<hr />\n<h2>Self-check</h2>\n<ul>\n<li>Useful/avoid lists ready.</li>\n<li>2 credible sources picked.</li>\n<li>Outreach draft ready.</li>\n</ul>\n<hr />\n<h2>Optional deepening</h2>\n<ul>\n<li>Google spam policies: <a href=\"https://developers.google.com/search/docs/essentials/spam-policies\" target=\"_blank\" rel=\"noreferrer\">https://developers.google.com/search/docs/essentials/spam-policies</a></li>\n</ul>",
+  "emailSubject": "GEO Shopify – Day 25: Off-site GEO",
+  "emailBody": "<h1>GEO Shopify – Day 25</h1>\n<h2>Off-site GEO</h2>\n<p>Today you list helpful external sources and avoid spammy mentions.</p>\n<p><a href=\"http://localhost:3000/courses/GEO_SHOPIFY_30_EN/day/{{dayNumber}}\">Read the lesson →</a></p>"
+}

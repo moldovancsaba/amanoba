@@ -14,9 +14,12 @@ import connectDB from '@/lib/mongodb';
 import { Certificate, Course, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { CERT_COLORS_DEFAULT, type CertColors } from '@/app/lib/constants/certificate-colors';
+import { getCertificateStrings, formatCertificateDate } from '@/app/lib/constants/certificate-strings';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
+
+type TemplateId = 'default' | 'minimal';
 
 export async function GET(
   request: NextRequest,
@@ -30,6 +33,7 @@ export async function GET(
 
     const { searchParams } = new URL(request.url);
     const variant = searchParams.get('variant') || 'share_1200x627';
+
     const dimensions =
       variant === 'print_a4'
         ? { width: 1200, height: 1697 }
@@ -41,6 +45,9 @@ export async function GET(
     if (!certificate) {
       return new Response('Certificate not found', { status: 404 });
     }
+    const localeParam = searchParams.get('locale');
+    const stringsRevoked = getCertificateStrings(localeParam || 'en');
+
     if (certificate.isRevoked) {
       return new ImageResponse(
         (
@@ -57,7 +64,7 @@ export async function GET(
               fontWeight: 'bold',
             }}
           >
-            Certificate revoked
+            {stringsRevoked.revoked}
           </div>
         ),
         { width: 1200, height: 627 }
@@ -66,7 +73,8 @@ export async function GET(
 
     const course = await Course.findOne({ courseId: certificate.courseId }).lean();
     let certColors: CertColors = { ...CERT_COLORS_DEFAULT };
-    if (course?.brandId) {
+    const courseCert = course?.certification as { themeColors?: { primary?: string; secondary?: string; accent?: string } } | undefined;
+    if (!courseCert?.themeColors?.accent && course?.brandId) {
       const brand = await Brand.findById(course.brandId).lean();
       if (brand?.themeColors?.accent) {
         certColors = {
@@ -84,14 +92,29 @@ export async function GET(
         certColors = { ...certColors, bgMid: brand.themeColors.secondary };
       }
     }
+    if (courseCert?.themeColors?.accent && /^#[0-9a-fA-F]{6}$/.test(courseCert.themeColors.accent)) {
+      certColors = {
+        ...certColors,
+        border: courseCert.themeColors.accent,
+        accent: courseCert.themeColors.accent,
+        titleGradientEnd: courseCert.themeColors.accent,
+        borderMuted: `${courseCert.themeColors.accent}4D`,
+      };
+    }
+    if (courseCert?.themeColors?.primary && /^#[0-9a-fA-F]{6}$/.test(courseCert.themeColors.primary)) {
+      certColors = { ...certColors, bgStart: courseCert.themeColors.primary };
+    }
+    if (courseCert?.themeColors?.secondary && /^#[0-9a-fA-F]{6}$/.test(courseCert.themeColors.secondary)) {
+      certColors = { ...certColors, bgMid: courseCert.themeColors.secondary };
+    }
 
-    const issuedDate = new Date(certificate.issuedAtISO).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
+    const locale = localeParam || (course as { language?: string })?.language || 'en';
+    const strings = getCertificateStrings(locale);
+    const issuedDate = formatCertificateDate(new Date(certificate.issuedAtISO), locale);
+    const templateId: TemplateId = ((course as { certification?: { templateId?: string } })?.certification?.templateId as TemplateId) === 'minimal' ? 'minimal' : 'default';
+    const isMinimal = templateId === 'minimal';
 
-    logger.info({ slug, variant }, 'Certificate image by slug');
+    logger.info({ slug, variant, locale, templateId }, 'Certificate image by slug');
 
     return new ImageResponse(
       (
@@ -115,21 +138,23 @@ export async function GET(
               left: 0,
               right: 0,
               bottom: 0,
-              border: `8px solid ${certColors.border}`,
-              borderRadius: '16px',
+              border: `${isMinimal ? 4 : 8}px solid ${certColors.border}`,
+              borderRadius: isMinimal ? '8px' : '16px',
             }}
           />
-          <div
-            style={{
-              position: 'absolute',
-              top: '8px',
-              left: '8px',
-              right: '8px',
-              bottom: '8px',
-              border: `4px solid ${certColors.borderMuted}`,
-              borderRadius: '12px',
-            }}
-          />
+          {!isMinimal && (
+            <div
+              style={{
+                position: 'absolute',
+                top: '8px',
+                left: '8px',
+                right: '8px',
+                bottom: '8px',
+                border: `4px solid ${certColors.borderMuted}`,
+                borderRadius: '12px',
+              }}
+            />
+          )}
           <div
             style={{
               display: 'flex',
@@ -143,25 +168,27 @@ export async function GET(
           >
             <div
               style={{
-                fontSize: variant === 'print_a4' ? 72 : 56,
+                fontSize: variant === 'print_a4' ? (isMinimal ? 52 : 72) : (isMinimal ? 42 : 56),
                 fontWeight: 'bold',
                 background: `linear-gradient(90deg, ${certColors.accent} 0%, ${certColors.titleGradientEnd} 100%)`,
                 backgroundClip: 'text',
                 color: 'transparent',
-                marginBottom: '40px',
+                marginBottom: isMinimal ? '24px' : '40px',
                 lineHeight: 1.2,
               }}
             >
-              Certificate of Completion
+              {strings.title}
             </div>
-            <div
-              style={{
-                width: '200px',
-                height: '4px',
-                background: `linear-gradient(90deg, transparent 0%, ${certColors.accent} 50%, transparent 100%)`,
-                marginBottom: '60px',
-              }}
-            />
+            {!isMinimal && (
+              <div
+                style={{
+                  width: '200px',
+                  height: '4px',
+                  background: `linear-gradient(90deg, transparent 0%, ${certColors.accent} 50%, transparent 100%)`,
+                  marginBottom: '60px',
+                }}
+              />
+            )}
             <div
               style={{
                 fontSize: variant === 'print_a4' ? 48 : 36,
@@ -181,7 +208,7 @@ export async function GET(
                 marginBottom: '20px',
               }}
             >
-              This is to certify that
+              {strings.certifyThat}
             </div>
             <div
               style={{
@@ -201,7 +228,7 @@ export async function GET(
                 marginBottom: '60px',
               }}
             >
-              has successfully completed the course
+              {strings.hasCompleted}
             </div>
             {certificate.finalExamScorePercentInteger != null && (
               <div
@@ -212,7 +239,7 @@ export async function GET(
                   fontWeight: 'bold',
                 }}
               >
-                Final Exam Score: {certificate.finalExamScorePercentInteger}%
+                {strings.finalExamScore}: {certificate.finalExamScorePercentInteger}%
               </div>
             )}
             <div

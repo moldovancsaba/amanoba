@@ -12,7 +12,7 @@
  */
 
 import type { PipelineStage } from 'mongoose';
-import { LeaderboardEntry, PlayerProgression, PointsWallet, Streak } from '@/lib/models';
+import { LeaderboardEntry, PlayerProgression, PointsWallet, Streak, Course, CourseProgress } from '@/lib/models';
 import logger from '@/lib/logger';
 
 /**
@@ -29,7 +29,9 @@ export type LeaderboardType =
   | 'daily_streak'       // Current daily login streak
   | 'games_won'          // Total games won
   | 'win_rate'           // Win percentage
-  | 'elo';               // Madoku ELO rating
+  | 'elo'                // Madoku ELO rating
+  | 'course_points'      // Points earned in course (CourseProgress.totalPointsEarned)
+  | 'course_completion_speed'; // Days to complete course (lower = faster)
 
 /**
  * Time Period Types
@@ -52,6 +54,7 @@ export interface LeaderboardCalculationOptions {
   period: LeaderboardPeriod;
   brandId?: string;  // Optional: brand-specific leaderboard
   gameId?: string;   // Optional: game-specific leaderboard
+  courseId?: string; // Optional: course-specific leaderboard (course_points, course_completion_speed)
   limit?: number;    // Max number of entries (default: 100)
 }
 
@@ -67,10 +70,10 @@ export interface LeaderboardCalculationOptions {
 export async function calculateLeaderboard(
   options: LeaderboardCalculationOptions
 ): Promise<number> {
-  const { type, period, brandId, gameId, limit = 100 } = options;
+  const { type, period, brandId, gameId, courseId, limit = 100 } = options;
 
   try {
-    logger.info({ type, period, brandId }, 'Calculating leaderboard');
+    logger.info({ type, period, brandId, courseId }, 'Calculating leaderboard');
 
     // Get date range for period
     const dateRange = getDateRangeForPeriod(period);
@@ -110,9 +113,21 @@ export async function calculateLeaderboard(
       case 'elo':
         rankings = await calculateEloLeaderboard(brandId, limit);
         break;
+      case 'course_points':
+        if (!courseId) throw new Error('courseId required for course_points leaderboard');
+        rankings = await calculateCoursePointsLeaderboard(courseId, limit);
+        break;
+      case 'course_completion_speed':
+        if (!courseId) throw new Error('courseId required for course_completion_speed leaderboard');
+        rankings = await calculateCourseCompletionSpeedLeaderboard(courseId, limit);
+        break;
       default:
         throw new Error(`Unknown leaderboard type: ${type}`);
     }
+
+    const isCourseLeaderboard = !!courseId;
+    const filterKey = isCourseLeaderboard ? 'courseId' : 'gameId';
+    const filterValue = isCourseLeaderboard ? courseId!.toUpperCase() : gameId;
 
     // Update or create leaderboard entries
     const bulkOps = rankings.map((entry, index) => ({
@@ -121,7 +136,7 @@ export async function calculateLeaderboard(
           playerId: entry.playerId,
           metric: type,
           period,
-          ...(gameId && { gameId }),
+          ...(filterValue && { [filterKey]: filterValue }),
         },
         update: {
           $set: {
@@ -134,7 +149,7 @@ export async function calculateLeaderboard(
           },
           $setOnInsert: {
             playerId: entry.playerId,
-            ...(gameId && { gameId }),
+            ...(filterValue && { [filterKey]: filterValue }),
             metric: type,
             period,
             'metadata.createdAt': new Date(),
@@ -300,6 +315,57 @@ async function calculateEloLeaderboard(
     ...entry,
     rank: index + 1,
   }));
+}
+
+/**
+ * Course Points Leaderboard (points earned in course)
+ */
+async function calculateCoursePointsLeaderboard(
+  courseIdStr: string,
+  limit: number = 100
+): Promise<Array<{ playerId: string; value: number; rank: number }>> {
+  const course = await Course.findOne({ courseId: courseIdStr.toUpperCase() }).lean();
+  if (!course) return [];
+  const courseObjectId = (course as { _id: unknown })._id;
+  const progressList = await CourseProgress.find({ courseId: courseObjectId })
+    .sort({ totalPointsEarned: -1 })
+    .limit(limit)
+    .lean();
+  return progressList.map((p, index) => ({
+    playerId: String((p as { playerId: unknown }).playerId),
+    value: (p as { totalPointsEarned?: number }).totalPointsEarned ?? 0,
+    rank: index + 1,
+  }));
+}
+
+/**
+ * Course Completion Speed Leaderboard (days to complete; lower = faster)
+ */
+async function calculateCourseCompletionSpeedLeaderboard(
+  courseIdStr: string,
+  limit: number = 100
+): Promise<Array<{ playerId: string; value: number; rank: number }>> {
+  const course = await Course.findOne({ courseId: courseIdStr.toUpperCase() }).lean();
+  if (!course) return [];
+  const courseObjectId = (course as { _id: unknown })._id;
+  const progressList = await CourseProgress.find({
+    courseId: courseObjectId,
+    status: 'completed',
+    completedAt: { $exists: true, $ne: null },
+  })
+    .lean();
+  const withDays = progressList
+    .map((p) => {
+      const startedAt = (p as { startedAt?: Date }).startedAt;
+      const completedAt = (p as { completedAt?: Date }).completedAt;
+      if (!startedAt || !completedAt) return null;
+      const days = Math.max(0, Math.round((completedAt.getTime() - startedAt.getTime()) / (24 * 60 * 60 * 1000)));
+      return { playerId: String((p as { playerId: unknown }).playerId), value: days };
+    })
+    .filter((x): x is { playerId: string; value: number } => x != null);
+  withDays.sort((a, b) => a.value - b.value);
+  const limited = withDays.slice(0, limit);
+  return limited.map((entry, index) => ({ ...entry, rank: index + 1 }));
 }
 
 /**

@@ -722,10 +722,28 @@ export function renderWelcomeEmailSubject(params: { locale: Locale; courseName: 
 
 export type RecommendedCourse = { name: string; courseId: string };
 
+export type CompletionSegment = 'beginner' | 'intermediate' | 'advanced';
+
+/** Segment-specific upsell intro line (completion email). EN only; others fall back to no intro. */
+function getCompletionUpsellIntro(locale: Locale, segment?: CompletionSegment | null): string {
+  if (!segment || locale !== 'en') return '';
+  const intros: Record<CompletionSegment, string> = {
+    beginner: 'Pick one of the courses below and take it step by step.',
+    intermediate: 'Consider one of these to build on what you\'ve learned.',
+    advanced: 'Challenge yourself with one of these next.',
+  };
+  return intros[segment];
+}
+
 export function renderCompletionEmailHtml(
-  params: BasicEmailParams & { durationDays: number; recommendedCourses?: RecommendedCourse[] }
+  params: BasicEmailParams & {
+    durationDays: number;
+    recommendedCourses?: RecommendedCourse[];
+    segment?: CompletionSegment | null;
+    messageId?: string;
+  }
 ) {
-  const { locale, playerName, courseName, durationDays, appUrl, tokens, recommendedCourses } = params;
+  const { locale, playerName, courseName, durationDays, appUrl, tokens, recommendedCourses, segment, messageId } = params;
   const s = getLocaleStrings(locale);
   const dir = getDirection(locale);
 
@@ -734,22 +752,36 @@ export function renderCompletionEmailHtml(
   const bodyText = tokens.bodyText || '#333333';
   const muted = tokens.muted || '#666666';
 
-  const browseUrl = `${appUrl}/${locale}/courses`;
+  const browseUrlRaw = `${appUrl}/${locale}/courses`;
+  const browseUrl =
+    messageId
+      ? `${appUrl}/api/email/click/${messageId}?url=${encodeURIComponent(browseUrlRaw)}`
+      : browseUrlRaw;
 
+  const courseLink = (c: RecommendedCourse) => {
+    const hrefRaw = `${appUrl}/${locale}/courses/${encodeURIComponent(c.courseId)}`;
+    const href = messageId
+      ? `${appUrl}/api/email/click/${messageId}?url=${encodeURIComponent(hrefRaw)}`
+      : hrefRaw;
+    return `<li style="margin: 8px 0;"><a href="${href}" style="color: ${ctaBg}; text-decoration: none;">${escapeHtml(c.name)}</a></li>`;
+  };
+
+  const upsellIntro = getCompletionUpsellIntro(locale, segment);
   const upsellSection =
     recommendedCourses && recommendedCourses.length > 0
       ? `
         <hr style="margin: 24px 0; border: none; border-top: 1px solid ${tokens.border};">
         <p style="font-weight: bold; color: ${bodyText};">${s.completionUpsellHeading}</p>
+        ${upsellIntro ? `<p style="color: ${bodyText}; margin-bottom: 12px;">${escapeHtml(upsellIntro)}</p>` : ''}
         <ul style="list-style: none; padding: 0; margin: 12px 0;">
-          ${recommendedCourses
-            .map(
-              (c) =>
-                `<li style="margin: 8px 0;"><a href="${appUrl}/${locale}/courses/${encodeURIComponent(c.courseId)}" style="color: ${ctaBg}; text-decoration: none;">${escapeHtml(c.name)}</a></li>`
-            )
-            .join('')}
+          ${recommendedCourses.map(courseLink).join('')}
         </ul>
       `
+      : '';
+
+  const openPixel =
+    messageId
+      ? `<img src="${appUrl}/api/email/open/${messageId}" width="1" height="1" alt="" style="display:block;" />`
       : '';
 
   return `
@@ -764,6 +796,7 @@ export function renderCompletionEmailHtml(
         </p>
         ${upsellSection}
         <p style="margin-top: 20px; color: ${muted};">${escapeHtml(s.teamSignoff)}</p>
+        ${openPixel}
       </body>
     </html>
   `;
