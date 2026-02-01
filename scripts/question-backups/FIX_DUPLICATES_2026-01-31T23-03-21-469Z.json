@@ -1,0 +1,37 @@
+{
+  "created": [
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_01",
+      "question": "Melyik következtetés az output-alapú megközelítéstől függetl…",
+      "options": [
+        "A) Sok output garantálja a jó outcome-ot.",
+        "B) A termelékenység növelése azt jelenti, hogy a korlátokat feloldjuk.",
+        "C) Az idő és az energia mindig rendelkezésre állnak.",
+        "D) Sok output lehetőséget ad a jó outcome-ot elérni."
+      ]
+    }
+  ],
+  "deletedIds": [
+    "6979db389316e77110ed05d7"
+  ],
+  "rewritten": [
+    {
+      "questionId": "69789bb54990e68a049b2fc7",
+      "optionIndex": 0,
+      "before": "Döntést hozok, de nem mérek és nem felülvizsgálat-zok, így nem derül ki, hogy nőtt-e a throughput vagy csökkent-e a carryover.",
+      "after": "Megértésem szerint azt állítom, de azzal nem értek egyet és nem is kívánok semmi ellenőrzést vagy vizsgálatot, tehát nyilvánvalóan nem bizonyosodik be."
+    },
+    {
+      "questionId": "6979db389316e77110ed05d6",
+      "optionIndex": 0,
+      "before": "Döntést hozok, de nem mérek és nem felülvizsgálat-zok, így nem derül ki, hogy nőtt-e a throughput vagy csökkent-e a carryover.",
+      "after": "Beküzdöm a döntéshez jutásomat, azonban semmilyen független következtetést nem vonok le belőle, ezzel egyben zárják el a határozat felülbírálhatóságának lehetőségét."
+    },
+    {
+      "questionId": "6979db399316e77110ed05dc",
+      "optionIndex": 1,
+      "before": "Döntést hozok, de nem mérek és nem felülvizsgálat-zok, így nem derül ki, hogy nőtt-e a throughput vagy csökkent-e a carryover.",
+      "after": "Megfogalmazom a véleményemet, de azt nem részletezem, hogy milyen hatással lenne a történtek egy nőre."
+    }
+  ]
+}

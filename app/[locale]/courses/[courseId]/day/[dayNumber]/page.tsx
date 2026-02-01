@@ -370,7 +370,7 @@ export default function DailyLessonPage({
   const [courseLanguage, setCourseLanguage] = useState<string>('en');
   const [totalDays, setTotalDays] = useState<number>(30);
   const searchParams = useSearchParams();
-  const _locale = useLocale();
+  const locale = useLocale(); // URL locale (e.g. /hu/ → 'hu') for fallback when lesson not found before courseLanguage is set
 
   const fetchLesson = useCallback(async (cid: string, day: number, opts: { silent?: boolean; fallbackLanguage?: string } = {}) => {
     const errorLanguage = opts.fallbackLanguage || 'en';
@@ -400,7 +400,12 @@ export default function DailyLessonPage({
         const stored = localStorage.getItem(storageKey);
         setQuizPassed(stored === 'true');
       } else {
-        alert(data.error || getDayPageText('failedToLoadLesson', errorLanguage));
+        // Use localized message for known API errors (avoid English "Lesson not found" in /hu/ etc.)
+        const message =
+          data.error === 'Lesson not found'
+            ? getDayPageText('lessonNotFound', errorLanguage)
+            : (data.error || getDayPageText('failedToLoadLesson', errorLanguage));
+        alert(message);
       }
     } catch (error) {
       console.error('Failed to fetch lesson:', error);
@@ -493,23 +498,28 @@ export default function DailyLessonPage({
   }, [searchParams, lesson, courseId, session]);
 
   if (loading) {
+    const displayLang = courseLanguage !== 'en' ? courseLanguage : (locale || 'en');
+    const dir = (displayLang === 'ar' ? 'rtl' : 'ltr') as 'rtl' | 'ltr';
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
-        <div className="text-brand-white text-xl">{getDayPageText('loadingLesson', courseLanguage)}</div>
+      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={dir}>
+        <div className="text-brand-white text-xl">{getDayPageText('loadingLesson', displayLang)}</div>
       </div>
     );
   }
 
   if (!lesson) {
+    // Use URL locale as fallback so /hu/ always shows Hungarian message (courseLanguage may still be initial 'en')
+    const displayLang = courseLanguage !== 'en' ? courseLanguage : (locale || 'en');
+    const dir = (displayLang === 'ar' ? 'rtl' : 'ltr') as 'rtl' | 'ltr';
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={dir}>
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-brand-white mb-4">{getDayPageText('lessonNotFound', courseLanguage)}</h2>
+          <h2 className="text-2xl font-bold text-brand-white mb-4">{getDayPageText('lessonNotFound', displayLang)}</h2>
           <LocaleLink
             href="/my-courses"
             className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400"
           >
-            {getDayPageText('backToMyCourses', courseLanguage)}
+            {getDayPageText('backToMyCourses', displayLang)}
           </LocaleLink>
         </div>
       </div>

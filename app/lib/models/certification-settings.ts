@@ -10,6 +10,9 @@ export interface ICertificationSettings extends Document {
   priceMoney?: { amount: number; currency: string };
   pricePoints?: number;
   templateId?: string;
+  /** A/B: list of template IDs for certificate variant assignment (global fallback). */
+  templateVariantIds?: string[];
+  templateVariantWeights?: number[];
   credentialTitleId?: string;
   completionPhraseId?: string;
   deliverableBulletIds?: string[];
@@ -25,6 +28,8 @@ const CertificationSettingsSchema = new Schema<ICertificationSettings>(
     },
     pricePoints: { type: Number },
     templateId: { type: String, trim: true },
+    templateVariantIds: { type: [String], default: undefined },
+    templateVariantWeights: { type: [Number], default: undefined },
     credentialTitleId: { type: String, trim: true },
     completionPhraseId: { type: String, trim: true },
     deliverableBulletIds: { type: [String], default: [] },

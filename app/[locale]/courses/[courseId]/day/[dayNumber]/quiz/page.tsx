@@ -40,6 +40,7 @@ const quizPageTranslations: Record<string, Record<string, string>> = {
   ar: {
     failedToLoadLesson: 'فشل تحميل الدرس',
     quizError: 'حدث خطأ في الاختبار',
+    noQuizQuestions: 'لا توجد أسئلة متاحة لهذا الدرس. قد لا تكون الأسئلة جاهزة بعد لهذا المساق.',
     someQuestionsNotFound: 'بعض الأسئلة غير موجودة. حاول مرة أخرى.',
     quizCorrect: 'إجابة صحيحة، أحسنت! 🚀',
     quizSupportiveRetry: 'إجابة غير صحيحة. حاول مرة أخرى!',
@@ -52,6 +53,7 @@ const quizPageTranslations: Record<string, Record<string, string>> = {
   hu: {
     failedToLoadLesson: 'Nem sikerült betölteni a leckét',
     quizError: 'Hiba történt a kérdések betöltésekor.',
+    noQuizQuestions: 'Nincs elérhető értékelési kérdés ehhez a leckéhez. A kurzus kérdései még nem készültek el.',
     someQuestionsNotFound: 'Néhány kérdés nem található. Kérjük, próbáld meg újra.',
     quizCorrect: 'Helyes válasz, szép munka! 🚀',
     quizSupportiveRetry: 'Most nem talált. Nézzük át újra a leckét, aztán próbáld meg ismét.',
@@ -64,6 +66,7 @@ const quizPageTranslations: Record<string, Record<string, string>> = {
   en: {
     failedToLoadLesson: 'Failed to load lesson',
     quizError: 'An error occurred while loading questions.',
+    noQuizQuestions: 'No questions available for this lesson. Questions may not be ready yet for this course.',
     someQuestionsNotFound: 'Some questions not found. Please try again.',
     quizCorrect: 'Correct. Well done.',
     quizSupportiveRetry: 'Not quite. Let\'s review the lesson, then try again.',
@@ -76,6 +79,7 @@ const quizPageTranslations: Record<string, Record<string, string>> = {
   ru: {
     failedToLoadLesson: 'Не удалось загрузить урок',
     quizError: 'Ошибка загрузки вопросов.',
+    noQuizQuestions: 'Нет вопросов для этого урока. Вопросы по курсу могут быть ещё не готовы.',
     someQuestionsNotFound: 'Некоторые вопросы не найдены. Попробуйте снова.',
     quizCorrect: 'Верно. Отлично!',
     quizSupportiveRetry: 'Не совсем. Давайте вернемся к уроку и попробуем снова.',
@@ -88,6 +92,7 @@ const quizPageTranslations: Record<string, Record<string, string>> = {
   pt: {
     failedToLoadLesson: 'Falha ao carregar a aula',
     quizError: 'Erro no questionário',
+    noQuizQuestions: 'Nenhuma pergunta disponível para esta aula. As perguntas do curso podem ainda não estar prontas.',
     someQuestionsNotFound: 'Algumas perguntas não foram encontradas. Tente novamente.',
     quizCorrect: 'Resposta correta, ótimo trabalho! 🚀',
     quizSupportiveRetry: 'Resposta incorreta. Tente novamente!',
@@ -100,6 +105,7 @@ const quizPageTranslations: Record<string, Record<string, string>> = {
   vi: {
     failedToLoadLesson: 'Không thể tải bài học',
     quizError: 'Lỗi bài kiểm tra',
+    noQuizQuestions: 'Không có câu hỏi cho bài học này. Câu hỏi của khóa học có thể chưa sẵn sàng.',
     someQuestionsNotFound: 'Một số câu hỏi không tìm thấy. Vui lòng thử lại.',
     quizCorrect: 'Câu trả lời đúng, làm tốt! 🚀',
     quizSupportiveRetry: 'Câu trả lời chưa đúng. Hãy thử lại!',
@@ -112,6 +118,7 @@ const quizPageTranslations: Record<string, Record<string, string>> = {
   id: {
     failedToLoadLesson: 'Gagal memuat pelajaran',
     quizError: 'Terjadi kesalahan kuis',
+    noQuizQuestions: 'Tidak ada pertanyaan tersedia untuk pelajaran ini. Pertanyaan kursus mungkin belum siap.',
     someQuestionsNotFound: 'Beberapa pertanyaan tidak ditemukan. Silakan coba lagi.',
     quizCorrect: 'Jawaban benar, kerja bagus! 🚀',
     quizSupportiveRetry: 'Jawaban salah. Coba lagi!',
@@ -124,6 +131,7 @@ const quizPageTranslations: Record<string, Record<string, string>> = {
   hi: {
     failedToLoadLesson: 'पाठ लोड नहीं हो सका',
     quizError: 'प्रश्नोत्तरी त्रुटि',
+    noQuizQuestions: 'इस पाठ के लिए कोई प्रश्न उपलब्ध नहीं। इस पाठ्यक्रम के प्रश्न अभी तैयार नहीं हो सकते।',
     someQuestionsNotFound: 'कुछ प्रश्न नहीं मिले। कृपया फिर से प्रयास करें।',
     quizCorrect: 'सही उत्तर, बढ़िया काम! 🚀',
     quizSupportiveRetry: 'गलत उत्तर। फिर से प्रयास करें!',
@@ -136,6 +144,7 @@ const quizPageTranslations: Record<string, Record<string, string>> = {
   tr: {
     failedToLoadLesson: 'Ders yüklenemedi',
     quizError: 'Sınav hatası',
+    noQuizQuestions: 'Bu ders için soru bulunmuyor. Kurs soruları henüz hazır olmayabilir.',
     someQuestionsNotFound: 'Bazı sorular bulunamadı. Lütfen tekrar deneyin.',
     quizCorrect: 'Doğru cevap, harika iş! 🚀',
     quizSupportiveRetry: 'Yanlış cevap. Tekrar deneyin!',
@@ -148,6 +157,7 @@ const quizPageTranslations: Record<string, Record<string, string>> = {
   bg: {
     failedToLoadLesson: 'Неуспешно зареждане на урока',
     quizError: 'Грешка в теста',
+    noQuizQuestions: 'Няма налични въпроси за този урок. Въпросите за курса може още да не са готови.',
     someQuestionsNotFound: 'Някои въпроси не са намерени. Моля, опитайте отново.',
     quizCorrect: 'Правилен отговор, браво! 🚀',
     quizSupportiveRetry: 'Грешен отговор. Опитайте отново!',
@@ -160,6 +170,7 @@ const quizPageTranslations: Record<string, Record<string, string>> = {
   pl: {
     failedToLoadLesson: 'Nie udało się załadować lekcji',
     quizError: 'Błąd quizu',
+    noQuizQuestions: 'Brak pytań do tej lekcji. Pytania do kursu mogą nie być jeszcze gotowe.',
     someQuestionsNotFound: 'Nie znaleziono niektórych pytań. Spróbuj ponownie.',
     quizCorrect: 'Poprawna odpowiedź, świetna robota! 🚀',
     quizSupportiveRetry: 'Niepoprawna odpowiedź. Spróbuj ponownie!',
@@ -234,7 +245,7 @@ export default function LessonQuizPage({
         setQuestions(qData.data.questions);
         setCurrentIndex(0);
       } else {
-        setError(qData.error?.message || getQuizPageText('quizError', apiLanguage));
+        setError(qData.error?.code === 'NO_QUESTIONS' ? getQuizPageText('noQuizQuestions', apiLanguage) : (qData.error?.message || getQuizPageText('quizError', apiLanguage)));
       }
     } catch (err) {
       console.error(err);

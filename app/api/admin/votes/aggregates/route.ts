@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
     const targetType = searchParams.get('targetType'); // optional: course | lesson | question
 
     const match: Record<string, string> = {};
-    if (targetType && ['course', 'lesson', 'question'].includes(targetType)) {
+    if (targetType && ['course', 'lesson', 'question', 'discussion_post'].includes(targetType)) {
       match.targetType = targetType;
     }
 

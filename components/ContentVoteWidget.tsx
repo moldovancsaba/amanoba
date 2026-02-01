@@ -10,7 +10,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ThumbsUp, ThumbsDown } from 'lucide-react';
 
-type VoteTargetType = 'course' | 'lesson' | 'question';
+type VoteTargetType = 'course' | 'lesson' | 'question' | 'discussion_post';
 
 interface ContentVoteWidgetProps {
   targetType: VoteTargetType;

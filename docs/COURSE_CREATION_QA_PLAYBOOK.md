@@ -82,7 +82,8 @@ npx tsx --env-file=.env.local scripts/backup-course-lessons.ts --course <COURSE_
 Use this as a literal checklist. For any “apply” action: do a dry-run first.
 
 ### Phase A — Prereqs & scope (no DB writes)
-- [ ] Confirm environment: **staging vs production** (which `.env` file / DB are you writing to?).
+- [ ] Confirm environment (which `.env` file / DB are you writing to?).
+  - Default for course creation work: **production** via `.env.local`, dbName=`amanoba`.
 - [ ] Confirm course family id (`CCS_ID`) and variant courseIds (`<CCS_ID>_<LOCALE>`).
 - [ ] Confirm target language(s) and that UI translations exist:
   - If locale missing in `messages/`, **stop** and create UI translations first (`docs/COURSE_BUILDING_RULES.md`).
@@ -191,4 +192,3 @@ A course `<COURSE_ID>` is **ready to enroll** only if all are true:
 - `checkedButFailingLatest=0` and `toCheck=0` in the quiz item QA audit.
 - Email + catalog audits show **no cross-language leakage** for the course.
 - Manual smoke test passes (enroll → lesson → quiz → progress/cert/email).
-

@@ -15,6 +15,7 @@ import { Certificate, Course, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { CERT_COLORS_DEFAULT, type CertColors } from '@/app/lib/constants/certificate-colors';
 import { getCertificateStrings, formatCertificateDate } from '@/app/lib/constants/certificate-strings';
+import { mapDesignTemplateIdToRender } from '@/lib/certification';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -111,7 +112,8 @@ export async function GET(
     const locale = localeParam || (course as { language?: string })?.language || 'en';
     const strings = getCertificateStrings(locale);
     const issuedDate = formatCertificateDate(new Date(certificate.issuedAtISO), locale);
-    const templateId: TemplateId = ((course as { certification?: { templateId?: string } })?.certification?.templateId as TemplateId) === 'minimal' ? 'minimal' : 'default';
+    // Use certificate.designTemplateId (variant assigned at issue) so each cert renders with its variant
+    const templateId: TemplateId = mapDesignTemplateIdToRender(certificate.designTemplateId);
     const isMinimal = templateId === 'minimal';
 
     logger.info({ slug, variant, locale, templateId }, 'Certificate image by slug');

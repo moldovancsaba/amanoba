@@ -26,6 +26,8 @@ import {
 import Image from 'next/image';
 import Logo from '@/components/Logo';
 import ContentVoteWidget from '@/components/ContentVoteWidget';
+import CourseDiscussion from '@/components/CourseDiscussion';
+import CourseStudyGroups from '@/components/CourseStudyGroups';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 
 interface Course {
@@ -70,6 +72,7 @@ interface EntitlementStatus {
   certificationEnabled: boolean;
   certificationAvailable: boolean;
   entitlementOwned: boolean;
+  entitlementRequired?: boolean;
   premiumIncludesCertification: boolean;
   priceMoney?: { amount: number; currency: string } | null;
   pricePoints?: number | null;
@@ -157,6 +160,25 @@ export default function CourseDetailPage({
       startFinalExam: 'Végső vizsga indítása',
       courseLeaderboard: 'Ranglista',
       noLeaderboardYet: 'Még nincs rangsor. Teljesíts leckéket, hogy pontokat szerezve itt jelenj meg.',
+      discussionTitle: 'Beszélgetés',
+      discussionPlaceholder: 'Kérdés vagy megjegyzés...',
+      discussionPost: 'Küldés',
+      discussionReply: 'Válasz',
+      discussionNoPosts: 'Még nincs hozzászólás.',
+      discussionSignInToPost: 'Jelentkezz be a hozzászóláshoz.',
+      discussionLoading: 'Betöltés...',
+      discussionDelete: 'Törlés',
+      discussionEdit: 'Szerkesztés',
+      studyGroupsTitle: 'Tanulócsoportok',
+      studyGroupsCreateGroup: 'Új csoport',
+      studyGroupsGroupName: 'Csoport neve',
+      studyGroupsCreate: 'Létrehozás',
+      studyGroupsNoGroups: 'Még nincs tanulócsoport.',
+      studyGroupsMembers: 'Tagok',
+      studyGroupsJoin: 'Csatlakozás',
+      studyGroupsLeave: 'Kilépés',
+      studyGroupsSignInToJoin: 'Jelentkezz be a csatlakozáshoz.',
+      studyGroupsLoading: 'Betöltés...',
     },
     en: {
       aboutThisCourse: 'Course Overview',
@@ -204,6 +226,25 @@ export default function CourseDetailPage({
       startFinalExam: 'Start final exam',
       courseLeaderboard: 'Course leaderboard',
       noLeaderboardYet: 'No rankings yet. Complete lessons to earn points and appear here.',
+      discussionTitle: 'Discussion',
+      discussionPlaceholder: 'Ask a question or share a thought...',
+      discussionPost: 'Post',
+      discussionReply: 'Reply',
+      discussionNoPosts: 'No posts yet.',
+      discussionSignInToPost: 'Sign in to post.',
+      discussionLoading: 'Loading...',
+      discussionDelete: 'Delete',
+      discussionEdit: 'Edit',
+      studyGroupsTitle: 'Study Groups',
+      studyGroupsCreateGroup: 'New group',
+      studyGroupsGroupName: 'Group name',
+      studyGroupsCreate: 'Create',
+      studyGroupsNoGroups: 'No study groups yet.',
+      studyGroupsMembers: 'Members',
+      studyGroupsJoin: 'Join',
+      studyGroupsLeave: 'Leave',
+      studyGroupsSignInToJoin: 'Sign in to join a group.',
+      studyGroupsLoading: 'Loading...',
     },
     tr: {
       aboutThisCourse: 'Kurs Özeti',
@@ -794,7 +835,8 @@ export default function CourseDetailPage({
     if (!course || !entitlement) return null;
     const completed = Boolean(enrollment?.progress?.isCompleted);
     const poolOk = entitlement.certificationEnabled && entitlement.poolCount >= 50;
-    const hasEntitlement = entitlement.entitlementOwned;
+    const entitlementRequired = entitlement.entitlementRequired ?? true;
+    const hasAccess = entitlement.entitlementOwned || !entitlementRequired;
 
     let statusLabel = getCourseDetailText('certificationUnavailable');
     let cta: JSX.Element | null = null;
@@ -805,7 +847,7 @@ export default function CourseDetailPage({
       statusLabel = getCourseDetailText('certificationUnavailablePool', { poolCount: entitlement.poolCount });
     } else if (!completed) {
       statusLabel = getCourseDetailText('completeCourseForCertification');
-    } else if (completed && poolOk && !hasEntitlement) {
+    } else if (completed && poolOk && entitlementRequired && !hasAccess) {
       statusLabel = getCourseDetailText('certificationAvailable');
       cta = (
         <div className="flex flex-wrap gap-2">
@@ -829,7 +871,7 @@ export default function CourseDetailPage({
           </button>
         </div>
       );
-    } else if (completed && poolOk && hasEntitlement) {
+    } else if (completed && poolOk && hasAccess) {
       statusLabel = getCourseDetailText('certificationUnlocked');
       cta = (
         <LocaleLink
@@ -1062,6 +1104,31 @@ export default function CourseDetailPage({
                 </ul>
               )}
             </div>
+
+            {/* Discussion */}
+            <CourseDiscussion
+              courseId={courseId}
+              title={getCourseDetailText('discussionTitle') || 'Discussion'}
+              placeholder={getCourseDetailText('discussionPlaceholder') || 'Ask a question...'}
+              replyLabel={getCourseDetailText('discussionReply') || 'Reply'}
+              signInToPost={getCourseDetailText('discussionSignInToPost') || 'Sign in to post.'}
+              emptyMessage={getCourseDetailText('discussionNoPosts') || 'No posts yet.'}
+              loadingText={getCourseDetailText('discussionLoading') || 'Loading...'}
+            />
+
+            {/* Study Groups */}
+            <CourseStudyGroups
+              courseId={courseId}
+              title={getCourseDetailText('studyGroupsTitle') || 'Study Groups'}
+              createLabel={getCourseDetailText('studyGroupsCreate') || 'Create'}
+              createPlaceholder={getCourseDetailText('studyGroupsGroupName') || 'Group name'}
+              joinLabel={getCourseDetailText('studyGroupsJoin') || 'Join'}
+              leaveLabel={getCourseDetailText('studyGroupsLeave') || 'Leave'}
+              membersLabel={getCourseDetailText('studyGroupsMembers') || 'Members'}
+              signInToJoin={getCourseDetailText('studyGroupsSignInToJoin') || 'Sign in to join.'}
+              emptyMessage={getCourseDetailText('studyGroupsNoGroups') || 'No study groups yet.'}
+              loadingText={getCourseDetailText('studyGroupsLoading') || 'Loading...'}
+            />
 
             {/* Table of Contents */}
             <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">

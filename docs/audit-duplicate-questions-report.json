@@ -1,0 +1,254 @@
+{
+  "runAt": "2026-02-01T02:50:48.223Z",
+  "courseIdFilter": "PRODUCTIVITY_2026_HU",
+  "similarityThreshold": 0.85,
+  "minWindow": 14,
+  "minPrev": 7,
+  "byLesson": [
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_01",
+      "dayNumber": 1,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 8,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_02",
+      "dayNumber": 2,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 6,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_03",
+      "dayNumber": 3,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 8,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_04",
+      "dayNumber": 4,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 6,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_05",
+      "dayNumber": 5,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 7,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_06",
+      "dayNumber": 6,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 8,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_07",
+      "dayNumber": 7,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 7,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_8",
+      "dayNumber": 8,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 13,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_9",
+      "dayNumber": 9,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 11,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_10",
+      "dayNumber": 10,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 7,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_11",
+      "dayNumber": 11,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 12,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_12",
+      "dayNumber": 12,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 13,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_13",
+      "dayNumber": 13,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 12,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_14",
+      "dayNumber": 14,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 11,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_15",
+      "dayNumber": 15,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 8,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_16",
+      "dayNumber": 16,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 6,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_17",
+      "dayNumber": 17,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 8,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_18",
+      "dayNumber": 18,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 6,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_19",
+      "dayNumber": 19,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 8,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_20",
+      "dayNumber": 20,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 6,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_21",
+      "dayNumber": 21,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 8,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_22",
+      "dayNumber": 22,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 6,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_23",
+      "dayNumber": 23,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 8,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_24",
+      "dayNumber": 24,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 6,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_25",
+      "dayNumber": 25,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 8,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_26",
+      "dayNumber": 26,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 6,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_27",
+      "dayNumber": 27,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 8,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_28",
+      "dayNumber": 28,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 6,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_29",
+      "dayNumber": 29,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 8,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    },
+    {
+      "lessonId": "PRODUCTIVITY_2026_HU_DAY_30",
+      "dayNumber": 30,
+      "courseId": "PRODUCTIVITY_2026_HU",
+      "questionCount": 6,
+      "duplicatePairs": [],
+      "similarAnswerGroups": []
+    }
+  ],
+  "summary": {
+    "lessonsProcessed": 30,
+    "totalDuplicatePairs": 0,
+    "totalSimilarAnswerGroups": 0
+  }
+}

@@ -31,6 +31,7 @@ This document defines the **layout grammar** of the Amanoba project: how content
 
 - **Feature documents**: `/docs/YYYY-MM-DD_FEATURE.md`. Referenced from TASKLIST, ROADMAP, RELEASE_NOTES, ARCHITECTURE, LEARNINGS as needed.
 - **Core docs**: `TASKLIST.md`, `ROADMAP.md`, `RELEASE_NOTES.md`, `ARCHITECTURE.md`, `LEARNINGS.md` live in `/docs`. They are the source of truth for tasks, strategy, releases, architecture, and learnings.
+- **Only related items**: Each document contains only content that belongs to it. ROADMAP = future vision only; TASKLIST = open tasks only; RELEASE_NOTES = completed work only. No unrelated items in any doc.
 - **No placeholders**: Every document must reflect the current state. "TBD" and "coming soon" are not allowed in committed docs.
 - **Documentation = code**: Logic and feature changes require an immediate documentation review and update.
 
@@ -58,7 +59,8 @@ Designer courses in the system are expressed as **canonical course specs (CCS)**
 
 **Existing CCS families**:  
 - `docs/canonical/PRODUCTIVITY_2026/`  
-- `docs/canonical/DONE_BETTER_2026/`
+- `docs/canonical/DONE_BETTER_2026/`  
+- `docs/canonical/SCRUMMASTER_LESZEK_2026/` (HU: seed via `scripts/seed-scrummaster-leszek-2026-hu.ts --apply --full-lessons`)
 
 ---
 
@@ -139,14 +141,22 @@ See `docs/COURSE_BUILDING_RULES.md` and `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`
 
 ---
 
-## 9. When to use this grammar
+## 9. Reuse and coding patterns
+
+- **Reuse via discriminator**: When the same feature is needed in 2+ places (e.g. up/down vote on courses, lessons, discussion posts), implement **one model**, **one API**, and **one UI component**; use a discriminator field (e.g. `targetType`, `targetId`) to select context. Do not duplicate schemas, routes, or components. See **docs/VOTING_AND_REUSE_PATTERN.md** and **docs/ARCHITECTURE.md** (Core Principles).  
+- **Extending a reused feature**: Add a new discriminator value (e.g. new `targetType`), allow-list it in the API, and render the same component with the new type; do not add new collections or routes for the same behaviour.
+
+---
+
+## 10. When to use this grammar
 
 - **Creating or editing courses/lessons/quizzes**: Follow CCS layout (§3), lesson layout (§4), quiz layout (§5), and language rules (§8).  
 - **Creating or editing UI/pages**: Follow project layout (§1), UI layout (§6), and naming.  
 - **Creating or editing docs**: Follow documentation layout (§2) and project layout (§1).  
-- **Writing scripts** (seed, audit, backfill): Use same DB name as app (`process.env.DB_NAME || 'amanoba'`), follow naming and doc output paths under `/docs` and `/scripts/reports` as established.
+- **Writing scripts** (seed, audit, backfill): Use same DB name as app (`process.env.DB_NAME || 'amanoba'`), follow naming and doc output paths under `/docs` and `/scripts/reports` as established.  
+- **Implementing the same behaviour in 2+ places**: Follow reuse via discriminator (§9); read **docs/VOTING_AND_REUSE_PATTERN.md**.
 
 ---
 
 **Maintained by**: Amanoba team  
-**Cross-references**: `COURSE_BUILDING_RULES.md`, `DESIGN_UPDATE.md`, `NAMING_GUIDE.md`, `QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, `2026_course_quality_prompt.md`, canonical CCS under `docs/canonical/`.
+**Cross-references**: `COURSE_BUILDING_RULES.md`, `DESIGN_UPDATE.md`, `NAMING_GUIDE.md`, `QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, `VOTING_AND_REUSE_PATTERN.md`, `ARCHITECTURE.md`, `2026_course_quality_prompt.md`, canonical CCS under `docs/canonical/`.

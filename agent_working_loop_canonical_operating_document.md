@@ -16,7 +16,10 @@
 - **Rollback plan** required for every delivery (baseline + exact steps + verification). No exceptions.
 - **Documentation = code:** Update docs with every change. No placeholders, no TBD. If it’s not documented, it’s not done.
 - **Single-place rule:** ROADMAP = vision only. TASKLIST = what to do (no release refs). RELEASE_NOTES = what’s done. Do not duplicate tasks across the three.
+- **Only related items:** Each document contains only what belongs there. ROADMAP = future vision only; TASKLIST = open tasks only; RELEASE_NOTES = completed work only. No unrelated content in any doc.
 - **Layout / content / course / UI:** Read **`docs/layout_grammar.md`** first. For course/quiz quality work, read the SSOT set in “Mandatory Documentation for Course/Quiz Quality Work” below.
+- **Reuse via discriminator:** Same feature in 2+ places = one model, one API, one component; use a discriminator (e.g. `targetType`) to select context. See **`docs/VOTING_AND_REUSE_PATTERN.md`** and **`docs/layout_grammar.md`** (§9).
+- **Certificate A/B:** Template variant assigned at issue (stable hash); render from **certificate.designTemplateId**. See **`docs/CERTIFICATE_AB_TEST_DESIGN.md`**.
 - **Auth / NextAuth / service worker:** Do not modify without explicit approval. See “Authentication System (CRITICAL)” later in this document.
 
 ---
@@ -102,6 +105,7 @@ This is a non-negotiable, critical part of your role.
 	•	✅ Every document must reflect the true, current state of the system
 	•	✅ Every logic/file/feature update must trigger an immediate documentation review and refresh
 	•	✅ Code and documentation must always match — line by line
+	•	✅ **Only related items:** Each document must contain only content that belongs to that document (ROADMAP = vision; TASKLIST = open tasks; RELEASE_NOTES = completed). No unrelated items in any doc.
 	
 
 Documentation system:
@@ -188,7 +192,7 @@ TEAM:
 
 **You work here**: Amanoba repository. **`docs/ROADMAP.md`** = future vision and client benefits (what we want to build). **`docs/TASKLIST.md`** = actionable tasks broken down from the roadmap (what to do). Before starting work, read TASKLIST for the next action items and ROADMAP for context. For layout and structure, follow **`docs/layout_grammar.md`**.
 
-**Single-place rule:** Completed work → **`docs/RELEASE_NOTES.md`** only. When you complete a task from TASKLIST, add it to RELEASE_NOTES and remove it from TASKLIST. ROADMAP stays vision-only; do not put completed tasks there.
+**Single-place rule:** Completed work → **`docs/RELEASE_NOTES.md`** only. When you complete a task from TASKLIST, add it to RELEASE_NOTES and remove it from TASKLIST. ROADMAP stays vision-only; do not put completed tasks there. **Only related items:** Each of these docs contains only what belongs there (ROADMAP = vision; TASKLIST = open tasks; RELEASE_NOTES = completed). No unrelated content. **Reuse via discriminator:** Same behaviour in 2+ places → one model, one API, one component; see **`docs/VOTING_AND_REUSE_PATTERN.md`** and **`docs/layout_grammar.md`** (§9).
 
 ---
 
@@ -268,6 +272,7 @@ TEAM:
 | Location | Document Name | Summary |
 |----------|---------------|---------|
 | `/docs/certificate_dev_plan.md` | Certificate Development Plan | Certification system development plan. Final exam, certificate issuance, verification, and rendering. |
+| `/docs/CERTIFICATE_AB_TEST_DESIGN.md` | Certificate A/B Test Design | Template variant assignment at issue, rendering from cert.designTemplateId, tracking. Implementation: P1 #4–#5. |
 | `/docs/certification_final_exam_plan.md` | Certification Final Exam Plan | Detailed plan for final certification exam feature. Business rules, question pool, scoring, and certificate issuance. |
 | `/docs/course_ideas/` | Course Ideas | Blueprints and plans for future courses. Includes GEO Shopify course, B2B sales, and other course concepts. |
 
@@ -371,4 +376,4 @@ TEAM:
 ---
 
 **Last Updated**: 2026-01-31  
-**Current Version**: v2.9.33 (see `docs/RELEASE_NOTES.md`). **Current Work**: See `docs/TASKLIST.md` for remaining action items; `docs/ROADMAP.md` for future vision and client benefits. Completed work → `docs/RELEASE_NOTES.md` only. For layout and structure, follow `docs/layout_grammar.md`.
+**Current Version**: v2.9.40 (see `docs/RELEASE_NOTES.md`). **Current Work**: See `docs/TASKLIST.md` for remaining action items; `docs/ROADMAP.md` for future vision and client benefits. Completed work → `docs/RELEASE_NOTES.md` only. For layout and structure, follow `docs/layout_grammar.md`.

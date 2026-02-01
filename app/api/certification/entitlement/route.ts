@@ -30,14 +30,24 @@ export async function GET(request: NextRequest) {
   const certificationEnabled = Boolean(course.certification?.enabled);
   const available = certificationEnabled && poolCount >= 50;
 
+  const priceMoney = course.certification?.priceMoney || null;
+  const pricePoints = course.certification?.pricePoints ?? null;
+  const hasMoneyPrice = Boolean(priceMoney && typeof priceMoney.amount === 'number' && priceMoney.amount > 0);
+  const hasPointsPrice = typeof pricePoints === 'number' && pricePoints > 0;
+
+  // Default policy: entitlement is required, unless the course is explicitly configured as free-certification.
+  // Free-certification definition:
+  // - certification.enabled === true
+  // - course is not premium-gated
+  // - no money price and no points price configured
+  const entitlementRequired = certificationEnabled && (course.requiresPremium || hasMoneyPrice || hasPointsPrice);
+
   const entitlement = await CertificateEntitlement.findOne({
     playerId: session.user.id,
     courseId: course._id,
   }).lean();
 
   const premiumIncludesCertification = Boolean(course.certification?.premiumIncludesCertification);
-  const priceMoney = course.certification?.priceMoney || null;
-  const pricePoints = course.certification?.pricePoints ?? null;
 
   return NextResponse.json({
     success: true,
@@ -46,6 +56,7 @@ export async function GET(request: NextRequest) {
       poolCount,
       certificationAvailable: available,
       entitlementOwned: Boolean(entitlement),
+      entitlementRequired,
       premiumIncludesCertification,
       priceMoney,
       pricePoints,

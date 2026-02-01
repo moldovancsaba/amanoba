@@ -1,6 +1,6 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.37  
+**Current Version**: 2.9.40  
 **Last Updated**: 2026-01-31
 
 **Rule:** Each task exists in exactly one place. Completed work lives **only here** (not in ROADMAP or TASKLIST). Open/future work → ROADMAP.md or TASKLIST.md only. **Only related items:** Only completed work that belongs in RELEASE_NOTES may appear here — no open tasks, no roadmap vision, no unrelated content.
@@ -49,6 +49,69 @@ All completed tasks are documented here in reverse chronological order. This fil
 - **P3:** Email automation Phase 2 (A/B for emails; optional MailerLite/ActiveCampaign); further course achievements/leaderboards (metrics, new achievement types).
 - **P4:** Mobile app & offline (scope, PWA vs native); Live sessions (model, API, UI, meeting provider); AI personalisation (adaptive difficulty, recommendations); Community Phase 3 (notifications, reactions, moderation); Instructor dashboard; Video lessons.
 - **ROADMAP** unchanged (vision only); TASKLIST is single place for actionable items.
+
+**Status**: ✅ Delivered.
+
+---
+
+## [v2.9.38] — 2026-01-31 🛠️
+
+**Status**: P1 #3 — Admin UI for certificate pass rules  
+**Type**: Feature (TASKLIST § P1 Certificate enhancements)
+
+### Admin UI: Pass rules per course
+
+- **Admin course page** (`app/[locale]/admin/courses/[courseId]/page.tsx`): New **Pass rules** subsection under Certification Settings when certification is enabled.
+- **Pass threshold (%)**: Number input 0–100; default 50. Minimum final exam score to be eligible for certificate.
+- **Require all lessons completed**: Checkbox; default true. When unchecked, certificate can be issued without all lessons completed (still subject to final exam pass).
+- **Require all daily quizzes passed**: Checkbox; default true. When unchecked, certificate can be issued without all daily quizzes passed.
+- **Current rule summary**: Displays current rule (e.g. “Pass final exam ≥ 50%; All lessons completed required; All daily quizzes passed required.”).
+- **Course interface** extended with `passThresholdPercent`, `requireAllLessonsCompleted`, `requireAllQuizzesPassed`; all certification handlers preserve these when editing other cert fields.
+- **API** already supported pass-rule merge (`PATCH /api/admin/courses/[courseId]`); **certificate issue** already applies pass rule (final-exam/submit, entitlement). No API change.
+
+**Status**: ✅ Delivered.
+
+---
+
+## [v2.9.39] — 2026-01-31 📋
+
+**Status**: P1 #4 — Certificate A/B test design  
+**Type**: Documentation (design)
+
+### Certificate template A/B test design
+
+- **Design doc**: **docs/CERTIFICATE_AB_TEST_DESIGN.md** defines A/B testing for certificate template variants.
+- **Template variants**: Variant = template ID (e.g. `default_v1`, `minimal`). Allowed variants configurable per course (or global) as a list (`templateVariantIds`).
+- **Assignment at issue**: At certificate creation, resolve allowed IDs from course/global; pick by random or stable hash(playerId, courseId); set `certificate.designTemplateId`. No new collection.
+- **Assignment by cohort** (optional): Store variant on `CourseProgress.certificateVariantId` or a small `CertificateCohort` table; at issue use it if set, else assign at issue.
+- **Tracking**: Certificate already stores `designTemplateId`. Optional view/share analytics event (P1 #5).
+- **Rendering**: Use `certificate.designTemplateId` (not only course templateId) when generating certificate image/PDF so each issued cert renders with its assigned variant.
+- **TASKLIST**: P1 #4 marked DONE; P1 #5 (implement A/B assignment and tracking) remains.
+
+**Status**: ✅ Delivered.
+
+---
+
+## [v2.9.40] — 2026-01-31 🛠️
+
+**Status**: P1 #5 — Certificate A/B assignment and tracking  
+**Type**: Feature (TASKLIST § P1 Certificate enhancements)
+
+### A/B assignment at issue
+
+- **Helper** (`app/lib/certification.ts`): `resolveTemplateVariantAtIssue(courseCert, globalCert, playerId, courseId)` resolves allowed template IDs from course (`templateVariantIds` or `templateId`) or global CertificationSettings, then picks variant by **stable hash(playerId, courseId)** so the same learner gets the same variant for that course. Returns `designTemplateId` and `credentialId`. `mapDesignTemplateIdToRender(designTemplateId)` maps stored ID to render layout (`default` | `minimal`).
+- **Models**: Course `certification` and CertificationSettings now support `templateVariantIds?: string[]` and `templateVariantWeights?: number[]` (weights reserved for future weighted random).
+- **Issue flow** (`app/api/certification/final-exam/submit/route.ts`): When creating a new certificate, loads global CertificationSettings and calls `resolveTemplateVariantAtIssue`; uses returned `designTemplateId` and `credentialId` instead of hardcoded values. Existing certificates unchanged (immutable).
+
+### Rendering from certificate variant
+
+- **Slug image** (`/api/certificates/[slug]/image`): Uses **certificate.designTemplateId** via `mapDesignTemplateIdToRender` so each issued cert renders with its assigned variant.
+- **Profile certificate image** (`/api/profile/[playerId]/certificate/[courseId]/image`): Loads Certificate by playerId + courseId; if issued cert exists, uses `certificate.designTemplateId` for template and `certificate.issuedAtISO` for date; else falls back to course template and current date (preview).
+
+### Tracking and analytics
+
+- **Certificate status API** (`/api/profile/[playerId]/certificate-status`): Response now includes `designTemplateId` when an issued certificate exists (for client analytics).
+- **GA event** `certificate_viewed`: New event with `course_id`, `course_name`, and optional `template_variant_id` (designTemplateId). Fired once when user views the certificate page (eligible); certificate page sends `template_variant_id` when available so engagement by variant can be compared.
 
 **Status**: ✅ Delivered.
 

@@ -19,10 +19,11 @@ import connectDB from '@/lib/mongodb';
 import {
   Player,
   Course,
-  CourseProgress,
   FinalExamAttempt,
   Brand,
+  Certificate,
 } from '@/lib/models';
+import { mapDesignTemplateIdToRender } from '@/lib/certification';
 import { logger } from '@/lib/logger';
 import { CERT_COLORS_DEFAULT, type CertColors } from '@/app/lib/constants/certificate-colors';
 import { getCertificateStrings, formatCertificateDate } from '@/app/lib/constants/certificate-strings';
@@ -60,14 +61,11 @@ export async function GET(
 
     await connectDB();
 
-    // Fetch data
-    const [player, course, _progress] = await Promise.all([
+    // Fetch data (courseId in URL is the course's courseId string)
+    const [player, course, certificate] = await Promise.all([
       Player.findById(playerId).lean(),
       Course.findOne({ courseId }).lean(),
-      CourseProgress.findOne({
-        playerId: new mongoose.Types.ObjectId(playerId),
-        courseId: new mongoose.Types.ObjectId(courseId),
-      }).lean(),
+      Certificate.findOne({ playerId, courseId, isRevoked: { $ne: true } }).lean(),
     ]);
 
     if (!player || !course) {
@@ -125,8 +123,15 @@ export async function GET(
     const courseTitle = course.name || course.courseId;
     const locale = searchParams.get('locale') || (course as { language?: string })?.language || 'en';
     const strings = getCertificateStrings(locale);
-    const issuedDate = formatCertificateDate(new Date(), locale);
-    const templateId: TemplateId = ((course as { certification?: { templateId?: string } }).certification?.templateId as TemplateId) === 'minimal' ? 'minimal' : 'default';
+    const issuedDate = certificate?.issuedAtISO
+      ? formatCertificateDate(new Date(certificate.issuedAtISO), locale)
+      : formatCertificateDate(new Date(), locale);
+    // Use certificate.designTemplateId when issued cert exists (A/B variant); else course template for preview
+    const templateId: TemplateId = certificate?.designTemplateId
+      ? mapDesignTemplateIdToRender(certificate.designTemplateId)
+      : ((course as { certification?: { templateId?: string } }).certification?.templateId as TemplateId) === 'minimal'
+        ? 'minimal'
+        : 'default';
 
     // Generate certificate ID
     const certificateId = `${playerId.slice(-8)}-${courseId.slice(-8)}`.toUpperCase();

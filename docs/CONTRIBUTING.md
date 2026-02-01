@@ -118,7 +118,7 @@ Before committing, ensure:
 - ✅ **TypeScript**: No type errors (`npm run build` passes)
 - ✅ **Naming Conventions**: Follow NAMING_GUIDE.md
 - ✅ **Comments**: All code has "What" and "Why" comments
-- ✅ **Reusability**: Searched for existing solutions before creating new code
+- ✅ **Reusability**: Searched for existing solutions before creating new code; same feature in 2+ places → one model/API/component with discriminator (see **docs/VOTING_AND_REUSE_PATTERN.md**)
 - ✅ **Documentation**: Updated relevant docs (ARCHITECTURE.md, TASKLIST.md, etc.)
 - ✅ **Functionality**: Tested manually in dev environment
 - ✅ **Version**: Bumped correctly per versioning rules
@@ -226,6 +226,10 @@ Brief description of changes
 
 ## 📚 Coding Standards
 
+### Reuse via discriminator
+
+When the same feature is needed in 2+ places (e.g. voting on courses, lessons, discussion posts), use **one model**, **one API**, and **one UI component** with a discriminator (e.g. `targetType`, `targetId`) to select context. Do not duplicate schemas, routes, or components. To add a new surface, extend the discriminator allow-list and reuse the same component. See **docs/VOTING_AND_REUSE_PATTERN.md** and **docs/layout_grammar.md** (§9).
+
 ### TypeScript
 
 - **Strict Mode**: Enabled in `tsconfig.json`
@@ -257,6 +261,14 @@ Brief description of changes
 ---
 
 ## 📖 Documentation Standards
+
+### Only Related Items (Rule)
+
+Each core document contains **only content that belongs there**. No unrelated items.
+- **ROADMAP.md** — Future vision and client benefits only. No delivered items, no task-list items.
+- **TASKLIST.md** — Open/actionable tasks only. No completed work (→ RELEASE_NOTES), no vision (→ ROADMAP).
+- **RELEASE_NOTES.md** — Completed work only. No open tasks, no roadmap vision.
+When editing any of these, remove or move content that does not belong.
 
 ### When to Update Docs
 

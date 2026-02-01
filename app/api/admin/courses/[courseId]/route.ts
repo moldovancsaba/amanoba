@@ -84,6 +84,13 @@ export async function PATCH(
       delete payload.createdBy;
     }
 
+    // Merge certification so partial updates (e.g. passThresholdPercent) don't wipe other fields
+    if (payload.certification != null && typeof payload.certification === 'object') {
+      const existingCert = (existing.certification && typeof existing.certification === 'object')
+        ? { ...existing.certification } : {};
+      payload.certification = { ...existingCert, ...payload.certification };
+    }
+
     const course = await Course.findOneAndUpdate(
       { courseId },
       { $set: payload },

@@ -3,7 +3,7 @@
 **Version**: 2.9.33  
 **Last Updated**: 2026-01-28
 
-This document describes **what we want to build in the future** and **what benefits we want to give to clients**. It is not a task list. **Rules:** Do not list anything that is already delivered (see **RELEASE_NOTES.md**). Do not list anything that has been turned into tasks (see **TASKLIST.md**). Only future vision that is not yet broken down into tasks belongs here.
+This document describes **what we want to build in the future** and **what benefits we want to give to clients**. It is not a task list. **Rules:** Do not list anything that is already delivered (see **RELEASE_NOTES.md**). Do not list anything that has been turned into tasks (see **TASKLIST.md**). Only future vision that is not yet broken down into tasks belongs here. **Only related items:** Only content that belongs in the ROADMAP may appear here — no delivered items, no task-list items, no unrelated content.
 
 ---
 
@@ -43,25 +43,12 @@ _(Nothing delivered or already on TASKLIST appears here. Delivered work: RELEASE
 
 ---
 
-### Multi-format course enhancements
-
-**What we want:** More schedule types; richer recommendation logic for 1-hour diagnostic flows; admin tooling for preview and sync alerts.
-
-**Client benefits:**
-
-- Learners can choose 7-day, weekend, 1-day, or 1-hour formats that fit their pace
-- Admins can create and maintain short-format courses with less friction
-
----
-
 ### Future quarters (Q2–Q4 2026 and beyond)
 
 **What we want:**
 
-- **Short-format tracks**: 1-hour, 1-day, weekend, 7-day courses as first-class offerings
 - **Multiple courses**: Enrolment in several courses at once; prerequisites
 - **Live sessions**: Scheduled live lessons with instructors
-- **Community**: Discussion forums, study groups
 - **AI-powered personalisation**: Adaptive difficulty and recommendations from assessments
 - **Instructor dashboard**: Instructors create and manage their own courses
 - **Mobile app**: Native app and offline access
@@ -78,8 +65,8 @@ _(Nothing delivered or already on TASKLIST appears here. Delivered work: RELEASE
 
 | Who            | Benefits we want to deliver (not yet delivered or on TASKLIST) |
 |----------------|----------------------------------------------------------------|
-| **Learners**   | Short-format options (7d, weekend, 1d, 1h); mobile and offline; live and community features |
-| **Admins**     | Multi-format and certificate tooling |
+| **Learners**   | Mobile and offline; live features |
+| **Admins**     | Certificate tooling |
 | **Business**   | Higher engagement, completion, and retention; clearer product direction; scalable course and content creation |
 
 ---

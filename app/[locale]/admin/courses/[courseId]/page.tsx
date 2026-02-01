@@ -61,6 +61,11 @@ interface Course {
   certification?: {
     enabled: boolean;
     poolCourseId?: string;
+    certQuestionCount?: number;
+    /** Pass rule: minimum final exam score (0–100). Default 50. */
+    passThresholdPercent?: number;
+    requireAllLessonsCompleted?: boolean;
+    requireAllQuizzesPassed?: boolean;
     priceMoney?: {
       amount: number;
       currency: string;
@@ -786,10 +791,13 @@ export default function CourseEditorPage({
                   certification: {
                     ...course.certification,
                     enabled: e.target.checked,
-                    pricePoints: course.certification?.pricePoints || 0,
-                    premiumIncludesCertification: course.certification?.premiumIncludesCertification || false,
-                    templateId: course.certification?.templateId || 'default_v1',
-                    credentialTitleId: course.certification?.credentialTitleId || '',
+                    passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
+                    requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
+                    requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
+                    pricePoints: course.certification?.pricePoints ?? 0,
+                    premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
+                    templateId: course.certification?.templateId ?? 'default_v1',
+                    credentialTitleId: course.certification?.credentialTitleId ?? '',
                   },
                 })}
                 className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
@@ -803,6 +811,90 @@ export default function CourseEditorPage({
 
           {course.certification?.enabled && (
             <>
+              {/* Pass rules — dynamic pass threshold and conditions */}
+              <div className="border border-brand-darkGrey/30 rounded-lg p-4 space-y-4">
+                <h3 className="text-sm font-bold text-brand-black">Pass rules</h3>
+                <p className="text-xs text-brand-darkGrey">
+                  Current rule: Pass final exam ≥ {course.certification?.passThresholdPercent ?? 50}%;
+                  {course.certification?.requireAllLessonsCompleted !== false ? ' All lessons completed required;' : ' Lessons not required;'}
+                  {course.certification?.requireAllQuizzesPassed !== false ? ' All daily quizzes passed required.' : ' Daily quizzes not required.'}
+                </p>
+                <div>
+                  <label className="block text-sm font-medium text-brand-black mb-2">
+                    Pass threshold (%)
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="1"
+                    value={course.certification?.passThresholdPercent ?? 50}
+                    onChange={(e) => setCourse({
+                      ...course,
+                      certification: {
+                        ...course.certification,
+                        enabled: true,
+                        passThresholdPercent: Math.min(100, Math.max(0, parseInt(e.target.value) || 50)),
+                        requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
+                        requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
+                        pricePoints: course.certification?.pricePoints ?? 0,
+                        premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
+                        templateId: course.certification?.templateId ?? 'default_v1',
+                        credentialTitleId: course.certification?.credentialTitleId ?? '',
+                      },
+                    })}
+                    className="w-full max-w-[120px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                  />
+                  <p className="text-xs text-brand-darkGrey mt-1">Minimum final exam score (0–100) to be eligible for certificate. Default 50.</p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={course.certification?.requireAllLessonsCompleted !== false}
+                      onChange={(e) => setCourse({
+                        ...course,
+                        certification: {
+                          ...course.certification,
+                          enabled: true,
+                          passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
+                          requireAllLessonsCompleted: e.target.checked,
+                          requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
+                          pricePoints: course.certification?.pricePoints ?? 0,
+                          premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
+                          templateId: course.certification?.templateId ?? 'default_v1',
+                          credentialTitleId: course.certification?.credentialTitleId ?? '',
+                        },
+                      })}
+                      className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
+                    />
+                    <span className="text-sm font-medium text-brand-black">Require all lessons completed</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={course.certification?.requireAllQuizzesPassed !== false}
+                      onChange={(e) => setCourse({
+                        ...course,
+                        certification: {
+                          ...course.certification,
+                          enabled: true,
+                          passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
+                          requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
+                          requireAllQuizzesPassed: e.target.checked,
+                          pricePoints: course.certification?.pricePoints ?? 0,
+                          premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
+                          templateId: course.certification?.templateId ?? 'default_v1',
+                          credentialTitleId: course.certification?.credentialTitleId ?? '',
+                        },
+                      })}
+                      className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
+                    />
+                    <span className="text-sm font-medium text-brand-black">Require all daily quizzes passed</span>
+                  </label>
+                </div>
+              </div>
+
               <div>
                 <label className="block text-sm font-medium text-brand-black mb-2">
                   Price (Points)
@@ -817,10 +909,13 @@ export default function CourseEditorPage({
                     certification: {
                       ...course.certification,
                       enabled: true,
+                      passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
+                      requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
+                      requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
                       pricePoints: parseInt(e.target.value) || 0,
-                      premiumIncludesCertification: course.certification?.premiumIncludesCertification || false,
-                      templateId: course.certification?.templateId || 'default_v1',
-                      credentialTitleId: course.certification?.credentialTitleId || '',
+                      premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
+                      templateId: course.certification?.templateId ?? 'default_v1',
+                      credentialTitleId: course.certification?.credentialTitleId ?? '',
                     },
                   })}
                   className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
@@ -841,10 +936,13 @@ export default function CourseEditorPage({
                       certification: {
                         ...course.certification,
                         enabled: true,
-                        pricePoints: course.certification?.pricePoints || 0,
+                        passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
+                        requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
+                        requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
+                        pricePoints: course.certification?.pricePoints ?? 0,
                         premiumIncludesCertification: e.target.checked,
-                        templateId: course.certification?.templateId || 'default_v1',
-                        credentialTitleId: course.certification?.credentialTitleId || '',
+                        templateId: course.certification?.templateId ?? 'default_v1',
+                        credentialTitleId: course.certification?.credentialTitleId ?? '',
                       },
                     })}
                     className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
@@ -868,10 +966,13 @@ export default function CourseEditorPage({
                     certification: {
                       ...course.certification,
                       enabled: true,
-                      pricePoints: course.certification?.pricePoints || 0,
-                      premiumIncludesCertification: course.certification?.premiumIncludesCertification || false,
+                      passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
+                      requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
+                      requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
+                      pricePoints: course.certification?.pricePoints ?? 0,
+                      premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
                       templateId: e.target.value,
-                      credentialTitleId: course.certification?.credentialTitleId || '',
+                      credentialTitleId: course.certification?.credentialTitleId ?? '',
                     },
                   })}
                   className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
@@ -894,9 +995,12 @@ export default function CourseEditorPage({
                     certification: {
                       ...course.certification,
                       enabled: true,
-                      pricePoints: course.certification?.pricePoints || 0,
-                      premiumIncludesCertification: course.certification?.premiumIncludesCertification || false,
-                      templateId: course.certification?.templateId || 'default_v1',
+                      passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
+                      requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
+                      requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
+                      pricePoints: course.certification?.pricePoints ?? 0,
+                      premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
+                      templateId: course.certification?.templateId ?? 'default_v1',
                       credentialTitleId: e.target.value,
                     },
                   })}

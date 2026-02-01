@@ -1,0 +1,989 @@
+[
+  {
+    "_id": "6979db379316e77110ed052f",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Példa: Ha az \"Ajánlat → Lezárás\" konverzió 15%-ról 30%-ra nő”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Példa: Ha az \"Ajánlat → Lezárás\" konverzió 15%-ról 30%-ra nő”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt."
+      ]
+    }
+  },
+  {
+    "_id": "697a6fabf5d275249cc72fb4",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10–15 perc) — Kérdéssor v1 Írj 5 “jelen”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Gyakorlat (vezetett, 10–15 perc) — Kérdéssor v1 Írj 5 “jelen”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5082009a092cb72585",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Tudod, hogy a cél az outcome maximalizálása, nem az output n”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Tudod, hogy a cél az outcome maximalizálása, nem az output n”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5082009a092cb72584",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Különbséget teszel az output és outcome között. Azonosította”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Különbséget teszel az output és outcome között. Azonosította”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5082009a092cb725c8",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Megérted, hogyan működik együtt az idő, energia és figyelem.”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Megérted, hogyan működik együtt az idő, energia és figyelem.”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5082009a092cb725c9",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Tudod, hogy a cél a három erőforrás optimalizálása, nem csak”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Tudod, hogy a cél a három erőforrás optimalizálása, nem csak”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5182009a092cb725e6",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „A hierarchia logikusan összekapcsolódik: vízió → eredmények ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „A hierarchia logikusan összekapcsolódik: vízió → eredmények ”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5182009a092cb725e5",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Van egy víziód (3-5 év). Van 2-3 mérhető eredményed (6-12 hó”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Van egy víziód (3-5 év). Van 2-3 mérhető eredményed (6-12 hó”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5182009a092cb725ff",
+    "before": {
+      "question": "Egy sprint vege fele priorizalnod kell feladatokat. Egy új gyakorlatot vezetsz be: „Példa (jó vs rossz) Példa (jó): 2 fókuszblokk, 1 elkészült k”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    },
+    "after": {
+      "question": "Egy sprint vege fele priorizalnod kell feladatokat. Bevezetsz egy új gyakorlatot: „Példa (jó vs rossz) Példa (jó): 2 fókuszblokk, 1 elkészült k”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5182009a092cb7260c",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „A mérés objektív, nem csak érzésalapú. Opcionális mélyítés D”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „A mérés objektív, nem csak érzésalapú. Opcionális mélyítés D”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5182009a092cb7260b",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Ismered a három kulcsmetrikát: throughput, fókusz blokkok, c”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Ismered a három kulcsmetrikát: throughput, fókusz blokkok, c”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5182009a092cb72617",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Van egy megbízható inbox rendszered. Van egy trigger listád,”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Van egy megbízható inbox rendszered. Van egy trigger listád,”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5282009a092cb7262b",
+    "before": {
+      "question": "Egy varatlan problema kozben gyors, de megalapozott dontest kell hoznod. Egy új gyakorlatot vezetsz be: „Példa (rossz): 12 „elindított” feladat, de nincs lezárt ered”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt."
+      ]
+    },
+    "after": {
+      "question": "Egy varatlan problema kozben gyors, de megalapozott dontest kell hoznod. Bevezetsz egy új gyakorlatot: „Példa (rossz): 12 „elindított” feladat, de nincs lezárt ered”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5282009a092cb72632",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Tudom, mi az figyelmi maradványa. Van egy kötegelt feldolgoz”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Tudom, mi az figyelmi maradványa. Van egy kötegelt feldolgoz”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5282009a092cb72633",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Vannak szabályok a mély munka blokkokhoz (nincs IM, nincs te”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Vannak szabályok a mély munka blokkokhoz (nincs IM, nincs te”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5282009a092cb72639",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Tudom, mely feladatok delegálhatók és melyek nem. Van egy li”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Tudom, mely feladatok delegálhatók és melyek nem. Van egy li”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5282009a092cb7263a",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Cselekvési terv van az első delegálásra/kiiktatásra.”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Cselekvési terv van az első delegálásra/kiiktatásra.”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5282009a092cb7263f",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Tudom, mik az én csúcsenergia-sávjaim. A mély munkát a csúcs”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Tudom, mik az én csúcsenergia-sávjaim. A mély munkát a csúcs”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5282009a092cb72640",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Az alvás nem valaha szacrificsálódik termelékenységért.”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Az alvás nem valaha szacrificsálódik termelékenységért.”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5282009a092cb7264d",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Megírtam a célt egy egyszerű nyilatkozatban. Van egy nyomon ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Megírtam a célt egy egyszerű nyilatkozatban. Van egy nyomon ”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5282009a092cb7264c",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Van egy egyértelmű, 4-8 hetes célt az elszámoltathatóságra k”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Van egy egyértelmű, 4-8 hetes célt az elszámoltathatóságra k”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5282009a092cb72653",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Tudom, hogyan kell az érzelmi faktorokat az információs dönt”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Tudom, hogyan kell az érzelmi faktorokat az információs dönt”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5282009a092cb72652",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Tudom, mi az elemzési bénultság és hogyan működik. Tudom, ho”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Tudom, mi az elemzési bénultság és hogyan működik. Tudom, ho”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5382009a092cb726a3",
+    "before": {
+      "question": "Egy sprint vege fele priorizalnod kell feladatokat. Egy új gyakorlatot vezetsz be: „Példa (rossz): 12 „elindított” feladat, de nincs lezárt ered”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés."
+      ]
+    },
+    "after": {
+      "question": "Egy sprint vege fele priorizalnod kell feladatokat. Bevezetsz egy új gyakorlatot: „Példa (rossz): 12 „elindított” feladat, de nincs lezárt ered”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5382009a092cb726ad",
+    "before": {
+      "question": "Egy sprint vege fele priorizalnod kell feladatokat. Egy új gyakorlatot vezetsz be: „Példa (rossz): 12 „elindított” feladat, de nincs lezárt ered”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt."
+      ]
+    },
+    "after": {
+      "question": "Egy sprint vege fele priorizalnod kell feladatokat. Bevezetsz egy új gyakorlatot: „Példa (rossz): 12 „elindított” feladat, de nincs lezárt ered”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5382009a092cb726ac",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Példa (jó vs rossz) Példa (jó): 2 fókuszblokk, 1 elkészült k”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Példa (jó vs rossz) Példa (jó): 2 fókuszblokk, 1 elkészült k”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást."
+      ]
+    }
+  },
+  {
+    "_id": "697b9200cf21eba1283e700d",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „példa: Mérhető tölcsér Havi célok: 400 új lead (napi 20) 200”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „példa: Mérhető tölcsér Havi célok: 400 új lead (napi 20) 200”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást."
+      ]
+    }
+  },
+  {
+    "_id": "697b9200cf21eba1283e7010",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat 2 – Napi követés beállítása (10 perc) Hozz létre e”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Gyakorlat 2 – Napi követés beállítása (10 perc) Hozz létre e”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    }
+  },
+  {
+    "_id": "697b9200cf21eba1283e701d",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat 1 – Tölcsér sablon létrehozása (15 perc) Hozd létr”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Gyakorlat 1 – Tölcsér sablon létrehozása (15 perc) Hozd létr”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt."
+      ]
+    }
+  },
+  {
+    "_id": "697b9201cf21eba1283e7032",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat 2 – KPI követő táblázat (15 perc) Hozz létre egy K”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Gyakorlat 2 – KPI követő táblázat (15 perc) Hozz létre egy K”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    }
+  },
+  {
+    "_id": "697b9202cf21eba1283e7045",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „példa – Diversifikált mix: 40% Cold Outreach (LinkedIn, emai”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „példa – Diversifikált mix: 40% Cold Outreach (LinkedIn, emai”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    }
+  },
+  {
+    "_id": "697b9202cf21eba1283e7068",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat 1 – Heti előrejelzés (20 perc) Nézd meg a jelenleg”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Gyakorlat 1 – Heti előrejelzés (20 perc) Nézd meg a jelenleg”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető."
+      ]
+    }
+  },
+  {
+    "_id": "697b9203cf21eba1283e7075",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Példa: Ha most van 16 ajánlat elküldve, és a konverzió 25%, ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Példa: Ha most van 16 ajánlat elküldve, és a konverzió 25%, ”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    }
+  },
+  {
+    "_id": "697b9204cf21eba1283e707c",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat 1 – BANT checklist (15 perc) Készíts egy BANT chec”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Gyakorlat 1 – BANT checklist (15 perc) Készíts egy BANT chec”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés."
+      ]
+    }
+  },
+  {
+    "_id": "697b9205cf21eba1283e708c",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „példa céget, amelyek megfelelnek az ICP-nek Gyakorlat 2 – IC”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „példa céget, amelyek megfelelnek az ICP-nek Gyakorlat 2 – IC”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt."
+      ]
+    }
+  },
+  {
+    "_id": "697b9205cf21eba1283e7097",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Példa ICP definíció ICP példa: Cégméret: 50-200 alkalmazott ”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Példa ICP definíció ICP példa: Cégméret: 50-200 alkalmazott ”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető."
+      ]
+    }
+  },
+  {
+    "_id": "697b9206cf21eba1283e70ac",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat 1 – Minősítési kérdés lista (20 perc) Válaszd ki a”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Gyakorlat 1 – Minősítési kérdés lista (20 perc) Válaszd ki a”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt."
+      ]
+    }
+  },
+  {
+    "_id": "697b9206cf21eba1283e70cc",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat 1 – Árazási stratégia (20 perc) Írd le a jelenlegi”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Gyakorlat 1 – Árazási stratégia (20 perc) Írd le a jelenlegi”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz."
+      ]
+    }
+  },
+  {
+    "_id": "697b9206cf21eba1283e70d0",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „példa: \"Az ár $1000”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „példa: \"Az ár $1000”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt."
+      ]
+    }
+  },
+  {
+    "_id": "697b9207cf21eba1283e70db",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat (önálló, 5–10 perc) — “Előbb feltárás” párbeszéd V”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Gyakorlat (önálló, 5–10 perc) — “Előbb feltárás” párbeszéd V”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés."
+      ]
+    }
+  },
+  {
+    "_id": "697b9207cf21eba1283e70df",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10–15 perc) — Kifogástérkép Írd le a to”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Gyakorlat (vezetett, 10–15 perc) — Kifogástérkép Írd le a to”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    }
+  },
+  {
+    "_id": "697df59d892b85a2a5909a4e",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat 2 – Prioritizációs táblázat (15 perc) Hozz létre e”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Gyakorlat 2 – Prioritizációs táblázat (15 perc) Hozz létre e”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető."
+      ]
+    }
+  },
+  {
+    "_id": "697df5a2892b85a2a5909a6f",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10–15 perc) Válassz egy aktív opportuni”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Gyakorlat (vezetett, 10–15 perc) Válassz egy aktív opportuni”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    }
+  },
+  {
+    "_id": "697df5a5892b85a2a5909a89",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10–15 perc) Válassz egy késői stage dea”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Gyakorlat (vezetett, 10–15 perc) Válassz egy késői stage dea”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés."
+      ]
+    }
+  },
+  {
+    "_id": "697df5a7892b85a2a5909a9f",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „Gyakorlat (vezetett, 10–15 perc) Definiáld a 4 kategóriát és”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „Gyakorlat (vezetett, 10–15 perc) Definiáld a 4 kategóriát és”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis scope-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    }
+  },
+  {
+    "_id": "697e26da756db28d840f9bae",
+    "before": {
+      "question": "A „Lead pontozás és prioritizálás” témában új gyakorlatot próbálsz ki: „Gyakorlat 2 – Prioritizációs táblázat (15 perc) Hozz létre e”. Melyik bevezetési terv teszi a hatást ellenőrizhetővé (előtte/utána)?",
+      "options": [
+        "Owner + „kész” kritérium + 1 metrika: kis pilotot futtatok, hetente review-zok, és csak validált hatás után terjesztem ki.",
+        "Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover."
+      ]
+    },
+    "after": {
+      "question": "A „Lead pontozás és prioritizálás” témában új gyakorlatot próbálsz ki: „Gyakorlat 2 – Prioritizációs táblázat (15 perc) Hozz létre e”. Melyik bevezetési terv teszi a hatást ellenőrizhetővé (előtte/utána)?",
+      "options": [
+        "Owner + „kész” kritérium + 1 metrika: kis pilotot futtatok, hetente review-zok, és csak validált hatás után terjesztem ki.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover."
+      ]
+    }
+  },
+  {
+    "_id": "697e26db756db28d840f9bb9",
+    "before": {
+      "question": "Egy új gyakorlatot vezetsz be: „gyakorlat mérhető (kritériumok), a rossz csak szándék”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?",
+      "options": [
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "A „busy outputot” mérem (aktivitás), ezért javulhat a mutató úgy, hogy az eredmény nem javul.",
+        "Owner + „kész” kritérium + 1 metrika: kis pilotot futtatok, hetente review-zok, és csak validált hatás után terjesztem ki."
+      ]
+    },
+    "after": {
+      "question": "Bevezetsz egy új gyakorlatot: „gyakorlat mérhető (kritériumok), a rossz csak szándék”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "A „busy outputot” mérem (aktivitás), ezért javulhat a mutató úgy, hogy az eredmény nem javul.",
+        "Owner + „kész” kritérium + 1 metrika: kis pilotot futtatok, hetente review-zok, és csak validált hatás után terjesztem ki."
+      ]
+    }
+  }
+]

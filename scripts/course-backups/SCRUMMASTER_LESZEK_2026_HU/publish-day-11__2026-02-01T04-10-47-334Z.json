@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T04:10:47.334Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_11",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_11",
+    "isActive": false,
+    "dayNumber": 11,
+    "title": "Facilitáció alapok: outcome, timebox, döntési szabály"
+  }
+}

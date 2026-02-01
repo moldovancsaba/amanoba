@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-01-31T22:11:29.604Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_01",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false,
+    "certificationEnabled": true,
+    "certificationPriceMoney": null,
+    "certificationPricePoints": null
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_01",
+    "isActive": false,
+    "dayNumber": 1,
+    "title": "Scrum Master 2026: szerep, határok, impact"
+  }
+}

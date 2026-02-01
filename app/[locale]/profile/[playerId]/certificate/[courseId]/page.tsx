@@ -30,6 +30,7 @@ interface CertificateStatus {
   courseTitle: string;
   playerName: string;
   verificationSlug?: string | null; // Optional verification slug for certificate link
+  designTemplateId?: string | null; // A/B variant for analytics (certificate_viewed)
 }
 
 export default function CertificatePage({
@@ -103,11 +104,16 @@ export default function CertificatePage({
     fetchCertificateStatus();
   }, [playerId, courseId]);
 
-  // Fire GA certificate_earned once when viewing own certificate (eligible)
+  // Fire GA certificate_earned and certificate_viewed once when viewing own certificate (eligible)
   useEffect(() => {
     if (!certificateData?.certificateEligible || !courseId || !certificateData.courseTitle || hasFiredCertificateGA.current) return;
     hasFiredCertificateGA.current = true;
     trackGAEvent('certificate_earned', { course_id: courseId, course_name: certificateData.courseTitle });
+    trackGAEvent('certificate_viewed', {
+      course_id: courseId,
+      course_name: certificateData.courseTitle,
+      ...(certificateData.designTemplateId && { template_variant_id: certificateData.designTemplateId }),
+    });
   }, [certificateData, courseId]);
 
   // Build absolute verification URL for LinkedIn/QR (client-only)

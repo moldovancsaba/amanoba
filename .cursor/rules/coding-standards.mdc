@@ -1,0 +1,12 @@
+---
+description: Layout grammar, documentation rules, and reuse-via-discriminator pattern
+alwaysApply: true
+---
+
+# Amanoba coding standards and patterns
+
+- **Layout and structure:** Follow **docs/layout_grammar.md** for project layout, documentation layout, CCS/lesson/quiz structure, UI layout, API and locale layout, and language rules. For course/quiz quality, use the SSOT set in **agent_working_loop_canonical_operating_document.md** (Mandatory Documentation for Course/Quiz Quality Work).
+- **Documentation:** ROADMAP = future vision only. TASKLIST = open tasks only. RELEASE_NOTES = completed work only. No placeholders (no TBD). Update docs with every code/feature change.
+- **Reuse via discriminator:** When the same feature is needed in 2+ places (e.g. voting on courses, lessons, discussion posts), use **one model**, **one API**, and **one UI component** with a discriminator (e.g. `targetType`, `targetId`). Do not duplicate schemas, routes, or components. See **docs/VOTING_AND_REUSE_PATTERN.md** and **docs/ARCHITECTURE.md** (Core Principles).
+- **Contributing:** Full coding standards (TypeScript, React, API, DB, reusability) are in **docs/CONTRIBUTING.md**.
+- **Learnings:** For rationale and pattern lessons (e.g. reuse via discriminator, merge strategy), see **docs/LEARNINGS.md** (§ Architecture & Design).

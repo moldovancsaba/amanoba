@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-01-31T22:59:22.028Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_06",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_06",
+    "isActive": false,
+    "dayNumber": 6,
+    "title": "Product Backlog alapok: érték, kockázat, bizonytalanság"
+  }
+}

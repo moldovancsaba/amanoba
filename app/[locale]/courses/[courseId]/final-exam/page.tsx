@@ -16,6 +16,7 @@ interface EntitlementResp {
   certificationEnabled: boolean;
   certificationAvailable: boolean;
   entitlementOwned: boolean;
+  entitlementRequired?: boolean;
   premiumIncludesCertification: boolean;
   priceMoney?: { amount: number; currency: string } | null;
   pricePoints?: number | null;
@@ -422,7 +423,8 @@ export default function FinalExamPage() {
 
   const ent = entitlement;
   const unavailable = !ent?.certificationEnabled || !ent?.certificationAvailable;
-  const _canStart = ent?.entitlementOwned && !unavailable;
+  const entitlementRequired = ent?.entitlementRequired ?? true;
+  const canStart = !unavailable && (!entitlementRequired || Boolean(ent?.entitlementOwned));
 
   return (
     <div className="max-w-3xl mx-auto p-6 text-white space-y-6" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
@@ -453,7 +455,7 @@ export default function FinalExamPage() {
         </div>
       )}
 
-      {!unavailable && !ent?.entitlementOwned && (
+      {!unavailable && entitlementRequired && !ent?.entitlementOwned && (
         <div className="bg-gray-800 border border-gray-700 rounded p-4 space-y-3">
           <p className="font-semibold">{getFinalExamText('certificationAccess', courseLanguage)}</p>
           <p className="text-gray-300">
@@ -482,7 +484,7 @@ export default function FinalExamPage() {
         </div>
       )}
 
-      {!unavailable && ent?.entitlementOwned && !question && !result && (
+      {canStart && !question && !result && (
         <div className="space-y-3">
           <p>{getFinalExamText('examDescription', courseLanguage)}</p>
           <button

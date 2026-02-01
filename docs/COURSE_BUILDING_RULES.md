@@ -10,6 +10,12 @@
 
 This document defines the standardized process for creating and delivering courses on the Amanoba platform. All course creation must follow these rules to ensure quality, consistency, and proper localization.
 
+### Platform defaults (required unless explicitly overridden)
+1) **Environment default**: production via `.env.local`, writing to MongoDB Atlas database **`amanoba`**.
+2) **Course format default**: always create a **30-day parent course** first.
+3) **Commercial default**: default is **free** (`requiresPremium: false`).
+4) **Assessment default**: quizzes are required and must pass SSOT gates (>=7 valid, >=5 application, 0 recall) and language integrity.
+
 ---
 
 ## Pre-Development Checklist

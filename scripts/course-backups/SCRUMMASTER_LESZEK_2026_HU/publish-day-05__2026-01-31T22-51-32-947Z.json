@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-01-31T22:51:32.947Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_05",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_05",
+    "isActive": false,
+    "dayNumber": 5,
+    "title": "Definition of Done (DoD): minőség-kapu, ami nem lassít, hanem gyorsít"
+  }
+}

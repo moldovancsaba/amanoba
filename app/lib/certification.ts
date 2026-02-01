@@ -54,3 +54,84 @@ export async function isCertificationAvailable(courseId: string): Promise<{ avai
   const limit = getCertQuestionLimit(course);
   return { available: poolCount >= limit, poolCount };
 }
+
+// --- Certificate template A/B (P1 #5) ---
+
+export type CertificateRenderTemplateId = 'default' | 'minimal';
+
+/**
+ * Map stored designTemplateId to render layout.
+ * Used by certificate image routes so each issued cert renders with its assigned variant.
+ */
+export function mapDesignTemplateIdToRender(designTemplateId: string): CertificateRenderTemplateId {
+  if (designTemplateId === 'minimal') return 'minimal';
+  return 'default'; // default_v1 and any other ID use default layout
+}
+
+type CourseCert = {
+  templateId?: string;
+  templateVariantIds?: string[];
+  templateVariantWeights?: number[];
+  credentialTitleId?: string;
+} | null | undefined;
+
+type GlobalCertSettings = {
+  templateId?: string;
+  templateVariantIds?: string[];
+  templateVariantWeights?: number[];
+  credentialTitleId?: string;
+} | null | undefined;
+
+/**
+ * Resolve allowed template variant IDs: course first, then global, then single default.
+ */
+function getAllowedTemplateIds(courseCert: CourseCert, globalCert: GlobalCertSettings): string[] {
+  const fromCourse = courseCert?.templateVariantIds?.length
+    ? courseCert.templateVariantIds
+    : courseCert?.templateId
+      ? [courseCert.templateId]
+      : null;
+  if (fromCourse?.length) return fromCourse;
+  const fromGlobal = globalCert?.templateVariantIds?.length
+    ? globalCert.templateVariantIds
+    : globalCert?.templateId
+      ? [globalCert.templateId]
+      : null;
+  if (fromGlobal?.length) return fromGlobal;
+  return ['default_v1'];
+}
+
+/**
+ * Pick one variant index by stable hash(playerId + courseId) so the same learner gets the same variant for that course.
+ */
+function pickVariantIndexStable(variantIds: string[], playerId: string, courseId: string): number {
+  if (variantIds.length === 0) return 0;
+  if (variantIds.length === 1) return 0;
+  const str = `${playerId}:${courseId}`;
+  let h = 0;
+  for (let i = 0; i < str.length; i++) {
+    const c = str.charCodeAt(i);
+    h = (h << 5) - h + c;
+    h = h & h;
+  }
+  return Math.abs(h) % variantIds.length;
+}
+
+/**
+ * Resolve designTemplateId and credentialId at certificate issue time (A/B: assign at issue).
+ * Uses course.certification (templateVariantIds or templateId), fallback global settings, then default_v1 / CERT.
+ * Picks variant by stable hash(playerId, courseId).
+ */
+export function resolveTemplateVariantAtIssue(
+  courseCert: CourseCert,
+  globalCert: GlobalCertSettings,
+  playerId: string,
+  courseId: string
+): { designTemplateId: string; credentialId: string } {
+  const variantIds = getAllowedTemplateIds(courseCert, globalCert);
+  const index = pickVariantIndexStable(variantIds, playerId, courseId);
+  const designTemplateId = variantIds[index] ?? 'default_v1';
+  const credentialId =
+    courseCert?.credentialTitleId ?? globalCert?.credentialTitleId ?? 'CERT';
+  return { designTemplateId, credentialId };
+}

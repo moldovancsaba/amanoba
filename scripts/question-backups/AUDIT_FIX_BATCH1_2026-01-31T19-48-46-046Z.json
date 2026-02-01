@@ -1,0 +1,662 @@
+[
+  {
+    "_id": "6978a03babea34442b979cff",
+    "language": "hu",
+    "before": {
+      "question": "Egy sprint vege fele priorizalnod kell feladatokat. Egy projektben a „Miért számít ma?” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?",
+      "options": [
+        "Konkrét ellenőrzőlistát készítek, implementálom egy kis hatókör-on, tesztelem a hatást, majd kiterjesztem a teljes hatókör-ra",
+        "Csak definícióként kezelem, ezért nem derül ki, működik-e a gyakorlatban",
+        "Kihagyom az implementációt, mert túl időigényesnek tűnik",
+        "Végrehajtom, de nem mérek és nem dokumentálok semmit"
+      ]
+    },
+    "after": {
+      "question": "Egy futam vege fele priorizalnod kell feladatokat. Egy projektben a „Miért számít ma?” fogalmat kell működésbe fordítanod. Melyik megközelítés teszi a kimenetet mérhetővé és ellenőrizhetővé?",
+      "options": [
+        "Konkrét ellenőrzőlistát készítek, implementálom egy kis hatókör-on, tesztelem a hatást, majd kiterjesztem a teljes hatókör-ra",
+        "Csak definícióként kezelem, ezért nem derül ki, működik-e a gyakorlatban",
+        "Kihagyom az implementációt, mert túl időigényesnek tűnik",
+        "Végrehajtom, de nem mérek és nem dokumentálok semmit"
+      ]
+    }
+  },
+  {
+    "_id": "6979db419316e77110ed07d9",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Latihan Praktik (30 menit) — Audit Tugas: Delegasi dan Elimi”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Latihan Praktik (30 menit) — Audit Tugas: Delegasi dan Elimi”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "6979db419316e77110ed07da",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Saya tahu tugas mana yang dapat didelegasikan dan mana yang ”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Saya tahu tugas mana yang dapat didelegasikan dan mana yang ”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "6979db419316e77110ed07db",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Saya mengidentifikasi setidaknya 5 tugas yang dapat dielimin”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Saya mengidentifikasi setidaknya 5 tugas yang dapat dielimin”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c24b0f2a8cb0936d3b",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Anda menulis definisi “selesai””. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Anda menulis definisi “selesai””. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c24b0f2a8cb0936d3a",
+    "language": "id",
+    "before": {
+      "question": "Setelah tinjauan, kamu perlu memutuskan apa yang harus diubah. Anda menerapkan praktik baru: “Baik: Anda menulis definisi “selesai” + 1 metrik + ambang su”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Setelah tinjauan, kamu perlu memutuskan apa yang harus diubah. Anda menerapkan praktik baru: “Baik: Anda menulis definisi “selesai” + 1 metrik + ambang su”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c34b0f2a8cb0936d86",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Baik: Anda menulis definisi “selesai” + 1 metrik + ambang su”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Baik: Anda menulis definisi “selesai” + 1 metrik + ambang su”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c34b0f2a8cb0936da7",
+    "language": "id",
+    "before": {
+      "question": "Di bawah tenggat waktu, kamu perlu keputusan yang praktis. Anda menerapkan praktik baru: “Baik: Anda menulis definisi “selesai” + 1 metrik + ambang su”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Di bawah tenggat waktu, kamu perlu keputusan yang praktis. Anda menerapkan praktik baru: “Baik: Anda menulis definisi “selesai” + 1 metrik + ambang su”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c34b0f2a8cb0936dc7",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Anda menulis definisi “selesai””. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Anda menulis definisi “selesai””. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c34b0f2a8cb0936dd9",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Minggu ini: throughput=5 outcom”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Minggu ini: throughput=5 outcom”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c34b0f2a8cb0936dd8",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Baik: Minggu ini: throughput=5 outcome penting, blok fokus=7”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Baik: Minggu ini: throughput=5 outcome penting, blok fokus=7”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c34b0f2a8cb0936df0",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Baik: Anda menulis definisi “selesai” + 1 metrik + ambang su”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Baik: Anda menulis definisi “selesai” + 1 metrik + ambang su”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c44b0f2a8cb0936e00",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Minggu ini: throughput=5 outcom”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Minggu ini: throughput=5 outcom”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c44b0f2a8cb0936e0d",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Baik: Anda menulis definisi “selesai” + 1 metrik + ambang su”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Baik: Anda menulis definisi “selesai” + 1 metrik + ambang su”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c44b0f2a8cb0936e33",
+    "language": "id",
+    "before": {
+      "question": "Dalam sebuah proyek, kamu perlu mengambil keputusan. Anda menerapkan praktik baru: “Baik: Anda menulis definisi “selesai” + 1 metrik + ambang su”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Dalam sebuah proyek, kamu perlu mengambil keputusan. Anda menerapkan praktik baru: “Baik: Anda menulis definisi “selesai” + 1 metrik + ambang su”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c44b0f2a8cb0936e40",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Anda menilai 3 opsi (A/B/C) mem”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Anda menilai 3 opsi (A/B/C) mem”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c44b0f2a8cb0936e3f",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Baik: Anda menilai 3 opsi (A/B/C) memakai 3 kriteria berbobo”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Baik: Anda menilai 3 opsi (A/B/C) memakai 3 kriteria berbobo”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c44b0f2a8cb0936e56",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Baik: Anda menemukan 3 tugas bernilai rendah, menghapus 1 ra”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Baik: Anda menemukan 3 tugas bernilai rendah, menghapus 1 ra”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c44b0f2a8cb0936e57",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Anda menemukan 3 tugas bernilai”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Anda menemukan 3 tugas bernilai”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c44b0f2a8cb0936e63",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Anda menulis definisi “selesai””. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Anda menulis definisi “selesai””. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c54b0f2a8cb0936e77",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Baik: Anda menilai 3 opsi (A/B/C) memakai 3 kriteria berbobo”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Baik: Anda menilai 3 opsi (A/B/C) memakai 3 kriteria berbobo”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c54b0f2a8cb0936eac",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Anda menilai 3 opsi (A/B/C) mem” (pelajaran: \"Kreativitas dan Inovasi: Pemikiran Ulang, Eksperimen\"). Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya jalankan tanpa owner dan tanpa ambang sukses; akhirnya debatnya subjektif.",
+        "Saya mulai dari cakupan kecil, pasang baseline metrik, tinjauan mingguan, dan perluas hanya setelah efek terbukti.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Anda menilai 3 opsi (A/B/C) mem” (pelajaran: \"Kreativitas dan Inovasi: Pemikiran Ulang, Eksperimen\"). Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya jalankan tanpa owner dan tanpa ambang sukses; akhirnya debatnya subjektif.",
+        "Saya mulai dari cakupan kecil, pasang baseline metrik, tinjauan mingguan, dan perluas hanya setelah efek terbukti.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c54b0f2a8cb0936eaa",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Anda menilai 3 opsi (A/B/C) mem”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Anda menilai 3 opsi (A/B/C) mem”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c54b0f2a8cb0936ec7",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Baik: Anda menemukan 3 tugas bernilai rendah, menghapus 1 ra”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Baik: Anda menemukan 3 tugas bernilai rendah, menghapus 1 ra”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c64b0f2a8cb0936ee6",
+    "language": "id",
+    "before": {
+      "question": "Dalam rapat perencanaan tim, kamu perlu memilih langkah berikutnya. Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Minggu ini: throughput=5 outcom”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Dalam rapat perencanaan tim, kamu perlu memilih langkah berikutnya. Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Minggu ini: throughput=5 outcom”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c64b0f2a8cb0936ef0",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Minggu ini: throughput=5 outcom”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Contoh (baik vs buruk) Baik: Minggu ini: throughput=5 outcom”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697a90c64b0f2a8cb0936eef",
+    "language": "id",
+    "before": {
+      "question": "Anda menerapkan praktik baru: “Baik: Minggu ini: throughput=5 outcome penting, blok fokus=7”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan checkpoint, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    },
+    "after": {
+      "question": "Anda menerapkan praktik baru: “Baik: Minggu ini: throughput=5 outcome penting, blok fokus=7”. Rencana mana yang menghasilkan keluaran terukur dan umpan balik cepat?",
+      "options": [
+        "Saya menerapkan bertahap: tetapkan kriteria/metrik, pilot kecil, ukur sebelum/sesudah, dokumentasikan hasil, dan ubah satu rule per iterasi.",
+        "Saya mengubah semuanya sekaligus tanpa metrik dan titik periksa, lalu menebak apa yang berhasil.",
+        "Saya mulai tetapi tidak mengukur dampak (tanpa sebelum/sesudah), jadi kualitas hasil tidak jelas.",
+        "Saya menjalankan tanpa owner/target/ambang, sehingga keluaran tidak terhubung ke outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5182009a092cb725ff",
+    "language": "hu",
+    "before": {
+      "question": "Egy sprint vege fele priorizalnod kell feladatokat. Bevezetsz egy új gyakorlatot: „Példa (jó vs rossz) Példa (jó): 2 fókuszblokk, 1 elkészült k”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis hatókör-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    },
+    "after": {
+      "question": "Egy futam vege fele priorizalnod kell feladatokat. Bevezetsz egy új gyakorlatot: „Példa (jó vs rossz) Példa (jó): 2 fókuszblokk, 1 elkészült k”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Sok meetinget indítok a bevezetéshez, de nem védem a fókuszblokkokat, így romlik a végrehajtás és nő a carryover.",
+        "Pilot nélkül kiterítem mindenkire, majd egyszerre több szabályt változtatok, így nem tudjuk izolálni a hatást.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis hatókör-on, dokumentálok, és egy változót módosítok egyszerre."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5382009a092cb726a3",
+    "language": "hu",
+    "before": {
+      "question": "Egy sprint vege fele priorizalnod kell feladatokat. Bevezetsz egy új gyakorlatot: „Példa (rossz): 12 „elindított” feladat, de nincs lezárt ered”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis hatókör-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés."
+      ]
+    },
+    "after": {
+      "question": "Egy futam vege fele priorizalnod kell feladatokat. Bevezetsz egy új gyakorlatot: „Példa (rossz): 12 „elindított” feladat, de nincs lezárt ered”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis hatókör-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés."
+      ]
+    }
+  },
+  {
+    "_id": "697afd5382009a092cb726ad",
+    "language": "hu",
+    "before": {
+      "question": "Egy sprint vege fele priorizalnod kell feladatokat. Bevezetsz egy új gyakorlatot: „Példa (rossz): 12 „elindított” feladat, de nincs lezárt ered”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis hatókör-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt."
+      ]
+    },
+    "after": {
+      "question": "Egy futam vege fele priorizalnod kell feladatokat. Bevezetsz egy új gyakorlatot: „Példa (rossz): 12 „elindított” feladat, de nincs lezárt ered”. Melyik bevezetési terv biztosít mérhető kimenetelt és gyors visszajelzést?",
+      "options": [
+        "Kiadom a csapatnak, de nem tisztázom a „done” kritériumot és a felelőst, ezért nő a rework és a félreértés.",
+        "Lépésről lépésre bevezetem: előtte/utána mérőpontokat állítok be, pilotot futtatok kis hatókör-on, dokumentálok, és egy változót módosítok egyszerre.",
+        "Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.",
+        "Túl nagy teret adok a gyakorlatnak egyszerre (minden csapat részt vesz), ezért nincs gyors visszajelzés, és nem derül ki, mi okozza az eredményt."
+      ]
+    }
+  }
+]

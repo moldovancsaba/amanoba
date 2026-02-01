@@ -245,13 +245,16 @@ export async function GET(request: NextRequest) {
 
     // Why: Check if we have enough questions
     if (questions.length === 0) {
-      logger.warn({ difficulty, count }, 'No questions found for criteria');
+      logger.warn({ difficulty, count, lessonId, courseId, isLessonMode }, 'No questions found for criteria');
+      const message = isLessonMode
+        ? 'No questions available for this lesson. Questions may not be ready yet for this course.'
+        : `No questions available for difficulty: ${difficulty ?? 'unknown'}`;
       return NextResponse.json(
         {
           ok: false,
           error: {
             code: 'NO_QUESTIONS',
-            message: `No questions available for difficulty: ${difficulty}`,
+            message,
           },
         },
         { status: 404 }

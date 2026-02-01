@@ -61,13 +61,23 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: false, error: 'Course not completed' }, { status: 400 });
   }
 
-  // Ensure entitlement or premium include
+  const priceMoney = course.certification?.priceMoney || null;
+  const pricePoints = course.certification?.pricePoints ?? null;
+  const hasMoneyPrice = Boolean(priceMoney && typeof priceMoney.amount === 'number' && priceMoney.amount > 0);
+  const hasPointsPrice = typeof pricePoints === 'number' && pricePoints > 0;
+
+  // Entitlement policy:
+  // - Required if premium-gated OR priced (money/points).
+  // - Not required for free courses with certification enabled and no pricing configured.
+  const entitlementRequired = course.requiresPremium || hasMoneyPrice || hasPointsPrice;
+
+  // Ensure entitlement or premium include (only when required)
   let entitlement = await CertificateEntitlement.findOne({
     playerId: session.user.id,
     courseId: course._id,
   });
 
-  if (!entitlement && course.certification?.premiumIncludesCertification && course.requiresPremium) {
+  if (!entitlement && entitlementRequired && course.certification?.premiumIncludesCertification && course.requiresPremium) {
     entitlement = await CertificateEntitlement.create({
       playerId: session.user.id,
       courseId: course._id,
@@ -76,7 +86,7 @@ export async function POST(request: NextRequest) {
     });
   }
 
-  if (!entitlement) {
+  if (!entitlement && entitlementRequired) {
     return NextResponse.json({ success: false, error: 'Certification entitlement required' }, { status: 403 });
   }
 

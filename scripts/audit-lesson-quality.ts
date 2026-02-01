@@ -27,9 +27,14 @@ function getArgValue(flag: string): string | undefined {
   return process.argv[idx + 1];
 }
 
+function hasFlag(flag: string) {
+  return process.argv.includes(flag);
+}
+
 const COURSE_ID = getArgValue('--course');
 const MIN_SCORE = Number(getArgValue('--min-score') || '70');
 const OUT_DIR = getArgValue('--out-dir') || join(process.cwd(), 'scripts', 'reports');
+const INCLUDE_INACTIVE = hasFlag('--include-inactive');
 
 function isoStamp() {
   return new Date().toISOString().replace(/[:.]/g, '-');
@@ -38,7 +43,7 @@ function isoStamp() {
 async function main() {
   await connectDB();
 
-  const courseFilter: any = { isActive: true };
+  const courseFilter: any = INCLUDE_INACTIVE ? {} : { isActive: true };
   if (COURSE_ID) courseFilter.courseId = COURSE_ID;
   const courses = await Course.find(courseFilter).sort({ createdAt: 1, _id: 1 }).lean();
 
@@ -46,7 +51,7 @@ async function main() {
   const tasks: string[] = [];
 
   for (const course of courses) {
-    const lessons = await Lesson.find({ courseId: course._id, isActive: true })
+    const lessons = await Lesson.find({ courseId: course._id, ...(INCLUDE_INACTIVE ? {} : { isActive: true }) })
       .sort({ dayNumber: 1, displayOrder: 1, createdAt: 1, _id: 1 })
       .select({ lessonId: 1, dayNumber: 1, title: 1, content: 1, emailSubject: 1, emailBody: 1, language: 1, createdAt: 1 })
       .lean();
@@ -125,6 +130,7 @@ async function main() {
         generatedAt: new Date().toISOString(),
         minScore: MIN_SCORE,
         courseFilter: COURSE_ID || null,
+        includeInactive: INCLUDE_INACTIVE,
         total: results.length,
         belowThreshold: results.filter(r => r.score < MIN_SCORE).length,
         results,
@@ -136,10 +142,11 @@ async function main() {
 
   writeFileSync(
     mdPath,
-    `# Lesson Refinement Task List\n\n` +
+      `# Lesson Refinement Task List\n\n` +
       `Generated: ${new Date().toISOString()}\n` +
       `Min score: ${MIN_SCORE}\n` +
       `Course filter: ${COURSE_ID || 'ALL'}\n\n` +
+      `Include inactive: ${INCLUDE_INACTIVE}\n\n` +
       (tasks.length ? tasks.join('\n') : '✅ No lessons below threshold.\n')
   );
 

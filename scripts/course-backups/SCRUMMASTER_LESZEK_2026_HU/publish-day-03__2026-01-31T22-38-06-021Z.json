@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-01-31T22:38:06.021Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_03",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_03",
+    "isActive": false,
+    "dayNumber": 3,
+    "title": "Agile vs Scrum: mikor melyik segít, és mit mérj?"
+  }
+}

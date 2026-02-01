@@ -158,8 +158,9 @@ export async function GET(
       allQuizzesPassed && 
       finalExamPassed;
 
-    // Fetch certificate record if it exists to get verificationSlug
+    // Fetch certificate record if it exists to get verificationSlug and designTemplateId (A/B variant)
     let verificationSlug: string | null = null;
+    let designTemplateId: string | null = null;
     if (certificateEligible) {
       const certificate = await Certificate.findOne({
         playerId,
@@ -168,6 +169,7 @@ export async function GET(
       }).lean();
       if (certificate) {
         verificationSlug = certificate.verificationSlug;
+        designTemplateId = certificate.designTemplateId ?? null;
       }
     }
 
@@ -194,6 +196,7 @@ export async function GET(
         courseTitle: course.name || course.courseId,
         playerName: player.displayName || 'Unknown',
         verificationSlug, // Include verificationSlug if certificate exists
+        designTemplateId, // A/B variant for analytics (certificate_viewed)
       },
     }, {
       headers: {

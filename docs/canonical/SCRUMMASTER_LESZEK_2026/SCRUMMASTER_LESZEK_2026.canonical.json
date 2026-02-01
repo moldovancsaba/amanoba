@@ -1,0 +1,307 @@
+{
+  "schemaVersion": "ccs.v1",
+  "courseIdBase": "SCRUMMASTER_LESZEK_2026",
+  "courseName": "ScrumMaster leszek 2026",
+  "version": 1,
+  "createdAt": "2026-01-31",
+  "canonicalScope": "language_neutral",
+  "supportedLanguages": ["hu"],
+  "intent": {
+    "oneSentence": "Give complete beginners a safe, practical “taste of the Agile ocean” so they can start operating as a Scrum Master: run core Scrum events well, protect focus and quality, handle common team/stakeholder failure modes, and earn an Amanoba certificate as proof of mastery.",
+    "outcomes": [
+      "Explain the Scrum Master role in practice (what you do, what you don’t do) and avoid common anti-patterns (project manager, secretary, police).",
+      "Run Sprint Planning, Daily Scrum, Sprint Review, and Retrospective with clear goals, timeboxes, and concrete outputs.",
+      "Create a beginner-safe team operating pack: Working Agreement, Definition of Done (v0.1), and a minimal metric starter set.",
+      "Diagnose and intervene in common situations: chaotic dailies, scope pressure, conflict between PO and Developers, and lack of focus due to high WIP.",
+      "Use facilitation and coaching basics: define meeting outcomes, ask better questions, and turn debates into experiments.",
+      "Complete the course and pass the final exam to earn a shareable Amanoba certificate (track record)."
+    ],
+    "nonGoals": [
+      "Not a guarantee for external certifications (PSM/CSM) or job placement.",
+      "Not deep specialization in scaling frameworks (SAFe/LeSS) beyond context and decision signals.",
+      "Not a tool tutorial for Jira/Linear/etc.; tools are treated as interchangeable patterns."
+    ]
+  },
+  "qualityGates": {
+    "lessonMinQualityScore": 70,
+    "quiz": {
+      "minValidQuestionsPerLesson": 7,
+      "minApplicationPerLesson": 5,
+      "minCriticalThinkingPerLesson": 2,
+      "forbiddenQuestionTypes": ["RECALL"],
+      "standaloneRequired": true,
+      "bannedPatterns": [
+        "references to the lesson instead of stating the scenario (e.g. “as described in the lesson”)",
+        "title-based crutches (repeating the lesson title instead of testing a decision)",
+        "throwaway options (e.g. “no impact”, “only theoretical”, “not mentioned”)",
+        "options that are too short to be educational"
+      ],
+      "metadataRequired": ["uuid", "hashtags", "difficulty", "questionType"]
+    }
+  },
+  "concepts": {
+    "Agile": {
+      "definition": "A mindset and set of principles focused on delivering value through feedback, learning, and adaptation under uncertainty.",
+      "notes": ["Agile is not “faster”; it is better learning and decision-making under change."]
+    },
+    "Scrum": {
+      "definition": "A lightweight framework to solve complex problems by delivering value iteratively using roles, events, and artifacts.",
+      "notes": ["Scrum is a container for empiricism: transparency, inspection, adaptation."]
+    },
+    "ScrumMasterRole": {
+      "definition": "A servant-leader who enables Scrum by coaching, facilitating, removing impediments, and protecting the team’s ability to deliver value.",
+      "notes": ["The Scrum Master does not own product decisions; they enable the system."]
+    },
+    "Empiricism": {
+      "definition": "Working based on evidence and feedback loops: transparency → inspection → adaptation.",
+      "notes": ["If you can’t inspect reality, you can’t improve it."]
+    },
+    "PsychologicalSafety": {
+      "definition": "A team climate where people can speak up, admit uncertainty, and learn without fear.",
+      "notes": ["Without safety, you get silence, politics, and fake agreement."]
+    },
+    "WorkingAgreement": {
+      "definition": "A written agreement describing how the team collaborates (norms, communication, decision rules).",
+      "notes": ["It’s a living contract; review it after recurring failures."]
+    },
+    "DefinitionOfDone": {
+      "definition": "A shared checklist of quality and completion that makes “done” testable and consistent.",
+      "notes": ["A weak DoD creates rework and trust loss."]
+    },
+    "BacklogItem": {
+      "definition": "A unit of work/value in the Product Backlog that should be understandable, testable, and appropriately sized.",
+      "notes": ["A backlog item is not a vague idea; it must support a decision to deliver."]
+    },
+    "AcceptanceCriteria": {
+      "definition": "Specific conditions that define when a backlog item is acceptable (testable outcomes and boundaries).",
+      "notes": ["Criteria reduce ambiguity and are a foundation for good Sprint Planning."]
+    },
+    "SprintGoal": {
+      "definition": "A single coherent objective that guides the sprint and helps trade-offs when scope pressure appears.",
+      "notes": ["Without a goal, every request becomes “urgent” and focus collapses."]
+    },
+    "WIP": {
+      "definition": "Work in progress: tasks started but not finished; high WIP reduces throughput and increases switching cost.",
+      "notes": ["WIP limits protect flow and focus."]
+    },
+    "Facilitation": {
+      "definition": "Designing and guiding group conversations toward a clear outcome (decision, plan, or learning).",
+      "notes": ["Facilitation is about outcomes, not speaking time."]
+    },
+    "CoachingMindset": {
+      "definition": "Helping others think and own solutions through questions, reflection, and feedback instead of giving answers.",
+      "notes": ["Coaching builds capability; solving builds dependency."]
+    },
+    "Stakeholder": {
+      "definition": "Anyone impacted by the product or influencing its success (customers, leadership, adjacent teams).",
+      "notes": ["Stakeholder pressure is real; the system must channel it without breaking the team."]
+    },
+    "Experiment": {
+      "definition": "A timeboxed change with a hypothesis and measurement to learn what improves outcomes.",
+      "notes": ["Turn debates into experiments when opinions have no data."]
+    },
+    "FlowMetrics": {
+      "definition": "A minimal set of measures to see flow, quality, and value (not vanity).",
+      "notes": ["Bad metrics create gaming; good metrics create learning."]
+    }
+  },
+  "procedures": [
+    {
+      "id": "P1_ROLE_BOUNDARIES",
+      "name": "Role boundaries: what you do vs what you don’t",
+      "steps": [
+        "Name the request and who owns the decision (PO/Developers/Stakeholder).",
+        "Translate the request into a process improvement or facilitation need.",
+        "Offer a next step that keeps ownership in the right place (questions, agenda, decision rule)."
+      ],
+      "usedInDays": [1, 14, 28]
+    },
+    {
+      "id": "P2_PLANNING_AGENDA",
+      "name": "Sprint Planning agenda (goal → forecast → risks → commitment language)",
+      "steps": [
+        "State purpose and timebox; confirm what ‘done’ means (DoD).",
+        "Draft a Sprint Goal statement (one sentence).",
+        "Select items based on goal; clarify acceptance criteria and risks.",
+        "Confirm capacity and WIP; agree on the first 24 hours plan.",
+        "Close with: what is the goal, what is included, what is excluded."
+      ],
+      "usedInDays": [8]
+    },
+    {
+      "id": "P3_DAILY_RESET",
+      "name": "Daily Scrum as an impediment-focused reset",
+      "steps": [
+        "Restate the Sprint Goal and today’s most important outcomes.",
+        "Surface blockers and dependencies first (not status).",
+        "Agree on 1–3 coordination decisions (who talks to whom, by when).",
+        "Close with a WIP check and a 24-hour focus commitment."
+      ],
+      "usedInDays": [9]
+    },
+    {
+      "id": "P4_REVIEW_OUTCOMES",
+      "name": "Sprint Review for value and learning",
+      "steps": [
+        "Open with goal and what was intended to learn/deliver.",
+        "Demo working outcomes; capture stakeholder feedback as decisions/next options.",
+        "Separate requests into now/next/later; protect sprint boundaries.",
+        "Close with a 3-item summary: value delivered, feedback learned, next direction."
+      ],
+      "usedInDays": [12]
+    },
+    {
+      "id": "P5_RETRO_ACTION",
+      "name": "Retrospective: from complaint to measurable action",
+      "steps": [
+        "Pick one theme (avoid ‘everything’).",
+        "Find a root cause (5 Whys or simple cause map).",
+        "Define one action: owner + due date + metric/observable signal.",
+        "Plan a follow-up check (next retro)."
+      ],
+      "usedInDays": [13]
+    },
+    {
+      "id": "P6_WIP_POLICY",
+      "name": "WIP policy: limit, reset, and enforce",
+      "steps": [
+        "Define WIP limit per person/team lane.",
+        "Define stop-start rules when limit is exceeded.",
+        "Review weekly: what improved, what broke, adjust limit."
+      ],
+      "usedInDays": [10, 25]
+    },
+    {
+      "id": "P7_CONFLICT_MEDIATION",
+      "name": "Conflict mediation: position → interest → next experiment",
+      "steps": [
+        "Restate both positions neutrally.",
+        "Extract interests/constraints (why each side cares).",
+        "Define a decision rule (data, cost, risk, time).",
+        "If no data: propose a timeboxed experiment with metric."
+      ],
+      "usedInDays": [14, 15]
+    },
+    {
+      "id": "P8_METRICS_STARTER_PACK",
+      "name": "Metrics starter pack: flow + quality + value",
+      "steps": [
+        "Pick 1 flow metric, 1 quality metric, 1 value metric, and 1 health metric.",
+        "Define what good looks like (directional targets, not vanity).",
+        "Decide review cadence and who owns each metric.",
+        "Write a rule: what action you take if metric worsens."
+      ],
+      "usedInDays": [16]
+    },
+    {
+      "id": "P9_HABIT_EXPERIMENT",
+      "name": "Introduce a new team habit as a 2-week experiment",
+      "steps": [
+        "Name the problem symptom and the intended outcome.",
+        "Write a hypothesis: ‘If we do X, we expect Y because Z’.",
+        "Define a simple measurement and a review date.",
+        "Run for 2 weeks, then keep/change/stop based on evidence."
+      ],
+      "usedInDays": [19]
+    }
+  ],
+  "assessmentBlueprint": {
+    "defaults": {
+      "minQuestions": 7,
+      "minApplication": 5,
+      "minCriticalThinking": 2,
+      "forbiddenQuestionTypes": ["RECALL"],
+      "difficultyMix": {
+        "easyMaxPercent": 15,
+        "mediumTargetPercent": 55,
+        "hardTargetPercent": 30
+      }
+    },
+    "questionArchetypes": {
+      "application": [
+        "Given a team scenario, choose the best Scrum Master next action that preserves ownership and improves flow.",
+        "Pick the correct meeting goal/agenda element for the situation (Planning/Daily/Review/Retro).",
+        "Diagnose a failure mode (e.g. chaotic daily, high WIP, scope pressure) and select a concrete intervention rule.",
+        "Choose the best artifact improvement (DoD/Working Agreement/Acceptance Criteria) to fix the described issue.",
+        "Convert a debate into an experiment with hypothesis and metric."
+      ],
+      "criticalThinking": [
+        "Trade-off: protect sprint goal vs accept urgent request; justify decision rule.",
+        "Second-order effects: predict what happens if you implement a ‘fix’ poorly (e.g. metrics as KPI).",
+        "System design: propose a minimal operating pack for a new team and define governance/check cadence."
+      ]
+    },
+    "distractorGuidelines": [
+      "Wrong options must be plausible and aligned with common Scrum anti-patterns (micromanagement, meeting theater, blame).",
+      "Avoid ‘none of the above’ and avoid throwaway answers; each distractor should represent a realistic mistake.",
+      "Options must be specific enough to teach why they are wrong."
+    ]
+  },
+  "lessons": [
+    {
+      "dayNumber": 1,
+      "canonicalTitle": "Scrum Master 2026: role, boundaries, and impact",
+      "intent": "Create a beginner-safe mental model for the role and prevent PM/secretary anti-patterns.",
+      "goals": [
+        "Describe the Scrum Master’s job in practice.",
+        "List what you do not own (product and technical decisions).",
+        "Recognize 3 anti-patterns and the right response."
+      ],
+      "requiredConcepts": ["ScrumMasterRole", "Stakeholder", "PsychologicalSafety"],
+      "requiredProcedures": ["P1_ROLE_BOUNDARIES"],
+      "commonMistakes": [
+        "Acting as a project manager and owning scope decisions.",
+        "Turning the role into meeting scheduling only.",
+        "Becoming ‘process police’ instead of enabling outcomes."
+      ]
+    },
+    { "dayNumber": 2, "canonicalTitle": "Agile vs Scrum: what you’re tasting in this course", "intent": "Position Scrum inside Agile and clarify what matters for beginners.", "goals": ["Differentiate Agile mindset from Scrum framework.", "Explain empiricism as feedback loop.", "Identify a common ‘Agile = fast’ misconception."], "requiredConcepts": ["Agile", "Scrum", "Empiricism"], "commonMistakes": ["Treating Agile as speed instead of learning.", "Using labels without changing behaviors."] },
+    { "dayNumber": 3, "canonicalTitle": "Scrum overview: roles, events, artifacts, and outputs", "intent": "Build a one-page working map of Scrum to reduce confusion later.", "goals": ["Name the purpose and output of each event.", "Map artifacts to decisions.", "Avoid mixing Review and Retro."], "requiredConcepts": ["Scrum"], "commonMistakes": ["Confusing event goals.", "Treating Scrum as a checklist."] },
+    { "dayNumber": 4, "canonicalTitle": "Team as a system: safety, focus, and rules", "intent": "Introduce team dynamics and safety as prerequisites for honest inspection.", "goals": ["Define psychological safety practically.", "Recognize dominance/silence patterns.", "Write 3 simple team rules that increase safety."], "requiredConcepts": ["PsychologicalSafety", "WorkingAgreement"], "commonMistakes": ["Ignoring safety and expecting ‘transparency’.", "Allowing one voice to dominate decisions."] },
+    { "dayNumber": 5, "canonicalTitle": "Definition of Done v0.1: quality as a gate", "intent": "Teach ‘done’ as testable quality, not a feeling; create DoD starter.", "goals": ["Explain why DoD reduces rework.", "Draft DoD v0.1.", "Identify a DoD failure mode in a scenario."], "requiredConcepts": ["DefinitionOfDone"], "requiredProcedures": ["P5_RETRO_ACTION"], "commonMistakes": ["Calling work ‘done’ without testability.", "Allowing exceptions that become the norm."] },
+    { "dayNumber": 6, "canonicalTitle": "Backlog basics: value, risk, and acceptance criteria", "intent": "Make backlog items understandable and testable so planning works.", "goals": ["Define a minimum backlog item card.", "Write acceptance criteria for a vague request.", "Spot ambiguity and ask clarifying questions."], "requiredConcepts": ["BacklogItem", "AcceptanceCriteria", "Stakeholder"], "commonMistakes": ["Planning with unclear items.", "Accepting ‘just do it’ requests without criteria."] },
+    { "dayNumber": 7, "canonicalTitle": "Refinement taste: prepare planning with clarity and sizing", "intent": "Introduce refinement as risk reduction and clarity building.", "goals": ["Create a 30-minute refinement agenda.", "Split one large item into smaller deliverables.", "Mark risks and unknowns."], "requiredConcepts": ["BacklogItem", "AcceptanceCriteria"], "commonMistakes": ["Skipping refinement and paying the cost in planning.", "Sizing without shared understanding."] },
+    { "dayNumber": 8, "canonicalTitle": "Sprint Planning: goal, forecast, and commitment language", "intent": "Teach planning outcomes and how to protect focus via sprint goal.", "goals": ["Write a sprint goal statement.", "Select items based on the goal.", "Handle scope pressure without collapse."], "requiredConcepts": ["SprintGoal", "DefinitionOfDone"], "requiredProcedures": ["P2_PLANNING_AGENDA"], "commonMistakes": ["Planning as a shopping list.", "Agreeing to impossible scope."] },
+    { "dayNumber": 9, "canonicalTitle": "Daily Scrum without status theater: impediments and coordination", "intent": "Turn daily into a short reset that drives coordination and focus.", "goals": ["Run an impediment-first daily.", "Produce 1–3 coordination decisions.", "Keep timebox without losing value."], "requiredConcepts": ["SprintGoal", "WIP"], "requiredProcedures": ["P3_DAILY_RESET"], "commonMistakes": ["Daily becomes reporting to a manager.", "No decisions are made; only talking."] },
+    { "dayNumber": 10, "canonicalTitle": "WIP and focus: why parallel work kills throughput", "intent": "Teach WIP as the easiest beginner leverage point to improve delivery.", "goals": ["Define WIP and switching cost.", "Set a WIP rule.", "Apply stop-start when the limit is exceeded."], "requiredConcepts": ["WIP"], "requiredProcedures": ["P6_WIP_POLICY"], "commonMistakes": ["Everyone starts everything.", "No one finishes."] },
+    { "dayNumber": 11, "canonicalTitle": "Facilitation basics: outcomes, timeboxes, and decision rules", "intent": "Give facilitation fundamentals to prevent endless meetings.", "goals": ["Define a meeting outcome.", "Choose a decision rule.", "Design a 15-minute mini-workshop."], "requiredConcepts": ["Facilitation"], "commonMistakes": ["Meetings without outcomes.", "Decisions made by loudest voice."] },
+    { "dayNumber": 12, "canonicalTitle": "Sprint Review: value demonstration and feedback capture", "intent": "Teach review as learning with stakeholders and future direction.", "goals": ["Design a review agenda.", "Translate feedback into options.", "Protect sprint boundaries while staying responsive."], "requiredConcepts": ["Stakeholder"], "requiredProcedures": ["P4_REVIEW_OUTCOMES"], "commonMistakes": ["Review becomes status report.", "Feedback becomes scope creep without triage."] },
+    { "dayNumber": 13, "canonicalTitle": "Retrospective: measurable improvement instead of complaint loops", "intent": "Teach retro as one actionable improvement with ownership and measure.", "goals": ["Pick one theme.", "Find a root cause.", "Write one measurable action item."], "requiredConcepts": ["Experiment"], "requiredProcedures": ["P5_RETRO_ACTION"], "commonMistakes": ["Same complaints every sprint.", "No follow-up."] },
+    { "dayNumber": 14, "canonicalTitle": "Conflict patterns: PO vs Developers vs Stakeholders", "intent": "Prepare beginners to mediate conflict and protect ownership boundaries.", "goals": ["Translate positions into interests.", "Use a decision rule.", "De-escalate without taking ownership."], "requiredConcepts": ["Stakeholder", "CoachingMindset"], "requiredProcedures": ["P7_CONFLICT_MEDIATION", "P1_ROLE_BOUNDARIES"], "commonMistakes": ["Picking a side.", "Becoming the decision-maker."] },
+    { "dayNumber": 15, "canonicalTitle": "Decision vs experiment: how to end endless debates", "intent": "Teach a simple move: convert opinion wars into experiments.", "goals": ["Identify when data is missing.", "Write a hypothesis.", "Define a metric and review date."], "requiredConcepts": ["Experiment"], "requiredProcedures": ["P9_HABIT_EXPERIMENT"], "commonMistakes": ["Arguing without data.", "Running changes without measuring."] },
+    { "dayNumber": 16, "canonicalTitle": "Metrics starter pack: flow + quality + value + health", "intent": "Introduce minimal metrics to see reality without gaming.", "goals": ["Pick 4 starter metrics.", "Define review cadence.", "Define what action to take when it worsens."], "requiredConcepts": ["FlowMetrics"], "requiredProcedures": ["P8_METRICS_STARTER_PACK"], "commonMistakes": ["Using metrics as punishment.", "Picking vanity metrics."] },
+    { "dayNumber": 17, "canonicalTitle": "Coaching mindset: questions over answers", "intent": "Shift from ‘fixing’ to building team capability and ownership.", "goals": ["Use coaching questions.", "Avoid rescue behavior.", "Increase team ownership of solutions."], "requiredConcepts": ["CoachingMindset"], "commonMistakes": ["Giving answers to feel useful.", "Creating dependency on the Scrum Master."] },
+    { "dayNumber": 18, "canonicalTitle": "Stakeholder management: expectations and communication cadence", "intent": "Teach predictable communication to reduce chaos and interruptions.", "goals": ["Map key stakeholders.", "Define a cadence.", "Handle bypass and ‘urgent’ channels."], "requiredConcepts": ["Stakeholder"], "commonMistakes": ["Reacting to every ping.", "Allowing stakeholders to bypass the system."] },
+    { "dayNumber": 19, "canonicalTitle": "Change management: introduce a habit as a 2-week experiment", "intent": "Make change safe by timeboxing and measuring outcomes.", "goals": ["Write a hypothesis.", "Choose a measurement.", "Handle resistance with evidence."], "requiredConcepts": ["Experiment"], "requiredProcedures": ["P9_HABIT_EXPERIMENT"], "commonMistakes": ["Rolling out change as a command.", "No measurement, no learning."] },
+    { "dayNumber": 20, "canonicalTitle": "Remote/hybrid Scrum: focus and meeting hygiene", "intent": "Adapt the system to remote realities (energy, attention, time zones).", "goals": ["Define remote meeting rules.", "Redesign a daily for remote.", "Reduce multitasking and drift."], "requiredConcepts": ["Facilitation", "WorkingAgreement"], "commonMistakes": ["Camera-off silence.", "Meetings that drag with no engagement."] },
+    { "dayNumber": 21, "canonicalTitle": "Scaling taste: when scaling helps and when it hurts", "intent": "Give context signals for scaling without deep framework teaching.", "goals": ["Name scaling signals.", "Avoid premature framework adoption.", "Choose a first improvement step."], "requiredConcepts": ["FlowMetrics"], "commonMistakes": ["SAFe as a fix for basic hygiene problems.", "Scaling meetings instead of outcomes."] },
+    { "dayNumber": 22, "canonicalTitle": "IT vs non-IT Scrum: what changes, what stays", "intent": "Help beginners transfer Scrum patterns beyond software context.", "goals": ["Name 5 differences and 5 invariants.", "Backlog a non-IT process.", "Define acceptance criteria in non-IT context."], "requiredConcepts": ["BacklogItem", "AcceptanceCriteria"], "commonMistakes": ["Using ‘we’re not IT’ as an excuse.", "No testability in deliverables."] },
+    { "dayNumber": 23, "canonicalTitle": "Risk and uncertainty: spikes, discovery, prototypes", "intent": "Teach safe moves for unknowns without pretending certainty.", "goals": ["Define a spike output.", "Timebox discovery.", "Prevent building without learning."], "requiredConcepts": ["Experiment"], "commonMistakes": ["Discovery becomes scope creep.", "Building before learning."] },
+    { "dayNumber": 24, "canonicalTitle": "Quality and technical practices taste: what a Scrum Master must ask", "intent": "Give non-technical beginners the right questions to protect quality.", "goals": ["Ask about CI/CD and tests.", "Spot quality debt symptoms.", "Define a DoD improvement question list."], "requiredConcepts": ["DefinitionOfDone"], "commonMistakes": ["Avoiding quality topics as ‘technical’.", "Accepting chronic defects as normal."] },
+    { "dayNumber": 25, "canonicalTitle": "Tools and workflow hygiene: boards that reflect reality", "intent": "Teach board hygiene and policies that support flow, not cosmetics.", "goals": ["Define board rules.", "Align statuses to real states.", "Use WIP policy on the board."], "requiredConcepts": ["WIP"], "requiredProcedures": ["P6_WIP_POLICY"], "commonMistakes": ["Board as decoration.", "Statuses that mean nothing."] },
+    { "dayNumber": 26, "canonicalTitle": "Career map: junior → mid → senior Scrum Master", "intent": "Make progression measurable: impact, not admin work.", "goals": ["Define 90-day junior plan.", "Pick 3 measurable competencies.", "Avoid ‘senior = more meetings’ myth."], "requiredConcepts": ["CoachingMindset", "FlowMetrics"], "commonMistakes": ["Confusing seniority with authority.", "No measurable impact."] },
+    { "dayNumber": 27, "canonicalTitle": "Interview taste: question patterns and answer structure", "intent": "Prepare beginners to speak in concrete interventions and outcomes.", "goals": ["Use a structured answer pattern.", "Give 2 example answers.", "Avoid theory-only answers."], "requiredConcepts": ["Facilitation", "Experiment"], "commonMistakes": ["Only definitions, no interventions.", "Blaming instead of learning."] },
+    { "dayNumber": 28, "canonicalTitle": "Ethics and boundaries: when to say no", "intent": "Protect team integrity; know when to push back on non-Scrum demands.", "goals": ["Recognize boundary violations.", "Use 3 ‘no’ scripts.", "Offer an alternative that preserves outcomes."], "requiredConcepts": ["ScrumMasterRole"], "requiredProcedures": ["P1_ROLE_BOUNDARIES"], "commonMistakes": ["Saying yes to everything.", "Letting urgency override integrity."] },
+    { "dayNumber": 29, "canonicalTitle": "Final exam readiness: scenario patterns you must handle", "intent": "Summarize common failure modes and the right intervention moves.", "goals": ["Review 12 exam scenarios.", "Draft response outlines.", "Identify personal weak areas to review."], "requiredConcepts": ["Facilitation", "Experiment", "WIP", "SprintGoal"], "commonMistakes": ["Treating the exam as recall.", "Ignoring context and ownership."] },
+    { "dayNumber": 30, "canonicalTitle": "Your Scrum Master playbook v1 + certificate plan", "intent": "Ship a personal playbook and a next-90-days plan; close with proof path.", "goals": ["Compile your playbook v1.", "Choose next deep-dive directions.", "Plan certificate completion and sharing."], "requiredConcepts": ["WorkingAgreement", "DefinitionOfDone", "FlowMetrics"], "commonMistakes": ["Finishing without a system.", "No follow-up plan."] }
+  ],
+  "bibliography": [
+    {
+      "title": "The Scrum Guide (2020)",
+      "authors": ["Ken Schwaber", "Jeff Sutherland"],
+      "type": "official_guide"
+    },
+    {
+      "title": "Coaching Agile Teams",
+      "authors": ["Lyssa Adkins"],
+      "type": "book"
+    },
+    {
+      "title": "Agile Manifesto",
+      "authors": ["Agile Alliance"],
+      "type": "manifesto"
+    }
+  ],
+  "evidenceGaps": []
+}
+

@@ -3,11 +3,13 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import {
   Certificate,
+  CertificationSettings,
   Course,
   CourseProgress,
   FinalExamAttempt,
   Player,
 } from '@/lib/models';
+import { resolveTemplateVariantAtIssue } from '@/lib/certification';
 import { checkAndUnlockCourseAchievements } from '@/lib/gamification';
 import { logger } from '@/lib/logger';
 import crypto from 'crypto';
@@ -42,7 +44,16 @@ export async function POST(request: NextRequest) {
   const correctCount = attempt.correctCount;
   const scorePercentRaw = (correctCount / total) * 100;
   const scorePercentInteger = Math.round(scorePercentRaw);
-  const passed = scorePercentInteger > 50;
+
+  const course = await Course.findById(attempt.courseId).lean();
+  const player = await Player.findById(session.user.id).lean();
+  if (!course || !player) {
+    return NextResponse.json({ success: false, error: 'Course or player not found' }, { status: 404 });
+  }
+
+  // Dynamic pass rule: course.certification.passThresholdPercent (default 50)
+  const passThreshold = course.certification?.passThresholdPercent ?? 50;
+  const passed = scorePercentInteger >= passThreshold;
 
   attempt.scorePercentRaw = scorePercentRaw;
   attempt.scorePercentInteger = scorePercentInteger;
@@ -52,12 +63,9 @@ export async function POST(request: NextRequest) {
 
   await attempt.save();
 
-  // Update certificate state according to "most recent wins"
-  const course = await Course.findById(attempt.courseId).lean();
-  const player = await Player.findById(session.user.id).lean();
-  if (!course || !player) {
-    return NextResponse.json({ success: false, error: 'Course or player not found' }, { status: 404 });
-  }
+  // Dynamic pass rule: optional requirements (default true)
+  const requireAllLessons = course.certification?.requireAllLessonsCompleted !== false;
+  const requireAllQuizzes = course.certification?.requireAllQuizzesPassed !== false;
 
   // Check all certificate requirements
   const progress = await CourseProgress.findOne({
@@ -66,14 +74,14 @@ export async function POST(request: NextRequest) {
   }).lean();
 
   const enrolled = !!progress;
-  const allLessonsCompleted = enrolled && progress && 
-    (progress.completedDays?.length || 0) >= (course.durationDays || 0);
-  
+  const allLessonsCompleted = !requireAllLessons || (enrolled && progress &&
+    (progress.completedDays?.length || 0) >= (course.durationDays || 0));
+
   // Check if all quizzes are passed (assessmentResults has entries for all days)
   const assessmentResultsMap = (progress?.assessmentResults ?? new Map()) as Map<string, unknown>;
-  const allQuizzesPassed = enrolled && course.durationDays > 0 && 
+  const allQuizzesPassed = !requireAllQuizzes || (enrolled && course.durationDays > 0 &&
     Array.from({ length: course.durationDays }, (_, i) => (i + 1).toString())
-      .every((dayStr) => assessmentResultsMap.has(dayStr));
+      .every((dayStr) => assessmentResultsMap.has(dayStr)));
 
   // Certificate is eligible only if ALL requirements are met
   const certificateEligible = enrolled && allLessonsCompleted && allQuizzesPassed && passed;
@@ -94,6 +102,14 @@ export async function POST(request: NextRequest) {
       existing.revokedReason = undefined;
       await existing.save();
     } else {
+      // A/B: resolve template variant at issue (course + global fallback, stable hash)
+      const globalSettings = await CertificationSettings.findOne({ key: 'global' }).lean();
+      const { designTemplateId, credentialId } = resolveTemplateVariantAtIssue(
+        course.certification,
+        globalSettings ?? undefined,
+        (player as DocWithId)._id.toString(),
+        course.courseId
+      );
       // Create new certificate
       await Certificate.create({
         certificateId: crypto.randomUUID(),
@@ -102,8 +118,8 @@ export async function POST(request: NextRequest) {
         courseId: course.courseId,
         courseTitle: course.name || course.courseId,
         locale: course.language || 'en',
-        designTemplateId: 'default_v1',
-        credentialId: 'CERT',
+        designTemplateId,
+        credentialId,
         completionPhraseId: 'completion_final_exam',
         deliverableBulletIds: [],
         issuedAtISO: new Date().toISOString(),

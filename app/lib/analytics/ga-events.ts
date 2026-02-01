@@ -19,6 +19,7 @@ export type GAEventName =
   | 'survey_complete'
   | 'purchase'
   | 'certificate_earned'
+  | 'certificate_viewed'
   | 'lesson_complete'
   | 'quiz_submit';
 
@@ -27,6 +28,7 @@ export type GAEventParams = {
   survey_complete: { survey_id: string; time_spent_seconds?: number };
   purchase: { transaction_id?: string; value?: number; currency?: string; course_id?: string };
   certificate_earned: { course_id: string; course_name?: string };
+  certificate_viewed: { course_id: string; course_name?: string; template_variant_id?: string };
   lesson_complete: { course_id: string; day_number: number };
   quiz_submit: { course_id: string; lesson_id?: string; score?: number };
 };

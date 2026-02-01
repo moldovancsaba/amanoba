@@ -1,0 +1,2224 @@
+[
+  {
+    "_id": "69776a396360118c57912afc",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Trabalho em Equipe e Sinergia: Funções, Responsabilidade, Coordenação\"), “Funções” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Trabalho em Equipe e Sinergia: Funções, Responsabilidade, Coordenação\"), “Funções” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome."
+      ]
+    }
+  },
+  {
+    "_id": "69776a396360118c57912b17",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Sustentando Motivação: Rastreando Progresso, Celebrando Vitórias\"), “Sustentando Motivação: Rastreando Progresso, Celebrando Vitórias Mantenha esforç” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Sustentando Motivação: Rastreando Progresso, Celebrando Vitórias\"), “Sustentando Motivação: Rastreando Progresso, Celebrando Vitórias Mantenha esforç” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável."
+      ]
+    }
+  },
+  {
+    "_id": "69776a396360118c57912b12",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Sustentando Motivação: Rastreando Progresso, Celebrando Vitórias\"), “Rastreando” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Sustentando Motivação: Rastreando Progresso, Celebrando Vitórias\"), “Rastreando” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado."
+      ]
+    }
+  },
+  {
+    "_id": "69776a396360118c57912b1f",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Gerenciamento de Crise e Adaptabilidade: Adaptação, Aprendizado Rápido\"), “Rápido” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Gerenciamento de Crise e Adaptabilidade: Adaptação, Aprendizado Rápido\"), “Rápido” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta."
+      ]
+    }
+  },
+  {
+    "_id": "69776a3a6360118c57912b2c",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Planejamento de Longo Prazo: Anos Adiante, Estratégia, Evolução\"), “Estratégia” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Planejamento de Longo Prazo: Anos Adiante, Estratégia, Evolução\"), “Estratégia” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome."
+      ]
+    }
+  },
+  {
+    "_id": "69776a3a6360118c57912b3c",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Comunidade e Rede: Relações, Aprendizado Com Outros\"), “Rede” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Comunidade e Rede: Relações, Aprendizado Com Outros\"), “Rede” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    }
+  },
+  {
+    "_id": "69776a3a6360118c57912b3f",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Comunidade e Rede: Relações, Aprendizado Com Outros\"), “Comunidade” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Comunidade e Rede: Relações, Aprendizado Com Outros\"), “Comunidade” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito."
+      ]
+    }
+  },
+  {
+    "_id": "69776a3a6360118c57912b4a",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Tecnologia e Ferramentas: Automação, Escolhendo a Tecnologia Certa\"), “Tanulási Cél Aproveite a tecnologia para aumentar a produtividade.” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Tecnologia e Ferramentas: Automação, Escolhendo a Tecnologia Certa\"), “Tanulási Cél Aproveite a tecnologia para aumentar a produtividade.” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível."
+      ]
+    }
+  },
+  {
+    "_id": "69776a3a6360118c57912b51",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Criatividade e Inovação: Repensar, Experimentação\"), “Integre criatividade e inovação ao trabalho.” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Criatividade e Inovação: Repensar, Experimentação\"), “Integre criatividade e inovação ao trabalho.” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito."
+      ]
+    }
+  },
+  {
+    "_id": "69776a3a6360118c57912b59",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Filtragem e Prioridades: O Que Ignorar, O Que Importa\"), “Filtragem e Prioridades: O Que Ignorar, O Que Importa” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Filtragem e Prioridades: O Que Ignorar, O Que Importa\"), “Filtragem e Prioridades: O Que Ignorar, O Que Importa” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado."
+      ]
+    }
+  },
+  {
+    "_id": "69776a3a6360118c57912b68",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Desenvolvimento de Habilidades: Níveis Mais Altos, Novas Competências\"), “Competências” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Desenvolvimento de Habilidades: Níveis Mais Altos, Novas Competências\"), “Competências” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome."
+      ]
+    }
+  },
+  {
+    "_id": "69776a3a6360118c57912b7c",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Hábitos e Rituais: Rotinas Diárias, Ação de Longo Prazo\"), “Rituais” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Hábitos e Rituais: Rotinas Diárias, Ação de Longo Prazo\"), “Rituais” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível."
+      ]
+    }
+  },
+  {
+    "_id": "69776a3b6360118c57912b96",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Mestre da Produtividade: Integração Abrangente, Compromisso\"), “Compromisso” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Mestre da Produtividade: Integração Abrangente, Compromisso\"), “Compromisso” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável."
+      ]
+    }
+  },
+  {
+    "_id": "69776a3b6360118c57912b9a",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Mestre da Produtividade: Integração Abrangente, Compromisso\"), “Mestre da Produtividade: Integração Abrangente, Compromisso” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Mestre da Produtividade: Integração Abrangente, Compromisso\"), “Mestre da Produtividade: Integração Abrangente, Compromisso” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta."
+      ]
+    }
+  },
+  {
+    "_id": "6978ce3a2762132c7496d47e",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Sürdürülebilir Çıktı” icin somut deliverable cikarmasi gerekiyor (ders: \"Enerji Yönetimi: Ne Zaman Çalış, Ne Zaman Dinlen, İyileştirme Ritüelleri\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Sürdürülebilir Çıktı” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Enerji Yönetimi: Ne Zaman Çalış, Ne Zaman Dinlen, İyileştirme Ritüelleri\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    }
+  },
+  {
+    "_id": "6978ce3a2762132c7496d4ac",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Outcome (sonuç/etki) (tanım):” icin somut deliverable cikarmasi gerekiyor (ders: \"Toplantı Verimliliği: Gündem, Zaman Sınırı, Karar Günlüğü\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Outcome (sonuç/etki) (tanım):” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Toplantı Verimliliği: Gündem, Zaman Sınırı, Karar Günlüğü\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    }
+  },
+  {
+    "_id": "6978ce3a2762132c7496d4b0",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Adımlar (uygulama) + kontrol” icin somut deliverable cikarmasi gerekiyor (ders: \"Toplantı Verimliliği: Gündem, Zaman Sınırı, Karar Günlüğü\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Adımlar (uygulama) + kontrol” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Toplantı Verimliliği: Gündem, Zaman Sınırı, Karar Günlüğü\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    }
+  },
+  {
+    "_id": "6978ce3a2762132c7496d4ba",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Amaç:” icin somut deliverable cikarmasi gerekiyor (ders: \"Takım Çalışması ve Sinerji: Roller, Sorumluluk, Koordinasyon\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Amaç:” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Takım Çalışması ve Sinerji: Roller, Sorumluluk, Koordinasyon\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    }
+  },
+  {
+    "_id": "6978ce3b2762132c7496d4e6",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Adımlar (uygulama) + kontrol” icin somut deliverable cikarmasi gerekiyor (ders: \"Uzun Vadeli Planlama: Yıllar İleri, Strateji, Evrim\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Adımlar (uygulama) + kontrol” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Uzun Vadeli Planlama: Yıllar İleri, Strateji, Evrim\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    }
+  },
+  {
+    "_id": "6978ce3b2762132c7496d4f0",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler” icin somut deliverable cikarmasi gerekiyor (ders: \"Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz."
+      ]
+    }
+  },
+  {
+    "_id": "6978ce3b2762132c7496d4f6",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Outcome (sonuç/etki) (tanım):” icin somut deliverable cikarmasi gerekiyor (ders: \"Topluluk ve Ağ: İlişkiler, Diğerleriyle Öğrenme\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Outcome (sonuç/etki) (tanım):” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Topluluk ve Ağ: İlişkiler, Diğerleriyle Öğrenme\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    }
+  },
+  {
+    "_id": "6978ce3b2762132c7496d514",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Outcome (sonuç/etki) (tanım):” icin somut deliverable cikarmasi gerekiyor (ders: \"Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Outcome (sonuç/etki) (tanım):” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    }
+  },
+  {
+    "_id": "6978ce3b2762132c7496d521",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “önemli çıktı teslim + düşük carryover” icin somut deliverable cikarmasi gerekiyor (ders: \"Beceri Geliştirme: Daha Yüksek Seviyeler, Yeni Yetkinlikler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    },
+    "after": {
+      "question": "Takimin “önemli çıktı teslim + düşük carryover” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Beceri Geliştirme: Daha Yüksek Seviyeler, Yeni Yetkinlikler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    }
+  },
+  {
+    "_id": "6978ce3c2762132c7496d528",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Amaç:” icin somut deliverable cikarmasi gerekiyor (ders: \"Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Amaç:” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    }
+  },
+  {
+    "_id": "6978ce3c2762132c7496d52c",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “önemli çıktı teslim + düşük carryover” icin somut deliverable cikarmasi gerekiyor (ders: \"Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “önemli çıktı teslim + düşük carryover” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    }
+  },
+  {
+    "_id": "6979db3c9316e77110ed0653",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “önemli çıktı teslim + düşük carryover” icin somut deliverable cikarmasi gerekiyor (ders: \"Delegasyon vs İlim: Ne Zaman Delege Et, Ne Silin\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    },
+    "after": {
+      "question": "Takimin “önemli çıktı teslim + düşük carryover” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Delegasyon vs İlim: Ne Zaman Delege Et, Ne Silin\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    }
+  },
+  {
+    "_id": "6979db3c9316e77110ed0671",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Bugünün hedefleri (outcome) Görevleri “delege et / ele / kendin yap” olarak sını” icin somut deliverable cikarmasi gerekiyor (ders: \"Takım Çalışması ve Sinerji: Roller, Sorumluluk, Koordinasyon\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Bugünün hedefleri (outcome) Görevleri “delege et / ele / kendin yap” olarak sını” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Takım Çalışması ve Sinerji: Roller, Sorumluluk, Koordinasyon\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    }
+  },
+  {
+    "_id": "6979db3d9316e77110ed0680",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Karar Kategorileri (tanım):” icin somut deliverable cikarmasi gerekiyor (ders: \"Kriz Yönetimi ve Uyarlanabilirlik: Uyum, Hızlı Öğrenme\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Karar Kategorileri (tanım):” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Kriz Yönetimi ve Uyarlanabilirlik: Uyum, Hızlı Öğrenme\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz."
+      ]
+    }
+  },
+  {
+    "_id": "6979db3d9316e77110ed068e",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “önemli çıktı teslim + düşük carryover” icin somut deliverable cikarmasi gerekiyor (ders: \"Topluluk ve Ağ: İlişkiler, Diğerleriyle Öğrenme\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    },
+    "after": {
+      "question": "Takimin “önemli çıktı teslim + düşük carryover” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Topluluk ve Ağ: İlişkiler, Diğerleriyle Öğrenme\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    }
+  },
+  {
+    "_id": "6979db3d9316e77110ed069e",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Görmezden” icin somut deliverable cikarmasi gerekiyor (ders: \"Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Görmezden” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    }
+  },
+  {
+    "_id": "6979db3d9316e77110ed06a8",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım” icin somut deliverable cikarmasi gerekiyor (ders: \"Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Mentorlaştırma ve Öğretim: Bilgi Paylaşma, Başkalarına Yardım\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    }
+  },
+  {
+    "_id": "6979db3e9316e77110ed06b1",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Vizyon” icin somut deliverable cikarmasi gerekiyor (ders: \"Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Vizyon\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Vizyon” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Vizyon\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    }
+  },
+  {
+    "_id": "6979db3e9316e77110ed06bb",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Neden önemli?” icin somut deliverable cikarmasi gerekiyor (ders: \"Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Neden önemli?” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    }
+  },
+  {
+    "_id": "6979db439316e77110ed082a",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Custo de Mudança de Contexto: Resíduo de Atenção, Processamento em Lote, Blocos de Trabalho Profundo\"), “Exercício Prático (30 minutos) — Construindo Seu Dia de Trabalho Profundo” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Custo de Mudança de Contexto: Resíduo de Atenção, Processamento em Lote, Blocos de Trabalho Profundo\"), “Exercício Prático (30 minutos) — Construindo Seu Dia de Trabalho Profundo” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e2abcb3bcc2032f84b",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Enerji seviyeleri” icin somut deliverable cikarmasi gerekiyor (ders: \"Zaman, enerji, dikkat: pratikte yönettiğiniz şeyler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Enerji seviyeleri” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Zaman, enerji, dikkat: pratikte yönettiğiniz şeyler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e3abcb3bcc2032f84e",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Zamanlama” icin somut deliverable cikarmasi gerekiyor (ders: \"Zaman, enerji, dikkat: pratikte yönettiğiniz şeyler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Zamanlama” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Zaman, enerji, dikkat: pratikte yönettiğiniz şeyler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e3abcb3bcc2032f851",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Zaman, enerji, dikkat: pratikte yönettiğiniz şeyler Verimliliğin üç temel direği” icin somut deliverable cikarmasi gerekiyor (ders: \"Zaman, enerji, dikkat: pratikte yönettiğiniz şeyler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Zaman, enerji, dikkat: pratikte yönettiğiniz şeyler Verimliliğin üç temel direği” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Zaman, enerji, dikkat: pratikte yönettiğiniz şeyler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e3abcb3bcc2032f85e",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Sonuçlar (6-12 ay)” icin somut deliverable cikarmasi gerekiyor (ders: \"Hedef hiyerarşisi: vizyon → sonuçlar → projeler → sonraki adımlar\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Sonuçlar (6-12 ay)” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Hedef hiyerarşisi: vizyon → sonuçlar → projeler → sonraki adımlar\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e3abcb3bcc2032f861",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Büyük hedefleri somut, uygulanabilir adımlara nasıl ayıracağını öğrenmek” icin somut deliverable cikarmasi gerekiyor (ders: \"Hedef hiyerarşisi: vizyon → sonuçlar → projeler → sonraki adımlar\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Büyük hedefleri somut, uygulanabilir adımlara nasıl ayıracağını öğrenmek” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Hedef hiyerarşisi: vizyon → sonuçlar → projeler → sonraki adımlar\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e3abcb3bcc2032f86d",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Neden önemli?” icin somut deliverable cikarmasi gerekiyor (ders: \"Alışkanlıklar vs sistemler: sistemler neden daha iyi ölçeklenir\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Neden önemli?” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Alışkanlıklar vs sistemler: sistemler neden daha iyi ölçeklenir\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e4abcb3bcc2032f878",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Carryover (devreden işler) (tanım):” icin somut deliverable cikarmasi gerekiyor (ders: \"Ölçüm: basit haftalık inceleme metrikleri (throughput, odak blokları, carryover)\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Carryover (devreden işler) (tanım):” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Ölçüm: basit haftalık inceleme metrikleri (throughput, odak blokları, carryover)\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e5abcb3bcc2032f882",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Geliştirme” icin somut deliverable cikarmasi gerekiyor (ders: \"Yakalama: gelen kutuları, tetikleyici listesi, yakalama alışkanlıkları\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Geliştirme” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Yakalama: gelen kutuları, tetikleyici listesi, yakalama alışkanlıkları\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e5abcb3bcc2032f884",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “önemli bilgiler yakalanmış, hiçbir şey kaybolmamış” icin somut deliverable cikarmasi gerekiyor (ders: \"Yakalama: gelen kutuları, tetikleyici listesi, yakalama alışkanlıkları\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    },
+    "after": {
+      "question": "Takimin “önemli bilgiler yakalanmış, hiçbir şey kaybolmamış” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Yakalama: gelen kutuları, tetikleyici listesi, yakalama alışkanlıkları\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e5abcb3bcc2032f886",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Uygulama” icin somut deliverable cikarmasi gerekiyor (ders: \"Yakalama: gelen kutuları, tetikleyici listesi, yakalama alışkanlıkları\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Uygulama” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Yakalama: gelen kutuları, tetikleyici listesi, yakalama alışkanlıkları\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e6abcb3bcc2032f89a",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Derinlemesine Analiz” icin somut deliverable cikarmasi gerekiyor (ders: \"Bağlam Değiştirme Maliyeti: Dikkat Artığı, Toplu İşleme, Derin Çalışma Blokları\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Derinlemesine Analiz” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Bağlam Değiştirme Maliyeti: Dikkat Artığı, Toplu İşleme, Derin Çalışma Blokları\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e7abcb3bcc2032f8b4",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “İstiyorsunuz?” icin somut deliverable cikarmasi gerekiyor (ders: \"Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsunuz?\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    },
+    "after": {
+      "question": "Takimin “İstiyorsunuz?” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsunuz?\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e7abcb3bcc2032f8b6",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “OKR (Objective &amp; Key Results) (tanım):” icin somut deliverable cikarmasi gerekiyor (ders: \"Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsunuz?\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    },
+    "after": {
+      "question": "Takimin “OKR (Objective &amp; Key Results) (tanım):” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsunuz?\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e7abcb3bcc2032f8b8",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Outcome (sonuç/etki) (tanım):” icin somut deliverable cikarmasi gerekiyor (ders: \"Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsunuz?\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Outcome (sonuç/etki) (tanım):” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Hedef Belirleme ve OKR'ler: Ne Başarmak İstiyorsunuz?\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e8abcb3bcc2032f8c3",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “İzleme Tablosu Oluşturun” icin somut deliverable cikarmasi gerekiyor (ders: \"Muhasebeleştirme Yapıları: Sizi Piste Tutacak Sistemler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    },
+    "after": {
+      "question": "Takimin “İzleme Tablosu Oluşturun” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Muhasebeleştirme Yapıları: Sizi Piste Tutacak Sistemler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e8abcb3bcc2032f8d0",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “İstisna” icin somut deliverable cikarmasi gerekiyor (ders: \"Karar Verme Çerçeveleri: Hızlı Kararlar, Karar Matrisi, Analiz Felçini Önlemek\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    },
+    "after": {
+      "question": "Takimin “İstisna” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Karar Verme Çerçeveleri: Hızlı Kararlar, Karar Matrisi, Analiz Felçini Önlemek\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9e9abcb3bcc2032f8e6",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Takım Çalışması ve Sinerji: Roller, Sorumluluk, Koordinasyon” icin somut deliverable cikarmasi gerekiyor (ders: \"Takım Çalışması ve Sinerji: Roller, Sorumluluk, Koordinasyon\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Takım Çalışması ve Sinerji: Roller, Sorumluluk, Koordinasyon” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Takım Çalışması ve Sinerji: Roller, Sorumluluk, Koordinasyon\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9eaabcb3bcc2032f8f2",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Verimlilik 2026 — Gün 16 Stres Yönetimi ve Yorgunluk: Kurtarma, İş-Yaşam Dengesi” icin somut deliverable cikarmasi gerekiyor (ders: \"Stres Yönetimi ve Yorgunluk: Kurtarma, İş-Yaşam Dengesi\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Verimlilik 2026 — Gün 16 Stres Yönetimi ve Yorgunluk: Kurtarma, İş-Yaşam Dengesi” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Stres Yönetimi ve Yorgunluk: Kurtarma, İş-Yaşam Dengesi\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9eaabcb3bcc2032f8f4",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Adımlar (uygulama) + kontrol” icin somut deliverable cikarmasi gerekiyor (ders: \"Stres Yönetimi ve Yorgunluk: Kurtarma, İş-Yaşam Dengesi\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Adımlar (uygulama) + kontrol” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Stres Yönetimi ve Yorgunluk: Kurtarma, İş-Yaşam Dengesi\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9ebabcb3bcc2032f901",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Neden önemli?” icin somut deliverable cikarmasi gerekiyor (ders: \"Motivasyonu Sürdürme: İlerlemeyi Takip, Kazançları Kutla\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Neden önemli?” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Motivasyonu Sürdürme: İlerlemeyi Takip, Kazançları Kutla\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9ecabcb3bcc2032f91a",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Amaç:” icin somut deliverable cikarmasi gerekiyor (ders: \"Uzun Vadeli Planlama: Yıllar İleri, Strateji, Evrim\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Amaç:” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Uzun Vadeli Planlama: Yıllar İleri, Strateji, Evrim\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9ecabcb3bcc2032f926",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Projeler” icin somut deliverable cikarmasi gerekiyor (ders: \"Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Projeler” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9ecabcb3bcc2032f928",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Düzeni” icin somut deliverable cikarmasi gerekiyor (ders: \"Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Düzeni” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Kişisel Yaşam Verimliliği: Ev Düzeni, Kişisel Projeler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9edabcb3bcc2032f934",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Adımlar (uygulama) + kontrol” icin somut deliverable cikarmasi gerekiyor (ders: \"Topluluk ve Ağ: İlişkiler, Diğerleriyle Öğrenme\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Adımlar (uygulama) + kontrol” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Topluluk ve Ağ: İlişkiler, Diğerleriyle Öğrenme\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9eeabcb3bcc2032f93e",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Teknoloji ve Araçlar: Otomasyon, Doğru Teknolojiyi Seçme” icin somut deliverable cikarmasi gerekiyor (ders: \"Teknoloji ve Araçlar: Otomasyon, Doğru Teknolojiyi Seçme\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Teknoloji ve Araçlar: Otomasyon, Doğru Teknolojiyi Seçme” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Teknoloji ve Araçlar: Otomasyon, Doğru Teknolojiyi Seçme\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9eeabcb3bcc2032f94d",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Neden önemli?” icin somut deliverable cikarmasi gerekiyor (ders: \"Yaratıcılık ve Yenilik: Yeniden Düşünme, Deneyler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Neden önemli?” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Yaratıcılık ve Yenilik: Yeniden Düşünme, Deneyler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9eeabcb3bcc2032f94f",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Outcome (sonuç/etki) (tanım):” icin somut deliverable cikarmasi gerekiyor (ders: \"Yaratıcılık ve Yenilik: Yeniden Düşünme, Deneyler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Outcome (sonuç/etki) (tanım):” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Yaratıcılık ve Yenilik: Yeniden Düşünme, Deneyler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9efabcb3bcc2032f95c",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Gelir” icin somut deliverable cikarmasi gerekiyor (ders: \"Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Gelir” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9efabcb3bcc2032f95e",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Öncelikler” icin somut deliverable cikarmasi gerekiyor (ders: \"Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Öncelikler” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Filtreleme ve Öncelikler: Neyi Görmezden Gelir, Önemli Olan\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9f0abcb3bcc2032f968",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Seviyeler” icin somut deliverable cikarmasi gerekiyor (ders: \"Beceri Geliştirme: Daha Yüksek Seviyeler, Yeni Yetkinlikler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Seviyeler” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Beceri Geliştirme: Daha Yüksek Seviyeler, Yeni Yetkinlikler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9f0abcb3bcc2032f96a",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Bugün bir geri bildirim döngüsü kuruyorsun: throughput, odak blokları ve carryov” icin somut deliverable cikarmasi gerekiyor (ders: \"Beceri Geliştirme: Daha Yüksek Seviyeler, Yeni Yetkinlikler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Bugün bir geri bildirim döngüsü kuruyorsun: throughput, odak blokları ve carryov” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Beceri Geliştirme: Daha Yüksek Seviyeler, Yeni Yetkinlikler\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9f1abcb3bcc2032f980",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Neden önemli?” icin somut deliverable cikarmasi gerekiyor (ders: \"Alışkanlıklar ve Ritueller: Günlük Rutinler, Uzun Vadeli Eylem\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Neden önemli?” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Alışkanlıklar ve Ritueller: Günlük Rutinler, Uzun Vadeli Eylem\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9f1abcb3bcc2032f990",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Adımlar (uygulama) + kontrol” icin somut deliverable cikarmasi gerekiyor (ders: \"Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Vizyon\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Adımlar (uygulama) + kontrol” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Vizyon\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9f2abcb3bcc2032f992",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “önemli çıktı teslim + düşük carryover” icin somut deliverable cikarmasi gerekiyor (ders: \"Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Vizyon\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    },
+    "after": {
+      "question": "Takimin “önemli çıktı teslim + düşük carryover” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Değerler ve Hedefler: Yaşam Amacı, Uzun Vadeli Vizyon\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9f2abcb3bcc2032f99c",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Sürekli” icin somut deliverable cikarmasi gerekiyor (ders: \"Sürekli İyileştirme: Öğrenme, Geri Bildirim, İterasyon\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Sürekli” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Sürekli İyileştirme: Öğrenme, Geri Bildirim, İterasyon\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9f3abcb3bcc2032f9ac",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Bugün bir geri bildirim döngüsü kuruyorsun: throughput, odak blokları ve carryov” icin somut deliverable cikarmasi gerekiyor (ders: \"Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Bugün bir geri bildirim döngüsü kuruyorsun: throughput, odak blokları ve carryov” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim.",
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9f3abcb3bcc2032f9ae",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Amaç:” icin somut deliverable cikarmasi gerekiyor (ders: \"Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Amaç:” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9f3abcb3bcc2032f9b0",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt” icin somut deliverable cikarmasi gerekiyor (ders: \"Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Kavrami slogan gibi kullanirim; checklist ve olcum olmadigi icin dogrulanabilir cikti uretmem.",
+        "Yaparim ama sahip/sure/basari esigi tanimlamam; sonuc dagilir ve outcomea baglanmaz.",
+        "“Bitti” kriteri yazarim, bir metrik secerim, tek bir ornekte uygular ve etkiyi dogruladiktan sonra genisletirim."
+      ]
+    }
+  },
+  {
+    "_id": "697cb9f3abcb3bcc2032f9b2",
+    "language": "tr",
+    "before": {
+      "question": "Takimin “önemli çıktı teslim + düşük carryover” icin somut deliverable cikarmasi gerekiyor (ders: \"Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    },
+    "after": {
+      "question": "Takimin “önemli çıktı teslim + düşük carryover” icin somut teslim edilebilir cikarmasi gerekiyor (ders: \"Verimlilik Ustası: Kapsamlı Entegrasyon, Taahhüt\"). Hangi yaklasim outputu olculebilir yapar?",
+      "options": [
+        "Sadece toplantida konusur, is akisina indirmem; bu yuzden sonuc uretmez.",
+        "Cok fazla seyi ayni anda degistiririm; hangi adimin etki yaptigi anlasilmaz.",
+        "Mukemmel olsun diye surekli ertelerim; throughput duser ve carryover artar.",
+        "Net kriter/olcum tanimlarim, kucuk bir deneme yaparim, once/sonra karsilastirir ve sonra yayarim."
+      ]
+    }
+  },
+  {
+    "_id": "697cf163e5e4aa917268e903",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Definição de produtividade: resultado, outcome e restrições\"), “Definição pessoal” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Definição de produtividade: resultado, outcome e restrições\"), “Definição pessoal” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta."
+      ]
+    }
+  },
+  {
+    "_id": "697cf164e5e4aa917268e934",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Tempo, energia, atenção: o que você gerencia na prática\"), “Blocos de trabalho profundo” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Tempo, energia, atenção: o que você gerencia na prática\"), “Blocos de trabalho profundo” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito."
+      ]
+    }
+  },
+  {
+    "_id": "697cf164e5e4aa917268e94d",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Hierarquia de objetivos: visão → resultados → projetos → próximas ações\"), “Visão (3-5 anos)” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Hierarquia de objetivos: visão → resultados → projetos → próximas ações\"), “Visão (3-5 anos)” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado."
+      ]
+    }
+  },
+  {
+    "_id": "697cf164e5e4aa917268e952",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Hierarquia de objetivos: visão → resultados → projetos → próximas ações\"), “Aprender como dividir grandes objetivos em passos concretos e acionáveis” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Hierarquia de objetivos: visão → resultados → projetos → próximas ações\"), “Aprender como dividir grandes objetivos em passos concretos e acionáveis” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito."
+      ]
+    }
+  },
+  {
+    "_id": "697cf166e5e4aa917268e981",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Sistema diário/semanal: ritual matinal, reunião diária, revisão semanal\"), “Explicação” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Sistema diário/semanal: ritual matinal, reunião diária, revisão semanal\"), “Explicação” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta."
+      ]
+    }
+  },
+  {
+    "_id": "697cf167e5e4aa917268e987",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Sistema diário/semanal: ritual matinal, reunião diária, revisão semanal\"), “Documentação” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Sistema diário/semanal: ritual matinal, reunião diária, revisão semanal\"), “Documentação” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito."
+      ]
+    }
+  },
+  {
+    "_id": "697cf167e5e4aa917268e989",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Sistema diário/semanal: ritual matinal, reunião diária, revisão semanal\"), “Sistema diário/semanal: ritual matinal, reunião diária, revisão semanal Rituais ” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Sistema diário/semanal: ritual matinal, reunião diária, revisão semanal\"), “Sistema diário/semanal: ritual matinal, reunião diária, revisão semanal Rituais ” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito."
+      ]
+    }
+  },
+  {
+    "_id": "697cf167e5e4aa917268e99d",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Delegação vs Eliminação: Quando Delegar, O Que Eliminar\"), “Exemplos” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Delegação vs Eliminação: Quando Delegar, O Que Eliminar\"), “Exemplos” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta."
+      ]
+    }
+  },
+  {
+    "_id": "697cf168e5e4aa917268e9a6",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Gestão de Energia: Quando Trabalhar, Quando Descansar, Rituais de Recuperação\"), “Trata-se de ritmo e recuperação” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Gestão de Energia: Quando Trabalhar, Quando Descansar, Rituais de Recuperação\"), “Trata-se de ritmo e recuperação” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    }
+  },
+  {
+    "_id": "697cf168e5e4aa917268e9b0",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Definição de Metas e OKR: O Que Você Quer Alcançar?\"), “Definição” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Definição de Metas e OKR: O Que Você Quer Alcançar?\"), “Definição” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado."
+      ]
+    }
+  },
+  {
+    "_id": "697cf168e5e4aa917268e9b2",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Definição de Metas e OKR: O Que Você Quer Alcançar?\"), “Direção” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Definição de Metas e OKR: O Que Você Quer Alcançar?\"), “Direção” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado."
+      ]
+    }
+  },
+  {
+    "_id": "697cf169e5e4aa917268e9c4",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Estruturas de Tomada de Decisão: Decisões Rápidas, Matriz de Decisão, Evitando Paralisia de Análise\"), “Passo 2” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Estruturas de Tomada de Decisão: Decisões Rápidas, Matriz de Decisão, Evitando Paralisia de Análise\"), “Passo 2” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    }
+  },
+  {
+    "_id": "697cf169e5e4aa917268e9c6",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Estruturas de Tomada de Decisão: Decisões Rápidas, Matriz de Decisão, Evitando Paralisia de Análise\"), “Pequena” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Estruturas de Tomada de Decisão: Decisões Rápidas, Matriz de Decisão, Evitando Paralisia de Análise\"), “Pequena” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697cf16ae5e4aa917268e9d2",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Eficiência de Reuniões: Agenda, Limites de Tempo, Registro de Decisões\"), “Tempo” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Eficiência de Reuniões: Agenda, Limites de Tempo, Registro de Decisões\"), “Tempo” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito."
+      ]
+    }
+  },
+  {
+    "_id": "697cf16be5e4aa917268e9de",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Trabalho em Equipe e Sinergia: Funções, Responsabilidade, Coordenação\"), “Coordenação” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Trabalho em Equipe e Sinergia: Funções, Responsabilidade, Coordenação\"), “Coordenação” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    }
+  },
+  {
+    "_id": "697cf16be5e4aa917268e9ec",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Gerenciamento de Estresse e Fadiga: Recuperação, Equilíbrio Trabalho-Vida\"), “Gerenciamento de Estresse e Fadiga: Recuperação, Equilíbrio Trabalho-Vida Gerenc” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Gerenciamento de Estresse e Fadiga: Recuperação, Equilíbrio Trabalho-Vida\"), “Gerenciamento de Estresse e Fadiga: Recuperação, Equilíbrio Trabalho-Vida Gerenc” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta."
+      ]
+    }
+  },
+  {
+    "_id": "697cf16ce5e4aa917268e9f6",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Sustentando Motivação: Rastreando Progresso, Celebrando Vitórias\"), “Tanulási Cél Mantenha esforço e energia a longo prazo.” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Sustentando Motivação: Rastreando Progresso, Celebrando Vitórias\"), “Tanulási Cél Mantenha esforço e energia a longo prazo.” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    }
+  },
+  {
+    "_id": "697cf16de5e4aa917268ea14",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Planejamento de Longo Prazo: Anos Adiante, Estratégia, Evolução\"), “Anos” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Planejamento de Longo Prazo: Anos Adiante, Estratégia, Evolução\"), “Anos” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome."
+      ]
+    }
+  },
+  {
+    "_id": "697cf16de5e4aa917268ea24",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Produtividade da Vida Pessoal: Organização do Lar, Projetos Pessoais\"), “Vida” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Produtividade da Vida Pessoal: Organização do Lar, Projetos Pessoais\"), “Vida” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    }
+  },
+  {
+    "_id": "697cf16ee5e4aa917268ea2e",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Comunidade e Rede: Relações, Aprendizado Com Outros\"), “Comunidade e Rede: Relações, Aprendizado Com Outros” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Comunidade e Rede: Relações, Aprendizado Com Outros\"), “Comunidade e Rede: Relações, Aprendizado Com Outros” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável."
+      ]
+    }
+  },
+  {
+    "_id": "697cf170e5e4aa917268ea58",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Filtragem e Prioridades: O Que Ignorar, O Que Importa\"), “Filtragem” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Filtragem e Prioridades: O Que Ignorar, O Que Importa\"), “Filtragem” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado."
+      ]
+    }
+  },
+  {
+    "_id": "697cf170e5e4aa917268ea5a",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Filtragem e Prioridades: O Que Ignorar, O Que Importa\"), “Ignorar” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Filtragem e Prioridades: O Que Ignorar, O Que Importa\"), “Ignorar” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado."
+      ]
+    }
+  },
+  {
+    "_id": "697cf170e5e4aa917268ea68",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Desenvolvimento de Habilidades: Níveis Mais Altos, Novas Competências\"), “Novas” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Desenvolvimento de Habilidades: Níveis Mais Altos, Novas Competências\"), “Novas” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta."
+      ]
+    }
+  },
+  {
+    "_id": "697cf171e5e4aa917268ea72",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Mentoria e Ensino: Compartilhando Conhecimento, Ajudando Outros\"), “Outros” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Mentoria e Ensino: Compartilhando Conhecimento, Ajudando Outros\"), “Outros” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    }
+  },
+  {
+    "_id": "697cf171e5e4aa917268ea74",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Mentoria e Ensino: Compartilhando Conhecimento, Ajudando Outros\"), “Ajudando” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Mentoria e Ensino: Compartilhando Conhecimento, Ajudando Outros\"), “Ajudando” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível."
+      ]
+    }
+  },
+  {
+    "_id": "697cf171e5e4aa917268ea76",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Mentoria e Ensino: Compartilhando Conhecimento, Ajudando Outros\"), “Tanulási Cél Ensinar aos outros acelera seu próprio aprendizado.” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Mentoria e Ensino: Compartilhando Conhecimento, Ajudando Outros\"), “Tanulási Cél Ensinar aos outros acelera seu próprio aprendizado.” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Falo sobre isso em reuniões, mas não coloco no processo; não há mudança de comportamento nem de resultado.",
+        "Uso o termo como slogan sem checklist/medição — o resultado não é verificável nem repetível.",
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio."
+      ]
+    }
+  },
+  {
+    "_id": "697cf171e5e4aa917268ea78",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Mentoria e Ensino: Compartilhando Conhecimento, Ajudando Outros\"), “Ensino” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Mentoria e Ensino: Compartilhando Conhecimento, Ajudando Outros\"), “Ensino” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome.",
+        "Defino critério e limiar, testo em um cenário, meço antes/depois e só então amplio.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável."
+      ]
+    }
+  },
+  {
+    "_id": "697cf173e5e4aa917268eaae",
+    "language": "pt",
+    "before": {
+      "question": "Na licao (licao: \"Mestre da Produtividade: Integração Abrangente, Compromisso\"), “Tanulási Cél Síntese, reflexão e olhar para frente.” precisa virar um deliverable. Qual abordagem deixa verificavel?",
+      "options": [
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome."
+      ]
+    },
+    "after": {
+      "question": "Na licao (licao: \"Mestre da Produtividade: Integração Abrangente, Compromisso\"), “Tanulási Cél Síntese, reflexão e olhar para frente.” precisa virar um entregável. Qual abordagem deixa verificavel?",
+      "options": [
+        "Adio até ficar “perfeito”; o throughput cai e o carryover aumenta.",
+        "Executo sem dono/prazo/limiar, então o resultado não é testável.",
+        "Escrevo o critério de “done”, escolho uma métrica, aplico em um caso e amplio só depois de confirmar o efeito.",
+        "Mudo muitas coisas ao mesmo tempo; não consigo isolar o que melhorou o outcome."
+      ]
+    }
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-01-31T22:30:28.736Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_02",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_02",
+    "isActive": false,
+    "dayNumber": 2,
+    "title": "Scrum kóstoló: események, artefaktok, empirizmus"
+  }
+}

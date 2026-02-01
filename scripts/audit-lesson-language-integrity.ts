@@ -25,8 +25,13 @@ function getArgValue(flag: string): string | undefined {
   return process.argv[idx + 1];
 }
 
+function hasFlag(flag: string) {
+  return process.argv.includes(flag);
+}
+
 const COURSE_ID = getArgValue('--course');
 const OUT_DIR = getArgValue('--out-dir') || join(process.cwd(), 'scripts', 'reports');
+const INCLUDE_INACTIVE = hasFlag('--include-inactive');
 
 function isoStamp() {
   return new Date().toISOString().replace(/[:.]/g, '-');
@@ -35,7 +40,7 @@ function isoStamp() {
 async function main() {
   await connectDB();
 
-  const courseFilter: any = { isActive: true };
+  const courseFilter: any = INCLUDE_INACTIVE ? {} : { isActive: true };
   if (COURSE_ID) courseFilter.courseId = COURSE_ID;
   const courses = await Course.find(courseFilter).sort({ createdAt: 1, _id: 1 }).lean();
 
@@ -43,7 +48,7 @@ async function main() {
   const tasks: string[] = [];
 
   for (const course of courses) {
-    const lessons = await Lesson.find({ courseId: course._id, isActive: true })
+    const lessons = await Lesson.find({ courseId: course._id, ...(INCLUDE_INACTIVE ? {} : { isActive: true }) })
       .sort({ dayNumber: 1, displayOrder: 1, createdAt: 1, _id: 1 })
       .select({ lessonId: 1, dayNumber: 1, title: 1, content: 1, emailSubject: 1, emailBody: 1, language: 1, createdAt: 1 })
       .lean();
@@ -107,6 +112,7 @@ async function main() {
       {
         generatedAt: new Date().toISOString(),
         courseFilter: COURSE_ID || null,
+        includeInactive: INCLUDE_INACTIVE,
         total: results.length,
         failed: results.filter(r => r.ok === false).length,
         results,
@@ -121,6 +127,7 @@ async function main() {
     `# Lesson Language Integrity Tasks\n\n` +
       `Generated: ${new Date().toISOString()}\n` +
       `Course filter: ${COURSE_ID || 'ALL'}\n\n` +
+      `Include inactive: ${INCLUDE_INACTIVE}\n\n` +
       (tasks.length ? tasks.join('\n') : '✅ No lessons failed language integrity.\n')
   );
 
@@ -135,4 +142,3 @@ main().catch(err => {
   console.error(err);
   process.exit(1);
 });
-

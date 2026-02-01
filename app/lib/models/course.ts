@@ -71,10 +71,20 @@ export interface ICourse extends Document {
     poolCourseId?: string;
     /** Max questions in child final exam. If unset, use default (e.g. 50). */
     certQuestionCount?: number;
+    /** Pass rule: minimum final exam score (0–100) to be eligible for certificate. Default 50. */
+    passThresholdPercent?: number;
+    /** Require all lessons completed for certificate. Default true. */
+    requireAllLessonsCompleted?: boolean;
+    /** Require all daily quizzes passed for certificate. Default true. */
+    requireAllQuizzesPassed?: boolean;
     priceMoney?: { amount: number; currency: string };
     pricePoints?: number;
     premiumIncludesCertification?: boolean;
     templateId?: string;
+    /** A/B: list of template IDs for certificate variant assignment. If length > 1, variant chosen at issue. */
+    templateVariantIds?: string[];
+    /** Optional weights (same length as templateVariantIds) for weighted random; not used when picking by stable hash. */
+    templateVariantWeights?: number[];
     credentialTitleId?: string;
   };
   createdAt: Date;
@@ -259,6 +269,19 @@ const CourseSchema = new Schema<ICourse>(
         type: Number,
         min: [1, 'certQuestionCount must be at least 1'],
       },
+      passThresholdPercent: {
+        type: Number,
+        min: [0, 'passThresholdPercent must be 0–100'],
+        max: [100, 'passThresholdPercent must be 0–100'],
+      },
+      requireAllLessonsCompleted: {
+        type: Boolean,
+        default: true,
+      },
+      requireAllQuizzesPassed: {
+        type: Boolean,
+        default: true,
+      },
       priceMoney: {
         amount: {
           type: Number,
@@ -281,6 +304,14 @@ const CourseSchema = new Schema<ICourse>(
       templateId: {
         type: String,
         trim: true,
+      },
+      templateVariantIds: {
+        type: [String],
+        default: undefined,
+      },
+      templateVariantWeights: {
+        type: [Number],
+        default: undefined,
       },
       credentialTitleId: {
         type: String,

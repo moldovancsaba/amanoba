@@ -103,4 +103,9 @@ export { default as SurveyResponse, type ISurveyResponse } from './survey-respon
 // Content Voting (CourseVote / LessonVote / QuestionVote)
 export { default as ContentVote, type IContentVote, type VoteTargetType } from './content-vote';
 
-// Total: 33 models
+// Community (Discussion forums, Study groups)
+export { default as DiscussionPost, type IDiscussionPost } from './discussion-post';
+export { default as StudyGroup, type IStudyGroup } from './study-group';
+export { default as StudyGroupMembership, type IStudyGroupMembership, type StudyGroupRole } from './study-group-membership';
+
+// Total: 36 models

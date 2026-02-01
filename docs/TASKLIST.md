@@ -27,11 +27,11 @@ Completed items (formerly 1–4, 6–11, course voting, UI/UX polish, course lea
 
 | # | Action item | Status |
 |---|-------------|--------|
-| 1 | Define data model for dynamic pass rules (e.g. per-course or per-credential pass threshold, optional conditions). | ⏳ PENDING |
-| 2 | API: CRUD for pass-rule config (admin); apply rule at certificate issue time. | ⏳ PENDING |
-| 3 | Admin UI: Configure pass rules per course/credential; show current rule on certificate config. | ⏳ PENDING |
-| 4 | Define A/B test design: certificate template variants (e.g. templateId A vs B); assign variant at issue or by cohort. | ⏳ PENDING |
-| 5 | Implement A/B assignment and tracking (which variant issued); optional analytics event for certificate view/share. | ⏳ PENDING |
+| 1 | Define data model for dynamic pass rules (e.g. per-course or per-credential pass threshold, optional conditions). | ✅ DONE (Course.certification: passThresholdPercent, requireAllLessonsCompleted, requireAllQuizzesPassed) |
+| 2 | API: CRUD for pass-rule config (admin); apply rule at certificate issue time. | ✅ DONE (PATCH admin/courses/[courseId] merges certification; final-exam/submit uses pass rule) |
+| 3 | Admin UI: Configure pass rules per course/credential; show current rule on certificate config. | ✅ DONE (admin course page: Pass rules subsection with threshold %, require all lessons, require all quizzes; current rule summary) |
+| 4 | Define A/B test design: certificate template variants (e.g. templateId A vs B); assign variant at issue or by cohort. | ✅ DONE (docs/CERTIFICATE_AB_TEST_DESIGN.md) |
+| 5 | Implement A/B assignment and tracking (which variant issued); optional analytics event for certificate view/share. | ✅ DONE (resolve at issue, render from cert.designTemplateId, certificate_viewed GA) |
 
 ---
 

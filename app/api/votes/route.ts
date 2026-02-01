@@ -16,12 +16,13 @@ import type { VoteTargetType } from '@/lib/models/content-vote';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-const VALID_TYPES: VoteTargetType[] = ['course', 'lesson', 'question'];
+const VALID_TYPES: VoteTargetType[] = ['course', 'lesson', 'question', 'discussion_post'];
 
 export async function POST(request: NextRequest) {
   try {
     const session = await auth();
-    const playerId = session?.user?.id;
+    const user = session?.user as { id?: string; playerId?: string } | undefined;
+    const playerId = user?.playerId || user?.id;
     if (!playerId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }

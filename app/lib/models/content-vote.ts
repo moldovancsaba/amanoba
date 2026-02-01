@@ -7,7 +7,7 @@
 
 import mongoose, { Schema, Document, Model } from 'mongoose';
 
-export type VoteTargetType = 'course' | 'lesson' | 'question';
+export type VoteTargetType = 'course' | 'lesson' | 'question' | 'discussion_post';
 
 export interface IContentVote extends Document {
   targetType: VoteTargetType;
@@ -22,7 +22,7 @@ const ContentVoteSchema = new Schema<IContentVote>(
   {
     targetType: {
       type: String,
-      enum: { values: ['course', 'lesson', 'question'], message: 'targetType must be course, lesson, or question' },
+      enum: { values: ['course', 'lesson', 'question', 'discussion_post'], message: 'targetType must be course, lesson, question, or discussion_post' },
       required: true,
       index: true,
     },

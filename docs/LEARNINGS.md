@@ -28,6 +28,18 @@ This document captures actual issues faced, solutions implemented, and best prac
 
 ---
 
+### Reuse via Discriminator: One Model, One API, One Component
+
+**Context**: Same behaviour needed in multiple places (e.g. up/down vote on courses, lessons, discussion posts).
+
+**Learning**: Implement the feature once with a **discriminator** (e.g. `targetType`, `targetId`) so one schema, one route, and one UI component serve all contexts. To add a new surface (e.g. vote on discussion posts), extend the discriminator allow-list and reuse the same component; do not add new collections or routes for the same behaviour.
+
+**Why It Matters**: Consistency, single place to fix bugs, and predictable scaling when adding new votable or commentable entities.
+
+**Applied In**: Content voting (course, lesson, question, discussion_post); **docs/VOTING_AND_REUSE_PATTERN.md**, **docs/ARCHITECTURE.md** (Core Principles), **docs/layout_grammar.md** (§9), **docs/CONTRIBUTING.md** (Coding Standards).
+
+---
+
 ### Progressive Disclosure: Gating Premium Features
 
 **Context**: Madoku has premium-only features that need to be accessible only after player engagement.

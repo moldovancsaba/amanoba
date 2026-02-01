@@ -1,8 +1,8 @@
 # Amanoba Architecture
 
-**Version**: 2.9.33  
-**Last Updated**: 2026-01-28  
-**Status**: Active — Course system, certificate system, payment, GA consent mode v2, course progress; course achievements/leaderboards, content voting, certificate enhancements (v2.9.33)
+**Version**: 2.9.40  
+**Last Updated**: 2026-01-31  
+**Status**: Active — Course system, certificate system, payment, GA consent mode v2, course progress; course achievements/leaderboards, content voting, certificate enhancements (pass rules, template A/B at issue; v2.9.40)
 
 ---
 
@@ -17,6 +17,7 @@ Amanoba is a unified 30-day learning platform built on Next.js 15.5.2 (App Route
 3. **Event-Driven**: All player actions emit events for analytics and gamification triggers
 4. **Type-Safe**: Full TypeScript coverage with strict mode enabled
 5. **Security-First**: Rate limiting, input validation, XSS protection, and anti-cheat on all endpoints
+6. **Reuse via discriminator**: Same feature in 2+ places = one model, one API, one component; discriminator (e.g. `targetType`) selects context. See **docs/VOTING_AND_REUSE_PATTERN.md** (unified voting and how to reuse features).
 
 ---
 
@@ -282,9 +283,9 @@ amanoba/
 │
 ├── README.md                    # Project overview
 ├── ARCHITECTURE.md              # This file
-├── ROADMAP.md                   # Future plans
-├── TASKLIST.md                  # Active tasks
-├── RELEASE_NOTES.md             # Version changelog
+├── ROADMAP.md                   # Future plans (only related items: vision only)
+├── TASKLIST.md                  # Active tasks (only related items: open tasks only)
+├── RELEASE_NOTES.md             # Version changelog (only related items: completed only)
 ├── LEARNINGS.md                 # Implementation insights
 ├── TECH_STACK.md                # Technology details
 ├── NAMING_GUIDE.md              # Naming conventions
@@ -595,14 +596,20 @@ amanoba/
 **Course Certification Configuration**
 - Per-course settings in course editor:
   - Enable/disable certification
+  - Pass rules: pass threshold %, require all lessons completed, require all daily quizzes passed
   - Price in points
   - Premium includes certification
-  - Template ID
+  - Template ID (single template) or template variant IDs (A/B)
   - Credential Title ID
 - Global settings in admin settings
 
+**Certificate template A/B (v2.9.40)**
+- Variant assigned at issue: `resolveTemplateVariantAtIssue` (course + global) picks by stable hash(playerId, courseId). Stored on certificate as `designTemplateId`.
+- Rendering uses **certificate.designTemplateId** (not course template) so each issued cert shows its variant. See **docs/CERTIFICATE_AB_TEST_DESIGN.md**.
+
 **Documentation**
 - Comprehensive guide: `docs/CERTIFICATE_CREATION_GUIDE.md`
+- A/B design: `docs/CERTIFICATE_AB_TEST_DESIGN.md`
 - Linked from admin certificates page
 - Covers creation, verification, management, troubleshooting
 

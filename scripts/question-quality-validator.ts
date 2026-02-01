@@ -370,6 +370,44 @@ export function validateQuestionQuality(
     }
   }
 
+  // 0.4b Per-locale: disallow non-native / typo terms (see docs/REPHRASE_RULES_*.md, docs/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md)
+  const lang = String(language || '').toLowerCase();
+  {
+    const blob = `${question}\n${safeOptions.join('\n')}`;
+    if (lang === 'hu') {
+      if (/\bvisszacsatolás(t)?\b/i.test(blob)) errors.push('HU: use "visszajelzés" / "visszajelzést", not "visszacsatolás". Non-native term.');
+      if (/\bbevezetési\s+táv\b/i.test(blob)) errors.push('HU: use "bevezetési terv", not "bevezetési táv". Typo (táv = distance).');
+      if (/\btartalo\b/i.test(blob)) errors.push('HU: likely typo "tartalo" → use "tartalmat" (content).');
+    }
+    if (lang === 'pl' && /\bfeedback\s+loop\b/i.test(blob)) {
+      errors.push('PL: use "pętla informacji zwrotnej" / "pętlę informacji zwrotnej", not "feedback loop".');
+    }
+    if (lang === 'vi' && /\bfeedback\s+loop\b/i.test(blob)) {
+      errors.push('VI: use "vòng phản hồi", not "feedback loop".');
+    }
+  }
+
+  // 0.4c Truncation heuristic: question or option ending with space or very short trailing fragment (incomplete word)
+  {
+    const trimEnd = (t: string) => t.trimEnd();
+    const mayBeTruncated = (t: string) => {
+      const s = trimEnd(t);
+      if (s.length < 10) return false;
+      if (/[\s\u00a0]$/.test(t)) return true;
+      const lastWord = (s.match(/\s+(\S{1,3})$/)?.[1] ?? s.slice(-4)) || '';
+      return lastWord.length <= 2 && /\p{L}/u.test(lastWord);
+    };
+    if (mayBeTruncated(question)) {
+      warnings.push('Question may be truncated (ends with space or very short word). Ensure full sentence.');
+    }
+    for (let i = 0; i < safeOptions.length; i++) {
+      if (mayBeTruncated(safeOptions[i])) {
+        warnings.push(`Option ${i + 1} may be truncated. Ensure complete text.`);
+        break;
+      }
+    }
+  }
+
   // 0.5 Disallow obvious “meta” distractors (not a real domain mistake)
   {
     const blob = safeOptions.join('\n');

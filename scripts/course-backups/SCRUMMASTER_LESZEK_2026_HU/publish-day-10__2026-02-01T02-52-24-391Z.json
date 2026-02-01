@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T02:52:24.391Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_10",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_10",
+    "isActive": false,
+    "dayNumber": 10,
+    "title": "WIP és fókusz: miért öl a párhuzamosság?"
+  }
+}

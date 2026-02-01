@@ -70,7 +70,8 @@ export default function LessonQuiz({
       if (data.ok && data.data?.questions) {
         setQuestions(data.data.questions);
       } else {
-        setError(data.error?.message || t('quizError'));
+        // Use localized message when no questions for this lesson (avoids "difficulty: undefined")
+        setError(data.error?.code === 'NO_QUESTIONS' ? t('noQuizQuestions') : (data.error?.message || t('quizError')));
       }
     } catch (err) {
       console.error('Failed to fetch questions:', err);

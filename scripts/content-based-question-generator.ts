@@ -78,6 +78,16 @@ function normalizeOptionText(text: string) {
   return String(text || '').trim().toLowerCase().replace(/\s+/g, ' ');
 }
 
+/** Truncate at last word boundary before maxLen; append … if truncated. Avoids mid-word cut (e.g. "tartalo"). */
+function truncateAtWord(text: string, maxLen: number): string {
+  const s = String(text || '').trim();
+  if (s.length <= maxLen) return s;
+  const chunk = s.slice(0, maxLen);
+  const lastSpace = chunk.lastIndexOf(' ');
+  const cut = lastSpace > 20 ? chunk.slice(0, lastSpace) : chunk;
+  return cut.trimEnd() + '…';
+}
+
 function optionSignature(options: Array<string>) {
   return options.map(normalizeOptionText).sort().join('||');
 }
@@ -3351,7 +3361,7 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
       },
       application: {
         practice: (practice) => {
-          const p = String(practice || '').trim();
+          const p = truncateAtWord(String(practice || '').trim(), 60);
           const variants = [
             `Вы внедряете новую практику в продажах: «${p}». Какой план даст измеримый результат и быструю обратную связь?`,
             `В работе по теме «${topicHint}» вы запускаете практику: «${p}». Какой план делает эффект проверяемым (до/после) и управляемым?`,
@@ -3478,13 +3488,14 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
       },
       application: {
         practice: (practice) => {
+          const p = truncateAtWord(String(practice || '').trim(), 60);
           const variants = [
-            `Yeni bir uygulamayi devreye aliyorsunuz: “${practice}”${titleHint}. Hangi plan olculebilir cikti ve hizli geri bildirim saglar?`,
-            `Ekibinle yeni bir pratigi deniyorsun: “${practice}”${titleHint}. Hangi plan olculebilir sonuc ve hizli geri bildirim uretir?`,
-            `Bir haftalik pilot baslatiyorsun: “${practice}”${titleHint}. Hangi plan olculebilir ciktiyi ve geri bildirim dongusunu saglar?`,
-            `Bu derste${titleHint} “${practice}” pratigi icin pilot yapiyorsun. Hangi plan once/sonra olcumu ve hizli iterasyonu saglar?`,
+            `Yeni bir uygulamayi devreye aliyorsunuz: “${p}"${titleHint}. Hangi plan olculebilir cikti ve hizli geri bildirim saglar?`,
+            `Ekibinle yeni bir pratigi deniyorsun: “${p}"${titleHint}. Hangi plan olculebilir sonuc ve hizli geri bildirim uretir?`,
+            `Bir haftalik pilot baslatiyorsun: “${p}"${titleHint}. Hangi plan olculebilir ciktiyi ve geri bildirim dongusunu saglar?`,
+            `Bu derste${titleHint} “${p}" pratigi icin pilot yapiyorsun. Hangi plan once/sonra olcumu ve hizli iterasyonu saglar?`,
           ];
-          return pickOne(`${practice}::apq`, variants);
+          return pickOne(`${p}::apq`, variants);
         },
         keyTerm: (keyTerm) => {
           const variants = [
@@ -3602,13 +3613,14 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
       },
       application: {
         practice: (practice) => {
+          const p = truncateAtWord(String(practice || '').trim(), 60);
           const variants = [
-            `Въвеждате нова практика: „${practice}“${titleHint}. Кой план дава измерим изход и бърза обратна връзка?`,
-            `Пускате пилот за „${practice}“${titleHint}. Кой план прави резултата измерим и позволява бърза корекция?`,
-            `Екипът тества „${practice}“ за 1 седмица${titleHint}. Кой подход дава проверим ефект (преди/след)?`,
-            `В урока${titleHint} внедрявате „${practice}“. Кой план осигурява бърз feedback loop и измерим резултат?`,
+            `Въвеждате нова практика: „${p}"${titleHint}. Кой план дава измерим изход и бърза обратна връзка?`,
+            `Пускате пилот за „${p}"${titleHint}. Кой план прави резултата измерим и позволява бърза корекция?`,
+            `Екипът тества „${p}" за 1 седмица${titleHint}. Кой подход дава проверим ефект (преди/след)?`,
+            `В урока${titleHint} внедрявате „${p}". Кой план осигурява бърза обратна връзка и измерим резултат?`,
           ];
-          return pickOne(`${practice}::bg-apq`, variants);
+          return pickOne(`${p}::bg-apq`, variants);
         },
         keyTerm: (keyTerm) => {
           const variants = [
@@ -3725,13 +3737,14 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
       },
       application: {
         practice: (practice) => {
+          const p = truncateAtWord(String(practice || '').trim(), 60);
           const variants = [
-            `Wdrażasz nową praktykę: „${practice}”${titleHint}. Który plan wdrożenia daje mierzalny output i szybką informację zwrotną?`,
-            `Uruchamiasz pilotaż „${practice}” na tydzień${titleHint}. Który plan pozwala mierzyć efekt i szybko korygować?`,
-            `Zespół testuje „${practice}” w małym zakresie${titleHint}. Który plan daje weryfikowalny wynik (przed/po)?`,
-            `W lekcji${titleHint} testujesz „${practice}”. Który plan buduje szybki feedback loop i dowód efektu?`,
+            `Wdrażasz nową praktykę: „${p}"${titleHint}. Który plan wdrożenia daje mierzalny wynik i szybką informację zwrotną?`,
+            `Uruchamiasz pilotaż „${p}" na tydzień${titleHint}. Który plan pozwala mierzyć efekt i szybko korygować?`,
+            `Zespół testuje „${p}" w małym zakresie${titleHint}. Który plan daje weryfikowalny wynik (przed/po)?`,
+            `W lekcji${titleHint} testujesz „${p}". Który plan buduje szybką pętlę informacji zwrotnej i dowód efektu?`,
           ];
-          return pickOne(`${practice}::pl-apq`, variants);
+          return pickOne(`${p}::pl-apq`, variants);
         },
         keyTerm: (keyTerm) => {
           const variants = [
@@ -3847,12 +3860,13 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
       },
       application: {
         practice: (practice) => {
+          const p = truncateAtWord(String(practice || '').trim(), 60);
           const variants = [
-            `Bạn triển khai một thực hành mới: “${practice}”${titleHint}. Kế hoạch nào tạo output đo được và phản hồi nhanh?`,
-            `Bạn chạy pilot “${practice}” trong 1 tuần${titleHint}. Kế hoạch nào cho phép đo trước/sau và điều chỉnh nhanh?`,
-            `Nhóm thử “${practice}” ở scope nhỏ${titleHint}. Kế hoạch nào tạo feedback loop nhanh và chứng minh tác động?`,
+            `Bạn triển khai một thực hành mới: “${p}"${titleHint}. Kế hoạch nào tạo output đo được và phản hồi nhanh?`,
+            `Bạn chạy pilot “${p}” trong 1 tuần${titleHint}. Kế hoạch nào cho phép đo trước/sau và điều chỉnh nhanh?`,
+            `Nhóm thử “${p}” ở scope nhỏ${titleHint}. Kế hoạch nào tạo vòng phản hồi nhanh và chứng minh tác động?`,
           ];
-          return pickOne(`${practice}::vi-apq`, variants);
+          return pickOne(`${p}::vi-apq`, variants);
         },
         keyTerm: (keyTerm) => {
           const variants = [
@@ -3968,13 +3982,14 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
       },
       application: {
         practice: (practice) => {
+          const p = truncateAtWord(String(practice || '').trim(), 60);
           const variants = [
-            `Anda menerapkan praktik baru: “${practice}”${titleHint}. Rencana mana yang menghasilkan output terukur dan umpan balik cepat?`,
-            `Anda menjalankan pilot “${practice}” selama 1 minggu${titleHint}. Rencana mana yang membuat hasilnya terukur (sebelum/sesudah) dan mudah disesuaikan?`,
-            `Tim mencoba “${practice}” dalam skala kecil${titleHint}. Pendekatan mana yang memberi feedback loop cepat dan bukti dampak?`,
-            `Dalam pelajaran${titleHint}, Anda menjalankan “${practice}”. Pendekatan mana yang membuat efeknya bisa dibuktikan?`,
+            `Anda menerapkan praktik baru: “${p}"${titleHint}. Rencana mana yang menghasilkan output terukur dan umpan balik cepat?`,
+            `Anda menjalankan pilot “${p}” selama 1 minggu${titleHint}. Rencana mana yang membuat hasilnya terukur (sebelum/sesudah) dan mudah disesuaikan?`,
+            `Tim mencoba “${p}” dalam skala kecil${titleHint}. Pendekatan mana yang memberi putaran umpan balik cepat dan bukti dampak?`,
+            `Dalam pelajaran${titleHint}, Anda menjalankan “${p}”. Pendekatan mana yang membuat efeknya bisa dibuktikan?`,
           ];
-          return pickOne(`${practice}::id-apq`, variants);
+          return pickOne(`${p}::id-apq`, variants);
         },
         keyTerm: (keyTerm) => {
           const variants = [
@@ -4091,13 +4106,14 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
       },
       application: {
         practice: (practice) => {
+          const p = truncateAtWord(String(practice || '').trim(), 60);
           const variants = [
-            `Você vai implementar uma nova prática: “${practice}”${titleHint}. Qual plano produz output mensurável e feedback rápido?`,
-            `Você inicia um piloto de “${practice}” por 1 semana${titleHint}. Qual plano mede o efeito (antes/depois) e permite ajustes rápidos?`,
-            `A equipe testa “${practice}” em escopo pequeno${titleHint}. Qual abordagem cria um loop de feedback rápido e verificável?`,
-            `Na licao${titleHint}, voce testa “${practice}”. Qual plano cria prova de efeito e ajuste rapido?`,
+            `Você vai implementar uma nova prática: “${p}"${titleHint}. Qual plano produz output mensurável e feedback rápido?`,
+            `Você inicia um piloto de “${p}” por 1 semana${titleHint}. Qual plano mede o efeito (antes/depois) e permite ajustes rápidos?`,
+            `A equipe testa “${p}” em escopo pequeno${titleHint}. Qual abordagem cria um ciclo de feedback rápido e verificável?`,
+            `Na licao${titleHint}, voce testa “${p}”. Qual plano cria prova de efeito e ajuste rapido?`,
           ];
-          return pickOne(`${practice}::pt-apq`, variants);
+          return pickOne(`${p}::pt-apq`, variants);
         },
         keyTerm: (keyTerm) => {
           const variants = [
@@ -4213,12 +4229,13 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
       },
       application: {
         practice: (practice) => {
+          const p = truncateAtWord(String(practice || '').trim(), 60);
           const variants = [
-            `आप एक नई प्रैक्टिस लागू कर रहे हैं: “${practice}”${titleHint}. कौन-सी योजना मापने योग्य परिणाम और तेज़ प्रतिक्रिया देगी?`,
-            `आप “${practice}” का 1-सप्ताह का पायलट चला रहे हैं${titleHint}. कौन-सी योजना पहले/बाद में माप और तेज़ सुधार देती है?`,
-            `टीम “${practice}” को छोटे दायरे में टेस्ट कर रही है${titleHint}. कौन-सी योजना त्वरित फीडबैक लूप और प्रमाणित असर देती है?`,
+            `आप एक नई प्रैक्टिस लागू कर रहे हैं: “${p}"${titleHint}. कौन-सी योजना मापने योग्य परिणाम और तेज़ प्रतिक्रिया देगी?`,
+            `आप “${p}” का 1-सप्ताह का पायलट चला रहे हैं${titleHint}. कौन-सी योजना पहले/बाद में माप और तेज़ सुधार देती है?`,
+            `टीम “${p}” को छोटे दायरे में टेस्ट कर रही है${titleHint}. कौन-सी योजना त्वरित प्रतिक्रिया चक्र और प्रमाणित असर देती है?`,
           ];
-          return pickOne(`${practice}::hi-apq`, variants);
+          return pickOne(`${p}::hi-apq`, variants);
         },
         keyTerm: (keyTerm) => {
           const variants = [
@@ -4336,12 +4353,13 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
       },
       application: {
         practice: (practice) => {
+          const p = truncateAtWord(String(practice || '').trim(), 60);
           const variants = [
-            `ستطبق ممارسة جديدة: «${practice}». أي خطة تمنح نتيجة قابلة للقياس وتغذية راجعة سريعة؟`,
-            `ستجرب «${practice}» لمدة أسبوع. أي خطة تجعل الأثر قابلاً للإثبات (قبل/بعد)؟`,
-            `تريد إدخال «${practice}» ضمن العمل. أي خطة تصنع حلقة تغذية راجعة سريعة وقياسًا واضحًا؟`,
+            `ستطبق ممارسة جديدة: «${p}». أي خطة تمنح نتيجة قابلة للقياس وتغذية راجعة سريعة؟`,
+            `ستجرب «${p}» لمدة أسبوع. أي خطة تجعل الأثر قابلاً للإثبات (قبل/بعد)؟`,
+            `تريد إدخال «${p}» ضمن العمل. أي خطة تصنع حلقة تغذية راجعة سريعة وقياسًا واضحًا؟`,
           ];
-          return pickOne(`${practice}::${titleSeed}::ar-apq`, variants);
+          return pickOne(`${p}::${titleSeed}::ar-apq`, variants);
         },
         keyTerm: (keyTerm) => {
           const variants = [
@@ -4426,7 +4444,7 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
       'Owner + „kész” kritérium + 1 metrika: kis pilotot futtatok, hetente review-zok, és csak validált hatás után terjesztem ki.',
     ];
     const practiceDistractorPool = [
-      'Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszacsatolás és nem látszik, mi okozza az eredményt.',
+      'Túl nagy scope-pal indulok (minden csapat/folyamat), így nincs gyors visszajelzés és nem látszik, mi okozza az eredményt.',
       'Bevezetem, de nem definiálok előre metrikát és küszöböt; csak benyomás alapján döntünk, hogy „jobb lett-e”.',
       'Kijelölök metrikát, de nincs review időpont és nincs döntési szabály, ezért a mérés nem vezet változáshoz.',
       'Csak eszközt cserélünk (app/board), de a munkaszabályokat (WIP, definíciók, handoff) nem, így a kimenet nem lesz mérhető.',
@@ -4478,9 +4496,9 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
       },
       application: {
         practice: (practice) => {
-          const p = String(practice || '').trim().substring(0, 60);
+          const p = truncateAtWord(String(practice || '').trim(), 60);
           const variants = [
-            `Egy új gyakorlatot vezetsz be: „${p}”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszacsatolást?`,
+            `Egy új gyakorlatot vezetsz be: „${p}”. Melyik bevezetési terv biztosít mérhető kimenetet és gyors visszajelzést?`,
             `A „${topicHint}” témában új gyakorlatot próbálsz ki: „${p}”. Melyik bevezetési terv teszi a hatást ellenőrizhetővé (előtte/utána)?`,
             `Egy csapatban szabályként vezeted be: „${p}”. Melyik terv ad mérhető kimenetet és gyors iterációt?`,
           ];
@@ -4588,7 +4606,7 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
     },
     application: {
       practice: (practice) =>
-        `You want to implement this practice in your own workflow: "${practice.substring(0, 60)}". Which plan produces measurable output and fast feedback?`,
+        `You want to implement this practice in your own workflow: "${truncateAtWord(String(practice || '').trim(), 60)}". Which plan produces measurable output and fast feedback?`,
       keyTerm: (keyTerm) =>
         `You are working on "${title}". A teammate mentions "${keyTerm}" but you need it operational. Which approach makes the output measurable and verifiable?`,
       options: {

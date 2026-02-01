@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T00:18:21.020Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_09",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_09",
+    "isActive": false,
+    "dayNumber": 9,
+    "title": "Daily Scrum: rövid, hasznos, nem státusz-meeting"
+  }
+}

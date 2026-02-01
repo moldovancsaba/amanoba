@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-01-31T23:33:15.836Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_08",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_08",
+    "isActive": false,
+    "dayNumber": 8,
+    "title": "Sprint Planning: cél, forecast, kockázat (kezdetektől jól)"
+  }
+}
