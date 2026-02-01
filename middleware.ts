@@ -58,6 +58,13 @@ export default auth((req) => {
                        (!pathname.startsWith('/hu/') && 
                         !pathname.startsWith('/en/') && 
                         pathname.startsWith('/admin'));
+
+  const isEditorRoute =
+    pathname === '/editor' ||
+    pathname.startsWith('/editor/') ||
+    (!pathname.startsWith('/hu/') &&
+      !pathname.startsWith('/en/') &&
+      pathname.startsWith('/editor'));
   
   // Handle admin route default locale (English)
   // Why: Admin interface should default to English for better international admin experience
@@ -65,6 +72,12 @@ export default auth((req) => {
     // Redirect /admin to /en/admin
     const adminPath = pathname.replace('/admin', '') || '/';
     return NextResponse.redirect(new URL(`/en/admin${adminPath}${req.nextUrl.search}`, req.url));
+  }
+
+  // Handle editor route default locale (English)
+  if (isEditorRoute && !pathname.startsWith('/hu/') && !pathname.startsWith('/en/')) {
+    const editorPath = pathname.replace('/editor', '') || '/';
+    return NextResponse.redirect(new URL(`/en/editor${editorPath}${req.nextUrl.search}`, req.url));
   }
   
   // FIRST: Let intlMiddleware handle ALL locale routing
@@ -103,7 +116,8 @@ export default auth((req) => {
     (actualPathname.startsWith('/profile') && !isProfileWithPlayerId) || // Only /profile (own profile) is protected, not /profile/[playerId]
     actualPathname.startsWith('/rewards') ||
     actualPathname.startsWith('/my-courses') ||
-    actualPathname.startsWith('/admin')) &&
+    actualPathname.startsWith('/admin') ||
+    actualPathname.startsWith('/editor')) &&
     actualPathname !== '/' && // Root path is public (landing page)
     !actualPathname.startsWith('/courses'); // Courses listing is public (enrollment requires auth)
 
@@ -116,7 +130,7 @@ export default auth((req) => {
     actualPathname.startsWith('/auth/signup');
 
   // Check admin role for admin routes
-  // Why: Admin routes require admin role, not just authentication
+  // Why: Admin routes require admin role, not just authentication.
   if (actualPathname.startsWith('/admin') && !isPublicAdminDoc) {
     if (!isLoggedIn) {
       // Redirect to sign in if not authenticated
@@ -126,11 +140,10 @@ export default auth((req) => {
         new URL(`${signInPath}?callbackUrl=${callbackUrl}`, req.url)
       );
     }
-    
-    // Check if user has admin role
+
     const user = req.auth?.user as { role?: 'user' | 'admin' } | undefined;
     const userRole = user?.role || 'user';
-    
+
     if (userRole !== 'admin') {
       // Redirect non-admin users away from admin routes
       // Determine locale from pathname

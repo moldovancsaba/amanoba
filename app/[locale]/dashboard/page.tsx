@@ -111,17 +111,19 @@ export default function Dashboard() {
     achievements: boolean;
     rewards: boolean;
   } | null>(null);
-  const [canAccessAdmin, setCanAccessAdmin] = useState(false);
+  const [adminAccess, setAdminAccess] = useState<{ canAccessAdmin: boolean; isAdmin: boolean; isEditorOnly: boolean } | null>(null);
 
   const fetchAdminAccess = useCallback(async () => {
     try {
       const response = await fetch('/api/admin/access');
       const data = await response.json();
-      if (data.canAccessAdmin === true) {
-        setCanAccessAdmin(true);
-      }
+      setAdminAccess({
+        canAccessAdmin: data?.canAccessAdmin === true,
+        isAdmin: data?.isAdmin === true,
+        isEditorOnly: data?.isEditorOnly === true,
+      });
     } catch {
-      setCanAccessAdmin(false);
+      setAdminAccess({ canAccessAdmin: false, isAdmin: false, isEditorOnly: false });
     }
   }, []);
 
@@ -236,7 +238,7 @@ export default function Dashboard() {
     if (session?.user) {
       void fetchAdminAccess();
     } else {
-      setCanAccessAdmin(false);
+      setAdminAccess({ canAccessAdmin: false, isAdmin: false, isEditorOnly: false });
     }
   }, [fetchAdminAccess, fetchFeatureFlags, fetchPlayerData, fetchRecommendations, session]);
 
@@ -335,12 +337,20 @@ export default function Dashboard() {
                   👤 {t('myProfile')}
                 </LocaleLink>
               )}
-              {session?.user && canAccessAdmin && (
+              {session?.user && adminAccess?.isAdmin === true && (
                 <LocaleLink
                   href="/admin"
                   className="bg-brand-primary-600 text-brand-white px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-primary-700 transition-colors font-bold text-center mobile-full-width"
                 >
                   ⚙️ Admin
+                </LocaleLink>
+              )}
+              {session?.user && adminAccess?.isEditorOnly === true && (
+                <LocaleLink
+                  href="/editor/courses"
+                  className="bg-brand-primary-600 text-brand-white px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-primary-700 transition-colors font-bold text-center mobile-full-width"
+                >
+                  ✍️ Editor
                 </LocaleLink>
               )}
               <button
