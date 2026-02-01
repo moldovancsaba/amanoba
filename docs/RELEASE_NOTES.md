@@ -1,13 +1,102 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.35  
-**Last Updated**: 2026-01-28
+**Current Version**: 2.9.37  
+**Last Updated**: 2026-01-31
 
-**Rule:** Each task exists in exactly one place. Completed work lives **only here** (not in ROADMAP or TASKLIST). Open/future work → ROADMAP.md or TASKLIST.md only.
+**Rule:** Each task exists in exactly one place. Completed work lives **only here** (not in ROADMAP or TASKLIST). Open/future work → ROADMAP.md or TASKLIST.md only. **Only related items:** Only completed work that belongs in RELEASE_NOTES may appear here — no open tasks, no roadmap vision, no unrelated content.
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.36] — 2026-01-28 🛠️
+
+**Status**: Community (Discussion forums, Study groups) — Phase 1 and Phase 2 delivered  
+**Type**: Feature (TASKLIST § Community)
+
+### Phase 1 — Discussion forums
+
+- **Models**: `DiscussionPost` (courseId, lessonId?, author, parentPostId?, body, hiddenByAdmin). Collection `discussionposts`.
+- **API**: `GET /api/courses/[courseId]/discussion` — list posts (optional `lessonId`); excludes hidden unless admin. `POST` — create post (body, lessonId?, parentPostId?). `PATCH /api/courses/[courseId]/discussion/[postId]` — edit own post (body) or admin set hiddenByAdmin. `DELETE` — author deletes own post; admin hides post (sets hiddenByAdmin).
+- **UI**: `CourseDiscussion` component on course detail page; thread view, reply form, delete own post; identity via author display name. Translations (en, hu): discussionTitle, discussionPlaceholder, discussionPost, discussionReply, discussionNoPosts, discussionSignInToPost, discussionLoading, discussionDelete, discussionEdit.
+
+### Phase 2 — Study groups
+
+- **Models**: `StudyGroup` (courseId, name, createdBy, capacity?); `StudyGroupMembership` (groupId, playerId, role: member|leader). Collections `studygroups`, `studygroupmemberships`.
+- **API**: `GET /api/courses/[courseId]/study-groups` — list groups with member count and `isMember` for current user. `POST` — create group (name, capacity?); creator becomes leader. `POST /api/courses/[courseId]/study-groups/[groupId]/join` — join. `POST .../leave` — leave. `GET .../members` — list members.
+- **UI**: `CourseStudyGroups` component on course detail page; create group, list groups, join/leave. Translations (en, hu): studyGroupsTitle, studyGroupsCreateGroup, studyGroupsGroupName, studyGroupsCreate, studyGroupsNoGroups, studyGroupsMembers, studyGroupsJoin, studyGroupsLeave, studyGroupsSignInToJoin, studyGroupsLoading.
+
+### Discussion post voting (unified)
+
+- **Voting on discussion posts:** Same implementation as course/lesson voting. `ContentVote` supports `targetType: 'discussion_post'`; each post on the course discussion thread shows **ContentVoteWidget** (up/down vote). One vote per user per post; aggregates from existing `/api/votes` and admin aggregates include `discussion_post`. See **docs/VOTING_AND_REUSE_PATTERN.md**.
+
+**Status**: ✅ Community Phase 1 and Phase 2 delivered; discussion post up/down vote delivered via unified voting; Phase 3 (notifications, reactions, bulk moderation) remains optional on TASKLIST.
+
+---
+
+## [v2.9.37] — 2026-01-31 📋
+
+**Status**: TASKLIST — Roadmap broken down into prioritized actionable tasks  
+**Type**: Documentation (planning)
+
+### TASKLIST update
+
+- **Priority framework:** P1 (highest) → P4 (when capacity allows). All open roadmap-derived work is now in **docs/TASKLIST.md** with clear priorities.
+- **P1 — Certificate enhancements:** Data model for dynamic pass rules; API CRUD and apply at issue; admin UI; A/B test design for certificate templates; A/B assignment and tracking.
+- **P2 — Multiple courses:** Enrolment in several courses at once; prerequisites (data model, API enrol + check, UI multiple in progress, email/scheduler).
+- **P3:** Email automation Phase 2 (A/B for emails; optional MailerLite/ActiveCampaign); further course achievements/leaderboards (metrics, new achievement types).
+- **P4:** Mobile app & offline (scope, PWA vs native); Live sessions (model, API, UI, meeting provider); AI personalisation (adaptive difficulty, recommendations); Community Phase 3 (notifications, reactions, moderation); Instructor dashboard; Video lessons.
+- **ROADMAP** unchanged (vision only); TASKLIST is single place for actionable items.
+
+**Status**: ✅ Delivered.
+
+---
+
+## [Unreleased] — 2026-01-31 🛠️
+
+**Status**: Messy content audit & grammar plan — Phase 1 delivery (docs/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md)  
+**Type**: Content quality (grammar, understandability)
+
+### Generator (content-based-question-generator.ts)
+
+- **HU practice questions**: "visszacsatolást" → "visszajelzést"; HU distractor "visszacsatolás" → "visszajelzés".
+- **Truncation**: Practice text truncated at word boundary via `truncateAtWord(..., 60)` (avoids mid-word cut like "tartalo"); same for EN practice template.
+
+### Validator (question-quality-validator.ts)
+
+- **HU bad-term checks**: Reject/error on "visszacsatolás(t)", "bevezetési táv", "tartalo" (typo).
+- **Truncation heuristic**: Warning when question or option ends with space or very short trailing word (possible truncation).
+
+### Discovery script (audit-messy-content-hu.ts)
+
+- Scans DB course-specific questions for messy HU content (bad terms, truncation, validator errors).
+- Run: `npx tsx --env-file=.env.local scripts/audit-messy-content-hu.ts`. Optional env: `LANGUAGE=hu`.
+
+### Rephrase script (fix-hu-practice-questions-rephrase.ts)
+
+- Rephrases HU practice-intro questions and options to **native Hungarian** (not just word replace): stem "Egy új gyakorlatot vezetsz be" → "Bevezetsz egy új gyakorlatot"; "mérhető kimenetet és gyors visszacsatolást" → "mérhető kimenetelt és gyors visszajelzést"; recurring scope distractor rephrased; options: visszacsatolás → visszajelzés.
+- Backup under `scripts/question-backups/HU_REPHRASE_<timestamp>.json`; run dry-run then `--apply`. **47 questions updated** in DB; audit now reports 1 remaining HU issue (truncation on another question type).
+
+### Scale plan (docs/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md § 7)
+
+- Pipeline for rephrase and grammar **at scale** (all languages): discovery → rephrase rules per locale → fix script per locale → generator cleanup → validation gate → lessons/UI. Same pattern for RU, PL, etc.
+
+### Scale delivery (all locales)
+
+- **Audit script** (`scripts/audit-messy-content-hu.ts`): `LANGUAGE=hu|ru|pl`; per-locale bad-term lists (HU, PL: feedback loop; RU: extend when found). Query by `lessonId` (_HU_/_RU_/_PL_).
+- **Rephrase rules docs**: `docs/REPHRASE_RULES_HU.md`, `docs/REPHRASE_RULES_RU.md`, `docs/REPHRASE_RULES_PL.md`.
+- **Parameterised fix script** (`scripts/fix-rephrase-questions-by-locale.ts`): `LANGUAGE=hu|ru|pl`; HU = full stem+option rephrase; RU/PL = replace list. Backup: `scripts/question-backups/REPHRASE_<LOCALE>_<timestamp>.json`.
+- **Generator**: RU and PL practice use `truncateAtWord(practice, 60)`; PL "feedback loop" → "szybką pętlę informacji zwrotnej", "mierzalny output" → "mierzalny wynik".
+- **Validator**: PL and VI bad-term check for "feedback loop" (PL: pętla informacji zwrotnej; VI: vòng phản hồi).
+
+### All-locales extension
+
+- **Audit script** (`scripts/audit-messy-content-hu.ts`): `LANGUAGE=hu|ru|pl|bg|tr|vi|id|pt|hi|ar`; per-locale bad-term lists (VI: feedback loop → vòng phản hồi); query by `lessonId` (_HU_/_RU_/_PL_/_BG_/_TR_/_VI_/_ID_/_PT_/_HI_/_AR_).
+- **Rephrase rules docs**: `docs/REPHRASE_RULES_{HU,RU,PL,BG,TR,VI,ID,PT,HI,AR}.md` (bad terms, script refs; placeholders for BG, TR, ID, PT, HI, AR).
+- **Fix script** (`scripts/fix-rephrase-questions-by-locale.ts`): `LANGUAGE=hu|ru|pl|bg|tr|vi|id|pt|hi|ar`; VI replace list: feedback loop → vòng phản hồi.
+- **Generator**: TR practice uses `truncateAtWord(practice, 60)`; BG practice uses truncateAtWord and "бърза обратна връзка" (no "feedback loop"); VI practice uses "vòng phản hồi" instead of "feedback loop".
 
 ---
 
