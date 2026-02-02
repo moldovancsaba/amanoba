@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T12:59:52.718Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_22",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_22",
+    "isActive": false,
+    "dayNumber": 22,
+    "title": "IT vs non-IT Scrum: mi változik, mi marad ugyanaz?"
+  }
+}

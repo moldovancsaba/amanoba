@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T05:12:43.409Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_14",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_14",
+    "isActive": false,
+    "dayNumber": 14,
+    "title": "Konfliktus mintázatok: PO vs Dev vs Stakeholder"
+  }
+}

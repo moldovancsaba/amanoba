@@ -99,10 +99,16 @@ export default function AdminLayout({
     fetch('/api/admin/access')
       .then(res => res.json())
       .then(data => {
+        if (data?.canAccessAdmin !== true) {
+          router.replace(`/${locale}/dashboard?error=admin_access_required`);
+          return;
+        }
         setIsEditorOnly(data.isEditorOnly === true);
       })
-      .catch(() => setIsEditorOnly(false));
-  }, []);
+      .catch(() => {
+        router.replace(`/${locale}/dashboard?error=admin_access_required`);
+      });
+  }, [locale, router]);
 
   const navigationItems =
     isEditorOnly === true

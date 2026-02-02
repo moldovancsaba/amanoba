@@ -822,3 +822,615 @@ Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_12`
 - Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-12.ts --apply`
 - Backup:
   - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-12__2026-02-01T04-14-11-816Z.json`
+
+---
+
+## Phase F — Day 13 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_13`
+
+### Lesson (HU)
+- Title: Retrospective: valódi javulás vs panaszkör
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-13.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-13.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_13__2026-02-01T04-17-18-980Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T04-17-27-173Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T04-17-35-102Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-13-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-13-quiz.ts --apply`
+  - Backup (final, balanced correctIndex distribution):
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_13__2026-02-01T04-19-01-911Z.json`
+
+### Publish Day 13 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-13.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-13.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-13__2026-02-01T04-19-17-552Z.json`
+
+---
+
+## Phase F — Day 14 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_14`
+
+### Lesson (HU)
+- Title: Konfliktus mintázatok: PO vs Dev vs Stakeholder
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-14.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-14.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_14__2026-02-01T05-11-19-375Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T05-11-28-003Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T05-11-31-187Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-14-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-14-quiz.ts --apply`
+  - Backup (final, balanced correctIndex distribution):
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_14__2026-02-01T05-12-27-726Z.json`
+
+### Publish Day 14 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-14.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-14.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-14__2026-02-01T05-12-43-409Z.json`
+
+---
+
+## Phase F — Day 15 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_15`
+
+### Lesson (HU)
+- Title: Döntés vagy kísérlet? Hogyan zárd le a végtelen vitákat
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-15.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-15.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_15__2026-02-01T05-15-40-267Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T05-15-50-113Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T05-15-53-307Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-15-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-15-quiz.ts --apply`
+  - Backup (final, balanced correctIndex distribution):
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_15__2026-02-01T05-16-36-892Z.json`
+
+### Publish Day 15 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-15.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-15.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-15__2026-02-01T05-16-51-714Z.json`
+
+---
+
+## Phase F — Day 16 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_16`
+
+### Lesson (HU)
+- Title: Metrikák kóstoló: flow + minőség + érték + egészség
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-16.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-16.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_16__2026-02-01T05-28-59-593Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T05-29-08-384Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T05-29-11-629Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-16-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-16-quiz.ts --apply`
+  - Backup (final, balanced correctIndex distribution):
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_16__2026-02-01T05-30-21-019Z.json`
+
+### Publish Day 16 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-16.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-16.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-16__2026-02-01T05-30-47-321Z.json`
+
+---
+
+## Phase F — Day 17 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_17`
+
+### Lesson (HU)
+- Title: Coaching mindset: kérdések, nem megoldások
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-17.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-17.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_17__2026-02-01T05-33-57-144Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T05-34-05-900Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T05-34-09-160Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-17-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-17-quiz.ts --apply`
+  - Backup (final, balanced correctIndex distribution):
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_17__2026-02-01T05-35-05-013Z.json`
+
+### Publish Day 17 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-17.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-17.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-17__2026-02-01T05-35-22-117Z.json`
+
+---
+
+## Phase F — Day 18 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_18`
+
+### Lesson (HU)
+- Title: Stakeholder management: elvárások és kommunikációs cadencia
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-18.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-18.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_18__2026-02-01T05-38-02-503Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T05-38-12-614Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T05-38-15-914Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-18-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-18-quiz.ts --apply`
+  - Backup (final, balanced correctIndex distribution):
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_18__2026-02-01T05-39-13-177Z.json`
+
+### Publish Day 18 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-18.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-18.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-18__2026-02-01T05-39-32-815Z.json`
+
+---
+
+## Phase F — Day 19 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_19`
+
+### Lesson (HU)
+- Title: Change management: új szokás 2 hetes kísérletként
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-19.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-19.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_19__2026-02-01T12-33-18-173Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T12-33-44-754Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T12-34-12-605Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-19-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-19-quiz.ts --apply`
+  - Backup (final, balanced correctIndex distribution):
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_19__2026-02-01T12-40-56-737Z.json`
+
+### Publish Day 19 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-19.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-19.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-19__2026-02-01T12-41-35-046Z.json`
+
+---
+
+## Phase F — Day 20 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_20`
+
+### Lesson (HU)
+- Title: Remote/hybrid Scrum: fókusz és meeting-higiénia
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-20.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-20.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_20__2026-02-01T12-47-27-353Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T12-47-39-173Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T12-47-43-391Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-20-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-20-quiz.ts --apply`
+  - Backup (final, balanced correctIndex distribution):
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_20__2026-02-01T12-48-27-952Z.json`
+
+### Publish Day 20 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-20.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-20.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-20__2026-02-01T12-48-57-330Z.json`
+
+---
+
+## Phase F — Day 21 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_21`
+
+### Lesson (HU)
+- Title: Skálázás kóstoló: mikor segít és mikor árt?
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-21.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-21.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_21__2026-02-01T12-52-17-456Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T12-52-27-096Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T12-52-31-055Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-21-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-21-quiz.ts --apply`
+  - Backup (final, balanced correctIndex distribution):
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_21__2026-02-01T12-54-08-942Z.json`
+
+### Publish Day 21 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-21.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-21.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-21__2026-02-01T12-54-26-887Z.json`
+
+---
+
+## Phase F — Day 22 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_22`
+
+### Lesson (HU)
+- Title: IT vs non-IT Scrum: mi változik, mi marad ugyanaz?
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-22.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-22.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_22__2026-02-01T12-59-11-708Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T12-59-16-185Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T12-59-19-980Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-22-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-22-quiz.ts --apply`
+  - Backup:
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_22__2026-02-01T12-59-27-266Z.json`
+- Quiz sample (review):
+  - `scripts/reports/quiz-sample__SCRUMMASTER_LESZEK_2026_HU_DAY_22__2026-02-01T12-59-45-928Z.json`
+
+### Publish Day 22 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-22.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-22.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-22__2026-02-01T12-59-52-718Z.json`
+
+---
+
+## Phase F — Day 23 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_23`
+
+### Lesson (HU)
+- Title: Kockázat és bizonytalanság: spike, discovery, prototípus
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-23.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-23.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_23__2026-02-01T13-03-58-837Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T13-04-09-306Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T13-04-13-129Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-23-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-23-quiz.ts --apply`
+  - Backup:
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_23__2026-02-01T13-04-21-318Z.json`
+- Quiz sample (review):
+  - `scripts/reports/quiz-sample__SCRUMMASTER_LESZEK_2026_HU_DAY_23__2026-02-01T13-04-28-088Z.json`
+
+### Publish Day 23 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-23.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-23.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-23__2026-02-01T13-04-33-304Z.json`
+
+---
+
+## Phase F — Day 24 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_24`
+
+### Lesson (HU)
+- Title: Minőség és technikai gyakorlatok kóstoló: mit kérdezz Scrum Masterként?
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-24.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-24.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_24__2026-02-01T13-04-46-953Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T13-04-55-891Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T13-04-59-785Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-24-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-24-quiz.ts --apply`
+  - Backup:
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_24__2026-02-01T13-05-05-297Z.json`
+- Quiz sample (review):
+  - `scripts/reports/quiz-sample__SCRUMMASTER_LESZEK_2026_HU_DAY_24__2026-02-01T13-05-12-228Z.json`
+
+### Publish Day 24 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-24.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-24.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-24__2026-02-01T13-05-17-730Z.json`
+
+---
+
+## Phase F — Day 25 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_25`
+
+### Lesson (HU)
+- Title: Eszközök és workflow higiénia: board, ami a valóságot mutatja
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-25.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-25.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_25__2026-02-01T13-16-06-363Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T13-16-10-884Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T13-16-14-871Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-25-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-25-quiz.ts --apply`
+  - Backup:
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_25__2026-02-01T13-16-21-755Z.json`
+- Quiz sample (review):
+  - `scripts/reports/quiz-sample__SCRUMMASTER_LESZEK_2026_HU_DAY_25__2026-02-01T13-16-33-657Z.json`
+
+### Publish Day 25 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-25.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-25.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-25__2026-02-01T13-16-37-916Z.json`
+
+---
+
+## Phase F — Day 26 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_26`
+
+### Lesson (HU)
+- Title: Karrier térkép: junior → mid → senior Scrum Master
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-26.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-26.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_26__2026-02-01T13-18-35-669Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T13-18-40-347Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T13-18-44-160Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-26-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-26-quiz.ts --apply`
+  - Backup:
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_26__2026-02-01T13-18-49-749Z.json`
+- Quiz sample (review):
+  - `scripts/reports/quiz-sample__SCRUMMASTER_LESZEK_2026_HU_DAY_26__2026-02-01T13-18-57-378Z.json`
+
+### Publish Day 26 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-26.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-26.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-26__2026-02-01T13-19-00-132Z.json`
+
+---
+
+## Phase F — Day 27 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_27`
+
+### Lesson (HU)
+- Title: Interjú kóstoló: kérdésminták és jó válasz struktúra
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-27.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-27.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_27__2026-02-01T13-20-55-355Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T13-21-00-339Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T13-21-06-311Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-27-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-27-quiz.ts --apply`
+  - Backup:
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_27__2026-02-01T13-21-54-697Z.json`
+- Quiz sample (review):
+  - `scripts/reports/quiz-sample__SCRUMMASTER_LESZEK_2026_HU_DAY_27__2026-02-01T13-22-04-212Z.json`
+
+### Publish Day 27 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-27.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-27.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-27__2026-02-01T13-22-06-623Z.json`
+
+---
+
+## Phase F — Day 28 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_28`
+
+### Lesson (HU)
+- Title: Etika és határok: mikor mondasz nemet?
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-28.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-28.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_28__2026-02-01T13-24-03-128Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T13-24-11-933Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T13-24-07-697Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-28-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-28-quiz.ts --apply`
+  - Backup:
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_28__2026-02-01T13-24-32-206Z.json`
+- Quiz sample (review):
+  - `scripts/reports/quiz-sample__SCRUMMASTER_LESZEK_2026_HU_DAY_28__2026-02-01T13-24-40-347Z.json`
+
+### Publish Day 28 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-28.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-28.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-28__2026-02-01T13-24-43-057Z.json`
+
+---
+
+## Phase F — Day 29 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_29`
+
+### Lesson (HU)
+- Title: Final exam felkészítés: tipikus szituáció minták
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-29.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-29.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_29__2026-02-01T13-26-43-891Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T13-26-48-548Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T13-26-52-439Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-29-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-29-quiz.ts --apply`
+  - Backup:
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_29__2026-02-01T13-26-57-892Z.json`
+- Quiz sample (review):
+  - `scripts/reports/quiz-sample__SCRUMMASTER_LESZEK_2026_HU_DAY_29__2026-02-01T13-27-05-917Z.json`
+
+### Publish Day 29 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-29.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-29.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-29__2026-02-01T13-27-08-699Z.json`
+
+---
+
+## Phase F — Day 30 Lesson + Quiz — 2026-02-01
+
+Target lessonId: `SCRUMMASTER_LESZEK_2026_HU_DAY_30`
+
+### Lesson (HU)
+- Title: Zárás: Scrum Master playbook v1 + tanúsítvány terv
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-30.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-30.ts --apply`
+  - Backup:
+    - `scripts/lesson-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_30__2026-02-01T13-29-12-285Z.json`
+
+### Lesson audits (include inactive drafts)
+- Lesson quality report:
+  - `scripts/reports/lesson-quality-audit__2026-02-01T13-29-17-120Z.json`
+- Lesson language integrity report:
+  - `scripts/reports/lesson-language-integrity-audit__2026-02-01T13-29-21-145Z.json`
+
+### Quiz (7, standalone, 0 recall)
+- Applied via backup-first script:
+  - Script: `scripts/apply-scrummaster-leszek-2026-hu-day-30-quiz.ts`
+  - Command (apply): `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-30-quiz.ts --apply`
+  - Backup:
+    - `scripts/quiz-backups/SCRUMMASTER_LESZEK_2026_HU/SCRUMMASTER_LESZEK_2026_HU_DAY_30__2026-02-01T13-29-28-018Z.json`
+- Quiz sample (review):
+  - `scripts/reports/quiz-sample__SCRUMMASTER_LESZEK_2026_HU_DAY_30__2026-02-01T13-29-35-866Z.json`
+
+### Publish Day 30 (visibility)
+- Script: `scripts/publish-scrummaster-leszek-2026-hu-day-30.ts`
+- Command (apply): `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-30.ts --apply`
+- Backup:
+  - `scripts/course-backups/SCRUMMASTER_LESZEK_2026_HU/publish-day-30__2026-02-01T13-29-38-532Z.json`

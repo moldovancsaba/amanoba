@@ -28,18 +28,7 @@ This document describes **what we want to build in the future** and **what benef
 
 ## Future Functions We Want to Implement
 
-_(Nothing delivered or already on TASKLIST appears here. Delivered work: RELEASE_NOTES.md. Current tasks: TASKLIST.md.)_
-
----
-
-### Certificate enhancements (remaining)
-
-**What we want:** Dynamic pass rules; A/B testing of certificate designs.
-
-**Client benefits:**
-
-- Learners get certificates that fit their course and language
-- Learners can showcase completion on LinkedIn and elsewhere more easily
+_(Nothing delivered or already on TASKLIST appears here. Delivered work: RELEASE_NOTES.md. Current tasks: TASKLIST.md. Certificate tooling — pass rules, template A/B — is delivered; see RELEASE_NOTES.)_
 
 ---
 

@@ -56,6 +56,12 @@ LIMIT_PAIRS=1 LIMIT_GROUPS=1 OLLAMA_MODEL=llama3.1:8b npx tsx --env-file=.env.lo
 OLLAMA_MODEL=llama3.1:8b npx tsx --env-file=.env.local scripts/fix-duplicates-from-report.ts --apply
 ```
 
+**Apply for one course only** (recommended to avoid long runs):
+
+```bash
+COURSE_ID=GEO_SHOPIFY_30_EN OLLAMA_MODEL=llama3.1:8b npx tsx --env-file=.env.local scripts/fix-duplicates-from-report.ts --apply
+```
+
 **With OpenAI instead of Ollama:** Omit `OLLAMA_MODEL`; set `OPENAI_API_KEY` in `.env.local`.
 
 **What it does**: For each duplicate pair, generates one new MCQ from the lesson (LLM), inserts it, **deletes** one of the pair. For each similar-answer group, paraphrases the repeated option and updates each question’s option. Backup: `scripts/question-backups/FIX_DUPLICATES_<timestamp>.json`.

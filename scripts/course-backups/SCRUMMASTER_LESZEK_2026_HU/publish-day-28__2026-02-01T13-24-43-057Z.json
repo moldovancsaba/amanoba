@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T13:24:43.057Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_28",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_28",
+    "isActive": false,
+    "dayNumber": 28,
+    "title": "Etika és határok: mikor mondasz nemet?"
+  }
+}

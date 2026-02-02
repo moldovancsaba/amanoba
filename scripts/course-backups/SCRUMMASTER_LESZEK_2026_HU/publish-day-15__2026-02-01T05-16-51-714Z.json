@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T05:16:51.714Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_15",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_15",
+    "isActive": false,
+    "dayNumber": 15,
+    "title": "Döntés vagy kísérlet? Hogyan zárd le a végtelen vitákat"
+  }
+}

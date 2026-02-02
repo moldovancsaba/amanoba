@@ -31,6 +31,8 @@ const FIX_DUPLICATES = process.env.FIX_DUPLICATES !== 'false';
 const FIX_ANSWERS = process.env.FIX_ANSWERS !== 'false';
 const LIMIT_PAIRS = process.env.LIMIT_PAIRS ? parseInt(process.env.LIMIT_PAIRS, 10) : 0;
 const LIMIT_GROUPS = process.env.LIMIT_GROUPS ? parseInt(process.env.LIMIT_GROUPS, 10) : 0;
+/** Optional: only process pairs/groups for this courseId (e.g. GEO_SHOPIFY_30_EN). Empty = all. */
+const COURSE_ID_FILTER = process.env.COURSE_ID || '';
 
 const MCQ_PROMPT = `ROLE: You are an assessment writer. Your job is to create high-quality multiple-choice questions (MCQs) from the lesson text I provide.
 
@@ -306,6 +308,7 @@ async function main() {
 
   const allPairs: Array<{ pair: DuplicatePair; lessonId: string; courseId: string }> = [];
   for (const les of report.byLesson || []) {
+    if (COURSE_ID_FILTER && les.courseId !== COURSE_ID_FILTER) continue;
     for (const pair of les.duplicatePairs || []) {
       allPairs.push({ pair, lessonId: pair.lessonIdA, courseId: les.courseId });
     }
@@ -314,6 +317,7 @@ async function main() {
     new Map(allPairs.map((p) => [`${p.pair.questionIdA}:${p.pair.questionIdB}`, p])).values()
   );
   const pairsToProcess = LIMIT_PAIRS ? dedupedPairs.slice(0, LIMIT_PAIRS) : dedupedPairs;
+  if (COURSE_ID_FILTER) console.log('Course filter:', COURSE_ID_FILTER, '— pairs in scope:', dedupedPairs.length);
 
   if (FIX_DUPLICATES && pairsToProcess.length > 0) {
     console.log('\n--- Fix duplicate pairs (create new question + DELETE one of pair) ---\n');
@@ -373,13 +377,15 @@ async function main() {
     }
   }
 
-  const allGroups: Array<{ group: SimilarAnswerGroup; lessonId: string }> = [];
+  const allGroups: Array<{ group: SimilarAnswerGroup; lessonId: string; courseId: string }> = [];
   for (const les of report.byLesson || []) {
+    if (COURSE_ID_FILTER && les.courseId !== COURSE_ID_FILTER) continue;
     for (const group of les.similarAnswerGroups || []) {
-      allGroups.push({ group, lessonId: les.lessonId });
+      allGroups.push({ group, lessonId: les.lessonId, courseId: les.courseId });
     }
   }
   const groupsToProcess = LIMIT_GROUPS ? allGroups.slice(0, LIMIT_GROUPS) : allGroups;
+  if (COURSE_ID_FILTER) console.log('Course filter:', COURSE_ID_FILTER, '— similar-answer groups in scope:', allGroups.length);
 
   if (FIX_ANSWERS && groupsToProcess.length > 0) {
     console.log('\n--- Rewrite similar answers (paraphrase) ---\n');

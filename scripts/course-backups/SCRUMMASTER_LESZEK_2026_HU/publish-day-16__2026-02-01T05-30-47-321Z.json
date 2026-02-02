@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T05:30:47.321Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_16",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_16",
+    "isActive": false,
+    "dayNumber": 16,
+    "title": "Metrikák kóstoló: flow + minőség + érték + egészség"
+  }
+}

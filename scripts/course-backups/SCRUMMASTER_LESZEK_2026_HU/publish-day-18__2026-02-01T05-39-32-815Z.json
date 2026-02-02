@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T05:39:32.815Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_18",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_18",
+    "isActive": false,
+    "dayNumber": 18,
+    "title": "Stakeholder management: elvárások és kommunikációs cadencia"
+  }
+}

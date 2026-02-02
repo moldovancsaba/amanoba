@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T13:27:08.699Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_29",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_29",
+    "isActive": false,
+    "dayNumber": 29,
+    "title": "Final exam felkészítés: tipikus szituáció minták"
+  }
+}

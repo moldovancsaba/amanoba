@@ -106,7 +106,7 @@
   - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-09.ts --apply`
 
 ## Next command
-`Draft Day 11 (HU) in the run log, then apply it to SCRUMMASTER_LESZEK_2026_HU_DAY_11 via a backup-first script (keep isActive=false until lesson + quiz is ready).`
+`Run a full verification pass: list lessons (Days 1–30 active), then (optional) start final exam as a free user to confirm entitlement is not required.`
 
 ## Phase F — Lessons (continued)
 - [x] Apply Day 10 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_10` (backup-first script):
@@ -136,3 +136,192 @@
   - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-12-quiz.ts --apply`
 - [x] Publish Day 12 lesson for student-facing visibility:
   - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-12.ts --apply`
+
+- [x] Apply Day 13 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_13` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-13.ts --apply`
+- [x] Run lesson audits (after Day 13 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 13 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_13`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-13-quiz.ts --apply`
+  - [x] Re-applied after fixing correct answer position imbalance (same script + new backup)
+- [x] Publish Day 13 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-13.ts --apply`
+
+- [x] Apply Day 14 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_14` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-14.ts --apply`
+- [x] Run lesson audits (after Day 14 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 14 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_14`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-14-quiz.ts --apply`
+  - [x] Re-applied after balancing correct answer positions (same script + new backup)
+- [x] Publish Day 14 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-14.ts --apply`
+
+- [x] Apply Day 15 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_15` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-15.ts --apply`
+- [x] Run lesson audits (after Day 15 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 15 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_15`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-15-quiz.ts --apply`
+  - [x] Re-applied after balancing correct answer positions (same script + new backup)
+- [x] Publish Day 15 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-15.ts --apply`
+
+- [x] Apply Day 16 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_16` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-16.ts --apply`
+- [x] Run lesson audits (after Day 16 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 16 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_16`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-16-quiz.ts --apply`
+  - [x] Re-applied after balancing correct answer positions (same script + new backup)
+- [x] Publish Day 16 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-16.ts --apply`
+
+- [x] Apply Day 17 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_17` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-17.ts --apply`
+- [x] Run lesson audits (after Day 17 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 17 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_17`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-17-quiz.ts --apply`
+  - [x] Re-applied after balancing correct answer positions (same script + new backup)
+- [x] Publish Day 17 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-17.ts --apply`
+
+- [x] Apply Day 18 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_18` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-18.ts --apply`
+- [x] Run lesson audits (after Day 18 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 18 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_18`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-18-quiz.ts --apply`
+  - [x] Re-applied after balancing correct answer positions (same script + new backup)
+- [x] Publish Day 18 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-18.ts --apply`
+
+- [x] Apply Day 19 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_19` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-19.ts --apply`
+- [x] Run lesson audits (after Day 19 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 19 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_19`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-19-quiz.ts --apply`
+  - [x] Re-applied after balancing correct answer positions (same script + new backup)
+- [x] Publish Day 19 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-19.ts --apply`
+
+- [x] Apply Day 20 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_20` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-20.ts --apply`
+- [x] Run lesson audits (after Day 20 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 20 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_20`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-20-quiz.ts --apply`
+  - [x] Re-applied after balancing correct answer positions (same script + new backup)
+- [x] Publish Day 20 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-20.ts --apply`
+
+- [x] Apply Day 21 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_21` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-21.ts --apply`
+- [x] Run lesson audits (after Day 21 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 21 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_21`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-21-quiz.ts --apply`
+  - [x] Re-applied after balancing correct answer positions (same script + new backup)
+- [x] Publish Day 21 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-21.ts --apply`
+
+- [x] Apply Day 22 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_22` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-22.ts --apply`
+- [x] Run lesson audits (after Day 22 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 22 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_22`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-22-quiz.ts --apply`
+- [x] Publish Day 22 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-22.ts --apply`
+
+- [x] Apply Day 23 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_23` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-23.ts --apply`
+- [x] Run lesson audits (after Day 23 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 23 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_23`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-23-quiz.ts --apply`
+- [x] Publish Day 23 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-23.ts --apply`
+
+- [x] Apply Day 24 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_24` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-24.ts --apply`
+- [x] Run lesson audits (after Day 24 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 24 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_24`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-24-quiz.ts --apply`
+- [x] Publish Day 24 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-24.ts --apply`
+
+- [x] Apply Day 25 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_25` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-25.ts --apply`
+- [x] Run lesson audits (after Day 25 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 25 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_25`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-25-quiz.ts --apply`
+- [x] Publish Day 25 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-25.ts --apply`
+
+- [x] Apply Day 26 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_26` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-26.ts --apply`
+- [x] Run lesson audits (after Day 26 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 26 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_26`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-26-quiz.ts --apply`
+- [x] Publish Day 26 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-26.ts --apply`
+
+- [x] Apply Day 27 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_27` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-27.ts --apply`
+- [x] Run lesson audits (after Day 27 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 27 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_27`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-27-quiz.ts --apply`
+- [x] Publish Day 27 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-27.ts --apply`
+
+- [x] Apply Day 28 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_28` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-28.ts --apply`
+- [x] Run lesson audits (after Day 28 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 28 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_28`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-28-quiz.ts --apply`
+- [x] Publish Day 28 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-28.ts --apply`
+
+- [x] Apply Day 29 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_29` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-29.ts --apply`
+- [x] Run lesson audits (after Day 29 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 29 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_29`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-29-quiz.ts --apply`
+- [x] Publish Day 29 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-29.ts --apply`
+
+- [x] Apply Day 30 lesson content into `SCRUMMASTER_LESZEK_2026_HU_DAY_30` (backup-first script):
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-30.ts --apply`
+- [x] Run lesson audits (after Day 30 is applied):
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course SCRUMMASTER_LESZEK_2026_HU --min-score 70 --include-inactive`
+  - [x] `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course SCRUMMASTER_LESZEK_2026_HU --include-inactive`
+- [x] Apply Day 30 quiz questions (7, standalone, 0 recall) into `SCRUMMASTER_LESZEK_2026_HU_DAY_30`:
+  - [x] `npx tsx --env-file=.env.local scripts/apply-scrummaster-leszek-2026-hu-day-30-quiz.ts --apply`
+- [x] Publish Day 30 lesson for student-facing visibility:
+  - [x] `npx tsx --env-file=.env.local scripts/publish-scrummaster-leszek-2026-hu-day-30.ts --apply`

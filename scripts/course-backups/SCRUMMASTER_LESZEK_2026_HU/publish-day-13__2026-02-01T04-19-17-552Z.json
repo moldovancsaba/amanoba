@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T04:19:17.552Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_13",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_13",
+    "isActive": false,
+    "dayNumber": 13,
+    "title": "Retrospective: valódi javulás vs panaszkör"
+  }
+}

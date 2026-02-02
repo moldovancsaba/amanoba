@@ -1,11 +1,10 @@
 /**
  * Email Service
- * 
+ *
  * What: Handles sending emails for course lessons and notifications
- * Why: Centralized email delivery using Resend API for daily lesson emails
+ * Why: Centralized email delivery via configurable transport (Resend, SMTP/Gmail/Mailgun)
  */
 
-import { Resend } from 'resend';
 import { logger } from '../logger';
 import connectDB from '../mongodb';
 import { Player, Course, EmailActivity } from '@/app/lib/models';
@@ -27,24 +26,41 @@ import {
 } from './email-localization';
 import { getCourseRecommendations } from '@/app/lib/course-recommendations';
 import { validateLessonTextLanguageIntegrity } from '@/app/lib/quality/language-integrity';
-
-// Initialize Resend client
-// Why: Resend is modern, developer-friendly email service
-// Note: API key may be missing during build - will fail gracefully at runtime
-const resend = process.env.RESEND_API_KEY
-  ? new Resend(process.env.RESEND_API_KEY)
-  : null;
+import { getEmailTransport } from './transports';
 
 /**
  * Email Configuration
- * 
- * Why: Centralized email settings from environment variables
+ *
+ * Why: Centralized email settings from environment variables (used by all transports)
  */
 const EMAIL_CONFIG = {
   from: process.env.EMAIL_FROM || 'noreply@amanoba.com',
   fromName: process.env.EMAIL_FROM_NAME || 'Amanoba Learning',
   replyTo: process.env.EMAIL_REPLY_TO || 'support@amanoba.com',
 };
+
+function getFromHeader(): string {
+  return `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`;
+}
+
+/** Send one email via the configured transport (Resend or SMTP). */
+async function sendViaTransport(
+  to: string,
+  subject: string,
+  html: string
+): Promise<{ success: boolean; messageId?: string; error?: string }> {
+  const transport = getEmailTransport();
+  if (!transport.isConfigured()) {
+    return { success: false, error: 'Email service not configured' };
+  }
+  return transport.send({
+    from: getFromHeader(),
+    to,
+    subject,
+    html,
+    replyTo: EMAIL_CONFIG.replyTo,
+  });
+}
 
 /** Brand CTA and email design tokens (align with design-system.css and THEME_COLOR) */
 const EMAIL_TOKENS = {
@@ -283,24 +299,13 @@ export async function sendLessonEmail(
       return { success: false, error: integrity.errors[0] || 'Language integrity failure' };
     }
 
-    // Check if Resend is initialized
-    if (!resend) {
-      logger.error({ playerId, courseId }, 'Resend API key not configured');
-      return { success: false, error: 'Email service not configured' };
-    }
-
-    // Send email via Resend
-    const { data: _data, error } = await resend.emails.send({
-      from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
-      to: player.email,
-      subject,
-      html: body,
-      replyTo: EMAIL_CONFIG.replyTo,
-    });
-
-    if (error) {
-      logger.error({ error, playerId, courseId, lessonId: lesson._id }, 'Failed to send lesson email');
-      return { success: false, error: error.message };
+    const result = await sendViaTransport(player.email, subject, body);
+    if (!result.success) {
+      logger.error(
+        { error: result.error, playerId, courseId, lessonId: lesson._id },
+        'Failed to send lesson email'
+      );
+      return { success: false, error: result.error ?? 'Email send failed' };
     }
 
     const brandId = (player as { brandId?: unknown }).brandId;
@@ -391,23 +396,10 @@ export async function sendWelcomeEmail(
       return { success: false, error: integrity.errors[0] || 'Language integrity failure' };
     }
 
-    // Check if Resend is initialized
-    if (!resend) {
-      logger.error({ playerId, courseId }, 'Resend API key not configured');
-      return { success: false, error: 'Email service not configured' };
-    }
-
-    const { data: _data, error } = await resend.emails.send({
-      from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
-      to: player.email,
-      subject,
-      html: body,
-      replyTo: EMAIL_CONFIG.replyTo,
-    });
-
-    if (error) {
-      logger.error({ error, playerId, courseId }, 'Failed to send welcome email');
-      return { success: false, error: error.message };
+    const result = await sendViaTransport(player.email, subject, body);
+    if (!result.success) {
+      logger.error({ error: result.error, playerId, courseId }, 'Failed to send welcome email');
+      return { success: false, error: result.error ?? 'Email send failed' };
     }
 
     const brandId = (player as { brandId?: unknown }).brandId;
@@ -512,23 +504,10 @@ export async function sendCompletionEmail(
       return { success: false, error: integrity.errors[0] || 'Language integrity failure' };
     }
 
-    // Check if Resend is initialized
-    if (!resend) {
-      logger.error({ playerId, courseId }, 'Resend API key not configured');
-      return { success: false, error: 'Email service not configured' };
-    }
-
-    const { data: _data, error } = await resend.emails.send({
-      from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
-      to: player.email,
-      subject,
-      html: body,
-      replyTo: EMAIL_CONFIG.replyTo,
-    });
-
-    if (error) {
-      logger.error({ error, playerId, courseId }, 'Failed to send completion email');
-      return { success: false, error: error.message };
+    const result = await sendViaTransport(player.email, subject, body);
+    if (!result.success) {
+      logger.error({ error: result.error, playerId, courseId }, 'Failed to send completion email');
+      return { success: false, error: result.error ?? 'Email send failed' };
     }
 
     const brandId = (player as { brandId?: unknown }).brandId;
@@ -633,23 +612,13 @@ export async function sendReminderEmail(
       return { success: false, error: integrity.errors[0] || 'Language integrity failure' };
     }
 
-    // Check if Resend is initialized
-    if (!resend) {
-      logger.error({ playerId, courseId, dayNumber }, 'Resend API key not configured');
-      return { success: false, error: 'Email service not configured' };
-    }
-
-    const { error } = await resend.emails.send({
-      from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
-      to: player.email,
-      subject,
-      html: body,
-      replyTo: EMAIL_CONFIG.replyTo,
-    });
-
-    if (error) {
-      logger.error({ error, playerId, courseId, dayNumber }, 'Failed to send reminder email');
-      return { success: false, error: error.message };
+    const result = await sendViaTransport(player.email, subject, body);
+    if (!result.success) {
+      logger.error(
+        { error: result.error, playerId, courseId, dayNumber },
+        'Failed to send reminder email'
+      );
+      return { success: false, error: result.error ?? 'Email send failed' };
     }
 
     const brandId = (player as { brandId?: unknown }).brandId;
@@ -796,23 +765,13 @@ export async function sendPaymentConfirmationEmail(
       return { success: false, error: integrity.errors[0] || 'Language integrity failure' };
     }
 
-    // Check if Resend is initialized
-    if (!resend) {
-      logger.error({ playerId, courseId }, 'Resend API key not configured');
-      return { success: false, error: 'Email service not configured' };
-    }
-
-    const { error } = await resend.emails.send({
-      from: `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`,
-      to: player.email,
-      subject: rendered.subject,
-      html: finalBody,
-      replyTo: EMAIL_CONFIG.replyTo,
-    });
-
-    if (error) {
-      logger.error({ error, playerId, courseId, transactionId }, 'Failed to send payment confirmation email');
-      return { success: false, error: error.message };
+    const result = await sendViaTransport(player.email, rendered.subject, finalBody);
+    if (!result.success) {
+      logger.error(
+        { error: result.error, playerId, courseId, transactionId },
+        'Failed to send payment confirmation email'
+      );
+      return { success: false, error: result.error ?? 'Email send failed' };
     }
 
     const brandId = (player as { brandId?: unknown }).brandId;

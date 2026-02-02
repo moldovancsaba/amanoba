@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T12:41:35.047Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_19",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_19",
+    "isActive": false,
+    "dayNumber": 19,
+    "title": "Change management: új szokás 2 hetes kísérletként"
+  }
+}

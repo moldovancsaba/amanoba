@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T13:22:06.623Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_27",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_27",
+    "isActive": false,
+    "dayNumber": 27,
+    "title": "Interjú kóstoló: kérdésminták és jó válasz struktúra"
+  }
+}

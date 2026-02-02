@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T13:29:38.532Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_30",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_30",
+    "isActive": false,
+    "dayNumber": 30,
+    "title": "Zárás: Scrum Master playbook v1 + tanúsítvány terv"
+  }
+}

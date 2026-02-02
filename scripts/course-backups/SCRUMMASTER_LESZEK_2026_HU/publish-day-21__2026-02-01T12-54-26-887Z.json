@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T12:54:26.887Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_21",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_21",
+    "isActive": false,
+    "dayNumber": 21,
+    "title": "Skálázás kóstoló: mikor segít és mikor árt?"
+  }
+}

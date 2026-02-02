@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T13:05:17.730Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_24",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_24",
+    "isActive": false,
+    "dayNumber": 24,
+    "title": "Minőség és technikai gyakorlatok kóstoló: mit kérdezz Scrum Masterként?"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-02-01T05:33:57.144Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_17",
+  "title": "Coaching mindset: kérdések, nem megoldások",
+  "content": "<h1>Coaching mindset: kérdések, nem megoldások</h1>\n<p><em>Kurzussablon (vázlat). A tartalom a CCS és az outline alapján kerül kidolgozásra.</em></p>\n<hr />\n<h2>Napi cél</h2>\n<ul><li>Konkrét kimenet elkészítése (dokumentum/szabály/agenda)</li></ul>\n<hr />\n<h2>Fő tartalom</h2>\n<p>Vázlat. (A végleges változatnak át kell mennie a minőség auditon: score >= 70.)</p>\n<hr />\n<h2>Akció</h2>\n<p>Vázlat. (Konkrét feladat, amit a tanuló elvégez ma.)</p>",
+  "emailSubject": "ScrumMaster leszek 2026 — 17. nap: Coaching mindset: kérdések, nem megoldások",
+  "emailBody": "<h1>{{courseName}}</h1>\n<h2>{{dayNumber}}. nap: {{lessonTitle}}</h2>\n<div>{{lessonContent}}</div>\n<p><a href=\"{{appUrl}}/courses/SCRUMMASTER_LESZEK_2026_HU/day/{{dayNumber}}\">Olvasd el a teljes leckét →</a></p>"
+}

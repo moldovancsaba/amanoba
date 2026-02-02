@@ -1,0 +1,618 @@
+[
+  {
+    "_id": "697e82782e66c314ac37540c",
+    "language": "hu",
+    "before": {
+      "question": "Egy futam felülvizsgálat-n a csapat bemutat egy új funkciót, de a stakeholder-ek csendben maradnak, így nincs döntés. Melyik facilitáció hozza legnagyobb eséllyel a szükséges ellenőrzést és alkalmazkodást?",
+      "options": [
+        "A csapat részletesen elmagyarázza a technikai megoldást, mert a stakeholder-ek biztosan azért hallgatnak, mert nem értik a részleteket.",
+        "A meeting végén mindenki kap egy kérdőívet, de nincs közös beszélgetés és nincs döntés arról, mi változik a következő Sprintben.",
+        "A Scrum Master 3 konkrét kérdéssel vezeti a beszélgetést: mi volt a legértékesebb, mi hiányzott, milyen kockázatot látsz; majd rögzítenek 1–2 döntést a Product feladatlista következő lépéseiről.",
+        "A felülvizsgálat-t átrakják heti státusz meetinggé, és a stakeholder-eknek csak a készültségi százalékot mutatják meg."
+      ]
+    },
+    "after": {
+      "question": "Egy futam felülvizsgálat-n a csapat bemutat egy új funkciót, de a érdekelt-ek csendben maradnak, így nincs döntés. Melyik facilitáció hozza legnagyobb eséllyel a szükséges ellenőrzést és alkalmazkodást?",
+      "options": [
+        "A csapat részletesen elmagyarázza a technikai megoldást, mert a érdekelt-ek biztosan azért hallgatnak, mert nem értik a részleteket.",
+        "A meeting végén mindenki kap egy kérdőívet, de nincs közös beszélgetés és nincs döntés arról, mi változik a következő Sprintben.",
+        "A Scrum Master 3 konkrét kérdéssel vezeti a beszélgetést: mi volt a legértékesebb, mi hiányzott, milyen kockázatot látsz; majd rögzítenek 1–2 döntést a Product feladatlista következő lépéseiről.",
+        "A felülvizsgálat-t átrakják heti státusz meetinggé, és a érdekelt-eknek csak a készültségi százalékot mutatják meg."
+      ]
+    }
+  },
+  {
+    "_id": "697e9bc05142aea322937c92",
+    "language": "hu",
+    "before": {
+      "question": "Egy vezető beül a Daily-re és státuszt kér egyenként. Mi a legjobb megoldás, ami megőrzi a Daily célját és a vezető igényét is kezeli?",
+      "options": [
+        "A vezetőt kitiltod minden megbeszélésről, mert a vezetők mindig zavarnak.",
+        "A Daily-t átalakítod státusz meetinggé, mert így a vezető elégedett lesz.",
+        "A Daily-t megvéded koordinációs eseményként, és külön 10 perces státusz csatornát ajánlasz (külön meeting vagy dashboard), ami a vezető igényét kielégíti.",
+        "A csapat tagjait kéred, hogy röviden jelentsenek, és a koordinációt majd utólag egyeztetik külön."
+      ]
+    },
+    "after": {
+      "question": "Egy vezető beül a Daily-re és státuszt kér egyenként. Mi a legjobb megoldás, ami megőrzi a Daily célját és a vezető igényét is kezeli?",
+      "options": [
+        "A vezetőt kitiltod minden megbeszélésről, mert a vezetők mindig zavarnak.",
+        "A Daily-t átalakítod státusz meetinggé, mert így a vezető elégedett lesz.",
+        "A Daily-t megvéded koordinációs eseményként, és külön 10 perces státusz csatornát ajánlasz (külön meeting vagy irányítópult), ami a vezető igényét kielégíti.",
+        "A csapat tagjait kéred, hogy röviden jelentsenek, és a koordinációt majd utólag egyeztetik külön."
+      ]
+    }
+  },
+  {
+    "_id": "697ed3042b3c28fab1e3f253",
+    "language": "hu",
+    "before": {
+      "question": "Egy futam felülvizsgálat-ra valaki hoz egy 15 perces státusz riportot (feladatlista, százalékok), de a stakeholder nem érti az értéket. Mi a legjobb átterelés?",
+      "options": [
+        "Átkeretezed: inkrementum bemutatása + „mi változott a felhasználónak/üzletnek” + rövid kérdések a visszajelzéshez.",
+        "Hagyod végigmenni a riportot, mert a státusz minden meeting alapja.",
+        "Kéred, hogy a csapat tagjai mentegetőzzenek, miért nincs több kész feladat.",
+        "A felülvizsgálat helyett azonnal egy órás feladatlista groomingot tartotok."
+      ]
+    },
+    "after": {
+      "question": "Egy futam felülvizsgálat-ra valaki hoz egy 15 perces státusz riportot (feladatlista, százalékok), de a érdekelt nem érti az értéket. Mi a legjobb átterelés?",
+      "options": [
+        "Átkeretezed: inkrementum bemutatása + „mi változott a felhasználónak/üzletnek” + rövid kérdések a visszajelzéshez.",
+        "Hagyod végigmenni a riportot, mert a státusz minden meeting alapja.",
+        "Kéred, hogy a csapat tagjai mentegetőzzenek, miért nincs több kész feladat.",
+        "A felülvizsgálat helyett azonnal egy órás feladatlista groomingot tartotok."
+      ]
+    }
+  },
+  {
+    "_id": "697ed3042b3c28fab1e3f254",
+    "language": "hu",
+    "before": {
+      "question": "A bemutató közben a stakeholder azt mondja: „Ez nem ilyen kellett.” Mi a legjobb válasz, hogy a visszajelzés hasznos legyen és ne személyeskedés?",
+      "options": [
+        "Visszavágsz: „De ezt kértétek.”",
+        "Láthatóan rögzíted a feedbacket, majd pontosítasz: „Mi hiányzik konkrétan, milyen példával?” és döntésre viszed (most/owner/feladatlista).",
+        "Megszakítod a meetinget, mert a negatív visszajelzés tönkreteszi a hangulatot.",
+        "Kijelented, hogy a stakeholdernek nincs joga beleszólni a megoldásba."
+      ]
+    },
+    "after": {
+      "question": "A bemutató közben a érdekelt azt mondja: „Ez nem ilyen kellett.” Mi a legjobb válasz, hogy a visszajelzés hasznos legyen és ne személyeskedés?",
+      "options": [
+        "Visszavágsz: „De ezt kértétek.”",
+        "Láthatóan rögzíted a feedbacket, majd pontosítasz: „Mi hiányzik konkrétan, milyen példával?” és döntésre viszed (most/owner/feladatlista).",
+        "Megszakítod a meetinget, mert a negatív visszajelzés tönkreteszi a hangulatot.",
+        "Kijelented, hogy a stakeholdernek nincs joga beleszólni a megoldásba."
+      ]
+    }
+  },
+  {
+    "_id": "697ed3042b3c28fab1e3f255",
+    "language": "hu",
+    "before": {
+      "question": "Egy felülvizsgálat-on 10 különböző igény érkezik egyszerre, és a beszélgetés szétesik. Mi a legjobb keret, hogy döntés is szülessen?",
+      "options": [
+        "Minden igényt azonnal beígértek a következő Sprintre, hogy elégedettek legyenek.",
+        "Timeboxot adsz, kategóriákba rendezed a feedbacket (érték/kockázat/UX), majd kiválasztjátok a top 1–2 témát és a többit backlogba viszitek ownerrel.",
+        "A témákat nem rögzíted, mert úgyis minden változik.",
+        "A döntést teljesen a fejlesztőkre bízod, a stakeholder véleményét nem kéred."
+      ]
+    },
+    "after": {
+      "question": "Egy felülvizsgálat-on 10 különböző igény érkezik egyszerre, és a beszélgetés szétesik. Mi a legjobb keret, hogy döntés is szülessen?",
+      "options": [
+        "Minden igényt azonnal beígértek a következő Sprintre, hogy elégedettek legyenek.",
+        "Timeboxot adsz, kategóriákba rendezed a feedbacket (érték/kockázat/UX), majd kiválasztjátok a top 1–2 témát és a többit backlogba viszitek ownerrel.",
+        "A témákat nem rögzíted, mert úgyis minden változik.",
+        "A döntést teljesen a fejlesztőkre bízod, a érdekelt véleményét nem kéred."
+      ]
+    }
+  },
+  {
+    "_id": "697ed3042b3c28fab1e3f257",
+    "language": "hu",
+    "before": {
+      "question": "Egy stakeholder a felülvizsgálat végén azt kéri: „Döntsétek el most, hogy pontosan mikor lesz kész a következő 3 hónap!” Mi a legjobb válasz, ami megőrzi az empirikus működést?",
+      "options": [
+        "Azonnal fix dátumot mondasz mindenre, hogy megnyugodjon.",
+        "Elmagyarázod, hogy a felülvizsgálat célja az inkrementum és a feladatlista adaptálása; rövid távú forecastot adhattok, de a részleteket iteratívan pontosítjátok a visszajelzés alapján.",
+        "Azt mondod, hogy a Scrum nem tervez, ezért semmit nem lehet megmondani.",
+        "A kérdést figyelmen kívül hagyod és gyorsan lezárod a meetinget."
+      ]
+    },
+    "after": {
+      "question": "Egy érdekelt a felülvizsgálat végén azt kéri: „Döntsétek el most, hogy pontosan mikor lesz kész a következő 3 hónap!” Mi a legjobb válasz, ami megőrzi az empirikus működést?",
+      "options": [
+        "Azonnal fix dátumot mondasz mindenre, hogy megnyugodjon.",
+        "Elmagyarázod, hogy a felülvizsgálat célja az inkrementum és a feladatlista adaptálása; rövid távú forecastot adhattok, de a részleteket iteratívan pontosítjátok a visszajelzés alapján.",
+        "Azt mondod, hogy a Scrum nem tervez, ezért semmit nem lehet megmondani.",
+        "A kérdést figyelmen kívül hagyod és gyorsan lezárod a meetinget."
+      ]
+    }
+  },
+  {
+    "_id": "697ed3042b3c28fab1e3f258",
+    "language": "hu",
+    "before": {
+      "question": "Két stakeholder ellentétes feedbacket ad: az egyik gyorsabb funkciót kér, a másik stabilitást és kevesebb hibát. Mi a legjobb következő lépés, hogy a feladatlista döntés ne ad-hoc legyen?",
+      "options": [
+        "Mindkettőt megígéred ugyanarra az időszakra, mert így mindenki elégedett.",
+        "A hangosabb stakeholder kérését választod automatikusan.",
+        "Rögzíted mindkettőt, majd közös keretet kérsz: érték/kockázat, célcsoport, mérhető siker; ennek alapján PO-val priorizált feladatlista döntés készül.",
+        "Kidobod a feedbacket, mert ellentmondásos."
+      ]
+    },
+    "after": {
+      "question": "Két érdekelt ellentétes feedbacket ad: az egyik gyorsabb funkciót kér, a másik stabilitást és kevesebb hibát. Mi a legjobb következő lépés, hogy a feladatlista döntés ne ad-hoc legyen?",
+      "options": [
+        "Mindkettőt megígéred ugyanarra az időszakra, mert így mindenki elégedett.",
+        "A hangosabb érdekelt kérését választod automatikusan.",
+        "Rögzíted mindkettőt, majd közös keretet kérsz: érték/kockázat, célcsoport, mérhető siker; ennek alapján PO-val priorizált feladatlista döntés készül.",
+        "Kidobod a feedbacket, mert ellentmondásos."
+      ]
+    }
+  },
+  {
+    "_id": "697ed3042b3c28fab1e3f259",
+    "language": "hu",
+    "before": {
+      "question": "Egy felülvizsgálat után rengeteg visszajelzés gyűlt, de semmi nem változik a backlogban, ezért a stakeholder bizalma csökken. Mi a legjobb beavatkozás?",
+      "options": [
+        "Bevezetsz Decision Logot: minden fontos feedbackhez döntés + feladatlista hatás + owner + határidő, és ezt transzparensen követitek.",
+        "Következő alkalommal kevesebb stakeholdert hívtok, hogy kevesebb visszajelzés legyen.",
+        "Nem rögzítitek a feedbacket, mert úgyis csak zaj.",
+        "A felülvizsgálat-t inkább prezentációvá alakítjátok, kérdések nélkül."
+      ]
+    },
+    "after": {
+      "question": "Egy felülvizsgálat után rengeteg visszajelzés gyűlt, de semmi nem változik a backlogban, ezért a érdekelt bizalma csökken. Mi a legjobb beavatkozás?",
+      "options": [
+        "Bevezetsz Decision Logot: minden fontos feedbackhez döntés + feladatlista hatás + owner + határidő, és ezt transzparensen követitek.",
+        "Következő alkalommal kevesebb stakeholdert hívtok, hogy kevesebb visszajelzés legyen.",
+        "Nem rögzítitek a feedbacket, mert úgyis csak zaj.",
+        "A felülvizsgálat-t inkább prezentációvá alakítjátok, kérdések nélkül."
+      ]
+    }
+  },
+  {
+    "_id": "697ee0bcaacd7ef3a2e1307e",
+    "language": "hu",
+    "before": {
+      "question": "Egy stakeholder a futam közepén új „must-have” kéréssel jön, a fejlesztők szerint ez szétveri a fókuszt. Mi a legjobb Scrum Master lépés a konfliktus gyors tisztázására?",
+      "options": [
+        "Azonnal megígéred, hogy belefér, mert a stakeholder mindig első.",
+        "Megkéred a csapatot, hogy vitatkozzon addig, amíg a hangosabb győz.",
+        "Konfliktus-triage: tények + érdekek + korlátok, majd 2–3 opció (slice / trade-off / kísérlet) és konkrét next step.",
+        "A kérést elutasítod automatikusan, mert futam közben semmi nem változhat."
+      ]
+    },
+    "after": {
+      "question": "Egy érdekelt a futam közepén új „must-have” kéréssel jön, a fejlesztők szerint ez szétveri a fókuszt. Mi a legjobb Scrum Master lépés a konfliktus gyors tisztázására?",
+      "options": [
+        "Azonnal megígéred, hogy belefér, mert a érdekelt mindig első.",
+        "Megkéred a csapatot, hogy vitatkozzon addig, amíg a hangosabb győz.",
+        "Konfliktus-triage: tények + érdekek + korlátok, majd 2–3 opció (slice / trade-off / kísérlet) és konkrét next step.",
+        "A kérést elutasítod automatikusan, mert futam közben semmi nem változhat."
+      ]
+    }
+  },
+  {
+    "_id": "697ee0bcaacd7ef3a2e13080",
+    "language": "hu",
+    "before": {
+      "question": "Egy stakeholder gyorsaságot követel, a Dev minőségi kockázatra figyelmeztet. Mi a legjobb következő lépés, hogy ne „hitvita” legyen?",
+      "options": [
+        "A Dev felülírja a stakeholdert, mert a minőség mindig fontosabb.",
+        "A stakeholder felülírja a Dev-et, mert az üzlet mindig fontosabb.",
+        "Elhalasztjátok a témát határidő nélkül, hogy ne legyen konfliktus.",
+        "Közösen tisztázzátok, melyik kockázat a nagyobb (piaci vs technikai), és meghatároztok minimum minőség-védelmet + mérhető siker kritériumot."
+      ]
+    },
+    "after": {
+      "question": "Egy érdekelt gyorsaságot követel, a Dev minőségi kockázatra figyelmeztet. Mi a legjobb következő lépés, hogy ne „hitvita” legyen?",
+      "options": [
+        "A Dev felülírja a stakeholdert, mert a minőség mindig fontosabb.",
+        "A érdekelt felülírja a Dev-et, mert az üzlet mindig fontosabb.",
+        "Elhalasztjátok a témát határidő nélkül, hogy ne legyen konfliktus.",
+        "Közösen tisztázzátok, melyik kockázat a nagyobb (piaci vs technikai), és meghatároztok minimum minőség-védelmet + mérhető siker kritériumot."
+      ]
+    }
+  },
+  {
+    "_id": "697ee0bcaacd7ef3a2e13082",
+    "language": "hu",
+    "before": {
+      "question": "Két opció közül kell választani: A) nagy, nehezen visszafordítható döntés (3 hónap fejlesztés), B) 1 hetes kísérlet gyors visszajelzéssel. Mikor érdemes inkább a B-t választani?",
+      "options": [
+        "Ha minden információ biztos és nincs kockázat.",
+        "Ha a csapatnak nincs kedve dönteni, ezért halogatni akar.",
+        "Ha a stakeholder azt mondja, hogy „mindegy”, akkor felesleges kísérletezni.",
+        "Ha nagy a bizonytalanság és a döntést olcsón szeretnétek validálni gyors visszajelzéssel."
+      ]
+    },
+    "after": {
+      "question": "Két opció közül kell választani: A) nagy, nehezen visszafordítható döntés (3 hónap fejlesztés), B) 1 hetes kísérlet gyors visszajelzéssel. Mikor érdemes inkább a B-t választani?",
+      "options": [
+        "Ha minden információ biztos és nincs kockázat.",
+        "Ha a csapatnak nincs kedve dönteni, ezért halogatni akar.",
+        "Ha a érdekelt azt mondja, hogy „mindegy”, akkor felesleges kísérletezni.",
+        "Ha nagy a bizonytalanság és a döntést olcsón szeretnétek validálni gyors visszajelzéssel."
+      ]
+    }
+  },
+  {
+    "_id": "697ee0bcaacd7ef3a2e13083",
+    "language": "hu",
+    "before": {
+      "question": "Egy stakeholder azt mondja: „Az én igényem legyen első.” Mi a legjobb válasz, ami mégis tiszteletben tartja az üzleti szempontot, de elkerüli az ad-hoc priorizálást?",
+      "options": [
+        "„A prioritás érték/kockázat/hatás alapján dől el; ha ezt előre hozzuk, akkor megnevezzük, mi csúszik miatta, és ezt transzparensen vállaljuk.”",
+        "„Rendben, a leghangosabb igény mindig első.”",
+        "„A prioritásokat a fejlesztők döntik el, stakeholder bemenet nélkül.”",
+        "„A prioritásokat véletlenszerűen rotáljuk, hogy igazságos legyen.”"
+      ]
+    },
+    "after": {
+      "question": "Egy érdekelt azt mondja: „Az én igényem legyen első.” Mi a legjobb válasz, ami mégis tiszteletben tartja az üzleti szempontot, de elkerüli az ad-hoc priorizálást?",
+      "options": [
+        "„A prioritás érték/kockázat/hatás alapján dől el; ha ezt előre hozzuk, akkor megnevezzük, mi csúszik miatta, és ezt transzparensen vállaljuk.”",
+        "„Rendben, a leghangosabb igény mindig első.”",
+        "„A prioritásokat a fejlesztők döntik el, érdekelt bemenet nélkül.”",
+        "„A prioritásokat véletlenszerűen rotáljuk, hogy igazságos legyen.”"
+      ]
+    }
+  },
+  {
+    "_id": "697ee4ed6cb99c6067da5722",
+    "language": "hu",
+    "before": {
+      "question": "Egy stakeholder azt kérdezi: „Miért tart ilyen sokáig, amíg a kérésem megjelenik?” Melyik metrika válaszolja meg legjobban ezt a kérdést?",
+      "options": [
+        "Cycle time: csak a „folyamatban” szakasztól a „kész”-ig tartó idő (nem a teljes várakozást)",
+        "WIP: az egyszerre futó munka mennyisége (ok lehet, de nem közvetlen válasz a „mennyi ideig tart?” kérdésre)",
+        "Lead time: a kérés megjelenésétől a leszállításig eltelt teljes idő",
+        "Velocity: becslési egységek mennyisége idő alatt (könnyen félrevisz, nem ügyfél-kérés idejét méri)"
+      ]
+    },
+    "after": {
+      "question": "Egy érdekelt azt kérdezi: „Miért tart ilyen sokáig, amíg a kérésem megjelenik?” Melyik metrika válaszolja meg legjobban ezt a kérdést?",
+      "options": [
+        "Cycle time: csak a „folyamatban” szakasztól a „kész”-ig tartó idő (nem a teljes várakozást)",
+        "WIP: az egyszerre futó munka mennyisége (ok lehet, de nem közvetlen válasz a „mennyi ideig tart?” kérdésre)",
+        "Lead time: a kérés megjelenésétől a leszállításig eltelt teljes idő",
+        "Velocity: becslési egységek mennyisége idő alatt (könnyen félrevisz, nem ügyfél-kérés idejét méri)"
+      ]
+    }
+  },
+  {
+    "_id": "697ee4ed6cb99c6067da5725",
+    "language": "hu",
+    "before": {
+      "question": "Egy csapatnál csökken a lead time, de nő a túlóra és romlik a hangulat. Melyik dashboard blokk jelzi ezt a problémát leginkább?",
+      "options": [
+        "Egészség (fenntarthatóság) jelzések: túlóra, megszakítások, kiégés jelei, safety check",
+        "Throughput: elkészült munkák száma (nem jelzi a csapat terhelését)",
+        "feladatlista mérete: a lista hossza (nem mutatja, hogy fenntartható-e a tempó)",
+        "Story point összeg: becslési szám (könnyen torzít, nem egészség-jelzés)"
+      ]
+    },
+    "after": {
+      "question": "Egy csapatnál csökken a lead time, de nő a túlóra és romlik a hangulat. Melyik irányítópult blokk jelzi ezt a problémát leginkább?",
+      "options": [
+        "Egészség (fenntarthatóság) jelzések: túlóra, megszakítások, kiégés jelei, safety check",
+        "Throughput: elkészült munkák száma (nem jelzi a csapat terhelését)",
+        "feladatlista mérete: a lista hossza (nem mutatja, hogy fenntartható-e a tempó)",
+        "Story point összeg: becslési szám (könnyen torzít, nem egészség-jelzés)"
+      ]
+    }
+  },
+  {
+    "_id": "697ee7026204a56f6db28ec9",
+    "language": "hu",
+    "before": {
+      "question": "Egy csapatot naponta 8 különböző stakeholder pingel chaten „csak egy gyors kérdés” jelleggel, és szétesik a fókusz. Mi a legjobb beavatkozás?",
+      "options": [
+        "Minden pingre azonnal válaszoltok, mert a gyors reagálás a legfontosabb.",
+        "Letiltjátok az összes stakeholdert, mert csak zavarják a csapatot.",
+        "A fejlesztők külön-külön válaszolnak, hogy gyors legyen.",
+        "Kommunikációs cadenciát és egy csatornát vezettek be: heti rövid update + felülvizsgálat, és ad-hoc csak vészhelyzetben; a kérdéseknek kijelölt időablak."
+      ]
+    },
+    "after": {
+      "question": "Egy csapatot naponta 8 különböző érdekelt pingel chaten „csak egy gyors kérdés” jelleggel, és szétesik a fókusz. Mi a legjobb beavatkozás?",
+      "options": [
+        "Minden pingre azonnal válaszoltok, mert a gyors reagálás a legfontosabb.",
+        "Letiltjátok az összes stakeholdert, mert csak zavarják a csapatot.",
+        "A fejlesztők külön-külön válaszolnak, hogy gyors legyen.",
+        "Kommunikációs cadenciát és egy csatornát vezettek be: heti rövid update + felülvizsgálat, és ad-hoc csak vészhelyzetben; a kérdéseknek kijelölt időablak."
+      ]
+    }
+  },
+  {
+    "_id": "697ee7026204a56f6db28eca",
+    "language": "hu",
+    "before": {
+      "question": "Egy stakeholder fix dátumot kér 3 hónapra előre, de sok a bizonytalanság. Mi a legjobb válasz, ami empirikus marad és mégis segít?",
+      "options": [
+        "Fix dátumot ígérsz feltételek nélkül, mert ezt várják.",
+        "Azt mondod, hogy soha semmit nem lehet megmondani, ezért nincs forecast.",
+        "Forecastot adsz feltételekkel és trade-offokkal: mi alapján áll a becslés, mi csúszik, és mikor pontosítjátok újra a tudás alapján.",
+        "A témát elkerülöd, hogy ne legyen konfliktus."
+      ]
+    },
+    "after": {
+      "question": "Egy érdekelt fix dátumot kér 3 hónapra előre, de sok a bizonytalanság. Mi a legjobb válasz, ami empirikus marad és mégis segít?",
+      "options": [
+        "Fix dátumot ígérsz feltételek nélkül, mert ezt várják.",
+        "Azt mondod, hogy soha semmit nem lehet megmondani, ezért nincs forecast.",
+        "Forecastot adsz feltételekkel és trade-offokkal: mi alapján áll a becslés, mi csúszik, és mikor pontosítjátok újra a tudás alapján.",
+        "A témát elkerülöd, hogy ne legyen konfliktus."
+      ]
+    }
+  },
+  {
+    "_id": "697ee7026204a56f6db28ecb",
+    "language": "hu",
+    "before": {
+      "question": "A stakeholder térképen valaki magas befolyású, de ritkán érintett. Mi a legjobb kommunikációs stílus felé?",
+      "options": [
+        "Rövid, érték- és kockázat-fókuszú update, ritkább, de rendszeres ritmusban.",
+        "Részletes napi technikai jelentés minden commitról.",
+        "Semmit nem kommunikáltok, mert ritkán érintett.",
+        "Csak akkor kommunikáltok, amikor baj van."
+      ]
+    },
+    "after": {
+      "question": "A érdekelt térképen valaki magas befolyású, de ritkán érintett. Mi a legjobb kommunikációs stílus felé?",
+      "options": [
+        "Rövid, érték- és kockázat-fókuszú update, ritkább, de rendszeres ritmusban.",
+        "Részletes napi technikai jelentés minden commitról.",
+        "Semmit nem kommunikáltok, mert ritkán érintett.",
+        "Csak akkor kommunikáltok, amikor baj van."
+      ]
+    }
+  },
+  {
+    "_id": "697ee7026204a56f6db28ecc",
+    "language": "hu",
+    "before": {
+      "question": "Egy kulcs stakeholder gyakran változtatja az elvárásait, és a csapat frusztrált. Mi a legjobb lépés a „zaj” csökkentésére és a bizalom növelésére?",
+      "options": [
+        "Ad-hoc teljesítitek az összes kérést, hogy ne legyen konfliktus.",
+        "Transzparens cadencia + döntésnapló jellegű rögzítés: mi készült el, mi változott, mi a következő, és hogyan hat a backlogra; egy csatorna az igényeknek.",
+        "A stakeholdereket kizárjátok minden eseményből.",
+        "A csapat elrejti a státuszt, hogy kevesebb kérdés legyen."
+      ]
+    },
+    "after": {
+      "question": "Egy kulcs érdekelt gyakran változtatja az elvárásait, és a csapat frusztrált. Mi a legjobb lépés a „zaj” csökkentésére és a bizalom növelésére?",
+      "options": [
+        "Ad-hoc teljesítitek az összes kérést, hogy ne legyen konfliktus.",
+        "Transzparens cadencia + döntésnapló jellegű rögzítés: mi készült el, mi változott, mi a következő, és hogyan hat a backlogra; egy csatorna az igényeknek.",
+        "A stakeholdereket kizárjátok minden eseményből.",
+        "A csapat elrejti a státuszt, hogy kevesebb kérdés legyen."
+      ]
+    }
+  },
+  {
+    "_id": "697ee7026204a56f6db28ecd",
+    "language": "hu",
+    "before": {
+      "question": "Két stakeholder ellentétes irányba húz: az egyik új funkciót akar gyorsan, a másik stabilitást. Mi a legjobb Scrum Master támogatás a döntéshez?",
+      "options": [
+        "A hangosabb stakeholder igényét választjátok automatikusan.",
+        "Mindkettőt megígéritek ugyanarra az időre, hogy mindenki elégedett legyen.",
+        "Közös keretet kértek: érték/kockázat/hatás, majd PO-val transzparens trade-off döntés (mi csúszik) és ezt kommunikáljátok.",
+        "Egyik stakeholdert sem hallgatjátok meg, mert a csapat dönt."
+      ]
+    },
+    "after": {
+      "question": "Két érdekelt ellentétes irányba húz: az egyik új funkciót akar gyorsan, a másik stabilitást. Mi a legjobb Scrum Master támogatás a döntéshez?",
+      "options": [
+        "A hangosabb érdekelt igényét választjátok automatikusan.",
+        "Mindkettőt megígéritek ugyanarra az időre, hogy mindenki elégedett legyen.",
+        "Közös keretet kértek: érték/kockázat/hatás, majd PO-val transzparens trade-off döntés (mi csúszik) és ezt kommunikáljátok.",
+        "Egyik stakeholdert sem hallgatjátok meg, mert a csapat dönt."
+      ]
+    }
+  },
+  {
+    "_id": "697ee7026204a56f6db28ecf",
+    "language": "hu",
+    "before": {
+      "question": "Egy stakeholder csak akkor hall a csapatról, amikor gond van, ezért romlik a bizalom. Mi a legjobb változtatás?",
+      "options": [
+        "Csak incidens esetén kommunikáltok, mert akkor fontos.",
+        "Rendszeres, rövid cadencia (heti update + felülvizsgálat), ahol a kockázatokat is korán jelzitek, nem csak utólag.",
+        "Elrejtitek a kockázatokat, hogy ne aggódjanak.",
+        "A kommunikációt teljesen a fejlesztőkre hagyjátok, keret nélkül."
+      ]
+    },
+    "after": {
+      "question": "Egy érdekelt csak akkor hall a csapatról, amikor gond van, ezért romlik a bizalom. Mi a legjobb változtatás?",
+      "options": [
+        "Csak incidens esetén kommunikáltok, mert akkor fontos.",
+        "Rendszeres, rövid cadencia (heti update + felülvizsgálat), ahol a kockázatokat is korán jelzitek, nem csak utólag.",
+        "Elrejtitek a kockázatokat, hogy ne aggódjanak.",
+        "A kommunikációt teljesen a fejlesztőkre hagyjátok, keret nélkül."
+      ]
+    }
+  },
+  {
+    "_id": "697f4cf1f2c5dc2aa0f83d13",
+    "language": "hu",
+    "before": {
+      "question": "Egy szervezetben 10 stakeholder 10 irányt húz, és a csapatok össze-vissza fejlesztenek. Mit érdemes elsőként tisztázni a „skálázás előtt alapok” elv szerint?",
+      "options": [
+        "A csapatok napi 2 órás státusz riportját, hogy a vezetők lássák a munkát.",
+        "Hogy minden csapat ugyanazt az eszközt használja, mert ettől lesz fókusz.",
+        "Termékcélok és priorizálási keret: mi a cél, mi az érték, és mi csúszik, ha valamit előre hozunk.",
+        "Hogy mindenki egyszerre ugyanakkor deployoljon, mert így könnyebb."
+      ]
+    },
+    "after": {
+      "question": "Egy szervezetben 10 érdekelt 10 irányt húz, és a csapatok össze-vissza fejlesztenek. Mit érdemes elsőként tisztázni a „skálázás előtt alapok” elv szerint?",
+      "options": [
+        "A csapatok napi 2 órás státusz riportját, hogy a vezetők lássák a munkát.",
+        "Hogy minden csapat ugyanazt az eszközt használja, mert ettől lesz fókusz.",
+        "Termékcélok és priorizálási keret: mi a cél, mi az érték, és mi csúszik, ha valamit előre hozunk.",
+        "Hogy mindenki egyszerre ugyanakkor deployoljon, mert így könnyebb."
+      ]
+    }
+  },
+  {
+    "_id": "697f4f552b109e4df79a0b2b",
+    "language": "hu",
+    "before": {
+      "question": "Egy stakeholder azt kéri: „Mondjátok meg most pontosan, mennyi idő a megoldás”, miközben az igény és a megoldás is homályos. Mi a legjobb Scrum Master válasz?",
+      "options": [
+        "Kitalált, részletes dátumot adtok, mert „a bizonytalanságot nem szeretik”.",
+        "A munkát elutasítjátok, mert bizonytalan dolgokra nem lehet ígérni.",
+        "Kétlépcsős megközelítést ajánlasz: rövid discovery/spike a bizonytalanság csökkentésére, majd újratervezés konkrét opciókkal és kockázatokkal.",
+        "A csapat vállalja azonnal, és párhuzamosan mindent elkezd, hogy „biztosra menjen”."
+      ]
+    },
+    "after": {
+      "question": "Egy érdekelt azt kéri: „Mondjátok meg most pontosan, mennyi idő a megoldás”, miközben az igény és a megoldás is homályos. Mi a legjobb Scrum Master válasz?",
+      "options": [
+        "Kitalált, részletes dátumot adtok, mert „a bizonytalanságot nem szeretik”.",
+        "A munkát elutasítjátok, mert bizonytalan dolgokra nem lehet ígérni.",
+        "Kétlépcsős megközelítést ajánlasz: rövid discovery/spike a bizonytalanság csökkentésére, majd újratervezés konkrét opciókkal és kockázatokkal.",
+        "A csapat vállalja azonnal, és párhuzamosan mindent elkezd, hogy „biztosra menjen”."
+      ]
+    }
+  },
+  {
+    "_id": "697f4f8128c681de44d2a725",
+    "language": "hu",
+    "before": {
+      "question": "Egy stakeholder azt mondja: „Nem érdekel a minőség, csak legyen kész.” Mi a legjobb válasz, ami egyszerre empatikus és védi a csapatot?",
+      "options": [
+        "„Rendben, akkor kihagyjuk a teszteket és a felülvizsgálat-t.”",
+        "„A minőség nem opció: a hibák később többszörös költséget és reputáció kárt okoznak; tegyük láthatóvá a kockázatot és válasszunk egy biztonságos, kisebb szeletet.”",
+        "„Akkor nem dolgozunk tovább, viszlát.”",
+        "„Majd valaki más kijavítja később.”"
+      ]
+    },
+    "after": {
+      "question": "Egy érdekelt azt mondja: „Nem érdekel a minőség, csak legyen kész.” Mi a legjobb válasz, ami egyszerre empatikus és védi a csapatot?",
+      "options": [
+        "„Rendben, akkor kihagyjuk a teszteket és a felülvizsgálat-t.”",
+        "„A minőség nem opció: a hibák később többszörös költséget és reputáció kárt okoznak; tegyük láthatóvá a kockázatot és válasszunk egy biztonságos, kisebb szeletet.”",
+        "„Akkor nem dolgozunk tovább, viszlát.”",
+        "„Majd valaki más kijavítja később.”"
+      ]
+    }
+  },
+  {
+    "_id": "697f5373a7a9347d61e7c7d2",
+    "language": "hu",
+    "before": {
+      "question": "Interjúkérdés: „Hogyan kezeled a stakeholder nyomást, ha hatókör nő?” Mi a legjobb beavatkozás-sor?",
+      "options": [
+        "Azonnal mindent bevállaltok, hogy a stakeholder elégedett legyen.",
+        "Megtagadod a kérést, mert a stakeholdernek nincs beleszólása.",
+        "Átláthatóvá teszed a tradeoffot: futam cél, opciók (csere, későbbre tolás), kockázat, és közös döntés a legkisebb érték-szelettel.",
+        "A csapatot túlórára kötelezed, mert így minden belefér."
+      ]
+    },
+    "after": {
+      "question": "Interjúkérdés: „Hogyan kezeled a érdekelt nyomást, ha hatókör nő?” Mi a legjobb beavatkozás-sor?",
+      "options": [
+        "Azonnal mindent bevállaltok, hogy a érdekelt elégedett legyen.",
+        "Megtagadod a kérést, mert a stakeholdernek nincs beleszólása.",
+        "Átláthatóvá teszed a tradeoffot: futam cél, opciók (csere, későbbre tolás), kockázat, és közös döntés a legkisebb érték-szelettel.",
+        "A csapatot túlórára kötelezed, mert így minden belefér."
+      ]
+    }
+  },
+  {
+    "_id": "697f5410cd77de8d9c1ea6ae",
+    "language": "hu",
+    "before": {
+      "question": "Egy stakeholder azt kéri, hogy „ne írjátok ki a blokkokat a boardra, mert az rosszul mutat”. Mi a legjobb válasz, ami etikus és üzletileg is védhető?",
+      "options": [
+        "Eltüntetitek a blokkokat, mert a látszat fontosabb.",
+        "Megtagadod, de magyarázat nélkül („nem, mert nem”).",
+        "Kiemelnéd, hogy a transzparencia segít gyorsabban megoldani a blokkokat; javasolsz eszkalációs és megoldási folyamatot a láthatóság megtartásával.",
+        "A csapatot hibáztatod, hogy miért vannak blokkok."
+      ]
+    },
+    "after": {
+      "question": "Egy érdekelt azt kéri, hogy „ne írjátok ki a blokkokat a boardra, mert az rosszul mutat”. Mi a legjobb válasz, ami etikus és üzletileg is védhető?",
+      "options": [
+        "Eltüntetitek a blokkokat, mert a látszat fontosabb.",
+        "Megtagadod, de magyarázat nélkül („nem, mert nem”).",
+        "Kiemelnéd, hogy a transzparencia segít gyorsabban megoldani a blokkokat; javasolsz eszkalációs és megoldási folyamatot a láthatóság megtartásával.",
+        "A csapatot hibáztatod, hogy miért vannak blokkok."
+      ]
+    }
+  },
+  {
+    "_id": "697f54a22675eabe31767b7d",
+    "language": "hu",
+    "before": {
+      "question": "Egy stakeholder a futam közepén hatókör-ot akar növelni („még ezt tegyétek bele”). Mi a legjobb Scrum Master válasz, ami üzletileg is korrekt?",
+      "options": [
+        "Azonnal mindent bevállaltok, mert a stakeholder a főnök.",
+        "Átlátható opciókat adsz: csere a futam cél védelmével, szeletelés, vagy későbbre tolás; döntsetek közösen a tradeoffok alapján.",
+        "Megtiltod a stakeholdernek, hogy bármit kérjen futam közben.",
+        "A csapatot túlórára kötelezed, így minden belefér."
+      ]
+    },
+    "after": {
+      "question": "Egy érdekelt a futam közepén hatókör-ot akar növelni („még ezt tegyétek bele”). Mi a legjobb Scrum Master válasz, ami üzletileg is korrekt?",
+      "options": [
+        "Azonnal mindent bevállaltok, mert a érdekelt a főnök.",
+        "Átlátható opciókat adsz: csere a futam cél védelmével, szeletelés, vagy későbbre tolás; döntsetek közösen a tradeoffok alapján.",
+        "Megtiltod a stakeholdernek, hogy bármit kérjen futam közben.",
+        "A csapatot túlórára kötelezed, így minden belefér."
+      ]
+    }
+  },
+  {
+    "_id": "697f54a22675eabe31767b81",
+    "language": "hu",
+    "before": {
+      "question": "Egy új csapatnál az első héten gyors képet akarsz kapni a működésről. Mi a legjobb „első lépés”, ami nem borítja fel a csapatot?",
+      "options": [
+        "Azonnal minden eseményt átszervezel, mert te tudod a legjobban.",
+        "Először megfigyelsz és kérdezel: futam cél, board/flow, DoD, blokkok, stakeholder visszajelzés; majd 1 kicsi kísérletet javasolsz 2 hétre.",
+        "Megvárod a negyedév végét, és majd akkor szólsz.",
+        "A csapat helyett elkezdesz priorizálni, hogy gyorsuljon a munka."
+      ]
+    },
+    "after": {
+      "question": "Egy új csapatnál az első héten gyors képet akarsz kapni a működésről. Mi a legjobb „első lépés”, ami nem borítja fel a csapatot?",
+      "options": [
+        "Azonnal minden eseményt átszervezel, mert te tudod a legjobban.",
+        "Először megfigyelsz és kérdezel: futam cél, board/flow, DoD, blokkok, érdekelt visszajelzés; majd 1 kicsi kísérletet javasolsz 2 hétre.",
+        "Megvárod a negyedév végét, és majd akkor szólsz.",
+        "A csapat helyett elkezdesz priorizálni, hogy gyorsuljon a munka."
+      ]
+    }
+  },
+  {
+    "_id": "697f55387b63f03f69181643",
+    "language": "hu",
+    "before": {
+      "question": "A felülvizsgálat után a stakeholder mindig „jó volt” visszajelzést ad, de sosem derül ki, mi legyen a következő lépés. Mi a legjobb változtatás?",
+      "options": [
+        "A felülvizsgálat-t demóra rövidítitek, és nem kértek több kérdést.",
+        "A felülvizsgálat végén döntési pontot vezettek be: mi a következő lépés, milyen opciók vannak, és mit tanultunk a feedbackből.",
+        "A stakeholdert kizárjátok a felülvizsgálat-ról, mert nem ad hasznos feedbacket.",
+        "A felülvizsgálat-t törlitek, mert így gyorsabb."
+      ]
+    },
+    "after": {
+      "question": "A felülvizsgálat után a érdekelt mindig „jó volt” visszajelzést ad, de sosem derül ki, mi legyen a következő lépés. Mi a legjobb változtatás?",
+      "options": [
+        "A felülvizsgálat-t demóra rövidítitek, és nem kértek több kérdést.",
+        "A felülvizsgálat végén döntési pontot vezettek be: mi a következő lépés, milyen opciók vannak, és mit tanultunk a feedbackből.",
+        "A stakeholdert kizárjátok a felülvizsgálat-ról, mert nem ad hasznos feedbacket.",
+        "A felülvizsgálat-t törlitek, mert így gyorsabb."
+      ]
+    }
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-02-01T13:19:00.132Z",
+  "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+  "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_26",
+  "course": {
+    "courseId": "SCRUMMASTER_LESZEK_2026_HU",
+    "isActive": true,
+    "requiresPremium": false
+  },
+  "lesson": {
+    "lessonId": "SCRUMMASTER_LESZEK_2026_HU_DAY_26",
+    "isActive": false,
+    "dayNumber": 26,
+    "title": "Karrier térkép: junior → mid → senior Scrum Master"
+  }
+}

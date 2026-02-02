@@ -10,6 +10,15 @@
 
 This document provides complete instructions for setting up the Amanoba development and production environments.
 
+### Where admins configure 3rd party services
+
+**Email, Stripe, VAPID, etc.** are configured **via environment variables**, not in the Admin UI:
+
+- **Local**: `.env.local` (see sections below for each service).
+- **Production (e.g. Vercel)**: Project Settings → Environment Variables.
+
+The **Admin Settings** page (`/[locale]/admin/settings`) has an "Email Configuration" section with a Resend/SendGrid dropdown and From address — that section is **UI placeholder only**; it does not save or change the email provider. The app chooses the email provider via **`EMAIL_PROVIDER`** (`resend` | `smtp` | `mailgun`) and reads the corresponding env vars. To switch provider or address, update env vars and redeploy.
+
 ## Prerequisites
 
 - Node.js >= 20.0.0
@@ -94,18 +103,49 @@ VAPID_SUBJECT=mailto:csaba@doneisbetter.com
 **Source**: Generated for PlayMass on 2025-10-07  
 **Generate New**: `npx web-push generate-vapid-keys`
 
-#### Email Service (Resend)
+#### Email providers
+
+The app supports **Resend**, **SMTP** (Gmail, Mailgun SMTP, SendGrid SMTP), and **Mailgun API**. Set **`EMAIL_PROVIDER`** to `resend`, `smtp`, or `mailgun` (default: `resend`). All providers use the same sender/reply-to vars: `EMAIL_FROM`, `EMAIL_FROM_NAME`, `EMAIL_REPLY_TO`.
+
+**Resend** (`EMAIL_PROVIDER=resend` or unset):
 ```env
+EMAIL_PROVIDER=resend
 RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
 EMAIL_FROM=noreply@amanoba.com
 EMAIL_FROM_NAME=Amanoba Learning
 EMAIL_REPLY_TO=support@amanoba.com
 ```
+**Source**: https://resend.com/api-keys
 
-**What**: Resend API credentials for email delivery  
-**Why**: Sends daily lesson emails, welcome emails, and course completion emails  
-**Source**: Get from https://resend.com/api-keys  
-**Note**: Required for course email functionality
+**SMTP** (`EMAIL_PROVIDER=smtp`) — Gmail, Mailgun SMTP, SendGrid SMTP, etc.:
+```env
+EMAIL_PROVIDER=smtp
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-email@gmail.com
+SMTP_PASS=your-app-password
+# SMTP_USERNAME / SMTP_PASSWORD are accepted as aliases
+EMAIL_FROM=noreply@amanoba.com
+EMAIL_FROM_NAME=Amanoba Learning
+EMAIL_REPLY_TO=support@amanoba.com
+```
+**Note**: Gmail requires an [App Password](https://support.google.com/accounts/answer/185833). Mailgun/SendGrid: use their SMTP host and credentials from their dashboard.
+
+**Mailgun API** (`EMAIL_PROVIDER=mailgun`):
+```env
+EMAIL_PROVIDER=mailgun
+MAILGUN_API_KEY=key-xxxxxxxxxxxxxxxx
+MAILGUN_DOMAIN=mg.yourdomain.com
+# MAILGUN_HOST=https://api.eu.mailgun.net  # optional; default is https://api.mailgun.net
+EMAIL_FROM=noreply@amanoba.com
+EMAIL_FROM_NAME=Amanoba Learning
+EMAIL_REPLY_TO=support@amanoba.com
+```
+**Source**: Mailgun dashboard → Sending → Domain & API keys
+
+**What**: Email delivery for daily lesson emails, welcome emails, and course completion emails  
+**Why**: Lets you use Resend, Gmail SMTP, Mailgun (SMTP or API), or other SMTP providers via env config
 
 #### Payment Processing (Stripe)
 ```env
@@ -146,7 +186,10 @@ STRIPE_WEBHOOK_SECRET=[YOUR_STRIPE_WEBHOOK_SECRET]
    | `ADMIN_PASSWORD` | [Strong password] | ✅ |
    | `FACEBOOK_APP_SECRET` | [Facebook secret] | ✅ |
    | `VAPID_PRIVATE_KEY` | [VAPID private key] | ✅ |
-   | `RESEND_API_KEY` | [Resend API key] | ✅ |
+   | `EMAIL_PROVIDER` | `resend` \| `smtp` \| `mailgun` | ❌ |
+   | `RESEND_API_KEY` | [Resend API key] (if `EMAIL_PROVIDER=resend`) | ✅ |
+   | SMTP: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` | (if `EMAIL_PROVIDER=smtp`) | ✅ for pass |
+   | Mailgun: `MAILGUN_API_KEY`, `MAILGUN_DOMAIN` | (if `EMAIL_PROVIDER=mailgun`) | ✅ for key |
    | `STRIPE_SECRET_KEY` | [Stripe secret key] | ✅ |
    | `STRIPE_WEBHOOK_SECRET` | [Stripe webhook secret] | ✅ |
    | `NEXT_PUBLIC_APP_URL` | https://amanoba.com | ❌ |
@@ -307,10 +350,11 @@ npm run db:seed
 | `VAPID_PRIVATE_KEY` | Secret | `abc123...` | VAPID private key |
 | `NEXT_PUBLIC_VAPID_PUBLIC_KEY` | Public | `BJut...` | VAPID public key |
 | `VAPID_SUBJECT` | Public | `mailto:you@example.com` | VAPID subject |
-| `RESEND_API_KEY` | Secret | `re_xxxxx...` | Resend API key for email delivery |
-| `EMAIL_FROM` | Public | `noreply@amanoba.com` | Email sender address |
-| `EMAIL_FROM_NAME` | Public | `Amanoba Learning` | Email sender name |
-| `EMAIL_REPLY_TO` | Public | `support@amanoba.com` | Email reply-to address |
+| `EMAIL_PROVIDER` | Public | `resend` | Email provider: `resend`, `smtp`, or `mailgun` |
+| `RESEND_API_KEY` | Secret | `re_xxxxx...` | Resend API key (when `EMAIL_PROVIDER=resend`) |
+| `EMAIL_FROM` | Public | `noreply@amanoba.com` | Email sender address (all providers) |
+| `EMAIL_FROM_NAME` | Public | `Amanoba Learning` | Email sender name (all providers) |
+| `EMAIL_REPLY_TO` | Public | `support@amanoba.com` | Email reply-to address (all providers) |
 | `STRIPE_SECRET_KEY` | Secret | `[YOUR_STRIPE_SECRET_KEY]` | Stripe secret key (server-side, starts with `sk_live_...` or `sk_test_...`) |
 | `STRIPE_PUBLISHABLE_KEY` | Public | `[YOUR_STRIPE_PUBLISHABLE_KEY]` | Stripe publishable key (client-side, starts with `pk_live_...` or `pk_test_...`) |
 | `STRIPE_WEBHOOK_SECRET` | Secret | `[YOUR_STRIPE_WEBHOOK_SECRET]` | Stripe webhook signing secret (starts with `whsec_...`) |
@@ -326,6 +370,16 @@ npm run db:seed
 | `LOG_PRETTY` | Public | `true` | Pretty logging |
 | `NEXT_PUBLIC_DEBUG_MODE` | Public | `false` | Debug mode |
 | `NEXT_PUBLIC_SHOW_VERSION` | Public | `true` | Show version in UI |
+| **SMTP** (when `EMAIL_PROVIDER=smtp`) | | | |
+| `SMTP_HOST` | Secret | - | SMTP server host (e.g. `smtp.gmail.com`) |
+| `SMTP_PORT` | Public | `587` or `465` | SMTP port |
+| `SMTP_SECURE` | Public | `false` | Use TLS; set `true` for port 465 |
+| `SMTP_USER` / `SMTP_USERNAME` | Secret | - | SMTP username |
+| `SMTP_PASS` / `SMTP_PASSWORD` | Secret | - | SMTP password (e.g. Gmail App Password) |
+| **Mailgun** (when `EMAIL_PROVIDER=mailgun`) | | | |
+| `MAILGUN_API_KEY` | Secret | - | Mailgun API key |
+| `MAILGUN_DOMAIN` | Public | - | Mailgun sending domain |
+| `MAILGUN_HOST` | Public | `https://api.mailgun.net` | Mailgun API base URL (e.g. `https://api.eu.mailgun.net` for EU) |
 
 ---
 
