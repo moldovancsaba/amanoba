@@ -14,14 +14,15 @@ import Icon, { MdMenuBook, MdEmail, MdGpsFixed, MdEmojiEvents, MdTrendingUp, MdS
  */
 
 export default async function LandingPage({
-  params: _params,
+  params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
   const session = await auth();
-  const t = await getTranslations('common');
-  const tAuth = await getTranslations('auth');
-  const tLanding = await getTranslations('landing');
+  const t = await getTranslations({ locale, namespace: 'common' });
+  const tAuth = await getTranslations({ locale, namespace: 'auth' });
+  const tLanding = await getTranslations({ locale, namespace: 'landing' });
 
   return (
     <div className="min-h-screen bg-brand-black">

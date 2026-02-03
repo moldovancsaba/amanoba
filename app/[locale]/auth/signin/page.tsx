@@ -27,8 +27,8 @@ export default async function SignInPage({
 }) {
   const { locale } = await params;
   const searchParamsResolved = await searchParams;
-  const t = await getTranslations('auth');
-  const tCommon = await getTranslations('common');
+  const t = await getTranslations({ locale, namespace: 'auth' });
+  const tCommon = await getTranslations({ locale, namespace: 'common' });
   
   // Check if user is already authenticated
   const session = await auth();

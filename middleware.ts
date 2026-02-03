@@ -45,6 +45,16 @@ export default auth((req) => {
     return NextResponse.next();
   }
 
+  // Redirect legacy en-GB / en-US to en (we only support one English locale now)
+  if (pathname === '/en-GB' || pathname.startsWith('/en-GB/')) {
+    const rest = pathname.slice('/en-GB'.length) || '';
+    return NextResponse.redirect(new URL(`/en${rest}${req.nextUrl.search}`, req.url));
+  }
+  if (pathname === '/en-US' || pathname.startsWith('/en-US/')) {
+    const rest = pathname.slice('/en-US'.length) || '';
+    return NextResponse.redirect(new URL(`/en${rest}${req.nextUrl.search}`, req.url));
+  }
+
   // Redirect duplicate locale in path (e.g. /ru/ru, /en/en) to single locale root
   // Why: Prevents 404 when user or link ends up with /{locale}/{locale}
   for (const loc of locales) {

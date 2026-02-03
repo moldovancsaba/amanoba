@@ -5,5 +5,5 @@
  * Why: Safe to import from client and server modules
  */
 
-export const locales = ['hu', 'en', 'en-GB', 'en-US', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru'] as const;
+export const locales = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru'] as const;
 export type Locale = (typeof locales)[number];

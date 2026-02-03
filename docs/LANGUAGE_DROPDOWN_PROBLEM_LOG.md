@@ -1,7 +1,8 @@
 # Language dropdown / i18n problem — collected information
 
 **Last updated:** 2026-02-03  
-**Status:** Root cause identified and fixed (see § Root cause below). Fix is on `main` and pushed to `origin`.
+**Status:** Root cause identified and fixed (see § Root cause below). Fix is on `main` and pushed to `origin`.  
+**Follow-up (same day):** Server-rendered content stayed Hungarian because `getTranslations()` in server components (landing, signin) did not receive the URL locale — fixed by calling `getTranslations({ locale, namespace: '…' })` with `locale` from `params`. English options reduced from 3 to 1: removed `en-GB` and `en-US` from supported locales; middleware redirects `/en-GB` and `/en-US` to `/en`.
 
 ---
 
