@@ -134,7 +134,7 @@ export default async function LocaleLayout({
         className="antialiased bg-brand-white dark:bg-brand-black text-brand-black dark:text-brand-white"
       >
         <GoogleAnalytics />
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={validLocale} messages={messages}>
           <ConsentProvider>
             <SessionProvider>
               <ThemeProvider

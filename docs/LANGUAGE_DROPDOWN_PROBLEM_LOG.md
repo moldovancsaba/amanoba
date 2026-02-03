@@ -1,7 +1,19 @@
 # Language dropdown / i18n problem — collected information
 
 **Last updated:** 2026-02-03  
-**Status:** Resolved – dropdown reroutes to a locale-safe destination whenever the current slug embeds a course-specific locale, keeping the selector responsive on course detail pages.
+**Status:** Root cause identified and fixed (see § Root cause below).
+
+---
+
+## Root cause (2026-02-03)
+
+**Why the main UI showed only one language and the language selector didn’t behave correctly**
+
+- **Cause:** The layout (`app/[locale]/layout.tsx`) did **not** pass the current locale into `NextIntlClientProvider`. It only passed `messages={messages}`. The locale was taken from the URL segment (`params.locale` → `validLocale`) for loading messages and for `<html lang>`, but the **client** provider was not given `locale={validLocale}`.
+- **Effect:** Client components (e.g. `LanguageSwitcher`) use `useLocale()` from next-intl. That hook reads the locale from the React context provided by `NextIntlClientProvider`. Without an explicit `locale` prop, the provider in next-intl v4 falls back to `getLocaleCached()` (which uses the `X-NEXT-INTL-LOCALE` request header set by middleware). If that header is missing or wrong (e.g. first paint, static generation, or middleware not running for that request), the context locale can be wrong or default (e.g. always `hu`). Result: the dropdown could show the wrong selected language, and the UI could always show Hungarian regardless of the URL.
+- **Fix:** Pass the URL-derived locale explicitly so the client tree is always in sync with the path:
+  - In `app/[locale]/layout.tsx`: use `<NextIntlClientProvider locale={validLocale} messages={messages}>` instead of `<NextIntlClientProvider messages={messages}>`.
+- **Reference:** next-intl’s `NextIntlClientProvider` accepts an optional `locale`; when rendered from a Server Component it can infer locale from the request, but explicitly passing it from `params` is more reliable. See [next-intl configuration](https://next-intl.dev/docs/configuration#locale).
 
 ---
 
@@ -44,6 +56,7 @@
 | 5 | **router.replace → router.push** | Use `router.push(safePath, { locale: newLocale })` in case replace had different behaviour. |
 | 6 | **Select stacking / clickability** | `relative z-10` and `cursor-pointer` on the `<select>`, `z-0` on the overlay div so the dropdown isn’t covered. |
 | 7 | **Full-page fallback** | After `router.push(...)`, setTimeout(150 ms): if `window.location.pathname !== targetPath`, set `window.location.href = targetPath` so language switch happens even if client nav doesn’t. |
+| 8 | **Pass locale to NextIntlClientProvider (root-cause fix)** | In `app/[locale]/layout.tsx`, use `<NextIntlClientProvider locale={validLocale} messages={messages}>` so client components receive the URL locale and `useLocale()` matches the page. |
 
 ### 2.2 What we did *not* try (or only assumed)
 
