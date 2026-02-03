@@ -8,7 +8,7 @@
 import nodemailer from 'nodemailer';
 import type { EmailTransport, SendMailOptions, SendMailResult } from './types';
 
-function createTransporter(): any | null {
+function createTransporter(): ReturnType<typeof nodemailer.createTransport> | null {
   const host = process.env.SMTP_HOST;
   const port = process.env.SMTP_PORT;
   const user = process.env.SMTP_USER ?? process.env.SMTP_USERNAME;

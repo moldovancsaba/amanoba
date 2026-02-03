@@ -14,7 +14,7 @@ import Icon, { MdMenuBook, MdEmail, MdGpsFixed, MdEmojiEvents, MdTrendingUp, MdS
  */
 
 export default async function LandingPage({
-  params,
+  params: _params,
 }: {
   params: Promise<{ locale: string }>;
 }) {

@@ -9,7 +9,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { DiscussionPost, Course, Player } from '@/lib/models';
+import { DiscussionPost, Course } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 

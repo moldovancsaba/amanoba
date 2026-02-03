@@ -90,8 +90,8 @@ export default function EditorLessonPage() {
         throw new Error(d?.error || d?.message || 'Failed to save lesson');
       }
       setLesson(d.lesson);
-    } catch (e: any) {
-      setError(e?.message || 'Failed to save lesson');
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : 'Failed to save lesson');
     } finally {
       setSaving(false);
     }

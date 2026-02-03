@@ -48,7 +48,7 @@ export async function GET(
     }));
 
     return NextResponse.json({ success: true, members });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json({ error: 'Failed to list members' }, { status: 500 });
   }
 }

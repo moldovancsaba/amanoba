@@ -30,6 +30,18 @@ const LESSON_UNSUBSCRIBE_STRINGS: Record<
     langAttr: 'en',
     dirAttr: 'ltr',
   },
+  'en-GB': {
+    reason: (courseName: string) => `You're receiving this email because you're enrolled in ${courseName}.`,
+    linkText: 'Unsubscribe from lesson emails',
+    langAttr: 'en-GB',
+    dirAttr: 'ltr',
+  },
+  'en-US': {
+    reason: (courseName: string) => `You're receiving this email because you're enrolled in ${courseName}.`,
+    linkText: 'Unsubscribe from lesson emails',
+    langAttr: 'en-US',
+    dirAttr: 'ltr',
+  },
   hu: {
     reason: (courseName: string) => `Azért kapod ezt az e-mailt, mert be vagy iratkozva a(z) ${courseName} kurzusra.`,
     linkText: 'Leiratkozás a leckemail-ekről',
@@ -129,6 +141,18 @@ const PAYMENT_UNSUBSCRIBE_STRINGS: Record<
     reason: `You're receiving this email because you made a payment on Amanoba.`,
     linkText: 'Unsubscribe from email notifications',
     langAttr: 'en',
+    dirAttr: 'ltr',
+  },
+  'en-GB': {
+    reason: `You're receiving this email because you made a payment on Amanoba.`,
+    linkText: 'Unsubscribe from email notifications',
+    langAttr: 'en-GB',
+    dirAttr: 'ltr',
+  },
+  'en-US': {
+    reason: `You're receiving this email because you made a payment on Amanoba.`,
+    linkText: 'Unsubscribe from email notifications',
+    langAttr: 'en-US',
     dirAttr: 'ltr',
   },
   hu: {
@@ -277,6 +301,86 @@ function getLocaleStrings(locale: Locale) {
       reminderHeading: playerName => `Hi ${playerName}!`,
       reminderBody: (dayNumber, courseName) =>
         `You haven’t completed Day ${dayNumber} of ${courseName} yet. Continue today to keep your momentum going.`,
+      reminderCta: dayNumber => `Complete Day ${dayNumber}`,
+
+      paymentSubject: courseName => `Payment confirmed — ${courseName}`,
+      paymentHeading: 'Payment successful!',
+      paymentThanks: playerName => `Hi ${playerName},`,
+      paymentActivated: 'Thank you for your payment. Your premium access has been activated.',
+      paymentDetailsHeading: 'Payment details',
+      paymentLabels: {
+        product: 'Product',
+        amount: 'Amount',
+        premiumExpires: 'Premium expires',
+        transactionId: 'Transaction ID',
+      },
+      paymentCtaCourse: 'View course',
+      paymentCtaBrowse: 'Browse courses',
+      paymentSupport: email => `If you have any questions, contact us at ${email}.`,
+      paymentThanksClosing: 'Thank you for learning with Amanoba!',
+
+      teamSignoff: '— The Amanoba Team',
+    },
+    'en-GB': {
+      welcomeSubject: courseName => `Welcome to ${courseName}!`,
+      welcomeHeading: courseName => `Welcome to ${courseName}!`,
+      welcomeIntro: (playerName, courseName) =>
+        `Hi ${playerName}, you've successfully enrolled in ${courseName}.`,
+      welcomeBody: durationDays =>
+        `You'll receive a daily lesson email as you progress through this ${durationDays}-day journey.`,
+      welcomeCta: 'Open your course dashboard',
+
+      completionSubject: courseName => `Congratulations! You've completed ${courseName}!`,
+      completionHeading: playerName => `Congratulations, ${playerName}!`,
+      completionBody: (courseName, durationDays) =>
+        `You've successfully completed ${courseName}. Finishing all ${durationDays} days is a real achievement.`,
+      completionCta: 'Browse more courses',
+      completionUpsellHeading: 'Recommended for you',
+
+      reminderSubject: (dayNumber, courseName) => `Don't miss Day ${dayNumber} of ${courseName}`,
+      reminderHeading: playerName => `Hi ${playerName}!`,
+      reminderBody: (dayNumber, courseName) =>
+        `You haven't completed Day ${dayNumber} of ${courseName} yet. Continue today to keep your momentum going.`,
+      reminderCta: dayNumber => `Complete Day ${dayNumber}`,
+
+      paymentSubject: courseName => `Payment confirmed — ${courseName}`,
+      paymentHeading: 'Payment successful!',
+      paymentThanks: playerName => `Hi ${playerName},`,
+      paymentActivated: 'Thank you for your payment. Your premium access has been activated.',
+      paymentDetailsHeading: 'Payment details',
+      paymentLabels: {
+        product: 'Product',
+        amount: 'Amount',
+        premiumExpires: 'Premium expires',
+        transactionId: 'Transaction ID',
+      },
+      paymentCtaCourse: 'View course',
+      paymentCtaBrowse: 'Browse courses',
+      paymentSupport: email => `If you have any questions, contact us at ${email}.`,
+      paymentThanksClosing: 'Thank you for learning with Amanoba!',
+
+      teamSignoff: '— The Amanoba Team',
+    },
+    'en-US': {
+      welcomeSubject: courseName => `Welcome to ${courseName}!`,
+      welcomeHeading: courseName => `Welcome to ${courseName}!`,
+      welcomeIntro: (playerName, courseName) =>
+        `Hi ${playerName}, you've successfully enrolled in ${courseName}.`,
+      welcomeBody: durationDays =>
+        `You'll receive a daily lesson email as you progress through this ${durationDays}-day journey.`,
+      welcomeCta: 'Open your course dashboard',
+
+      completionSubject: courseName => `Congratulations! You've completed ${courseName}!`,
+      completionHeading: playerName => `Congratulations, ${playerName}!`,
+      completionBody: (courseName, durationDays) =>
+        `You've successfully completed ${courseName}. Finishing all ${durationDays} days is a real achievement.`,
+      completionCta: 'Browse more courses',
+      completionUpsellHeading: 'Recommended for you',
+
+      reminderSubject: (dayNumber, courseName) => `Don't miss Day ${dayNumber} of ${courseName}`,
+      reminderHeading: playerName => `Hi ${playerName}!`,
+      reminderBody: (dayNumber, courseName) =>
+        `You haven't completed Day ${dayNumber} of ${courseName} yet. Continue today to keep your momentum going.`,
       reminderCta: dayNumber => `Complete Day ${dayNumber}`,
 
       paymentSubject: courseName => `Payment confirmed — ${courseName}`,

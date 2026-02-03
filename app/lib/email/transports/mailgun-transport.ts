@@ -9,7 +9,11 @@ import Mailgun from 'mailgun.js';
 import formData from 'form-data';
 import type { EmailTransport, SendMailOptions, SendMailResult } from './types';
 
-function createMailgunClient(): any | null {
+interface MailgunClient {
+  messages: { create: (domain: string, payload: Record<string, unknown>) => Promise<{ id?: string }> };
+}
+
+function createMailgunClient(): MailgunClient | null {
   const apiKey = process.env.MAILGUN_API_KEY;
   const domain = process.env.MAILGUN_DOMAIN;
   if (!apiKey || !domain) return null;

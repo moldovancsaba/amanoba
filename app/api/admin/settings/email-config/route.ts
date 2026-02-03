@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
     };
 
     return NextResponse.json({ success: true, settings });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       { success: false, error: 'Failed to read email configuration' },
       { status: 500 }
