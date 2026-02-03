@@ -28,9 +28,6 @@ import Logo from '@/components/Logo';
 import ContentVoteWidget from '@/components/ContentVoteWidget';
 import CourseDiscussion from '@/components/CourseDiscussion';
 import CourseStudyGroups from '@/components/CourseStudyGroups';
-
-/** Disable course discussion UI until infinite-reload-after-posting bug is fixed. Set to true to re-enable. */
-const COURSE_DISCUSSION_ENABLED = false;
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 
 interface Course {
@@ -51,6 +48,9 @@ interface Course {
     completionXP: number;
     lessonXP: number;
   };
+  discussionEnabled?: boolean;
+  leaderboardEnabled?: boolean;
+  studyGroupsEnabled?: boolean;
   price?: {
     amount: number;
     currency: string;
@@ -1085,31 +1085,32 @@ export default function CourseDetailPage({
               </div>
             </div>
 
-            {/* Course leaderboard (points) */}
-            <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
-              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4 flex items-center gap-2">
-                <Trophy className="w-8 h-8 text-amber-500" />
-                {getCourseDetailText('courseLeaderboard') || 'Course leaderboard'}
-              </h2>
-              {leaderboardLoading ? (
-                <div className="text-brand-darkGrey text-center py-6">{getCourseDetailText('loading')}</div>
-              ) : leaderboardEntries.length === 0 ? (
-                <p className="text-brand-darkGrey">{getCourseDetailText('noLeaderboardYet') || 'No rankings yet. Complete lessons to earn points and appear here.'}</p>
-              ) : (
-                <ul className="space-y-2">
-                  {leaderboardEntries.map((entry) => (
-                    <li key={entry.rank} className="flex items-center gap-4 p-3 rounded-lg bg-brand-darkGrey/5 border border-brand-darkGrey/15">
-                      <span className="w-8 font-bold text-brand-black">{entry.rank}</span>
-                      <span className="flex-1 truncate text-brand-black font-medium">{entry.player?.displayName ?? '—'}</span>
-                      <span className="font-semibold text-brand-accent">{entry.score} {getCourseDetailText('points') || 'pts'}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+            {(course?.leaderboardEnabled ?? true) && (
+              <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
+                <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4 flex items-center gap-2">
+                  <Trophy className="w-8 h-8 text-amber-500" />
+                  {getCourseDetailText('courseLeaderboard') || 'Course leaderboard'}
+                </h2>
+                  {leaderboardLoading ? (
+                    <div className="text-brand-darkGrey text-center py-6">{getCourseDetailText('loading')}</div>
+                  ) : leaderboardEntries.length === 0 ? (
+                    <p className="text-brand-darkGrey">{getCourseDetailText('noLeaderboardYet') || 'No rankings yet. Complete lessons to earn points and appear here.'}</p>
+                  ) : (
+                    <ul className="space-y-2">
+                      {leaderboardEntries.map((entry) => (
+                        <li key={entry.rank} className="flex items-center gap-4 p-3 rounded-lg bg-brand-darkGrey/5 border border-brand-darkGrey/15">
+                          <span className="w-8 font-bold text-brand-black">{entry.rank}</span>
+                          <span className="flex-1 truncate text-brand-black font-medium">{entry.player?.displayName ?? '—'}</span>
+                          <span className="font-semibold text-brand-accent">{entry.score} {getCourseDetailText('points') || 'pts'}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+            )}
 
             {/* Discussion — disabled until infinite-reload after posting is fixed */}
-            {COURSE_DISCUSSION_ENABLED && (
+            {(course?.discussionEnabled ?? false) && (
               <CourseDiscussion
                 courseId={courseId}
                 title={getCourseDetailText('discussionTitle') || 'Discussion'}
@@ -1122,18 +1123,20 @@ export default function CourseDetailPage({
             )}
 
             {/* Study Groups */}
-            <CourseStudyGroups
-              courseId={courseId}
-              title={getCourseDetailText('studyGroupsTitle') || 'Study Groups'}
-              createLabel={getCourseDetailText('studyGroupsCreate') || 'Create'}
-              createPlaceholder={getCourseDetailText('studyGroupsGroupName') || 'Group name'}
-              joinLabel={getCourseDetailText('studyGroupsJoin') || 'Join'}
-              leaveLabel={getCourseDetailText('studyGroupsLeave') || 'Leave'}
-              membersLabel={getCourseDetailText('studyGroupsMembers') || 'Members'}
-              signInToJoin={getCourseDetailText('studyGroupsSignInToJoin') || 'Sign in to join.'}
-              emptyMessage={getCourseDetailText('studyGroupsNoGroups') || 'No study groups yet.'}
-              loadingText={getCourseDetailText('studyGroupsLoading') || 'Loading...'}
-            />
+            {(course?.studyGroupsEnabled ?? true) && (
+              <CourseStudyGroups
+                courseId={courseId}
+                title={getCourseDetailText('studyGroupsTitle') || 'Study Groups'}
+                createLabel={getCourseDetailText('studyGroupsCreate') || 'Create'}
+                createPlaceholder={getCourseDetailText('studyGroupsGroupName') || 'Group name'}
+                joinLabel={getCourseDetailText('studyGroupsJoin') || 'Join'}
+                leaveLabel={getCourseDetailText('studyGroupsLeave') || 'Leave'}
+                membersLabel={getCourseDetailText('studyGroupsMembers') || 'Members'}
+                signInToJoin={getCourseDetailText('studyGroupsSignInToJoin') || 'Sign in to join.'}
+                emptyMessage={getCourseDetailText('studyGroupsNoGroups') || 'No study groups yet.'}
+                loadingText={getCourseDetailText('studyGroupsLoading') || 'Loading...'}
+              />
+            )}
 
             {/* Table of Contents */}
             <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">

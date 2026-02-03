@@ -10,6 +10,8 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
+import { existsSync, readFileSync } from 'fs';
+import { resolve } from 'path';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson } from '@/lib/models';
 import { logger } from '@/lib/logger';
@@ -21,6 +23,50 @@ type LessonRow = {
   estimatedMinutes?: number;
   hasQuiz: boolean;
 };
+
+type CanonicalLessonSpec = {
+  dayNumber?: number;
+  canonicalTitle?: string;
+  title?: string;
+  estimatedMinutes?: number;
+  hasQuiz?: boolean;
+};
+
+type CanonicalSpec = {
+  language?: string;
+  lessons?: CanonicalLessonSpec[];
+};
+
+function getCanonicalLessons(course: { courseId: string; language?: string; ccsId?: string }) {
+  if (!course.ccsId) {
+    return [];
+  }
+  const specPath = resolve(process.cwd(), 'docs', 'canonical', course.ccsId, `${course.ccsId}.canonical.json`);
+  if (!existsSync(specPath)) {
+    return [];
+  }
+
+  try {
+    const raw = readFileSync(specPath, 'utf-8');
+    const spec = JSON.parse(raw) as CanonicalSpec;
+    if (spec.language && course.language && spec.language !== course.language) {
+      return [];
+    }
+    return (spec.lessons ?? [])
+      .filter((lesson): lesson is CanonicalLessonSpec & { dayNumber: number } => typeof lesson.dayNumber === 'number')
+      .sort((a, b) => a.dayNumber - b.dayNumber)
+      .map((lesson) => ({
+        lessonId: `${course.courseId}_DAY_${String(lesson.dayNumber).padStart(2, '0')}`,
+        dayNumber: lesson.dayNumber,
+        title: lesson.canonicalTitle ?? lesson.title ?? `Day ${lesson.dayNumber}`,
+        estimatedMinutes: lesson.estimatedMinutes,
+        hasQuiz: lesson.hasQuiz ?? true,
+      }));
+  } catch (error) {
+    logger.error({ error, courseId: course.courseId }, 'Failed to load canonical lessons');
+    return [];
+  }
+}
 
 /**
  * GET /api/courses/[courseId]/lessons
@@ -40,8 +86,15 @@ export async function GET(
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
 
-    const co = course as { _id: unknown; parentCourseId?: string; selectedLessonIds?: string[] };
+    const co = course as {
+      _id: unknown;
+      parentCourseId?: string;
+      selectedLessonIds?: string[];
+      ccsId?: string;
+      language?: string;
+    };
     let lessons: LessonRow[];
+    let usedCanonicalFallback = false;
 
     if (co.parentCourseId && co.selectedLessonIds?.length) {
       // Child course: resolve parent lessons by selectedLessonIds, order by selection, dayNumber 1..N
@@ -81,7 +134,19 @@ export async function GET(
       }));
     }
 
-    logger.info({ courseId, lessonCount: lessons.length }, 'Fetched course lessons for table of contents');
+    if (!co.parentCourseId && lessons.length === 0) {
+      const canonicalLessons = getCanonicalLessons(course);
+      if (canonicalLessons.length > 0) {
+        lessons = canonicalLessons;
+        usedCanonicalFallback = true;
+      }
+    }
+
+    const logData: Record<string, unknown> = { courseId, lessonCount: lessons.length };
+    if (usedCanonicalFallback) {
+      logData.source = 'canonical';
+    }
+    logger.info(logData, 'Fetched course lessons for table of contents');
 
     return NextResponse.json({
       success: true,

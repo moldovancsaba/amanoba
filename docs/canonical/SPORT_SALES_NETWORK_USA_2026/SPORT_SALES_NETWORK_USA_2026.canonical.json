@@ -5,15 +5,17 @@
   "version": "2026-02-03",
   "language": "en",
   "intent": {
-    "oneSentence": "Teach operators how to design, launch, and scale a multi-motion sport sales network across B2C, B2B, and B2G in the United States while staying procurement- and partner-ready.",
+    "oneSentence": "Teach operators how to design, launch, and scale a multi-motion sport sales network across B2C, B2B, and B2G in the United States, with explicit rules for partners, procurement, and measurable execution.",
     "outcomes": [
-      "Blueprint multi-segment sales motion with tailored ICPs, packages, territories, and channels.",
-      "Operate a three-playbook system with direct and partner-led routes, partner enablement, and risk controls.",
-      "Launch compliant procurement-ready programs for US federal, EU, and MENA buyers with a 90-day rollout plan and measurable KPIs."
+      "Design a three-motion system (B2C, B2B, B2G) with separate ICPs, packages, channels, and stage definitions that can be executed and audited.",
+      "Run an evidence-based pipeline that prevents false progress, with qualification and discovery artefacts that translate into proposals and delivery handoffs.",
+      "Build a partner layer (selection, onboarding, incentives, deal protection, escalation) that scales coverage without breaking governance.",
+      "Become procurement-ready for US federal buyers and build a repeatable tender discovery and submission process for EU and UK contexts, with compliance checklists and standard evidence packs.",
+      "Ship a 90-day operating plan with KPI definitions, reporting cadence, and risk playbooks that an organisation can execute without improvisation."
     ],
     "nonGoals": [
-      "Deep product training (this course presumes product familiarity).",
-      "Certified enablement for specific CRM vendors (we cover patterns, not tool-specific instructions)."
+      "Deep product training (this course presumes product familiarity and focuses on go-to-market execution).",
+      "Tool-specific CRM certification (we cover operating patterns and governance, not vendor-specific click paths)."
     ]
   },
   "qualityGates": {
@@ -24,40 +26,43 @@
     "recallAllowed": false
   },
   "concepts": {
-    "valueChainMapping": "Understand the players who pay, decide, use, and block in sport sales.",
-    "segmentMotioning": "Differentiate B2C, B2B, B2G economics, KPIs, and processes.",
-    "partnerEcosystem": "Direct vs partner-led coverage, partner selection, enablement, incentives.",
-    "procurementReadiness": "Federal tender discovery, EU/MENA entry paths, compliance checklists.",
-    "rolloutCadence": "90-day plan with KPIs, launch checklist, reporting cadence, risk playbooks."
+    "valueChainMapping": "Identify who pays, decides, influences, uses, blocks, and governs purchase decisions in sport and fitness.",
+    "segmentMotioning": "Treat B2C, B2B, and B2G as different businesses with different economics, evidence, and process constraints.",
+    "partnerEcosystem": "Decide direct versus partner-led coverage, then build rules for incentives, deal protection, onboarding, and escalation.",
+    "procurementReadiness": "Operate a compliance-first approach for public buyers: requirements mapping, evidence packs, and submission workflow.",
+    "rolloutCadence": "Execute a 90-day rollout with explicit gates, KPI formulas, owners, and weekly inspection rhythms."
   },
   "procedures": [
     {
       "id": "pipelineBlueprint",
       "name": "Pipeline blueprint per motion",
       "steps": [
-        "Define stages with exit criteria and evidence.",
-        "Document success metrics for each stage.",
-        "Calibrate forecasting hygiene with real evidence."
+        "Define stages with exit criteria and the evidence required to claim stage progression.",
+        "Define stage-level success metrics (conversion rate, time-in-stage, disqualification rate) and what action changes them.",
+        "Define forecast hygiene rules: next step, owner, date, and mutual plan required for late stages.",
+        "Enforce a downgrade rule: any deal without a dated next step is not forecastable."
       ],
-      "usedInDays": [11, 13, 15]
+      "usedInDays": [11, 12, 13, 14, 15]
     },
     {
       "id": "partnerEnablement",
       "name": "Partner enablement system",
       "steps": [
-        "Select partner types and document differentiation.",
-        "Design onboarding, certification, and co-marketing sequences.",
-        "Define incentives, deal protection, and escalation rules."
+        "Select partner types by capability and leverage, not by logo or enthusiasm.",
+        "Design onboarding, certification, and playbooks that partners can execute without internal support.",
+        "Define incentives with deal registration and conflict rules.",
+        "Define escalation triggers, resolution timelines, and a final arbitration owner."
       ],
-      "usedInDays": [16, 17, 18, 19]
+      "usedInDays": [16, 17, 18, 19, 20]
     },
     {
       "id": "procurementHandoff",
       "name": "Procurement readiness handoff",
       "steps": [
-        "Map discovery boards for US federal, EU, MENA tenders.",
-        "Build compliance checklist and outreach scripts.",
-        "Align risk playbooks with contracts and escalation paths."
+        "Define which public opportunities you are eligible for and which are excluded by design.",
+        "Build a compliance checklist, an evidence pack library, and a submission workflow with checkpoints.",
+        "Map tender discovery sources and alerting routines for each region.",
+        "Align contract terms, risk playbooks, and delivery handoffs so commitments remain executable."
       ],
       "usedInDays": [21, 22, 29]
     }
@@ -65,297 +70,561 @@
   "assessmentBlueprint": {
     "midCourse": {
       "day": 15,
-      "deliverable": "Pipeline model + qualification pack",
-      "evaluation": "Review evidence for each stage, qualification rigor, MEDDICC alignment"
+      "deliverable": "Pipeline model + qualification and negotiation pack",
+      "evaluation": "Evidence per stage, qualification rigor, discovery quality, mutual plan presence, give-get discipline"
     },
     "final": {
       "day": 30,
       "deliverable": "Complete blueprint + 90-day operating plan",
-      "evaluation": "Assess roll-out cadence, partner coverage, KPIs, procurement readiness"
+      "evaluation": "Ability to execute: owners, gates, KPIs, partner governance, procurement readiness, risk controls"
     }
   },
   "lessons": [
     {
       "dayNumber": 1,
       "canonicalTitle": "Sport and fitness value chain map",
-      "objective": "Identify payers, decision makers, users, and blockers along the sport value chain.",
-      "keyConcepts": ["buying committee", "stakeholder roles", "operational constraints"],
-      "exercise": "Map a real offering across payer, economic buyer, champion, users, procurement, and legal", 
-      "deliverable": "Value-chain map + stakeholder matrix",
-      "sources": ["https://hbr.org/2015/03/making-the-consensus-sale", "https://hbr.org/2012/07/the-end-of-solution-sales"]
+      "objective": "Build a buyer-reality map for a sport or fitness offer by identifying payers, economic buyers, technical buyers, champions, users, blockers, and governance functions.",
+      "keyConcepts": [
+        "buying committee roles (payer, economic buyer, technical buyer, users)",
+        "champion versus coach versus sponsor",
+        "procurement and legal as process owners",
+        "seasonality and operational constraints in sport (event calendars, peak periods)",
+        "risk owners: brand, safety, compliance, reputation"
+      ],
+      "exercise": "Choose one real offer (yours or a known sport-tech/fitness offer). Step 1: list every party who touches the deal from first contact to delivery. Step 2: assign each party a role label (payer, economic buyer, champion, user, technical evaluator, procurement, legal, finance). Step 3: write one sentence per role stating what they fear and what they want. Step 4: identify the single role that can stop the deal late and write the prevention action.",
+      "deliverable": "One-page stakeholder matrix: columns = role, name or function, decision power (0 to 3), success metric, risk, required proof. Include a single paragraph: your primary champion plan and your primary blocker plan.",
+      "sources": [
+        "https://hbr.org/2015/03/making-the-consensus-sale",
+        "https://hbr.org/2012/07/the-end-of-solution-sales"
+      ]
     },
     {
       "dayNumber": 2,
       "canonicalTitle": "Segment architecture: B2C vs B2B vs B2G",
-      "objective": "Split the business into distinct motions with tailored economics.",
-      "keyConcepts": ["segment KPIs", "adoption vs contract cycles", "compliance"],
-      "exercise": "Define three motions and write a success paragraph per motion",
-      "deliverable": "Segment playbook headers with metrics",
-      "sources": ["https://www.salesforce.com/ca/sales/pipeline/stages/", "https://www.salesforce.com/sales/pipeline/management/"]
+      "objective": "Separate B2C, B2B, and B2G into independent go-to-market motions with distinct success metrics, constraints, and operating rhythms.",
+      "keyConcepts": [
+        "B2C: adoption and retention economics",
+        "B2B: multi-stakeholder consensus and procurement",
+        "B2G: compliance-first and formal evaluation",
+        "success definitions by motion (leading and lagging indicators)",
+        "constraint mapping: legal, procurement, data, privacy"
+      ],
+      "exercise": "Create three motion cards. For each motion: define the buyer, the purchase trigger, the time-to-decision range, the primary proof required, and the first 3 KPIs to measure progress. Then write a one-paragraph definition of success that includes: target customer, measurable outcome, and an execution boundary (what you will not do).",
+      "deliverable": "Three motion one-pagers. Each must include: ICP header, offer format, sales cycle range, top 3 objections, top 3 proof assets, top 3 KPIs with formulas.",
+      "sources": [
+        "https://www.salesforce.com/sales/pipeline/management/",
+        "https://www.salesforce.com/sales/pipeline/stages/"
+      ]
     },
     {
       "dayNumber": 3,
       "canonicalTitle": "ICP and personas per motion",
-      "objective": "Build ICP portfolios matching each motion.",
-      "keyConcepts": ["firmographics", "fit signals", "disqualifiers"],
-      "exercise": "Create six ICPs with pains/outcomes",
-      "deliverable": "ICP sheet pack (six sheets)",
-      "sources": ["https://meddicc.com/meddpicc-sales-methodology-and-process", "https://www.huthwaiteinternational.com/spin-methodology"]
+      "objective": "Build ICP portfolios that separate fit from hope, using explicit fit signals, disqualifiers, and measurable outcomes.",
+      "keyConcepts": [
+        "firmographics and operational fit",
+        "fit signals versus nice-to-have signals",
+        "hard disqualifiers",
+        "outcome language and measurable impact",
+        "non-ICP list to protect focus"
+      ],
+      "exercise": "Create 6 ICP sheets (2 per motion). For each: write the job-to-be-done, 3 measurable outcomes, 5 fit signals, 5 disqualifiers, and the first proof you would show. Then write a short 'non-ICP' list: who you will not sell to and why.",
+      "deliverable": "ICP pack (6 sheets) with a single scoring rule: Fit Score = (signals met) minus (disqualifiers triggered). Include a 'walk-away' rule that triggers disqualification.",
+      "sources": [
+        "https://meddicc.com/meddpicc-sales-methodology-and-process",
+        "https://www.huthwaiteinternational.com/spin-methodology"
+      ]
     },
     {
       "dayNumber": 4,
       "canonicalTitle": "Offer packaging and pricing logic",
-      "objective": "Create packages aligned with decision structures.",
-      "keyConcepts": ["pilot vs rollout", "tiering", "SLA/terms"],
-      "exercise": "Design tiers for B2B, B2C, and B2G bundles",
-      "deliverable": "Packaging table + inclusion rules",
-      "sources": ["https://hbr.org/2011/09/selling-is-not-about-relatio", "https://www.huthwaiteinternational.com/blog/spin-selling-questions"]
+      "objective": "Package offers to match decision structures and risk profiles, using pilots, tiers, and governance-friendly terms.",
+      "keyConcepts": [
+        "pilot versus rollout packaging",
+        "tiering and modular scope",
+        "service levels and acceptance criteria",
+        "risk controls: exit terms, data terms, brand safety",
+        "price logic tied to value and delivery cost"
+      ],
+      "exercise": "Build a packaging table with 3 B2B tiers, 2 B2C entry tiers, and 1 public-sector compliant bundle. For each package: list inclusions, exclusions, delivery responsibilities, SLA, success criteria, and an explicit upgrade path. Then write one paragraph: how pricing changes with scale.",
+      "deliverable": "Packaging table plus inclusion rules. Include a 'pilot contract' skeleton section list: scope, success criteria, timeline, data handling, brand safety, reporting, exit clause.",
+      "sources": [
+        "https://hbr.org/2015/03/making-the-consensus-sale",
+        "https://hbr.org/2012/07/the-end-of-solution-sales"
+      ]
     },
     {
       "dayNumber": 5,
       "canonicalTitle": "Proof system: outcomes, ROI, credibility",
-      "objective": "Define evidence that reduces buyer risk.",
-      "keyConcepts": ["metrics", "value narrative", "case studies"],
-      "exercise": "Outline a case study per motion with measurable outcomes",
-      "deliverable": "Proof pack outline + measurement plan",
-      "sources": ["https://meddicc.com/resources/the-science-of-sales-qualification", "https://hbr.org/2012/07/the-end-of-solution-sales"]
+      "objective": "Build a proof system that reduces buyer risk by turning claims into measurable outcomes and credible evidence.",
+      "keyConcepts": [
+        "outcome statements with baselines",
+        "measurement plans and attribution",
+        "case study structure (problem, intervention, result)",
+        "risk reversal: pilot hypotheses",
+        "credibility assets: references, third-party validation"
+      ],
+      "exercise": "Create one proof pack per motion. For each: write a measurable outcome statement with a baseline and a time window, define the data required to measure it, and list acceptable evidence types (screenshots, logs, third-party reports, invoices). Build a one-page case study outline.",
+      "deliverable": "Proof pack outline: 3 case study shells + measurement plan. Include an evidence checklist that a buyer can audit.",
+      "sources": [
+        "https://hbr.org/2012/07/the-end-of-solution-sales",
+        "https://meddicc.com/resources/the-science-of-sales-qualification"
+      ]
     },
     {
       "dayNumber": 6,
       "canonicalTitle": "Direct vs indirect decision framework",
-      "objective": "Decide what must be sold directly versus through partners.",
-      "keyConcepts": ["partner margin", "conflict risk", "enablement cost", "control vs scale"],
-      "exercise": "Score ten accounts as direct, partner-led, or co-sell",
-      "deliverable": "Route-to-market decision matrix",
-      "sources": ["https://learn.microsoft.com/en-us/partner-center/enroll/csp-overview", "https://help.salesforce.com/s/articleView?id=experience.networks_leaddist_dealreg.htm&language=en_US&type=5"]
+      "objective": "Decide which segments must be sold direct versus partner-led, based on margin, control, conflict risk, and enablement cost.",
+      "keyConcepts": [
+        "partner economics (margin and enablement cost)",
+        "channel conflict and deal protection",
+        "co-sell versus referral versus resale",
+        "control versus scale trade-offs",
+        "partner fit and capability gating"
+      ],
+      "exercise": "Take 10 target accounts and classify each: direct, partner-led, or co-sell. For each classification, write the reason in one sentence and list the minimum partner capability required (if partner-led). Define a conflict rule for when both direct and partner touch the account.",
+      "deliverable": "Route-to-market decision matrix: account, route, reason, required proof, owner, conflict rule.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/partner-center/enroll/csp-overview",
+        "https://help.salesforce.com/s/articleView?id=experience.networks_leaddist_dealreg.htm&language=en_US&type=5"
+      ]
     },
     {
       "dayNumber": 7,
       "canonicalTitle": "Online channel stack for sport and fitness",
-      "objective": "Build a channel plan that creates repeatable demand.",
-      "keyConcepts": ["inbound", "outbound", "paid", "community", "marketplaces", "referral loops"],
-      "exercise": "Design a four-channel plan with weekly targets",
-      "deliverable": "Channel plan + activity scoreboard",
-      "sources": ["https://www.salesforce.com/sales/pipeline/management/", "https://meddicc.com/resources/meddicc-versus-other-qualification-frameworks-like-bant"]
+      "objective": "Design a multi-channel online demand system with clear weekly activity targets and quality gates.",
+      "keyConcepts": [
+        "inbound versus outbound",
+        "paid capture versus community pull",
+        "referral loops",
+        "quality gates for leads",
+        "activity-to-outcome ratios"
+      ],
+      "exercise": "Design a 4-channel plan (choose from inbound, outbound, paid, community, marketplace, referral). For each channel: define weekly activities, the quality gate (what qualifies a lead), and the handoff rule into pipeline.",
+      "deliverable": "Channel plan plus a weekly scoreboard: activity counts, qualified leads, meetings, opportunities created, conversion rate.",
+      "sources": [
+        "https://www.salesforce.com/sales/pipeline/management/",
+        "https://meddicc.com/resources/meddicc-versus-other-qualification-frameworks-like-bant"
+      ]
     },
     {
       "dayNumber": 8,
       "canonicalTitle": "Offline channel stack: venues, events, field execution",
-      "objective": "Turn events and venues into systematic pipeline.",
-      "keyConcepts": ["field rhythms", "demo days", "partner events", "account mapping"],
-      "exercise": "Plan a six-week field calendar with entry/exit criteria",
-      "deliverable": "Offline activation plan + lead capture spec",
-      "sources": ["https://hbr.org/2015/03/making-the-consensus-sale", "https://www.salesforce.com/ca/sales/pipeline/stages/"]
+      "objective": "Turn offline events and venues into a repeatable pipeline engine with entry and exit criteria.",
+      "keyConcepts": [
+        "field rhythms and calendars",
+        "event-based qualification",
+        "demo-to-deal conversion",
+        "lead capture and attribution",
+        "post-event follow-up sequencing"
+      ],
+      "exercise": "Build a 6-week field calendar. For each event: define target accounts, entry criteria, offer, capture method, follow-up sequence, and exit criteria.",
+      "deliverable": "Offline activation plan plus a lead capture specification: required fields, consent rules, and follow-up SLA.",
+      "sources": [
+        "https://hbr.org/2015/03/making-the-consensus-sale",
+        "https://www.salesforce.com/sales/pipeline/stages/"
+      ]
     },
     {
       "dayNumber": 9,
       "canonicalTitle": "Territory and account model",
-      "objective": "Create coverage matching buying patterns.",
-      "keyConcepts": ["territory types", "account lists", "whitespace analysis"],
-      "exercise": "Build territory model for three US regions with tiers",
-      "deliverable": "Territory map + tiering rules",
-      "sources": ["https://www.salesforce.com/sales/pipeline/management/", "https://www.salesforce.com/ca/sales/pipeline/stages/"]
+      "objective": "Design coverage that matches buying patterns using territories, account tiers, and whitespace rules.",
+      "keyConcepts": [
+        "territory types (geo, vertical, named accounts)",
+        "account tiering",
+        "whitespace analysis",
+        "coverage ratios",
+        "priority account plans"
+      ],
+      "exercise": "Draft a territory model for three US regions. Assign account tiers (A/B/C) with rules. Define coverage expectations per tier (touchpoints per month, exec involvement, partner involvement).",
+      "deliverable": "Territory spec plus tiering rules and a one-page account plan template for Tier A.",
+      "sources": [
+        "https://www.salesforce.com/sales/pipeline/management/",
+        "https://www.salesforce.com/sales/pipeline/stages/"
+      ]
     },
     {
       "dayNumber": 10,
       "canonicalTitle": "Unit economics and channel profitability",
-      "objective": "Ensure each motion can scale profitably.",
-      "keyConcepts": ["CAC/LTV", "payback", "partner economics", "churn drivers"],
-      "exercise": "Model B2C, B2B, B2G economics",
-      "deliverable": "Unit economics sheet + assumptions register",
-      "sources": ["https://meddicc.com/meddpicc-sales-methodology-and-process", "https://www.salesforce.com/sales/pipeline/management/"]
+      "objective": "Prove that each motion and channel is economically viable with explicit assumptions.",
+      "keyConcepts": [
+        "CAC, LTV, payback",
+        "gross margin and delivery cost",
+        "partner margin waterfall",
+        "churn drivers",
+        "assumptions register"
+      ],
+      "exercise": "Build a simple model for B2C, B2B, B2G: CAC, conversion rates, retention/churn, gross margin, payback. Add an assumptions register and mark which assumptions are unproven.",
+      "deliverable": "Unit economics sheet plus assumptions register and a 'kill criteria' list (what would make you stop a motion).",
+      "sources": [
+        "https://meddicc.com/meddpicc-sales-methodology-and-process",
+        "https://www.salesforce.com/sales/pipeline/management/"
+      ]
     },
     {
       "dayNumber": 11,
       "canonicalTitle": "Pipeline architecture per motion",
-      "objective": "Define stages that reflect real deals.",
-      "keyConcepts": ["stage exit criteria", "evidence-based progression", "forecast hygiene"],
-      "exercise": "Design pipelines for B2C/B2B/B2G with evidence requirements",
-      "deliverable": "Pipeline stage definitions pack",
-      "sources": ["https://www.salesforce.com/ca/sales/pipeline/stages/", "https://www.salesforce.com/sales/pipeline/management/"]
+      "objective": "Define stages that reflect reality and force evidence before forecast commitments.",
+      "keyConcepts": [
+        "stage exit criteria",
+        "evidence-based progression",
+        "time-in-stage limits",
+        "forecast categories",
+        "downgrade rules"
+      ],
+      "exercise": "For each motion, define pipeline stages and the required evidence to move forward. Add a time-in-stage limit and a required next-step rule.",
+      "deliverable": "Pipeline stage definitions pack: stage name, definition, exit criteria, required evidence, disqualify triggers.",
+      "sources": [
+        "https://www.salesforce.com/sales/pipeline/stages/",
+        "https://www.salesforce.com/sales/pipeline/management/"
+      ]
     },
     {
       "dayNumber": 12,
       "canonicalTitle": "Qualification framework for complex sport deals",
-      "objective": "Qualify continuously across the deal lifecycle.",
-      "keyConcepts": ["MEDDICC", "decision criteria", "champions", "competition", "process"],
-      "exercise": "Create MEDDICC sheet for one target account",
-      "deliverable": "Qualification sheet template + example",
-      "sources": ["https://meddicc.com/meddpicc-sales-methodology-and-process", "https://meddicc.com/resources/meddicc-versus-other-qualification-frameworks-like-bant"]
+      "objective": "Qualify continuously to prevent false progress and protect delivery outcomes.",
+      "keyConcepts": [
+        "MEDDICC components",
+        "decision process and criteria",
+        "economic buyer identification",
+        "champion strength",
+        "competition and differentiation"
+      ],
+      "exercise": "Complete a MEDDICC sheet for one target account. Include: metrics with baseline, decision criteria, decision process, paper process, identified economic buyer, champion plan, competition plan.",
+      "deliverable": "Qualification template plus one completed example and a disqualification rule list.",
+      "sources": [
+        "https://meddicc.com/meddpicc-sales-methodology-and-process",
+        "https://meddicc.com/resources/meddicc-versus-other-qualification-frameworks-like-bant"
+      ]
     },
     {
       "dayNumber": 13,
       "canonicalTitle": "Discovery that drives value and urgency",
-      "objective": "Run discovery that finds measurable pain.",
-      "keyConcepts": ["SPIN questioning", "implications", "need-payoff", "stakeholder alignment"],
-      "exercise": "Write SPIN script with eight questions per category",
-      "deliverable": "Discovery script + note-taking template",
-      "sources": ["https://www.huthwaiteinternational.com/spin-methodology", "https://www.huthwaiteinternational.com/blog/spin-selling-questions"]
+      "objective": "Run discovery that quantifies impact, maps stakeholders, and produces a mutual plan.",
+      "keyConcepts": [
+        "SPIN questioning",
+        "implication and need-payoff",
+        "stakeholder alignment",
+        "problem quantification",
+        "mutual action plan"
+      ],
+      "exercise": "Write a discovery script with: situation, problem, implication, need-payoff questions. Add a short section to confirm decision process and procurement steps. Then create a mutual action plan draft.",
+      "deliverable": "Discovery script plus note template that captures: pain, baseline, desired outcome, stakeholders, decision steps, next step.",
+      "sources": [
+        "https://www.huthwaiteinternational.com/spin-methodology",
+        "https://www.huthwaiteinternational.com/blog/spin-selling-questions"
+      ]
     },
     {
       "dayNumber": 14,
       "canonicalTitle": "Proposal architecture: pilot, rollout, and risk control",
-      "objective": "Build proposals that align with procurement reality.",
-      "keyConcepts": ["pilot hypotheses", "success criteria", "SLA", "exit terms"],
-      "exercise": "Draft two-page proposal skeleton with optionality",
-      "deliverable": "Proposal skeleton + pricing options table",
-      "sources": ["https://hbr.org/2012/07/the-end-of-solution-sales", "https://www.salesforce.com/sales/pipeline/management/"]
+      "objective": "Write proposals that are executable: success criteria, governance, and risk controls are explicit.",
+      "keyConcepts": [
+        "pilot hypotheses",
+        "success criteria",
+        "delivery responsibilities",
+        "SLA and reporting",
+        "exit terms"
+      ],
+      "exercise": "Draft a 2-page proposal skeleton: context, goals, scope, success criteria, timeline, responsibilities, reporting, commercial terms, and exit.",
+      "deliverable": "Proposal skeleton plus pricing options table and a pilot success checklist.",
+      "sources": [
+        "https://hbr.org/2012/07/the-end-of-solution-sales",
+        "https://www.salesforce.com/sales/pipeline/management/"
+      ]
     },
     {
       "dayNumber": 15,
       "canonicalTitle": "Negotiation and closing mechanics",
-      "objective": "Close without scope collapse or hidden risk.",
-      "keyConcepts": ["concession strategy", "decision process", "legal sequencing"],
-      "exercise": "Create negotiation plan with give-get rules",
-      "deliverable": "Negotiation plan template + completed plan",
-      "sources": ["https://hbr.org/2015/03/making-the-consensus-sale", "https://meddicc.com/meddpicc-sales-methodology-and-process"]
+      "objective": "Close with integrity: trade concessions for commitments and protect delivery outcomes.",
+      "keyConcepts": [
+        "give-get discipline",
+        "walk-away line",
+        "legal sequencing",
+        "decision process confirmation",
+        "close plan"
+      ],
+      "exercise": "Create a negotiation plan for one live or realistic deal. Define: non-negotiables, tradables, give-get pairs, internal approval limits, and the close plan with dated steps.",
+      "deliverable": "Negotiation plan template plus one completed example and a one-page close plan.",
+      "sources": [
+        "https://hbr.org/2015/03/making-the-consensus-sale",
+        "https://meddicc.com/meddpicc-sales-methodology-and-process"
+      ]
     },
     {
       "dayNumber": 16,
       "canonicalTitle": "Partner model selection",
-      "objective": "Choose partner types fitting sport/fitness GTM.",
-      "keyConcepts": ["reseller", "referral", "integrator", "agency", "franchise"],
-      "exercise": "Select two partner types and justify wins",
-      "deliverable": "Partner model memo",
-      "sources": ["https://www.salesforce.com/sales/partner-relationship-management/referral-partner/", "https://learn.microsoft.com/en-us/partner-center/enroll/indirect-reseller-tasks-in-partner-center"]
+      "objective": "Choose partner models that amplify coverage without destroying governance.",
+      "keyConcepts": [
+        "reseller versus referral",
+        "integrators and agencies",
+        "franchises and alliances",
+        "capability and coverage fit",
+        "partner risk assessment"
+      ],
+      "exercise": "Pick 2 partner models and justify them using 5 criteria: capability, reach, credibility, conflict risk, and unit economics.",
+      "deliverable": "Partner model selection memo with a go/no-go checklist.",
+      "sources": [
+        "https://learn.microsoft.com/en-us/partner-center/enroll/indirect-reseller-tasks-in-partner-center",
+        "https://www.salesforce.com/sales/partner-relationship-management/referral-partner/"
+      ]
     },
     {
       "dayNumber": 17,
       "canonicalTitle": "Partner onboarding and enablement",
-      "objective": "Make partners productive quickly.",
-      "keyConcepts": ["certification path", "playbooks", "co-marketing", "support"],
-      "exercise": "Design 14-day onboarding plan",
-      "deliverable": "Onboarding plan + enablement checklist",
-      "sources": ["https://meddicc.com/meddpicc-sales-methodology-and-process"]
+      "objective": "Make partners productive quickly with a clear onboarding path and certification requirements.",
+      "keyConcepts": [
+        "onboarding steps",
+        "certification criteria",
+        "playbooks and assets",
+        "support boundaries",
+        "co-selling workflow"
+      ],
+      "exercise": "Design a 14-day onboarding plan: training, first live opportunity, certification test, and weekly checkpoints.",
+      "deliverable": "Onboarding plan plus enablement checklist and partner scorecard fields.",
+      "sources": [
+        "https://meddicc.com/meddpicc-sales-methodology-and-process"
+      ]
     },
     {
       "dayNumber": 18,
       "canonicalTitle": "Partner incentives and deal registration",
-      "objective": "Design fair incentives and protections.",
-      "keyConcepts": ["deal protection", "margin waterfalls", "conflict rules"],
-      "exercise": "Define incentive structure with escalation rules",
-      "deliverable": "Incentive matrix + deal registration playbook",
-      "sources": ["https://learn.microsoft.com/en-us/partner-center/enroll/csp-overview"]
+      "objective": "Create incentive and deal protection rules that prevent conflict and preserve trust.",
+      "keyConcepts": [
+        "deal registration",
+        "tiered incentives",
+        "margin waterfall",
+        "conflict resolution",
+        "attribution rules"
+      ],
+      "exercise": "Write incentive tiers and deal registration rules. Include: protection window, required evidence, and arbitration steps.",
+      "deliverable": "Incentive matrix plus deal registration playbook and escalation triggers.",
+      "sources": [
+        "https://help.salesforce.com/s/articleView?id=experience.networks_leaddist_dealreg.htm&language=en_US&type=5",
+        "https://learn.microsoft.com/en-us/partner-center/enroll/csp-overview"
+      ]
     },
     {
       "dayNumber": 19,
       "canonicalTitle": "Partner-led marketing and events",
-      "objective": "Co-create campaigns that partners own.",
-      "keyConcepts": ["co-branded campaigns", "event playbooks", "demand handoff"],
-      "exercise": "Plan a joint campaign + event calendar",
-      "deliverable": "Campaign calendar + measurement blueprint",
-      "sources": ["https://www.salesforce.com/sales/partner-relationship-management/referral-partner/"]
+      "objective": "Coordinate partner-owned campaigns that generate qualified pipeline with clear attribution.",
+      "keyConcepts": [
+        "co-branded campaigns",
+        "partner-owned webinars",
+        "event playbooks",
+        "handoff SLAs",
+        "pipeline attribution"
+      ],
+      "exercise": "Outline one joint campaign and one event. Define: audience, offer, capture method, qualification gate, and follow-up ownership.",
+      "deliverable": "Campaign and event plan plus measurement dashboard definition.",
+      "sources": [
+        "https://www.salesforce.com/sales/partner-relationship-management/referral-partner/"
+      ]
     },
     {
       "dayNumber": 20,
-      "canonicalTitle": "Field enablement & partner tools",
-      "objective": "Equip partner teams with practical assets.",
-      "keyConcepts": ["playbooks", "certifications", "support boundaries"],
-      "exercise": "Audit support content and backlog",
-      "deliverable": "Enablement roadmap + content map",
-      "sources": ["https://www.salesforce.com/sales/partner-relationship-management/referral-partner/"]
+      "canonicalTitle": "Field enablement and partner tools",
+      "objective": "Build a partner tool stack and content library that increases conversion and reduces support load.",
+      "keyConcepts": [
+        "playbook library",
+        "certification and renewal",
+        "content map",
+        "support boundaries",
+        "partner KPIs"
+      ],
+      "exercise": "Audit existing assets and define a backlog: what must exist for partners to sell without internal help.",
+      "deliverable": "Enablement roadmap plus partner portal content map and KPI list.",
+      "sources": [
+        "https://www.salesforce.com/sales/partner-relationship-management/referral-partner/"
+      ]
     },
     {
       "dayNumber": 21,
       "canonicalTitle": "Federal procurement readiness",
-      "objective": "Prepare for US federal discovery & compliance.",
-      "keyConcepts": ["federal discovery", "FAR/DFARS", "vendor profiling"],
-      "exercise": "Create compliance checklist + discovery steps",
-      "deliverable": "Federal readiness checklist + outreach script",
-      "sources": ["https://www.hbr.org/2015/03/making-the-consensus-sale"]
+      "objective": "Prepare for US federal buying realities: formal notices, compliance documentation, and process discipline.",
+      "keyConcepts": [
+        "SAM.gov contract opportunities",
+        "FAR as primary regulation",
+        "vendor readiness evidence packs",
+        "formal clarification processes",
+        "disqualification risks"
+      ],
+      "exercise": "Create a federal readiness checklist: registrations, standard declarations, past performance evidence, and internal owners. Then create a discovery outreach script that respects procurement boundaries.",
+      "deliverable": "Federal readiness checklist plus outreach script and a standard evidence pack index.",
+      "sources": [
+        "https://sam.gov/opportunities",
+        "https://www.acquisition.gov/browse/index/far"
+      ]
     },
     {
       "dayNumber": 22,
-      "canonicalTitle": "EU & MENA tender discovery",
-      "objective": "Find entry points into EU/MENA tenders.",
-      "keyConcepts": ["tender boards", "buyer calendars", "consortiums"],
-      "exercise": "Map three tenders with engagement paths",
-      "deliverable": "Tender discovery map + engagement plan",
-      "sources": ["https://learn.microsoft.com/en-us/partner-center/enroll/indirect-reseller-tasks-in-partner-center"]
+      "canonicalTitle": "EU and UK tender discovery",
+      "objective": "Build a tender discovery system for EU and UK contexts with monitoring, filtering, and pursuit planning.",
+      "keyConcepts": [
+        "TED as EU notice portal",
+        "UK Find a Tender service",
+        "eligibility filters and disqualifiers",
+        "evidence pack reuse",
+        "pursuit plan governance"
+      ],
+      "exercise": "Define your search taxonomy (keywords, categories, geographies). Build a weekly monitoring routine and a pursuit decision checklist. Then map three sample opportunities to: fit, eligibility, and next action.",
+      "deliverable": "Tender discovery map plus pursuit plan template (roles, deadlines, submission checkpoints).",
+      "sources": [
+        "https://ted.europa.eu/en/",
+        "https://www.find-tender.service.gov.uk/",
+        "https://eur-lex.europa.eu/eli/dir/2014/24/oj/eng",
+        "https://www.gov.uk/government/publications/procurement-act-2023-short-guides/the-procurement-act-2023-a-short-guide-for-suppliers-html"
+      ]
     },
     {
       "dayNumber": 23,
-      "canonicalTitle": "Sales ops cadence & scorecards",
-      "objective": "Create operational rhythm for forecasting.",
-      "keyConcepts": ["forecast reviews", "funnel hygiene", "KPI dashboards"],
-      "exercise": "Draft weekly/monthly cadences and scorecard templates",
-      "deliverable": "Ops cadence plan + scorecard template",
-      "sources": ["https://www.salesforce.com/sales/pipeline/management/"]
+      "canonicalTitle": "Sales operations cadence and scorecards",
+      "objective": "Create an operating cadence that forces inspection, accountability, and forecast discipline.",
+      "keyConcepts": [
+        "weekly pipeline inspection",
+        "stage evidence enforcement",
+        "scorecard design",
+        "action logging",
+        "forecast hygiene"
+      ],
+      "exercise": "Design weekly and monthly cadences. Define scorecards with leading and lagging indicators per motion. Include downgrade rules and required next-step rules.",
+      "deliverable": "Ops cadence plan plus scorecard template and a one-page governance charter.",
+      "sources": [
+        "https://www.salesforce.com/sales/pipeline/management/"
+      ]
     },
     {
       "dayNumber": 24,
-      "canonicalTitle": "Account intelligence & data strategy",
-      "objective": "Build a data stack tracking intent and health.",
-      "keyConcepts": ["intent signals", "enrichment", "health scoring"],
-      "exercise": "Define intelligence stack + monitoring rules",
-      "deliverable": "Account intelligence blueprint + playbook card",
-      "sources": ["https://meddicc.com/meddpicc-sales-methodology-and-process"]
+      "canonicalTitle": "Account intelligence and data strategy",
+      "objective": "Build a practical intelligence stack that improves targeting, timing, and message relevance without data chaos.",
+      "keyConcepts": [
+        "intent signals",
+        "enrichment",
+        "data dictionary",
+        "health scoring",
+        "monitoring rules"
+      ],
+      "exercise": "Define: the minimum account fields you require, the source of truth for each field, and update rules. Then define an intent monitoring rule and an outreach trigger.",
+      "deliverable": "Account intelligence blueprint plus a data dictionary and a monitoring playbook card.",
+      "sources": [
+        "https://meddicc.com/meddpicc-sales-methodology-and-process"
+      ]
     },
     {
       "dayNumber": 25,
       "canonicalTitle": "Enablement for new motions",
-      "objective": "Launch training for each motion.",
-      "keyConcepts": ["training content", "certification", "learning pathways"],
-      "exercise": "Sketch three enablement modules",
-      "deliverable": "Enablement curriculum map + certification criteria",
-      "sources": ["https://learn.microsoft.com/en-us/partner-center/enroll/indirect-reseller-tasks-in-partner-center"]
+      "objective": "Create motion-specific enablement that produces repeatable execution and certification criteria.",
+      "keyConcepts": [
+        "role-based enablement",
+        "certification gates",
+        "coaching loops",
+        "asset libraries",
+        "standards enforcement"
+      ],
+      "exercise": "Sketch 3 enablement modules (one per motion). Each must include: skills, artefacts, a certification test, and a coaching cadence.",
+      "deliverable": "Enablement curriculum map plus certification criteria and a playbook update workflow.",
+      "sources": [
+        "https://www.gov.uk/government/publications/procurement-act-2023-short-guides/the-procurement-act-2023-a-short-guide-for-suppliers-html"
+      ]
     },
     {
       "dayNumber": 26,
       "canonicalTitle": "Revenue operations alignment",
-      "objective": "Align CRO, sales ops, and partners.",
-      "keyConcepts": ["sequence orchestration", "CRM hygiene", "revenue forecasting"],
-      "exercise": "Document handoff process between teams",
-      "deliverable": "Revenue ops alignment plan + process map",
-      "sources": ["https://www.salesforce.com/sales/pipeline/management/"]
+      "objective": "Align marketing, sales, partners, and delivery through handoffs, shared definitions, and enforceable governance.",
+      "keyConcepts": [
+        "handoff quality",
+        "shared definitions",
+        "attribution and ownership",
+        "forecast alignment",
+        "operating system documentation"
+      ],
+      "exercise": "Define the handoff from sales to delivery: required fields, success criteria, scope, risks, and owners. Define partner-sourced opportunity rules for attribution and evidence.",
+      "deliverable": "Revenue ops alignment plan plus process map and a handoff checklist.",
+      "sources": [
+        "https://www.salesforce.com/sales/pipeline/management/"
+      ]
     },
     {
       "dayNumber": 27,
       "canonicalTitle": "Launch readiness for 90-day rollout",
-      "objective": "Prepare for mission-critical launch.",
-      "keyConcepts": ["launch checklist", "cross-functional gating", "communications"],
-      "exercise": "Create launch checklist across motions",
-      "deliverable": "Launch checklist + comms plan",
-      "sources": ["https://hbr.org/2015/03/making-the-consensus-sale"]
+      "objective": "Create a launch readiness system with gates, owners, and measurable early indicators.",
+      "keyConcepts": [
+        "launch gates",
+        "cross-functional owners",
+        "communications",
+        "early KPI selection",
+        "assumption tracking"
+      ],
+      "exercise": "Build a launch checklist across all motions. Define: gate conditions, owners, and required assets. Define the first 4-week KPI set and review actions.",
+      "deliverable": "90-day launch checklist plus communications plan and assumptions register.",
+      "sources": [
+        "https://hbr.org/2015/03/making-the-consensus-sale"
+      ]
     },
     {
       "dayNumber": 28,
-      "canonicalTitle": "KPI dashboards & reporting",
-      "objective": "Define KPIs and reporting rhythm per motion.",
-      "keyConcepts": ["activity metrics", "partner performance", "pipeline health"],
-      "exercise": "Define KPIs + reporting calendar",
-      "deliverable": "KPI deck + reporting cadence",
-      "sources": ["https://www.salesforce.com/sales/pipeline/management/"]
+      "canonicalTitle": "KPI dashboards and reporting",
+      "objective": "Define KPI formulas, reporting cadence, and review actions so metrics drive decisions, not decoration.",
+      "keyConcepts": [
+        "leading vs lagging indicators",
+        "KPI formulas",
+        "auditability",
+        "metric gaming prevention",
+        "reporting cadence"
+      ],
+      "exercise": "Define KPIs per motion with formulas and owners. Define a weekly reporting calendar and the decision actions triggered by each KPI.",
+      "deliverable": "KPI deck outline plus reporting calendar and KPI definition dictionary.",
+      "sources": [
+        "https://www.salesforce.com/sales/pipeline/management/"
+      ]
     },
     {
       "dayNumber": 29,
-      "canonicalTitle": "Risk & escalation playbooks",
-      "objective": "Anticipate deal/partner risks and escalate effectively.",
-      "keyConcepts": ["risk triggers", "conflict management", "mitigation"],
-      "exercise": "Draft escalation paths and mitigation playbook",
-      "deliverable": "Risk playbook + escalation map",
-      "sources": ["https://hbr.org/2015/03/making-the-consensus-sale"]
+      "canonicalTitle": "Risk and escalation playbooks",
+      "objective": "Identify predictable risks (deal, partner, procurement, delivery) and create escalation playbooks with owners and timelines.",
+      "keyConcepts": [
+        "risk triggers",
+        "mutual plan gaps",
+        "partner conflict",
+        "procurement delays",
+        "post-signature churn prevention"
+      ],
+      "exercise": "Define the top 10 risks and write: trigger, impact, mitigation, escalation owner, and time box. Include a post-signature risk checklist.",
+      "deliverable": "Risk playbook plus escalation map and a post-signature success protection checklist.",
+      "sources": [
+        "https://hbr.org/2015/03/making-the-consensus-sale",
+        "https://www.acquisition.gov/browse/index/far"
+      ]
     },
     {
       "dayNumber": 30,
-      "canonicalTitle": "Final blueprint & 90-day operating plan",
-      "objective": "Synthesize the entire blueprint and rollout plan.",
-      "keyConcepts": ["checkout", "measurement approach", "handoff"],
-      "exercise": "Facilitate final review workshop and capture feedback",
-      "deliverable": "Complete blueprint + 90-day cadence",
-      "sources": ["Course sources above"]
+      "canonicalTitle": "Final blueprint and 90-day operating plan",
+      "objective": "Synthesize the system into a single operating plan that can be executed, measured, and improved.",
+      "keyConcepts": [
+        "owners and accountability",
+        "gates and cadence",
+        "KPI operating rhythm",
+        "partner governance",
+        "procurement readiness integration"
+      ],
+      "exercise": "Assemble the final blueprint: motions, ICPs, packages, channels, pipeline, partners, procurement readiness, KPIs, and risks. Produce a 90-day plan with weekly milestones.",
+      "deliverable": "Complete blueprint plus 90-day operating cadence: weekly agenda, scorecards, review actions, and change log rules.",
+      "sources": [
+        "https://hbr.org/2015/03/making-the-consensus-sale",
+        "https://sam.gov/opportunities",
+        "https://ted.europa.eu/en/"
+      ]
     }
   ],
   "assessmentPlan": {
     "midCourse": {
       "day": 15,
-      "deliverable": "Pipeline + qualification pack (MEDDICC + SPIN)",
-      "gate": "Instructor or admin review for rigor"
+      "deliverable": "Pipeline + qualification pack (MEDDICC + SPIN + close plan)",
+      "gate": "Instructor or admin review for evidence and execution quality"
     },
     "final": {
       "day": 30,
       "deliverable": "Full blueprint + 90-day plan",
-      "gate": "Executive review + proof pack"
+      "gate": "Executive review and approval of KPIs, partner rules, and procurement readiness"
     }
   }
 }

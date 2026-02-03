@@ -48,6 +48,10 @@ export interface ICourse extends Document {
     instructor?: string;
     [key: string]: unknown;
   };
+  /** Feature toggles */
+  discussionEnabled?: boolean;
+  leaderboardEnabled?: boolean;
+  studyGroupsEnabled?: boolean;
   /** For short/child courses: parent 30-day courseId. Unset for language-variant or CCS. */
   parentCourseId?: string;
   /** For short/child courses: ordered list of parent lesson _ids. Index 0 = child Day 1. */
@@ -172,6 +176,20 @@ const CourseSchema = new Schema<ICourse>(
       type: Boolean,
       default: true,
       index: true,
+    },
+    // Feature toggles
+    // Why: Per-course switches for optional UX modules
+    discussionEnabled: {
+      type: Boolean,
+      default: false,
+    },
+    leaderboardEnabled: {
+      type: Boolean,
+      default: true,
+    },
+    studyGroupsEnabled: {
+      type: Boolean,
+      default: true,
     },
 
     // Premium-only course flag

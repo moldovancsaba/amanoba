@@ -28,6 +28,7 @@ const CCS_ID = 'SPORT_SALES_NETWORK_USA_2026';
 const COURSE_ID = 'SPORT_SALES_NETWORK_USA_2026_EN';
 const CANONICAL_JSON_PATH = 'docs/canonical/SPORT_SALES_NETWORK_USA_2026/SPORT_SALES_NETWORK_USA_2026.canonical.json';
 const IDEA_DOC_PATH = 'docs/course_ideas/amanoba_course_sport_sales_network_usa_2026.md';
+const REPO_BASE_RAW_URL = 'https://raw.githubusercontent.com/moldovancsaba/amanoba/main';
 
 function hasFlag(flag: string) {
   return process.argv.includes(flag);
@@ -139,8 +140,16 @@ async function main() {
     idea,
     outline,
     relatedDocuments: [
-      { type: 'canonical-spec', url: `/${CANONICAL_JSON_PATH}` },
-      { type: 'course-idea', url: `/${IDEA_DOC_PATH}` },
+      {
+        type: 'canonical-spec',
+        title: 'Canonical specification (JSON)',
+        url: `${REPO_BASE_RAW_URL}/${CANONICAL_JSON_PATH}`,
+      },
+      {
+        type: 'course-idea',
+        title: 'Course idea & outline',
+        url: `${REPO_BASE_RAW_URL}/${IDEA_DOC_PATH}`,
+      },
     ],
   };
 
@@ -148,6 +157,9 @@ async function main() {
     name: canonicalContent.courseName,
     description: canonicalContent.intent?.oneSentence ?? 'Sports sales network blueprint',
     language: canonicalContent.language ?? 'en',
+    discussionEnabled: false,
+    leaderboardEnabled: true,
+    studyGroupsEnabled: true,
     durationDays: 30,
     isActive: false,
     requiresPremium: false,

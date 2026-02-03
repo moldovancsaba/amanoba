@@ -283,6 +283,10 @@ export default function CourseEditorPage({
       });
 
       if (response.ok) {
+        const data = await response.json();
+        if (data.success && data.course) {
+          setCourse(data.course);
+        }
         alert('Course saved successfully');
       }
     } catch (error) {
@@ -310,7 +314,7 @@ export default function CourseEditorPage({
     }
   };
 
-  const updateCourseFeature = (flag: CourseFeatureFlag, enabled: boolean) => {
+  const _updateCourseFeature = (flag: CourseFeatureFlag, enabled: boolean) => {
     if (!course) return;
     setCourse({
       ...course,
@@ -1038,7 +1042,7 @@ export default function CourseEditorPage({
               <input
                 type="checkbox"
                 checked={course?.discussionEnabled ?? false}
-                onChange={(e) => updateCourseFeature('discussionEnabled', e.target.checked)}
+                onChange={(e) => _updateCourseFeature('discussionEnabled', e.target.checked)}
                 className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
               />
               <span className="text-sm font-medium text-brand-black">Course discussion</span>
@@ -1053,7 +1057,7 @@ export default function CourseEditorPage({
               <input
                 type="checkbox"
                 checked={course?.leaderboardEnabled ?? true}
-                onChange={(e) => updateCourseFeature('leaderboardEnabled', e.target.checked)}
+                onChange={(e) => _updateCourseFeature('leaderboardEnabled', e.target.checked)}
                 className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
               />
               <span className="text-sm font-medium text-brand-black">Course leaderboard</span>
@@ -1068,7 +1072,7 @@ export default function CourseEditorPage({
               <input
                 type="checkbox"
                 checked={course?.studyGroupsEnabled ?? true}
-                onChange={(e) => updateCourseFeature('studyGroupsEnabled', e.target.checked)}
+                onChange={(e) => _updateCourseFeature('studyGroupsEnabled', e.target.checked)}
                 className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
               />
               <span className="text-sm font-medium text-brand-black">Study groups</span>
