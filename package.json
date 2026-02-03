@@ -5,7 +5,7 @@
   "description": "Unified 30-day learning platform with gamified education, email-based lesson delivery, and interactive assessments — built for engagement, retention, and student success",
   "author": "Narimato",
   "engines": {
-    "node": ">=24.0.0",
+    "node": ">=20.0.0",
     "npm": ">=10.0.0"
   },
   "scripts": {

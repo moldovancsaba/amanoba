@@ -14,6 +14,8 @@ import { locales, type Locale } from '@/app/lib/i18n/locales';
 const languageNames: Record<Locale, string> = {
   hu: 'Magyar',
   en: 'English',
+  'en-GB': 'English (UK)',
+  'en-US': 'English (US)',
   ar: 'العربية',
   hi: 'हिन्दी',
   id: 'Bahasa Indonesia',

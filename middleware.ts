@@ -51,6 +51,15 @@ export default auth((req) => {
     return NextResponse.next();
   }
 
+  // Redirect duplicate locale in path (e.g. /ru/ru, /en/en) to single locale root
+  // Why: Prevents 404 when user or link ends up with /{locale}/{locale}
+  for (const loc of locales) {
+    if (pathname === `/${loc}/${loc}` || pathname.startsWith(`/${loc}/${loc}/`)) {
+      const rest = pathname.slice(`/${loc}/${loc}`.length) || '';
+      return NextResponse.redirect(new URL(`/${loc}${rest}${req.nextUrl.search}`, req.url));
+    }
+  }
+
   // Check if this is an admin route BEFORE locale processing
   // Why: Admin routes should default to English, public routes use browser/default
   const hasLocalePrefix = locales.some((loc) => pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`);

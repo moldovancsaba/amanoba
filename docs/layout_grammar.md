@@ -141,6 +141,14 @@ See `docs/COURSE_BUILDING_RULES.md` and `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`
 - **Course language**: Each course has a single `language` (e.g. `hu`, `en`). All lesson content and email fields for that course must be in that language (language integrity).
 - **Multi-language courses**: One course document per language (e.g. `PRODUCTIVITY_2026_EN`, `PRODUCTIVITY_2026_HU`). CCS is language-neutral; implementations are per-language.
 
+### English variant policy
+
+The **British English variant** is the canonical “English” experience for admins, docs, and the default UI. Treat `messages/en.json` as **British English (en-GB)**, and duplicate it to `messages/en-GB.json` so the `/en-GB` path is explicitly supported. This file uses British spellings (`enrol`, `favour`, etc.).
+
+The **American variant** lives in `messages/en-US.json` and is only served when the locale is explicitly `en-US` (next-intl handles this via `locales/en-US`). Keep the keys identical between `en`, `en-GB`, and `en-US`; only adjust the spelled terms. When you edit a British string, update `messages/en.json`/`en-GB.json` first and then duplicate the updated key/value into `messages/en-US.json` with the American spelling.
+
+All other locale files remain in their native language (no British/US split). Native locales should never borrow British or American spellings—to highlight this, the policy keeps every other translation unchanged.
+
 ---
 
 ## 9. Reuse and coding patterns
