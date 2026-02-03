@@ -89,7 +89,13 @@
     "interactiveAssessments": "Interactive Assessments",
     "or": "Or",
     "tryGamesInstantly": "Try games instantly with a random username",
-    "creatingAccount": "Creating account..."
+    "creatingAccount": "Creating account...",
+    "errorDatabase": "We're having trouble connecting right now. Please try again in a few moments.",
+    "errorBrandNotFound": "Something went wrong on our side. Please try again or contact support.",
+    "errorCallback": "Sign in didn't complete. Please try again.",
+    "errorTokenValidation": "Your sign-in link may have expired. Please try again.",
+    "errorSessionCreation": "We couldn't start your session. Please try again.",
+    "errorSignInFailed": "Sign in failed. Please try again."
   },
   "landing": {
     "tagline": "30-day learning platform",

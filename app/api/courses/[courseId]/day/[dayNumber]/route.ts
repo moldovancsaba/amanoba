@@ -14,6 +14,7 @@ import { logger } from '@/lib/logger';
 import { checkAndUnlockCourseAchievements, checkAndUnlockCourseCompletionAchievements } from '@/lib/gamification';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 import { resolveLessonForChildDay } from '@/lib/course-helpers';
+import { canonicalLessonForDay, canonicalLessonSpecsForCourse, buildCanonicalLessonContent } from '@/lib/canonical-spec';
 
 /**
  * Calculate the current day (first uncompleted lesson) based on completed days
@@ -125,6 +126,7 @@ export async function GET(
 
     // Find lesson: for child courses use resolveLessonForChildDay, else by courseId + dayNumber
     let lesson: { _id: unknown; lessonId: string; title: string; content?: string; quizConfig?: unknown; [k: string]: unknown } | null;
+    let usedCanonicalFallback = false;
     if (course.parentCourseId && course.selectedLessonIds?.length) {
       lesson = await resolveLessonForChildDay(course, day);
     } else {
@@ -133,6 +135,31 @@ export async function GET(
         dayNumber: day,
         isActive: true,
       }).lean();
+    }
+
+    if (!lesson && !course.parentCourseId) {
+      const canonicalLesson = canonicalLessonForDay(course, day);
+      if (canonicalLesson) {
+        const lessonId = `${course.courseId}_DAY_${String(day).padStart(2, '0')}`;
+        lesson = {
+          _id: lessonId,
+          lessonId,
+          dayNumber: day,
+          title: canonicalLesson.canonicalTitle ?? canonicalLesson.title ?? `Day ${day}`,
+          content: buildCanonicalLessonContent(canonicalLesson),
+          quizConfig: {
+            enabled: false,
+            required: false,
+            successThreshold: 70,
+            questionCount: 0,
+            poolSize: 0,
+          },
+          pointsReward: 0,
+          xpReward: 0,
+          isActive: true,
+        };
+        usedCanonicalFallback = true;
+      }
     }
 
     if (!lesson) {
@@ -152,9 +179,27 @@ export async function GET(
     if (course.parentCourseId && course.selectedLessonIds?.length) {
       if (day > 1) previousLesson = await resolveLessonForChildDay(course, day - 1);
       if (day < totalDays) nextLesson = await resolveLessonForChildDay(course, day + 1);
+    } else if (usedCanonicalFallback) {
+      const canonicalLessons = canonicalLessonSpecsForCourse(course);
+      if (day > 1) {
+        const prevSpec = canonicalLessons.find((lesson) => lesson.dayNumber === day - 1);
+        if (prevSpec) {
+          previousLesson = { title: prevSpec.canonicalTitle ?? prevSpec.title ?? `Day ${day - 1}` };
+        }
+      }
+      if (day < totalDays) {
+        const nextSpec = canonicalLessons.find((lesson) => lesson.dayNumber === day + 1);
+        if (nextSpec) {
+          nextLesson = { title: nextSpec.canonicalTitle ?? nextSpec.title ?? `Day ${day + 1}` };
+        }
+      }
     } else {
       if (day > 1) previousLesson = await Lesson.findOne({ courseId: course._id, dayNumber: day - 1 }).lean();
       if (day < totalDays) nextLesson = await Lesson.findOne({ courseId: course._id, dayNumber: day + 1 }).lean();
+    }
+
+    if (usedCanonicalFallback) {
+      logger.info({ courseId, dayNumber: day, source: 'canonical' }, 'Served canonical lesson fallback');
     }
 
     return NextResponse.json({

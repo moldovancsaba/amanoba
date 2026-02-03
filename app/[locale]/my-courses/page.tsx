@@ -47,6 +47,14 @@ export default function MyCoursesPage() {
   const [courses, setCourses] = useState<CourseProgress[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Fallback when translation is missing (e.g. DB override or incomplete locale) so we never show raw keys
+  const courseLabel = (key: string, fallback: string, values?: Record<string, string | number>) => {
+    const out = values ? tCourses(key, values as Record<string, string | number>) : tCourses(key);
+    if (typeof out !== 'string') return fallback;
+    if (out === key || out === `courses.${key}`) return fallback;
+    return out;
+  };
+
   const fetchMyCourses = useCallback(async () => {
     try {
       setLoading(true);
@@ -152,7 +160,7 @@ export default function MyCoursesPage() {
                 {/* Progress */}
                 <div className="mb-4">
                   <div className="flex items-center justify-between text-sm mb-2">
-                    <span className="text-brand-darkGrey">{tCourses('progress')}</span>
+                    <span className="text-brand-darkGrey">{courseLabel('progress', 'Progress')}</span>
                     <span className="font-bold text-brand-black">
                       {item.progress.progressPercentage}%
                     </span>
@@ -165,16 +173,14 @@ export default function MyCoursesPage() {
                   </div>
                   <div className="flex items-center justify-between text-xs text-brand-darkGrey mt-2">
                     <span>
-                      {tCourses('dayOf', {
+                      {courseLabel('dayOf', `Day ${item.progress.currentDay} of ${item.progress.totalDays}`, {
                         currentDay: item.progress.currentDay,
                         totalDays: item.progress.totalDays,
-                        defaultValue: `Day ${item.progress.currentDay} of ${item.progress.totalDays}`,
                       })}
                     </span>
                     <span>
-                      {tCourses('daysCompleted', {
+                      {courseLabel('daysCompleted', `${item.progress.completedDays} days completed`, {
                         count: item.progress.completedDays,
-                        defaultValue: `${item.progress.completedDays} days completed`,
                       })}
                     </span>
                   </div>
@@ -186,8 +192,8 @@ export default function MyCoursesPage() {
                   className="block w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors mobile-full-width"
                 >
                   {item.progress.isCompleted
-                    ? tCourses('reviewCourse')
-                    : `${tCourses('continueLearning')} →`}
+                    ? courseLabel('reviewCourse', 'Review Course')
+                    : `${courseLabel('continueLearning', 'Continue Learning')} →`}
                 </LocaleLink>
               </div>
             ))}

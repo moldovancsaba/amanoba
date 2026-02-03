@@ -88,7 +88,13 @@
     "interactiveAssessments": "Interaktív értékelések",
     "or": "vagy",
     "tryGamesInstantly": "Próbáld ki a tanfolyamokat azonnal véletlenszerű felhasználónévvel",
-    "creatingAccount": "Fiók létrehozása..."
+    "creatingAccount": "Fiók létrehozása...",
+    "errorDatabase": "Jelenleg nem sikerül a kapcsolódás. Kérjük, próbálja meg néhány perc múlva.",
+    "errorBrandNotFound": "Hiba történt a mi oldalunkon. Próbálja újra vagy keresse az ügyfélszolgálatot.",
+    "errorCallback": "A bejelentkezés nem fejeződött be. Kérjük, próbálja újra.",
+    "errorTokenValidation": "A bejelentkezési link lejárt. Kérjük, próbálja újra.",
+    "errorSessionCreation": "Nem sikerült munkamenetet indítani. Kérjük, próbálja újra.",
+    "errorSignInFailed": "A bejelentkezés sikertelen. Kérjük, próbálja újra."
   },
   "landing": {
     "tagline": "30 napos tanulási platform",

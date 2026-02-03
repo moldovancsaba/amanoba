@@ -10,11 +10,10 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
-import { existsSync, readFileSync } from 'fs';
-import { resolve } from 'path';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { canonicalLessonSpecsForCourse } from '@/lib/canonical-spec';
 
 type LessonRow = {
   lessonId: string;
@@ -23,50 +22,6 @@ type LessonRow = {
   estimatedMinutes?: number;
   hasQuiz: boolean;
 };
-
-type CanonicalLessonSpec = {
-  dayNumber?: number;
-  canonicalTitle?: string;
-  title?: string;
-  estimatedMinutes?: number;
-  hasQuiz?: boolean;
-};
-
-type CanonicalSpec = {
-  language?: string;
-  lessons?: CanonicalLessonSpec[];
-};
-
-function getCanonicalLessons(course: { courseId: string; language?: string; ccsId?: string }) {
-  if (!course.ccsId) {
-    return [];
-  }
-  const specPath = resolve(process.cwd(), 'docs', 'canonical', course.ccsId, `${course.ccsId}.canonical.json`);
-  if (!existsSync(specPath)) {
-    return [];
-  }
-
-  try {
-    const raw = readFileSync(specPath, 'utf-8');
-    const spec = JSON.parse(raw) as CanonicalSpec;
-    if (spec.language && course.language && spec.language !== course.language) {
-      return [];
-    }
-    return (spec.lessons ?? [])
-      .filter((lesson): lesson is CanonicalLessonSpec & { dayNumber: number } => typeof lesson.dayNumber === 'number')
-      .sort((a, b) => a.dayNumber - b.dayNumber)
-      .map((lesson) => ({
-        lessonId: `${course.courseId}_DAY_${String(lesson.dayNumber).padStart(2, '0')}`,
-        dayNumber: lesson.dayNumber,
-        title: lesson.canonicalTitle ?? lesson.title ?? `Day ${lesson.dayNumber}`,
-        estimatedMinutes: lesson.estimatedMinutes,
-        hasQuiz: lesson.hasQuiz ?? true,
-      }));
-  } catch (error) {
-    logger.error({ error, courseId: course.courseId }, 'Failed to load canonical lessons');
-    return [];
-  }
-}
 
 /**
  * GET /api/courses/[courseId]/lessons
@@ -135,9 +90,15 @@ export async function GET(
     }
 
     if (!co.parentCourseId && lessons.length === 0) {
-      const canonicalLessons = getCanonicalLessons(course);
+      const canonicalLessons = canonicalLessonSpecsForCourse(course);
       if (canonicalLessons.length > 0) {
-        lessons = canonicalLessons;
+        lessons = canonicalLessons.map((lesson) => ({
+          lessonId: `${course.courseId}_DAY_${String(lesson.dayNumber).padStart(2, '0')}`,
+          dayNumber: lesson.dayNumber,
+          title: lesson.canonicalTitle ?? lesson.title ?? `Day ${lesson.dayNumber}`,
+          estimatedMinutes: lesson.estimatedMinutes,
+          hasQuiz: lesson.hasQuiz ?? true,
+        }));
         usedCanonicalFallback = true;
       }
     }

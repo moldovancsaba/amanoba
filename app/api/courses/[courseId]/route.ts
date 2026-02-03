@@ -36,8 +36,8 @@ export async function GET(
 
     const selectFields =
       locale != null
-        ? 'courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig metadata price createdAt translations'
-        : 'courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig metadata price createdAt';
+        ? 'courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig metadata price createdAt translations discussionEnabled leaderboardEnabled studyGroupsEnabled'
+        : 'courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig metadata price createdAt discussionEnabled leaderboardEnabled studyGroupsEnabled';
     const course = await Course.findOne({ courseId })
       .select(selectFields)
       .lean();

@@ -18,11 +18,19 @@ import Icon, { MdMenuBook, MdEmail, MdGpsFixed } from '@/components/Icon';
  * 
  * Why: Provides branded sign-in interface for Amanoba
  */
+const SIGNIN_ERROR_KEYS: Record<string, string> = {
+  database_error: 'errorDatabase',
+  brand_not_found: 'errorBrandNotFound',
+  callback_error: 'errorCallback',
+  token_validation_failed: 'errorTokenValidation',
+  session_creation_failed: 'errorSessionCreation',
+};
+
 export default async function SignInPage({
   searchParams,
   params,
 }: {
-  searchParams: Promise<{ callbackUrl?: string }>;
+  searchParams: Promise<{ callbackUrl?: string; error?: string }>;
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
@@ -39,9 +47,19 @@ export default async function SignInPage({
     redirect(callbackUrl);
   }
 
+  const errorCode = searchParamsResolved.error;
+  const errorMessageKey = errorCode ? SIGNIN_ERROR_KEYS[errorCode] : null;
+  const errorMessage = errorMessageKey ? t(errorMessageKey) : errorCode ? t('errorSignInFailed') : null;
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-brand-black p-6 sm:p-10">
       <div className="w-full max-w-lg">
+        {/* Sign-in error banner (e.g. ?error=database_error) */}
+        {errorMessage && (
+          <div className="mb-6 rounded-xl bg-red-500/90 text-white px-4 py-3 text-center text-sm shadow-lg" role="alert">
+            {errorMessage}
+          </div>
+        )}
         {/* Sign In Card */}
         <div className="bg-brand-white rounded-3xl shadow-2xl p-10 border-2 border-brand-accent">
           {/* Logo and Branding */}
