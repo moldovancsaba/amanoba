@@ -3,7 +3,7 @@
 **Project**: Amanoba (unified 30-day learning platform)  
 **Roles**: Sultan = Product Owner; Agent = AI Developer  
 **Scope**: This document is the **project-specific** rulebook for the Amanoba codebase. All paths, docs, and rules refer to this repository.  
-**Last agent sync:** 2026-02-03 (commit & push).
+**Last agent sync:** 2026-02-03 (push-to-main rule added; commit & push).
 
 ---
 
@@ -24,6 +24,7 @@
 - **Reuse via discriminator:** Same feature in 2+ places = one model, one API, one component; use a discriminator (e.g. `targetType`) to select context. See **`docs/VOTING_AND_REUSE_PATTERN.md`** and **`docs/layout_grammar.md`** (§9).
 - **Certificate A/B:** Template variant assigned at issue (stable hash); render from **certificate.designTemplateId**. See **`docs/CERTIFICATE_AB_TEST_DESIGN.md`**.
 - **Auth / NextAuth / service worker:** Do not modify without explicit approval. See “Authentication System (CRITICAL)” later in this document.
+- **Push to main origin:** When the user says you must push to main origin (or similar), do it without questioning. If there is nothing to commit, make a small modification (e.g. update "Last agent sync" in this doc or a one-line doc note) so you can commit, then push to `origin main`. No "nothing to commit" or "everything up-to-date" as a stopping answer — always end with a successful push.
 
 ---
 
