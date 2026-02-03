@@ -320,6 +320,13 @@ TEAM:
 
 **Layout and structure**: For any work that affects **content layout**, **course/lesson/quiz layout**, **UI layout**, or **documentation layout**, follow **`docs/layout_grammar.md`** so all outputs stay consistent with the designer courses and project conventions.
 
+### Supported Languages and locale
+
+- **Supported locales (UI and courses)**: `hu`, `en`, `ar`, `hi`, `id`, `pt`, `vi`, `tr`, `bg`, `pl`, `ru`. Defined in **`app/lib/i18n/locales.ts`**; translation files in **`messages/<locale>.json`**.
+- **Default locale**: Fallback when the browser language is not supported (see **`i18n.ts`** `defaultLocale`; e.g. `hu`). Not the only language: all supported locales are available.
+- **Default locale by browser**: Middleware uses **next-intl** with `localeDetection: true`, so the first visit (and when no locale cookie is set) uses the browser `Accept-Language` header to choose a supported locale; otherwise falls back to `defaultLocale`.
+- **User preference**: Users can set their preferred language in **Profile → Profile settings → Language**. The value is stored on the player (`player.locale`), used for session, emails, and recommendations, and the UI redirects to the chosen locale path.
+
 ### Authentication System (CRITICAL - DO NOT MODIFY)
 
 **Working Configuration** (f20c34a):

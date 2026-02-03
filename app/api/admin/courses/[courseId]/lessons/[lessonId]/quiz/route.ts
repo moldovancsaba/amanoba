@@ -11,6 +11,8 @@ import connectDB from '@/lib/mongodb';
 import { Course, Lesson, QuizQuestion, QuestionDifficulty } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
+import type { Session } from 'next-auth';
+import { getEditorActorId } from './utils';
 
 /**
  * GET /api/admin/courses/[courseId]/lessons/[lessonId]/quiz
@@ -22,7 +24,7 @@ export async function GET(
   { params }: { params: Promise<{ courseId: string; lessonId: string }> }
 ) {
   try {
-    const session = await auth();
+    const session = (await auth()) as Session | null;
     const accessCheck = await requireAdminOrEditor(request, session);
     if (accessCheck) return accessCheck;
     if (!session?.user) {
@@ -83,7 +85,7 @@ export async function POST(
   { params }: { params: Promise<{ courseId: string; lessonId: string }> }
 ) {
   try {
-    const session = await auth();
+    const session = (await auth()) as Session | null;
     const accessCheck = await requireAdminOrEditor(request, session);
     if (accessCheck) return accessCheck;
     if (!session?.user) {
@@ -149,6 +151,7 @@ export async function POST(
     }
 
     // Create quiz question
+    const actor = getEditorActorId(session);
     const quizQuestion = new QuizQuestion({
       question,
       options,
@@ -164,7 +167,8 @@ export async function POST(
       metadata: {
         createdAt: new Date(),
         updatedAt: new Date(),
-        createdBy: session.user.email || session.user.id,
+        createdBy: actor,
+        updatedBy: actor,
       },
     });
 

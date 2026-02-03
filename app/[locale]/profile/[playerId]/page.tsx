@@ -11,11 +11,12 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useLocale } from 'next-intl';
+import { useRouter, usePathname } from 'next/navigation';
 import PlayerAvatar from '@/components/PlayerAvatar';
-import { 
-  Trophy, 
-  TrendingUp, 
-  Clock, 
+import {
+  Trophy,
+  TrendingUp,
+  Clock,
   CreditCard,
   Award,
   Settings,
@@ -24,6 +25,21 @@ import {
   Link as LinkIcon,
   Check,
 } from 'lucide-react';
+import { locales, type Locale } from '@/app/lib/i18n/locales';
+
+const languageNames: Record<Locale, string> = {
+  hu: 'Magyar',
+  en: 'English',
+  ar: 'العربية',
+  hi: 'हिन्दी',
+  id: 'Bahasa Indonesia',
+  pt: 'Português',
+  vi: 'Tiếng Việt',
+  tr: 'Türkçe',
+  bg: 'Български',
+  pl: 'Polski',
+  ru: 'Русский',
+};
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
@@ -36,6 +52,7 @@ interface ProfilePlayer {
   level?: number;
   isPremium?: boolean;
   profileVisibility?: string;
+  locale?: string;
 }
 interface ProfileProgression {
   level?: number;
@@ -108,6 +125,8 @@ interface PaymentTx {
 export default function ProfilePage({ params }: { params: Promise<{ playerId: string }> }) {
   const { data: session } = useSession();
   const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
   const [playerId, setPlayerId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [profileData, setProfileData] = useState<ProfileData | null>(null);
@@ -683,6 +702,48 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                         <option value="public">Public — others can see your profile</option>
                       </select>
                       <p className="text-xs text-gray-400 mt-1">When private, others see &quot;Profile not available&quot;.</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">Language</label>
+                      <select
+                        value={(profileData.player?.locale && locales.includes(profileData.player.locale as Locale) ? profileData.player.locale : locale) as Locale}
+                        onChange={async (e) => {
+                          const newLocale = e.target.value as Locale;
+                          if (!locales.includes(newLocale)) return;
+                          setProfileSaveLoading(true);
+                          try {
+                            const res = await fetch('/api/profile', {
+                              method: 'PATCH',
+                              headers: { 'Content-Type': 'application/json' },
+                              body: JSON.stringify({ locale: newLocale }),
+                            });
+                            const data = await res.json();
+                            if (data.success && playerId) {
+                              const profileRes = await fetch(`/api/profile/${playerId}`);
+                              const profileJson = await profileRes.json();
+                              if (profileJson.success) setProfileData((profileJson.profile ?? null) as ProfileData | null);
+                              // Navigate to same path with new locale so UI language updates
+                              const pathWithoutLocale = pathname.replace(new RegExp(`^/${locale}(/|$)`), '$1') || '/';
+                              router.push(`/${newLocale}${pathWithoutLocale}`);
+                            } else {
+                              alert(data.error || 'Failed to save language');
+                            }
+                          } catch (err) {
+                            console.error(err);
+                            alert('Failed to save language');
+                          } finally {
+                            setProfileSaveLoading(false);
+                          }
+                        }}
+                        className="px-4 py-2 bg-brand-black/40 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-brand-accent"
+                      >
+                        {locales.map((loc) => (
+                          <option key={loc} value={loc}>
+                            {languageNames[loc]}
+                          </option>
+                        ))}
+                      </select>
+                      <p className="text-xs text-gray-400 mt-1">Interface language. Also used for emails and course recommendations.</p>
                     </div>
                   </div>
                 )}

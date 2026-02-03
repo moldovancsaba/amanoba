@@ -11,6 +11,8 @@ import connectDB from '@/lib/mongodb';
 import { Course, Lesson, QuizQuestion } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
+import type { Session } from 'next-auth';
+import { quizEditableFields, getEditorActorId } from '../utils';
 
 /**
  * PATCH /api/admin/courses/[courseId]/lessons/[lessonId]/quiz/[questionId]
@@ -22,7 +24,7 @@ export async function PATCH(
   { params }: { params: Promise<{ courseId: string; lessonId: string; questionId: string }> }
 ) {
   try {
-    const session = await auth();
+    const session = (await auth()) as Session | null;
     const accessCheck = await requireAdminOrEditor(request, session);
     if (accessCheck) {
       return accessCheck;
@@ -30,7 +32,48 @@ export async function PATCH(
 
     await connectDB();
     const { courseId, lessonId, questionId } = await params;
-    const body = await request.json();
+    const body = (await request.json()) as Record<string, unknown>;
+    const hasOwnProperty = (prop: string) => Object.prototype.hasOwnProperty.call(body, prop);
+    const updatePayload: Record<string, unknown> = {};
+
+    if (hasOwnProperty('options')) {
+      const options = body.options;
+      if (!Array.isArray(options) || options.length !== 4) {
+        return NextResponse.json(
+          { error: 'Must provide exactly 4 options' },
+          { status: 400 }
+        );
+      }
+      if (!options.every((opt) => typeof opt === 'string' && opt.trim().length > 0)) {
+        return NextResponse.json(
+          { error: 'Each option must be a non-empty string' },
+          { status: 400 }
+        );
+      }
+      updatePayload.options = options;
+    }
+
+    if (hasOwnProperty('correctIndex')) {
+      const correctIndex = Number(body.correctIndex);
+      if (!Number.isInteger(correctIndex) || correctIndex < 0 || correctIndex > 3) {
+        return NextResponse.json(
+          { error: 'correctIndex must be between 0 and 3' },
+          { status: 400 }
+        );
+      }
+      updatePayload.correctIndex = correctIndex;
+    }
+
+    for (const field of quizEditableFields) {
+      if (field === 'options' || field === 'correctIndex') continue;
+      if (hasOwnProperty(field)) {
+        updatePayload[field] = body[field];
+      }
+    }
+
+    if (Object.keys(updatePayload).length === 0) {
+      return NextResponse.json({ error: 'No editable fields provided' }, { status: 400 });
+    }
 
     const course = await Course.findOne({ courseId }).lean();
     if (!course) {
@@ -50,6 +93,7 @@ export async function PATCH(
     }
 
     // Find and update question
+    const actor = getEditorActorId(session);
     const question = await QuizQuestion.findOneAndUpdate(
       {
         _id: questionId,
@@ -59,8 +103,9 @@ export async function PATCH(
       },
       {
         $set: {
-          ...body,
+          ...updatePayload,
           'metadata.updatedAt': new Date(),
+          'metadata.updatedBy': actor,
         },
       },
       { new: true, runValidators: true }
@@ -70,7 +115,7 @@ export async function PATCH(
       return NextResponse.json({ error: 'Quiz question not found' }, { status: 404 });
     }
 
-    logger.info({ courseId, lessonId, questionId }, 'Admin updated lesson quiz question');
+    logger.info({ courseId, lessonId, questionId, updatedBy: actor }, 'Admin updated lesson quiz question');
 
     return NextResponse.json({ success: true, question });
   } catch (error) {
@@ -89,7 +134,7 @@ export async function DELETE(
   { params }: { params: Promise<{ courseId: string; lessonId: string; questionId: string }> }
 ) {
   try {
-    const session = await auth();
+    const session = (await auth()) as Session | null;
     const accessCheck = await requireAdminOrEditor(request, session);
     if (accessCheck) {
       return accessCheck;
@@ -116,6 +161,7 @@ export async function DELETE(
     }
 
     // Soft delete question (set isActive to false)
+    const actor = getEditorActorId(session);
     const question = await QuizQuestion.findOneAndUpdate(
       {
         _id: questionId,
@@ -127,6 +173,7 @@ export async function DELETE(
         $set: {
           isActive: false,
           'metadata.updatedAt': new Date(),
+          'metadata.updatedBy': actor,
         },
       },
       { new: true }
@@ -136,7 +183,7 @@ export async function DELETE(
       return NextResponse.json({ error: 'Quiz question not found' }, { status: 404 });
     }
 
-    logger.info({ courseId, lessonId, questionId }, 'Admin deactivated lesson quiz question');
+    logger.info({ courseId, lessonId, questionId, updatedBy: actor }, 'Admin deactivated lesson quiz question');
 
     return NextResponse.json({ success: true, message: 'Quiz question deactivated' });
   } catch (error) {

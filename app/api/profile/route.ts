@@ -11,6 +11,7 @@ import connectDB from '@/lib/mongodb';
 import { Player } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
+import { locales, type Locale } from '@/app/lib/i18n/locales';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -182,9 +183,10 @@ export async function PATCH(request: NextRequest) {
       player.timezone = timezone;
     }
 
-    // Update locale
-    if (locale) {
-      player.locale = locale;
+    // Update locale (only allow supported locales)
+    if (locale !== undefined) {
+      const normalized = String(locale).toLowerCase().trim();
+      player.locale = locales.includes(normalized as Locale) ? normalized : player.locale;
     }
 
     await player.save();

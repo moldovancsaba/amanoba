@@ -209,7 +209,7 @@ async function generateOneMCQ(lessonContent: string, language: string): Promise<
   }
   
   const question = String(parsed?.question || '').trim();
-  let options = Array.isArray(parsed?.options) ? parsed.options.map((o) => String(o).trim()).slice(0, 4) : [];
+  const options = Array.isArray(parsed?.options) ? parsed.options.map((o) => String(o).trim()).slice(0, 4) : [];
   let correctIndex = Number(parsed?.correctIndex);
   if (!Number.isInteger(correctIndex) || correctIndex < 0 || correctIndex > 3) correctIndex = 0;
   
@@ -393,7 +393,7 @@ async function main() {
     const lesson = firstLessonId ? await (Lesson as any).findOne({ lessonId: firstLessonId }).select({ language: 1 }).lean() : null;
     const language = (lesson as { language: string })?.language || 'en';
     for (const { group } of groupsToProcess) {
-      let occurrences = group.optionOccurrences && group.optionOccurrences.length >= 3 ? group.optionOccurrences : [];
+    const occurrences = group.optionOccurrences && group.optionOccurrences.length >= 3 ? group.optionOccurrences : [];
       if (occurrences.length < 3 && group.questionIds.length >= 3) {
         for (const qid of group.questionIds) {
           const doc = await (QuizQuestion as any).findById(qid).select({ options: 1 }).lean();

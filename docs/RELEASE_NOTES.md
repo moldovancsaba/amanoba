@@ -1,13 +1,31 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.40  
-**Last Updated**: 2026-01-31
+**Current Version**: 2.9.42  
+**Last Updated**: 2026-02-03
 
 **Rule:** Each task exists in exactly one place. Completed work lives **only here** (not in ROADMAP or TASKLIST). Open/future work → ROADMAP.md or TASKLIST.md only. **Only related items:** Only completed work that belongs in RELEASE_NOTES may appear here — no open tasks, no roadmap vision, no unrelated content.
 
 ---
 
 All completed tasks are documented here in reverse chronological order. This file follows the Changelog format and is updated with every version bump.
+
+---
+
+## [v2.9.42] — 2026-02-03 🌍
+
+**Status**: Internationalization — Supported languages and locale behaviour  
+**Type**: Feature (i18n)
+
+### Supported languages (UI)
+
+- **All 11 locales** are supported for the UI: `hu`, `en`, `ar`, `hi`, `id`, `pt`, `vi`, `tr`, `bg`, `pl`, `ru`. Single source of truth: **`app/lib/i18n/locales.ts`**; translation files in **`messages/<locale>.json`**.
+- **Default locale by browser**: Middleware uses next-intl with **`localeDetection: true`**. First visit uses the browser `Accept-Language` header to pick a supported locale; if none match, fallback is **`defaultLocale`** in **`i18n.ts`** (e.g. `hu`).
+- **User preference in UI**: Users can set their preferred language in **Profile → Profile settings → Language**. Value is stored on the player (`player.locale`), used for session, emails, and recommendations; changing language redirects to the same path with the new locale.
+- **Profile API**: `PATCH /api/profile` accepts `locale`; only supported locales are accepted. **GET /api/profile/[playerId]** includes `locale` in the response when the viewer is the profile owner or admin.
+- **Auth/session**: Session `user.locale` supports all supported locales (no longer restricted to `en` | `hu`). Middleware sign-in redirect uses the current path locale (all locales allowed).
+- **Docs**: **agent_working_loop_canonical_operating_document.md** — new “Supported Languages and locale” section. **docs/layout_grammar.md** §8 — supported locales, default by browser, user preference. **docs/I18N_SETUP.md** — updated to 11 languages, locale detection, and user preference.
+
+**Rollback**: Revert commits for this release; middleware `localeDetection: false`; auth session cast to `'en' | 'hu'`; remove Language from profile settings tab and locale from profile [playerId] response; restore middleware redirect to en/hu only.
 
 ---
 
@@ -112,6 +130,32 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 - **Certificate status API** (`/api/profile/[playerId]/certificate-status`): Response now includes `designTemplateId` when an issued certificate exists (for client analytics).
 - **GA event** `certificate_viewed`: New event with `course_id`, `course_name`, and optional `template_variant_id` (designTemplateId). Fired once when user views the certificate page (eligible); certificate page sends `template_variant_id` when available so engagement by variant can be compared.
+
+**Status**: ✅ Delivered.
+
+---
+
+## [v2.9.41] — 2026-02-02 🛠️
+
+**Status**: Editor portal, course automation scripts, and infra/dep docs  
+**Type**: Feature + Documentation
+
+### Editor portal for course editors
+
+- **New portal**: `/[locale]/editor/...` now surfaces a course editor workspace that mirrors the admin editor but respects editor-only roles (`app/[locale]/editor/layout.tsx`, `/editor/courses/page.tsx`, `/editor/courses/[courseId]/page.tsx`, lesson preview page). The dashboard now links to `/editor/courses` when the user only has editor access (`app/[locale]/dashboard/page.tsx`, `middleware.ts`).
+- **Access guard**: `/api/editor/access` reports whether the session belongs to an editor-only user so the frontend can show/hide the portal link without exposing `/admin` routes.
+
+### Course run automation, seeds, and docs
+
+- **Scrummaster Leszek scripts**: A full set of `scripts/apply-scrummaster-leszek-2026-hu-day-{01..30}.ts` (plus quiz variants), `scripts/publish-scrummaster-leszek-2026-hu-day-{01..30}.ts`, and `scripts/seed-scrummaster-leszek-2026-hu.ts` automate the HU run so editors can dry-run or apply the cohort in one command.
+- **Runbooks**: `docs/course_runs/SCRUMMASTER_LESZEK_2026_HU__2026-01-31T18-53-33Z.md` plus the paired tasklist entry document the publish/apply workflow, commands, and expected state for each day.
+
+### Email transports & install hygiene
+
+- **Email transports**: `app/lib/email/transports/{mailgun-transport,resend-transport,smtp-transport}.ts` abstract provider-specific clients so the email service can switch between Resend, SMTP, or Mailgun via `EMAIL_PROVIDER`.
+- **Environment & docs**: `docs/ENVIRONMENT_SETUP.md` now outlines the `EMAIL_PROVIDER` option plus the required env vars per provider, emphasises that the Admin UI placeholder does not switch providers, and notes the root `.npmrc` pins `legacy-peer-deps=true` to keep the NextAuth/Nodemailer peer dependency conflict under control.
+- **Admin UI**: `/admin/settings` now fetches `/api/admin/settings/email-config` to display the active provider, sender, reply-to, and SMTP/Mailgun metadata in read-only fields for quick diagnostics.
+- **Dependency hygiene**: Added `react-is` so Recharts builds succeed on Vercel without the “Module not found: Can't resolve 'react-is'” failure.
 
 **Status**: ✅ Delivered.
 

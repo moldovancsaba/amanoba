@@ -21,12 +21,12 @@ const adminDefaultLocale: Locale = 'en';
 
 // Create next-intl middleware for language routing
 // Note: We'll handle admin-specific defaults in the middleware handler
+// localeDetection: true = use Accept-Language and cookie for first-time and returning visitors
 const intlMiddleware = createIntlMiddleware({
   locales,
-  defaultLocale: publicDefaultLocale, // Default for public routes
+  defaultLocale: publicDefaultLocale, // Fallback when browser language is not supported
   localePrefix: 'always', // Always show locale prefix: /hu/..., /en/...
-  localeDetection: false, // Disable automatic locale detection
-  // This means / redirects to /hu, all routes have locale prefix
+  localeDetection: true, // Use browser Accept-Language and locale cookie for default locale
 });
 
 /**
@@ -52,30 +52,27 @@ export default auth((req) => {
   }
 
   // Check if this is an admin route BEFORE locale processing
-  // Why: Admin routes should default to English, public routes to Hungarian
-  const isAdminRoute = pathname === '/admin' || 
+  // Why: Admin routes should default to English, public routes use browser/default
+  const hasLocalePrefix = locales.some((loc) => pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`);
+  const isAdminRoute = pathname === '/admin' ||
                        pathname.startsWith('/admin/') ||
-                       (!pathname.startsWith('/hu/') && 
-                        !pathname.startsWith('/en/') && 
-                        pathname.startsWith('/admin'));
+                       (!hasLocalePrefix && pathname.startsWith('/admin'));
 
   const isEditorRoute =
     pathname === '/editor' ||
     pathname.startsWith('/editor/') ||
-    (!pathname.startsWith('/hu/') &&
-      !pathname.startsWith('/en/') &&
-      pathname.startsWith('/editor'));
-  
+    (!hasLocalePrefix && pathname.startsWith('/editor'));
+
   // Handle admin route default locale (English)
   // Why: Admin interface should default to English for better international admin experience
-  if (isAdminRoute && !pathname.startsWith('/hu/') && !pathname.startsWith('/en/')) {
+  if (isAdminRoute && !hasLocalePrefix) {
     // Redirect /admin to /en/admin
     const adminPath = pathname.replace('/admin', '') || '/';
     return NextResponse.redirect(new URL(`/en/admin${adminPath}${req.nextUrl.search}`, req.url));
   }
 
   // Handle editor route default locale (English)
-  if (isEditorRoute && !pathname.startsWith('/hu/') && !pathname.startsWith('/en/')) {
+  if (isEditorRoute && !hasLocalePrefix) {
     const editorPath = pathname.replace('/editor', '') || '/';
     return NextResponse.redirect(new URL(`/en/editor${editorPath}${req.nextUrl.search}`, req.url));
   }
@@ -98,10 +95,10 @@ export default auth((req) => {
   }
   
   // Ensure admin routes use English locale
-  // Why: If admin route is accessed with Hungarian locale, redirect to English
-  if (actualPathname.startsWith('/admin') && pathname.startsWith('/hu/')) {
-    const adminPath = actualPathname;
-    return NextResponse.redirect(new URL(`/en${adminPath}${req.nextUrl.search}`, req.url));
+  // Why: Admin UI is English-only; redirect any non-en locale on admin to /en/admin
+  const pathLocale = locales.find((loc) => pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`);
+  if (actualPathname.startsWith('/admin') && pathLocale && pathLocale !== 'en') {
+    return NextResponse.redirect(new URL(`/en${actualPathname}${req.nextUrl.search}`, req.url));
   }
 
   // Define protected routes (without locale prefix)
@@ -171,7 +168,7 @@ export default auth((req) => {
     let locale: Locale = actualPathname.startsWith('/admin') ? adminDefaultLocale : publicDefaultLocale;
     for (const loc of locales) {
       if (pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`) {
-        locale = (loc === 'en' || loc === 'hu' ? loc : publicDefaultLocale);
+        locale = loc;
         break;
       }
     }

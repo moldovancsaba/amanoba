@@ -12,6 +12,8 @@ import { Player } from '@/lib/models';
 import { Brand } from '@/lib/models';
 import logger from '@/lib/logger';
 import { logPlayerRegistration, logAuthEvent } from '@/lib/analytics';
+import { defaultLocale } from '@/i18n';
+import { locales, type Locale } from '@/app/lib/i18n/locales';
 
 /**
  * NextAuth Instance
@@ -86,7 +88,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             token.role = dbRole; // Database role wins (was updated from SSO)
             token.authProvider = (player.authProvider as 'sso' | 'anonymous') || 'sso';
             token.ssoSub = player.ssoSub || null;
-            token.locale = player.locale || 'en';
+            token.locale = (player.locale && locales.includes(player.locale as Locale) ? (player.locale as Locale) : defaultLocale);
             token.isAnonymous = player.isAnonymous || false;
             
             logger.info(
@@ -140,7 +142,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (token && session.user) {
         session.user.id = token.id as string;
         session.user.ssoSub = token.ssoSub ?? undefined;
-        session.user.locale = (token.locale ?? 'en') as 'en' | 'hu';
+        session.user.locale = (token.locale && locales.includes(token.locale as Locale) ? token.locale : defaultLocale) as string;
         session.user.isAnonymous = token.isAnonymous ?? false;
         session.user.role = (token.role as 'user' | 'admin') || 'user';
         session.user.authProvider = (token.authProvider as 'sso' | 'anonymous') || 'sso';

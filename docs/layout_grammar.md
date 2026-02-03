@@ -135,8 +135,10 @@ See `docs/COURSE_BUILDING_RULES.md` and `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`
 
 ## 8. Language and localization layout
 
-- **Course language**: Each course has a single `language` (e.g. `hu`, `en`). All lesson content and email fields for that course must be in that language (language integrity).  
-- **UI**: `messages/<locale>.json`. Keys namespaced (e.g. `dashboard.myProfile`, `common.back`).  
+- **Supported locales (UI)**: `hu`, `en`, `ar`, `hi`, `id`, `pt`, `vi`, `tr`, `bg`, `pl`, `ru`. Single source of truth: **`app/lib/i18n/locales.ts`**. Translation files: **`messages/<locale>.json`**.
+- **Default locale**: Configurable in **`i18n.ts`** (e.g. `hu`). Used as fallback when browser language is not in the supported list. **Locale detection**: Middleware uses browser `Accept-Language` and locale cookie (`localeDetection: true`).
+- **User locale preference**: Stored on the player (`player.locale`). Users set it in **Profile → Profile settings → Language**; used for session, emails, and course recommendations.
+- **Course language**: Each course has a single `language` (e.g. `hu`, `en`). All lesson content and email fields for that course must be in that language (language integrity).
 - **Multi-language courses**: One course document per language (e.g. `PRODUCTIVITY_2026_EN`, `PRODUCTIVITY_2026_HU`). CCS is language-neutral; implementations are per-language.
 
 ---

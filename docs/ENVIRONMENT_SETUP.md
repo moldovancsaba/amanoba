@@ -10,6 +10,10 @@
 
 This document provides complete instructions for setting up the Amanoba development and production environments.
 
+### npm install configuration
+
+The repository includes a committed `.npmrc` (`legacy-peer-deps=true`) at the project root. This keeps `npm install` from failing when NextAuth (v5.x) and Nodemailer (v6.x) carry incompatible peer requirements. Always run `npm install` (or `npm update`) from the repo root without removing `.npmrc`; if you must override, pass `--legacy-peer-deps` explicitly so the NextAuth/Nodemailer conflict stays resolved for every developer, QA engineer, and CI run.
+
 ### Where admins configure 3rd party services
 
 **Email, Stripe, VAPID, etc.** are configured **via environment variables**, not in the Admin UI:
@@ -17,7 +21,7 @@ This document provides complete instructions for setting up the Amanoba developm
 - **Local**: `.env.local` (see sections below for each service).
 - **Production (e.g. Vercel)**: Project Settings → Environment Variables.
 
-The **Admin Settings** page (`/[locale]/admin/settings`) has an "Email Configuration" section with a Resend/SendGrid dropdown and From address — that section is **UI placeholder only**; it does not save or change the email provider. The app chooses the email provider via **`EMAIL_PROVIDER`** (`resend` | `smtp` | `mailgun`) and reads the corresponding env vars. To switch provider or address, update env vars and redeploy.
+The **Admin Settings** page (`/[locale]/admin/settings`) now surfaces the currently active provider, sender, and reply-to values. These fields are **read-only** (built from `/api/admin/settings/email-config`) because the platform still chooses the provider via **`EMAIL_PROVIDER`** (`resend` | `smtp` | `mailgun`) and reads the supporting env vars. To change the provider, from address, or credentials, update the environment variables (locally and in production) and redeploy — see the “Email providers” section below and the Environment Setup guide.
 
 ## Prerequisites
 

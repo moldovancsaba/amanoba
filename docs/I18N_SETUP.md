@@ -10,13 +10,15 @@
 ### 1. next-intl Installation & Configuration
 - ✅ Installed `next-intl` package
 - ✅ Created `i18n.ts` configuration file
-- ✅ Set Hungarian (`hu`) as default locale
-- ✅ Configured supported locales: `['hu', 'en']`
+- ✅ Default locale: Hungarian (`hu`) — fallback when browser language is not supported
+- ✅ Supported locales: **`app/lib/i18n/locales.ts`** — `hu`, `en`, `ar`, `hi`, `id`, `pt`, `vi`, `tr`, `bg`, `pl`, `ru` (11 languages)
+- ✅ Locale detection: browser `Accept-Language` and cookie (`localeDetection: true` in middleware)
+- ✅ User preference: Profile → Profile settings → Language (persisted as `player.locale`)
 - ✅ Updated `next.config.ts` with next-intl plugin
 
 ### 2. Translation Files Created
-- ✅ `messages/hu.json` - Hungarian translations (default)
-- ✅ `messages/en.json` - English translations
+- ✅ `messages/<locale>.json` for each supported locale: `hu`, `en`, `ar`, `bg`, `hi`, `id`, `pl`, `pt`, `ru`, `tr`, `vi`
+- ✅ Hungarian (`hu`) and English (`en`) are fully maintained; other locales share the same key structure
 - ✅ Comprehensive translation keys for:
   - Common UI elements
   - Authentication
@@ -50,9 +52,9 @@
 
 ### 4. Middleware Updated
 - ✅ Integrated next-intl middleware
-- ✅ Language routing support
-- ✅ Hungarian as default (no prefix needed)
-- ✅ English routes: `/en/...`
+- ✅ Language routing: `localePrefix: 'always'` — all routes have locale prefix (e.g. `/hu/...`, `/en/...`)
+- ✅ Locale detection: `localeDetection: true` — first visit uses browser `Accept-Language`; returning visitors use locale cookie
+- ✅ Fallback: when browser language is not supported, redirect to `defaultLocale` (e.g. `hu`)
 - ✅ Combined with existing auth middleware
 
 ### 5. Layout Structure
@@ -169,15 +171,29 @@ app/
 
 ## 🌍 Language Support
 
-### Current Languages
-- **Hungarian (hu)** - Default, no URL prefix
-- **English (en)** - Available at `/en/...`
+### Supported Languages (11)
+- **Hungarian (hu)** — default fallback
+- **English (en)**
+- **Arabic (ar)**
+- **Hindi (hi)**
+- **Indonesian (id)**
+- **Portuguese (pt)**
+- **Vietnamese (vi)**
+- **Turkish (tr)**
+- **Bulgarian (bg)**
+- **Polish (pl)**
+- **Russian (ru)**
+
+Single source of truth: **`app/lib/i18n/locales.ts`**. Translation files: **`messages/<locale>.json`**.
+
+### Default locale and user preference
+- **Default by browser**: Middleware uses `Accept-Language` and locale cookie; unsupported languages fall back to `defaultLocale` in **`i18n.ts`**.
+- **User preference**: Profile → Profile settings → Language; stored as `player.locale`, used for session and emails.
 
 ### Adding New Languages
-1. Add locale to `locales` array in `i18n.ts`
-2. Create `messages/{locale}.json` file
-3. Add language name to `LanguageSwitcher.tsx`
-4. Update `languageNames` object
+1. Add locale to `locales` array in **`app/lib/i18n/locales.ts`**
+2. Create **`messages/{locale}.json`** (copy structure from `en.json` or `hu.json`)
+3. Add language name to **`components/LanguageSwitcher.tsx`** and profile settings language dropdown (`languageNames`)
 
 ---
 
@@ -187,12 +203,10 @@ app/
 No additional environment variables needed for i18n.
 
 ### Default Behavior
-- Default locale: `hu` (Hungarian)
-- URL structure:
-  - Hungarian: `/dashboard` (no prefix)
-  - English: `/en/dashboard`
-- Locale detection: From URL path
-- Fallback: Defaults to Hungarian
+- Default locale (fallback): `hu` (Hungarian) when browser language is not supported
+- URL structure: `localePrefix: 'always'` — e.g. `/hu/dashboard`, `/en/dashboard`, `/ar/dashboard`, etc.
+- Locale detection: Browser `Accept-Language` and next-intl locale cookie
+- User preference: Profile → Profile settings → Language (persisted on player, used for session and emails)
 
 ---
 
@@ -208,7 +222,7 @@ No additional environment variables needed for i18n.
 
 ## 📊 Statistics
 
-- **Supported Languages**: 2 (hu, en)
+- **Supported Languages**: 11 (hu, en, ar, hi, id, pt, vi, tr, bg, pl, ru)
 - **Translation Keys**: 100+ per language
 - **Models Updated**: 3 (Course, Lesson, Player)
 - **New Components**: 1 (LanguageSwitcher)

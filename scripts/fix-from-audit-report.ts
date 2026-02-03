@@ -171,7 +171,7 @@ function rephraseQuestion(locale: string, q: string): string {
 }
 
 function rephraseOptions(locale: string, options: string[]): string[] {
-  let arr = locale === 'hu' ? options.map(rephraseOptionHu) : options.slice();
+  const arr = locale === 'hu' ? options.map(rephraseOptionHu) : options.slice();
   return arr.map((o) => applyReplaceList(o, getReplacePairsForLocale(locale)));
 }
 

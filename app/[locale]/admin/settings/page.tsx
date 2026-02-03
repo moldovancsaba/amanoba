@@ -37,6 +37,17 @@ interface CertSettings {
   backgroundUrl?: string;
 }
 
+interface MailSettings {
+  emailProvider: string;
+  emailFrom?: string;
+  emailFromName?: string;
+  emailReplyTo?: string;
+  smtpHost?: string | null;
+  smtpPort?: string | null;
+  smtpSecure?: string | null;
+  mailgunDomain?: string | null;
+}
+
 export default function AdminSettingsPage() {
   const _locale = useLocale();
   const t = useTranslations('admin');
@@ -45,6 +56,9 @@ export default function AdminSettingsPage() {
   const [saved, setSaved] = useState(false);
   const [defaultThumbnail, setDefaultThumbnail] = useState<string | null>(null);
   const [uploadingThumbnail, setUploadingThumbnail] = useState(false);
+  const [mailSettings, setMailSettings] = useState<MailSettings | null>(null);
+  const [mailSettingsLoading, setMailSettingsLoading] = useState(true);
+  const [mailSettingsError, setMailSettingsError] = useState<string | null>(null);
   
   // Certification settings state
   const [certSettings, setCertSettings] = useState<CertSettings | null>(null);
@@ -54,6 +68,7 @@ export default function AdminSettingsPage() {
   useEffect(() => {
     fetchDefaultThumbnail();
     fetchCertificationSettings();
+    fetchMailSettings();
   }, []);
 
   const fetchCertificationSettings = async () => {
@@ -160,6 +175,26 @@ export default function AdminSettingsPage() {
     }
   };
 
+  const fetchMailSettings = async () => {
+    setMailSettingsLoading(true);
+    try {
+      const response = await fetch('/api/admin/settings/email-config');
+      const data = await response.json();
+      if (response.ok && data.success && data.settings) {
+        setMailSettings(data.settings as MailSettings);
+        setMailSettingsError(null);
+      } else {
+        setMailSettings(null);
+        setMailSettingsError(data.error || 'Failed to load mail settings');
+      }
+    } catch (error) {
+      console.error('Failed to fetch mail settings:', error);
+      setMailSettingsError('Failed to load mail settings');
+    } finally {
+      setMailSettingsLoading(false);
+    }
+  };
+
   const handleSave = async () => {
     setSaving(true);
     // TODO: Implement settings save
@@ -241,40 +276,133 @@ export default function AdminSettingsPage() {
 
         {/* Email Settings */}
         <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-          <div className="flex items-center gap-3 mb-4">
-            <Mail className="w-6 h-6 text-indigo-500" />
-            <h2 className="text-xl font-bold text-white">{t('emailConfiguration')}</h2>
+          <div className="flex items-center justify-between gap-3 mb-4">
+            <div className="flex items-center gap-3">
+              <Mail className="w-6 h-6 text-indigo-500" />
+              <h2 className="text-xl font-bold text-white">{t('emailConfiguration')}</h2>
+            </div>
+            {mailSettingsLoading && (
+              <span className="text-sm text-gray-400">{t('loading')}</span>
+            )}
           </div>
           <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                {t('fromEmail')}
-              </label>
-              <input
-                type="email"
-                defaultValue="noreply@amanoba.com"
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                {t('fromName')}
-              </label>
-              <input
-                type="text"
-                defaultValue="Amanoba Learning"
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                Email szolgáltatás
-              </label>
-              <select className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500">
-                <option value="resend">Resend</option>
-                <option value="sendgrid">SendGrid</option>
-              </select>
-            </div>
+            {mailSettingsLoading ? (
+              <p className="text-sm text-gray-400">{t('loading')}</p>
+            ) : mailSettings ? (
+              <>
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    {t('emailProvider')}
+                  </label>
+                  <input
+                    type="text"
+                    value={mailSettings.emailProvider}
+                    readOnly
+                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    {t('fromEmail')}
+                  </label>
+                  <input
+                    type="text"
+                    value={mailSettings.emailFrom || ''}
+                    readOnly
+                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  />
+                </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      {t('fromName')}
+                    </label>
+                    <input
+                      type="text"
+                      value={mailSettings.emailFromName || ''}
+                      readOnly
+                      className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      {t('replyTo')}
+                    </label>
+                    <input
+                      type="text"
+                      value={mailSettings.emailReplyTo || ''}
+                      readOnly
+                      className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                    />
+                  </div>
+                </div>
+                {mailSettings.smtpHost && (
+                  <div className="grid gap-4 md:grid-cols-3">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        {t('smtpHost')}
+                      </label>
+                      <input
+                        type="text"
+                        value={mailSettings.smtpHost}
+                        readOnly
+                        className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        {t('smtpPort')}
+                      </label>
+                      <input
+                        type="text"
+                        value={mailSettings.smtpPort || ''}
+                        readOnly
+                        className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        {t('smtpSecure')}
+                      </label>
+                      <input
+                        type="text"
+                        value={mailSettings.smtpSecure || ''}
+                        readOnly
+                        className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                      />
+                    </div>
+                  </div>
+                )}
+                {mailSettings.mailgunDomain && (
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      {t('mailgunDomain')}
+                    </label>
+                    <input
+                      type="text"
+                      value={mailSettings.mailgunDomain}
+                      readOnly
+                      className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                    />
+                  </div>
+                )}
+              </>
+            ) : (
+              <p className="text-sm text-red-400">
+                {mailSettingsError || t('emailSettingsError')}
+              </p>
+            )}
+            <p className="text-sm text-gray-400">
+              {t('emailProviderNote')}{' '}
+              <a
+                href="https://github.com/moldovancsaba/amanoba/blob/main/docs/ENVIRONMENT_SETUP.md"
+                target="_blank"
+                rel="noreferrer"
+                className="text-indigo-400 underline"
+              >
+                {t('emailProviderDocs')}
+              </a>
+            </p>
           </div>
         </div>
 

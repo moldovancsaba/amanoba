@@ -50,6 +50,20 @@ _(Nothing delivered or already on TASKLIST appears here. Delivered work: RELEASE
 
 ---
 
+### Certification templates and defaults
+
+**What we want:**
+
+- **Global default certificate**: Admins define a default certification template (design, palette, credential metadata) that automatically applies to courses that do not have their own assigned certificate, keeping new courses consistent out of the box.
+- **Custom certificate library**: Allow admins to create and save reusable certification templates in the admin UI and assign them to individual courses so bespoke certifications can coexist with the default baseline.
+
+**Client benefits:**
+
+- Admins can roll out new branding or credential styles immediately without touching every course.
+- Courses inherit sensible defaults but can adopt custom certificates when the curriculum or credential demands it.
+
+---
+
 ## Client Benefits Summary (future only)
 
 | Who            | Benefits we want to deliver (not yet delivered or on TASKLIST) |

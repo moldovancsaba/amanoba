@@ -62,6 +62,7 @@ export interface IQuizQuestion extends Document {
     createdAt: Date;
     updatedAt: Date;
     createdBy?: string;
+    updatedBy?: string;
     lastShownAt?: Date;
     auditedAt?: Date; // When this question was audited/enhanced
     auditedBy?: string; // Who audited this question
@@ -265,6 +266,11 @@ const QuizQuestionSchema = new Schema<IQuizQuestion>(
         type: String,
         trim: true,
         // Why: Optional admin user who created the question
+      },
+      updatedBy: {
+        type: String,
+        trim: true,
+        // Why: Tracks who last edited this question (admins, editors, or bots)
       },
       lastShownAt: {
         type: Date,

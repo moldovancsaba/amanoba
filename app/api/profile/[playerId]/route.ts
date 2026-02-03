@@ -219,6 +219,7 @@ export async function GET(
             certificates: 'private',
             stats: 'private',
           },
+          locale: (player as { locale?: string }).locale ?? undefined,
         }),
       },
       progression: {
