@@ -28,6 +28,9 @@ import Logo from '@/components/Logo';
 import ContentVoteWidget from '@/components/ContentVoteWidget';
 import CourseDiscussion from '@/components/CourseDiscussion';
 import CourseStudyGroups from '@/components/CourseStudyGroups';
+
+/** Disable course discussion UI until infinite-reload-after-posting bug is fixed. Set to true to re-enable. */
+const COURSE_DISCUSSION_ENABLED = false;
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 
 interface Course {
@@ -1105,16 +1108,18 @@ export default function CourseDetailPage({
               )}
             </div>
 
-            {/* Discussion */}
-            <CourseDiscussion
-              courseId={courseId}
-              title={getCourseDetailText('discussionTitle') || 'Discussion'}
-              placeholder={getCourseDetailText('discussionPlaceholder') || 'Ask a question...'}
-              replyLabel={getCourseDetailText('discussionReply') || 'Reply'}
-              signInToPost={getCourseDetailText('discussionSignInToPost') || 'Sign in to post.'}
-              emptyMessage={getCourseDetailText('discussionNoPosts') || 'No posts yet.'}
-              loadingText={getCourseDetailText('discussionLoading') || 'Loading...'}
-            />
+            {/* Discussion — disabled until infinite-reload after posting is fixed */}
+            {COURSE_DISCUSSION_ENABLED && (
+              <CourseDiscussion
+                courseId={courseId}
+                title={getCourseDetailText('discussionTitle') || 'Discussion'}
+                placeholder={getCourseDetailText('discussionPlaceholder') || 'Ask a question...'}
+                replyLabel={getCourseDetailText('discussionReply') || 'Reply'}
+                signInToPost={getCourseDetailText('discussionSignInToPost') || 'Sign in to post.'}
+                emptyMessage={getCourseDetailText('discussionNoPosts') || 'No posts yet.'}
+                loadingText={getCourseDetailText('discussionLoading') || 'Loading...'}
+              />
+            )}
 
             {/* Study Groups */}
             <CourseStudyGroups

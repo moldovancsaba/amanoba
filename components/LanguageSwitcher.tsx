@@ -8,7 +8,7 @@
 'use client';
 
 import { useLocale } from 'next-intl';
-import { usePathname, useRouter } from '@/app/lib/i18n/navigation';
+import { getPathname, usePathname, useRouter } from '@/app/lib/i18n/navigation';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
 
 const languageNames: Record<Locale, string> = {
@@ -37,20 +37,41 @@ export default function LanguageSwitcher() {
   const locale = useLocale() as Locale;
   const router = useRouter();
   const pathname = usePathname();
+  const safePath = (typeof pathname === 'string' ? pathname : '') || '/';
+
+  const resolveNavigationPath = (path: string) => {
+    // On course detail pages the courseId itself encodes the locale, so we can only guarantee
+    // a valid route if we navigate to the courses listing instead of reusing the detail slug.
+    return path.startsWith('/courses/') ? '/courses' : path;
+  };
 
   const handleLanguageChange = (newLocale: Locale) => {
-    if (pathname.startsWith('/courses/')) {
-      return;
+    const navigationPath = resolveNavigationPath(safePath);
+    const targetPath = getPathname({
+      href: navigationPath,
+      locale: newLocale,
+      forcePrefix: true,
+    });
+    router.push(navigationPath, { locale: newLocale });
+    // Fallback: if client navigation doesn't run (e.g. outside router context), full navigate
+    if (typeof window !== 'undefined') {
+      const fallback = () => {
+        if (window.location.pathname !== targetPath) {
+          window.location.href = targetPath;
+        }
+      };
+      setTimeout(fallback, 150);
     }
-    router.replace(pathname || '/', { locale: newLocale });
   };
+
+  const displayLocale = locales.includes(locale) ? locale : 'hu';
 
   return (
     <div className="relative inline-block">
       <select
-        value={locale}
+        value={displayLocale}
         onChange={(e) => handleLanguageChange(e.target.value as Locale)}
-        className="appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md px-3 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+        className="relative z-10 appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md px-3 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 cursor-pointer"
         aria-label="Select language"
       >
         {locales.map((loc) => (
@@ -59,7 +80,7 @@ export default function LanguageSwitcher() {
           </option>
         ))}
       </select>
-      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300 z-0">
         <svg
           className="fill-current h-4 w-4"
           xmlns="http://www.w3.org/2000/svg"
