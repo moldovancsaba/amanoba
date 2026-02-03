@@ -3,7 +3,7 @@
 **Project**: Amanoba (unified 30-day learning platform)  
 **Roles**: Sultan = Product Owner; Agent = AI Developer  
 **Scope**: This document is the **project-specific** rulebook for the Amanoba codebase. All paths, docs, and rules refer to this repository.  
-**Last agent sync:** 2026-02-03 (push-to-main rule added; commit & push).
+**Last agent sync:** 2026-02-03 (push to main).
 
 ---
 
