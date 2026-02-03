@@ -1,7 +1,7 @@
 # Language dropdown / i18n problem — collected information
 
 **Last updated:** 2026-02-03  
-**Status:** Root cause identified and fixed (see § Root cause below).
+**Status:** Root cause identified and fixed (see § Root cause below). Fix is on `main` and pushed to `origin`.
 
 ---
 
