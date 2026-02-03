@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import RichTextEditor from '@/components/ui/rich-text-editor';
+import QuizManagerModal from '@/components/QuizManagerModal';
 
 type Lesson = {
   lessonId: string;
@@ -32,6 +33,7 @@ export default function EditorLessonPage() {
   const [content, setContent] = useState('');
   const [emailSubject, setEmailSubject] = useState('');
   const [emailBody, setEmailBody] = useState('');
+  const [showQuizManager, setShowQuizManager] = useState(false);
 
   useEffect(() => {
     if (!courseId || !lessonId) return;
@@ -155,6 +157,17 @@ export default function EditorLessonPage() {
               <RichTextEditor content={content} onChange={setContent} placeholder="Write lesson content…" />
             </div>
 
+            <div className="bg-gray-800 border border-gray-700 rounded-lg p-4 pt-4 border-t border-gray-700">
+              <button
+                type="button"
+                onClick={() => setShowQuizManager(true)}
+                className="w-full px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-bold transition-colors flex items-center justify-center gap-2"
+              >
+                <span>📝</span>
+                Manage Quiz Questions
+              </button>
+            </div>
+
             <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
               <label className="block text-xs text-gray-300 mb-2">Email subject</label>
               <input
@@ -174,6 +187,15 @@ export default function EditorLessonPage() {
               />
             </div>
           </div>
+
+          {showQuizManager && (
+            <QuizManagerModal
+              courseId={courseId}
+              lessonId={lessonId}
+              onClose={() => setShowQuizManager(false)}
+              variant="dark"
+            />
+          )}
         </>
       )}
     </div>
