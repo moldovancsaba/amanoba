@@ -1,14 +1,16 @@
 import { auth } from '@/auth';
 import { getTranslations } from 'next-intl/server';
 import { LocaleLink } from '@/components/LocaleLink';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 import Image from 'next/image';
 import Icon, { MdMenuBook, MdEmail, MdGpsFixed, MdEmojiEvents, MdTrendingUp, MdStar } from '@/components/Icon';
 
 /**
  * Landing Page
- * 
+ *
  * What: Main entry point for the platform - shows features and allows users to choose to sign in
  * Why: Users should see what the platform offers before being asked to sign in
+ * Locale: All copy uses next-intl so /en shows English, /hu shows Hungarian, etc.
  */
 
 export default async function LandingPage({
@@ -16,11 +18,11 @@ export default async function LandingPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale: _locale } = await params;
   const session = await auth();
   const t = await getTranslations('common');
   const tAuth = await getTranslations('auth');
-  
+  const tLanding = await getTranslations('landing');
+
   return (
     <div className="min-h-screen bg-brand-black">
       {/* Header */}
@@ -38,10 +40,11 @@ export default async function LandingPage({
               />
               <div>
                 <h1 className="text-xl font-bold text-brand-white">{t('appName')}</h1>
-                <p className="text-sm text-brand-white/70">30 napos tanulási platform</p>
+                <p className="text-sm text-brand-white/70">{tLanding('tagline')}</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
+              <LanguageSwitcher />
               {session?.user ? (
                 <LocaleLink
                   href="/dashboard"
@@ -66,42 +69,41 @@ export default async function LandingPage({
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-brand-white mb-6">
-            Tanulj 30 nap alatt
+            {tLanding('heroTitle')}
           </h2>
           <p className="text-xl text-brand-white/70 max-w-3xl mx-auto mb-8">
-            Strukturált napi leckék, interaktív értékelések és gamifikált tanulási élmény. 
-            Kezdj el egy 30 napos kurzust még ma!
+            {tLanding('heroDescription')}
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {session?.user ? (
               <>
-                <LocaleLink 
-                  href="/courses" 
+                <LocaleLink
+                  href="/courses"
                   className="px-8 py-4 bg-brand-accent text-brand-black rounded-lg font-bold text-lg hover:bg-brand-primary-400 transition-colors"
                 >
-                  Kurzusok böngészése
+                  {tLanding('browseCourses')}
                 </LocaleLink>
-                <LocaleLink 
-                  href="/dashboard" 
+                <LocaleLink
+                  href="/dashboard"
                   className="px-8 py-4 bg-brand-darkGrey text-brand-white rounded-lg font-bold text-lg hover:bg-brand-secondary-700 transition-colors"
                 >
-                  Irányítópult
+                  {t('dashboard')}
                 </LocaleLink>
               </>
             ) : (
               <>
-                <LocaleLink 
-                  href="/auth/signin" 
+                <LocaleLink
+                  href="/auth/signin"
                   className="px-8 py-4 bg-brand-accent text-brand-black rounded-lg font-bold text-lg hover:bg-brand-primary-400 transition-colors"
                 >
-                  Kezdés
+                  {tLanding('getStarted')}
                 </LocaleLink>
-                <LocaleLink 
-                  href="/courses" 
+                <LocaleLink
+                  href="/courses"
                   className="px-8 py-4 bg-brand-darkGrey text-brand-white rounded-lg font-bold text-lg hover:bg-brand-secondary-700 transition-colors"
                 >
-                  Kurzusok megtekintése
+                  {tLanding('viewCourses')}
                 </LocaleLink>
               </>
             )}
@@ -115,10 +117,10 @@ export default async function LandingPage({
               <Icon icon={MdMenuBook} size={48} className="text-brand-accent" />
             </div>
             <h3 className="text-xl font-bold text-brand-white mb-2 text-center">
-              30 napos kurzusok
+              {tLanding('feature1Title')}
             </h3>
             <p className="text-brand-white/70 text-center">
-              Strukturált napi leckék, amelyek emailben érkeznek és a platformon is elérhetők
+              {tLanding('feature1Description')}
             </p>
           </div>
 
@@ -127,10 +129,10 @@ export default async function LandingPage({
               <Icon icon={MdEmail} size={48} className="text-brand-accent" />
             </div>
             <h3 className="text-xl font-bold text-brand-white mb-2 text-center">
-              Napi email leckék
+              {tLanding('feature2Title')}
             </h3>
             <p className="text-brand-white/70 text-center">
-              Minden nap kapj egy új leckét emailben, időzítve a neked megfelelő időpontban
+              {tLanding('feature2Description')}
             </p>
           </div>
 
@@ -139,10 +141,10 @@ export default async function LandingPage({
               <Icon icon={MdGpsFixed} size={48} className="text-brand-accent" />
             </div>
             <h3 className="text-xl font-bold text-brand-white mb-2 text-center">
-              Interaktív értékelések
+              {tLanding('feature3Title')}
             </h3>
             <p className="text-brand-white/70 text-center">
-              Teszteld a tudásod játékos értékelésekkel minden lecke után
+              {tLanding('feature3Description')}
             </p>
           </div>
         </div>
@@ -154,10 +156,10 @@ export default async function LandingPage({
               <Icon icon={MdEmojiEvents} size={48} className="text-brand-accent" />
             </div>
             <h3 className="text-xl font-bold text-brand-white mb-2 text-center">
-              Elérhetőségek
+              {tLanding('feature4Title')}
             </h3>
             <p className="text-brand-white/70 text-center">
-              Szerezz elérhetőségeket, pontokat és XP-t a tanulásért
+              {tLanding('feature4Description')}
             </p>
           </div>
 
@@ -166,10 +168,10 @@ export default async function LandingPage({
               <Icon icon={MdTrendingUp} size={48} className="text-brand-accent" />
             </div>
             <h3 className="text-xl font-bold text-brand-white mb-2 text-center">
-              Haladás követése
+              {tLanding('feature5Title')}
             </h3>
             <p className="text-brand-white/70 text-center">
-              Kövesd a fejlődésedet és lásd, mennyit tanultál
+              {tLanding('feature5Description')}
             </p>
           </div>
 
@@ -178,10 +180,10 @@ export default async function LandingPage({
               <Icon icon={MdStar} size={48} className="text-brand-accent" />
             </div>
             <h3 className="text-xl font-bold text-brand-white mb-2 text-center">
-              Gamifikáció
+              {tLanding('feature6Title')}
             </h3>
             <p className="text-brand-white/70 text-center">
-              Szerezz pontokat, szintet lépj és oldj fel új funkciókat
+              {tLanding('feature6Description')}
             </p>
           </div>
         </div>
@@ -192,14 +194,14 @@ export default async function LandingPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-brand-white/70 text-sm">
-              © 2025 {t('appName')}. Minden jog fenntartva.
+              © 2025 {t('appName')}. {tLanding('footerRights')}
             </div>
             <div className="flex gap-6">
               <LocaleLink href="/terms" className="text-brand-white/70 hover:text-brand-white text-sm">
-                Felhasználási feltételek
+                {tLanding('terms')}
               </LocaleLink>
               <LocaleLink href="/privacy" className="text-brand-white/70 hover:text-brand-white text-sm">
-                Adatvédelmi irányelvek
+                {tLanding('privacy')}
               </LocaleLink>
             </div>
           </div>

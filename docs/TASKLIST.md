@@ -41,9 +41,9 @@ Completed items (formerly 1–4, 6–11, course voting, UI/UX polish, course lea
 
 | # | Action item | Status |
 |---|-------------|--------|
-| 1 | Data model: Support multiple active enrolments per player (e.g. CourseEnrolment or extend CourseProgress); optional prerequisite courseIds on Course. | ⏳ PENDING |
-| 2 | API: Enrol in course (idempotent); list my enrolments; enforce prerequisite check on enrol (optional: soft vs hard). | ⏳ PENDING |
-| 3 | UI: My courses / dashboard shows multiple courses in progress; course detail shows “Enrol” and prerequisite notice if not met. | ⏳ PENDING |
+| 1 | Model for multiple active enrolments/prerequisites: design `CourseEnrolment` (or extend `CourseProgress`) so a player can have several active courses and optionally declare prerequisite course IDs per enrolment. | ⏳ PENDING |
+| 2 | Idempotent enrolment API that lists a player’s active enrolments and enforces prerequisites (soft or hard) during enrolment. | ⏳ PENDING |
+| 3 | Dashboard/course pages show every course in progress, surface the “Enrol” action with prerequisite notices, and respect multi-course state everywhere (today’s lessons, badge sync, etc.). | ⏳ PENDING |
 | 4 | Email/scheduler: Respect multiple enrolments (e.g. daily lesson per enrolled course, no duplicate sends). | ⏳ PENDING |
 
 ---
