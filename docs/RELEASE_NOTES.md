@@ -11,6 +11,22 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ---
 
+## [v2.9.44] — 2026-02-03 🌍 i18n: Full UI translations (ar, hi, ru, id, pt); admin course page fix
+
+**Status**: All UI strings translated for 5 locales; build fix  
+**Type**: Feature (i18n), Bugfix
+
+- **messages/ar.json**: Full Arabic translations for common, auth, landing, dashboard, stats, courses, games, challenges, quests, achievements, leaderboard, rewards, referral, profile, settings, admin, errors, email (incl. unsubscribe), onboarding, consent.
+- **messages/hi.json**: Full Hindi translations for the same sections.
+- **messages/ru.json**: Complete structure and Russian translations; added auth, landing, dashboard, stats, games, challenges, quests, achievements, leaderboard, rewards, referral, profile, settings, admin, errors, email (incl. unsubscribe), onboarding; translated landing and common; courses and consent were already largely in Russian.
+- **messages/id.json**: Full Indonesian translations for all sections.
+- **messages/pt.json**: Full Portuguese (EU) translations for all sections.
+- **app/[locale]/admin/courses/[courseId]/page.tsx**: Removed duplicate “Course Feature Toggles” block from inside EditLessonModal (orphaned JSX that caused build error “Expected ',', got '{'”). Main page still has its own Course Feature Toggles section.
+
+**Remaining locales** (vi, tr, bg, pl): Still contain many English strings; can be translated in the same way.
+
+---
+
 ## [v2.9.43] — 2026-02-03 🌍 Fix: Main UI language switcher and double-locale URLs
 
 **Status**: i18n fix — All languages visible in switcher; no more `/id/en`-style URLs  
