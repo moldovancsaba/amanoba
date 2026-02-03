@@ -38,6 +38,9 @@ interface Course {
   thumbnail?: string;
   isActive: boolean;
   requiresPremium: boolean;
+  discussionEnabled?: boolean;
+  leaderboardEnabled?: boolean;
+  studyGroupsEnabled?: boolean;
   price?: {
     amount: number;
     currency: string;
@@ -114,6 +117,8 @@ interface Game {
   name: string;
   isAssessment: boolean;
 }
+
+type CourseFeatureFlag = 'discussionEnabled' | 'leaderboardEnabled' | 'studyGroupsEnabled';
 
 export default function CourseEditorPage({
   params,
@@ -303,6 +308,14 @@ export default function CourseEditorPage({
     } catch (error) {
       console.error('Failed to toggle course status:', error);
     }
+  };
+
+  const updateCourseFeature = (flag: CourseFeatureFlag, enabled: boolean) => {
+    if (!course) return;
+    setCourse({
+      ...course,
+      [flag]: enabled,
+    });
   };
 
   const handleExportCourse = async () => {
@@ -1013,6 +1026,57 @@ export default function CourseEditorPage({
               </div>
             </>
           )}
+        </div>
+      </div>
+
+      {/* Course Feature Toggles */}
+      <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent mt-6">
+        <h2 className="text-xl font-bold text-brand-black mb-4">Course Feature Toggles</h2>
+        <div className="space-y-4">
+          <div>
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={course?.discussionEnabled ?? false}
+                onChange={(e) => updateCourseFeature('discussionEnabled', e.target.checked)}
+                className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
+              />
+              <span className="text-sm font-medium text-brand-black">Course discussion</span>
+            </label>
+            <p className="text-xs text-brand-darkGrey mt-1 ml-7">
+              Show or hide the discussion forum on this course page.
+            </p>
+          </div>
+
+          <div>
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={course?.leaderboardEnabled ?? true}
+                onChange={(e) => updateCourseFeature('leaderboardEnabled', e.target.checked)}
+                className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
+              />
+              <span className="text-sm font-medium text-brand-black">Course leaderboard</span>
+            </label>
+            <p className="text-xs text-brand-darkGrey mt-1 ml-7">
+              Toggle the leaderboard block that shows top students for this course.
+            </p>
+          </div>
+
+          <div>
+            <label className="flex items-center gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={course?.studyGroupsEnabled ?? true}
+                onChange={(e) => updateCourseFeature('studyGroupsEnabled', e.target.checked)}
+                className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
+              />
+              <span className="text-sm font-medium text-brand-black">Study groups</span>
+            </label>
+            <p className="text-xs text-brand-darkGrey mt-1 ml-7">
+              Enable or disable the study group widget for this course.
+            </p>
+          </div>
         </div>
       </div>
 
