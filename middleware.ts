@@ -10,8 +10,9 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { authEdge as auth } from '@/auth.edge';
-import createIntlMiddleware from 'next-intl/middleware';
+import createMiddleware from 'next-intl/middleware';
 import { defaultLocale } from './i18n';
+import { routing } from '@/app/lib/i18n/routing';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
 
 // Default locales for different route types
@@ -19,15 +20,8 @@ import { locales, type Locale } from '@/app/lib/i18n/locales';
 const publicDefaultLocale: Locale = 'hu';
 const adminDefaultLocale: Locale = 'en';
 
-// Create next-intl middleware for language routing
-// Note: We'll handle admin-specific defaults in the middleware handler
-// localeDetection: true = use Accept-Language and cookie for first-time and returning visitors
-const intlMiddleware = createIntlMiddleware({
-  locales,
-  defaultLocale: publicDefaultLocale, // Fallback when browser language is not supported
-  localePrefix: 'always', // Always show locale prefix: /hu/..., /en/...
-  localeDetection: true, // Use browser Accept-Language and locale cookie for default locale
-});
+// next-intl middleware: routing config is shared with app/lib/i18n/navigation.ts
+const intlMiddleware = createMiddleware(routing);
 
 /**
  * Middleware Handler
@@ -57,6 +51,21 @@ export default auth((req) => {
     if (pathname === `/${loc}/${loc}` || pathname.startsWith(`/${loc}/${loc}/`)) {
       const rest = pathname.slice(`/${loc}/${loc}`.length) || '';
       return NextResponse.redirect(new URL(`/${loc}${rest}${req.nextUrl.search}`, req.url));
+    }
+  }
+
+  // Redirect double-locale paths (e.g. /id/en, /en-GB/ru) to single locale: keep second as intended
+  // Why: Prevents 404 and wrong content when URL becomes /{localeA}/{localeB}
+  const segments = pathname.split('/').filter(Boolean);
+  if (segments.length >= 2) {
+    const first = segments[0] as string;
+    const second = segments[1] as string;
+    const firstIsLocale = locales.includes(first as Locale);
+    const secondIsLocale = locales.includes(second as Locale);
+    if (firstIsLocale && secondIsLocale && first !== second) {
+      const rest = segments.slice(2).join('/');
+      const targetPath = rest ? `/${second}/${rest}` : `/${second}`;
+      return NextResponse.redirect(new URL(`${targetPath}${req.nextUrl.search}`, req.url));
     }
   }
 

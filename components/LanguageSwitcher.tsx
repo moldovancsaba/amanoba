@@ -8,7 +8,7 @@
 'use client';
 
 import { useLocale } from 'next-intl';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from '@/app/lib/i18n/navigation';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
 
 const languageNames: Record<Locale, string> = {
@@ -29,8 +29,9 @@ const languageNames: Record<Locale, string> = {
 
 /**
  * Language Switcher
- * 
- * Why: Simple dropdown to switch languages
+ *
+ * Uses next-intl navigation so pathname is without locale prefix; switching
+ * locale keeps the same page (e.g. /en/dashboard -> /hu/dashboard).
  */
 export default function LanguageSwitcher() {
   const locale = useLocale() as Locale;
@@ -38,15 +39,10 @@ export default function LanguageSwitcher() {
   const pathname = usePathname();
 
   const handleLanguageChange = (newLocale: Locale) => {
-    if (pathname.startsWith(`/${locale}/courses/`)) {
+    if (pathname.startsWith('/courses/')) {
       return;
     }
-    // Remove current locale from pathname
-    const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
-    
-    // Add new locale
-    const newPath = `/${newLocale}${pathWithoutLocale}`;
-    router.push(newPath);
+    router.replace(pathname || '/', { locale: newLocale });
   };
 
   return (

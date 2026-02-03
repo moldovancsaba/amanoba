@@ -50,12 +50,14 @@
 - ✅ Updated `locale` default from 'en' to 'hu'
 - ✅ Added index for locale queries
 
-### 4. Middleware Updated
-- ✅ Integrated next-intl middleware
-- ✅ Language routing: `localePrefix: 'always'` — all routes have locale prefix (e.g. `/hu/...`, `/en/...`)
-- ✅ Locale detection: `localeDetection: true` — first visit uses browser `Accept-Language`; returning visitors use locale cookie
-- ✅ Fallback: when browser language is not supported, redirect to `defaultLocale` (e.g. `hu`)
-- ✅ Combined with existing auth middleware
+### 4. Middleware & Routing
+- ✅ **Shared routing**: `app/lib/i18n/routing.ts` uses `defineRouting` (locales, defaultLocale, localePrefix, localeDetection); same config used by middleware and navigation.
+- ✅ Middleware uses `createMiddleware(routing)` from next-intl (single source of truth).
+- ✅ **Double-locale redirect**: URLs like `/id/en` or `/en-GB/ru` redirect to the second locale (e.g. `/en`, `/ru`) to avoid 404s and wrong content.
+- ✅ Duplicate-locale redirect: `/ru/ru` → `/ru` (unchanged).
+- ✅ Language routing: `localePrefix: 'always'` — all routes have locale prefix (e.g. `/hu/...`, `/en/...`).
+- ✅ Locale detection: `localeDetection: true` — first visit uses browser `Accept-Language`; returning visitors use locale cookie.
+- ✅ Combined with existing auth middleware.
 
 ### 5. Layout Structure
 - ✅ Created `app/[locale]/layout.tsx` for locale-based layout
@@ -63,10 +65,10 @@
 - ✅ Updated HTML lang attribute based on locale
 - ✅ Maintained backward compatibility with root layout
 
-### 6. Language Switcher Component
-- ✅ Created `components/LanguageSwitcher.tsx`
-- ✅ Dropdown selector for language switching
-- ✅ Preserves current route when switching languages
+### 6. Language Switcher & Navigation
+- ✅ **Locale-aware navigation**: `app/lib/i18n/navigation.ts` exports `Link`, `usePathname`, `useRouter`, `redirect` from `createNavigation(routing)`. Use these instead of `next/navigation` when building locale-prefixed URLs so pathname is without locale (e.g. `/dashboard` not `/en/dashboard`).
+- ✅ `components/LanguageSwitcher.tsx` uses `usePathname`/`useRouter` from `@/app/lib/i18n/navigation` and `router.replace(pathname, { locale })` so switching language keeps the same page and never produces double-locale URLs.
+- ✅ Dropdown lists all supported locales; preserves current route when switching.
 
 ### 7. Email Service Updated
 - ✅ Added locale parameter to `sendLessonEmail()`

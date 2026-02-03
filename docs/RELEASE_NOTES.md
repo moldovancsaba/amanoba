@@ -11,6 +11,20 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ---
 
+## [v2.9.43] — 2026-02-03 🌍 Fix: Main UI language switcher and double-locale URLs
+
+**Status**: i18n fix — All languages visible in switcher; no more `/id/en`-style URLs  
+**Type**: Bugfix (i18n)
+
+- **Shared routing**: Added **`app/lib/i18n/routing.ts`** (`defineRouting`: locales, defaultLocale, localePrefix, localeDetection) and **`app/lib/i18n/navigation.ts`** (`createNavigation(routing)` exporting `Link`, `usePathname`, `useRouter`, `redirect`). Middleware now uses `createMiddleware(routing)` so config is single source of truth.
+- **Double-locale redirect**: Middleware redirects paths like **`/id/en`**, **`/en-GB/ru`** to the second segment only (e.g. `/en`, `/ru`) so users no longer hit 404 or wrong language.
+- **Language switcher**: **LanguageSwitcher** uses `usePathname` and `useRouter` from **`@/app/lib/i18n/navigation`** (pathname without locale) and **`router.replace(pathname, { locale })`** so switching language keeps the same page and all 13 locales (including en-GB, en-US) appear and work in the main UI.
+- **Docs**: **docs/I18N_SETUP.md** updated (§4 Middleware & Routing, §6 Language Switcher & Navigation).
+
+**Rollback**: Revert routing.ts, navigation.ts, middleware and LanguageSwitcher changes; restore `createIntlMiddleware({...})` and `next/navigation` in LanguageSwitcher.
+
+---
+
 ## [v2.9.42] — 2026-02-03 🌍
 
 **Status**: Internationalization — Supported languages and locale behaviour  
