@@ -2,7 +2,8 @@
 
 **Project**: Amanoba (unified 30-day learning platform)  
 **Roles**: Sultan = Product Owner; Agent = AI Developer  
-**Scope**: This document is the **project-specific** rulebook for the Amanoba codebase. All paths, docs, and rules refer to this repository.
+**Scope**: This document is the **project-specific** rulebook for the Amanoba codebase. All paths, docs, and rules refer to this repository.  
+**Last agent sync:** 2026-02-03 (commit & push).
 
 ---
 
@@ -15,7 +16,9 @@
 **Rules at a glance:**
 - **Rollback plan** required for every delivery (baseline + exact steps + verification). No exceptions.
 - **Documentation = code:** Update docs with every change. No placeholders, no TBD. If it’s not documented, it’s not done.
+
 - **Single-place rule:** ROADMAP = vision only. TASKLIST = what to do (no release refs). RELEASE_NOTES = what’s done. Do not duplicate tasks across the three.
+
 - **Only related items:** Each document contains only what belongs there. ROADMAP = future vision only; TASKLIST = open tasks only; RELEASE_NOTES = completed work only. No unrelated content in any doc.
 - **Layout / content / course / UI:** Read **`docs/layout_grammar.md`** first. For course/quiz quality work, read the SSOT set in “Mandatory Documentation for Course/Quiz Quality Work” below.
 - **Reuse via discriminator:** Same feature in 2+ places = one model, one API, one component; use a discriminator (e.g. `targetType`) to select context. See **`docs/VOTING_AND_REUSE_PATTERN.md`** and **`docs/layout_grammar.md`** (§9).
