@@ -5,7 +5,7 @@
   "description": "Unified 30-day learning platform with gamified education, email-based lesson delivery, and interactive assessments — built for engagement, retention, and student success",
   "author": "Narimato",
   "engines": {
-    "node": ">=20.0.0",
+    "node": ">=20.0.0 <25.0.0",
     "npm": ">=10.0.0"
   },
   "scripts": {
@@ -36,6 +36,7 @@
     "seed:survey": "tsx --env-file=.env.local scripts/seed-onboarding-survey.ts",
     "seed:productivity-lesson-8": "tsx --env-file=.env.local scripts/seed-productivity-lesson-8.ts",
     "seed:scrummaster-leszek-2026-hu": "tsx --env-file=.env.local scripts/seed-scrummaster-leszek-2026-hu.ts",
+    "seed:sport-sales-network-europe-2026-en": "tsx --env-file=.env.local scripts/seed-sport-sales-network-europe-2026-en.ts",
     "seed:sport-sales-network-usa-2026-en": "tsx --env-file=.env.local scripts/seed-sport-sales-network-usa-2026-en.ts",
     "admin:set-role": "tsx --env-file=.env.local scripts/set-admin-role.ts",
     "admin:set-sso-role": "tsx --env-file=.env.local scripts/set-sso-admin-role.ts",
@@ -43,6 +44,7 @@
     "admin:check-role": "tsx --env-file=.env.local scripts/check-user-role.ts",
     "migrate:fix-facebookid-index": "tsx --env-file=.env.local scripts/fix-facebookid-index.ts",
     "migrate:remove-facebookid": "tsx --env-file=.env.local scripts/migrate-remove-facebookid.ts",
+    "admin:disable-course-discussion": "tsx --env-file=.env.local scripts/disable-course-discussion.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:payment-contract": "tsx scripts/payment-e2e-contract-test.ts"
@@ -118,7 +120,8 @@
     "@types/web-push": "^3.6.3",
     "autoprefixer": "^10.4.20",
     "eslint": "^9",
-    "eslint-config-next": "15.5.2",
+    "@next/swc": "15.5.11",
+    "eslint-config-next": "15.5.11",
     "pino-pretty": "^13.1.2",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.11",

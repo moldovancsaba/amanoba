@@ -33,4 +33,13 @@ export default defineConfig([
       '@typescript-eslint/no-require-imports': 'warn',
     },
   },
+  // Scripts and public: disable strict rules so one-off scripts don't block build
+  {
+    files: ['scripts/**/*.ts', 'scripts/**/*.js', 'public/**/*.js'],
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-require-imports': 'off',
+    },
+  },
 ]);

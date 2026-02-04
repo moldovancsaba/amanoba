@@ -1,16 +1,16 @@
 {
   "schemaVersion": "1.0",
-  "courseIdBase": "SPORT_SALES_NETWORK_USA_2026",
-  "courseName": "Build a Sport Sales Network in the USA 2026",
+  "courseIdBase": "SPORT_SALES_NETWORK_EUROPE_2026",
+  "courseName": "Build a Sport Sales Network in Europe 2026",
   "version": "2026-02-03",
   "language": "en",
   "intent": {
-    "oneSentence": "Teach operators how to design, launch, and scale a multi-motion sport sales network across B2C, B2B, and B2G in the United States, with explicit rules for partners, procurement, and measurable execution.",
+    "oneSentence": "Teach operators how to design, launch, and scale a multi-motion sport sales network across B2C, B2B, and B2G in Europe, keeping partners governed and procurement-ready while benchmarking USA and MENA entry points.",
     "outcomes": [
       "Design a three-motion system (B2C, B2B, B2G) with separate ICPs, packages, channels, and stage definitions that can be executed and audited.",
       "Run an evidence-based pipeline that prevents false progress, with qualification and discovery artefacts that translate into proposals and delivery handoffs.",
       "Build a partner layer (selection, onboarding, incentives, deal protection, escalation) that scales coverage without breaking governance.",
-      "Become procurement-ready for US federal buyers and build a repeatable tender discovery and submission process for EU and UK contexts, with compliance checklists and standard evidence packs.",
+      "Become procurement-ready for EU/UK tenders and compare USA/MENA procurement entry points so every opportunity has a compliant, repeatable response.",
       "Ship a 90-day operating plan with KPI definitions, reporting cadence, and risk playbooks that an organisation can execute without improvisation."
     ],
     "nonGoals": [
@@ -27,9 +27,9 @@
   },
   "concepts": {
     "valueChainMapping": "Identify who pays, decides, influences, uses, blocks, and governs purchase decisions in sport and fitness.",
-    "segmentMotioning": "Treat B2C, B2B, and B2G as different businesses with different economics, evidence, and process constraints.",
+    "segmentMotioning": "Treat B2C, B2B, and B2G as distinct businesses with motion-specific economics, evidence, and cadence.",
     "partnerEcosystem": "Decide direct versus partner-led coverage, then build rules for incentives, deal protection, onboarding, and escalation.",
-    "procurementReadiness": "Operate a compliance-first approach for public buyers: requirements mapping, evidence packs, and submission workflow.",
+    "procurementReadiness": "Operate a compliance-first approach for EU/UK public buyers while cataloguing USA/MENA procedures for future expansion.",
     "rolloutCadence": "Execute a 90-day rollout with explicit gates, KPI formulas, owners, and weekly inspection rhythms."
   },
   "procedures": [
@@ -439,179 +439,192 @@
     },
     {
       "dayNumber": 21,
-      "canonicalTitle": "Federal procurement readiness",
-      "objective": "Prepare for US federal buying realities: formal notices, compliance documentation, and process discipline.",
+      "canonicalTitle": "B2G fundamentals in Europe: EU public procurement logic",
+      "objective": "Understand how European public-sector buying differs from commercial deals and how compliance shapes the sales motion.",
       "keyConcepts": [
-        "SAM.gov contract opportunities",
-        "FAR as primary regulation",
-        "vendor readiness evidence packs",
-        "formal clarification processes",
-        "disqualification risks"
+        "transparency and equal treatment obligations",
+        "documentation and timelines mandated by EU directives",
+        "evaluation criteria and framework agreements",
+        "public-sector governance: procurement, legal, and finance owners",
+        "how compliance influences negotiation and delivery expectations"
       ],
-      "exercise": "Create a federal readiness checklist: registrations, standard declarations, past performance evidence, and internal owners. Then create a discovery outreach script that respects procurement boundaries.",
-      "deliverable": "Federal readiness checklist plus outreach script and a standard evidence pack index.",
+      "exercise": "Map the buying roles for a municipal sport programme purchase and identify what must be proven at each step.",
+      "deliverable": "B2G stakeholder map plus an EU procurement document checklist draft.",
       "sources": [
-        "https://sam.gov/opportunities",
-        "https://www.acquisition.gov/browse/index/far"
+        "https://eur-lex.europa.eu/eli/dir/2014/24/oj/eng",
+        "https://eur-lex.europa.eu/EN/legal-content/summary/public-procurement.html"
       ]
     },
     {
       "dayNumber": 22,
-      "canonicalTitle": "EU and UK tender discovery",
-      "objective": "Build a tender discovery system for EU and UK contexts with monitoring, filtering, and pursuit planning.",
+      "canonicalTitle": "EU supplier readiness: ESPD, eCertis, and eForms",
+      "objective": "Build a repeatable “supplier readiness pack” so responses to EU tenders stay fast and compliant.",
       "keyConcepts": [
-        "TED as EU notice portal",
-        "UK Find a Tender service",
-        "eligibility filters and disqualifiers",
-        "evidence pack reuse",
-        "pursuit plan governance"
+        "ESPD self-declaration and evidence mapping by country",
+        "eCertis classifications and document management",
+        "eForms and digital procurement notices",
+        "financial and technical capability evidence",
+        "standard declarations and references"
       ],
-      "exercise": "Define your search taxonomy (keywords, categories, geographies). Build a weekly monitoring routine and a pursuit decision checklist. Then map three sample opportunities to: fit, eligibility, and next action.",
-      "deliverable": "Tender discovery map plus pursuit plan template (roles, deadlines, submission checkpoints).",
+      "exercise": "Create a supplier readiness pack outline covering company evidence, financial capability, technical capacity, references, and standard declarations.",
+      "deliverable": "EU supplier readiness checklist plus an evidence map outline.",
       "sources": [
-        "https://ted.europa.eu/en/",
-        "https://www.find-tender.service.gov.uk/",
-        "https://eur-lex.europa.eu/eli/dir/2014/24/oj/eng",
-        "https://www.gov.uk/government/publications/procurement-act-2023-short-guides/the-procurement-act-2023-a-short-guide-for-suppliers-html"
+        "https://single-market-economy.ec.europa.eu/single-market/public-procurement/digital-procurement/european-single-procurement-document-and-ecertis_en",
+        "https://ec.europa.eu/tools/ecertis/",
+        "https://single-market-economy.ec.europa.eu/single-market/public-procurement/digital-procurement/eforms_en"
       ]
     },
     {
       "dayNumber": 23,
-      "canonicalTitle": "Sales operations cadence and scorecards",
-      "objective": "Create an operating cadence that forces inspection, accountability, and forecast discipline.",
+      "canonicalTitle": "EU tender discovery: TED, CPV taxonomy, and monitoring cadence",
+      "objective": "Learn how to find opportunities and build a monitoring routine that fits your ICP and offering.",
       "keyConcepts": [
-        "weekly pipeline inspection",
-        "stage evidence enforcement",
-        "scorecard design",
-        "action logging",
-        "forecast hygiene"
+        "TED notices and advanced search",
+        "common procurement vocabulary (CPV) driven taxonomy",
+        "modern alerting and weekly review rhythms",
+        "eligibility filters and disqualifiers",
+        "pursuit decision governance"
       ],
-      "exercise": "Design weekly and monthly cadences. Define scorecards with leading and lagging indicators per motion. Include downgrade rules and required next-step rules.",
-      "deliverable": "Ops cadence plan plus scorecard template and a one-page governance charter.",
+      "exercise": "Define a weekly tender monitoring routine and create a CPV-driven search taxonomy for your offering.",
+      "deliverable": "Tender monitoring SOP plus a CPV taxonomy for your top 10 opportunity types.",
       "sources": [
-        "https://www.salesforce.com/sales/pipeline/management/"
+        "https://ted.europa.eu/en/",
+        "https://ted.europa.eu/en/advanced-search",
+        "https://single-market-economy.ec.europa.eu/single-market/public-procurement/digital-procurement/common-procurement-vocabulary_en",
+        "https://single-market-economy.ec.europa.eu/single-market/public-procurement/digital-procurement/public-procurement-data-space-ppds_en"
       ]
     },
     {
       "dayNumber": 24,
-      "canonicalTitle": "Account intelligence and data strategy",
-      "objective": "Build a practical intelligence stack that improves targeting, timing, and message relevance without data chaos.",
+      "canonicalTitle": "UK public procurement entry points: Find a Tender and Contracts Finder",
+      "objective": "Understand the UK notice landscape and build a practical discovery routine for UK public-sector opportunities.",
       "keyConcepts": [
-        "intent signals",
-        "enrichment",
-        "data dictionary",
-        "health scoring",
-        "monitoring rules"
+        "Find a Tender notices and Contracts Finder opportunities",
+        "supplier registration and alerting",
+        "keyword, category, and geography search logic",
+        "bid readiness and response playbooks",
+        "weekly review and bid decision rhythm"
       ],
-      "exercise": "Define: the minimum account fields you require, the source of truth for each field, and update rules. Then define an intent monitoring rule and an outreach trigger.",
-      "deliverable": "Account intelligence blueprint plus a data dictionary and a monitoring playbook card.",
+      "exercise": "Build a UK monitoring routine that mirrors the EU process with keyword/category searches, alerting, and weekly reviews.",
+      "deliverable": "UK tender monitoring SOP plus a readiness checklist delta versus EU.",
       "sources": [
-        "https://meddicc.com/meddpicc-sales-methodology-and-process"
+        "https://www.find-tender.service.gov.uk/",
+        "https://www.gov.uk/find-tender",
+        "https://www.gov.uk/contracts-finder",
+        "https://supplierregistration.cabinetoffice.gov.uk/"
       ]
     },
     {
       "dayNumber": 25,
-      "canonicalTitle": "Enablement for new motions",
-      "objective": "Create motion-specific enablement that produces repeatable execution and certification criteria.",
+      "canonicalTitle": "Comparison module: USA and MENA procurement entry points",
+      "objective": "Understand what changes when you sell public-sector in the USA and selected MENA markets, and how to plan market entry without compliance surprises.",
       "keyConcepts": [
-        "role-based enablement",
-        "certification gates",
-        "coaching loops",
-        "asset libraries",
-        "standards enforcement"
+        "supplier registration requirements across markets",
+        "eligibility filters and localisation needs",
+        "partner roles and alliance design in new regions",
+        "opportunity discovery channels and alerting",
+        "execution models that match regulation and culture"
       ],
-      "exercise": "Sketch 3 enablement modules (one per motion). Each must include: skills, artefacts, a certification test, and a coaching cadence.",
-      "deliverable": "Enablement curriculum map plus certification criteria and a playbook update workflow.",
+      "exercise": "Pick one USA public-sector entry path and two MENA markets, then write a short entry plan for each covering registration, discovery, and local execution model.",
+      "deliverable": "USA + MENA entry plan v1 for three markets.",
       "sources": [
-        "https://www.gov.uk/government/publications/procurement-act-2023-short-guides/the-procurement-act-2023-a-short-guide-for-suppliers-html"
+        "https://sam.gov/entity-registration",
+        "https://sam.gov/sites/default/files/2024-11/entity-checklist.pdf",
+        "https://www.acquisition.gov/far/part-13",
+        "https://portal.etimad.sa/en-us",
+        "https://esupply.dubai.gov.ae/",
+        "https://www.adgpg.gov.ae/",
+        "https://www.ashghal.gov.qa/en/Tenders/pages/erptenders.aspx"
       ]
     },
     {
       "dayNumber": 26,
-      "canonicalTitle": "Revenue operations alignment",
-      "objective": "Align marketing, sales, partners, and delivery through handoffs, shared definitions, and enforceable governance.",
+      "canonicalTitle": "CRM discipline and data standards",
+      "objective": "Make reporting and forecasting audit-ready.",
       "keyConcepts": [
-        "handoff quality",
-        "shared definitions",
-        "attribution and ownership",
-        "forecast alignment",
-        "operating system documentation"
+        "required fields per pipeline stage",
+        "activity standards and hygiene rules",
+        "stage evidence enforcement",
+        "forecast quality gates",
+        "data dictionary ownership"
       ],
-      "exercise": "Define the handoff from sales to delivery: required fields, success criteria, scope, risks, and owners. Define partner-sourced opportunity rules for attribution and evidence.",
-      "deliverable": "Revenue ops alignment plan plus process map and a handoff checklist.",
+      "exercise": "Define required CRM fields for each pipeline stage and each motion.",
+      "deliverable": "CRM data dictionary v1.",
       "sources": [
-        "https://www.salesforce.com/sales/pipeline/management/"
+        "https://www.salesforce.com/sales/pipeline/management/",
+        "https://www.salesforce.com/ca/sales/pipeline/stages/"
       ]
     },
     {
       "dayNumber": 27,
-      "canonicalTitle": "Launch readiness for 90-day rollout",
-      "objective": "Create a launch readiness system with gates, owners, and measurable early indicators.",
+      "canonicalTitle": "KPI system that matches the motion",
+      "objective": "Measure what drives revenue, not vanity metrics.",
       "keyConcepts": [
-        "launch gates",
-        "cross-functional owners",
-        "communications",
-        "early KPI selection",
-        "assumption tracking"
+        "win rate and cycle time per motion",
+        "stage conversion and forecasting accuracy",
+        "retention, expansion, and partner KPIs",
+        "leading vs lagging indicator balance",
+        "cadence-linked reporting"
       ],
-      "exercise": "Build a launch checklist across all motions. Define: gate conditions, owners, and required assets. Define the first 4-week KPI set and review actions.",
-      "deliverable": "90-day launch checklist plus communications plan and assumptions register.",
+      "exercise": "Choose 12 KPIs across the three motions, define formula, owner, and cadence.",
+      "deliverable": "KPI definitions pack plus cadence calendar.",
       "sources": [
-        "https://hbr.org/2015/03/making-the-consensus-sale"
+        "https://www.salesforce.com/sales/pipeline/management/",
+        "https://meddicc.com/meddpicc-sales-methodology-and-process"
       ]
     },
     {
       "dayNumber": 28,
-      "canonicalTitle": "KPI dashboards and reporting",
-      "objective": "Define KPI formulas, reporting cadence, and review actions so metrics drive decisions, not decoration.",
+      "canonicalTitle": "Compensation and incentives for direct and channel teams",
+      "objective": "Align incentives with outcomes and governance.",
       "keyConcepts": [
-        "leading vs lagging indicators",
-        "KPI formulas",
-        "auditability",
-        "metric gaming prevention",
-        "reporting cadence"
+        "direct commission versus partner manager incentives",
+        "quality gates and clawbacks",
+        "conflict prevention through rules",
+        "balanced scorecards",
+        "compliance feedback loops"
       ],
-      "exercise": "Define KPIs per motion with formulas and owners. Define a weekly reporting calendar and the decision actions triggered by each KPI.",
-      "deliverable": "KPI deck outline plus reporting calendar and KPI definition dictionary.",
+      "exercise": "Design a simple incentive model with quality and compliance gates.",
+      "deliverable": "Compensation principles memo v1.",
       "sources": [
-        "https://www.salesforce.com/sales/pipeline/management/"
+        "https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/legal/Agreements/alliance-agreements-and-terms/salesforce-partner-program-policies.pdf",
+        "https://learn.microsoft.com/en-us/partner-center/enroll/csp-overview"
       ]
     },
     {
       "dayNumber": 29,
-      "canonicalTitle": "Risk and escalation playbooks",
-      "objective": "Identify predictable risks (deal, partner, procurement, delivery) and create escalation playbooks with owners and timelines.",
+      "canonicalTitle": "Enablement: scripts, decks, demos, and objection handling",
+      "objective": "Build a repeatable enablement system for reps and partners.",
       "keyConcepts": [
-        "risk triggers",
-        "mutual plan gaps",
-        "partner conflict",
-        "procurement delays",
-        "post-signature churn prevention"
+        "discovery scripts",
+        "demo narratives",
+        "objection library",
+        "procurement compliance pack",
+        "partner-focused coaching"
       ],
-      "exercise": "Define the top 10 risks and write: trigger, impact, mitigation, escalation owner, and time box. Include a post-signature risk checklist.",
-      "deliverable": "Risk playbook plus escalation map and a post-signature success protection checklist.",
+      "exercise": "Create a one-page talk track for each motion and a shared objection library.",
+      "deliverable": "Enablement pack v1.",
       "sources": [
-        "https://hbr.org/2015/03/making-the-consensus-sale",
-        "https://www.acquisition.gov/browse/index/far"
+        "https://www.huthwaiteinternational.com/spin-methodology",
+        "https://meddicc.com/meddpicc-sales-methodology-and-process"
       ]
     },
     {
       "dayNumber": 30,
-      "canonicalTitle": "Final blueprint and 90-day operating plan",
-      "objective": "Synthesize the system into a single operating plan that can be executed, measured, and improved.",
+      "canonicalTitle": "90-day rollout plan and operating cadence",
+      "objective": "Convert the blueprint into execution with ownership and rhythm.",
       "keyConcepts": [
-        "owners and accountability",
-        "gates and cadence",
-        "KPI operating rhythm",
-        "partner governance",
-        "procurement readiness integration"
+        "weekly cadence and pipeline reviews",
+        "partner and procurement check-ins",
+        "iteration loops and decision gates",
+        "scorecards that trigger actions",
+        "communication rhythms"
       ],
-      "exercise": "Assemble the final blueprint: motions, ICPs, packages, channels, pipeline, partners, procurement readiness, KPIs, and risks. Produce a 90-day plan with weekly milestones.",
-      "deliverable": "Complete blueprint plus 90-day operating cadence: weekly agenda, scorecards, review actions, and change log rules.",
+      "exercise": "Plan 13 weeks with weekly targets, owners, and decision points.",
+      "deliverable": "90-day rollout plan plus governance calendar.",
       "sources": [
-        "https://hbr.org/2015/03/making-the-consensus-sale",
-        "https://sam.gov/opportunities",
-        "https://ted.europa.eu/en/"
+        "https://www.salesforce.com/sales/pipeline/management/",
+        "https://hbr.org/2015/03/making-the-consensus-sale"
       ]
     }
   ],

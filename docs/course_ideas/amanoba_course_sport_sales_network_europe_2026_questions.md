@@ -1180,240 +1180,240 @@ D) Compliance is identical everywhere
 
 ---
 
-Day 26: Revenue operations alignment and handoffs (7 questions)
+Day 26: CRM discipline and data standards (7 questions)
 
-Q1. What is the primary purpose of revenue operations alignment?
-A) To add more tools to the stack
-B) To ensure marketing, sales, partners, and delivery execute as one system ✅
-C) To reduce reporting frequency
-D) To eliminate the need for qualification
+Q1. What is the main goal of CRM discipline in a multi-motion sport sales network?
+A) To collect data without a plan
+B) To keep the forecast and handoffs truthful by enforcing required fields and evidence ✅
+C) To create more reports than the leadership team can read
+D) To reduce sales activity
 
-Q2. Which handoff is most critical to prevent churn in complex deals?
-A) Sales to finance
-B) Sales to delivery/customer success with documented success criteria ✅
-C) Marketing to design
-D) Legal to procurement
+Q2. Which CRM field set habit most improves pipeline hygiene per stage?
+A) Updating unstructured notes only
+B) Requiring stage-specific evidence, next step owner, and date before advancing ✅
+C) Trusting the rep’s “feelings” for what’s next
+D) Removing field-level requirements
 
-Q3. What is the strongest indicator that a handoff process is broken?
-A) Deals take longer than expected
-B) The implementation team receives unclear scope and undefined success metrics ✅
-C) The CRM has too many fields
-D) The team uses different meeting tools
+Q3. What is the clearest sign a CRM discipline standard is being ignored?
+A) Forecasts are always higher than quota
+B) Deals move stages without the documented proof that was expected ✅
+C) The CRM has more than 20 fields
+D) The rep writes long emails
 
-Q4. Which practice most improves forecast reliability in a multi-channel setup?
-A) Tracking impressions weekly
-B) Standard stage evidence and shared definitions across direct and partner deals ✅
-C) Allowing each team to define stages independently
-D) Focusing only on closed-won results
+Q4. Which activity standard keeps partner and direct workflows comparable?
+A) Partners use a separate CRM entirely
+B) Everyone records contacts, interactions, and decisions so pipeline reporting matches reality ✅
+C) Only direct reps log activity
+D) Activity logging happens only at quarter end
 
-Q5. What is the most defensible way to manage partner-sourced opportunities in CRM?
-A) Track them outside CRM to reduce clutter
-B) Use consistent attribution rules and enforce required fields and evidence ✅
-C) Credit whoever claims the deal first
-D) Remove partners from forecasting
+Q5. What does an operating-team “data dictionary” help prevent?
+A) Copying product specs into CRM
+B) Mismatched definitions, duplicate reports, and inconsistent attribution across motions ✅
+C) Building more dashboards
+D) Avoiding CRM training
 
-Q6. What should be documented before a deal is allowed to move to “commit”?
-A) The pitch deck version
-B) Decision process, stakeholders, success criteria, and close plan ✅
-C) The customer’s logo file
-D) The competitor list
+Q6. How does CRM discipline support bid-ready procurement work?
+A) It writes the submission for you
+B) It ensures all required approvals, documents, and evidence owners are tracked in one place ✅
+C) It speeds up approvals by ignoring evidence
+D) It replaces the need for legal review
 
-Q7. Which output most increases cross-functional accountability?
-A) A motivational message
-B) An action log with owner, deadline, and definition of done ✅
-C) A longer pipeline review meeting
-D) A more complex dashboard
-
-⸻
-
----
-
-Day 27: Launch readiness and 90-day execution gating (7 questions)
-
-Q1. What does “launch readiness” primarily mean in go-to-market execution?
-A) The website is live
-B) People, process, assets, and measurement are ready to run consistently ✅
-C) The sales deck looks good
-D) Pricing is negotiable
-
-Q2. Which is the most common cause of a failed go-to-market rollout?
-A) Too much documentation
-B) Launching without clear owners, gates, and operating cadence ✅
-C) Too many qualified leads
-D) Too much enablement
-
-Q3. What is a “gate” in a rollout plan?
-A) A discount level
-B) A condition that must be met before progressing to the next phase ✅
-C) A marketing slogan
-D) A contract clause
-
-Q4. Which checklist item most directly prevents pipeline pollution at launch?
-A) A brand guideline review
-B) ICP and disqualifiers documented and enforced ✅
-C) More social posts
-D) A longer demo
-
-Q5. Why should communication planning be part of launch readiness?
-A) It replaces training
-B) It aligns expectations across teams and prevents confusion in execution ✅
-C) It reduces legal review time
-D) It guarantees press coverage
-
-Q6. Which metric is most useful in the first 2 to 4 weeks of rollout?
-A) Total impressions
-B) Stage conversion and qualified pipeline creation ✅
-C) Number of internal messages
-D) Deck downloads
-
-Q7. What is the most defensible response when early rollout data contradicts assumptions?
-A) Ignore it and continue
-B) Update assumptions, adjust tactics, and document changes with evidence ✅
-C) Change the product immediately without analysis
-D) Increase discounting across the board
+Q7. What should trigger a CRM clean-up sprint?
+A) A new brand launch
+B) Too many deals in late stages without evidence, reviews, or next steps ✅
+C) A staff birthday
+D) More CRM fields being added
 
 ⸻
 
 ---
 
-Day 28: KPI dashboards and scorecards (7 questions)
+Day 27: KPI system that matches the motion (7 questions)
 
-Q1. What is the primary job of a KPI dashboard in a sales system?
-A) To display as many numbers as possible
-B) To enable decisions by showing leading and lagging indicators tied to outcomes ✅
-C) To replace pipeline reviews
-D) To prove activity is happening
+Q1. What is the most defensible way to tie KPIs to the three motions (B2C, B2B, B2G)?
+A) Use the same KPI for every motion
+B) Develop motion-specific KPIs with formulas, owners, and cadence that reflect each motion’s economics ✅
+C) Track only B2C metrics
+D) Focus solely on vanity metrics
 
-Q2. What is the difference between leading and lagging indicators?
-A) Leading indicators are only financial
-B) Leading indicators predict outcomes; lagging indicators confirm outcomes ✅
-C) Lagging indicators are more accurate in real time
-D) Leading indicators are always vanity metrics
+Q2. Which KPI is a strong leading indicator for a partner motion?
+A) Number of coffee meetings hosted
+B) Partner-sourced qualified pipeline with attribution and required evidence ✅
+C) Total partner portal logins
+D) Number of social assets produced
 
-Q3. Which KPI is most likely to be a leading indicator of future revenue?
-A) Total followers
-B) Qualified pipeline created ✅
-C) Number of posts published
-D) Website visits only
+Q3. How does a cadence support KPI effectiveness?
+A) By moving meetings to later in the quarter
+B) By scheduling reviews where the owner reports results, risks, and next actions each week or month ✅
+C) By reducing the number of KPIs tracked
+D) By avoiding discussion of metrics
 
-Q4. What is the biggest risk of tracking too many KPIs?
-A) Higher retention
-B) Loss of focus and conflicting behaviours ✅
-C) Faster deal cycles
-D) More accurate forecasts
+Q4. Which practice prevents metric gaming in KPI programs?
+A) Changing definitions every week
+B) Defining KPI formulas, owners, and acceptable inputs publicly and enforcing them ✅
+C) Leaving interpretation up to each rep
+D) Tracking KPIs only in private slides
 
-Q5. Which principle best prevents metric gaming?
-A) Track only revenue
-B) Define metrics with clear formulas, ownership, and auditability ✅
-C) Change KPI definitions weekly
-D) Keep KPI definitions informal
+Q5. What is the best way to connect KPIs to decisions?
+A) Publish KPIs in a dashboard but never follow up
+B) Tie each KPI to a decision or action (e.g., pipeline reviews, partner coaching, procurement follow-ups) ✅
+C) Celebrate KPIs only after the quarter ends
+D) Focus only on lagging revenue
 
-Q6. Which view is most useful for diagnosing a pipeline problem?
-A) Total opportunities only
-B) Stage-to-stage conversion and time-in-stage ✅
-C) Team meeting attendance
-D) Website bounce rate only
+Q6. Which KPI belongs to the operating rhythm rather than the pipeline?
+A) Stage conversion
+B) Weekly scorecard showing cadence completion, action logging, and partner governance checks ✅
+C) Number of emails sent
+D) Demo length
 
-Q7. What should trigger a KPI redesign?
-A) The dashboard looks old
-B) Metrics no longer correlate with outcomes or drive the right behaviour ✅
-C) A new logo is launched
-D) The team asks for fewer reports
-
-⸻
-
----
-
-Day 29: Risk management and escalation playbooks (7 questions)
-
-Q1. What is the purpose of an escalation playbook in sales execution?
-A) To pressure buyers
-B) To handle predictable risks with clear actions, owners, and timelines ✅
-C) To replace negotiation
-D) To avoid documenting issues
-
-Q2. Which is the strongest early warning sign of deal risk?
-A) The buyer asks for implementation details
-B) No confirmed decision process or next step with owner and date ✅
-C) The buyer requests a case study
-D) The buyer adds stakeholders to a call
-
-Q3. What is the most common root cause of late-stage deal failure?
-A) Too much enablement
-B) Unresolved risks around scope, value proof, or procurement steps ✅
-C) Too many metrics
-D) Too many pilots
-
-Q4. Which channel risk requires a predefined escalation path?
-A) Partners request more marketing assets
-B) Deal ownership disputes between direct and partner routes ✅
-C) Partners ask for training dates
-D) Partners attend fewer webinars
-
-Q5. What is the most defensible mitigation for procurement delays?
-A) Apply pressure immediately
-B) Build a mutual plan with documented steps, deadlines, and required documents ✅
-C) Stop communicating until procurement finishes
-D) Offer discounts without conditions
-
-Q6. Which risk is most likely to create churn after signature?
-A) The buyer negotiated a small discount
-B) Success criteria and responsibilities were not documented before handoff ✅
-C) The buyer asked for references
-D) The buyer requested a faster kickoff
-
-Q7. What should happen after an escalation resolves?
-A) Move on without documentation
-B) Document the root cause and update the playbook to prevent recurrence ✅
-C) Remove all partners
-D) Stop tracking KPIs
+Q7. When should a KPI be retired or replaced?
+A) When the dashboard looks old
+B) When it no longer signals the right behaviour or outcome and the decision action it triggers is outdated ✅
+C) When a competitor uses it
+D) When it becomes harder to calculate
 
 ⸻
 
 ---
 
-Day 30: Final blueprint and 90-day operating plan (7 questions)
+Day 28: Compensation and incentives for direct and channel teams (7 questions)
 
-Q1. What makes a go-to-market plan “operational” rather than aspirational?
-A) It contains a vision statement
-B) It includes owners, timelines, targets, and a cadence for inspection and adjustment ✅
-C) It includes more slides
-D) It mentions competitors
+Q1. Why must compensation plans include quality and compliance gates for complex sales?
+A) To make plans more complicated
+B) To ensure reps and partners do not trade good governance for volume ✅
+C) To reduce offer flexibility
+D) To simplify payroll
 
-Q2. What is the most important component of a 90-day execution plan?
-A) A new brand campaign
-B) Weekly milestones tied to measurable outcomes and accountability ✅
-C) A detailed company history
-D) A list of possible future features
+Q2. Which incentive structure best manages direct vs partner overlap?
+A) Reward both equally for every deal
+B) Assign incentives based on clear ownership, registration, and shared goals to prevent conflict ✅
+C) Always credit the direct rep
+D) Always credit the partner
 
-Q3. Which deliverable best proves a sales system is ready for handover?
-A) A pitch deck only
-B) Documented playbooks, governance rules, KPI definitions, and operating cadence ✅
-C) A set of social posts
-D) A list of leads
+Q3. What is the role of clawbacks in a governance-friendly plan?
+A) Punish every delay
+B) Align rewards with delivered value by reversing incentives when quality or compliance fails ✅
+C) Replace commissions entirely
+D) Exclude partners from rewards
 
-Q4. What is the most defensible way to test whether the operating system works?
-A) Assume it works if the team likes it
-B) Run a short cycle, inspect data and quality, then iterate based on evidence ✅
-C) Wait until the end of the quarter
-D) Increase discounting to accelerate learning
+Q4. Which metric should be part of a compensation scorecard to protect governance?
+A) Number of coffees bought for buyers
+B) Evidence-based stage progression rates and forecast accuracy ✅
+C) Length of sales stories
+D) Number of slides used in pitch decks
 
-Q5. Which is the strongest sign that the plan is overcomplicated?
-A) It includes a CRM
-B) It cannot be executed with current resources and owners cannot explain priorities ✅
-C) It includes weekly targets
-D) It includes stage definitions
+Q5. How should partner incentives differ from direct incentives?
+A) They should all be lower
+B) They should reward enablement completion, qualification quality, and on-time handoffs in addition to volume ✅
+C) They should ignore governance
+D) They should be entirely discretionary
 
-Q6. What should a final measurement plan include at minimum?
-A) Only revenue targets
-B) KPI definitions, reporting cadence, data owners, and review actions ✅
-C) A list of meeting titles
-D) A list of tools used
+Q6. When is it appropriate to adjust compensation mid-quarter?
+A) When performance is below target but no analysis has been done
+B) When data shows quality or compliance drift threatens delivery and owners agree on a remediation path ✅
+C) Whenever a leader feels like it
+D) Only after the quarter ends
 
-Q7. What is the most defensible approach to continuous improvement after rollout begins?
-A) Keep everything fixed for stability
-B) Use structured reviews to update playbooks and assumptions based on results ✅
+Q7. What is the most defensible way to tie incentives to procurement readiness?
+A) Add a bonus for every tender response
+B) Reward teams for compliant submissions, evidence packs delivered, and readiness checklist completion ✅
+C) Reward whichever region is biggest
+D) Ignore procurement entirely
+
+⸻
+
+---
+
+Day 29: Enablement: scripts, decks, demos, and objection handling (7 questions)
+
+Q1. What makes enablement effective for both direct teams and partners?
+A) Sharing every slide publicly
+B) Providing role-specific scripts, decks, demos, and objection libraries with clear certification gates ✅
+C) Only running quarterly kickoffs
+D) Sending endless emails
+
+Q2. Which asset directly reduces qualification risk during discovery?
+A) A design-centred brochure
+B) A discovery script tied to ICPs and procurement requirements with clear next steps ✅
+C) A longer company history slide
+D) An internal joke deck
+
+Q3. Why are objection libraries important for procurement-heavy buyers?
+A) They are optional
+B) They surface documented evidence, compliance answers, and ways to keep discussions aligned with process ✅
+C) They shorten the cycle
+D) They confuse buyers
+
+Q4. What is the best way to keep demos consistent across motions?
+A) Let each presenter improvise
+B) Use a demo agenda that ties to the ICP’s success criteria and proof points with guardrails ✅
+C) Remove structure
+D) Only demo features
+
+Q5. What should certification gates check before anyone co-sells or partners?
+A) Favorite colour
+B) Completion of required training, enablement assets, and evidence of pitching the playbooks deliberately ✅
+C) Number of birthday cookies
+D) Personal tech stack
+
+Q6. Which practice keeps enablement content current?
+A) Locking decks for a year
+B) Reviewing scripts, decks, and demos monthly and updating based on feedback from real opportunities ✅
+C) Replacing everything weekly
+D) Asking partners to write new content only when asked
+
+Q7. How should enablement tie into procurement preparedness?
+A) Ignore procurement needs
+B) Include procurement talk tracks, compliance checklists, and evidence pack references directly in scripts and decks ✅
+C) Focus only on downstream success
+D) Remove compliance references to keep things light
+
+⸻
+
+---
+
+Day 30: 90-day rollout plan and operating cadence (7 questions)
+
+Q1. What makes a 90-day rollout plan executable?
+A) Having a lot of slides
+B) Linking weekly milestones, owners, and decision gates to the operating rhythm ✅
+C) Posting it on a wall
+D) Asking every stakeholder to guess
+
+Q2. Which cadence component ensures continuous inspection and accountability?
+A) Ad-hoc reviews
+B) Scheduled weekly/bi-weekly reviews with scorecards, actions, and risk checks ✅
+C) Only monthly status emails
+D) Only individual status updates
+
+Q3. Why is an assumptions register useful in an operating cadence?
+A) To confuse the team
+B) To track key unknowns, owners, experiment status, and follow-up actions ✅
+C) To avoid decision-making
+D) To replace KPIs
+
+Q4. What is the best way to keep partners aligned during the 90-day execution?
+A) Let partners run on their own
+B) Share the cadence, highlight decision gates, and ensure partners own specific milestones ✅
+C) Only communicate when something breaks
+D) Remove partner KPIs
+
+Q5. When should a scorecard trigger a change action?
+A) When the dashboard looks pretty
+B) When a KPI, risk, or gate misses its target and a decision owner agrees on the next step ✅
+C) When the CEO asks for it
+D) When the quarter ends
+
+Q6. What should a 90-day plan include to maintain procurement readiness?
+A) Only commercial targets
+B) Checkpoints covering compliance pack updates, submissions, and procurement reviews ✅
+C) Only marketing campaigns
+D) Only internal training
+
+Q7. What is the most defensible approach to improvement after rollout launches?
+A) Lock the plan forever
+B) Inspect outcomes, capture lessons, and update the playbooks and cadence regularly ✅
 C) Change tactics daily
-D) Focus only on top-of-funnel volume
+D) Only celebrate wins without reflection
 
 ---

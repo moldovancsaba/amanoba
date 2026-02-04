@@ -9,11 +9,17 @@ import NextAuth from 'next-auth';
 import { authConfig } from './auth.config';
 import connectDB from '@/lib/mongodb';
 import { Player } from '@/lib/models';
-import { Brand } from '@/lib/models';
 import logger from '@/lib/logger';
-import { logPlayerRegistration, logAuthEvent } from '@/lib/analytics';
 import { defaultLocale } from '@/i18n';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
+
+/** User object extended by our SSO/credentials layer with role and provider */
+interface AugmentedUser {
+  id?: string;
+  role?: 'user' | 'admin';
+  authProvider?: 'sso' | 'anonymous';
+  isAnonymous?: boolean;
+}
 
 /**
  * NextAuth Instance
@@ -31,7 +37,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
      * What: Called when user signs in (SSO handled separately, this is for anonymous)
      * Why: Create or update Player record in our database for anonymous users
      */
-    async signIn({ user, account }) {
+    async signIn({ user: _user, account }) {
       try {
         // Skip this callback for credentials provider (anonymous login)
         // Why: Credentials provider doesn't need database player creation (handled in API)
@@ -61,17 +67,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       
       // SIMPLIFIED: For initial sign in, use role from user object (from SSO/credentials)
       // Then always refresh from database to ensure consistency
-      if (user && user.id && (user as any).role) {
+      const u = user as AugmentedUser | undefined;
+      if (user && user.id && u?.role) {
         token.id = user.id;
-        token.role = (user as any).role as 'user' | 'admin';
-        token.authProvider = (user as any).authProvider || 'sso';
-        token.isAnonymous = (user as any).isAnonymous || false;
-        logger.info({ 
-          playerId: user.id, 
-          role: token.role, 
-          userRole: (user as any).role,
-          source: 'user_object_initial' 
-        }, 'JWT: Initial sign in - using role from user object');
+        token.role = u.role;
+        token.authProvider = u.authProvider || 'sso';
+        token.isAnonymous = u.isAnonymous || false;
+        logger.info({ playerId: user.id, role: token.role, userRole: u.role, source: 'user_object_initial' }, 'JWT: Initial sign in - using role from user object');
       }
       
       // Always refresh from database to ensure we have the latest role
@@ -91,39 +93,33 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             token.locale = (player.locale && locales.includes(player.locale as Locale) ? (player.locale as Locale) : defaultLocale);
             token.isAnonymous = player.isAnonymous || false;
             
+            const u = user as AugmentedUser | undefined;
             logger.info(
-              { 
-                playerId, 
-                dbRole,
-                userRole: user ? (user as any).role : undefined,
-                roleMatch: user ? dbRole === (user as any).role : 'no_user',
-                source: 'database_refresh'
-              }, 
+              { playerId, dbRole, userRole: u?.role, roleMatch: user ? dbRole === u?.role : 'no_user', source: 'database_refresh' },
               'JWT: Refreshed role from database (SSO is source of truth)'
             );
           } else if (user && user.id && !token.role) {
-            // Fallback: player not found, use role from user object
+            const u = user as AugmentedUser;
             token.id = user.id;
-            token.role = (user as any).role || 'user';
-            token.authProvider = (user as any).authProvider || 'sso';
-            token.isAnonymous = (user as any).isAnonymous || false;
+            token.role = u.role || 'user';
+            token.authProvider = u.authProvider || 'sso';
+            token.isAnonymous = u.isAnonymous || false;
             logger.warn({ playerId: user.id }, 'JWT: Player not found in database, using user object role');
           }
         } catch (error) {
           logger.error({ error, playerId }, 'Failed to fetch player in JWT callback');
-          // Fallback: use role from user object if database fetch fails
           if (user && user.id) {
+            const u = user as AugmentedUser;
             token.id = user.id;
-            token.role = (user as any).role || token.role || 'user';
-            token.authProvider = (user as any).authProvider || token.authProvider || 'sso';
-            token.isAnonymous = (user as any).isAnonymous ?? token.isAnonymous ?? false;
+            token.role = u.role || token.role || 'user';
+            token.authProvider = u.authProvider || token.authProvider || 'sso';
+            token.isAnonymous = u.isAnonymous ?? token.isAnonymous ?? false;
             logger.warn({ playerId: user.id, role: token.role }, 'JWT: Database fetch failed, using user object role as fallback');
           }
         }
       }
-      
-      // For credentials provider (anonymous)
-      if (user && (user as any).isAnonymous) {
+      const userAug = user as AugmentedUser | undefined;
+      if (user && userAug?.isAnonymous) {
         token.authProvider = 'anonymous';
         token.isAnonymous = true;
         token.role = 'user'; // Anonymous users are always 'user'

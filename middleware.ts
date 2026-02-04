@@ -8,7 +8,6 @@
  */
 
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
 import { authEdge as auth } from '@/auth.edge';
 import createMiddleware from 'next-intl/middleware';
 import { defaultLocale } from './i18n';

@@ -1,8 +1,8 @@
 /**
- * Seed "Build a Sport Sales Network in the USA 2026" (EN)
+ * Seed "Build a Sport Sales Network in Europe 2026" (EN)
  *
  * What:
- * - Creates/updates the CCS entry + course record for SPORT_SALES_NETWORK_USA_2026_EN
+ * - Creates/updates the CCS entry + course record for SPORT_SALES_NETWORK_EUROPE_2026_EN
  * - Optionally seeds 30 lesson stubs (inactive) with minimal content derived from the canonical spec
  *
  * Why:
@@ -10,9 +10,9 @@
  * - Keeps the seed idempotent: dry-run by default, write only when --apply is supplied.
  *
  * Usage:
- *   npm run seed:sport-sales-network-usa-2026-en                         # dry-run (no DB writes)
- *   npm run seed:sport-sales-network-usa-2026-en -- --apply               # create/update CCS + course
- *   npm run seed:sport-sales-network-usa-2026-en -- --apply --include-lessons  # also seed lesson stubs
+ *   npm run seed:sport-sales-network-europe-2026-en                         # dry-run (no DB writes)
+ *   npm run seed:sport-sales-network-europe-2026-en -- --apply               # create/update CCS + course
+ *   npm run seed:sport-sales-network-europe-2026-en -- --apply --include-lessons  # also seed lesson stubs
  */
 
 import { config } from 'dotenv';
@@ -24,10 +24,10 @@ config({ path: resolve(process.cwd(), '.env.local') });
 import connectDB from '../app/lib/mongodb';
 import { Brand, CCS, Course, Lesson } from '../app/lib/models';
 
-const CCS_ID = 'SPORT_SALES_NETWORK_USA_2026';
-const COURSE_ID = 'SPORT_SALES_NETWORK_USA_2026_EN';
-const CANONICAL_JSON_PATH = 'docs/canonical/SPORT_SALES_NETWORK_USA_2026/SPORT_SALES_NETWORK_USA_2026.canonical.json';
-const IDEA_DOC_PATH = 'docs/course_ideas/amanoba_course_sport_sales_network_usa_2026.md';
+const CCS_ID = 'SPORT_SALES_NETWORK_EUROPE_2026';
+const COURSE_ID = 'SPORT_SALES_NETWORK_EUROPE_2026_EN';
+const CANONICAL_JSON_PATH = 'docs/canonical/SPORT_SALES_NETWORK_EUROPE_2026/SPORT_SALES_NETWORK_EUROPE_2026.canonical.json';
+const IDEA_DOC_PATH = 'docs/course_ideas/amanoba_course_sport_sales_network_europe_2026.md';
 
 function hasFlag(flag: string) {
   return process.argv.includes(flag);

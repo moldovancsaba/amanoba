@@ -26,18 +26,22 @@ export const defaultLocale: Locale = 'hu';
  * 
  * Translations are loaded from MongoDB Atlas database first, with fallback to JSON files
  */
-function deepMerge(base: any, override: any): any {
-  if (Array.isArray(base)) return override ?? base;
+function deepMerge(base: Record<string, unknown>, override: Record<string, unknown> | undefined): Record<string, unknown> {
+  if (Array.isArray(base)) return (override as Record<string, unknown>) ?? base;
   if (typeof base === 'object' && base !== null) {
-    const result: any = { ...base };
+    const result: Record<string, unknown> = { ...base };
     if (override && typeof override === 'object') {
       for (const key of Object.keys(override)) {
-        result[key] = deepMerge(base[key], override[key]);
+        const b = base[key];
+        const o = override[key];
+        const bObj = typeof b === 'object' && b !== null && !Array.isArray(b) ? b as Record<string, unknown> : {};
+        const oObj = typeof o === 'object' && o !== null && !Array.isArray(o) ? o as Record<string, unknown> : undefined;
+        result[key] = oObj !== undefined ? deepMerge(bObj, oObj) : (o ?? b);
       }
     }
     return result;
   }
-  return override !== undefined ? override : base;
+  return override !== undefined ? (override as Record<string, unknown>) : base;
 }
 
 export default getRequestConfig(async ({ locale }) => {
@@ -75,11 +79,11 @@ export default getRequestConfig(async ({ locale }) => {
       // If we have translations from database, merge them with defaults to avoid missing-key display
       if (dbTranslations && Object.keys(dbTranslations).length > 0) {
         const defaultMessages = (await import(`./messages/${defaultLocale}.json`)).default;
-        let resolvedMessages: Record<string, any> = {};
+        let resolvedMessages: Record<string, unknown> = {};
         if (resolvedLocale !== defaultLocale) {
           try {
-            resolvedMessages = (await import(`./messages/${resolvedLocale}.json`)).default;
-          } catch (error) {
+            resolvedMessages = (await import(`./messages/${resolvedLocale}.json`)).default as Record<string, unknown>;
+          } catch (_err) {
             if (process.env.NODE_ENV === 'development') {
               console.warn(`Missing locale file for ${resolvedLocale}, returning empty messages.`);
             }
@@ -87,14 +91,10 @@ export default getRequestConfig(async ({ locale }) => {
           }
         }
 
-        const base =
-          resolvedLocale === defaultLocale
-            ? defaultMessages
-            : resolvedMessages;
-
+        const base = (resolvedLocale === defaultLocale ? defaultMessages : resolvedMessages) as Record<string, unknown>;
         return {
           locale: resolvedLocale,
-          messages: deepMerge(base, dbTranslations),
+          messages: deepMerge(base, dbTranslations as Record<string, unknown>),
         };
       }
     } catch (error) {
@@ -108,12 +108,12 @@ export default getRequestConfig(async ({ locale }) => {
 
   // Fallback to JSON files if database is unavailable or empty
   // Additionally, merge with default locale to avoid missing keys showing raw ids
-  const defaultMessages = (await import(`./messages/${defaultLocale}.json`)).default;
-  let localeMessages: Record<string, any> = defaultMessages;
+  const defaultMessages = (await import(`./messages/${defaultLocale}.json`)).default as Record<string, unknown>;
+  let localeMessages: Record<string, unknown> = defaultMessages;
   if (resolvedLocale !== defaultLocale) {
     try {
-      localeMessages = (await import(`./messages/${resolvedLocale}.json`)).default;
-    } catch (error) {
+      localeMessages = (await import(`./messages/${resolvedLocale}.json`)).default as Record<string, unknown>;
+    } catch (_err) {
       if (process.env.NODE_ENV === 'development') {
         console.warn(`Missing locale file for ${resolvedLocale}, returning empty messages.`);
       }

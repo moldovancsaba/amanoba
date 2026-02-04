@@ -27,9 +27,14 @@ import {
 } from 'lucide-react';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
 
-const languageNames: Record<Locale, string> = {
+/** Locale plus legacy en-GB/en-US for display when session or API returns them */
+type LanguageNameKey = Locale | 'en-GB' | 'en-US';
+
+const languageNames: Record<LanguageNameKey, string> = {
   hu: 'Magyar',
   en: 'English',
+  'en-GB': 'English',
+  'en-US': 'English',
   ar: 'العربية',
   hi: 'हिन्दी',
   id: 'Bahasa Indonesia',

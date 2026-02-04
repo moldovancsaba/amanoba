@@ -82,7 +82,7 @@ async function fixCourseURLStructure() {
     console.log(`\n📋 FINAL: ${remaining.length} courses\n`);
     remaining.forEach(course => {
       const parts = course.courseId.split('_');
-      const suffix = parts[parts.length - 1];
+      const _suffix = parts[parts.length - 1];
       console.log(`✅ ${course.courseId} (${course.language}) → /${course.language}/courses/${course.courseId}`);
     });
 

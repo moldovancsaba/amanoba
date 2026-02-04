@@ -31,7 +31,7 @@
 ### 1.2 Environment
 
 - **App:** Next.js (App Router), next-intl (v4.7.0), `localePrefix: 'always'`.
-- **Locales:** 13 (hu, en, en-GB, en-US, ar, hi, id, pt, vi, tr, bg, pl, ru); single source: `app/lib/i18n/locales.ts`.
+- **Locales:** 11 (hu, en, ar, hi, id, pt, vi, tr, bg, pl, ru); single source: `app/lib/i18n/locales.ts`. en-GB and en-US were removed; middleware redirects them to `/en`.
 - **Where the switcher is used:** Landing page header (`app/[locale]/page.tsx`), and likely elsewhere (e.g. profile).
 - **Deployment:** Vercel (production); issues observed on live site (e.g. amanoba.com).
 
