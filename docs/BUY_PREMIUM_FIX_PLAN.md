@@ -1,5 +1,7 @@
 # Buy Premium Fix Plan
 
+**Summary entry:** See **BUY_PREMIUM_FIX_DONE.md** for the short overview. This doc is kept for implementation detail.
+
 **Date**: 2026-01-26  
 **Status**: 🔍 ROOT CAUSE IDENTIFIED  
 **Priority**: HIGH

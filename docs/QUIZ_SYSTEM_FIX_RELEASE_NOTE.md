@@ -1,5 +1,7 @@
 # 🎯 QUIZ SYSTEM COMPLETE FIX - RELEASE NOTE
 
+**Entry point:** For current process and full doc list see **QUIZ_SYSTEM_HISTORY.md**. This file is the release note for the 2026-01-25 delivery.
+
 **Version**: v2.9.4  
 **Date**: 2026-01-25  
 **Status**: ✅ **COMPLETE - ALL COURSES DELIVERED**

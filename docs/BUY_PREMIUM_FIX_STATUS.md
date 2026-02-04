@@ -1,5 +1,7 @@
 # Buy Premium Fix - Status Report
 
+**Summary entry:** See **BUY_PREMIUM_FIX_DONE.md** for the short overview. This doc is kept for historical status.
+
 **Date**: 2026-01-26  
 **Status**: ✅ FIXED - PENDING COMMIT & TESTING  
 **Priority**: HIGH

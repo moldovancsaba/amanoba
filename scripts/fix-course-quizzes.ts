@@ -1,6 +1,15 @@
 /**
- * Fix Course Quizzes - Add Missing Questions and Metadata
- * 
+ * ⛔ DEPRECATED — DO NOT USE
+ *
+ * This script creates generic template questions ("What is a key concept from...")
+ * and is superseded by the quality pipeline. Use instead:
+ *
+ *   npx tsx --env-file=.env.local scripts/process-course-questions-generic.ts <courseId>
+ *
+ * See docs/QUIZ_FIXING_DOCUMENTS_COMPLETE_LIST.md and docs/QUIZ_SYSTEM_HISTORY.md.
+ *
+ * ---
+ * Fix Course Quizzes - Add Missing Questions and Metadata (legacy)
  * Purpose: Fix all courses to have 7 questions per quiz with proper metadata
  * Usage: npx tsx --env-file=.env.local scripts/fix-course-quizzes.ts <courseId>
  */

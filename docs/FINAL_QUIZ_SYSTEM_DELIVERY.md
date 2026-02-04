@@ -1,5 +1,7 @@
 # ✅ FINAL QUIZ SYSTEM DELIVERY - COMPLETE
 
+**Entry point:** For current process and full doc list see **QUIZ_SYSTEM_HISTORY.md**. This file is the final delivery report.
+
 **Date**: 2026-01-25  
 **Status**: ✅ **100% COMPLETE - ALL COURSES DELIVERED**
 

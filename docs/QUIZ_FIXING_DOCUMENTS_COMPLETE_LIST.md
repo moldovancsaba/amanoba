@@ -1,5 +1,7 @@
 # 📋 QUIZ FIXING DOCUMENTS - COMPLETE LIST
 
+**Quick entry:** For a short history and "what to use now", see **QUIZ_SYSTEM_HISTORY.md**. This file is the full list of docs and scripts.
+
 **Last Updated**: 2026-01-25  
 **Status**: Processing all courses systematically
 

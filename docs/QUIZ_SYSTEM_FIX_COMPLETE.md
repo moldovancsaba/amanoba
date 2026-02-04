@@ -1,5 +1,7 @@
 # 🎉 QUIZ SYSTEM FIX - COMPLETE
 
+**Entry point:** For current process and full doc list see **QUIZ_SYSTEM_HISTORY.md**. This file is the completion report.
+
 **Date**: 2026-01-25  
 **Status**: ✅ **ALL COURSES FIXED AND SEEDED**
 
