@@ -54,7 +54,9 @@
     "docs:refresh": "npm run docs:inventory && npm run docs:canonical-map && npm run docs:triage",
     "docs:check": "npm run docs:refresh && node scripts/docs/check-generated-docs.mjs",
     "ui:audit:layout": "node --import tsx scripts/audit-layout-grammar-ui.ts --write",
-    "ui:check:layout": "node --import tsx scripts/audit-layout-grammar-ui.ts --check"
+    "ui:check:layout": "node --import tsx scripts/audit-layout-grammar-ui.ts --check",
+    "ui:audit:foundation": "node --import tsx scripts/audit-ui-foundation.ts --write",
+    "ui:check:foundation": "node --import tsx scripts/audit-ui-foundation.ts --check"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.0",

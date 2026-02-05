@@ -239,3 +239,38 @@ h3 {
 .animate-points-counter {
   animation: points-counter 0.3s ease-out;
 }
+
+/* TipTap / ProseMirror rich text editor */
+.rich-text-editor.ProseMirror {
+  color: var(--color-heading) !important;
+  outline: none;
+}
+
+.rich-text-editor.ProseMirror p,
+.rich-text-editor.ProseMirror ul,
+.rich-text-editor.ProseMirror ol,
+.rich-text-editor.ProseMirror li,
+.rich-text-editor.ProseMirror h1,
+.rich-text-editor.ProseMirror h2,
+.rich-text-editor.ProseMirror h3,
+.rich-text-editor.ProseMirror h4,
+.rich-text-editor.ProseMirror h5,
+.rich-text-editor.ProseMirror h6 {
+  color: var(--color-heading) !important;
+}
+
+.rich-text-editor.ProseMirror blockquote {
+  color: var(--color-heading) !important;
+  border-left: 3px solid var(--color-secondary-700);
+  padding-left: 1em;
+  margin: 1em 0;
+}
+
+.rich-text-editor.ProseMirror a {
+  color: var(--cta-bg) !important;
+  text-decoration: underline;
+}
+
+.rich-text-editor.ProseMirror p.is-editor-empty:first-child::before {
+  color: var(--color-secondary-400) !important;
+}

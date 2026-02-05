@@ -32,6 +32,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
+import { CHART_THEME } from '@/app/lib/constants/color-tokens';
 
 interface RealTimeStats {
   last24Hours: {
@@ -71,15 +72,6 @@ interface AnalyticsSnapshot {
   gameId?: string;
   data: Record<string, unknown>;
 }
-
-// Shared Recharts theme (align with design-system / Tailwind)
-const CHART_THEME = {
-  gridStroke: '#ffffff33',
-  axisStroke: '#ffffff',
-  tooltipBg: '#1f2937',
-  series: ['#6366f1', '#22c55e', '#f59e0b', '#ec4899', '#a855f7'],
-  seriesWithAlpha: (hex: string, alpha = '88') => `${hex}${alpha}` as string,
-} as const;
 
 // Force dynamic rendering - this page requires runtime data
 export const dynamic = 'force-dynamic';

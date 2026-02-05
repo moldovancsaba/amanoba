@@ -28,6 +28,7 @@ import { getCourseRecommendations } from '@/app/lib/course-recommendations';
 import { validateLessonTextLanguageIntegrity } from '@/app/lib/quality/language-integrity';
 import { getEmailTransport } from './transports';
 import { contentToHtml } from '@/app/lib/lesson-content';
+import { EMAIL_THEME_DEFAULT } from '@/app/lib/constants/color-tokens';
 
 /**
  * Email Configuration
@@ -62,15 +63,6 @@ async function sendViaTransport(
     replyTo: EMAIL_CONFIG.replyTo,
   });
 }
-
-/** Brand CTA and email design tokens (align with design-system.css and THEME_COLOR) */
-const EMAIL_TOKENS = {
-  ctaBg: process.env.NEXT_PUBLIC_THEME_COLOR || '#FAB908',
-  ctaText: '#111827',
-  bodyText: '#333333',
-  muted: '#666666',
-  border: '#dddddd',
-} as const;
 
 function normalizeLocale(candidate: unknown, fallback: unknown): Locale {
   const cand = String(candidate || '').toLowerCase();
@@ -141,7 +133,7 @@ async function getOrGenerateUnsubscribeToken(player: IPlayer & { save: () => Pro
 function wrapEmailBody(html: string): string {
   if (/^\s*<!DOCTYPE|^\s*<html/i.test(html.trim())) return html;
   const padding = '24px';
-  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f9fafb;"><tr><td align="center" style="padding:20px 16px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px; margin:0 auto; background-color:#ffffff; border-radius:8px; padding:${padding}; box-shadow:0 1px 3px rgba(0,0,0,0.08);"><tr><td>${html}</td></tr></table></td></tr></table>`;
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:${EMAIL_THEME_DEFAULT.wrapperBg};"><tr><td align="center" style="padding:20px 16px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px; margin:0 auto; background-color:${EMAIL_THEME_DEFAULT.cardBg}; border-radius:8px; padding:${padding}; box-shadow:${EMAIL_THEME_DEFAULT.wrapperShadow};"><tr><td>${html}</td></tr></table></td></tr></table>`;
 }
 
 /**
@@ -281,7 +273,7 @@ export async function sendLessonEmail(
             locale: emailLocale,
             unsubscribeUrl,
             courseName,
-            tokens: EMAIL_TOKENS,
+            tokens: EMAIL_THEME_DEFAULT,
           });
       }
     }
@@ -378,7 +370,7 @@ export async function sendWelcomeEmail(
       courseName,
       durationDays: Number(course.durationDays || 30) || 30,
       appUrl: APP_URL,
-      tokens: EMAIL_TOKENS,
+      tokens: EMAIL_THEME_DEFAULT,
     });
     body = injectEmailTracking(body, messageId, APP_URL);
 
@@ -481,7 +473,7 @@ export async function sendCompletionEmail(
       courseName,
       durationDays: Number(course.durationDays || 30) || 30,
       appUrl: APP_URL,
-      tokens: EMAIL_TOKENS,
+      tokens: EMAIL_THEME_DEFAULT,
       recommendedCourses:
         recommendedCourses.length > 0
           ? recommendedCourses.map((c) => ({ name: c.name, courseId: c.courseId }))
@@ -582,7 +574,7 @@ export async function sendReminderEmail(
       dayNumber,
       courseSlug,
       appUrl: APP_URL,
-      tokens: EMAIL_TOKENS,
+      tokens: EMAIL_THEME_DEFAULT,
     });
 
     // P0: Append localized unsubscribe footer (same as lesson emails — reminder is course-related)
@@ -594,7 +586,7 @@ export async function sendReminderEmail(
         locale: emailLocale,
         unsubscribeUrl,
         courseName,
-        tokens: EMAIL_TOKENS,
+        tokens: EMAIL_THEME_DEFAULT,
       });
     body = injectEmailTracking(body, messageId, APP_URL);
 
@@ -718,11 +710,11 @@ export async function sendPaymentConfirmationEmail(
       courseSlug: courseSlug,
       appUrl: APP_URL,
       tokens: {
-        border: EMAIL_TOKENS.border,
-        muted: EMAIL_TOKENS.muted,
-        bodyText: EMAIL_TOKENS.bodyText,
-        ctaBg: EMAIL_TOKENS.ctaBg,
-        ctaText: EMAIL_TOKENS.ctaText,
+        border: EMAIL_THEME_DEFAULT.border,
+        muted: EMAIL_THEME_DEFAULT.muted,
+        bodyText: EMAIL_THEME_DEFAULT.bodyText,
+        ctaBg: EMAIL_THEME_DEFAULT.ctaBg,
+        ctaText: EMAIL_THEME_DEFAULT.ctaText,
       },
       formattedAmount,
       formattedExpiryDate,
@@ -740,7 +732,7 @@ export async function sendPaymentConfirmationEmail(
       renderPaymentUnsubscribeFooterHtml({
         locale: emailLocale,
         unsubscribeUrl,
-        tokens: EMAIL_TOKENS,
+        tokens: EMAIL_THEME_DEFAULT,
       });
     finalBody = injectEmailTracking(finalBody, messageId, APP_URL);
 

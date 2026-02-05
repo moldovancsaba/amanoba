@@ -16,6 +16,7 @@ import {
   type CellPosition,
   getAvailableMoves,
 } from './madoku-engine';
+import { GAME_AI_PERSONAS } from '@/app/lib/constants/color-tokens';
 
 /**
  * Find best move using minimax algorithm
@@ -218,24 +219,6 @@ function minimaxAI(
  * Get random AI persona based on level
  */
 export function getRandomAIPersona(level: number): { name: string; emoji: string; color: string } {
-  const personas = {
-    1: [
-      { name: 'TinyBot', emoji: '🤖', color: '#0086d1' },
-      { name: 'MiloBit', emoji: '🦾', color: '#888' },
-      { name: 'KittenBot', emoji: '🐱', color: '#ac6e2f' },
-    ],
-    2: [
-      { name: 'GearHead', emoji: '🤖', color: '#aaa' },
-      { name: 'DroneX', emoji: '🚁', color: '#3944bc' },
-      { name: 'TabMaster', emoji: '😺', color: '#fba834' },
-    ],
-    3: [
-      { name: 'Proxima', emoji: '💡', color: '#b9e937' },
-      { name: 'Helix', emoji: '🤖', color: '#607274' },
-      { name: 'Whiskers', emoji: '😺', color: '#a48f55' },
-    ],
-  };
-  
-  const pool = personas[level as keyof typeof personas] || personas[2];
+  const pool = GAME_AI_PERSONAS[level as keyof typeof GAME_AI_PERSONAS] || GAME_AI_PERSONAS[2];
   return pool[Math.floor(Math.random() * pool.length)];
 }

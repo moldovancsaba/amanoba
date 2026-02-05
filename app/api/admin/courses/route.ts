@@ -13,6 +13,7 @@ import { logger } from '@/lib/logger';
 import { requireAdmin, requireAdminOrEditor, getPlayerIdFromSession, isAdmin } from '@/lib/rbac';
 import mongoose from 'mongoose';
 import { checkRateLimit, adminRateLimiter } from '@/lib/security';
+import { DEFAULT_BRAND_THEME_COLORS } from '@/app/lib/constants/color-tokens';
 
 /**
  * GET /api/admin/courses
@@ -172,9 +173,7 @@ export async function POST(request: NextRequest) {
           displayName: 'Amanoba',
           isActive: true,
           themeColors: {
-            primary: '#000000',
-            secondary: '#374151',
-            accent: process.env.NEXT_PUBLIC_THEME_COLOR || '#FAB908',
+            ...DEFAULT_BRAND_THEME_COLORS,
           },
           allowedDomains: ['amanoba.com', 'www.amanoba.com'],
           supportedLanguages: ['hu', 'en'],

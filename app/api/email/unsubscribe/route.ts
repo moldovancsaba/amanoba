@@ -11,6 +11,7 @@ import { Player } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
 import { THEME_COLOR } from '@/app/lib/constants/app-url';
+import { BRAND_COLORS, SEMANTIC_COLORS } from '@/app/lib/constants/color-tokens';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -80,9 +81,9 @@ function htmlErrorPage(m: UnsubscribeMessages, lang: string): string {
 <head>
   <title>${escapeHtml(m.errorTitle)}</title>
   <style>
-    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #000; color: #fff; }
-    .container { text-align: center; padding: 2rem; background: #2D2D2D; border-radius: 8px; border: 2px solid ${THEME_COLOR}; }
-    h1 { color: ${THEME_COLOR}; } .error { color: #ff4444; }
+    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: ${BRAND_COLORS.black}; color: ${BRAND_COLORS.white}; }
+    .container { text-align: center; padding: 2rem; background: ${BRAND_COLORS.darkGrey}; border-radius: 8px; border: 2px solid ${THEME_COLOR}; }
+    h1 { color: ${THEME_COLOR}; } .error { color: ${SEMANTIC_COLORS.error}; }
   </style>
 </head>
 <body>
@@ -101,8 +102,8 @@ function htmlSuccessPage(m: UnsubscribeMessages, lang: string): string {
 <head>
   <title>${escapeHtml(m.successTitle)}</title>
   <style>
-    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #000; color: #fff; }
-    .container { text-align: center; padding: 2rem; background: #2D2D2D; border-radius: 8px; border: 2px solid ${THEME_COLOR}; }
+    body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: ${BRAND_COLORS.black}; color: ${BRAND_COLORS.white}; }
+    .container { text-align: center; padding: 2rem; background: ${BRAND_COLORS.darkGrey}; border-radius: 8px; border: 2px solid ${THEME_COLOR}; }
     h1 { color: ${THEME_COLOR}; }
   </style>
 </head>

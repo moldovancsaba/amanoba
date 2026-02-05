@@ -16,6 +16,7 @@ import { logger } from '@/lib/logger';
 import { CERT_COLORS_DEFAULT, type CertColors } from '@/app/lib/constants/certificate-colors';
 import { getCertificateStrings, formatCertificateDate } from '@/app/lib/constants/certificate-strings';
 import { mapDesignTemplateIdToRender } from '@/lib/certification';
+import { SEMANTIC_COLORS } from '@/app/lib/constants/color-tokens';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -59,8 +60,8 @@ export async function GET(
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              background: '#1a1a1a',
-              color: '#ef4444',
+              background: CERT_COLORS_DEFAULT.bgStart,
+              color: SEMANTIC_COLORS.error,
               fontSize: 32,
               fontWeight: 'bold',
             }}

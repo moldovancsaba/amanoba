@@ -1,4 +1,5 @@
 import type { Locale } from '@/app/lib/i18n/locales';
+import { EMAIL_THEME_DEFAULT } from '@/app/lib/constants/color-tokens';
 
 type EmailTokens = {
   border: string;
@@ -692,12 +693,12 @@ export function renderWelcomeEmailHtml(params: BasicEmailParams & { durationDays
   const s = getLocaleStrings(locale);
   const dir = getDirection(locale);
 
-  const ctaBg = tokens.ctaBg || '#FAB908';
-  const ctaText = tokens.ctaText || '#111827';
-  const bodyText = tokens.bodyText || '#333333';
+  const ctaBg = tokens.ctaBg || EMAIL_THEME_DEFAULT.ctaBg;
+  const ctaText = tokens.ctaText || EMAIL_THEME_DEFAULT.ctaText;
+  const bodyText = tokens.bodyText || EMAIL_THEME_DEFAULT.bodyText;
 
   const dashboardUrl = `${appUrl}/${locale}/my-courses`;
-  const border = tokens.border || '#dddddd';
+  const border = tokens.border || EMAIL_THEME_DEFAULT.border;
 
   const brandName = 'Amanoba';
   return `
@@ -708,10 +709,10 @@ export function renderWelcomeEmailHtml(params: BasicEmailParams & { durationDays
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>${s.welcomeHeading(courseName)}</title>
       </head>
-      <body dir="${dir}" style="margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; line-height: 1.6; color: ${bodyText}; background: #f5f5f5; font-size: 16px;">
+      <body dir="${dir}" style="margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; line-height: 1.6; color: ${bodyText}; background: ${EMAIL_THEME_DEFAULT.pageBg}; font-size: 16px;">
         <div style="max-width: 600px; margin: 0 auto; padding: 20px 16px;">
-          <div style="background: #ffffff; border: 1px solid ${border}; border-radius: 12px; padding: 32px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
-            <p style="margin: 0 0 24px; font-size: 14px; font-weight: 600; color: ${tokens.muted || '#666666'};">${escapeHtml(brandName)}</p>
+          <div style="background: ${EMAIL_THEME_DEFAULT.cardBg}; border: 1px solid ${border}; border-radius: ${EMAIL_THEME_DEFAULT.cardRadius}; padding: 32px 24px; box-shadow: ${EMAIL_THEME_DEFAULT.cardShadow};">
+            <p style="margin: 0 0 24px; font-size: 14px; font-weight: 600; color: ${tokens.muted || EMAIL_THEME_DEFAULT.muted};">${escapeHtml(brandName)}</p>
             <h1 style="margin: 0 0 16px; font-size: 22px; line-height: 1.3; color: ${bodyText};">${s.welcomeHeading(courseName)}</h1>
             <p style="margin: 0 0 12px;">${s.welcomeIntro(playerName, courseName)}</p>
             <p style="margin: 0 0 28px;">${s.welcomeBody(durationDays)}</p>
@@ -720,7 +721,7 @@ export function renderWelcomeEmailHtml(params: BasicEmailParams & { durationDays
                 ${s.welcomeCta}
               </a>
             </p>
-            <p style="margin: 28px 0 0; font-size: 14px; color: ${tokens.muted || '#666666'};">${s.teamSignoff}</p>
+            <p style="margin: 28px 0 0; font-size: 14px; color: ${tokens.muted || EMAIL_THEME_DEFAULT.muted};">${s.teamSignoff}</p>
           </div>
         </div>
       </body>
@@ -760,10 +761,10 @@ export function renderCompletionEmailHtml(
   const s = getLocaleStrings(locale);
   const dir = getDirection(locale);
 
-  const ctaBg = tokens.ctaBg || '#FAB908';
-  const ctaText = tokens.ctaText || '#111827';
-  const bodyText = tokens.bodyText || '#333333';
-  const muted = tokens.muted || '#666666';
+  const ctaBg = tokens.ctaBg || EMAIL_THEME_DEFAULT.ctaBg;
+  const ctaText = tokens.ctaText || EMAIL_THEME_DEFAULT.ctaText;
+  const bodyText = tokens.bodyText || EMAIL_THEME_DEFAULT.bodyText;
+  const muted = tokens.muted || EMAIL_THEME_DEFAULT.muted;
 
   const browseUrlRaw = `${appUrl}/${locale}/courses`;
   const browseUrl =
@@ -833,9 +834,9 @@ export function renderReminderEmailHtml(params: BasicEmailParams & { dayNumber: 
   const s = getLocaleStrings(locale);
   const dir = getDirection(locale);
 
-  const ctaBg = tokens.ctaBg || '#FAB908';
-  const ctaText = tokens.ctaText || '#111827';
-  const bodyText = tokens.bodyText || '#333333';
+  const ctaBg = tokens.ctaBg || EMAIL_THEME_DEFAULT.ctaBg;
+  const ctaText = tokens.ctaText || EMAIL_THEME_DEFAULT.ctaText;
+  const bodyText = tokens.bodyText || EMAIL_THEME_DEFAULT.bodyText;
 
   const dayUrl = `${appUrl}/${locale}/courses/${courseSlug}/day/${dayNumber}`;
 
@@ -885,11 +886,11 @@ export function renderPaymentConfirmationEmail(params: {
         <div style="background-color: ${tokens.ctaBg}; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
           <h1 style="color: ${tokens.ctaText}; margin: 0;">${s.paymentHeading}</h1>
         </div>
-        <div style="background-color: #fff; padding: 30px; border: 2px solid ${tokens.ctaBg}; border-top: none; border-radius: 0 0 8px 8px;">
+        <div style="background-color: ${EMAIL_THEME_DEFAULT.cardBg}; padding: 30px; border: 2px solid ${tokens.ctaBg}; border-top: none; border-radius: 0 0 8px 8px;">
           <p>${s.paymentThanks(playerName)}</p>
           <p>${s.paymentActivated}</p>
 
-          <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+          <div style="background-color: ${EMAIL_THEME_DEFAULT.pageBg}; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h2 style="margin-top: 0; color: ${tokens.ctaText};">${s.paymentDetailsHeading}</h2>
             <table style="width: 100%; border-collapse: collapse;">
               <tr>

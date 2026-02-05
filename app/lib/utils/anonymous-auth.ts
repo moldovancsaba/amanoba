@@ -14,6 +14,7 @@
 import { GuestUsername } from '@/lib/models/guest-username';
 import { Player, PlayerProgression, PointsWallet, Streak, Brand } from '@/lib/models';
 import logger from '@/lib/logger';
+import { DEFAULT_BRAND_THEME_COLORS } from '@/app/lib/constants/color-tokens';
 
 /**
  * Get a random pre-generated guest username
@@ -84,9 +85,7 @@ export async function createAnonymousPlayer(username: string) {
         description: 'Unified gamification platform',
         logo: '🎮',
         themeColors: {
-          primary: '#000000',
-          secondary: '#2D2D2D',
-          accent: process.env.NEXT_PUBLIC_THEME_COLOR || '#FAB908',
+          ...DEFAULT_BRAND_THEME_COLORS,
         },
         allowedDomains: ['amanoba.com', 'localhost'],
         supportedLanguages: ['en'],
