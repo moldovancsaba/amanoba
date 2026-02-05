@@ -42,28 +42,61 @@ function groupForFile(file: string): string {
 function auditFile(file: string, patterns: Pattern[]): Finding[] {
   const text = readFileSync(file, 'utf8');
   const lines = text.split('\n');
-  const findings: Finding[] = [];
 
-  for (let i = 0; i < lines.length; i++) {
-    const lineText = lines[i];
+  const lineStartOffsets: number[] = [];
+  {
+    let offset = 0;
+    for (const line of lines) {
+      lineStartOffsets.push(offset);
+      offset += line.length + 1;
+    }
+  }
 
-    for (const pattern of patterns) {
-      if (!pattern.include(file)) continue;
+  const offsetToLine = (offset: number) => {
+    let lo = 0;
+    let hi = lineStartOffsets.length - 1;
+    while (lo <= hi) {
+      const mid = (lo + hi) >> 1;
+      const start = lineStartOffsets[mid]!;
+      const nextStart = mid + 1 < lineStartOffsets.length ? lineStartOffsets[mid + 1]! : Number.POSITIVE_INFINITY;
+      if (offset >= start && offset < nextStart) return mid + 1;
+      if (offset < start) hi = mid - 1;
+      else lo = mid + 1;
+    }
+    return 1;
+  };
 
-      pattern.regex.lastIndex = 0;
-      const matches = [...lineText.matchAll(pattern.regex)].map((m) => m[0]);
-      if (!matches.length) continue;
+  // Aggregate to avoid duplicate entries for the same (file,line,pattern).
+  const bucket = new Map<string, Finding>();
 
-      findings.push({
+  for (const pattern of patterns) {
+    if (!pattern.include(file)) continue;
+    pattern.regex.lastIndex = 0;
+    for (const match of text.matchAll(pattern.regex)) {
+      const idx = match.index ?? 0;
+      const line = offsetToLine(idx);
+      const key = `${file}:${line}:${pattern.id}`;
+      const existing = bucket.get(key);
+      const matchText = match[0] ?? '';
+      const lineText = lines[line - 1] ?? '';
+      if (existing) {
+        if (matchText) existing.matches.push(matchText);
+        continue;
+      }
+      bucket.set(key, {
         file,
-        line: i + 1,
+        line,
         patternId: pattern.id,
-        matches: Array.from(new Set(matches)).slice(0, 12),
+        matches: matchText ? [matchText] : [],
         snippet: lineText.trim().slice(0, 260),
       });
     }
   }
 
+  const findings = Array.from(bucket.values());
+  for (const f of findings) {
+    f.matches = Array.from(new Set(f.matches)).slice(0, 12);
+  }
   return findings;
 }
 
@@ -203,6 +236,14 @@ function main() {
       note: 'Use design tokens / brand palette. Exception: explicit external brand colors (e.g. social share) should be centralized.',
     },
     {
+      id: 'blocker:inline-color-literals-in-style',
+      title: 'Inline color literals in style={{...}} (hex/rgb/hsl)',
+      severity: 'blocker',
+      include: (file) => file.endsWith('.tsx'),
+      regex: /\bstyle=\{\{[\s\S]{0,500}?(#(?:[0-9a-fA-F]{3}){1,2}\b|rgba?\(|hsla?\()/g,
+      note: 'Avoid hardcoded colors in inline styles; use design tokens / Tailwind brand palette. (Heuristic scan: may include some false positives.)',
+    },
+    {
       id: 'major:tailwind-indigo-blue',
       title: 'Default Tailwind indigo/blue palette in UI',
       severity: 'major',
@@ -217,6 +258,30 @@ function main() {
       include: (file) => !file.startsWith('app/components/games/'),
       regex: /\b(?:bg|text|border|ring|from|to)-(?:gray|slate|zinc|neutral|stone)-\d{2,3}\b/g,
       note: 'Prefer brand tokens (brand-darkGrey, brand-white, brand-black) and design-system CSS variables.',
+    },
+    {
+      id: 'major:tailwind-yellow-palette',
+      title: 'Tailwind yellow palette usage (prefer brand accent token)',
+      severity: 'major',
+      include: (file) => !file.startsWith('app/components/games/'),
+      regex: /\b(?:bg|text|border|ring)-yellow-\d{2,3}(?:\/\d{1,3})?\b/g,
+      note: 'CTA yellow should be applied via brand tokens (`brand-accent` / `primary-*`) and used only for primary actions.',
+    },
+    {
+      id: 'major:cta-bg-on-non-action-element',
+      title: 'CTA accent background on non-action elements (likely misuse)',
+      severity: 'major',
+      include: (file) => file.endsWith('.tsx') && !file.startsWith('app/components/games/'),
+      regex: /<(?:div|span|p|li|section|header|footer|article|aside|h[1-6])[^>]*className=(?:"[^"]*\bbg-brand-accent\b[^"]*"|\{`[^`]*\bbg-brand-accent\b[^`]*`)/g,
+      note: 'Layout grammar: CTA yellow is exclusive to primary actions. If this is an intentional CTA-like element, change to button/link or adjust styling.',
+    },
+    {
+      id: 'major:cta-text-on-non-link-element',
+      title: 'CTA accent text on non-link elements (review)',
+      severity: 'major',
+      include: (file) => file.endsWith('.tsx') && !file.startsWith('app/components/games/'),
+      regex: /<(?:div|span|p|li|section|header|footer|article|aside|h[1-6])[^>]*className=(?:"[^"]*\btext-brand-accent\b[^"]*"|\{`[^`]*\btext-brand-accent\b[^`]*`)/g,
+      note: 'Accent text is usually for primary links or emphasis. Ensure it is not used as a generic label/badge.',
     },
     {
       id: 'minor:plain-white-black',
