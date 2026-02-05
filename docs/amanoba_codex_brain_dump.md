@@ -98,7 +98,21 @@ Expected workflow:
 
 ---
 
-## 7) “Good way” working style (repo hygiene)
+## 7) UI layout grammar + UI foundation guardrails
+
+We maintain **two layers** of UI guardrails:
+
+- **Heuristic drift audit** (counts likely design-token / palette drift):
+  - Generate report: `npm run ui:audit:layout` → `docs/UI_LAYOUT_GRAMMAR_AUDIT.md`
+  - CI check: `npm run ui:check:layout` (fails only on blocker rules)
+- **Hard foundation rules** (CI gate, “no raw color literals” outside explicit token sources):
+  - Generate report: `npm run ui:audit:foundation` → `docs/UI_FOUNDATION_AUDIT.md`
+  - CI check: `npm run ui:check:foundation`
+  - Central token source for non-CSS rendering contexts: `app/lib/constants/color-tokens.ts`
+
+---
+
+## 8) “Good way” working style (repo hygiene)
 
 When changes span multiple concerns:
 - Prefer **small, logically grouped commits** (docs hygiene vs feature changes).
@@ -122,4 +136,3 @@ Update this file whenever any of these change:
 Minimal update protocol:
 - Bump **Last Updated**
 - Add/remove bullets in relevant sections
-

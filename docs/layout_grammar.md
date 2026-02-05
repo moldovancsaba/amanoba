@@ -122,6 +122,11 @@ See `docs/COURSE_BUILDING_RULES.md` and `docs/_archive/reference/QUIZ_QUALITY_PI
 
 **Components**: Prefer Tailwind and design-system tokens. Avoid inline hex for brand/CTA colors; use `brand-accent`, `brand-black`, `brand-darkGrey`, `brand-white`, or CSS variables.
 
+**Guardrails (recommended)**:
+
+- Heuristic drift audit (tokens/palette): `npm run ui:audit:layout` and `npm run ui:check:layout`
+- Hard rule check (no raw color literals outside token sources): `npm run ui:audit:foundation` and `npm run ui:check:foundation`
+
 ---
 
 ## 7. API and route layout
