@@ -514,6 +514,9 @@
   },
   "admin": {
     "logout": "تسجيل الخروج",
+    "profile": "الملف الشخصي",
+    "administrator": "مسؤول",
+    "adminUser": "مستخدم الإدارة",
     "editor": "المحرر",
     "title": "الإدارة",
     "dashboard": "لوحة الإدارة",

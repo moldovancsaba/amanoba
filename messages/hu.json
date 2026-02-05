@@ -533,6 +533,8 @@
     "editor": "Szerkesztő",
     "profile": "Profil",
     "logout": "Kijelentkezés",
+    "administrator": "Adminisztrátor",
+    "adminUser": "Admin felhasználó",
     "dashboard": "Admin irányítópult",
     "dashboardTitle": "Admin Irányítópult",
     "dashboardDescription": "Üdvözöljük! Íme, mi történik a platformon.",

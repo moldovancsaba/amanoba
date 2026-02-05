@@ -500,6 +500,9 @@
   },
   "admin": {
     "logout": "Çıkış yap",
+    "profile": "Profil",
+    "administrator": "Yönetici",
+    "adminUser": "Yönetici kullanıcı",
     "editor": "Editör",
     "title": "Yönetici",
     "dashboard": "Yönetici paneli",

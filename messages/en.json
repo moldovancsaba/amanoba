@@ -521,6 +521,8 @@
   "admin": {
     "logout": "Logout",
     "profile": "Profile",
+    "administrator": "Administrator",
+    "adminUser": "Admin User",
     "editor": "Editor",
     "title": "Admin",
     "dashboard": "Admin Dashboard",

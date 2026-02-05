@@ -500,6 +500,9 @@
   },
   "admin": {
     "logout": "Изход",
+    "profile": "Профил",
+    "administrator": "Администратор",
+    "adminUser": "Админ потребител",
     "editor": "Редактор",
     "title": "Админ",
     "dashboard": "Админ табло",

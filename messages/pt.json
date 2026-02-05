@@ -500,6 +500,9 @@
   },
   "admin": {
     "logout": "Terminar sessão",
+    "profile": "Perfil",
+    "administrator": "Administrador",
+    "adminUser": "Utilizador admin",
     "editor": "Editor",
     "title": "Admin",
     "dashboard": "Painel de administração",

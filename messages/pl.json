@@ -500,6 +500,9 @@
   },
   "admin": {
     "logout": "Wyloguj",
+    "profile": "Profil",
+    "administrator": "Administrator",
+    "adminUser": "Użytkownik admina",
     "editor": "Edytor",
     "title": "Admin",
     "dashboard": "Panel admina",

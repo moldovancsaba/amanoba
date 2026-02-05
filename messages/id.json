@@ -500,6 +500,9 @@
   },
   "admin": {
     "logout": "Keluar",
+    "profile": "Profil",
+    "administrator": "Administrator",
+    "adminUser": "Pengguna admin",
     "editor": "Editor",
     "title": "Admin",
     "dashboard": "Dasbor admin",

@@ -219,10 +219,10 @@ export default function AdminLayout({
             >
               <div className="text-right hidden sm:block">
                 <div className="text-brand-white text-sm font-medium">
-                  {session?.user?.name || session?.user?.email || 'Admin User'}
+                  {session?.user?.name || session?.user?.email || t('adminUser')}
                 </div>
                 <div className="text-brand-white/70 text-xs">
-                  {isEditorOnly ? t('editor') : 'Administrator'}
+                  {isEditorOnly ? t('editor') : t('administrator')}
                 </div>
               </div>
               <div className="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center flex-shrink-0">

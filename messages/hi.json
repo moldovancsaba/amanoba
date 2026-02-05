@@ -514,6 +514,9 @@
   },
   "admin": {
     "logout": "लॉगआउट",
+    "profile": "प्रोफ़ाइल",
+    "administrator": "प्रशासक",
+    "adminUser": "एडमिन उपयोगकर्ता",
     "editor": "संपादक",
     "title": "व्यवस्थापक",
     "dashboard": "व्यवस्थापक डैशबोर्ड",

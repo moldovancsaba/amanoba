@@ -500,6 +500,9 @@
   },
   "admin": {
     "logout": "Đăng xuất",
+    "profile": "Hồ sơ",
+    "administrator": "Quản trị viên",
+    "adminUser": "Người dùng quản trị",
     "editor": "Biên tập",
     "title": "Quản trị",
     "dashboard": "Bảng quản trị",
