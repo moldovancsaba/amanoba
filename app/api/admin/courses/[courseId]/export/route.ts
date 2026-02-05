@@ -1,9 +1,8 @@
 /**
  * Admin Course Export API
  *
- * What: Exports a complete course to JSON or ZIP package (v2 format).
- * Why: Backup and share complete courses; ZIP = manifest + course + lessons (human/machine readable).
- * Query: ?format=zip → application/zip; otherwise JSON.
+ * What: Exports a complete course as a single JSON package (v2 format). API also supports ?format=zip for backward compatibility.
+ * Why: Backup and share complete courses. UI uses JSON only (Export button).
  */
 
 import { NextRequest, NextResponse } from 'next/server';
@@ -17,8 +16,7 @@ import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse 
 /**
  * GET /api/admin/courses/[courseId]/export
  *
- * What: Export course to JSON or ZIP (admins and editors with course access).
- * Query: format=zip → ZIP package (manifest.json, course.json, lessons.json).
+ * What: Export course as JSON (default). Admins and editors with course access. Query format=zip → ZIP (API-only, not used by UI).
  */
 export async function GET(
   request: NextRequest,

@@ -61,7 +61,7 @@ Completed items (formerly 1–4, 6–11, course voting, UI/UX polish, course lea
 | 3 | Fix import overwrite: replace delete-all with merge — update course doc (content/config only), upsert lessons by lessonId, upsert questions by lessonId+uuid; do not delete existing lessons/questions not in package. | ✅ DONE |
 | 4 | Import (new course): accept v2 package format (same shape as extended export); create course + lessons + questions. | ✅ DONE |
 | 5 | UI: Course editor — clarify Export (download v2 JSON) and Import with checkbox “Overwrite existing (merge, preserves stats)” and warning. | ✅ DONE |
-| 6 | (Optional) ZIP package: export as ZIP with manifest + course.json + lessons + quiz + optional canonical/course_idea; import from ZIP. | ⏳ PENDING |
+| 6 | (Optional) ZIP package: export as ZIP; import from ZIP. | ❌ Not planned — single JSON format in UI; API still accepts ZIP for backward compatibility. |
 
 ---
 

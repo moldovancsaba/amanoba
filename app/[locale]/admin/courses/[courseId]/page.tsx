@@ -337,7 +337,7 @@ export default function CourseEditorPage({
       const response = await fetch(`/api/admin/courses/${courseId}/export`);
       if (!response.ok) {
         const err = await response.json().catch(() => ({}));
-        alert(err.details ? `${err.error}: ${err.details}` : err.error || 'Failed to export course');
+        alert(err.details ? `${err.error}: ${err.details}` : err.error || 'Failed to export');
         return;
       }
       const data = await response.json();
@@ -356,34 +356,7 @@ export default function CourseEditorPage({
       URL.revokeObjectURL(url);
     } catch (error) {
       console.error('Failed to export course:', error);
-      alert(`Failed to export course: ${error instanceof Error ? error.message : 'Unknown error'}`);
-    }
-  };
-
-  const handleExportCourseAsZip = async () => {
-    if (!courseId) {
-      alert('Course ID is missing');
-      return;
-    }
-    try {
-      const response = await fetch(`/api/admin/courses/${courseId}/export?format=zip`);
-      if (!response.ok) {
-        const err = await response.json().catch(() => ({}));
-        alert(err.details ? `${err.error}: ${err.details}` : err.error || 'Failed to export ZIP');
-        return;
-      }
-      const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${courseId}_package_${new Date().toISOString().split('T')[0]}.zip`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error('Failed to export ZIP:', error);
-      alert(`Failed to export ZIP: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      alert(`Failed to export: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   };
 
@@ -400,26 +373,13 @@ export default function CourseEditorPage({
 
     setImporting(true);
     try {
-      const isZip = file.name.toLowerCase().endsWith('.zip');
-      let response: Response;
-
-      if (isZip) {
-        const formData = new FormData();
-        formData.set('file', file);
-        formData.set('overwrite', 'true');
-        response = await fetch('/api/admin/courses/import', {
-          method: 'POST',
-          body: formData,
-        });
-      } else {
-        const text = await file.text();
-        const courseData = JSON.parse(text);
-        response = await fetch('/api/admin/courses/import', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ courseData, overwrite: true }),
-        });
-      }
+      const text = await file.text();
+      const courseData = JSON.parse(text);
+      const response = await fetch('/api/admin/courses/import', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ courseData, overwrite: true }),
+      });
 
       const data = await response.json();
 
@@ -431,11 +391,11 @@ export default function CourseEditorPage({
           window.location.reload();
         }
       } else {
-        alert(data.error || 'Failed to import course');
+        alert(data.error || 'Failed to import');
       }
     } catch (error) {
-      console.error('Failed to import course:', error);
-      alert('Failed to import course. Please check the file format (.json or .zip).');
+      console.error('Failed to import:', error);
+      alert('Failed to import. Use a .json package.');
     } finally {
       setImporting(false);
       event.target.value = '';
@@ -480,21 +440,14 @@ export default function CourseEditorPage({
             className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700 transition-colors"
           >
             <Download className="w-5 h-5" />
-            Export JSON
-          </button>
-          <button
-            onClick={handleExportCourseAsZip}
-            className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-600 transition-colors"
-          >
-            <Download className="w-5 h-5" />
-            Export ZIP
+            Export
           </button>
           <label className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${importing ? 'bg-green-700/70 text-white/90 cursor-wait pointer-events-none' : 'bg-green-600 text-white hover:bg-green-700 cursor-pointer'}`}>
             {importing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Upload className="w-5 h-5" />}
-            {importing ? 'Importing…' : 'Import (JSON or ZIP)'}
+            {importing ? 'Importing…' : 'Import'}
             <input
               type="file"
-              accept=".json,.zip"
+              accept=".json"
               onChange={handleImportCourse}
               className="hidden"
               disabled={importing}

@@ -28,7 +28,7 @@
 - **Import (new course):** Accepts v2 package; creates course + lessons + questions; resolves `prerequisiteCourseIds` from string to ObjectId.
 - **UI:** Course editor Import confirm text: “Merge package into this course? Content will be updated; progress, upvotes, certificates, and shorts are preserved.” Success message shows API message (merge vs imported).
 
-**Reference:** `docs/COURSE_EXPORT_IMPORT_RECOMMENDATION.md`. Optional ZIP package (TASKLIST P2 #6) remains pending.
+**Reference:** `docs/COURSE_EXPORT_IMPORT_RECOMMENDATION.md`. Package format is single JSON in UI; API still accepts ZIP for backward compatibility (TASKLIST P2 #6 closed as not planned).
 
 ---
 

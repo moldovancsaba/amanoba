@@ -114,35 +114,22 @@ Do **not** include: `_id`, `lessonId`/`courseId` (import sets from context), `sh
 - **New course** (no existing course with same courseId): Create Course, Lessons, QuizQuestions. Use default brand (e.g. amanoba) for brandId.
 - **Overwrite (update)** (existing course, overwrite=true): Merge only. Update course document (content/config fields above). Upsert lessons by lessonId. Upsert quiz questions by lessonId + uuid (or question text). Do **not** delete existing lessons or questions that are not in the package. Preserve: CourseProgress, ContentVote, Certificate, CertificateEntitlement, PaymentTransaction, child courses (shorts), enrolments.
 
-### How to create a new course from a package
+### How to create or update a course from a package
 
-1. **Export** an existing course as ZIP (Admin → open course → Export ZIP).
-2. Unzip, edit **course.json**: set a new **courseId** (and name/description if desired). Optionally adjust lessonIds in **lessons.json** if you want different lesson keys. Re-zip (manifest.json, course.json, lessons.json).
-3. **Import**: Admin → **Course Management** → **Import course (JSON or ZIP)**. Choose the modified ZIP. The app creates the new course (by courseId) and opens its editor.  
-   Alternatively, open any course’s editor and use **Import (JSON or ZIP)** there; if the package’s courseId is different, the app creates/updates that course and redirects you to it.
+**Standard workflow (single JSON):**
 
-**Editing the package:** Save **course.json** (and **lessons.json** if you edit it) as **UTF-8** so characters like en-dash (–), em-dash (—), and accented letters are preserved. Import applies `name` and `description` from the package exactly when present.
-
-### Single JSON (no ZIP)
-
-You can import from a **single JSON file** with the same shape:
-
-- **Upload in UI:** Admin → Course Management → **Import course (JSON or ZIP)**. Choose a `.json` file whose content is `{ "course": { ... }, "lessons": [ ... ] }`. The UI sends it as the request body; the API accepts either `{ courseData: { course, lessons }, overwrite }` or the raw package `{ course, lessons, overwrite? }`.
-- **API:** POST `/api/admin/courses/import` with `Content-Type: application/json` and body either `{ courseData: { course, lessons }, overwrite: true }` or directly `{ course, lessons, overwrite: true }`.
+1. **Export:** Open a course in the editor (Admin → Courses → open course) and use **Export**. This downloads a single `.json` file (v2 package).
+2. Edit the JSON: set a new **courseId** (and name/description if desired). Optionally adjust lessonIds in **lessons** if you want different lesson keys. Save as UTF-8 so characters like en-dash (–), em-dash (—), and accented letters are preserved.
+3. **Import:**  
+   - **New/update from list:** Admin → **Course Management** → **Import**. Choose the `.json` file. The app creates a new course (by courseId) or updates an existing one and opens its editor.  
+   - **Merge into current course:** From the course editor, use **Import**. Choose the `.json` file. Content is merged; progress, upvotes, certificates, and shorts are preserved.
 
 A template is in **docs/course/sample.json** — copy and edit it to create a new course, then import that file.
 
+**API:** POST `/api/admin/courses/import` with `Content-Type: application/json` and body either `{ courseData: { course, lessons }, overwrite: true }` or directly `{ course, lessons, overwrite: true }`.
+
 ---
 
-## ZIP package (single JSON)
+## ZIP (API backward compatibility)
 
-A ZIP contains one main file:
-
-- **package.json** — single JSON with manifest metadata at the top, then course, then lessons: `{ packageVersion, exportedAt, exportedBy, course, lessons, canonicalSpec?, courseIdea? }`. No separate manifest.json / course.json / lessons.json.
-
-Optional files in the ZIP:
-
-- `canonical.json` — canonical spec when present.
-- `course_idea.md` — course idea markdown.
-
-**Backward compatibility:** Import also accepts the older 3-file layout: `manifest.json` + `course.json` + `lessons.json`. Export as ZIP is available in the course editor (Export ZIP).
+The API still accepts a **ZIP** containing `package.json` (single file with course + lessons) or the older 3-file layout (`manifest.json` + `course.json` + `lessons.json`). The **UI uses only single JSON**: Export produces JSON; Import accepts `.json` only. Use ZIP only if calling the API directly (e.g. scripts).

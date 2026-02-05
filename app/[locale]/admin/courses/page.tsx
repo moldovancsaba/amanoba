@@ -160,22 +160,13 @@ export default function AdminCoursesPage() {
     }
     setImporting(true);
     try {
-      const isZip = file.name.toLowerCase().endsWith('.zip');
-      let response: Response;
-      if (isZip) {
-        const formData = new FormData();
-        formData.set('file', file);
-        formData.set('overwrite', 'true');
-        response = await fetch('/api/admin/courses/import', { method: 'POST', body: formData });
-      } else {
-        const text = await file.text();
-        const courseData = JSON.parse(text);
-        response = await fetch('/api/admin/courses/import', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ courseData, overwrite: true }),
-        });
-      }
+      const text = await file.text();
+      const courseData = JSON.parse(text);
+      const response = await fetch('/api/admin/courses/import', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ courseData, overwrite: true }),
+      });
       const data = await response.json();
       if (data.success && data.course?.courseId) {
         router.push(`/${locale}/admin/courses/${data.course.courseId}`);
@@ -184,7 +175,7 @@ export default function AdminCoursesPage() {
       alert(data.error || 'Import failed');
     } catch (e) {
       console.error('Import failed', e);
-      alert('Import failed. Use a .json or .zip course package.');
+      alert('Import failed. Use a .json package.');
     } finally {
       setImporting(false);
       event.target.value = '';
@@ -379,10 +370,10 @@ export default function AdminCoursesPage() {
         <div className="flex flex-col items-end gap-1">
           <label className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${importing ? 'bg-green-700/70 text-white/90 cursor-wait pointer-events-none' : 'bg-green-600 text-white hover:bg-green-700 cursor-pointer'}`}>
             {importing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Upload className="w-5 h-5" />}
-            {importing ? 'Importing…' : 'Import course (JSON or ZIP)'}
+            {importing ? 'Importing…' : 'Import'}
             <input
               type="file"
-              accept=".json,.zip"
+              accept=".json"
               className="hidden"
               disabled={importing}
               onChange={handleImportCourse}

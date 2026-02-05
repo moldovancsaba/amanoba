@@ -2,7 +2,7 @@
   "course": {
     "courseId": "MY_COURSE_2026",
     "name": "My New Course",
-    "description": "A 30-day course. Edit this package and import via Admin → Course Management → Import (JSON or ZIP).",
+    "description": "A 30-day course. Edit this package and import via Admin → Course Management → Import.",
     "language": "en",
     "durationDays": 30,
     "isActive": true,

@@ -1,13 +1,13 @@
 /**
  * Admin Course Import API
  *
- * What: Imports a course from JSON or ZIP package (v2 format). New course = create. Overwrite = merge (preserves stats).
+ * What: Imports a course from a single JSON package (v2 format). New course = create. Overwrite = merge (preserves stats).
  * Why: Backup/restore and content updates without losing progress, upvotes, certificates, shorts.
  * See docs/COURSE_PACKAGE_FORMAT.md.
  *
- * Accepts:
- * - JSON body: { courseData: {...}, overwrite: boolean }
- * - Multipart form: file = .zip package, overwrite = "true" | "false"
+ * UI uses JSON only. Accepts:
+ * - JSON body: { courseData: {...}, overwrite: boolean } (or raw { course, lessons, overwrite? })
+ * - Multipart form with .zip file (API backward compatibility; not offered in UI).
  */
 
 import { NextRequest, NextResponse } from 'next/server';
@@ -55,7 +55,7 @@ interface PackageLesson {
 /**
  * POST /api/admin/courses/import
  *
- * Body: JSON { courseData, overwrite } OR multipart form with file (.zip) and overwrite.
+ * Body: JSON { courseData, overwrite } (standard). Or multipart form with .zip (API-only).
  */
 export async function POST(request: NextRequest) {
   try {
