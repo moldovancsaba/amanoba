@@ -520,6 +520,7 @@
   },
   "admin": {
     "logout": "Logout",
+    "profile": "Profile",
     "editor": "Editor",
     "title": "Admin",
     "dashboard": "Admin Dashboard",

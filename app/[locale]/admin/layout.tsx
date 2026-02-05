@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
@@ -26,6 +26,8 @@ import {
   Menu,
   X,
   Crown,
+  ChevronDown,
+  User,
   BookOpen,
   CreditCard,
   ClipboardList,
@@ -80,9 +82,23 @@ export default function AdminLayout({
   const { data: session } = useSession();
   const t = useTranslations('admin');
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [version, setVersion] = useState<string>('2.7.0');
   const [isEditorOnly, setIsEditorOnly] = useState<boolean | null>(null);
   const pathname = usePathname();
+  const userMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
+        setUserMenuOpen(false);
+      }
+    }
+    if (userMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [userMenuOpen]);
 
   useEffect(() => {
     fetch('/api/admin/system-info')
@@ -129,11 +145,11 @@ export default function AdminLayout({
       <aside
         className={`fixed top-0 left-0 z-40 h-screen transition-transform flex flex-col ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } bg-brand-darkGrey border-r border-brand-accent/30`}
+        } bg-brand-darkGrey`}
         style={{ width: '260px' }}
       >
         {/* Logo */}
-        <div className="h-16 flex-shrink-0 flex items-center justify-between px-4 border-b border-brand-accent/30">
+        <div className="h-16 flex-shrink-0 flex items-center justify-between px-4">
           <Link href={`/${locale}/admin`} className="flex items-center gap-2">
             <Logo size="sm" showText={false} linkTo="" className="flex-shrink-0" />
             <div>
@@ -167,22 +183,9 @@ export default function AdminLayout({
           })}
         </nav>
 
-        {/* Footer */}
-        <div className="flex-shrink-0 p-4 border-t border-brand-accent/30 space-y-2">
-          {/* Logout Button */}
-          <button
-            onClick={async () => {
-              await signOut({ redirect: false });
-              router.push(`/${locale}/auth/signin`);
-            }}
-            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-brand-white hover:bg-brand-secondary-700 transition-all"
-          >
-            <LogOut className="w-5 h-5" />
-            <span className="font-medium">{t('logout')}</span>
-          </button>
-          <div className="text-xs text-brand-white/60 text-center">
-            v{version} | Admin Mode
-          </div>
+        {/* Version only — user actions moved to header */}
+        <div className="flex-shrink-0 p-4 text-xs text-brand-white/60 text-center">
+          v{version} | Admin Mode
         </div>
       </aside>
 
@@ -193,7 +196,7 @@ export default function AdminLayout({
         }`}
       >
         {/* Header */}
-        <header className="h-16 bg-brand-darkGrey border-b border-brand-accent/30 flex items-center justify-between px-6">
+        <header className="h-16 bg-brand-darkGrey flex items-center justify-between px-6">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="p-2 rounded-lg hover:bg-brand-secondary-700 text-brand-white"
@@ -205,18 +208,61 @@ export default function AdminLayout({
             )}
           </button>
 
-          <div className="flex items-center gap-4">
-            <div className="text-right">
-              <div className="text-brand-white text-sm font-medium">
-                {session?.user?.name || session?.user?.email || 'Admin User'}
+          {/* User menu: profile, logout, version */}
+          <div className="relative" ref={userMenuRef}>
+            <button
+              type="button"
+              onClick={() => setUserMenuOpen((o) => !o)}
+              className="flex items-center gap-3 p-2 rounded-lg hover:bg-brand-secondary-700 text-brand-white transition-colors"
+              aria-expanded={userMenuOpen}
+              aria-haspopup="true"
+            >
+              <div className="text-right hidden sm:block">
+                <div className="text-brand-white text-sm font-medium">
+                  {session?.user?.name || session?.user?.email || 'Admin User'}
+                </div>
+                <div className="text-brand-white/70 text-xs">
+                  {isEditorOnly ? t('editor') : 'Administrator'}
+                </div>
               </div>
-              <div className="text-brand-white/70 text-xs">
-                {isEditorOnly ? t('editor') : 'Administrator'}
+              <div className="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center flex-shrink-0">
+                <Crown className="w-6 h-6 text-brand-black" />
               </div>
-            </div>
-            <div className="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center">
-              <Crown className="w-6 h-6 text-brand-black" />
-            </div>
+              <ChevronDown className={`w-5 h-5 text-brand-white/80 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {userMenuOpen && (
+              <div
+                className="absolute right-0 top-full mt-2 w-56 py-2 rounded-lg bg-brand-darkGrey border border-brand-white/10 shadow-xl z-50"
+                role="menu"
+              >
+                <Link
+                  href={session?.user?.id ? `/${locale}/profile/${session.user.id}` : `/${locale}/dashboard`}
+                  className="flex items-center gap-3 px-4 py-2.5 text-brand-white hover:bg-brand-secondary-700 transition-colors"
+                  role="menuitem"
+                  onClick={() => setUserMenuOpen(false)}
+                >
+                  <User className="w-5 h-5" />
+                  <span>{t('profile')}</span>
+                </Link>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    setUserMenuOpen(false);
+                    await signOut({ redirect: false });
+                    router.push(`/${locale}/auth/signin`);
+                  }}
+                  className="w-full flex items-center gap-3 px-4 py-2.5 text-brand-white hover:bg-brand-secondary-700 transition-colors text-left"
+                  role="menuitem"
+                >
+                  <LogOut className="w-5 h-5" />
+                  <span>{t('logout')}</span>
+                </button>
+                <div className="border-t border-brand-white/10 mt-2 pt-2 px-4 py-1.5 text-xs text-brand-white/60">
+                  v{version} | Admin Mode
+                </div>
+              </div>
+            )}
           </div>
         </header>
 

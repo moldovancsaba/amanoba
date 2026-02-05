@@ -531,6 +531,8 @@
   "admin": {
     "title": "Admin",
     "editor": "Szerkesztő",
+    "profile": "Profil",
+    "logout": "Kijelentkezés",
     "dashboard": "Admin irányítópult",
     "dashboardTitle": "Admin Irányítópult",
     "dashboardDescription": "Üdvözöljük! Íme, mi történik a platformon.",
@@ -549,7 +551,6 @@
     "quests": "Küldetések",
     "featureFlags": "Funkciók beállítása",
     "settings": "Beállítások",
-    "logout": "Kijelentkezés",
     "createCourse": "Kurzus létrehozása",
     "editCourse": "Kurzus szerkesztése",
     "createLesson": "Lecke létrehozása",

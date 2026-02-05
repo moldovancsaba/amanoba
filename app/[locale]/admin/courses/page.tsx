@@ -367,7 +367,7 @@ export default function AdminCoursesPage() {
           <h1 className="text-3xl font-bold text-white mb-2">Course Management</h1>
           <p className="text-brand-white/80">Create and manage 30-day learning courses</p>
         </div>
-        <div className="flex flex-col items-end gap-1">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
           <label className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${importing ? 'bg-green-700/70 text-white/90 cursor-wait pointer-events-none' : 'bg-green-600 text-white hover:bg-green-700 cursor-pointer'}`}>
             {importing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Upload className="w-5 h-5" />}
             {importing ? 'Importing…' : 'Import'}
