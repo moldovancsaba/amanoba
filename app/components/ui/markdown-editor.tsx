@@ -80,7 +80,7 @@ export default function MarkdownEditor({
             value={content}
             onChange={(e) => onChange(e.target.value)}
             placeholder={placeholder}
-            className="w-full min-h-full p-4 text-brand-black placeholder-brand-white/50 focus:outline-none resize-y font-mono text-sm"
+            className="w-full min-h-full p-4 bg-brand-white text-brand-black placeholder:text-brand-darkGrey/50 focus:outline-none resize-y font-mono text-sm"
             spellCheck="true"
           />
         ) : (

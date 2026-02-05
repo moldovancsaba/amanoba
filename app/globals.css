@@ -152,6 +152,21 @@ h3 {
   .page-button-secondary {
     @apply bg-brand-darkGrey text-brand-white px-4 py-2 rounded-lg font-medium hover:bg-brand-secondary-700 transition-colors;
   }
+
+  /* Form controls on dark shell (admin/editor) — prevents invisible text */
+  .input-on-dark {
+    @apply bg-brand-darkGrey border text-brand-white rounded-lg focus:outline-none placeholder:text-gray-400;
+    border-color: color-mix(in srgb, var(--cta-bg) 30%, transparent);
+  }
+  .input-on-dark:focus {
+    border-color: var(--cta-bg);
+  }
+
+  /* Panel/card on dark shell — use brand tokens, ensure text visible */
+  .panel-on-dark {
+    @apply bg-brand-darkGrey rounded-xl text-brand-white border;
+    border-color: color-mix(in srgb, var(--cta-bg) 30%, transparent);
+  }
 }
 
 /* Custom scrollbar styling */

@@ -374,7 +374,7 @@ export default function AdminQuestionsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-white">Quiz Questions</h1>
-          <p className="text-gray-400 mt-1">
+          <p className="text-brand-white/80 mt-1">
             Manage and organize quiz questions across all courses
           </p>
         </div>
@@ -389,7 +389,7 @@ export default function AdminQuestionsPage() {
 
       {/* Filters Panel */}
       {showFilters && (
-        <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
+        <div className="panel-on-dark p-4">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold text-white flex items-center gap-2">
               <Filter className="w-5 h-5" />
@@ -397,7 +397,7 @@ export default function AdminQuestionsPage() {
             </h2>
             <button
               onClick={() => setShowFilters(false)}
-              className="text-gray-400 hover:text-white"
+              className="text-brand-white/80 hover:text-brand-white"
             >
               <X className="w-5 h-5" />
             </button>
@@ -406,13 +406,13 @@ export default function AdminQuestionsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Language Filter */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-brand-white/90 mb-1">
                 Language
               </label>
               <select
                 value={filters.language}
                 onChange={(e) => handleFilterChange('language', e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                className="input-on-dark w-full px-3 py-2"
               >
                 <option value="">All Languages</option>
                 <option value="hu">Hungarian</option>
@@ -434,13 +434,13 @@ export default function AdminQuestionsPage() {
 
             {/* Course Filter */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-brand-white/90 mb-1">
                 Course
               </label>
               <select
                 value={filters.courseId}
                 onChange={(e) => handleFilterChange('courseId', e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                className="input-on-dark w-full px-3 py-2"
               >
                 <option value="">All Courses</option>
                 {courses.map(course => (
@@ -453,13 +453,13 @@ export default function AdminQuestionsPage() {
 
             {/* Question Type Filter */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-brand-white/90 mb-1">
                 Question Type
               </label>
               <select
                 value={filters.questionType}
                 onChange={(e) => handleFilterChange('questionType', e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                className="input-on-dark w-full px-3 py-2"
               >
                 <option value="">All Types</option>
                 <option value="recall">Recall</option>
@@ -470,13 +470,13 @@ export default function AdminQuestionsPage() {
 
             {/* Difficulty Filter */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-brand-white/90 mb-1">
                 Difficulty
               </label>
               <select
                 value={filters.difficulty}
                 onChange={(e) => handleFilterChange('difficulty', e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                className="input-on-dark w-full px-3 py-2"
               >
                 <option value="">All Difficulties</option>
                 <option value="EASY">Easy</option>
@@ -488,13 +488,13 @@ export default function AdminQuestionsPage() {
 
             {/* Category Filter */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-brand-white/90 mb-1">
                 Category
               </label>
               <select
                 value={filters.category}
                 onChange={(e) => handleFilterChange('category', e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                className="input-on-dark w-full px-3 py-2"
               >
                 <option value="">All Categories</option>
                 <option value="Course Specific">Course Specific</option>
@@ -508,13 +508,13 @@ export default function AdminQuestionsPage() {
 
             {/* Active Status Filter */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-brand-white/90 mb-1">
                 Status
               </label>
               <select
                 value={filters.isActive}
                 onChange={(e) => handleFilterChange('isActive', e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                className="input-on-dark w-full px-3 py-2"
               >
                 <option value="">All</option>
                 <option value="true">Active</option>
@@ -524,13 +524,13 @@ export default function AdminQuestionsPage() {
 
             {/* Course-Specific Filter */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-brand-white/90 mb-1">
                 Type
               </label>
               <select
                 value={filters.isCourseSpecific}
                 onChange={(e) => handleFilterChange('isCourseSpecific', e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                className="input-on-dark w-full px-3 py-2"
               >
                 <option value="">All</option>
                 <option value="true">Course-Specific</option>
@@ -540,17 +540,17 @@ export default function AdminQuestionsPage() {
 
             {/* Search */}
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">
+              <label className="block text-sm font-medium text-brand-white/90 mb-1">
                 Search
               </label>
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-brand-white/60" />
                 <input
                   type="text"
                   value={filters.search}
                   onChange={(e) => handleFilterChange('search', e.target.value)}
                   placeholder="Search questions..."
-                  className="w-full pl-10 pr-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400"
+                  className="input-on-dark w-full pl-10 pr-3 py-2"
                 />
               </div>
             </div>
@@ -574,7 +574,7 @@ export default function AdminQuestionsPage() {
                 });
                 setOffset(0);
               }}
-              className="px-4 py-2 text-gray-400 hover:text-white"
+              className="px-4 py-2 text-brand-white/80 hover:text-brand-white"
             >
               Clear All Filters
             </button>
@@ -585,7 +585,7 @@ export default function AdminQuestionsPage() {
       {!showFilters && (
         <button
           onClick={() => setShowFilters(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg border border-gray-700"
+          className="flex items-center gap-2 px-4 py-2 panel-on-dark hover:bg-brand-darkGrey/90 text-brand-white rounded-lg"
         >
           <Filter className="w-5 h-5" />
           Show Filters
@@ -593,7 +593,7 @@ export default function AdminQuestionsPage() {
       )}
 
       {/* Results Summary */}
-      <div className="flex items-center justify-between text-sm text-gray-400">
+      <div className="flex items-center justify-between text-sm text-brand-white/80">
         <div>
           Showing {questions.length} of {total} questions
         </div>
@@ -613,12 +613,12 @@ export default function AdminQuestionsPage() {
       {/* Questions Table */}
       {loading ? (
         <div className="text-center py-12">
-          <div className="text-gray-400">Loading questions...</div>
+          <div className="text-brand-white/80">Loading questions...</div>
         </div>
       ) : questions.length === 0 ? (
-        <div className="text-center py-12 bg-gray-800 rounded-lg border border-gray-700">
-          <HelpCircle className="w-12 h-12 text-gray-500 mx-auto mb-4" />
-          <div className="text-gray-400">No questions found</div>
+        <div className="text-center py-12 panel-on-dark rounded-lg">
+          <HelpCircle className="w-12 h-12 text-brand-white/60 mx-auto mb-4" />
+          <div className="text-brand-white/80">No questions found</div>
           <button
             onClick={handleCreateQuestion}
             className="mt-4 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg"
@@ -627,10 +627,10 @@ export default function AdminQuestionsPage() {
           </button>
         </div>
       ) : (
-        <div className="bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
+        <div className="panel-on-dark rounded-lg overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-700">
+              <thead className="bg-brand-black/50">
                 <tr>
                   <th className="px-4 py-3 text-left">
                     <input
@@ -640,21 +640,21 @@ export default function AdminQuestionsPage() {
                       className="rounded"
                     />
                   </th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-300">UUID</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-300">Question</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-300">Type</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-300">Difficulty</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-300">Hashtags</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-300">Status</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-300">Usage</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-gray-300">Actions</th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">UUID</th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">Question</th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">Type</th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">Difficulty</th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">Hashtags</th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">Status</th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">Usage</th>
+                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-brand-accent/30">
                 {questions.map((question) => (
                   <tr
                     key={question._id}
-                    className={`hover:bg-gray-700/50 ${
+                    className={`hover:bg-brand-darkGrey/80 ${
                       !question.isActive ? 'opacity-50' : ''
                     }`}
                   >
@@ -684,7 +684,7 @@ export default function AdminQuestionsPage() {
                           </button>
                         </div>
                       ) : (
-                        <span className="text-xs text-gray-500">No UUID</span>
+                        <span className="text-xs text-brand-white/60">No UUID</span>
                       )}
                     </td>
                     <td className="px-4 py-3">
@@ -693,7 +693,7 @@ export default function AdminQuestionsPage() {
                           {question.question}
                         </div>
                         {question.category && (
-                          <div className="text-xs text-gray-400 mt-1">
+                          <div className="text-xs text-brand-white/80 mt-1">
                             {question.category}
                           </div>
                         )}
@@ -719,13 +719,13 @@ export default function AdminQuestionsPage() {
                         {question.hashtags?.slice(0, 3).map((tag, idx) => (
                           <span
                             key={idx}
-                            className="text-xs px-2 py-0.5 bg-gray-700 text-gray-300 rounded"
+                            className="text-xs px-2 py-0.5 bg-brand-black/50 text-brand-white/90 rounded"
                           >
                             {tag}
                           </span>
                         ))}
                         {question.hashtags && question.hashtags.length > 3 && (
-                          <span className="text-xs text-gray-400">
+                          <span className="text-xs text-brand-white/80">
                             +{question.hashtags.length - 3}
                           </span>
                         )}
@@ -737,13 +737,13 @@ export default function AdminQuestionsPage() {
                         className={`text-xs px-2 py-1 rounded ${
                           question.isActive
                             ? 'bg-green-500/20 text-green-300'
-                            : 'bg-gray-500/20 text-gray-400'
+                            : 'bg-brand-white/10 text-brand-white/80'
                         }`}
                       >
                         {question.isActive ? 'Active' : 'Inactive'}
                       </button>
                     </td>
-                    <td className="px-4 py-3 text-sm text-gray-400">
+                    <td className="px-4 py-3 text-sm text-brand-white/80">
                       {question.showCount} shown, {question.correctCount} correct
                     </td>
                     <td className="px-4 py-3">
@@ -778,17 +778,17 @@ export default function AdminQuestionsPage() {
           <button
             onClick={() => setOffset(Math.max(0, offset - limit))}
             disabled={offset === 0}
-            className="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2 panel-on-dark hover:bg-brand-darkGrey/90 text-brand-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Previous
           </button>
-          <div className="text-sm text-gray-400">
+          <div className="text-sm text-brand-white/80">
             Page {Math.floor(offset / limit) + 1} of {Math.ceil(total / limit)}
           </div>
           <button
             onClick={() => setOffset(offset + limit)}
             disabled={!hasMore}
-            className="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-4 py-2 panel-on-dark hover:bg-brand-darkGrey/90 text-brand-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Next
           </button>
@@ -798,7 +798,7 @@ export default function AdminQuestionsPage() {
       {/* Question Form Modal */}
       {showQuestionForm && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-          <div className="bg-gray-800 rounded-xl p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-gray-700">
+          <div className="panel-on-dark rounded-xl p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-white">
                 {editingQuestion ? 'Edit Question' : 'Create Question'}
@@ -808,7 +808,7 @@ export default function AdminQuestionsPage() {
                   setShowQuestionForm(false);
                   setEditingQuestion(null);
                 }}
-                className="text-gray-400 hover:text-white"
+                className="text-brand-white/80 hover:text-brand-white"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -817,21 +817,21 @@ export default function AdminQuestionsPage() {
             <div className="space-y-4">
               {/* Question Text */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-brand-white/90 mb-2">
                   Question Text *
                 </label>
                 <textarea
                   value={questionForm.question}
                   onChange={(e) => setQuestionForm(prev => ({ ...prev, question: e.target.value }))}
                   rows={3}
-                  className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400"
+                    className="input-on-dark w-full px-3 py-2"
                   placeholder="Enter the question..."
                 />
               </div>
 
               {/* Options (minimum 4) */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-brand-white/90 mb-2">
                   Answer Options * (minimum 4)
                 </label>
                 {questionForm.options.map((option, idx) => (
@@ -852,7 +852,7 @@ export default function AdminQuestionsPage() {
                         setQuestionForm(prev => ({ ...prev, options: newOptions }));
                       }}
                       placeholder={`Option ${idx + 1}${questionForm.correctIndex === idx ? ' (correct)' : ''}`}
-                      className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400"
+                      className="input-on-dark flex-1 px-3 py-2"
                     />
                     {questionForm.options.length > 4 && (
                       <button
@@ -885,13 +885,13 @@ export default function AdminQuestionsPage() {
               {/* Metadata Row 1 */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-brand-white/90 mb-2">
                     Difficulty *
                   </label>
                   <select
                     value={questionForm.difficulty}
                     onChange={(e) => setQuestionForm(prev => ({ ...prev, difficulty: e.target.value as QuestionDifficulty }))}
-                    className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                    className="input-on-dark w-full px-3 py-2"
                   >
                     <option value={QuestionDifficulty.EASY}>Easy</option>
                     <option value={QuestionDifficulty.MEDIUM}>Medium</option>
@@ -901,13 +901,13 @@ export default function AdminQuestionsPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-brand-white/90 mb-2">
                     Question Type *
                   </label>
                   <select
                     value={questionForm.questionType}
                     onChange={(e) => setQuestionForm(prev => ({ ...prev, questionType: e.target.value as QuestionType }))}
-                    className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                    className="input-on-dark w-full px-3 py-2"
                   >
                     <option value={QuestionType.RECALL}>Recall</option>
                     <option value={QuestionType.APPLICATION}>Application</option>
@@ -919,13 +919,13 @@ export default function AdminQuestionsPage() {
               {/* Metadata Row 2 */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-brand-white/90 mb-2">
                     Category *
                   </label>
                   <select
                     value={questionForm.category}
                     onChange={(e) => setQuestionForm(prev => ({ ...prev, category: e.target.value }))}
-                    className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                    className="input-on-dark w-full px-3 py-2"
                   >
                     <option value="Course Specific">Course Specific</option>
                     <option value="General Knowledge">General Knowledge</option>
@@ -937,13 +937,13 @@ export default function AdminQuestionsPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-brand-white/90 mb-2">
                     Course (Optional)
                   </label>
                   <select
                     value={questionForm.courseId}
                     onChange={(e) => setQuestionForm(prev => ({ ...prev, courseId: e.target.value }))}
-                    className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                    className="input-on-dark w-full px-3 py-2"
                   >
                     <option value="">None (Reusable)</option>
                     {courses.map(course => (
@@ -957,14 +957,14 @@ export default function AdminQuestionsPage() {
 
               {/* Related Courses */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-brand-white/90 mb-2">
                   Related Courses (Multiple)
                 </label>
                 <div className="flex gap-2 mb-2">
                   <select
                     value={courseSelectInput}
                     onChange={(e) => setCourseSelectInput(e.target.value)}
-                    className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white"
+                    className="input-on-dark flex-1 px-3 py-2"
                   >
                     <option value="">Select a course to add...</option>
                     {courses
@@ -1003,7 +1003,7 @@ export default function AdminQuestionsPage() {
                   })}
                 </div>
                 {questionForm.relatedCourseIds.length === 0 && (
-                  <p className="text-xs text-gray-400 mt-1">
+                  <p className="text-xs text-brand-white/80 mt-1">
                     Add courses that can use this question. Leave empty for reusable questions.
                   </p>
                 )}
@@ -1011,7 +1011,7 @@ export default function AdminQuestionsPage() {
 
               {/* Hashtags */}
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-brand-white/90 mb-2">
                   Hashtags
                 </label>
                 <div className="flex gap-2 mb-2">
@@ -1026,7 +1026,7 @@ export default function AdminQuestionsPage() {
                       }
                     }}
                     placeholder="#topic #difficulty #type #language"
-                    className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400"
+                    className="input-on-dark flex-1 px-3 py-2"
                   />
                   <button
                     onClick={addHashtag}
@@ -1062,7 +1062,7 @@ export default function AdminQuestionsPage() {
                     onChange={(e) => setQuestionForm(prev => ({ ...prev, isCourseSpecific: e.target.checked }))}
                     className="rounded"
                   />
-                  <span className="text-sm text-gray-300">Course-Specific</span>
+                  <span className="text-sm text-brand-white/90">Course-Specific</span>
                 </label>
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input
@@ -1071,18 +1071,18 @@ export default function AdminQuestionsPage() {
                     onChange={(e) => setQuestionForm(prev => ({ ...prev, isActive: e.target.checked }))}
                     className="rounded"
                   />
-                  <span className="text-sm text-gray-300">Active</span>
+                  <span className="text-sm text-brand-white/90">Active</span>
                 </label>
               </div>
 
               {/* Actions */}
-              <div className="flex justify-end gap-3 pt-4 border-t border-gray-700">
+              <div className="flex justify-end gap-3 pt-4 border-t border-brand-accent/30">
                 <button
                   onClick={() => {
                     setShowQuestionForm(false);
                     setEditingQuestion(null);
                   }}
-                  className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg"
+                  className="px-4 py-2 bg-brand-darkGrey hover:bg-brand-secondary-700 text-brand-white rounded-lg"
                 >
                   Cancel
                 </button>

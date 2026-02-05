@@ -181,19 +181,18 @@ export default function QuizManagerModal({
   };
 
   const isDark = variant === 'dark';
-  const panelBg = isDark ? 'bg-gray-800 border-gray-700' : 'bg-brand-white border-brand-accent';
-  const panelBorder = isDark ? 'border-gray-700' : 'border-2 border-brand-accent';
-  const inputBg = isDark ? 'bg-gray-900 border-gray-700' : 'bg-brand-white border-brand-darkGrey';
-  const textCls = isDark ? 'text-gray-100' : 'text-brand-black';
-  const mutedCls = isDark ? 'text-gray-400' : 'text-brand-darkGrey';
+  const panelCls = isDark ? 'panel-on-dark border-2 border-brand-accent/30' : 'bg-brand-white border-2 border-brand-accent';
+  const inputCls = isDark ? 'input-on-dark' : 'bg-brand-white border-2 border-brand-darkGrey rounded-lg focus:outline-none focus:border-brand-accent';
+  const textCls = isDark ? 'text-brand-white' : 'text-brand-black';
+  const mutedCls = isDark ? 'text-brand-white/80' : 'text-brand-darkGrey';
   const btnPrimary = isDark
-    ? 'bg-indigo-600 hover:bg-indigo-500 text-white'
+    ? 'bg-brand-accent text-brand-black hover:bg-brand-primary-400'
     : 'bg-brand-accent text-brand-black hover:bg-brand-primary-400';
-  const btnSecondary = isDark ? 'bg-gray-700 hover:bg-gray-600 text-white' : 'bg-brand-darkGrey text-brand-white hover:bg-brand-secondary-700';
+  const btnSecondary = isDark ? 'bg-brand-darkGrey hover:bg-brand-secondary-700 text-brand-white' : 'bg-brand-darkGrey text-brand-white hover:bg-brand-secondary-700';
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-      <div className={`rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto border-2 ${panelBg} ${panelBorder}`}>
+      <div className={`rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto ${panelCls}`}>
         <div className="flex items-center justify-between mb-4">
           <div>
             <h2 className={`text-2xl font-bold ${textCls}`}>Manage Quiz Questions</h2>
@@ -216,7 +215,7 @@ export default function QuizManagerModal({
               <textarea
                 value={questionForm.question}
                 onChange={(e) => setQuestionForm({ ...questionForm, question: e.target.value })}
-                className={`w-full px-4 py-2 rounded-lg border-2 ${inputBg} ${textCls} focus:outline-none focus:border-brand-accent`}
+                className={`w-full px-4 py-2 rounded-lg ${inputCls} ${textCls}`}
                 rows={3}
                 required
               />
@@ -241,7 +240,7 @@ export default function QuizManagerModal({
                       setQuestionForm({ ...questionForm, options: newOptions });
                     }}
                     placeholder={`Option ${index + 1}`}
-                    className={`flex-1 px-4 py-2 rounded-lg border-2 ${inputBg} ${textCls} focus:outline-none focus:border-brand-accent`}
+                    className={`flex-1 px-4 py-2 rounded-lg ${inputCls} ${textCls}`}
                   />
                   {questionForm.options.length > 4 && (
                     <button
@@ -278,7 +277,7 @@ export default function QuizManagerModal({
                 <select
                   value={questionForm.difficulty}
                   onChange={(e) => setQuestionForm({ ...questionForm, difficulty: e.target.value as Difficulty })}
-                  className={`w-full px-4 py-2 rounded-lg border-2 ${inputBg} ${textCls} focus:outline-none focus:border-brand-accent`}
+                  className={`w-full px-4 py-2 rounded-lg ${inputCls} ${textCls}`}
                 >
                   <option value="EASY">Easy</option>
                   <option value="MEDIUM">Medium</option>
@@ -291,7 +290,7 @@ export default function QuizManagerModal({
                 <select
                   value={questionForm.category}
                   onChange={(e) => setQuestionForm({ ...questionForm, category: e.target.value })}
-                  className={`w-full px-4 py-2 rounded-lg border-2 ${inputBg} ${textCls} focus:outline-none focus:border-brand-accent`}
+                  className={`w-full px-4 py-2 rounded-lg ${inputCls} ${textCls}`}
                 >
                   <option value="General Knowledge">General Knowledge</option>
                   <option value="Science">Science</option>
@@ -348,7 +347,7 @@ export default function QuizManagerModal({
               </button>
             </div>
             {questions.length === 0 ? (
-              <div className={`text-center py-12 border-2 border-dashed rounded-lg ${isDark ? 'border-gray-600' : 'border-brand-darkGrey/30'}`}>
+              <div className={`text-center py-12 border-2 border-dashed rounded-lg ${isDark ? 'border-brand-accent/30' : 'border-brand-darkGrey/30'}`}>
                 <p className={`mb-4 ${mutedCls}`}>No questions yet</p>
                 <button onClick={() => setShowQuestionForm(true)} className={`px-4 py-2 rounded-lg font-bold ${btnPrimary}`}>
                   Create First Question
@@ -367,7 +366,7 @@ export default function QuizManagerModal({
                         .map((question) => (
                           <div
                             key={question._id}
-                            className={`p-4 border-2 rounded-lg ${isDark ? 'border-indigo-500 bg-gray-800' : 'border-brand-accent bg-brand-white'}`}
+                            className={`p-4 border-2 rounded-lg ${isDark ? 'border-brand-accent panel-on-dark' : 'border-brand-accent bg-brand-white'}`}
                           >
                             <div className="flex items-start justify-between">
                               <div className="flex-1">
@@ -421,13 +420,13 @@ export default function QuizManagerModal({
                         .map((question) => (
                           <div
                             key={question._id}
-                            className={`p-4 border-2 rounded-lg opacity-75 ${isDark ? 'border-gray-600 bg-gray-800/50' : 'border-brand-darkGrey/30 bg-brand-darkGrey/10'}`}
+                            className={`p-4 border-2 rounded-lg opacity-75 ${isDark ? 'border-brand-accent/30 bg-brand-black/30' : 'border-brand-darkGrey/30 bg-brand-darkGrey/10'}`}
                           >
                             <div className="flex items-start justify-between">
                               <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-2">
                                   <h4 className={`font-bold ${textCls}`}>{question.question}</h4>
-                                  <span className={`text-xs px-2 py-1 rounded ${isDark ? 'bg-gray-600 text-gray-200' : 'bg-brand-darkGrey text-brand-white'}`}>
+                                  <span className={`text-xs px-2 py-1 rounded ${isDark ? 'bg-brand-black/50 text-brand-white/90' : 'bg-brand-darkGrey text-brand-white'}`}>
                                     Inactive
                                   </span>
                                 </div>

@@ -122,20 +122,20 @@ export default function EditorLessonPage() {
               <h1 className="text-xl font-bold">
                 Day {String(lesson.dayNumber).padStart(2, '0')}: {title || lessonId}
               </h1>
-              <div className="text-sm text-gray-300">{lesson.isActive ? 'published' : 'draft'}</div>
+              <div className="text-sm text-brand-white/80">{lesson.isActive ? 'published' : 'draft'}</div>
             </div>
 
             <div className="flex items-center gap-2">
               <button
                 onClick={() => router.back()}
-                className="text-xs px-3 py-2 rounded bg-gray-700 hover:bg-gray-600"
+                className="text-xs px-3 py-2 rounded bg-brand-darkGrey hover:bg-brand-secondary-700 text-brand-white"
               >
                 Back
               </button>
               <button
                 disabled={!dirty || saving}
                 onClick={save}
-                className={`text-xs px-3 py-2 rounded ${!dirty || saving ? 'bg-gray-700 text-gray-400' : 'bg-indigo-600 hover:bg-indigo-500'}`}
+                className={`text-xs px-3 py-2 rounded ${!dirty || saving ? 'bg-brand-darkGrey text-brand-white/60' : 'bg-brand-accent hover:bg-brand-primary-400 text-brand-black'}`}
               >
                 {saving ? 'Saving…' : dirty ? 'Save' : 'Saved'}
               </button>
@@ -143,47 +143,47 @@ export default function EditorLessonPage() {
           </div>
 
           <div className="grid gap-4">
-            <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
-              <label className="block text-xs text-gray-300 mb-2">Lesson title</label>
+            <div className="panel-on-dark p-4">
+              <label className="block text-xs text-brand-white/80 mb-2">Lesson title</label>
               <input
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="w-full rounded bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+                className="input-on-dark w-full px-3 py-2 text-sm"
               />
             </div>
 
-            <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
-              <label className="block text-xs text-gray-300 mb-2">Lesson content (Markdown)</label>
-              <MarkdownEditor content={content} onChange={setContent} placeholder="Write lesson content in Markdown…" className="border-gray-700" />
+            <div className="panel-on-dark p-4">
+              <label className="block text-xs text-brand-white/80 mb-2">Lesson content (Markdown)</label>
+              <MarkdownEditor content={content} onChange={setContent} placeholder="Write lesson content in Markdown…" className="border-brand-accent/30" />
             </div>
 
-            <div className="bg-gray-800 border border-gray-700 rounded-lg p-4 pt-4 border-t border-gray-700">
+            <div className="panel-on-dark p-4 pt-4 border-t border-brand-accent/30">
               <button
                 type="button"
                 onClick={() => setShowQuizManager(true)}
-                className="w-full px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-bold transition-colors flex items-center justify-center gap-2"
+                className="w-full px-4 py-2 bg-brand-accent hover:bg-brand-primary-400 text-brand-black rounded-lg font-bold transition-colors flex items-center justify-center gap-2"
               >
                 <span>📝</span>
                 Manage Quiz Questions
               </button>
             </div>
 
-            <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
-              <label className="block text-xs text-gray-300 mb-2">Email subject</label>
+            <div className="panel-on-dark p-4">
+              <label className="block text-xs text-brand-white/80 mb-2">Email subject</label>
               <input
                 value={emailSubject}
                 onChange={(e) => setEmailSubject(e.target.value)}
-                className="w-full rounded bg-gray-900 border border-gray-700 px-3 py-2 text-sm"
+                className="input-on-dark w-full px-3 py-2 text-sm"
               />
             </div>
 
-            <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
-              <label className="block text-xs text-gray-300 mb-2">Email body (Markdown)</label>
+            <div className="panel-on-dark p-4">
+              <label className="block text-xs text-brand-white/80 mb-2">Email body (Markdown)</label>
               <textarea
                 value={emailBody}
                 onChange={(e) => setEmailBody(e.target.value)}
                 rows={8}
-                className="w-full rounded bg-gray-900 border border-gray-700 px-3 py-2 text-sm font-mono"
+                className="input-on-dark w-full px-3 py-2 text-sm font-mono"
               />
             </div>
           </div>

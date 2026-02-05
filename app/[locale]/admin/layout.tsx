@@ -124,21 +124,21 @@ export default function AdminLayout({
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-gray-900">
+      <div className="min-h-screen bg-brand-black">
       {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 z-40 h-screen transition-transform flex flex-col ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } bg-gray-800 border-r border-gray-700`}
+        } bg-brand-darkGrey border-r border-brand-accent/30`}
         style={{ width: '260px' }}
       >
         {/* Logo */}
-        <div className="h-16 flex-shrink-0 flex items-center justify-between px-4 border-b border-gray-700">
+        <div className="h-16 flex-shrink-0 flex items-center justify-between px-4 border-b border-brand-accent/30">
           <Link href={`/${locale}/admin`} className="flex items-center gap-2">
             <Logo size="sm" showText={false} linkTo="" className="flex-shrink-0" />
             <div>
-              <div className="text-white font-bold text-lg">Amanoba</div>
-              <div className="text-xs text-gray-400">Admin Panel</div>
+              <div className="text-brand-white font-bold text-lg">Amanoba</div>
+              <div className="text-xs text-brand-white/70">Admin Panel</div>
             </div>
           </Link>
         </div>
@@ -156,8 +156,8 @@ export default function AdminLayout({
                 href={`/${locale}${item.href}`}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                   isActive
-                    ? 'bg-indigo-600 text-white'
-                    : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                    ? 'bg-brand-accent text-brand-black'
+                    : 'text-brand-white hover:bg-brand-secondary-700 hover:text-brand-white'
                 }`}
               >
                 <Icon className="w-5 h-5" />
@@ -168,19 +168,19 @@ export default function AdminLayout({
         </nav>
 
         {/* Footer */}
-        <div className="flex-shrink-0 p-4 border-t border-gray-700 space-y-2">
+        <div className="flex-shrink-0 p-4 border-t border-brand-accent/30 space-y-2">
           {/* Logout Button */}
           <button
             onClick={async () => {
               await signOut({ redirect: false });
               router.push(`/${locale}/auth/signin`);
             }}
-            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-white transition-all"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-brand-white hover:bg-brand-secondary-700 transition-all"
           >
             <LogOut className="w-5 h-5" />
             <span className="font-medium">{t('logout')}</span>
           </button>
-          <div className="text-xs text-gray-500 text-center">
+          <div className="text-xs text-brand-white/60 text-center">
             v{version} | Admin Mode
           </div>
         </div>
@@ -193,10 +193,10 @@ export default function AdminLayout({
         }`}
       >
         {/* Header */}
-        <header className="h-16 bg-gray-800 border-b border-gray-700 flex items-center justify-between px-6">
+        <header className="h-16 bg-brand-darkGrey border-b border-brand-accent/30 flex items-center justify-between px-6">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="p-2 rounded-lg hover:bg-gray-700 text-gray-300"
+            className="p-2 rounded-lg hover:bg-brand-secondary-700 text-brand-white"
           >
             {sidebarOpen ? (
               <X className="w-6 h-6" />
@@ -207,21 +207,21 @@ export default function AdminLayout({
 
           <div className="flex items-center gap-4">
             <div className="text-right">
-              <div className="text-white text-sm font-medium">
+              <div className="text-brand-white text-sm font-medium">
                 {session?.user?.name || session?.user?.email || 'Admin User'}
               </div>
-              <div className="text-gray-400 text-xs">
+              <div className="text-brand-white/70 text-xs">
                 {isEditorOnly ? t('editor') : 'Administrator'}
               </div>
             </div>
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
-              <Crown className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center">
+              <Crown className="w-6 h-6 text-brand-black" />
             </div>
           </div>
         </header>
 
         {/* Page Content */}
-        <main className="p-6">{children}</main>
+        <main className="p-6 bg-brand-black text-brand-white">{children}</main>
       </div>
     </div>
     </QueryClientProvider>
