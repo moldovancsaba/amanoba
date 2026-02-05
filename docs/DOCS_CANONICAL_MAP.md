@@ -8,7 +8,7 @@
 **Last Updated**: 2026-02-05
 **Scope**: `docs/**/*.md` (excluding `docs/_archive/**`)
 
-**Counts**: KEEP=131, MERGE=0, ARCHIVE=0, DELETE=0
+**Counts**: KEEP=132, MERGE=0, ARCHIVE=0, DELETE=0
 
 This is a *proposed* map. Apply moves/deletes only after review.
 
@@ -16,6 +16,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 |--------|------|-------|------|--------|--------|
 | KEEP | `docs/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/ALL_QUESTIONS_DELIVERED_COMPLETE.md` | ✅ ALL QUESTIONS DELIVERED - COMPLETE | 5.8 KB | — | Unclassified; keep pending human review. |
+| KEEP | `docs/amanoba_codex_brain_dump.md` | Amanoba Codex Brain Dump (Continuity Doc) | 4.3 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/amanoba_course_content_standard_v1_0.md` | AMANOBA COURSE CONTENT STANDARD v1.0 (Markdown-first) | 13.2 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/ARCHITECTURE_FIX_QUICK_START.md` | ⚡ ARCHITECTURE FIX - ACTION CHECKLIST & QUICK START | 5.0 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/ARCHITECTURE_GAP_ANALYSIS.md` | ARCHITECTURE_GAP_ANALYSIS.md | 8.7 KB | — | Unclassified; keep pending human review. |
@@ -49,7 +50,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/course_ideas/B2B_Ertekesites_2026_Masterclass_Blueprint.md` | B2B Értékesítés 2026 Masterclass (30 nap) | 23.3 KB | — | Working notes (reference-only course ideation). |
 | KEEP | `docs/course_ideas/GEO_Shopify_Course_Blueprint.md` | GEO for Shopify: The Complete Course (30 Steps) | 29.3 KB | — | Working notes (reference-only course ideation). |
 | KEEP | `docs/course_ideas/The_Playbook_2026_Mesterkurzus_Designereknek_Blueprint.md` | The Playbook 2026 - Mesterkurzus Designereknek | 5.4 KB | — | Working notes (reference-only course ideation). |
-| KEEP | `docs/COURSE_PACKAGE_FORMAT.md` | Course package format (v2) | 7.6 KB | — | Unclassified; keep pending human review. |
+| KEEP | `docs/COURSE_PACKAGE_FORMAT.md` | Course package format (v2) | 7.7 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/course_runs/CCS_GLOBAL_AUDIT_EXECUTION__2026-01-28T09-44-23-548Z.md` | CCS Global Audit Execution Run Log | 16.2 KB | — | Course run logs / execution reference. |
 | KEEP | `docs/course_runs/DONE_BETTER_2026_EN__2026-01-28.md` | Run Log — DONE_BETTER_2026_EN — Initial Course Seed | 4.7 KB | — | Course run logs / execution reference. |
 | KEEP | `docs/course_runs/PRODUCTIVITY_2026__ALL__2026-01-27T12-18-59Z.md` | Course Run Log — PRODUCTIVITY_2026__ALL (Discovery) | 3.7 KB | — | Course run logs / execution reference. |
@@ -65,9 +66,9 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/DEPLOYMENT.md` | Amanoba Deployment Guide | 5.0 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/DESIGN_UPDATE.md` | Design System Update - New Brand Colors & Logo | 4.4 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/DEVELOPER_FEEDBACK_ANALYSIS.md` | Developer Feedback Analysis | 7.2 KB | — | Unclassified; keep pending human review. |
-| KEEP | `docs/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 19.8 KB | — | Unclassified; keep pending human review. |
-| KEEP | `docs/DOCS_INDEX.md` | Documentation index | 4.1 KB | — | Single entry point (canonical docs index). |
-| KEEP | `docs/DOCS_INVENTORY.md` | Docs Inventory | 12.3 KB | — | Unclassified; keep pending human review. |
+| KEEP | `docs/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 19.9 KB | — | Unclassified; keep pending human review. |
+| KEEP | `docs/DOCS_INDEX.md` | Documentation index | 4.2 KB | — | Single entry point (canonical docs index). |
+| KEEP | `docs/DOCS_INVENTORY.md` | Docs Inventory | 12.4 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/DOCS_TRIAGE.md` | Docs Triage | 5.5 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/DUPLICATE_QUESTIONS_PROCESS_FROM_START.md` | Duplicate questions: start from the very beginning | 3.2 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/enable_sso.md` | SSO Integration Plan (sso.doneisbetter.com) | 2.7 KB | — | Unclassified; keep pending human review. |

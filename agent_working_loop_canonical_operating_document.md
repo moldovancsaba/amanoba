@@ -32,13 +32,15 @@
 
 Do this when you are **starting fresh** (new session, new task, or no prior context):
 
-1. **Read this document** at least: this Reminder, “How to come back to the loop”, and “Ground Zero Prerequisite”.
-2. **Read `docs/TASKLIST.md`** — that is your list of actionable tasks. Pick the next open item.
-3. **Read `docs/ROADMAP.md`** (skim or full) for context — why we are building what we are building.
-4. **If the work touches content, course, lesson, quiz, or UI layout:** Read **`docs/layout_grammar.md`** before coding.
-5. **If the work touches courses, quizzes, or content quality:** Read the SSOT set in “Mandatory Documentation for Course/Quiz Quality Work” in this document.
-6. **Define your rollback plan** before making changes: identify current baseline (e.g. `git log -1 --oneline`), exact rollback steps, and how you will verify rollback.
-7. **Then start** with the next logical step. If anything is unclear, ask the user. Never assume.
+1. **Read `docs/amanoba_cursor_brain_dump.md`** — current job and where we left off (so you can continue the actual job if resuming).
+2. **Read this document** at least: this Reminder, “How to come back to the loop”, and “Ground Zero Prerequisite”.
+3. **Read `docs/TASKLIST.md`** — that is your list of actionable tasks. Pick the next open item.
+4. **Read `docs/ROADMAP.md`** (skim or full) for context — why we are building what we are building.
+5. **If the work touches content, course, lesson, quiz, or UI layout:** Read **`docs/layout_grammar.md`** before coding.
+6. **If the work touches courses, quizzes, or content quality:** Read the SSOT set in “Mandatory Documentation for Course/Quiz Quality Work” in this document.
+7. **Define your rollback plan** before making changes: identify current baseline (e.g. `git log -1 --oneline`), exact rollback steps, and how you will verify rollback.
+8. **Then start** with the next logical step. If anything is unclear, ask the user. Never assume.
+9. **Before ending a session or after significant progress:** Update **`docs/amanoba_cursor_brain_dump.md`** (what changed, what’s next, and any open decisions).
 
 ---
 
@@ -46,10 +48,10 @@ Do this when you are **starting fresh** (new session, new task, or no prior cont
 
 Do this when you **lose context** (brain reset, new turn, or “where was I?”):
 
-1. **Re-anchor:** Read the **Reminder** block above and **Ground Zero Prerequisite** (rollback plan). Treat this doc as the active rulebook from this moment.
+1. **Re-anchor (brain dump first):** Read **`docs/amanoba_cursor_brain_dump.md`** — current job, where we left off, open decisions (what we’re doing, and the restore checklist. Then read the **Reminder** block above and **Ground Zero Prerequisite** (rollback plan). Treat this doc as the active rulebook from this moment.
 2. **Re-orient:** Open **`docs/TASKLIST.md`** — what is the next open task? Open **`docs/RELEASE_NOTES.md`** (top entries) to see what was last delivered.
 3. **Re-scope:** If you were in the middle of something, re-read the task text and any linked feature doc or playbook. Run `git status` and `git log -3 --oneline` to see what was in progress.
-4. **Re-apply rules:** Documentation = code (update docs when you change code). Single-place rule (done → RELEASE_NOTES only; remove from TASKLIST). Layout/structure → **`docs/layout_grammar.md`**.
+4. **Re-apply rules:** Documentation = code (update docs when you change code). Single-place rule (done → RELEASE_NOTES only; remove from TASKLIST). Layout/structure → **`docs/layout_grammar.md`**. **Brain dump:** Update **`docs/amanoba_cursor_brain_dump.md`** at end of session or after significant progress.
 5. **Then continue:** Proceed with the next logical step. If anything is not 100% clear, ask the user. Never assume. Never proceed on uncertainty.
 
 ---

@@ -15,6 +15,7 @@
 
 | Doc | Purpose |
 |-----|---------|
+| **amanoba_codex_brain_dump.md** | Continuity doc: where the truth lives + restore checklist after context loss. |
 | **TASKLIST.md** | Open actionable tasks only. Completed → RELEASE_NOTES. |
 | **ROADMAP.md** | Future vision only. No completed work. |
 | **RELEASE_NOTES.md** | Completed work only. No placeholders. |
