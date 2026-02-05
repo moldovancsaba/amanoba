@@ -663,6 +663,12 @@ amanoba/
 - Auto-fixes currentDay if out of sync when fetching lessons
 - Users are taken directly to their next uncompleted lesson when revisiting courses
 
+**Enrolment and prerequisites** (see **docs/ENROLMENT_AND_PREREQUISITES.md**)
+- **Multiple courses**: One `CourseProgress` per player per course; players can be enrolled in several courses at once.
+- **Course model**: Optional `prerequisiteCourseIds` (array of Course ObjectIds) and `prerequisiteEnforcement` (`'hard'` \| `'soft'`, default `'hard'`).
+- **Enrol**: POST `/api/courses/[courseId]/enroll` is idempotent (returns existing progress if already enrolled). When prerequisites are set, enrolment is blocked until all are completed (status COMPLETED) when enforcement is `'hard'`; 403 with `code: 'PREREQUISITES_NOT_MET'` and `unmetPrerequisites: [{ courseId, name }]`.
+- **List enrolments**: GET `/api/my-courses` returns the player's enrolled courses with progress (currentDay, completedDays, status, etc.).
+
 **Cascading Deletes**
 - Course deletion removes:
   - All associated lessons
@@ -807,7 +813,7 @@ X-RateLimit-Reset: 1696000000
 | Lighthouse Score | > 90 | — |
 | PWA Installability | 100% | — |
 
-_Current values: to be filled when baseline is measured. Requirement: see `docs/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md` item 1._
+_Current values: to be filled when baseline is measured. Requirement: see `docs/_archive/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md` item 1._
 
 ---
 

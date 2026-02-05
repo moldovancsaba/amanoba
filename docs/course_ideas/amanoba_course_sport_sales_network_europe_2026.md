@@ -1,7 +1,18 @@
 # Build a Sport Sales Network in Europe 2026
 Amanoba course file: `amanoba_course_sport_sales_network_europe_2026.md`  
-Last updated: 2026-02-03  
+Last updated: 2026-02-04  
 Language: English
+
+## Metadata snapshot
+- **Course version:** 2026-02-04
+- **Regional focus:** Europe (EU, EEA, UK) with USA benchmarking and MENA procurement reference
+- **Motions:** B2C, B2B, B2G
+- **Distribution:** Direct sales, channel/partner coverage, public procurement
+
+## Quality & gatekeepers
+- 30 lessons (one per day) with the canonical `assessmentBlueprint` (mid-course pipeline pack, final blueprint + 90-day plan)
+- Quiz hard gates: ≥7 questions/day, ≥5 application-style, ≥2 critical-thinking, recall questions disallowed
+- Content and questions remain evergreen while the seed stays dry-run unless `--apply` is provided
 
 ## Course positioning
 This course teaches how to design and operate a scalable sales network in sport and fitness across:

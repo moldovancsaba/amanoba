@@ -370,7 +370,7 @@ export function validateQuestionQuality(
     }
   }
 
-  // 0.4b Per-locale: disallow non-native / typo terms (see docs/REPHRASE_RULES_*.md, docs/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md)
+  // 0.4b Per-locale: disallow non-native / typo terms (see docs/REPHRASE_RULES_*.md, docs/_archive/delivery/2026-01/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md)
   const lang = String(language || '').toLowerCase();
   {
     const blob = `${question}\n${safeOptions.join('\n')}`;

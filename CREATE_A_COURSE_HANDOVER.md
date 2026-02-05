@@ -51,7 +51,7 @@ If anything conflicts with these, **these win**:
 To avoid unfinished work and to keep course creation “resume-safe”, this process uses **two** artifacts every time:
 
 - **Run log** (`docs/course_runs/...`): narrative record + links + decisions + **Process State**.
-- **Tasklist** (`docs/tasklists/...`): executable checklist + “what’s next” + the **exact next command**.
+- **Tasklist** (`docs/_archive/tasklists/...`): executable checklist + “what’s next” + the **exact next command**.
 
 They serve different needs:
 - The run log preserves *why* and *what changed* (so you can audit or hand over).
@@ -62,7 +62,7 @@ They serve different needs:
 ### 1.1 Resume the latest in-progress run (required if anything is “RUNNING”)
 Progress lives in:
 - Run logs (narrative + Process State): `docs/course_runs/`
-- Tasklists (checkboxes + exact next command): `docs/tasklists/`
+- Tasklists (checkboxes + exact next command): `docs/_archive/tasklists/`
 
 How to find “not done”:
 1) Open the newest run logs in `docs/course_runs/` and look for:
@@ -94,7 +94,7 @@ Resume selection rule (deterministic):
 ### 1.2 If there is no active run: start a new course run
 Create two files immediately (even before any code/DB write):
 - Run log: `docs/course_runs/<CCS_ID or COURSE_ID>__<timestamp>.md`
-- Tasklist: `docs/tasklists/<CCS_ID or COURSE_ID>__<timestamp>.md`
+- Tasklist: `docs/_archive/tasklists/<CCS_ID or COURSE_ID>__<timestamp>.md`
 
 The run log must end with a **Process State** block (template in §8).
 The tasklist must end with **one exact Next command**.
@@ -325,7 +325,7 @@ Stop and ask the owner before you write to DB if any of these are unclear:
 
 ## Process State
 - Status: **RUNNING**
-- Tasklist: `docs/tasklists/<MATCHING_TASKLIST>.md`
+- Tasklist: `docs/_archive/tasklists/<MATCHING_TASKLIST>.md`
 - Current phase: <A/B/C/...>
 - Last completed step: <what>
 - Next step: <what>
@@ -333,7 +333,7 @@ Stop and ask the owner before you write to DB if any of these are unclear:
 - Blockers: <none|...>
 ```
 
-### 8.2 Tasklist template (`docs/tasklists/...`)
+### 8.2 Tasklist template (`docs/_archive/tasklists/...`)
 ```md
 # Tasklist — <COURSE_ID or CCS_ID> — <timestamp>
 
@@ -376,4 +376,4 @@ Use these when you need extra context or examples; if they conflict with the SSO
 - `docs/RELEASE_NOTES.md` (course builder UI notes, including the course creation form)
 - `docs/QUIZ_PIPELINE_UPDATED_SAMPLE__2026-01-29.md` (pipeline behavior sample)
 - `docs/QUIZ_FIXING_DOCUMENTS_LIST.md` and `docs/QUIZ_FIXING_DOCUMENTS_COMPLETE_LIST.md` (historical quiz-fix document maps)
-- `docs/2026-01-27_RAPID_CHILDREN_COURSES_ACTION_PLAN_AND_HANDOVER.md` (course hierarchy: CCS → language variants → shorts; draft/publish implications)
+- `docs/_archive/delivery/2026-01/2026-01-27_RAPID_CHILDREN_COURSES_ACTION_PLAN_AND_HANDOVER.md` (course hierarchy: CCS → language variants → shorts; draft/publish implications)

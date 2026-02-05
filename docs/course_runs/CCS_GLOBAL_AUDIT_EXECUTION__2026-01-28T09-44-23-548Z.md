@@ -29,7 +29,7 @@ Scope: **All active courses** (all CCS families)
 
 ## Inputs / References
 - Latest master audit tasklist:
-  - `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T09-39-35-973Z.md`
+  - `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T09-39-35-973Z.md`
 - Latest master audit report:
   - `scripts/reports/ccs-global-audit__2026-01-28T09-39-35-973Z.json`
 
@@ -38,7 +38,7 @@ Scope: **All active courses** (all CCS families)
 - Last completed step: **Phase 2a/2b — Backfilled missing lesson days for key EN courses + backfilled CCS idea/outline**
 - Next step: **Continue Phase 2: resolve remaining missing days, duplicate day lessons, then re-run quiz pipeline and lesson refinements where needed**
 - Next command:
-  - Review: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T16-01-46-595Z.md`
+  - Review: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T16-01-46-595Z.md`
 - Blockers: none (apply steps require confirmation)
 
 ## Phase 0 — Email Communications Audit (2026-01-28)
@@ -48,7 +48,7 @@ Run:
 
 Outputs:
 - Report: `scripts/reports/email-communications-language-audit__2026-01-28T15-36-25-759Z.json`
-- Tasklist: `docs/tasklists/EMAIL_COMMUNICATIONS_LANGUAGE_AUDIT__2026-01-28T15-36-25-759Z.md`
+- Tasklist: `docs/_archive/tasklists/EMAIL_COMMUNICATIONS_LANGUAGE_AUDIT__2026-01-28T15-36-25-759Z.md`
 
 ## Phase 0 — Master CCS Audit Re-run (2026-01-28)
 
@@ -57,7 +57,7 @@ Run:
 
 Outputs:
 - Report: `scripts/reports/ccs-global-audit__2026-01-28T15-36-31-494Z.json`
-- Tasklist: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T15-36-31-494Z.md`
+- Tasklist: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T15-36-31-494Z.md`
 
 High-level totals (from report):
 - coursesFailingCatalogLanguageIntegrity: 0
@@ -109,7 +109,7 @@ Run:
 
 Outputs:
 - Report: `scripts/reports/ccs-global-audit__2026-01-28T15-56-34-622Z.json`
-- Tasklist: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T15-56-34-622Z.md`
+- Tasklist: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T15-56-34-622Z.md`
 
 High-level totals (from report):
 - coursesFailingCatalogLanguageIntegrity: 0
@@ -129,7 +129,7 @@ Applied:
 
 Verification (master audit):
 - Report: `scripts/reports/ccs-global-audit__2026-01-28T16-01-46-595Z.json`
-- Tasklist: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T16-01-46-595Z.md`
+- Tasklist: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T16-01-46-595Z.md`
 
 High-level totals (from report):
 - coursesFailingCatalogLanguageIntegrity: 0
@@ -161,12 +161,12 @@ Applied (backups taken first; safe seed mode; no quiz writes):
 
 Verification (master audit):
 - Report: `scripts/reports/ccs-global-audit__2026-01-28T19-40-47-589Z.json`
-- Tasklist: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T19-40-47-589Z.md`
+- Tasklist: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T19-40-47-589Z.md`
 - Note: `missingLessonDayEntries` is now **0**
 
 Verification (email communications audit):
 - Report: `scripts/reports/email-communications-language-audit__2026-01-28T19-45-07-446Z.json`
-- Tasklist: `docs/tasklists/EMAIL_COMMUNICATIONS_LANGUAGE_AUDIT__2026-01-28T19-45-07-446Z.md`
+- Tasklist: `docs/_archive/tasklists/EMAIL_COMMUNICATIONS_LANGUAGE_AUDIT__2026-01-28T19-45-07-446Z.md`
 
 ## Phase 3 — Quality Improvement Start (2026-01-28)
 
@@ -194,14 +194,14 @@ Backups:
 - Quizzes: `scripts/quiz-backups/`
 
 Verification (per-course audits):
-- `SALES_PRODUCTIVITY_30_EN`: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T20-21-24-574Z.md`
-- `SALES_PRODUCTIVITY_30_HU`: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T20-21-29-467Z.md`
-- `SALES_PRODUCTIVITY_30_RU`: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T20-21-34-611Z.md`
-- `B2B_SALES_2026_30_RU`: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T20-21-40-097Z.md`
+- `SALES_PRODUCTIVITY_30_EN`: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T20-21-24-574Z.md`
+- `SALES_PRODUCTIVITY_30_HU`: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T20-21-29-467Z.md`
+- `SALES_PRODUCTIVITY_30_RU`: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T20-21-34-611Z.md`
+- `B2B_SALES_2026_30_RU`: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T20-21-40-097Z.md`
 
 Additional verification after fixes:
-- `SALES_PRODUCTIVITY_30_RU`: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T21-11-52-688Z.md`
-- `B2B_SALES_2026_30_RU`: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T21-11-57-529Z.md`
+- `SALES_PRODUCTIVITY_30_RU`: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T21-11-52-688Z.md`
+- `B2B_SALES_2026_30_RU`: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T21-11-57-529Z.md`
 
 ### RU lesson language integrity cleanup (B2B)
 
@@ -218,7 +218,7 @@ Applied:
 - Rollback: `npx tsx --env-file=.env.local scripts/restore-course-catalog-from-backup.ts --file scripts/course-backups/course-catalog__PRODUCTIVITY_2026_AR__2026-01-28T21-14-03-978Z.json --apply`
 
 Verification (master audit):
-- Tasklist: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T21-14-18-091Z.md`
+- Tasklist: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T21-14-18-091Z.md`
 
 ## Phase 3b — Global quiz pipeline re-run (2026-01-28)
 
@@ -232,7 +232,7 @@ Apply:
 
 Post-apply master audit:
 - Report: `scripts/reports/ccs-global-audit__2026-01-28T21-29-19-790Z.json`
-- Tasklist: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T21-29-19-790Z.md`
+- Tasklist: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T21-29-19-790Z.md`
 
 ## Phase 4 — Lesson language integrity hard blocks cleared (2026-01-28)
 
@@ -244,7 +244,7 @@ Changes:
 
 Verification (master audit):
 - Report: `scripts/reports/ccs-global-audit__2026-01-28T22-06-16-728Z.json`
-- Tasklist: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T22-06-16-728Z.md` (lessonsFailingLanguageIntegrity=0)
+- Tasklist: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T22-06-16-728Z.md` (lessonsFailingLanguageIntegrity=0)
 
 ## Phase 5 — Quiz integrity refresh (2026-01-28)
 
@@ -254,7 +254,7 @@ Applied:
 
 Verification (master audit):
 - Report: `scripts/reports/ccs-global-audit__2026-01-28T22-09-49-438Z.json`
-- Tasklist: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T22-09-49-438Z.md`
+- Tasklist: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T22-09-49-438Z.md`
 
 ## Phase 6a — DONE_BETTER_2026_EN quality lift (2026-01-28)
 
@@ -267,8 +267,8 @@ Applied:
   - `scripts/reports/quiz-quality-pipeline__2026-01-28T22-37-44-719Z.json` (deleted=126 inserted=127 rewriteFailed=0)
 
 Verification:
-- Course audit: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T22-37-50-598Z.md`
-- Master audit: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T22-38-04-458Z.md`
+- Course audit: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T22-37-50-598Z.md`
+- Master audit: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T22-38-04-458Z.md`
 
 ## Phase 6b — PRODUCTIVITY_2026_ID quality lift (2026-01-28)
 
@@ -283,7 +283,7 @@ Applied:
 Verification:
 - Lesson quality audit: `scripts/reports/lesson-quality-audit__2026-01-28T22-42-07-659Z.json`
 - Lesson language audit: `scripts/reports/lesson-language-integrity-audit__2026-01-28T22-42-16-338Z.json`
-- Master audit: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T22-42-27-438Z.md`
+- Master audit: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T22-42-27-438Z.md`
 
 ## Phase 6c — AI_30_DAY_EN quality lift (2026-01-28)
 
@@ -310,7 +310,7 @@ Applied:
   - `scripts/reports/quiz-quality-pipeline__2026-01-28T22-58-12-182Z.json` (deleted=54 inserted=55 rewriteFailed=0)
 
 Verification:
-- Master audit: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T22-58-28-374Z.md`
+- Master audit: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T22-58-28-374Z.md`
 
 ## Phase 6e — B2B_SALES_2026_30_RU quality lift (2026-01-29)
 
@@ -325,4 +325,4 @@ Applied:
 Verification:
 - Lesson quality audit: `scripts/reports/lesson-quality-audit__2026-01-29T06-08-36-359Z.json`
 - Lesson language audit: `scripts/reports/lesson-language-integrity-audit__2026-01-29T06-08-38-511Z.json`
-- Master audit: `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-29T06-08-58-055Z.md`
+- Master audit: `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-29T06-08-58-055Z.md`

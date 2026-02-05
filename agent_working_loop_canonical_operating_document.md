@@ -240,7 +240,7 @@ TEAM:
 | `/docs/RELEASE_NOTES.md` | Release Notes | Changelog of all completed work in reverse chronological order. Documents bug fixes, features, and improvements for each version. Updated with every release. |
 | `/docs/LEARNINGS.md` | Learnings | Knowledge base of issues faced, solutions implemented, and best practices discovered. Categorized by topic (architecture, database, API, etc.). Prevents repeated mistakes. |
 | `/docs/TECH_STACK.md` | Tech Stack | Complete list of all dependencies with versions. Frontend, backend, deployment, and development tools. Updated when dependencies change. |
-| `/docs/STATUS.md` | Current Status | High-level project status summary. Current phase, completed work, and active initiatives. Quick reference for project state. |
+| `/docs/_archive/reference/STATUS__2026-01-28.md` | Current Status | High-level project status summary. Current phase, completed work, and active initiatives. Quick reference for project state. |
 | `/docs/PRODUCTION_STATUS.md` | Production Status | Production deployment status and known issues. Environment checks, database state, and deployment verification. Updated after deployments. |
 
 ### Setup & Deployment
@@ -256,8 +256,8 @@ TEAM:
 
 | Location | Document Name | Summary |
 |----------|---------------|---------|
-| `/docs/2026-01-28_DEEP_CODE_AUDIT.md` | Deep Code Audit | Full codebase audit: inconsistencies, deprecated/obsolete items, hardcoded values, design deviations, inline styles, hardening. Actionable findings linked to ROADMAP and TASKLIST (Code Audit Follow-Up). |
-| `/docs/2026-01-23_ADMIN_UI_IMPROVEMENTS.md` | Admin UI Improvements | Remove deprecated docs menu, add logout button, rename Players to Users, show actual user name. Includes implementation details and testing checklist. |
+| `/docs/_archive/delivery/2026-01/2026-01-28_DEEP_CODE_AUDIT.md` | Deep Code Audit | Full codebase audit: inconsistencies, deprecated/obsolete items, hardcoded values, design deviations, inline styles, hardening. Actionable findings linked to ROADMAP and TASKLIST (Code Audit Follow-Up). |
+| `/docs/_archive/delivery/2026-01/2026-01-23_ADMIN_UI_IMPROVEMENTS.md` | Admin UI Improvements | Remove deprecated docs menu, add logout button, rename Players to Users, show actual user name. Includes implementation details and testing checklist. |
 | `/docs/FEATURES_SINCE_F20C34A_COMPLETE_DOCUMENTATION.md` | Features Since f20c34a | Complete documentation of all features added since working commit f20c34a. Includes certification system, short courses, SSO problems, and comparison to working version. Reference for redevelopment. |
 
 ### SSO & Authentication

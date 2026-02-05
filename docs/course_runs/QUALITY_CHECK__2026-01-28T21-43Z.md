@@ -25,9 +25,9 @@
 | Artifact | Path |
 |----------|------|
 | CCS global audit report | `scripts/reports/ccs-global-audit__2026-01-28T21-42-37-764Z.json` |
-| CCS global audit tasklist | `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T21-42-37-764Z.md` |
+| CCS global audit tasklist | `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T21-42-37-764Z.md` |
 | Email communications audit report | `scripts/reports/email-communications-language-audit__2026-01-28T21-43-11-304Z.json` |
-| Email communications tasklist | `docs/tasklists/EMAIL_COMMUNICATIONS_LANGUAGE_AUDIT__2026-01-28T21-43-11-304Z.md` |
+| Email communications tasklist | `docs/_archive/tasklists/EMAIL_COMMUNICATIONS_LANGUAGE_AUDIT__2026-01-28T21-43-11-304Z.md` |
 
 ---
 
@@ -80,7 +80,7 @@
 | **Current courseId** | — (full system audit) |
 | **Last completed step** | CCS global audit + email communications audit |
 | **Next step** | Per-course: lesson refinement and/or quiz pipeline (dry-run then apply) for courses with action items |
-| **Next command** | See `docs/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T21-42-37-764Z.md` for per-course next commands |
+| **Next command** | See `docs/_archive/tasklists/CCS_GLOBAL_AUDIT__2026-01-28T21-42-37-764Z.md` for per-course next commands |
 | **Blockers** | None |
 
 ---

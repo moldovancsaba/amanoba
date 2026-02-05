@@ -7,9 +7,29 @@
 
 ---
 
-## [Unreleased] — Build & i18n cleanup, discussion disable (tasks 1–4 closed)
+## [Unreleased] — Course package (export/import/update); P2 enrolment
 
-**Status:** Closed. No follow-up required.
+### P2 — Course package (export/import/update) — content safety
+
+- **Package format v2:** `docs/COURSE_PACKAGE_FORMAT.md` defines the schema (packageVersion 2.0, course, lessons, quiz; optional canonicalSpec, courseIdea). Single JSON format for export/import.
+- **Export (GET /api/admin/courses/[courseId]/export):** Now includes `packageVersion: '2.0'`; course payload extended with `discussionEnabled`, `leaderboardEnabled`, `studyGroupsEnabled`, `ccsId`, `prerequisiteCourseIds`, `prerequisiteEnforcement`, `certification`; each quiz item includes `uuid`, `questionType`, `hashtags`. Placeholder `canonicalSpec: null`, `courseIdea: null`.
+- **Import overwrite (merge):** When `overwrite=true`, import **no longer deletes** lessons or quiz questions. It **merges**: updates course document (content/config only; preserves brandId, createdBy, assignedEditors), upserts lessons by `lessonId`, upserts questions by `lessonId` + `uuid` (or question text). Progress, upvotes, certificates, shorts, enrolments are preserved.
+- **Import (new course):** Accepts v2 package; creates course + lessons + questions; resolves `prerequisiteCourseIds` from string to ObjectId.
+- **UI:** Course editor Import confirm text: “Merge package into this course? Content will be updated; progress, upvotes, certificates, and shorts are preserved.” Success message shows API message (merge vs imported).
+
+**Reference:** `docs/COURSE_EXPORT_IMPORT_RECOMMENDATION.md`. Optional ZIP package (TASKLIST P2 #6) remains pending.
+
+---
+
+### P2 — Multiple courses: enrolment + prerequisites (TASKLIST items 1 & 2)
+
+- **Course model:** Added `prerequisiteCourseIds` (array of Course ObjectIds) and `prerequisiteEnforcement` (`'hard'` \| `'soft'`, default `'hard'`). Multiple active courses remain supported via existing CourseProgress (one per player per course).
+- **Enrolment API:** POST `/api/courses/[courseId]/enroll` is idempotent (returns 200 with existing progress if already enrolled). When a course has `prerequisiteCourseIds`, the API checks that the player has completed all prerequisite courses (CourseProgress status COMPLETED). If `prerequisiteEnforcement === 'hard'` and any prerequisite is not met, responds with 403 and `code: 'PREREQUISITES_NOT_MET'`, `unmetPrerequisites: [{ courseId, name }]`. List of active enrolments remains GET `/api/my-courses`.
+- **Admin:** PATCH `/api/admin/courses/[courseId]` accepts `prerequisiteCourseIds` and `prerequisiteEnforcement` (no UI yet; can be set via API or future admin form).
+
+---
+
+**Status (build & i18n):** Closed. No follow-up required.
 
 - **#1 Vercel/build warnings:** `package.json` engines set to `>=20.0.0 <25.0.0`; added `@next/swc` 15.5.11 and `eslint-config-next` 15.5.11 for version alignment. ESLint: fixed `auth.ts` (unused imports, `AugmentedUser` type instead of `any`), `i18n.ts` (typed `deepMerge`, `Record<string, unknown>`, unused `_err`), `middleware.ts` (removed unused `NextRequest`). Scripts/public relaxed via eslint override so one-off scripts don’t block lint; `scripts/fix-course-url-structure.js` unused var fixed.
 - **#2 Language selector:** Layout already passes `locale={validLocale}` to `NextIntlClientProvider` (see LANGUAGE_DROPDOWN_PROBLEM_LOG). Locales are 11 only (en-GB/en-US removed); doc updated.
@@ -204,7 +224,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [Unreleased] — 2026-01-31 🛠️
 
-**Status**: Messy content audit & grammar plan — Phase 1 delivery (docs/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md)  
+**Status**: Messy content audit & grammar plan — Phase 1 delivery (docs/_archive/delivery/2026-01/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md)  
 **Type**: Content quality (grammar, understandability)
 
 ### Generator (content-based-question-generator.ts)
@@ -227,7 +247,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 - Rephrases HU practice-intro questions and options to **native Hungarian** (not just word replace): stem "Egy új gyakorlatot vezetsz be" → "Bevezetsz egy új gyakorlatot"; "mérhető kimenetet és gyors visszacsatolást" → "mérhető kimenetelt és gyors visszajelzést"; recurring scope distractor rephrased; options: visszacsatolás → visszajelzés.
 - Backup under `scripts/question-backups/HU_REPHRASE_<timestamp>.json`; run dry-run then `--apply`. **47 questions updated** in DB; audit now reports 1 remaining HU issue (truncation on another question type).
 
-### Scale plan (docs/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md § 7)
+### Scale plan (docs/_archive/delivery/2026-01/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md § 7)
 
 - Pipeline for rephrase and grammar **at scale** (all languages): discovery → rephrase rules per locale → fix script per locale → generator cleanup → validation gate → lessons/UI. Same pattern for RU, PL, etc.
 
@@ -427,7 +447,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - **Email open/click tracking**: `EmailActivity` model (messageId, playerId, brandId, emailType, segment, sentAt, openedAt, clickedAt, clickCount). `GET /api/email/open/[messageId]` returns 1x1 pixel and sets `openedAt`. `GET /api/email/click/[messageId]?url=` redirects to URL and updates `clickedAt` and `clickCount`. Completion email: generated messageId, tracking pixel and click-wrapped links injected; activity saved after send.
 - **Admin email analytics**: `GET /api/admin/email-analytics?days=30` (summary + by type + by segment). Admin page `/[locale]/admin/email-analytics` with nav "Email Analytics"; 7/30/90 days selector.
 
-**Documentation**: `docs/2026-01-28_P2_ONBOARDING_AND_EMAIL_STATUS.md` updated; Phase 1 marked complete.
+**Documentation**: `docs/_archive/delivery/2026-01/2026-01-28_P2_ONBOARDING_AND_EMAIL_STATUS.md` updated; Phase 1 marked complete.
 
 **Status**: ✅ Email Automation Phase 1 delivered
 
@@ -441,8 +461,8 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 ### Docs alignment with audit and tasklist
 
 - **ROADMAP**: P0 item 1 (Global audit: communication + catalog language integrity) marked **Done**; Tech audit follow-up items 10–12 (P0 Security, P1 Lint/TS, P2 Deprecated/hardcoded) marked **Done**; item 13 (P3) updated to show admin Image and CTA audit done, remainder in `docs/P3_KNOWN_ISSUES_BACKLOG.md`.
-- **docs/2026-01-30_TECH_AUDIT_JANUARY.md**: §1.1 Stack updated to Next.js 16.1.6 and React 19; §6.2 Certificate colors updated to **Done** (certificate-colors.ts); §8.1 npm audit updated to **0 vulnerabilities** and actions done.
-- **docs/2026-01-28_P2_ONBOARDING_AND_EMAIL_STATUS.md**: New status doc — Onboarding Survey implemented (API, page, models, seed, recommendations API, dashboard widget, completion email upsell); Email Automation Phase 1: completion upsell done; next: segment-specific templates, email analytics (open/click, admin dashboard).
+- **docs/_archive/delivery/2026-01/2026-01-30_TECH_AUDIT_JANUARY.md**: §1.1 Stack updated to Next.js 16.1.6 and React 19; §6.2 Certificate colors updated to **Done** (certificate-colors.ts); §8.1 npm audit updated to **0 vulnerabilities** and actions done.
+- **docs/_archive/delivery/2026-01/2026-01-28_P2_ONBOARDING_AND_EMAIL_STATUS.md**: New status doc — Onboarding Survey implemented (API, page, models, seed, recommendations API, dashboard widget, completion email upsell); Email Automation Phase 1: completion upsell done; next: segment-specific templates, email analytics (open/click, admin dashboard).
 
 **Status**: ✅ Docs alignment delivered
 
@@ -488,7 +508,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 **Status**: Multi-Format Course Forking (Shorts) — documented and verified  
 **Type**: Feature (already implemented); docs/tasklist alignment  
-**Source**: `docs/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md`, `docs/2026-01-27_RAPID_CHILDREN_COURSES_ACTION_PLAN_AND_HANDOVER.md`
+**Source**: `docs/_archive/delivery/2026-01/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md`, `docs/_archive/delivery/2026-01/2026-01-27_RAPID_CHILDREN_COURSES_ACTION_PLAN_AND_HANDOVER.md`
 
 ### Multi-Format Course Forking (Shorts)
 
@@ -499,7 +519,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - **Final exam and certificate**: Child final exam uses ≤ `certQuestionCount` questions from parent pool; certificate issued when pass rule is met.
 - **Catalog and enrollment**: Child courses appear in catalog and “my courses” only when **published** (not draft); enrollment creates progress with child `courseId` and `durationDays`.
 
-**Documentation**: `docs/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md` — Post-Delivery Checklist RELEASE_NOTES item and Acceptance Criteria marked complete.
+**Documentation**: `docs/_archive/delivery/2026-01/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md` — Post-Delivery Checklist RELEASE_NOTES item and Acceptance Criteria marked complete.
 
 **Status**: ✅ Multi-Format Course Forking (Shorts) release note and delivery plan checklist complete
 
@@ -508,7 +528,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 ## [v2.9.23] — 2026-01-28 🛠️
 
 **Status**: P1 Tech audit follow-up (remaining) — TypeScript enforced in build  
-**Type**: Tech debt (P1.7; tasklist `docs/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md`)
+**Type**: Tech debt (P1.7; tasklist `docs/_archive/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md`)
 
 ### TypeScript enforced during build
 
@@ -517,9 +537,9 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ### Documentation
 
-- **docs/2026-01-30_TECH_AUDIT_JANUARY.md**: §3.1 Build config and §3.2 ESLint updated to current state (ESLint 0 warnings/errors; TS enforced in build).
-- **docs/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md**: P1.7 note updated (build now enforces TS); follow-up note added (P1.7 remaining).
-- **docs/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md**: Build now enforces TypeScript (`ignoreBuildErrors: false`).
+- **docs/_archive/delivery/2026-01/2026-01-30_TECH_AUDIT_JANUARY.md**: §3.1 Build config and §3.2 ESLint updated to current state (ESLint 0 warnings/errors; TS enforced in build).
+- **docs/_archive/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md**: P1.7 note updated (build now enforces TS); follow-up note added (P1.7 remaining).
+- **docs/_archive/delivery/2026-01/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md**: Build now enforces TypeScript (`ignoreBuildErrors: false`).
 
 **Build Status**: `npm run build` passes with TypeScript and ESLint enforced.  
 **Status**: ✅ P1 Tech audit follow-up (remaining) delivered
@@ -545,7 +565,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - **app/[locale]/data-deletion/page.tsx**: “Account Information” → “SSO identifier”; “Method 3: Facebook Disconnection” → “Method 3: Revoke SSO Access” (SSO copy); “Third-Party Data” → “SSO or other third-party services”.
 - **app/api/auth/anonymous/route.ts**: Comment “Facebook login” → “SSO login”. **docs/SSO_MIGRATION_COMPLETE.md**: Noted data-deletion and auth SSO wording.
 
-**Documentation**: `docs/2026-01-28_P1_TECH_DEBT_DELIVERY.md`; ROADMAP and TASKLIST updated (P1 tech debt done).
+**Documentation**: `docs/_archive/delivery/2026-01/2026-01-28_P1_TECH_DEBT_DELIVERY.md`; ROADMAP and TASKLIST updated (P1 tech debt done).
 
 **Build Status**: Lint passes (`npx next lint` zero warnings).  
 **Status**: ✅ P1 Tech debt delivered
@@ -562,7 +582,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - **Scope**: Application code under `app/`, `auth.ts`, `components/`, `middleware.ts`; `scripts/` excluded in `tsconfig.json`.
 - **Result**: `npx tsc --noEmit` passes with **0 errors**. Build still uses `typescript.ignoreBuildErrors: true`; can be set to `false` to enforce TS in build.
 - **Fixes**: API routes (day route mongoose import; payments create-checkout/webhook types; admin surveys, SSO callback, certification, enroll, quiz-submit, recommendations, feature-flags, games/quizzz, certificate-status, referrals, onboarding); lib (auth/sso, certification, email-scheduler, gamification achievement-engine/leaderboard-calculator/progressive-disclosure, session-manager, logger, useCourseTranslations, translation-service, queue job-queue-manager/workers); auth.ts (locale/ssoSub); components (Icon ReactIconType→IconType, LocaleLink pathname guard); middleware (locale narrow to Locale).
-- **Documentation**: `docs/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md`; tasklist P1.7 marked complete in `docs/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md`.
+- **Documentation**: `docs/_archive/delivery/2026-01/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md`; tasklist P1.7 marked complete in `docs/_archive/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md`.
 
 **TASKLIST**: P1.7 TypeScript marked done; next suggested: P2.4–P2.5 (email/analytics colors), P3 items.
 
@@ -698,7 +718,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 - Policy pages (privacy, terms, data-deletion) use shared layout and brand tokens (POL1, POL3, POL4). POL5/POL6 LocaleLink sweep done. POL2 (policy/legal message keys) deferred — policy pages use inline content.
 
-**Files modified**: `app/lib/models/player.ts`, `app/api/players/[playerId]/route.ts`, `app/api/profile/[playerId]/route.ts`, `app/api/profile/route.ts`, `app/[locale]/profile/[playerId]/page.tsx`, `docs/2026-01-28_PV_POLICY_MOBILE_DELIVERY_PLAN.md`  
+**Files modified**: `app/lib/models/player.ts`, `app/api/players/[playerId]/route.ts`, `app/api/profile/[playerId]/route.ts`, `app/api/profile/route.ts`, `app/[locale]/profile/[playerId]/page.tsx`, `docs/_archive/delivery/2026-01/2026-01-28_PV_POLICY_MOBILE_DELIVERY_PLAN.md`  
 **Files added**: `docs/PUBLIC_PROFILE_SCHEMA.md`
 
 **Build Status**: Verified  
@@ -752,12 +772,12 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ### Documentation
 
-- **Audit doc**: `docs/2026-01-28_DEEP_CODE_AUDIT.md` — full findings and delivery notes.
+- **Audit doc**: `docs/_archive/delivery/2026-01/2026-01-28_DEEP_CODE_AUDIT.md` — full findings and delivery notes.
 - **ROADMAP**: Deep Code Audit subsection; P1/P2 tech debt updated; version 2.9.13.
 - **TASKLIST**: Code Audit Follow-Up (AUDIT1–AUDIT11) all ✅ DONE; version 2.9.13.
 - **Agent doc**: `agent_working_loop_canonical_operating_document.md` — current feature set to audit; status AUDIT DELIVERED (P1+P2).
 
-**Files added**: `app/lib/constants/app-url.ts`, `docs/2026-01-28_DEEP_CODE_AUDIT.md`  
+**Files added**: `app/lib/constants/app-url.ts`, `docs/_archive/delivery/2026-01/2026-01-28_DEEP_CODE_AUDIT.md`  
 **Files modified**: design-system.css, email-service, security.ts, player model, anonymous-auth, certificate image route, layout/courses/auth/payments/referrals, dashboard/quizzz/sudoku/madoku/whackpop/MemoryGame/Icon, achievements/challenges, data-deletion, privacy/terms, 11 messages, ARCHITECTURE.md, ROADMAP.md, TASKLIST.md, agent doc, and scripts (migrate-player-roles).
 
 **Build Status**: Verified  
@@ -777,7 +797,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - **TASKLIST**: Added four task sections with deliverable breakdown (PV1.1–PV4.5). See `docs/TASKLIST.md` § P1: Profile Visibility & Privacy.
 - **Related docs**: ROADMAP and TASKLIST versions set to 2.9.12.
 
-**Files Modified**: `docs/ROADMAP.md`, `docs/TASKLIST.md`, `docs/RELEASE_NOTES.md`, `docs/STATUS.md`, `docs/2026-01-24_NEXT_3_ACTIONS.md`
+**Files Modified**: `docs/ROADMAP.md`, `docs/TASKLIST.md`, `docs/RELEASE_NOTES.md`, `docs/_archive/reference/STATUS__2026-01-28.md`, `docs/_archive/delivery/2026-01/2026-01-24_NEXT_3_ACTIONS.md`
 
 **Build Status**: N/A  
 **Status**: ✅ DOCUMENTATION UPDATED
@@ -1029,8 +1049,8 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - `app/api/admin/questions/[questionId]/route.ts`
 - `app/api/admin/questions/batch/route.ts`
 - `app/[locale]/admin/questions/page.tsx`
-- `docs/2026-01-25_QUIZ_QUESTION_CENTRAL_MANAGEMENT_COMPLETE.md`
-- `docs/2026-01-25_SEED_VS_API_PERFORMANCE_ANALYSIS.md`
+- `docs/_archive/delivery/2026-01/2026-01-25_QUIZ_QUESTION_CENTRAL_MANAGEMENT_COMPLETE.md`
+- `docs/_archive/delivery/2026-01/2026-01-25_SEED_VS_API_PERFORMANCE_ANALYSIS.md`
 
 #### Files Modified
 - `app/[locale]/admin/layout.tsx` - Added "Quiz Questions" navigation
@@ -1038,7 +1058,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - `messages/hu.json` - Added translation
 - `scripts/generate-geo-shopify-quizzes.ts` - Optimized with `insertMany()`
 
-**Documentation**: `docs/2026-01-25_QUIZ_QUESTION_CENTRAL_MANAGEMENT_COMPLETE.md`
+**Documentation**: `docs/_archive/delivery/2026-01/2026-01-25_QUIZ_QUESTION_CENTRAL_MANAGEMENT_COMPLETE.md`
 
 ---
 
@@ -1159,7 +1179,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - **Owner Verification**: Privacy toggle requires authentication and ownership verification
 
 **Documentation**: 
-- `docs/2026-01-25_CERTIFICATE_VERIFICATION_SLUG_DELIVERY_PLAN.md`
+- `docs/_archive/delivery/2026-01/2026-01-25_CERTIFICATE_VERIFICATION_SLUG_DELIVERY_PLAN.md`
 - `docs/CERTIFICATE_CREATION_GUIDE.md`
 
 ### 📜 Certificate Creation Guide
@@ -1228,7 +1248,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - `app/[locale]/layout.tsx` - Added ConsentProvider and CookieConsentBanner
 - `messages/*.json` (11 files) - Added consent translations
 
-**Documentation**: `docs/2026-01-25_GOOGLE_ANALYTICS_CONSENT_MODE_AND_COURSE_PROGRESS_FIX.md`
+**Documentation**: `docs/_archive/delivery/2026-01/2026-01-25_GOOGLE_ANALYTICS_CONSENT_MODE_AND_COURSE_PROGRESS_FIX.md`
 
 ### 🐛 Critical Bug Fix: Course Progress Tracking
 
@@ -1354,7 +1374,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 **Commits**: 14 commits delivered
 
-**Documentation**: `docs/2026-01-24_COURSE_LANGUAGE_SEPARATION_COMPLETE.md`
+**Documentation**: `docs/_archive/delivery/2026-01/2026-01-24_COURSE_LANGUAGE_SEPARATION_COMPLETE.md`
 
 ### 🐛 Critical Bug Fixes
 

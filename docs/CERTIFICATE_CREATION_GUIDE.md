@@ -404,8 +404,8 @@ Before starting final exam:
 
 ## Related Documentation
 
-- **Delivery Plan**: `docs/2026-01-25_CERTIFICATE_VERIFICATION_SLUG_DELIVERY_PLAN.md`
-- **Handover Document**: `docs/2026-01-25_CERTIFICATION_HANDOVER.md`
+- **Delivery Plan**: `docs/_archive/delivery/2026-01/2026-01-25_CERTIFICATE_VERIFICATION_SLUG_DELIVERY_PLAN.md`
+- **Handover Document**: `docs/_archive/delivery/2026-01/2026-01-25_CERTIFICATION_HANDOVER.md`
 - **Certificate Model**: `app/lib/models/certificate.ts`
 - **Final Exam API**: `app/api/certification/final-exam/submit/route.ts`
 - **Verification API**: `app/api/certificates/[slug]/route.ts`

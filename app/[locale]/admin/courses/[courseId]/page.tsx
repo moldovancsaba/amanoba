@@ -328,25 +328,18 @@ export default function CourseEditorPage({
       alert('Course ID is missing');
       return;
     }
-
     try {
       const response = await fetch(`/api/admin/courses/${courseId}/export`);
       if (!response.ok) {
-        const error = await response.json();
-        console.error('Export error:', error);
-        alert(error.details ? `${error.error}: ${error.details}` : error.error || 'Failed to export course');
+        const err = await response.json().catch(() => ({}));
+        alert(err.details ? `${err.error}: ${err.details}` : err.error || 'Failed to export course');
         return;
       }
-
       const data = await response.json();
-      
-      // Validate that we got course data
-      if (!data.course || !data.course.courseId) {
+      if (!data.course?.courseId) {
         alert('Invalid export data received');
         return;
       }
-      
-      // Create a blob and download
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -358,8 +351,34 @@ export default function CourseEditorPage({
       URL.revokeObjectURL(url);
     } catch (error) {
       console.error('Failed to export course:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      alert(`Failed to export course: ${errorMessage}`);
+      alert(`Failed to export course: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  };
+
+  const handleExportCourseAsZip = async () => {
+    if (!courseId) {
+      alert('Course ID is missing');
+      return;
+    }
+    try {
+      const response = await fetch(`/api/admin/courses/${courseId}/export?format=zip`);
+      if (!response.ok) {
+        const err = await response.json().catch(() => ({}));
+        alert(err.details ? `${err.error}: ${err.details}` : err.error || 'Failed to export ZIP');
+        return;
+      }
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${courseId}_package_${new Date().toISOString().split('T')[0]}.zip`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Failed to export ZIP:', error);
+      alert(`Failed to export ZIP: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   };
 
@@ -367,35 +386,45 @@ export default function CourseEditorPage({
     const file = event.target.files?.[0];
     if (!file) return;
 
-    if (!confirm('This will overwrite the current course. Are you sure?')) {
+    if (!confirm('Merge package into this course? Content will be updated; progress, upvotes, certificates, and shorts are preserved.')) {
       event.target.value = '';
       return;
     }
 
     try {
-      const text = await file.text();
-      const courseData = JSON.parse(text);
+      const isZip = file.name.toLowerCase().endsWith('.zip');
+      let response: Response;
 
-      const response = await fetch('/api/admin/courses/import', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ courseData, overwrite: true }),
-      });
+      if (isZip) {
+        const formData = new FormData();
+        formData.set('file', file);
+        formData.set('overwrite', 'true');
+        response = await fetch('/api/admin/courses/import', {
+          method: 'POST',
+          body: formData,
+        });
+      } else {
+        const text = await file.text();
+        const courseData = JSON.parse(text);
+        response = await fetch('/api/admin/courses/import', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ courseData, overwrite: true }),
+        });
+      }
 
       const data = await response.json();
 
       if (data.success) {
-        alert(`Course imported successfully!\n\nLessons: ${data.stats.lessonsCreated} created, ${data.stats.lessonsUpdated} updated\nQuestions: ${data.stats.questionsCreated} created, ${data.stats.questionsUpdated} updated`);
-        // Reload the page to show updated data
+        alert(`Course ${data.message}\n\nLessons: ${data.stats.lessonsCreated} created, ${data.stats.lessonsUpdated} updated\nQuestions: ${data.stats.questionsCreated} created, ${data.stats.questionsUpdated} updated`);
         window.location.reload();
       } else {
         alert(data.error || 'Failed to import course');
       }
     } catch (error) {
       console.error('Failed to import course:', error);
-      alert('Failed to import course. Please check the file format.');
+      alert('Failed to import course. Please check the file format (.json or .zip).');
     } finally {
-      // Reset file input
       event.target.value = '';
     }
   };
@@ -438,14 +467,21 @@ export default function CourseEditorPage({
             className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700 transition-colors"
           >
             <Download className="w-5 h-5" />
-            Export
+            Export JSON
+          </button>
+          <button
+            onClick={handleExportCourseAsZip}
+            className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-600 transition-colors"
+          >
+            <Download className="w-5 h-5" />
+            Export ZIP
           </button>
           <label className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-green-700 transition-colors cursor-pointer">
             <Upload className="w-5 h-5" />
-            Import
+            Import (JSON or ZIP)
             <input
               type="file"
-              accept=".json"
+              accept=".json,.zip"
               onChange={handleImportCourse}
               className="hidden"
             />
@@ -1057,7 +1093,7 @@ export default function CourseEditorPage({
             <label className="flex items-center gap-2 cursor-pointer">
               <input
                 type="checkbox"
-                checked={course?.leaderboardEnabled ?? true}
+                checked={course?.leaderboardEnabled ?? false}
                 onChange={(e) => _updateCourseFeature('leaderboardEnabled', e.target.checked)}
                 className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
               />
@@ -1072,7 +1108,7 @@ export default function CourseEditorPage({
             <label className="flex items-center gap-2 cursor-pointer">
               <input
                 type="checkbox"
-                checked={course?.studyGroupsEnabled ?? true}
+                checked={course?.studyGroupsEnabled ?? false}
                 onChange={(e) => _updateCourseFeature('studyGroupsEnabled', e.target.checked)}
                 className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
               />

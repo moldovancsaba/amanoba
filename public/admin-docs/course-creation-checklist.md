@@ -303,7 +303,7 @@ Minden lecke esetében:
 
 ### 10.9) Kapcsolódó Dokumentumok
 
-- **Master Plan**: `/docs/2026-01-25_COURSE_CONTENT_QUALITY_AUDIT_AND_FIX_MASTER_PLAN.md`
+- **Master Plan**: `/docs/_archive/delivery/2026-01/2026-01-25_COURSE_CONTENT_QUALITY_AUDIT_AND_FIX_MASTER_PLAN.md`
 - **Quiz System Fix**: `/docs/FINAL_QUIZ_SYSTEM_DELIVERY.md`
 - **Quality Checklist**: Lásd a fenti pontokat
 - **Style Guide**: Lásd 10.2 szekció

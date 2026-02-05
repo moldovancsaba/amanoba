@@ -1,8 +1,9 @@
 # ROADMAP vs TASKLIST vs System Outline — Comparison
 
-**Purpose**: Compare **ROADMAP.md** (vision), **TASKLIST.md** (open tasks), and **amanoba_system_outline.md** (current code) to identify (1) what to deliver next, (2) whether any roadmap items are missing from the tasklist.  
-**Rules**: Follow **agent_working_loop_canonical_operating_document.md** — single-place rule (ROADMAP = vision only; TASKLIST = open tasks; RELEASE_NOTES = done). Delivered work must not remain on ROADMAP.  
-**Last Updated**: 2026-01-31
+**Purpose**: Compare **ROADMAP.md** (vision), **TASKLIST.md** (open tasks), and current code to identify what to deliver next and alignment.  
+**Rules**: Follow **agent_working_loop_canonical_operating_document.md** — single-place rule (ROADMAP = vision only; TASKLIST = open tasks; RELEASE_NOTES = done).  
+**Status**: **P2 #1** and **P2 #2** (enrolment model + API) are **done** — see **RELEASE_NOTES.md** and **ENROLMENT_AND_PREREQUISITES.md**.  
+**Last Updated**: 2026-02-04
 
 ---
 
@@ -16,12 +17,12 @@
 
 **Concrete next deliverables (TASKLIST):**
 
-1. **P2 #1** — Data model: Support multiple active enrolments per player (e.g. CourseEnrolment or extend CourseProgress); optional prerequisite courseIds on Course.  
-2. **P2 #2** — API: Enrol in course (idempotent); list my enrolments; enforce prerequisite check on enrol (optional: soft vs hard).  
+1. ~~**P2 #1**~~ — ✅ **DONE**. Course.prerequisiteCourseIds + prerequisiteEnforcement; multiple courses via CourseProgress.  
+2. ~~**P2 #2**~~ — ✅ **DONE**. POST /api/courses/[courseId]/enroll idempotent + prerequisite check; list = GET /api/my-courses.  
 3. **P2 #3** — UI: My courses / dashboard shows multiple courses in progress; course detail shows “Enrol” and prerequisite notice if not met.  
 4. **P2 #4** — Email/scheduler: Respect multiple enrolments (e.g. daily lesson per enrolled course, no duplicate sends).
 
-**Recommendation:** Start with **P2 #1** (data model), then P2 #2 (API), then P2 #3 (UI), then P2 #4 (scheduler).
+**Recommendation:** Proceed with **P2 #3** (UI), then P2 #4 (scheduler). See **ENROLMENT_AND_PREREQUISITES.md**.
 
 ---
 

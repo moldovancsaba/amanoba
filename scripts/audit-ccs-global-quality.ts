@@ -13,7 +13,7 @@
  *
  * Outputs:
  * - JSON report in scripts/reports/
- * - One master tasklist in docs/tasklists/
+ * - One master tasklist in docs/_archive/tasklists/
  *
  * Usage:
  *   npx tsx --env-file=.env.local scripts/audit-ccs-global-quality.ts
@@ -45,7 +45,7 @@ const COURSE_ID = getArgValue('--course');
 const CCS_ID = getArgValue('--ccs');
 const MIN_LESSON_SCORE = Number(getArgValue('--min-lesson-score') || '70');
 const OUT_DIR = getArgValue('--out-dir') || join(process.cwd(), 'scripts', 'reports');
-const TASKLIST_DIR = getArgValue('--tasklist-dir') || join(process.cwd(), 'docs', 'tasklists');
+const TASKLIST_DIR = getArgValue('--tasklist-dir') || join(process.cwd(), 'docs', '_archive', 'tasklists');
 const INCLUDE_INACTIVE = process.argv.includes('--include-inactive');
 const GENERATE_TARGET_MIN = Number(getArgValue('--generate-target-min') || '40');
 

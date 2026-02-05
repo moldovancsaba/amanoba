@@ -1,8 +1,10 @@
 # Amanoba Task List
 
-**Last Updated**: 2026-01-31
+**Last Updated**: 2026-02-05
 
-This document lists **actionable tasks** derived from the roadmap and current backlog. Each item is something to do. When a task is completed, move it to **RELEASE_NOTES.md** and remove it from this list. Ideas and vision live in **ROADMAP.md**. Completed work lives only in RELEASE_NOTES (not here). **Only related items:** Only open/actionable tasks that belong in the TASKLIST may appear here — no completed work (→ RELEASE_NOTES), no vision (→ ROADMAP), no unrelated content.
+This document lists **actionable tasks** derived from the roadmap and current backlog. Each item is something to do. When a task is completed, move it to **RELEASE_NOTES.md** and remove it from this list. Ideas and vision live in **ROADMAP.md**. Completed work lives only in RELEASE_NOTES (not here). **Only related items:** Only open/actionable tasks that belong in the TASKLIST may appear here — no completed work (→ RELEASE_NOTES), no vision (→ ROADMAP), no unrelated content. For alignment of ROADMAP vs TASKLIST and "what to deliver next", see **ROADMAP_TASKLIST_SYSTEM_COMPARISON.md**.
+
+**Current status (snapshot)**: Production stable as of 2026-01-28; PV/POL delivered. Full historical status snapshot: `docs/_archive/reference/STATUS__2026-01-28.md`.
 
 Completed items (formerly 1–4, 6–11, course voting, UI/UX polish, course leaderboard UI, Community Phase 1 & 2) are not listed here; they live only in **RELEASE_NOTES.md**.
 
@@ -41,10 +43,25 @@ Completed items (formerly 1–4, 6–11, course voting, UI/UX polish, course lea
 
 | # | Action item | Status |
 |---|-------------|--------|
-| 1 | Model for multiple active enrolments/prerequisites: design `CourseEnrolment` (or extend `CourseProgress`) so a player can have several active courses and optionally declare prerequisite course IDs per enrolment. | ⏳ PENDING |
-| 2 | Idempotent enrolment API that lists a player’s active enrolments and enforces prerequisites (soft or hard) during enrolment. | ⏳ PENDING |
+| 1 | Model for multiple active enrolments/prerequisites: design `CourseEnrolment` (or extend `CourseProgress`) so a player can have several active courses and optionally declare prerequisite course IDs per enrolment. | ✅ DONE (Course: prerequisiteCourseIds, prerequisiteEnforcement; multiple courses via existing CourseProgress per player per course) |
+| 2 | Idempotent enrolment API that lists a player’s active enrolments and enforces prerequisites (soft or hard) during enrolment. | ✅ DONE (POST /api/courses/[courseId]/enroll idempotent; enforces prerequisiteCourseIds when enforcement 'hard'; list = GET /api/my-courses) |
 | 3 | Dashboard/course pages show every course in progress, surface the “Enrol” action with prerequisite notices, and respect multi-course state everywhere (today’s lessons, badge sync, etc.). | ⏳ PENDING |
 | 4 | Email/scheduler: Respect multiple enrolments (e.g. daily lesson per enrolled course, no duplicate sends). | ⏳ PENDING |
+
+---
+
+### P2 — Course package (export/import/update) — content safety
+
+**Goal:** One authoritative course package format so we can export everything, import new courses, and update existing courses without losing stats (upvotes, progress, certifications, shorts). See **docs/COURSE_EXPORT_IMPORT_RECOMMENDATION.md**.
+
+| # | Action item | Status |
+|---|-------------|--------|
+| 1 | Define package schema v2 and document in `docs/COURSE_PACKAGE_FORMAT.md` (manifest, course, lessons, quiz; optional canonical/course_idea). | ✅ DONE |
+| 2 | Extend export API: add to course payload discussionEnabled, leaderboardEnabled, studyGroupsEnabled, certification, prerequisiteCourseIds, prerequisiteEnforcement, ccsId; add to quiz items uuid, questionType, hashtags. | ✅ DONE |
+| 3 | Fix import overwrite: replace delete-all with merge — update course doc (content/config only), upsert lessons by lessonId, upsert questions by lessonId+uuid; do not delete existing lessons/questions not in package. | ✅ DONE |
+| 4 | Import (new course): accept v2 package format (same shape as extended export); create course + lessons + questions. | ✅ DONE |
+| 5 | UI: Course editor — clarify Export (download v2 JSON) and Import with checkbox “Overwrite existing (merge, preserves stats)” and warning. | ✅ DONE |
+| 6 | (Optional) ZIP package: export as ZIP with manifest + course.json + lessons + quiz + optional canonical/course_idea; import from ZIP. | ⏳ PENDING |
 
 ---
 

@@ -64,6 +64,10 @@ export interface ICourse extends Document {
   createdBy?: mongoose.Types.ObjectId;
   /** Assigned editors — Player _ids. Users in this array (or createdBy) can edit this course and see the admin entry point. */
   assignedEditors?: mongoose.Types.ObjectId[];
+  /** Prerequisites: course _ids that must be completed before enrolling. Optional. */
+  prerequisiteCourseIds?: mongoose.Types.ObjectId[];
+  /** When prerequisites are set: 'hard' = block enrolment until met; 'soft' = warn but allow. Default 'hard'. */
+  prerequisiteEnforcement?: 'hard' | 'soft';
   /** For shorts: draft until editor publishes. Catalog shows only non-draft. */
   isDraft?: boolean;
   /** Child courses only: 'synced' | 'out_of_sync'. Used for selective unsync/re-sync and admin sync alerts. */
@@ -185,11 +189,11 @@ const CourseSchema = new Schema<ICourse>(
     },
     leaderboardEnabled: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     studyGroupsEnabled: {
       type: Boolean,
-      default: true,
+      default: false,
     },
 
     // Premium-only course flag
@@ -260,6 +264,9 @@ const CourseSchema = new Schema<ICourse>(
       },
     },
 
+    // Prerequisites: courses that must be completed before this one (optional)
+    prerequisiteCourseIds: [{ type: Schema.Types.ObjectId, ref: 'Course', default: undefined }],
+    prerequisiteEnforcement: { type: String, enum: ['hard', 'soft'], default: 'hard', trim: true },
     // Short/child course fields (optional)
     parentCourseId: { type: String, uppercase: true, trim: true },
     selectedLessonIds: [{ type: String, trim: true }],

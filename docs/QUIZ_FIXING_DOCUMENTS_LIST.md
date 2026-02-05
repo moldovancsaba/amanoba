@@ -4,8 +4,8 @@
 
 ### 1. Planning & Strategy Documents
 - `docs/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md` - Comprehensive action plan
-- `docs/2026-01-24_QUIZ_ENHANCEMENT_MASTER_PLAN.md` - Master enhancement plan
-- `docs/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md` - Quality audit plan
+- `docs/_archive/delivery/2026-01/2026-01-24_QUIZ_ENHANCEMENT_MASTER_PLAN.md` - Master enhancement plan
+- `docs/_archive/delivery/2026-01/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md` - Quality audit plan
 - `scripts/QUIZ_SYSTEM_COMPLETE_FIX_PLAN.md` - System fix plan
 - `scripts/MASTER_QUESTION_GENERATION_PLAN.md` - Question generation strategy
 - `scripts/systematic-question-review-process.md` - Review process documentation
@@ -18,8 +18,8 @@
 - `docs/FINAL_QUIZ_SYSTEM_DELIVERY.md` - Final delivery report
 
 ### 3. Management & Tracking
-- `docs/2026-01-25_QUIZ_QUESTION_CENTRAL_MANAGEMENT_PLAN.md` - Central management plan
-- `docs/2026-01-25_QUIZ_QUESTION_CENTRAL_MANAGEMENT_COMPLETE.md` - Management completion
+- `docs/_archive/delivery/2026-01/2026-01-25_QUIZ_QUESTION_CENTRAL_MANAGEMENT_PLAN.md` - Central management plan
+- `docs/_archive/delivery/2026-01/2026-01-25_QUIZ_QUESTION_CENTRAL_MANAGEMENT_COMPLETE.md` - Management completion
 - `docs/QUIZ_SEEDING_COMPLETE_REPORT.md` - Seeding completion report
 
 ### 4. Question Quality Documents

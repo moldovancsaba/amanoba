@@ -27,7 +27,7 @@ Hard rules (must do first, no exceptions):
 6) Always run **dry-run first**, summarize, then stop and ask for confirmation before applying.
 7) Create/update a single run log file: `docs/course_runs/PRODUCTIVITY_2026__ALL__<timestamp>.md`.
 8) Maintain a **persistent tasklist** (required for recursion):
-   - Create/update: `docs/tasklists/PRODUCTIVITY_2026__ALL__<timestamp>.md`
+   - Create/update: `docs/_archive/tasklists/PRODUCTIVITY_2026__ALL__<timestamp>.md`
    - This must contain actionable checkboxes and be updated after every step (audit/dry-run/apply/verify).
    - Never lose state: mark completed items, add next items, and include the exact next command to run.
 
@@ -45,7 +45,7 @@ You must produce and keep these up to date throughout the run:
 1) **Run log** (narrative + links):
    - `docs/course_runs/PRODUCTIVITY_2026__ALL__<timestamp>.md`
 2) **Tasklist** (checkboxes + next actions):
-   - `docs/tasklists/PRODUCTIVITY_2026__ALL__<timestamp>.md`
+   - `docs/_archive/tasklists/PRODUCTIVITY_2026__ALL__<timestamp>.md`
 
 ### Tasklist format (mandatory)
 
@@ -290,7 +290,7 @@ C) Completion criteria
 
 Output requirements at each stop:
 - Run log path: `docs/course_runs/PRODUCTIVITY_2026__ALL__<timestamp>.md`
-- Tasklist path: `docs/tasklists/PRODUCTIVITY_2026__ALL__<timestamp>.md`
+- Tasklist path: `docs/_archive/tasklists/PRODUCTIVITY_2026__ALL__<timestamp>.md`
 - Report file paths created (`scripts/reports/...`)
 - Backup file paths created (`scripts/quiz-backups/...`, `scripts/lesson-backups/...` if applicable)
 - Rollback commands

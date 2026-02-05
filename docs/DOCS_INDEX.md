@@ -1,7 +1,13 @@
 # Documentation index
 
-**Last updated**: 2026-02-04  
+**Last updated**: 2026-02-05  
 **Purpose**: Single entry point for docs: core vs reference, deprecated, and mergeable.
+
+**Generated helpers**
+
+- `docs/DOCS_INVENTORY.md` — full inventory of `docs/**/*.md`
+- `docs/DOCS_CANONICAL_MAP.md` — proposed KEEP/MERGE/ARCHIVE/DELETE map
+- `docs/DOCS_TRIAGE.md` — next-actions view derived from canonical map
 
 ---
 
@@ -48,7 +54,7 @@
 
 These are point-in-time plans or audits. Use for context; for current state see TASKLIST, ROADMAP, RELEASE_NOTES.
 
-- `2026-01_*.md`, `2026-01-23_*.md` … `2026-01-31_*.md` — January 2026 delivery plans, audits, layout audit, documentation audit, tech audit, certification plans, quiz plans.
+- `docs/_archive/delivery/2026-01/*.md` — January 2026 delivery plans, audits, layout audit, documentation audit, tech audit, certification plans, quiz plans.
 - **ROADMAP_TASKLIST_SYSTEM_COMPARISON.md** — P2 #1 and P2 #2 are **done** (see RELEASE_NOTES and ENROLMENT_AND_PREREQUISITES.md). Doc remains useful for P2 #3–#4 and ROADMAP vs TASKLIST alignment.
 
 ---
@@ -67,5 +73,5 @@ These are point-in-time plans or audits. Use for context; for current state see 
 - **docs/canonical/** — Canonical course specs (CCS): JSON + _CCS.md per course family.
 - **docs/course_ideas/** — Course idea and question notes.
 - **docs/course_runs/** — Course run metadata.
-- **docs/tasklists/** — Dated tasklist snapshots (reference).
+- **docs/_archive/tasklists/** — Dated tasklist snapshots (reference).
 - **Root**: CREATE_A_COURSE_HANDOVER.md, agent_working_loop_canonical_operating_document.md — course creation and agent loop.

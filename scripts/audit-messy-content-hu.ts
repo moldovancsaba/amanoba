@@ -3,7 +3,7 @@
  *
  * Purpose: Find questions that match the full "messy" definition (plan §1):
  *   truncation, non-native phrasing, typos, mixed language, unclear, template leakage.
- * See docs/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md.
+ * See docs/_archive/delivery/2026-01/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md.
  *
  * Usage: npx tsx --env-file=.env.local scripts/audit-messy-content-hu.ts
  * Optional: LANGUAGE=hu|ru|pl|bg|tr|vi|id|pt|hi|ar  — single locale

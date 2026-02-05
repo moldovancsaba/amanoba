@@ -143,7 +143,7 @@ async function auditCourseStructure() {
     }
 
     console.log(`Next Steps:`);
-    console.log(`  1. Review: docs/2026-01-24_ARCHITECTURE_FIX_COURSE_LANGUAGE_SEPARATION.md`);
+    console.log(`  1. Review: docs/_archive/delivery/2026-01/2026-01-24_ARCHITECTURE_FIX_COURSE_LANGUAGE_SEPARATION.md`);
     console.log(`  2. Proceed: PHASE 1, STEP 1.2 (Review current code)`);
     console.log(`\n✅ AUDIT COMPLETE\n`);
 

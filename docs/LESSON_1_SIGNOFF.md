@@ -68,7 +68,7 @@ COGNITIVE DISTRIBUTION (per 7-question set):
 DOCUMENTS CREATED
 ──────────────────
 
-1. /docs/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md
+1. /docs/_archive/delivery/2026-01/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md
    - Project governance, rules, standards, procedures
    - Safety protocols and rollback procedures
    

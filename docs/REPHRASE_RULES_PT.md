@@ -1,6 +1,6 @@
 # Rephrase rules — Portuguese (PT)
 
-**Purpose**: Per-locale rules for rephrasing quiz questions and options to native Portuguese. See `docs/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md` § 7.
+**Purpose**: Per-locale rules for rephrasing quiz questions and options to native Portuguese. See `docs/_archive/delivery/2026-01/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md` § 7.
 
 ## Bad terms (non-native / typo)
 

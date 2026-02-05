@@ -4,7 +4,7 @@
  * What: Derives course families from courseId (e.g. PRODUCTIVITY_2026_HU → PRODUCTIVITY_2026),
  *       creates CCS docs if missing, sets course.ccsId on each course.
  * Why: Admin "By course family (CCS)" was empty because courses had no ccsId and the ccs
- *      collection was never seeded. See docs/2026-01-27_CCS_AUDIT_AND_BACKFILL_PLAN.md
+ *      collection was never seeded. See docs/_archive/delivery/2026-01/2026-01-27_CCS_AUDIT_AND_BACKFILL_PLAN.md
  *
  * Usage:
  *   npx tsx --env-file=.env.local scripts/backfill-ccs-from-courses.ts         # dry-run

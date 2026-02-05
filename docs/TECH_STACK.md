@@ -127,7 +127,7 @@
 
 ### DNS & Domain
 - **DNS**: Vercel DNS
-- **Domain**: — (set when production domain is final; requirement: see `docs/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md` item 3)
+- **Domain**: — (set when production domain is final; requirement: see `docs/_archive/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md` item 3)
 
 ---
 

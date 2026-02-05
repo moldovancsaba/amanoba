@@ -14,7 +14,7 @@
   - Run `npx tsx --env-file=.env.local scripts/audit-lesson-quality.ts --course <COURSE_ID> --min-score 70 --include-inactive` and `npx tsx --env-file=.env.local scripts/audit-lesson-language-integrity.ts --course <COURSE_ID> --include-inactive` after restoring lesson content.
 
 ## Outputs
-- Tasklist: `docs/tasklists/SPORT_SALES_NETWORK_USA_2026_EN__2026-02-03T16-00-00Z.md`
+- Tasklist: `docs/_archive/tasklists/SPORT_SALES_NETWORK_USA_2026_EN__2026-02-03T16-00-00Z.md`
 
 ## Phase A — Prereqs & scope (no DB writes)
 - Confirm environment defaults (production, 30-day parent, free, quizzes required). ✅

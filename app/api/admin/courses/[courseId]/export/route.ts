@@ -1,11 +1,13 @@
 /**
  * Admin Course Export API
- * 
- * What: Exports a complete course with all lessons and quiz questions to a JSON file
- * Why: Allows admins to backup and share complete courses
+ *
+ * What: Exports a complete course to JSON or ZIP package (v2 format).
+ * Why: Backup and share complete courses; ZIP = manifest + course + lessons (human/machine readable).
+ * Query: ?format=zip → application/zip; otherwise JSON.
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import JSZip from 'jszip';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson, QuizQuestion, Brand } from '@/lib/models';
@@ -15,7 +17,8 @@ import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse 
 /**
  * GET /api/admin/courses/[courseId]/export
  *
- * What: Export a complete course to JSON (admins and editors with course access)
+ * What: Export course to JSON or ZIP (admins and editors with course access).
+ * Query: format=zip → ZIP package (manifest.json, course.json, lessons.json).
  */
 export async function GET(
   request: NextRequest,
@@ -73,9 +76,10 @@ export async function GET(
       return {};
     };
 
-    // Build export structure
+    // Build export structure (package format v2 — see docs/COURSE_PACKAGE_FORMAT.md)
     const exportData = {
-      version: '1.0',
+      packageVersion: '2.0',
+      version: '2.0',
       exportedAt: new Date().toISOString(),
       exportedBy: session.user.email || 'admin',
       course: {
@@ -97,11 +101,18 @@ export async function GET(
           lessonXP: 25,
         },
         metadata: course.metadata || {},
-        // Convert translations Map to object if it exists
         translations: mapToObject(course.translations),
+        discussionEnabled: course.discussionEnabled ?? false,
+        leaderboardEnabled: course.leaderboardEnabled ?? false,
+        studyGroupsEnabled: course.studyGroupsEnabled ?? false,
+        ccsId: course.ccsId ?? undefined,
+        prerequisiteCourseIds: Array.isArray(course.prerequisiteCourseIds) && course.prerequisiteCourseIds.length > 0
+          ? course.prerequisiteCourseIds.map((id: unknown) => String(id))
+          : undefined,
+        prerequisiteEnforcement: course.prerequisiteEnforcement ?? undefined,
+        certification: course.certification ?? undefined,
       },
       lessons: lessons.map((lesson) => {
-        // Get quiz questions for this lesson
         const lessonQuestions = quizQuestions.filter(
           (q) => q.lessonId === lesson.lessonId
         );
@@ -121,28 +132,61 @@ export async function GET(
           isActive: lesson.isActive !== undefined ? lesson.isActive : true,
           displayOrder: lesson.displayOrder || lesson.dayNumber || 1,
           metadata: lesson.metadata || {},
-          // Convert translations Map to object if it exists
           translations: mapToObject(lesson.translations),
           quizQuestions: lessonQuestions.map((q) => ({
+            uuid: q.uuid ?? undefined,
+            questionType: q.questionType ?? undefined,
+            hashtags: q.hashtags ?? undefined,
             question: q.question || '',
             options: q.options || [],
             correctIndex: q.correctIndex !== undefined ? q.correctIndex : 0,
             difficulty: q.difficulty || 'MEDIUM',
             category: q.category || 'Course Specific',
             isActive: q.isActive !== undefined ? q.isActive : true,
-            // Note: We don't export showCount, correctCount as they are usage stats
           })),
         };
       }),
+      canonicalSpec: null,
+      courseIdea: null,
     };
 
     logger.info({ courseId, lessonsCount: lessons.length, questionsCount: quizQuestions.length }, 'Admin exported course');
 
-    // Return as JSON with proper headers for download
+    const dateStr = new Date().toISOString().split('T')[0];
+    const formatZip = request.nextUrl.searchParams.get('format') === 'zip';
+
+    if (formatZip) {
+      const zip = new JSZip();
+      zip.file('manifest.json', JSON.stringify({
+        packageVersion: '2.0',
+        courseId: exportData.course.courseId,
+        exportedAt: exportData.exportedAt,
+        exportedBy: exportData.exportedBy,
+        files: ['manifest.json', 'course.json', 'lessons.json'],
+      }, null, 2));
+      zip.file('course.json', JSON.stringify(exportData.course, null, 2));
+      zip.file('lessons.json', JSON.stringify(exportData.lessons, null, 2));
+      if (exportData.canonicalSpec != null) {
+        zip.file('canonical.json', typeof exportData.canonicalSpec === 'object' ? JSON.stringify(exportData.canonicalSpec, null, 2) : String(exportData.canonicalSpec));
+      }
+      if (exportData.courseIdea != null && exportData.courseIdea !== '') {
+        zip.file('course_idea.md', String(exportData.courseIdea));
+      }
+      const zipBuffer = await zip.generateAsync({ type: 'uint8array' });
+      const blob = new Blob([zipBuffer as BlobPart], { type: 'application/zip' });
+      return new NextResponse(blob, {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/zip',
+          'Content-Disposition': `attachment; filename="${course.courseId}_package_${dateStr}.zip"`,
+        },
+      });
+    }
+
     return NextResponse.json(exportData, {
       headers: {
         'Content-Type': 'application/json',
-        'Content-Disposition': `attachment; filename="${course.courseId}_export_${new Date().toISOString().split('T')[0]}.json"`,
+        'Content-Disposition': `attachment; filename="${course.courseId}_export_${dateStr}.json"`,
       },
     });
   } catch (error) {

@@ -11,7 +11,7 @@
   - `npx tsx --env-file=.env.local scripts/restore-lesson-quiz-from-backup.ts --file scripts/quiz-backups/<COURSE_ID>/<LESSON_ID__TIMESTAMP>.json`
 
 ## Outputs
-- Tasklist: `docs/tasklists/SCRUMMASTER_LESZEK_2026_HU__2026-01-31T18-53-33Z.md`
+- Tasklist: `docs/_archive/tasklists/SCRUMMASTER_LESZEK_2026_HU__2026-01-31T18-53-33Z.md`
 
 ## Phase A — Prereqs & scope (no DB writes)
 

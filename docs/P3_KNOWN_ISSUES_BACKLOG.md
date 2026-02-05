@@ -1,7 +1,7 @@
 # P3 Known Issues — Backlog
 
 **Purpose**: Track P3 items from Tech Audit Jan 2026 (resolve or ticket).  
-**Source**: `docs/2026-01-30_TECH_AUDIT_JANUARY.md` §4.1; tasklist P3.1.
+**Source**: `docs/_archive/delivery/2026-01/2026-01-30_TECH_AUDIT_JANUARY.md` §4.1; tasklist P3.1.
 
 ---
 

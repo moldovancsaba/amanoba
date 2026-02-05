@@ -91,4 +91,4 @@ Backups: `scripts/question-backups/AUDIT_FIX_BATCH<N>_<timestamp>.json`. **Compl
 }
 ```
 
-See `docs/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md` for the full plan and fix workflow.
+See `docs/_archive/delivery/2026-01/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md` for the full plan and fix workflow.

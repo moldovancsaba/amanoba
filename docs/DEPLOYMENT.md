@@ -163,7 +163,7 @@ Test the following after deployment:
 | API Response Time (p95) | <300ms | — |
 | Error Rate | <0.5% | — |
 
-_Current values: to be filled when baseline is measured. Requirement: see `docs/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md` item 2._
+_Current values: to be filled when baseline is measured. Requirement: see `docs/_archive/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md` item 2._
 
 ---
 
