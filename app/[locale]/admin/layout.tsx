@@ -182,11 +182,6 @@ export default function AdminLayout({
             );
           })}
         </nav>
-
-        {/* Version only — user actions moved to header */}
-        <div className="flex-shrink-0 p-4 text-xs text-brand-white/60 text-center">
-          v{version} | Admin Mode
-        </div>
       </aside>
 
       {/* Main Content */}
