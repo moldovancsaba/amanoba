@@ -69,7 +69,7 @@ export default function LanguageSwitcher() {
       <select
         value={displayLocale}
         onChange={(e) => handleLanguageChange(e.target.value as Locale)}
-        className="relative z-10 appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md px-3 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 cursor-pointer"
+        className="relative z-10 appearance-none bg-brand-white border border-brand-darkGrey/20 text-brand-black rounded-md px-3 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-brand-accent cursor-pointer"
         aria-label="Select language"
       >
         {locales.map((loc) => (
@@ -78,7 +78,7 @@ export default function LanguageSwitcher() {
           </option>
         ))}
       </select>
-      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300 z-0">
+      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-brand-darkGrey z-0">
         <svg
           className="fill-current h-4 w-4"
           xmlns="http://www.w3.org/2000/svg"

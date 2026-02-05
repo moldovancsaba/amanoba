@@ -209,34 +209,34 @@ export default function AdminSettingsPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">{t('settingsTitle')}</h1>
-        <p className="text-gray-400">{t('settingsDescription')}</p>
+        <h1 className="text-3xl font-bold text-brand-white mb-2">{t('settingsTitle')}</h1>
+        <p className="text-brand-white/70">{t('settingsDescription')}</p>
       </div>
 
       {/* Settings Sections */}
       <div className="space-y-6">
         {/* General Settings */}
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+        <div className="panel-on-dark p-6">
           <div className="flex items-center gap-3 mb-4">
-            <Settings className="w-6 h-6 text-indigo-500" />
-            <h2 className="text-xl font-bold text-white">{t('generalSettings')}</h2>
+            <Settings className="w-6 h-6 text-brand-accent" />
+            <h2 className="text-xl font-bold text-brand-white">{t('generalSettings')}</h2>
           </div>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-brand-white/80 mb-2">
                 {t('platformName')}
               </label>
               <input
                 type="text"
                 defaultValue="Amanoba"
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                className="w-full px-4 py-2 input-on-dark"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-brand-white/80 mb-2">
                 {t('defaultLanguage')}
               </label>
-              <select className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500">
+              <select className="w-full px-4 py-2 input-on-dark">
                 <option value="hu">{t('hungarian')}</option>
                 <option value="en">{t('english')}</option>
               </select>
@@ -245,144 +245,144 @@ export default function AdminSettingsPage() {
         </div>
 
         {/* Database Settings */}
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+        <div className="panel-on-dark p-6">
           <div className="flex items-center gap-3 mb-4">
-            <Database className="w-6 h-6 text-indigo-500" />
-            <h2 className="text-xl font-bold text-white">{t('database')}</h2>
+            <Database className="w-6 h-6 text-brand-accent" />
+            <h2 className="text-xl font-bold text-brand-white">{t('database')}</h2>
           </div>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-brand-white/80 mb-2">
                 {t('connectionStatus')}
               </label>
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-white">{t('connected')}</span>
+                <span className="text-brand-white">{t('connected')}</span>
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-brand-white/80 mb-2">
                 {t('databaseName')}
               </label>
               <input
                 type="text"
                 defaultValue="amanoba"
                 disabled
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
+                className="w-full px-4 py-2 input-on-dark text-brand-white/60 cursor-not-allowed opacity-70"
               />
             </div>
           </div>
         </div>
 
         {/* Email Settings */}
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+        <div className="panel-on-dark p-6">
           <div className="flex items-center justify-between gap-3 mb-4">
             <div className="flex items-center gap-3">
-              <Mail className="w-6 h-6 text-indigo-500" />
-              <h2 className="text-xl font-bold text-white">{t('emailConfiguration')}</h2>
+              <Mail className="w-6 h-6 text-brand-accent" />
+              <h2 className="text-xl font-bold text-brand-white">{t('emailConfiguration')}</h2>
             </div>
             {mailSettingsLoading && (
-              <span className="text-sm text-gray-400">{t('loading')}</span>
+              <span className="text-sm text-brand-white/70">{t('loading')}</span>
             )}
           </div>
           <div className="space-y-4">
             {mailSettingsLoading ? (
-              <p className="text-sm text-gray-400">{t('loading')}</p>
+              <p className="text-sm text-brand-white/70">{t('loading')}</p>
             ) : mailSettings ? (
               <>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-brand-white/80 mb-2">
                     {t('emailProvider')}
                   </label>
                   <input
                     type="text"
                     value={mailSettings.emailProvider}
                     readOnly
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-2 input-on-dark"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-brand-white/80 mb-2">
                     {t('fromEmail')}
                   </label>
                   <input
                     type="text"
                     value={mailSettings.emailFrom || ''}
                     readOnly
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-2 input-on-dark"
                   />
                 </div>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-brand-white/80 mb-2">
                       {t('fromName')}
                     </label>
                     <input
                       type="text"
                       value={mailSettings.emailFromName || ''}
                       readOnly
-                      className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                      className="w-full px-4 py-2 input-on-dark"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-brand-white/80 mb-2">
                       {t('replyTo')}
                     </label>
                     <input
                       type="text"
                       value={mailSettings.emailReplyTo || ''}
                       readOnly
-                      className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                      className="w-full px-4 py-2 input-on-dark"
                     />
                   </div>
                 </div>
                 {mailSettings.smtpHost && (
                   <div className="grid gap-4 md:grid-cols-3">
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-brand-white/80 mb-2">
                         {t('smtpHost')}
                       </label>
                       <input
                         type="text"
                         value={mailSettings.smtpHost}
                         readOnly
-                        className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                        className="w-full px-4 py-2 input-on-dark"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-brand-white/80 mb-2">
                         {t('smtpPort')}
                       </label>
                       <input
                         type="text"
                         value={mailSettings.smtpPort || ''}
                         readOnly
-                        className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                        className="w-full px-4 py-2 input-on-dark"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-brand-white/80 mb-2">
                         {t('smtpSecure')}
                       </label>
                       <input
                         type="text"
                         value={mailSettings.smtpSecure || ''}
                         readOnly
-                        className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                        className="w-full px-4 py-2 input-on-dark"
                       />
                     </div>
                   </div>
                 )}
                 {mailSettings.mailgunDomain && (
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-brand-white/80 mb-2">
                       {t('mailgunDomain')}
                     </label>
                     <input
                       type="text"
                       value={mailSettings.mailgunDomain}
                       readOnly
-                      className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                      className="w-full px-4 py-2 input-on-dark"
                     />
                   </div>
                 )}
@@ -392,13 +392,13 @@ export default function AdminSettingsPage() {
                 {mailSettingsError || t('emailSettingsError')}
               </p>
             )}
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-brand-white/70">
               {t('emailProviderNote')}{' '}
               <a
                 href="https://github.com/moldovancsaba/amanoba/blob/main/docs/ENVIRONMENT_SETUP.md"
                 target="_blank"
                 rel="noreferrer"
-                className="text-indigo-400 underline"
+                className="text-brand-accent underline"
               >
                 {t('emailProviderDocs')}
               </a>
@@ -407,62 +407,62 @@ export default function AdminSettingsPage() {
         </div>
 
         {/* Security Settings */}
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+        <div className="panel-on-dark p-6">
           <div className="flex items-center gap-3 mb-4">
-            <Shield className="w-6 h-6 text-indigo-500" />
-            <h2 className="text-xl font-bold text-white">{t('security')}</h2>
+            <Shield className="w-6 h-6 text-brand-accent" />
+            <h2 className="text-xl font-bold text-brand-white">{t('security')}</h2>
           </div>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-brand-white/80 mb-2">
                 {t('adminPassword')}
               </label>
               <input
                 type="password"
                 placeholder="••••••••"
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                className="w-full px-4 py-2 input-on-dark"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-brand-white/80 mb-2">
                 {t('sessionTimeout')}
               </label>
               <input
                 type="number"
                 defaultValue="30"
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                className="w-full px-4 py-2 input-on-dark"
               />
             </div>
           </div>
         </div>
 
         {/* Internationalization */}
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+        <div className="panel-on-dark p-6">
           <div className="flex items-center gap-3 mb-4">
-            <Globe className="w-6 h-6 text-indigo-500" />
-            <h2 className="text-xl font-bold text-white">{t('internationalization')}</h2>
+            <Globe className="w-6 h-6 text-brand-accent" />
+            <h2 className="text-xl font-bold text-brand-white">{t('internationalization')}</h2>
           </div>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-brand-white/80 mb-2">
                 {t('supportedLanguages')}
               </label>
               <div className="flex items-center gap-4">
                 <label className="flex items-center gap-2">
                   <input type="checkbox" defaultChecked className="rounded" />
-                  <span className="text-white">{t('hungarian')} (hu)</span>
+                  <span className="text-brand-white">{t('hungarian')} (hu)</span>
                 </label>
                 <label className="flex items-center gap-2">
                   <input type="checkbox" defaultChecked className="rounded" />
-                  <span className="text-white">{t('english')} (en)</span>
+                  <span className="text-brand-white">{t('english')} (en)</span>
                 </label>
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-brand-white/80 mb-2">
                 {t('defaultLocale')}
               </label>
-              <select className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500">
+              <select className="w-full px-4 py-2 input-on-dark">
                 <option value="hu">{t('hungarian')}</option>
                 <option value="en">{t('english')}</option>
               </select>
@@ -471,17 +471,17 @@ export default function AdminSettingsPage() {
         </div>
 
         {/* Certification Settings */}
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+        <div className="panel-on-dark p-6">
           <div className="flex items-center gap-3 mb-4">
-            <Award className="w-6 h-6 text-indigo-500" />
-            <h2 className="text-xl font-bold text-white">Certification Settings</h2>
+            <Award className="w-6 h-6 text-brand-accent" />
+            <h2 className="text-xl font-bold text-brand-white">Certification Settings</h2>
           </div>
           {certSettingsLoading ? (
-            <div className="text-center py-8 text-gray-400">Loading certification settings...</div>
+            <div className="text-center py-8 text-brand-white/70">Loading certification settings...</div>
           ) : certSettings ? (
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-brand-white/80 mb-2">
                   Default Price (Money)
                 </label>
                 <div className="grid grid-cols-2 gap-4">
@@ -496,7 +496,7 @@ export default function AdminSettingsPage() {
                         currency: certSettings.priceMoney?.currency || 'USD',
                       },
                     })}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-2 input-on-dark"
                     placeholder="0"
                   />
                   <select
@@ -509,7 +509,7 @@ export default function AdminSettingsPage() {
                         currency: e.target.value,
                       },
                     })}
-                    className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-2 input-on-dark"
                   >
                     <option value="USD">USD</option>
                     <option value="EUR">EUR</option>
@@ -518,7 +518,7 @@ export default function AdminSettingsPage() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-brand-white/80 mb-2">
                   Default Price (Points)
                 </label>
                 <input
@@ -528,12 +528,12 @@ export default function AdminSettingsPage() {
                     ...certSettings,
                     pricePoints: parseInt(e.target.value) || 0,
                   })}
-                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 input-on-dark"
                   placeholder="0"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-brand-white/80 mb-2">
                   Template ID
                 </label>
                 <input
@@ -543,12 +543,12 @@ export default function AdminSettingsPage() {
                     ...certSettings,
                     templateId: e.target.value,
                   })}
-                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 input-on-dark"
                   placeholder="default_v1"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-brand-white/80 mb-2">
                   Credential ID
                 </label>
                 <input
@@ -558,12 +558,12 @@ export default function AdminSettingsPage() {
                     ...certSettings,
                     credentialId: e.target.value,
                   })}
-                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 input-on-dark"
                   placeholder="CERT"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-brand-white/80 mb-2">
                   Completion Phrase ID
                 </label>
                 <input
@@ -573,15 +573,15 @@ export default function AdminSettingsPage() {
                     ...certSettings,
                     completionPhraseId: e.target.value,
                   })}
-                  className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 input-on-dark"
                   placeholder="completion_final_exam"
                 />
               </div>
-              <div className="pt-4 border-t border-gray-700">
+              <div className="pt-4 border-t border-brand-accent/20">
                 <button
                   onClick={handleSaveCertSettings}
                   disabled={certSaving}
-                  className="flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 transition-colors disabled:opacity-50"
+                  className="page-button-primary flex items-center gap-2 px-6 py-3 disabled:opacity-50"
                 >
                   <Save className="w-5 h-5" />
                   {certSaving ? 'Saving...' : 'Save Certification Settings'}
@@ -589,24 +589,24 @@ export default function AdminSettingsPage() {
               </div>
             </div>
           ) : (
-            <div className="text-center py-8 text-gray-400">Failed to load certification settings</div>
+            <div className="text-center py-8 text-brand-white/70">Failed to load certification settings</div>
           )}
         </div>
 
         {/* Course Settings */}
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+        <div className="panel-on-dark p-6">
           <div className="flex items-center gap-3 mb-4">
-            <ImageIcon className="w-6 h-6 text-indigo-500" />
-            <h2 className="text-xl font-bold text-white">Course Settings</h2>
+            <ImageIcon className="w-6 h-6 text-brand-accent" />
+            <h2 className="text-xl font-bold text-brand-white">Course Settings</h2>
           </div>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-brand-white/80 mb-2">
                 Default Course Thumbnail
               </label>
               <div className="space-y-3">
                 {defaultThumbnail && (
-                  <div className="relative w-full h-48 bg-gray-700 rounded-lg overflow-hidden border-2 border-indigo-500">
+                  <div className="relative w-full h-48 bg-brand-black/40 rounded-lg overflow-hidden border-2 border-brand-accent">
                     <Image
                       src={defaultThumbnail}
                       alt="Default course thumbnail"
@@ -632,13 +632,13 @@ export default function AdminSettingsPage() {
                           alert('Failed to remove default thumbnail');
                         }
                       }}
-                      className="absolute top-2 right-2 bg-red-500 text-white px-3 py-1 rounded-lg text-sm font-bold hover:bg-red-600"
+                      className="absolute top-2 right-2 bg-red-500 text-brand-white px-3 py-1 rounded-lg text-sm font-bold hover:bg-red-600"
                     >
                       Remove
                     </button>
                   </div>
                 )}
-                <label className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-indigo-700 transition-colors cursor-pointer w-fit disabled:opacity-50" style={{ pointerEvents: uploadingThumbnail ? 'none' : 'auto' }}>
+                <label className="page-button-primary flex items-center gap-2 cursor-pointer w-fit disabled:opacity-50" style={{ pointerEvents: uploadingThumbnail ? 'none' : 'auto' }}>
                   <Upload className="w-5 h-5" />
                   {uploadingThumbnail ? 'Uploading...' : defaultThumbnail ? 'Change Default Thumbnail' : 'Upload Default Thumbnail'}
                   <input
@@ -649,7 +649,7 @@ export default function AdminSettingsPage() {
                     className="hidden"
                   />
                 </label>
-                <p className="text-xs text-gray-400">
+                <p className="text-xs text-brand-white/60">
                   This thumbnail will be used for courses that don&apos;t have their own thumbnail image. (JPEG, PNG, WebP, or GIF, max 10MB)
                 </p>
               </div>
@@ -668,7 +668,7 @@ export default function AdminSettingsPage() {
         <button
           onClick={handleSave}
           disabled={saving}
-          className="flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 transition-colors disabled:opacity-50"
+          className="page-button-primary flex items-center gap-2 px-6 py-3 disabled:opacity-50"
         >
           <Save className="w-5 h-5" />
           {saving ? t('saving') : t('saveSettings')}

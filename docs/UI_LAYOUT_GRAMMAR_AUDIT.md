@@ -1,6 +1,6 @@
 # UI Layout Grammar Audit
 
-**Generated at**: 2026-02-05T19:28:40.588Z
+**Generated at**: 2026-02-05T19:55:00.078Z
 
 This report scans tracked UI code (`app/**`, `components/**`) for **layout-grammar / design-token** drift. It is a *heuristic* scan: it finds likely violations, then humans decide which are intentional.
 
@@ -16,36 +16,32 @@ This report scans tracked UI code (`app/**`, `components/**`) for **layout-gramm
 ### Findings by area
 | Group | Findings |
 | --- | --- |
-| admin | 910 |
+| admin | 580 |
 | app | 412 |
 | games | 192 |
-| components | 20 |
+| components | 14 |
 
 ### Findings by severity
 | Severity | Findings |
 | --- | --- |
-| major | 908 |
-| minor | 570 |
-| info | 56 |
+| major | 680 |
+| minor | 464 |
+| info | 54 |
 
 ### Top patterns (most frequent)
 | Pattern | Severity | Findings |
 | --- | --- | --- |
-| Default Tailwind gray scale in UI | major | 734 |
-| Plain white/black classes (bg-white, text-white, bg-black, text-black) | minor | 570 |
-| Default Tailwind indigo/blue palette in UI | major | 174 |
+| Default Tailwind gray scale in UI | major | 562 |
+| Plain white/black classes (bg-white, text-white, bg-black, text-black) | minor | 464 |
+| Default Tailwind indigo/blue palette in UI | major | 118 |
 | Inline style={{...}} in components/pages | info | 28 |
-| Uses Tailwind dark: variants | info | 28 |
+| Uses Tailwind dark: variants | info | 26 |
 
 ### Top files (most findings)
 | File | Group | Findings |
 | --- | --- | --- |
 | `app/[locale]/profile/[playerId]/page.tsx` | app | 129 |
-| `app/[locale]/admin/settings/page.tsx` | admin | 124 |
 | `app/[locale]/admin/achievements/[achievementId]/page.tsx` | admin | 88 |
-| `app/[locale]/admin/payments/page.tsx` | admin | 82 |
-| `app/[locale]/admin/achievements/new/page.tsx` | admin | 80 |
-| `app/[locale]/admin/page.tsx` | admin | 70 |
 | `app/[locale]/games/quizzz/page.tsx` | games | 56 |
 | `app/[locale]/admin/players/page.tsx` | admin | 53 |
 | `app/[locale]/admin/achievements/page.tsx` | admin | 49 |
@@ -63,8 +59,12 @@ This report scans tracked UI code (`app/**`, `components/**`) for **layout-gramm
 | `app/[locale]/admin/email-analytics/page.tsx` | admin | 29 |
 | `app/[locale]/certificate/verify/[playerId]/[courseId]/page.tsx` | app | 28 |
 | `app/[locale]/admin/quests/page.tsx` | admin | 24 |
+| `app/[locale]/admin/achievements/new/page.tsx` | admin | 22 |
 | `app/[locale]/admin/questions/page.tsx` | admin | 22 |
 | `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx` | app | 22 |
+| `app/[locale]/admin/feature-flags/page.tsx` | admin | 16 |
+| `app/[locale]/courses/[courseId]/final-exam/page.tsx` | app | 16 |
+| `app/[locale]/quests/page.tsx` | app | 16 |
 
 ## Rules checked (what counts as a “defect”)
 
@@ -179,32 +179,32 @@ Use this section to spot-check; the totals above are the authoritative counts.
 | `app/[locale]/admin/achievements/[achievementId]/page.tsx:760` | Default Tailwind gray scale in UI | `bg-gray-700` `bg-gray-600` |
 | `app/[locale]/admin/achievements/[achievementId]/page.tsx:760` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
 | `app/[locale]/admin/achievements/[achievementId]/page.tsx:768` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:62` | Default Tailwind gray scale in UI | `bg-gray-400` `text-gray-300` |
-| `app/[locale]/admin/achievements/new/page.tsx:246` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:259` | Default Tailwind gray scale in UI | `bg-gray-800` |
 | `app/[locale]/admin/achievements/new/page.tsx:261` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
 | `app/[locale]/admin/achievements/new/page.tsx:264` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:267` | Default Tailwind gray scale in UI | `text-gray-400` |
 | `app/[locale]/admin/achievements/new/page.tsx:285` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
 | `app/[locale]/admin/achievements/new/page.tsx:293` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:300` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/new/page.tsx:300` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/new/page.tsx:300` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:305` | Default Tailwind gray scale in UI | `text-gray-400` |
 | `app/[locale]/admin/achievements/new/page.tsx:310` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:316` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/new/page.tsx:316` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/new/page.tsx:316` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:322` | Default Tailwind gray scale in UI | `text-gray-400` |
 | `app/[locale]/admin/achievements/new/page.tsx:328` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:334` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/new/page.tsx:334` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/new/page.tsx:334` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
 | `app/[locale]/admin/achievements/new/page.tsx:344` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:350` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/new/page.tsx:350` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/new/page.tsx:350` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
 | `app/[locale]/admin/achievements/new/page.tsx:362` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:406` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:415` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:420` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:441` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:459` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:485` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:502` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:507` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:521` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:536` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:553` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:563` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:571` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:577` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/page.tsx:108` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/page.tsx:115` | Default Tailwind gray scale in UI | `bg-gray-400` `text-gray-300` |
+| `app/[locale]/admin/achievements/page.tsx:125` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/page.tsx:126` | Default Tailwind gray scale in UI | `text-gray-400` |
 
 ## Actionable next steps (recommended)
 

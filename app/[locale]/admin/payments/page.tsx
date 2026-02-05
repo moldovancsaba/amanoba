@@ -161,9 +161,9 @@ export default function AdminPaymentsPage() {
         return 'text-yellow-400 bg-yellow-400/20';
       case 'pending':
       case 'processing':
-        return 'text-blue-400 bg-blue-400/20';
+        return 'text-brand-accent bg-brand-accent/20';
       default:
-        return 'text-gray-400 bg-gray-400/20';
+        return 'text-brand-white/70 bg-brand-white/5';
     }
   };
 
@@ -228,8 +228,8 @@ export default function AdminPaymentsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Payment Dashboard</h1>
-          <p className="text-gray-400">View all transactions and revenue analytics</p>
+          <h1 className="text-3xl font-bold text-brand-white mb-2">Payment Dashboard</h1>
+          <p className="text-brand-white/70">View all transactions and revenue analytics</p>
         </div>
         <div className="flex items-center gap-3">
           <button
@@ -255,20 +255,20 @@ export default function AdminPaymentsPage() {
           {/* Total Revenue */}
           <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-gray-400">Total Revenue</h3>
+              <h3 className="text-sm font-medium text-brand-white/70">Total Revenue</h3>
               <DollarSign className="w-5 h-5 text-brand-accent" />
             </div>
             <div className="space-y-1">
               {analytics.totalRevenue.length > 0 ? (
                 analytics.totalRevenue.map((rev) => (
-                  <div key={rev.currency} className="text-2xl font-bold text-white">
+                  <div key={rev.currency} className="text-2xl font-bold text-brand-white">
                     {formatCurrency(rev.amount, rev.currency)}
                   </div>
                 ))
               ) : (
-                <div className="text-2xl font-bold text-white">$0.00</div>
+                <div className="text-2xl font-bold text-brand-white">$0.00</div>
               )}
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-brand-white/70">
                 {analytics.succeededTransactions} successful transactions
               </p>
             </div>
@@ -277,13 +277,13 @@ export default function AdminPaymentsPage() {
           {/* Success Rate */}
           <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-gray-400">Success Rate</h3>
+              <h3 className="text-sm font-medium text-brand-white/70">Success Rate</h3>
               <TrendingUp className="w-5 h-5 text-green-400" />
             </div>
-            <div className="text-2xl font-bold text-white">
+            <div className="text-2xl font-bold text-brand-white">
               {analytics.successRate.toFixed(1)}%
             </div>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-brand-white/70">
               {analytics.succeededTransactions} / {analytics.totalTransactions} transactions
             </p>
           </div>
@@ -291,13 +291,13 @@ export default function AdminPaymentsPage() {
           {/* Failed Transactions */}
           <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-gray-400">Failed</h3>
+              <h3 className="text-sm font-medium text-brand-white/70">Failed</h3>
               <TrendingDown className="w-5 h-5 text-red-400" />
             </div>
-            <div className="text-2xl font-bold text-white">
+            <div className="text-2xl font-bold text-brand-white">
               {analytics.failedTransactions}
             </div>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-brand-white/70">
               {analytics.failureRate.toFixed(1)}% failure rate
             </p>
           </div>
@@ -305,13 +305,13 @@ export default function AdminPaymentsPage() {
           {/* Refunded */}
           <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-gray-400">Refunded</h3>
+              <h3 className="text-sm font-medium text-brand-white/70">Refunded</h3>
               <RefreshCw className="w-5 h-5 text-yellow-400" />
             </div>
-            <div className="text-2xl font-bold text-white">
+            <div className="text-2xl font-bold text-brand-white">
               {analytics.refundedTransactions}
             </div>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-brand-white/70">
               {analytics.refundRate.toFixed(1)}% refund rate
             </p>
           </div>
@@ -321,42 +321,42 @@ export default function AdminPaymentsPage() {
       {/* Revenue by Period */}
       {analytics && (
         <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-          <h2 className="text-xl font-bold text-white mb-4">Revenue by Period</h2>
+          <h2 className="text-xl font-bold text-brand-white mb-4">Revenue by Period</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <h3 className="text-sm font-medium text-gray-400 mb-2">Today</h3>
+              <h3 className="text-sm font-medium text-brand-white/70 mb-2">Today</h3>
               {analytics.revenueByPeriod.today.length > 0 ? (
                 analytics.revenueByPeriod.today.map((rev) => (
-                  <div key={rev.currency} className="text-lg font-bold text-white">
+                  <div key={rev.currency} className="text-lg font-bold text-brand-white">
                     {formatCurrency(rev.amount, rev.currency)}
                   </div>
                 ))
               ) : (
-                <div className="text-lg font-bold text-white">$0.00</div>
+                <div className="text-lg font-bold text-brand-white">$0.00</div>
               )}
             </div>
             <div>
-              <h3 className="text-sm font-medium text-gray-400 mb-2">Last 7 Days</h3>
+              <h3 className="text-sm font-medium text-brand-white/70 mb-2">Last 7 Days</h3>
               {analytics.revenueByPeriod.last7Days.length > 0 ? (
                 analytics.revenueByPeriod.last7Days.map((rev) => (
-                  <div key={rev.currency} className="text-lg font-bold text-white">
+                  <div key={rev.currency} className="text-lg font-bold text-brand-white">
                     {formatCurrency(rev.amount, rev.currency)}
                   </div>
                 ))
               ) : (
-                <div className="text-lg font-bold text-white">$0.00</div>
+                <div className="text-lg font-bold text-brand-white">$0.00</div>
               )}
             </div>
             <div>
-              <h3 className="text-sm font-medium text-gray-400 mb-2">Last 30 Days</h3>
+              <h3 className="text-sm font-medium text-brand-white/70 mb-2">Last 30 Days</h3>
               {analytics.revenueByPeriod.last30Days.length > 0 ? (
                 analytics.revenueByPeriod.last30Days.map((rev) => (
-                  <div key={rev.currency} className="text-lg font-bold text-white">
+                  <div key={rev.currency} className="text-lg font-bold text-brand-white">
                     {formatCurrency(rev.amount, rev.currency)}
                   </div>
                 ))
               ) : (
-                <div className="text-lg font-bold text-white">$0.00</div>
+                <div className="text-lg font-bold text-brand-white">$0.00</div>
               )}
             </div>
           </div>
@@ -368,7 +368,7 @@ export default function AdminPaymentsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {/* Status Filter */}
           <div>
-            <label className="block text-sm font-medium text-gray-400 mb-2">Status</label>
+            <label className="block text-sm font-medium text-brand-white/70 mb-2">Status</label>
             <select
               value={statusFilter}
               onChange={(e) => {
@@ -389,7 +389,7 @@ export default function AdminPaymentsPage() {
 
           {/* Course Filter */}
           <div>
-            <label className="block text-sm font-medium text-gray-400 mb-2">Course</label>
+            <label className="block text-sm font-medium text-brand-white/70 mb-2">Course</label>
             <input
               type="text"
               placeholder="Course ID..."
@@ -404,7 +404,7 @@ export default function AdminPaymentsPage() {
 
           {/* Player Filter */}
           <div>
-            <label className="block text-sm font-medium text-gray-400 mb-2">User ID</label>
+            <label className="block text-sm font-medium text-brand-white/70 mb-2">User ID</label>
               <input
                 type="text"
                 placeholder="User ID..."
@@ -419,7 +419,7 @@ export default function AdminPaymentsPage() {
 
           {/* Start Date */}
           <div>
-            <label className="block text-sm font-medium text-gray-400 mb-2">Start Date</label>
+            <label className="block text-sm font-medium text-brand-white/70 mb-2">Start Date</label>
             <input
               type="date"
               value={startDate}
@@ -433,7 +433,7 @@ export default function AdminPaymentsPage() {
 
           {/* End Date */}
           <div>
-            <label className="block text-sm font-medium text-gray-400 mb-2">End Date</label>
+            <label className="block text-sm font-medium text-brand-white/70 mb-2">End Date</label>
             <input
               type="date"
               value={endDate}
@@ -453,25 +453,25 @@ export default function AdminPaymentsPage() {
           <table className="w-full">
             <thead className="bg-brand-black/50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-brand-white/70 uppercase tracking-wider">
                   Date
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-brand-white/70 uppercase tracking-wider">
                   Player
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-brand-white/70 uppercase tracking-wider">
                   Course
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-brand-white/70 uppercase tracking-wider">
                   Amount
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-brand-white/70 uppercase tracking-wider">
                   Status
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-brand-white/70 uppercase tracking-wider">
                   Payment Method
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-brand-white/70 uppercase tracking-wider">
                   Actions
                 </th>
               </tr>
@@ -479,36 +479,36 @@ export default function AdminPaymentsPage() {
             <tbody className="divide-y divide-brand-black/50">
               {loading ? (
                 <tr>
-                  <td colSpan={7} className="px-6 py-12 text-center text-gray-400">
+                  <td colSpan={7} className="px-6 py-12 text-center text-brand-white/70">
                     Loading transactions...
                   </td>
                 </tr>
               ) : transactions.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="px-6 py-12 text-center text-gray-400">
+                  <td colSpan={7} className="px-6 py-12 text-center text-brand-white/70">
                     No transactions found
                   </td>
                 </tr>
               ) : (
                 transactions.map((tx) => (
                   <tr key={tx.id} className="hover:bg-brand-black/30">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-white">
                       {new Date(tx.createdAt).toLocaleDateString()}
                       <br />
-                      <span className="text-xs text-gray-400">
+                      <span className="text-xs text-brand-white/60">
                         {new Date(tx.createdAt).toLocaleTimeString()}
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-white">{tx.playerName}</div>
+                      <div className="text-sm text-brand-white">{tx.playerName}</div>
                       {tx.playerEmail && (
-                        <div className="text-xs text-gray-400">{tx.playerEmail}</div>
+                        <div className="text-xs text-brand-white/60">{tx.playerEmail}</div>
                       )}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-white">
                       {tx.courseName || 'N/A'}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-white">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-brand-white">
                       {formatCurrency(tx.amount, tx.currency)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -519,7 +519,7 @@ export default function AdminPaymentsPage() {
                         {tx.status}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-white">
                       {tx.paymentMethod
                         ? `${tx.paymentMethod.type} ${tx.paymentMethod.last4 ? `••••${tx.paymentMethod.last4}` : ''}`
                         : 'N/A'}
@@ -543,7 +543,7 @@ export default function AdminPaymentsPage() {
         {/* Pagination */}
         {totalPages > 1 && (
           <div className="px-6 py-4 border-t border-brand-black/50 flex items-center justify-between">
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-brand-white/70">
               Showing {(currentPage - 1) * limit + 1} to {Math.min(currentPage * limit, totalCount)} of {totalCount} transactions
             </div>
             <div className="flex items-center gap-2">
@@ -554,7 +554,7 @@ export default function AdminPaymentsPage() {
               >
                 Previous
               </button>
-              <span className="text-sm text-gray-400">
+              <span className="text-sm text-brand-white/70">
                 Page {currentPage} of {totalPages}
               </span>
               <button
@@ -575,10 +575,10 @@ export default function AdminPaymentsPage() {
           <div className="bg-brand-darkGrey rounded-xl border-2 border-brand-accent max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b border-brand-black/50">
               <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-white">Transaction Details</h2>
+                <h2 className="text-2xl font-bold text-brand-white">Transaction Details</h2>
                 <button
                   onClick={() => setSelectedTransaction(null)}
-                  className="text-gray-400 hover:text-white"
+                  className="text-brand-white/70 hover:text-brand-white"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -587,11 +587,11 @@ export default function AdminPaymentsPage() {
             <div className="p-6 space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm font-medium text-gray-400">Transaction ID</label>
-                  <div className="text-white font-mono text-sm">{selectedTransaction.id}</div>
+                  <label className="text-sm font-medium text-brand-white/70">Transaction ID</label>
+                  <div className="text-brand-white font-mono text-sm">{selectedTransaction.id}</div>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-400">Status</label>
+                  <label className="text-sm font-medium text-brand-white/70">Status</label>
                   <div>
                     <span
                       className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(selectedTransaction.status)}`}
@@ -602,90 +602,90 @@ export default function AdminPaymentsPage() {
                   </div>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-400">User</label>
-                  <div className="text-white">{selectedTransaction.playerName}</div>
+                  <label className="text-sm font-medium text-brand-white/70">User</label>
+                  <div className="text-brand-white">{selectedTransaction.playerName}</div>
                   {selectedTransaction.playerEmail && (
-                    <div className="text-sm text-gray-400">{selectedTransaction.playerEmail}</div>
+                    <div className="text-sm text-brand-white/70">{selectedTransaction.playerEmail}</div>
                   )}
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-400">Course</label>
-                  <div className="text-white">{selectedTransaction.courseName || 'N/A'}</div>
+                  <label className="text-sm font-medium text-brand-white/70">Course</label>
+                  <div className="text-brand-white">{selectedTransaction.courseName || 'N/A'}</div>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-400">Amount</label>
-                  <div className="text-white font-bold">
+                  <label className="text-sm font-medium text-brand-white/70">Amount</label>
+                  <div className="text-brand-white font-bold">
                     {formatCurrency(selectedTransaction.amount, selectedTransaction.currency)}
                   </div>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-400">Payment Method</label>
-                  <div className="text-white">
+                  <label className="text-sm font-medium text-brand-white/70">Payment Method</label>
+                  <div className="text-brand-white">
                     {selectedTransaction.paymentMethod
                       ? `${selectedTransaction.paymentMethod.type} ${selectedTransaction.paymentMethod.last4 ? `••••${selectedTransaction.paymentMethod.last4}` : ''}`
                       : 'N/A'}
                   </div>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-400">Created At</label>
-                  <div className="text-white">
+                  <label className="text-sm font-medium text-brand-white/70">Created At</label>
+                  <div className="text-brand-white">
                     {new Date(selectedTransaction.createdAt).toLocaleString()}
                   </div>
                 </div>
                 {selectedTransaction.processedAt && (
                   <div>
-                    <label className="text-sm font-medium text-gray-400">Processed At</label>
-                    <div className="text-white">
+                    <label className="text-sm font-medium text-brand-white/70">Processed At</label>
+                    <div className="text-brand-white">
                       {new Date(selectedTransaction.processedAt).toLocaleString()}
                     </div>
                   </div>
                 )}
                 {selectedTransaction.refundedAt && (
                   <div>
-                    <label className="text-sm font-medium text-gray-400">Refunded At</label>
-                    <div className="text-white">
+                    <label className="text-sm font-medium text-brand-white/70">Refunded At</label>
+                    <div className="text-brand-white">
                       {new Date(selectedTransaction.refundedAt).toLocaleString()}
                     </div>
                   </div>
                 )}
                 <div>
-                  <label className="text-sm font-medium text-gray-400">Premium Granted</label>
-                  <div className="text-white">
+                  <label className="text-sm font-medium text-brand-white/70">Premium Granted</label>
+                  <div className="text-brand-white">
                     {selectedTransaction.premiumGranted ? 'Yes' : 'No'}
                   </div>
                 </div>
                 {selectedTransaction.premiumExpiresAt && (
                   <div>
-                    <label className="text-sm font-medium text-gray-400">Premium Expires</label>
-                    <div className="text-white">
+                    <label className="text-sm font-medium text-brand-white/70">Premium Expires</label>
+                    <div className="text-brand-white">
                       {new Date(selectedTransaction.premiumExpiresAt).toLocaleString()}
                     </div>
                   </div>
                 )}
               </div>
               <div>
-                <label className="text-sm font-medium text-gray-400">Stripe Payment Intent ID</label>
-                <div className="text-white font-mono text-sm break-all">
+                <label className="text-sm font-medium text-brand-white/70">Stripe Payment Intent ID</label>
+                <div className="text-brand-white font-mono text-sm break-all">
                   {selectedTransaction.stripePaymentIntentId}
                 </div>
               </div>
               {selectedTransaction.stripeCheckoutSessionId && (
                 <div>
-                  <label className="text-sm font-medium text-gray-400">Stripe Checkout Session ID</label>
-                  <div className="text-white font-mono text-sm break-all">
+                  <label className="text-sm font-medium text-brand-white/70">Stripe Checkout Session ID</label>
+                  <div className="text-brand-white font-mono text-sm break-all">
                     {selectedTransaction.stripeCheckoutSessionId}
                   </div>
                 </div>
               )}
               {selectedTransaction.failureReason && (
                 <div>
-                  <label className="text-sm font-medium text-gray-400">Failure Reason</label>
+                  <label className="text-sm font-medium text-brand-white/70">Failure Reason</label>
                   <div className="text-red-400">{selectedTransaction.failureReason}</div>
                 </div>
               )}
               {selectedTransaction.refundReason && (
                 <div>
-                  <label className="text-sm font-medium text-gray-400">Refund Reason</label>
+                  <label className="text-sm font-medium text-brand-white/70">Refund Reason</label>
                   <div className="text-yellow-400">{selectedTransaction.refundReason}</div>
                 </div>
               )}

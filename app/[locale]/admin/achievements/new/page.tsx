@@ -59,7 +59,7 @@ const CATEGORIES = [
 
 const TIERS = [
   { value: 'bronze', label: 'Bronze', color: 'bg-orange-500/20 text-orange-400' },
-  { value: 'silver', label: 'Silver', color: 'bg-gray-400/20 text-gray-300' },
+  { value: 'silver', label: 'Silver', color: 'bg-brand-white/10 text-brand-white/80' },
   { value: 'gold', label: 'Gold', color: 'bg-yellow-500/20 text-yellow-400' },
   { value: 'platinum', label: 'Platinum', color: 'bg-purple-500/20 text-purple-400' },
 ] as const;
@@ -243,7 +243,7 @@ export default function NewAchievementPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">{tCommon('loading')}</div>
+        <div className="text-brand-white text-xl">{tCommon('loading')}</div>
       </div>
     );
   }
@@ -256,7 +256,7 @@ export default function NewAchievementPage() {
           <div className="flex items-center gap-4">
             <Link
               href={`/${locale}/admin/achievements`}
-              className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
+              className="p-2 hover:bg-brand-secondary-700 rounded-lg transition-colors"
             >
               <ArrowLeft className="w-5 h-5 text-white" />
             </Link>
@@ -264,7 +264,7 @@ export default function NewAchievementPage() {
               <h1 className="text-3xl font-bold text-white mb-2">
                 {t('createAchievement') || 'Create Achievement'}
               </h1>
-              <p className="text-gray-400">
+              <p className="text-brand-white/70">
                 {t('createAchievementDescription') || 'Add a new achievement to the system'}
               </p>
             </div>
@@ -297,12 +297,12 @@ export default function NewAchievementPage() {
                   type="text"
                   value={formData.name}
                   onChange={(e) => updateFormData('name', e.target.value)}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 input-on-dark"
                   placeholder="Achievement name"
                   maxLength={100}
                   required
                 />
-                <p className="text-gray-400 text-xs mt-1">Max 100 characters</p>
+                <p className="text-brand-white/60 text-xs mt-1">Max 100 characters</p>
               </div>
 
               {/* Description */}
@@ -313,13 +313,13 @@ export default function NewAchievementPage() {
                 <textarea
                   value={formData.description}
                   onChange={(e) => updateFormData('description', e.target.value)}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 input-on-dark"
                   placeholder="What does the player need to do to unlock this achievement?"
                   rows={3}
                   maxLength={500}
                   required
                 />
-                <p className="text-gray-400 text-xs mt-1">Max 500 characters</p>
+                <p className="text-brand-white/60 text-xs mt-1">Max 500 characters</p>
               </div>
 
               {/* Category and Tier */}
@@ -331,7 +331,7 @@ export default function NewAchievementPage() {
                   <select
                     value={formData.category}
                     onChange={(e) => updateFormData('category', e.target.value)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-2 input-on-dark"
                     required
                   >
                     {CATEGORIES.map(cat => (
@@ -347,7 +347,7 @@ export default function NewAchievementPage() {
                   <select
                     value={formData.tier}
                     onChange={(e) => updateFormData('tier', e.target.value)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-2 input-on-dark"
                     required
                   >
                     {TIERS.map(tier => (
@@ -367,12 +367,12 @@ export default function NewAchievementPage() {
                     type="text"
                     value={formData.icon}
                     onChange={(e) => updateFormData('icon', e.target.value)}
-                    className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                    className="flex-1 px-4 py-2 input-on-dark"
                     placeholder="🏆 or icon identifier"
                     maxLength={50}
                     required
                   />
-                  <div className="text-4xl bg-gray-800 border border-gray-700 rounded-lg px-4 flex items-center justify-center">
+                  <div className="text-4xl bg-brand-darkGrey border border-brand-accent/30 rounded-lg px-4 flex items-center justify-center">
                     {formData.icon || '🏆'}
                   </div>
                 </div>
@@ -384,8 +384,8 @@ export default function NewAchievementPage() {
                       onClick={() => updateFormData('icon', icon)}
                       className={`text-2xl p-2 rounded-lg border transition-colors ${
                         formData.icon === icon
-                          ? 'border-indigo-500 bg-indigo-500/20'
-                          : 'border-gray-700 hover:border-gray-600'
+                          ? 'border-brand-accent bg-brand-accent/20'
+                          : 'border-brand-accent/20 hover:border-brand-accent/40'
                       }`}
                     >
                       {icon}
@@ -401,7 +401,7 @@ export default function NewAchievementPage() {
                   id="isHidden"
                   checked={formData.isHidden}
                   onChange={(e) => updateFormData('isHidden', e.target.checked)}
-                  className="w-4 h-4 text-indigo-600 bg-gray-800 border-gray-700 rounded focus:ring-indigo-500"
+                  className="w-4 h-4 text-brand-accent bg-brand-darkGrey border-brand-accent/30 rounded focus:ring-brand-accent"
                 />
                 <label htmlFor="isHidden" className="text-white text-sm">
                   Hidden Achievement (secret, not shown until unlocked)
@@ -419,12 +419,12 @@ export default function NewAchievementPage() {
               <div>
                 <label className="block text-white text-sm font-medium mb-2">
                   Criteria Type <span className="text-red-400">*</span>
-                  <span title="What the player needs to accomplish"><HelpCircle className="w-4 h-4 inline-block ml-2 text-gray-400" /></span>
+                  <span title="What the player needs to accomplish"><HelpCircle className="w-4 h-4 inline-block ml-2 text-brand-white/70" /></span>
                 </label>
                 <select
                   value={formData.criteria.type}
                   onChange={(e) => updateFormData('criteria.type', e.target.value)}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 input-on-dark"
                   required
                 >
                   {CRITERIA_TYPES.map(type => (
@@ -444,7 +444,7 @@ export default function NewAchievementPage() {
                   <select
                     value={formData.criteria.gameId || ''}
                     onChange={(e) => updateFormData('criteria.gameId', e.target.value || undefined)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-2 input-on-dark"
                   >
                     <option value="">All Games</option>
                     {games.map(game => (
@@ -463,11 +463,11 @@ export default function NewAchievementPage() {
                   type="number"
                   value={formData.criteria.target}
                   onChange={(e) => updateFormData('criteria.target', parseInt(e.target.value) || 1)}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 input-on-dark"
                   min={1}
                   required
                 />
-                <p className="text-gray-400 text-xs mt-1">
+                <p className="text-brand-white/60 text-xs mt-1">
                   {formData.criteria.type === 'streak' && 'Number of consecutive days/wins'}
                   {formData.criteria.type === 'games_played' && 'Number of games to play'}
                   {formData.criteria.type === 'wins' && 'Number of wins required'}
@@ -489,7 +489,7 @@ export default function NewAchievementPage() {
                   type="text"
                   value={formData.criteria.condition || ''}
                   onChange={(e) => updateFormData('criteria.condition', e.target.value)}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 input-on-dark"
                   placeholder="Additional requirements or conditions"
                   maxLength={200}
                 />
@@ -511,7 +511,7 @@ export default function NewAchievementPage() {
                     type="number"
                     value={formData.rewards.points}
                     onChange={(e) => updateFormData('rewards.points', parseInt(e.target.value) || 0)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-2 input-on-dark"
                     min={0}
                     required
                   />
@@ -525,7 +525,7 @@ export default function NewAchievementPage() {
                     type="number"
                     value={formData.rewards.xp}
                     onChange={(e) => updateFormData('rewards.xp', parseInt(e.target.value) || 0)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-2 input-on-dark"
                     min={0}
                     required
                   />
@@ -540,7 +540,7 @@ export default function NewAchievementPage() {
                   type="text"
                   value={formData.rewards.title || ''}
                   onChange={(e) => updateFormData('rewards.title', e.target.value)}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 input-on-dark"
                   placeholder="Special title/badge player can equip"
                   maxLength={50}
                 />
@@ -558,7 +558,7 @@ export default function NewAchievementPage() {
                 id="isActive"
                 checked={formData.metadata.isActive}
                 onChange={(e) => updateFormData('metadata.isActive', e.target.checked)}
-                className="w-4 h-4 text-indigo-600 bg-gray-800 border-gray-700 rounded focus:ring-indigo-500"
+                className="w-4 h-4 text-brand-accent bg-brand-darkGrey border-brand-accent/30 rounded focus:ring-brand-accent"
               />
               <label htmlFor="isActive" className="text-white text-sm">
                 Active (achievement can be unlocked)
@@ -569,7 +569,7 @@ export default function NewAchievementPage() {
           {/* Preview */}
           <div className="page-card-dark p-6">
             <h2 className="text-xl font-bold text-white mb-4">Preview</h2>
-            <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+            <div className="panel-on-dark p-6">
               <div className="flex items-start gap-4">
                 <div className="text-5xl">{formData.icon || '🏆'}</div>
                 <div className="flex-1">
@@ -581,8 +581,8 @@ export default function NewAchievementPage() {
                       {formData.tier}
                     </span>
                   </div>
-                  <p className="text-gray-400 text-sm mb-3">{formData.description || 'Achievement description'}</p>
-                  <div className="text-sm text-gray-300">
+                  <p className="text-brand-white/70 text-sm mb-3">{formData.description || 'Achievement description'}</p>
+                  <div className="text-sm text-brand-white/80">
                     <div>Rewards: {formData.rewards.points} points, {formData.rewards.xp} XP</div>
                     <div>Criteria: {CRITERIA_TYPES.find(t => t.value === formData.criteria.type)?.label} ({formData.criteria.target})</div>
                   </div>
@@ -595,14 +595,14 @@ export default function NewAchievementPage() {
           <div className="flex items-center justify-end gap-4">
             <Link
               href={`/${locale}/admin/achievements`}
-              className="px-6 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition-colors"
+              className="page-button-secondary px-6 py-2 font-medium"
             >
               {tCommon('cancel')}
             </Link>
             <button
               type="submit"
               disabled={saving}
-              className="flex items-center gap-2 px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="page-button-primary flex items-center gap-2 px-6 py-2 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Save className="w-4 h-4" />
               {saving ? tCommon('loading') : tCommon('create')}
