@@ -43,4 +43,4 @@
 
 ## 📋 Rollback
 
-See `docs/DEBUG_PLAYER_ENDPOINT_ROLLBACK_PLAN.md`.
+See `docs/_archive/reference/DEBUG_PLAYER_ENDPOINT_ROLLBACK_PLAN.md`.

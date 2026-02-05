@@ -4,7 +4,7 @@
  * Purpose: Generate questions by analyzing actual lesson content.
  * This avoids generic templates and creates context-rich, content-specific questions.
  *
- * Gold-standard (see docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md): every question must be
+ * Gold-standard (see docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md): every question must be
  * standalone, grounded in the lesson, scenario-based, ask for a concrete deliverable/outcome,
  * and use concrete educational distractors (plausible domain mistakes, no generic filler).
  */

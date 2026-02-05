@@ -112,10 +112,10 @@
 
 1. **`docs/FINAL_QUIZ_SYSTEM_DELIVERY.md`** - This document
 2. **`docs/QUIZ_SYSTEM_FIX_COMPLETE.md`** - Complete fix report
-3. **`docs/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md`** - Detailed action plan
-4. **`docs/QUIZ_SEEDING_COMPLETE_REPORT.md`** - Seeding report
-5. **`docs/QUIZ_SYSTEM_FIX_SUMMARY.md`** - Progress summary
-6. **`docs/QUIZ_FIX_DELIVERY_SUMMARY.md`** - Delivery summary
+3. **`docs/_archive/reference/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md`** - Detailed action plan
+4. **`docs/_archive/reference/QUIZ_SEEDING_COMPLETE_REPORT.md`** - Seeding report
+5. **`docs/_archive/reference/QUIZ_SYSTEM_FIX_SUMMARY.md`** - Progress summary
+6. **`docs/_archive/reference/QUIZ_FIX_DELIVERY_SUMMARY.md`** - Delivery summary
 
 ---
 

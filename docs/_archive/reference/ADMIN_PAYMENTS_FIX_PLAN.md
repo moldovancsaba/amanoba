@@ -126,7 +126,7 @@ if (courseId) {
 
 ## 🔄 Rollback Plan
 
-**See**: `docs/ADMIN_PAYMENTS_FIX_ROLLBACK_PLAN.md` for complete rollback instructions.
+**See**: `docs/_archive/reference/ADMIN_PAYMENTS_FIX_ROLLBACK_PLAN.md` for complete rollback instructions.
 
 **Quick Rollback**:
 ```bash

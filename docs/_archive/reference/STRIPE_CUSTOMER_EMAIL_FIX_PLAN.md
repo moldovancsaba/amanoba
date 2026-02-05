@@ -115,7 +115,7 @@ const checkoutSession = await stripe.checkout.sessions.create({
 
 ## 🔄 Rollback Plan
 
-**See**: `docs/STRIPE_CUSTOMER_EMAIL_FIX_ROLLBACK_PLAN.md` for complete rollback instructions.
+**See**: `docs/_archive/reference/STRIPE_CUSTOMER_EMAIL_FIX_ROLLBACK_PLAN.md` for complete rollback instructions.
 
 **Quick Rollback**:
 ```bash

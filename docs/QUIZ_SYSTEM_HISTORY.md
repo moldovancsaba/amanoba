@@ -8,7 +8,7 @@
 ## Current process (use these)
 
 - **Script**: `scripts/process-course-questions-generic.ts` — main processor. Do **not** use `scripts/fix-course-quizzes.ts` (deprecated; creates generic templates).
-- **Quality rules**: `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md` (handover + rollback), `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` (gold-standard question form).
+- **Quality rules**: `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md` (handover + rollback), `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` (gold-standard question form).
 - **Full list of docs and scripts**: `docs/QUIZ_FIXING_DOCUMENTS_COMPLETE_LIST.md`.
 
 ---

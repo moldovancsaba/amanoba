@@ -42,6 +42,8 @@ interface PackageLesson {
     question?: string;
     options?: string[];
     correctIndex?: number;
+    correctAnswer?: string;
+    wrongAnswers?: string[];
     difficulty?: string;
     category?: string;
     isActive?: boolean;
@@ -86,18 +88,29 @@ export async function POST(request: NextRequest) {
       }
       const buf = Buffer.from(await blob.arrayBuffer());
       const zip = await JSZip.loadAsync(buf);
-      const manifestFile = zip.file('manifest.json');
+      const packageFile = zip.file('package.json');
       const courseFile = zip.file('course.json');
       const lessonsFile = zip.file('lessons.json');
-      if (!manifestFile || !courseFile || !lessonsFile) {
-        return NextResponse.json({ error: 'Invalid package: missing manifest.json, course.json, or lessons.json' }, { status: 400 });
+      if (packageFile) {
+        const packageStr = await packageFile.async('string');
+        const pkg = JSON.parse(packageStr) as Record<string, unknown>;
+        const course = (pkg.course ?? pkg) as Record<string, unknown>;
+        const lessons = (Array.isArray(pkg.lessons) ? pkg.lessons : []) as PackageLesson[];
+        if (!course?.courseId) {
+          return NextResponse.json({ error: 'Invalid package: package.json must contain course (with courseId) and lessons' }, { status: 400 });
+        }
+        courseData = { course, lessons };
+        logger.info({ courseId: course.courseId, overwrite }, 'Admin importing from ZIP package (single package.json)');
+      } else if (courseFile && lessonsFile) {
+        const courseStr = await courseFile.async('string');
+        const lessonsStr = await lessonsFile.async('string');
+        const course = JSON.parse(courseStr) as Record<string, unknown>;
+        const lessons = JSON.parse(lessonsStr) as PackageLesson[];
+        courseData = { course, lessons };
+        logger.info({ courseId: course.courseId, overwrite }, 'Admin importing from ZIP package (manifest + course + lessons)');
+      } else {
+        return NextResponse.json({ error: 'Invalid package: provide package.json (single file with course + lessons) or manifest.json + course.json + lessons.json' }, { status: 400 });
       }
-      const courseStr = await courseFile.async('string');
-      const lessonsStr = await lessonsFile.async('string');
-      const course = JSON.parse(courseStr) as Record<string, unknown>;
-      const lessons = JSON.parse(lessonsStr) as PackageLesson[];
-      courseData = { course, lessons };
-      logger.info({ courseId: course.courseId, overwrite }, 'Admin importing from ZIP package');
     } else {
       const body = await request.json();
       courseData = body.courseData;
@@ -139,13 +152,9 @@ export async function POST(request: NextRequest) {
             .filter(Boolean) as mongoose.Types.ObjectId[]
         : undefined;
 
-    // Course content/config payload (merge-safe: no _id, brandId only when creating)
+    // Course content/config payload (merge-safe: only set provided fields so package name/description etc. apply exactly)
     const courseSet: Record<string, unknown> = {
       courseId: courseInfo.courseId,
-      name: courseInfo.name,
-      description: courseInfo.description,
-      language: courseInfo.language,
-      thumbnail: courseInfo.thumbnail,
       durationDays: courseInfo.durationDays ?? 30,
       isActive: courseInfo.isActive !== undefined ? courseInfo.isActive : true,
       requiresPremium: courseInfo.requiresPremium !== undefined ? courseInfo.requiresPremium : false,
@@ -161,6 +170,25 @@ export async function POST(request: NextRequest) {
       prerequisiteEnforcement: courseInfo.prerequisiteEnforcement ?? undefined,
       certification: courseInfo.certification ?? undefined,
     };
+    // Apply string content exactly when provided (preserves – vs - and avoids overwriting with undefined)
+    if (courseInfo.name !== undefined && courseInfo.name !== null) {
+      courseSet.name = String(courseInfo.name);
+    } else if (!existingCourse) {
+      courseSet.name = courseId;
+    }
+    if (courseInfo.description !== undefined && courseInfo.description !== null) {
+      courseSet.description = String(courseInfo.description);
+    } else if (!existingCourse) {
+      courseSet.description = '';
+    }
+    if (courseInfo.language !== undefined && courseInfo.language !== null) {
+      courseSet.language = String(courseInfo.language);
+    } else if (!existingCourse) {
+      courseSet.language = 'hu';
+    }
+    if (courseInfo.thumbnail !== undefined && courseInfo.thumbnail !== null) {
+      courseSet.thumbnail = String(courseInfo.thumbnail);
+    }
     if (!existingCourse) {
       courseSet.brandId = brand._id;
     }
@@ -168,7 +196,7 @@ export async function POST(request: NextRequest) {
     const course = await Course.findOneAndUpdate(
       { courseId },
       { $set: courseSet },
-      { upsert: true, new: true, setDefaultsOnInsert: true }
+      { upsert: true, new: true, setDefaultsOnInsert: true, omitUndefined: true }
     );
 
     logger.info({ courseId, overwrite }, 'Course created/updated during import (merge)');
@@ -225,10 +253,12 @@ export async function POST(request: NextRequest) {
           }));
         const existingQuestion = matchByUuid ?? matchByQuestion;
 
-        const updatePayload = {
+        const basePayload = {
           question: questionData.question ?? '',
           options: questionData.options ?? [],
           correctIndex: questionData.correctIndex ?? 0,
+          correctAnswer: questionData.correctAnswer ?? undefined,
+          wrongAnswers: Array.isArray(questionData.wrongAnswers) ? questionData.wrongAnswers : undefined,
           difficulty: (questionData.difficulty as QuestionDifficulty) ?? 'MEDIUM',
           category: questionData.category ?? 'Course Specific',
           isActive: questionData.isActive !== undefined ? questionData.isActive : true,
@@ -238,26 +268,15 @@ export async function POST(request: NextRequest) {
           uuid: questionData.uuid ?? undefined,
           questionType: questionData.questionType ?? undefined,
           hashtags: questionData.hashtags ?? undefined,
-          'metadata.updatedAt': new Date(),
         };
+        const updatePayload = { ...basePayload, 'metadata.updatedAt': new Date() };
 
         if (existingQuestion) {
           await QuizQuestion.updateOne({ _id: existingQuestion._id }, { $set: updatePayload });
           questionsUpdated++;
         } else {
           await QuizQuestion.create({
-            question: questionData.question ?? '',
-            options: questionData.options ?? [],
-            correctIndex: questionData.correctIndex ?? 0,
-            difficulty: (questionData.difficulty as QuestionDifficulty) ?? 'MEDIUM',
-            category: questionData.category ?? 'Course Specific',
-            isActive: questionData.isActive !== undefined ? questionData.isActive : true,
-            lessonId: lessonData.lessonId,
-            courseId: course._id,
-            isCourseSpecific: true,
-            uuid: questionData.uuid ?? undefined,
-            questionType: questionData.questionType ?? undefined,
-            hashtags: questionData.hashtags ?? undefined,
+            ...basePayload,
             showCount: 0,
             correctCount: 0,
             metadata: {
@@ -283,9 +302,14 @@ export async function POST(request: NextRequest) {
       'Admin imported course'
     );
 
+    const message = !existingCourse
+      ? 'Course created'
+      : overwrite
+        ? 'Course merged (content updated; progress, votes, certificates preserved)'
+        : 'Course imported';
     return NextResponse.json({
       success: true,
-      message: overwrite ? 'Course merged (content updated; progress, votes, certificates preserved)' : 'Course imported',
+      message,
       course: {
         courseId: course.courseId,
         name: course.name,

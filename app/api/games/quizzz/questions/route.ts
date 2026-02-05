@@ -19,6 +19,7 @@ import { z } from 'zod';
 import mongoose from 'mongoose';
 import connectDB, { getConnectionState } from '@/app/lib/mongodb';
 import { QuizQuestion, QuestionDifficulty, Course } from '@/app/lib/models';
+import { buildThreeOptions } from '@/app/lib/quiz-questions';
 import logger from '@/app/lib/logger';
 
 export const runtime = 'nodejs';
@@ -303,20 +304,20 @@ export async function GET(request: NextRequest) {
       return copy;
     };
     
-    // Why: Shuffle questions and options for each request
+    // Why: Shuffle questions; each question shows 3 options (1 correct + 2 random wrong), shuffled
     const shuffled = shuffle(uniqueQuestions);
-    
-    // Why: Transform questions for response (remove correctIndex for security)
-    const responseQuestions: ResponseQuestion[] = shuffled.map(q => {
-      const shuffledOptions = shuffle(q.options || []) as string[];
-      return {
+    const responseQuestions: ResponseQuestion[] = [];
+    for (const q of shuffled) {
+      const three = buildThreeOptions(q);
+      if (!three || three.options.length !== 3) continue;
+      responseQuestions.push({
         id: q._id.toString(),
         question: q.question,
-        options: shuffledOptions,
+        options: three.options,
         difficulty: q.difficulty,
         category: q.category,
-      };
-    });
+      });
+    }
 
     logger.info(
       { 

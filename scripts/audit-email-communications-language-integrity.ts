@@ -12,7 +12,7 @@
  *
  * Usage:
  *   npx tsx scripts/audit-email-communications-language-integrity.ts
- *   npx tsx scripts/audit-email-communications-language-integrity.ts --out-dir scripts/reports --tasklist-dir docs/tasklists
+ *   npx tsx scripts/audit-email-communications-language-integrity.ts --out-dir scripts/reports --tasklist-dir docs/_archive/tasklists
  */
 
 import { join } from 'path';
@@ -42,7 +42,7 @@ function getArgValue(flag: string): string | undefined {
 }
 
 const OUT_DIR = getArgValue('--out-dir') || join(process.cwd(), 'scripts', 'reports');
-const TASKLIST_DIR = getArgValue('--tasklist-dir') || join(process.cwd(), 'docs', 'tasklists');
+const TASKLIST_DIR = getArgValue('--tasklist-dir') || join(process.cwd(), 'docs', '_archive', 'tasklists');
 
 function isoStamp() {
   return new Date().toISOString().replace(/[:.]/g, '-');

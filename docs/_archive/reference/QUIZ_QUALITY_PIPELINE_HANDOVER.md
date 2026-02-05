@@ -9,7 +9,7 @@ It is designed to be used as a **handover prompt + operating manual**, similar i
 ## Ground Rules (Non‑Negotiable)
 
 1) **Documentation = Code**
-   - If we change the pipeline, we update this document and `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` immediately.
+   - If we change the pipeline, we update this document and `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` immediately.
 
 2) **No autonomous assumptions**
    - If the requested scope is unclear (course/day/language/threshold), ask before writing to DB.
@@ -25,7 +25,7 @@ It is designed to be used as a **handover prompt + operating manual**, similar i
 
 ### Gold-standard question type (only acceptable form)
 
-**Only questions that match this form are acceptable.** Full section: `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`.
+**Only questions that match this form are acceptable.** Full section: `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`.
 
 **Canonical example:** *"What is the concrete document or list needed to define the ICP according to different problem groups?"* — Standalone, grounded (ICP, problem groups), scenario-based, asks for a concrete deliverable, concrete distractors.
 
@@ -112,8 +112,8 @@ Instead: the pipeline creates **lesson refinement tasks** and skips quiz rewrite
 ## Source of Truth Files (What to refer to)
 
 ### Documentation
-- `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` — the lightweight playbook of rules and commands.
-- `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md` — this handover document (prompt + prerequisites + rollback).
+- `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` — the lightweight playbook of rules and commands.
+- `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md` — this handover document (prompt + prerequisites + rollback).
 
 ### Core scripts (pipeline)
 - `scripts/quiz-quality-pipeline.ts` — end-to-end pipeline runner.

@@ -27,6 +27,7 @@ import {
 import { getCourseRecommendations } from '@/app/lib/course-recommendations';
 import { validateLessonTextLanguageIntegrity } from '@/app/lib/quality/language-integrity';
 import { getEmailTransport } from './transports';
+import { contentToHtml } from '@/app/lib/lesson-content';
 
 /**
  * Email Configuration
@@ -252,13 +253,13 @@ export async function sendLessonEmail(
       .replace('{{courseName}}', courseName)
       .replace('{{dayNumber}}', displayDay.toString());
 
-    // Add unsubscribe link to email body if not already present
-    let body = emailBody
+    // Add unsubscribe link to email body if not already present. Render markdown to HTML for body and lesson content.
+    let body = contentToHtml(emailBody)
       .replace('{{playerName}}', player.displayName)
       .replace('{{courseName}}', courseName)
       .replace('{{dayNumber}}', displayDay.toString())
       .replace('{{lessonTitle}}', lessonTitle)
-      .replace('{{lessonContent}}', lessonContent);
+      .replace('{{lessonContent}}', contentToHtml(lessonContent));
 
     // When enrolled in a child course, lesson links in the template may point to parent; rewrite path to child courseId and day
     if (options?.linkDay != null && typeof course.courseId === 'string') {

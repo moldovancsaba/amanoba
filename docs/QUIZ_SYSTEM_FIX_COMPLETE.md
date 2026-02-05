@@ -61,8 +61,8 @@
 - ✅ `scripts/audit-full-quiz-system.ts` - Full system audit
 
 ### Documentation
-- ✅ `docs/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md` - Complete action plan
-- ✅ `docs/QUIZ_SEEDING_COMPLETE_REPORT.md` - Seeding report
+- ✅ `docs/_archive/reference/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md` - Complete action plan
+- ✅ `docs/_archive/reference/QUIZ_SEEDING_COMPLETE_REPORT.md` - Seeding report
 - ✅ `docs/QUIZ_SYSTEM_FIX_COMPLETE.md` - This document
 
 ---

@@ -99,10 +99,10 @@ The quiz system had critical quality issues discovered during comprehensive audi
 
 ### Documentation Created
 - `docs/FINAL_QUIZ_SYSTEM_DELIVERY.md` - Complete delivery report
-- `docs/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md` - Detailed action plan
-- `docs/QUIZ_SEEDING_COMPLETE_REPORT.md` - Seeding report
-- `docs/QUIZ_SYSTEM_FIX_SUMMARY.md` - Progress summary
-- `docs/QUIZ_FIX_DELIVERY_SUMMARY.md` - Delivery summary
+- `docs/_archive/reference/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md` - Detailed action plan
+- `docs/_archive/reference/QUIZ_SEEDING_COMPLETE_REPORT.md` - Seeding report
+- `docs/_archive/reference/QUIZ_SYSTEM_FIX_SUMMARY.md` - Progress summary
+- `docs/_archive/reference/QUIZ_FIX_DELIVERY_SUMMARY.md` - Delivery summary
 
 ---
 

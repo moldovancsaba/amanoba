@@ -10,7 +10,7 @@ import {
 import { EvaluationResult, evaluateQuestion } from './evaluator';
 import { loadState, saveState, QuizItemQAState } from './state';
 
-const HANDOVER_DOC = 'docs/QUIZ_ITEM_QA_HANDOVER.md';
+const HANDOVER_DOC = 'docs/_archive/reference/QUIZ_ITEM_QA_HANDOVER.md';
 
 export function resolveNextFromList(
   sortedList: QuizItem[],

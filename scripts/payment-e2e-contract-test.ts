@@ -4,7 +4,7 @@
  * Verifies API contract for payment endpoints without requiring Stripe or a real session.
  * Run against a running app: BASE_URL=http://localhost:3000 npx tsx scripts/payment-e2e-contract-test.ts
  *
- * See docs/PAYMENT_E2E_TEST_PLAN.md for full E2E scenarios.
+ * See docs/_archive/reference/PAYMENT_E2E_TEST_PLAN.md for full E2E scenarios.
  */
 
 const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';

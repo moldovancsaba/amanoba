@@ -7,7 +7,7 @@
 
 **Last Updated**: 2026-02-05
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=41, KEEP(unclassified)=86
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=1, KEEP(unclassified)=86
 
 This file is the “what to do next” view derived from `docs/DOCS_CANONICAL_MAP.md`.
 
@@ -19,47 +19,7 @@ This file is the “what to do next” view derived from `docs/DOCS_CANONICAL_MA
 
 ## ARCHIVE (grouped by target)
 ### docs/_archive/reference/
-- `docs/ACHIEVEMENT_SYSTEM_IMPROVEMENT_PLAN.md` — Achievement System Improvement Plan (6.2 KB)
-- `docs/ADMIN_PAYMENTS_FIX_PLAN.md` — Admin Payments Page Fix Plan (3.5 KB)
-- `docs/ADMIN_PAYMENTS_FIX_ROLLBACK_PLAN.md` — Admin Payments Fix - Rollback Plan (5.1 KB)
-- `docs/ARCHITECTURE_FIX_DELIVERY_SUMMARY.md` — ARCHITECTURE_FIX_DELIVERY_SUMMARY.md (8.1 KB)
-- `docs/BUY_PREMIUM_FIX_PLAN.md` — Buy Premium Fix Plan (6.6 KB)
-- `docs/BUY_PREMIUM_FIX_ROLLBACK_PLAN.md` — Buy Premium Fix - Rollback Plan (6.5 KB)
-- `docs/BUY_PREMIUM_FIX_SUMMARY.md` — Buy Premium Fix - Summary (2.5 KB)
-- `docs/certificate_dev_plan.md` — certificate_dev_plan.md (9.6 KB)
-- `docs/certification_final_exam_plan.md` — certification_final_exam_plan.md (8.6 KB)
-- `docs/CERTIFICATION_SYSTEM_IMPLEMENTATION_SUMMARY.md` — 🎓 CERTIFICATION SYSTEM - IMPLEMENTATION SUMMARY (8.9 KB)
-- `docs/COURSE_CREATION_QA_PLAYBOOK.md` — Course Creation QA Playbook (Idea → Outline → CCS → Build → QA → Publish) (9.5 KB)
-- `docs/DASHBOARD_ANALYSIS_AND_PLAN.md` — Dashboard Analysis & Improvement Plan (7.6 KB)
-- `docs/DEBUG_PLAYER_ENDPOINT_ROLLBACK_PLAN.md` — Debug Player Endpoint — Rollback Plan (1.4 KB)
-- `docs/DEBUG_PLAYER_ENDPOINT_SECURITY_PLAN.md` — Debug Player Endpoint Security Plan (1.5 KB)
-- `docs/EXECUTIVE_SUMMARY.md` — EXECUTIVE SUMMARY - QUIZ AUDIT PROJECT COMPLETION (4.9 KB)
-- `docs/FINAL_PROJECT_DELIVERY_SUMMARY.md` — 🎉 COMPLETE PROJECT SUMMARY - QUIZ QUALITY AUDIT & ENHANCEMENT (10.1 KB)
-- `docs/I18N_MIGRATION_SUMMARY.md` — i18n Migration Summary (3.5 KB)
-- `docs/MIGRATION_CHECKLIST.md` — DATABASE MIGRATION CHECKLIST (5.7 KB)
-- `docs/MIGRATION_EXECUTION_PLAN.md` — DATABASE MIGRATION EXECUTION PLAN - PHASE 1 (5.8 KB)
-- `docs/PAYMENT_E2E_TEST_PLAN.md` — Payment E2E Test Plan (7.5 KB)
-- `docs/PHASE_1_FINAL_REPORT.md` — 🎉 PHASE 1 AUDIT COMPLETE - FINAL REPORT (7.6 KB)
-- `docs/PHASE_1_PROGRESS_TRACKER.md` — PHASE 1 PROGRESS TRACKER - PRODUCTIVITY 2026 (4.6 KB)
-- `docs/PHASE_2_FINAL_REPORT.md` — PHASE 2 COURSES 2-8 - BATCH COMPLETION REPORT (4.2 KB)
-- `docs/PROFILE_DATA_EXPOSURE_ROLLBACK_PLAN.md` — Profile Data Exposure Security Fix - Rollback Plan (6.0 KB)
-- `docs/PROFILE_DATA_EXPOSURE_SECURITY_PLAN.md` — Profile Data Exposure Security Fix Plan (6.8 KB)
-- `docs/QUICK_REFERENCE_CHECKLIST.md` — ⚡ QUICK REFERENCE - RESUME THIS WORK CHECKLIST (4.0 KB)
-- `docs/QUIZ_FIX_DELIVERY_SUMMARY.md` — 🎯 QUIZ SYSTEM FIX - DELIVERY SUMMARY (4.5 KB)
-- `docs/QUIZ_ITEM_QA_HANDOVER.md` — Quiz Item QA Handover (4.6 MB)
-- `docs/QUIZ_ITEM_QA_RUNBOOK.md` — Quiz Item QA Runbook (4.0 KB)
-- `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md` — Quiz Quality Pipeline — Handover (Audit → QC → Refine Lesson → Rewrite Quiz) (13.0 KB)
-- `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` — Quiz Quality Pipeline Playbook (Audit → QC → Refine Lesson → Rewrite Quiz) (14.9 KB)
-- `docs/QUIZ_SEEDING_COMPLETE_REPORT.md` — 🎯 QUIZ SYSTEM SEEDING - COMPLETE REPORT (3.3 KB)
-- `docs/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md` — 🎯 QUIZ SYSTEM COMPLETE FIX - COMPREHENSIVE ACTION PLAN (10.6 KB)
-- `docs/QUIZ_SYSTEM_FIX_SUMMARY.md` — 🎯 QUIZ SYSTEM COMPLETE FIX - EXECUTIVE SUMMARY (5.3 KB)
-- `docs/RATE_LIMITING_IMPLEMENTATION_PLAN.md` — Rate Limiting Implementation Plan (7.6 KB)
-- `docs/RATE_LIMITING_ROLLBACK_PLAN.md` — Rate Limiting Implementation - Rollback Plan (6.2 KB)
-- `docs/SSO_PREPARATION_CHECKLIST.md` — SSO Implementation Preparation Checklist (12.4 KB)
-- `docs/SSO_VERIFICATION_CHECKLIST.md` — SSO Configuration Verification Checklist (4.7 KB)
-- `docs/STRIPE_CUSTOMER_EMAIL_FIX_PLAN.md` — Stripe Customer Email Fix Plan (4.1 KB)
-- `docs/STRIPE_CUSTOMER_EMAIL_FIX_ROLLBACK_PLAN.md` — Stripe Customer Email Fix - Rollback Plan (5.5 KB)
-- `docs/TRANSFORMATION_PLAN.md` — Amanoba Transformation Plan (9.4 KB)
+- `docs/QUIZ_QUESTIONS_REQUIREMENTS_AND_PLAN.md` — Quiz questions: requirements summary and delivery plan (11.7 KB)
 
 ## KEEP (needs review)
 - `docs/ADMIN_LANGUAGE_SETUP.md` — Admin Language Configuration

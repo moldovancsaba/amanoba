@@ -149,7 +149,7 @@
 ## References
 
 - **Layout grammar**: `docs/layout_grammar.md`
-- **Course/quiz quality**: `docs/COURSE_BUILDING_RULES.md`, `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md`
+- **Course/quiz quality**: `docs/COURSE_BUILDING_RULES.md`, `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md`
 - **Design**: `app/design-system.css`, `docs/DESIGN_UPDATE.md`
 - **Naming**: `docs/NAMING_GUIDE.md`
 - **Documentation audit**: `docs/_archive/delivery/2026-01/2026-01_DOCUMENTATION_AUDIT.md` (placeholders, single-place rule); tasklist: `docs/_archive/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md`

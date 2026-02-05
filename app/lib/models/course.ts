@@ -68,6 +68,8 @@ export interface ICourse extends Document {
   prerequisiteCourseIds?: mongoose.Types.ObjectId[];
   /** When prerequisites are set: 'hard' = block enrolment until met; 'soft' = warn but allow. Default 'hard'. */
   prerequisiteEnforcement?: 'hard' | 'soft';
+  /** Lesson quiz pass rule: max wrong answers allowed (0–5). If set, fail when wrongCount > this; else use successThreshold %. */
+  quizMaxWrongAllowed?: number;
   /** For shorts: draft until editor publishes. Catalog shows only non-draft. */
   isDraft?: boolean;
   /** Child courses only: 'synced' | 'out_of_sync'. Used for selective unsync/re-sync and admin sync alerts. */
@@ -81,6 +83,8 @@ export interface ICourse extends Document {
     certQuestionCount?: number;
     /** Pass rule: minimum final exam score (0–100) to be eligible for certificate. Default 50. */
     passThresholdPercent?: number;
+    /** Fail immediately when (wrong/answered)*100 exceeds this %. E.g. 10 = fail as soon as error rate > 10%. */
+    maxErrorPercent?: number;
     /** Require all lessons completed for certificate. Default true. */
     requireAllLessonsCompleted?: boolean;
     /** Require all daily quizzes passed for certificate. Default true. */
@@ -267,6 +271,7 @@ const CourseSchema = new Schema<ICourse>(
     // Prerequisites: courses that must be completed before this one (optional)
     prerequisiteCourseIds: [{ type: Schema.Types.ObjectId, ref: 'Course', default: undefined }],
     prerequisiteEnforcement: { type: String, enum: ['hard', 'soft'], default: 'hard', trim: true },
+    quizMaxWrongAllowed: { type: Number, min: 0, max: 10, default: undefined },
     // Short/child course fields (optional)
     parentCourseId: { type: String, uppercase: true, trim: true },
     selectedLessonIds: [{ type: String, trim: true }],
@@ -298,6 +303,11 @@ const CourseSchema = new Schema<ICourse>(
         type: Number,
         min: [0, 'passThresholdPercent must be 0–100'],
         max: [100, 'passThresholdPercent must be 0–100'],
+      },
+      maxErrorPercent: {
+        type: Number,
+        min: [0, 'maxErrorPercent must be 0–100'],
+        max: [100, 'maxErrorPercent must be 0–100'],
       },
       requireAllLessonsCompleted: {
         type: Boolean,

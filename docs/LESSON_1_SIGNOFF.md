@@ -76,7 +76,7 @@ DOCUMENTS CREATED
    - Detailed audit for Lesson 1 (Hungarian & English)
    - Question-by-question analysis and decisions
    
-3. /docs/PHASE_1_PROGRESS_TRACKER.md
+3. /docs/_archive/reference/PHASE_1_PROGRESS_TRACKER.md
    - Real-time progress tracking
    - Estimated timelines
    - Audit decision tree for consistency

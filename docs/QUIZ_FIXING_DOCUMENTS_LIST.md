@@ -3,7 +3,7 @@
 ## Main Documentation Files
 
 ### 1. Planning & Strategy Documents
-- `docs/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md` - Comprehensive action plan
+- `docs/_archive/reference/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md` - Comprehensive action plan
 - `docs/_archive/delivery/2026-01/2026-01-24_QUIZ_ENHANCEMENT_MASTER_PLAN.md` - Master enhancement plan
 - `docs/_archive/delivery/2026-01/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md` - Quality audit plan
 - `scripts/QUIZ_SYSTEM_COMPLETE_FIX_PLAN.md` - System fix plan
@@ -13,14 +13,14 @@
 ### 2. Release Notes & Summaries
 - `docs/QUIZ_SYSTEM_FIX_RELEASE_NOTE.md` - Release note for quiz system fix
 - `docs/QUIZ_SYSTEM_FIX_COMPLETE.md` - Completion report
-- `docs/QUIZ_SYSTEM_FIX_SUMMARY.md` - Summary of fixes
-- `docs/QUIZ_FIX_DELIVERY_SUMMARY.md` - Delivery summary
+- `docs/_archive/reference/QUIZ_SYSTEM_FIX_SUMMARY.md` - Summary of fixes
+- `docs/_archive/reference/QUIZ_FIX_DELIVERY_SUMMARY.md` - Delivery summary
 - `docs/FINAL_QUIZ_SYSTEM_DELIVERY.md` - Final delivery report
 
 ### 3. Management & Tracking
 - `docs/_archive/delivery/2026-01/2026-01-25_QUIZ_QUESTION_CENTRAL_MANAGEMENT_PLAN.md` - Central management plan
 - `docs/_archive/delivery/2026-01/2026-01-25_QUIZ_QUESTION_CENTRAL_MANAGEMENT_COMPLETE.md` - Management completion
-- `docs/QUIZ_SEEDING_COMPLETE_REPORT.md` - Seeding completion report
+- `docs/_archive/reference/QUIZ_SEEDING_COMPLETE_REPORT.md` - Seeding completion report
 
 ### 4. Question Quality Documents
 - `docs/DAY1_QUESTIONS_COMPARISON_EN.md` - Day 1 questions comparison
@@ -79,4 +79,4 @@
 - ✅ Proper cognitive mix (current SSOT): **0 RECALL**, **>=5 APPLICATION**, remainder **CRITICAL_THINKING**
 - ✅ Proper metadata (questionType, hashtags, difficulty, UUID)
 
-**SSOT**: For the current, authoritative QC rules use `2026_course_quality_prompt.md` + `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md`.
+**SSOT**: For the current, authoritative QC rules use `2026_course_quality_prompt.md` + `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md`.

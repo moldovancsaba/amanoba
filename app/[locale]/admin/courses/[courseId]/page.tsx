@@ -22,11 +22,11 @@ import {
   Upload,
   AlertTriangle,
   RefreshCw,
+  Loader2,
 } from 'lucide-react';
 import Image from 'next/image';
-import RichTextEditor from '@/app/components/ui/rich-text-editor';
+import MarkdownEditor from '@/app/components/ui/markdown-editor';
 import { getStripeMinimum, getFormattedMinimum, meetsStripeMinimum } from '@/app/lib/utils/stripe-minimums';
-import { marked } from 'marked';
 import { COURSE_LANGUAGE_OPTIONS } from '@/app/lib/constants/course-languages';
 import QuizManagerModal from '@/components/QuizManagerModal';
 
@@ -53,6 +53,8 @@ interface Course {
   lastSyncedAt?: string;
   createdBy?: string;
   assignedEditors?: string[];
+  /** Lesson quiz pass rule: max wrong answers allowed (0–10). If set, fail when wrongCount > this; else use successThreshold %. */
+  quizMaxWrongAllowed?: number;
   pointsConfig: {
     completionPoints: number;
     lessonPoints: number;
@@ -68,6 +70,8 @@ interface Course {
     certQuestionCount?: number;
     /** Pass rule: minimum final exam score (0–100). Default 50. */
     passThresholdPercent?: number;
+    /** Fail immediately when (wrong/answered)*100 exceeds this %. E.g. 10 = fail as soon as error rate > 10%. */
+    maxErrorPercent?: number;
     requireAllLessonsCompleted?: boolean;
     requireAllQuizzesPassed?: boolean;
     priceMoney?: {
@@ -126,7 +130,7 @@ export default function CourseEditorPage({
 }: {
   params: Promise<{ courseId: string }>;
 }) {
-  const _router = useRouter();
+  const router = useRouter();
   const locale = useLocale();
   const [course, setCourse] = useState<Course | null>(null);
   const [lessons, setLessons] = useState<Lesson[]>([]);
@@ -382,6 +386,8 @@ export default function CourseEditorPage({
     }
   };
 
+  const [importing, setImporting] = useState(false);
+
   const handleImportCourse = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -391,6 +397,7 @@ export default function CourseEditorPage({
       return;
     }
 
+    setImporting(true);
     try {
       const isZip = file.name.toLowerCase().endsWith('.zip');
       let response: Response;
@@ -417,7 +424,11 @@ export default function CourseEditorPage({
 
       if (data.success) {
         alert(`Course ${data.message}\n\nLessons: ${data.stats.lessonsCreated} created, ${data.stats.lessonsUpdated} updated\nQuestions: ${data.stats.questionsCreated} created, ${data.stats.questionsUpdated} updated`);
-        window.location.reload();
+        if (data.course?.courseId && data.course.courseId !== courseId) {
+          router.push(`/${locale}/admin/courses/${data.course.courseId}`);
+        } else {
+          window.location.reload();
+        }
       } else {
         alert(data.error || 'Failed to import course');
       }
@@ -425,6 +436,7 @@ export default function CourseEditorPage({
       console.error('Failed to import course:', error);
       alert('Failed to import course. Please check the file format (.json or .zip).');
     } finally {
+      setImporting(false);
       event.target.value = '';
     }
   };
@@ -476,14 +488,15 @@ export default function CourseEditorPage({
             <Download className="w-5 h-5" />
             Export ZIP
           </button>
-          <label className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-green-700 transition-colors cursor-pointer">
-            <Upload className="w-5 h-5" />
-            Import (JSON or ZIP)
+          <label className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${importing ? 'bg-green-700/70 text-white/90 cursor-wait pointer-events-none' : 'bg-green-600 text-white hover:bg-green-700 cursor-pointer'}`}>
+            {importing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Upload className="w-5 h-5" />}
+            {importing ? 'Importing…' : 'Import (JSON or ZIP)'}
             <input
               type="file"
               accept=".json,.zip"
               onChange={handleImportCourse}
               className="hidden"
+              disabled={importing}
             />
           </label>
           <button
@@ -831,6 +844,32 @@ export default function CourseEditorPage({
         </div>
       </div>
 
+      {/* Lesson quizzes */}
+      <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-darkGrey">
+        <h2 className="text-xl font-bold text-brand-black mb-4">Lesson quizzes</h2>
+        <div>
+          <label className="block text-sm font-medium text-brand-black mb-2">
+            Max wrong answers allowed
+          </label>
+          <input
+            type="number"
+            min="0"
+            max="10"
+            step="1"
+            value={course.quizMaxWrongAllowed ?? ''}
+            onChange={(e) => {
+              const v = e.target.value === '' ? undefined : Math.min(10, Math.max(0, parseInt(e.target.value, 10) || 0));
+              setCourse({ ...course, quizMaxWrongAllowed: v });
+            }}
+            className="w-full max-w-[120px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+            placeholder="e.g. 1"
+          />
+          <p className="text-xs text-brand-darkGrey mt-1">
+            If set (0–10), lesson quiz fails when wrong answers exceed this. Leave empty to use success threshold % per lesson.
+          </p>
+        </div>
+      </div>
+
       {/* Certification Settings */}
       <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
         <h2 className="text-xl font-bold text-brand-black mb-4">Certification Settings</h2>
@@ -900,6 +939,36 @@ export default function CourseEditorPage({
                     className="w-full max-w-[120px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
                   />
                   <p className="text-xs text-brand-darkGrey mt-1">Minimum final exam score (0–100) to be eligible for certificate. Default 50.</p>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-brand-black mb-2">
+                    Max error % (immediate fail)
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="1"
+                    value={course.certification?.maxErrorPercent ?? ''}
+                    onChange={(e) => setCourse({
+                      ...course,
+                      certification: {
+                        ...course.certification,
+                        enabled: true,
+                        passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
+                        maxErrorPercent: e.target.value === '' ? undefined : Math.min(100, Math.max(0, parseInt(e.target.value, 10) ?? 0)),
+                        requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
+                        requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
+                        pricePoints: course.certification?.pricePoints ?? 0,
+                        premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
+                        templateId: course.certification?.templateId ?? 'default_v1',
+                        credentialTitleId: course.certification?.credentialTitleId ?? '',
+                      },
+                    })}
+                    className="w-full max-w-[120px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                    placeholder="e.g. 10"
+                  />
+                  <p className="text-xs text-brand-darkGrey mt-1">If set, fail the final exam as soon as current error rate exceeds this % (e.g. 10 = fail when wrong/answered &gt; 10%). Leave empty to allow completing the exam.</p>
                 </div>
                 <div className="flex flex-col gap-2">
                   <label className="flex items-center gap-2 cursor-pointer">
@@ -1541,15 +1610,6 @@ function LessonFormModal({
   const [saving, setSaving] = useState(false);
   const [showQuizManager, setShowQuizManager] = useState(false);
 
-  const ensureHtmlContent = (input: string) => {
-    const trimmed = (input || '').trim();
-    // Heuristic: if it already contains HTML tags, return as-is
-    const looksLikeHtml = /<\/?[a-z][\s\S]*>/i.test(trimmed);
-    if (looksLikeHtml) return trimmed;
-    // Otherwise treat as Markdown and convert to HTML
-    return marked.parse(trimmed);
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
@@ -1566,7 +1626,7 @@ function LessonFormModal({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
-          content: ensureHtmlContent(formData.content),
+          content: formData.content,
           dayNumber,
         }),
       });
@@ -1630,12 +1690,12 @@ function LessonFormModal({
 
           <div>
             <label className="block text-sm font-medium text-brand-black mb-2">
-              Content *
+              Content * (Markdown)
             </label>
-            <RichTextEditor
+            <MarkdownEditor
               content={formData.content}
               onChange={(content) => setFormData({ ...formData, content })}
-              placeholder="Start typing your lesson content... (Supports headings, lists, links, and formatting)"
+              placeholder="Write your lesson in **Markdown**: headings, lists, **bold**, *italic*, [links](url)"
             />
           </div>
 

@@ -14,7 +14,7 @@ import { Course, Lesson, QuizQuestion } from '../../app/lib/models';
 import { generateContentBasedQuestions } from '../content-based-question-generator';
 import { validateQuestionQuality } from '../question-quality-validator';
 
-const HANDOVER_DOC = 'docs/QUIZ_ITEM_QA_HANDOVER.md';
+const HANDOVER_DOC = 'docs/_archive/reference/QUIZ_ITEM_QA_HANDOVER.md';
 const HANDOVER_NEW2OLD_DOC = 'docs/QUIZ_ITEM_QA_HANDOVER_NEW2OLD.md';
 
 function loadLoggedIdsFromNew2Old(): Set<string> {
@@ -41,7 +41,7 @@ function ensureNew2OldDocExists() {
       '',
       'References:',
       `- Canonical workflow + commands: \`${HANDOVER_DOC}\``,
-      '- Quality rules: `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type`, `docs/COURSE_BUILDING_RULES.md#gold-standard-only-acceptable-form`',
+      '- Quality rules: `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type`, `docs/COURSE_BUILDING_RULES.md#gold-standard-only-acceptable-form`',
       '- Cursor/state SSOT: `.state/quiz_item_qa_state.json` (do not edit manually)',
       '',
       '## Run log (new-to-old)',
@@ -405,7 +405,7 @@ export async function loopRun(
             message: `Duplicate question text exists in this course (${count} total occurrences in snapshot).`,
             fields: ['courseId', 'question'],
             severity: 'error',
-            docRef: 'docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md',
+            docRef: 'docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md',
           });
           evaluation.needsUpdate = true;
 

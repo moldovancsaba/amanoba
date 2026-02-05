@@ -41,7 +41,7 @@ npx tsx --env-file=.env.local scripts/quiz-item-qa/mongodb-cli.ts handover:recor
 ```
 
 ## Golden standards
-- **Source of truth #1:** `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type` (defines the five golden rules, no recall questions, minimum lengths, concrete distractors, scenario-based, standalone).
+- **Source of truth #1:** `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type` (defines the five golden rules, no recall questions, minimum lengths, concrete distractors, scenario-based, standalone).
 - **Source of truth #2:** `docs/COURSE_BUILDING_RULES.md#gold-standard-only-acceptable-form` (reinforces the same "standalone, grounded, scenario, concrete deliverable, concrete distractors" constraint and the 7-question minimum).
 All evaluations must cite one or both sources when flagging violations.
 

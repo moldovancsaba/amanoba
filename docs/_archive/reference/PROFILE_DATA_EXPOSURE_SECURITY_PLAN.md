@@ -213,7 +213,7 @@ const response: any = {
 
 ## 🔄 Rollback Plan
 
-**See**: `docs/PROFILE_DATA_EXPOSURE_ROLLBACK_PLAN.md` for complete rollback instructions.
+**See**: `docs/_archive/reference/PROFILE_DATA_EXPOSURE_ROLLBACK_PLAN.md` for complete rollback instructions.
 
 **Quick Rollback**:
 ```bash

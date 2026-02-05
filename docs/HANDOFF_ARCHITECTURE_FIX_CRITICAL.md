@@ -538,7 +538,7 @@ Timeline: Same 4-6 weeks, but now organized by COURSES not by DAYS
 - `docs/HANDOFF_DOCUMENT_COMPREHENSIVE.md` → Archive, reference only
 - `docs/DAY_1_QUESTIONS_PROFESSIONAL.md` → Archive, reference only
 - `docs/DAY_1_QUESTIONS_ALL_LANGUAGES.md` → Archive, reference only
-- `docs/QUICK_REFERENCE_CHECKLIST.md` → Archive, reference only
+- `docs/_archive/reference/QUICK_REFERENCE_CHECKLIST.md` → Archive, reference only
 - `scripts/seed-day-1-professional.ts` → Archive, reference only
 
 **Reason**: Designed for wrong architecture. Will redesign after fix.

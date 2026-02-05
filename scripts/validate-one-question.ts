@@ -10,7 +10,7 @@
  * Example (DONE_BETTER_2026_EN day 5, 3rd question, 0-based index 2):
  *   npx tsx --env-file=.env.local scripts/validate-one-question.ts --lesson-id DONE_BETTER_2026_EN_DAY_05 --question-index 2
  *
- * Reference: 2026_course_quality_prompt.md, docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md
+ * Reference: 2026_course_quality_prompt.md, docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md
  */
 
 import { config } from 'dotenv';

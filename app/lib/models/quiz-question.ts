@@ -40,8 +40,14 @@ export enum QuestionType {
  */
 export interface IQuizQuestion extends Document {
   question: string;
-  options: string[];
-  correctIndex: number;
+  /** Legacy: exactly 4 options; correctIndex 0-3. Optional when correctAnswer + wrongAnswers are used. */
+  options?: string[];
+  /** Legacy: index of correct answer in options (0-3). Optional when correctAnswer + wrongAnswers are used. */
+  correctIndex?: number;
+  /** New format: single correct answer; display shows this + 2 random from wrongAnswers (3 options total). */
+  correctAnswer?: string;
+  /** New format: wrong answers; at least 2 required when using correctAnswer. */
+  wrongAnswers?: string[];
   difficulty: QuestionDifficulty;
   category: string;
   showCount: number;
@@ -86,26 +92,39 @@ const QuizQuestionSchema = new Schema<IQuizQuestion>(
       index: true, // Why: Used for alphabetical tie-breaking in selection algorithm
     },
 
-    // Answer options
-    // Why: Multiple choice answers (4 options standard)
+    // Answer options (legacy: 4 options; optional when correctAnswer + wrongAnswers are used)
     options: {
       type: [String],
-      required: [true, 'Options are required'],
+      default: undefined,
       validate: {
-        validator: function (opts: string[]) {
-          return opts.length === 4 && opts.every(opt => opt.length > 0);
+        validator: function (this: IQuizQuestion, opts: string[]) {
+          if (!opts || opts.length === 0) return !!this.correctAnswer && Array.isArray(this.wrongAnswers) && this.wrongAnswers.length >= 2;
+          return opts.length === 4 && opts.every(opt => typeof opt === 'string' && opt.length > 0);
         },
-        message: 'Must provide exactly 4 non-empty options',
+        message: 'Must provide exactly 4 non-empty options, or use correctAnswer + wrongAnswers (min 2)',
       },
     },
 
-    // Correct answer index (0-3)
-    // Why: Identifies which option is correct (never sent to client before answer)
+    // Correct answer index 0-3 (legacy; optional when correctAnswer + wrongAnswers are used)
     correctIndex: {
       type: Number,
-      required: [true, 'Correct index is required'],
+      default: undefined,
       min: [0, 'Correct index must be 0-3'],
       max: [3, 'Correct index must be 0-3'],
+    },
+
+    // Correct answer (new format: 1 good + N bad; display shows 3 options: correct + 2 random wrong)
+    correctAnswer: { type: String, trim: true },
+    wrongAnswers: {
+      type: [String],
+      default: undefined,
+      validate: {
+        validator: function (v: string[]) {
+          if (!v || v.length === 0) return true;
+          return v.length >= 2 && v.every(opt => typeof opt === 'string' && opt.length > 0);
+        },
+        message: 'wrongAnswers must have at least 2 entries when using correctAnswer format',
+      },
     },
 
     // Difficulty level
@@ -378,20 +397,22 @@ QuizQuestionSchema.pre('save', function (next) {
 });
 
 /**
- * Validation: Ensure all options are distinct
- * Why: Prevents duplicate answer choices
- * Note: Skip validation during migration (options may be incomplete temporarily)
+ * Validation: Require either (options + correctIndex) or (correctAnswer + wrongAnswers)
  */
 QuizQuestionSchema.pre('save', function (next) {
-  // Skip validation if options is undefined or not an array
-  if (!Array.isArray(this.options) || this.options.length === 0) {
-    return next();
-  }
-  
+  const hasLegacy = Array.isArray(this.options) && this.options.length === 4 && typeof this.correctIndex === 'number' && this.correctIndex >= 0 && this.correctIndex <= 3;
+  const hasNewFormat = this.correctAnswer && Array.isArray(this.wrongAnswers) && this.wrongAnswers.length >= 2;
+  if (hasLegacy || hasNewFormat) return next();
+  return next(new Error('Question must have either options (4) + correctIndex (0-3) or correctAnswer + wrongAnswers (min 2)'));
+});
+
+/**
+ * Validation: Ensure all options are distinct (legacy format)
+ */
+QuizQuestionSchema.pre('save', function (next) {
+  if (!Array.isArray(this.options) || this.options.length === 0) return next();
   const uniqueOptions = new Set(this.options);
-  if (uniqueOptions.size !== this.options.length) {
-    return next(new Error('All options must be unique'));
-  }
+  if (uniqueOptions.size !== this.options.length) return next(new Error('All options must be unique'));
   next();
 });
 

@@ -206,8 +206,8 @@
 ## REFERENCES
 
 - **Master Plan**: `/docs/_archive/delivery/2026-01/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md`
-- **Phase 1 Report**: `/docs/PHASE_1_FINAL_REPORT.md`
-- **Phase 2 Report**: `/docs/PHASE_2_FINAL_REPORT.md`
+- **Phase 1 Report**: `/docs/_archive/reference/PHASE_1_FINAL_REPORT.md`
+- **Phase 2 Report**: `/docs/_archive/reference/PHASE_2_FINAL_REPORT.md`
 - **Project Completion**: `/docs/PROJECT_COMPLETE.md`
 - **Audit Data**: `/docs/PHASE_1_AUDIT_WORKSHEET.md` (and related)
 

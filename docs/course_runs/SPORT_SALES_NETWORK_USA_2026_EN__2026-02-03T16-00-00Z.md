@@ -25,7 +25,7 @@
 ## Phase B — Course idea & differentiation
 - Positioning documented in `docs/course_ideas/amanoba_course_sport_sales_network_usa_2026.md` (focus on US multi-motion sales network, outcomes, 30-day syllabus). ✅
 - Learning outcomes emphasize blueprint creation, three-playbook operation, partner enablement, procurement readiness, 90-day plan. ✅
-- Quality gates (lessons/quizzes) tied to `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` and `docs/Course_Building_Rules`. ✅
+- Quality gates (lessons/quizzes) tied to `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` and `docs/Course_Building_Rules`. ✅
 
 ## Phase C — 30-day outline (artifact)
 - Outline detail (Day 1–30) already captured in `docs/course_ideas/amanoba_course_sport_sales_network_usa_2026.md`, including objectives, key concepts, exercises, deliverables, sources. ✅

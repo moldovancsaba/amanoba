@@ -9,19 +9,11 @@ import {
   QuizQuestion,
 } from '@/lib/models';
 import { getCertificationPoolCount, getCertQuestionLimit, resolvePoolCourse } from '@/lib/certification';
+import { buildThreeOptions } from '@/lib/quiz-questions';
 import mongoose from 'mongoose';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-
-function shuffle<T>(arr: T[]): T[] {
-  const copy = [...arr];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
 
 export async function POST(request: NextRequest) {
   const session = await auth();
@@ -118,15 +110,22 @@ export async function POST(request: NextRequest) {
   }
 
   const questionOrder = questions.map((q) => q._id.toString());
-  const answerOrderByQuestion: Record<string, number[]> = {};
   const firstQuestion = questions[0];
-  answerOrderByQuestion[firstQuestion._id.toString()] = shuffle([0, 1, 2, 3]);
+  const firstQuestionId = firstQuestion._id.toString();
+  const threeOpt = buildThreeOptions(firstQuestion);
+  if (!threeOpt) {
+    return NextResponse.json(
+      { success: false, error: 'Certification unavailable. First question invalid.' },
+      { status: 400 }
+    );
+  }
+  const correctIndexInDisplay = threeOpt.options.indexOf(threeOpt.correctAnswerValue);
+  const correctIndexInDisplayByQuestion: Record<string, number> = { [firstQuestionId]: correctIndexInDisplay };
 
-  // Pre-shuffle options for first question
   const firstPayload = {
-    questionId: firstQuestion._id.toString(),
+    questionId: firstQuestionId,
     question: firstQuestion.question,
-    options: answerOrderByQuestion[firstQuestion._id.toString()].map((idx) => firstQuestion.options[idx]),
+    options: threeOpt.options,
     index: 0,
     total: questions.length,
   };
@@ -137,7 +136,7 @@ export async function POST(request: NextRequest) {
     poolCourseId: poolCourse._id,
     questionIds: questionOrder,
     questionOrder,
-    answerOrderByQuestion,
+    correctIndexInDisplayByQuestion,
     answers: [],
     correctCount: 0,
     status: 'IN_PROGRESS',

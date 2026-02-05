@@ -1,7 +1,7 @@
 # Quiz Fix Run: Newest to Oldest
 
 Generated: 2026-01-29  
-Reference: `2026_course_quality_prompt.md`, `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`  
+Reference: `2026_course_quality_prompt.md`, `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`  
 Order: **newest course first**, then lesson-by-lesson, question-by-question where applicable.
 
 ## Gold-standard criteria (all required)

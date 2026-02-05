@@ -63,15 +63,17 @@ Do **not** include in package (or import must ignore): `_id`, `createdAt`, `upda
 
 ## Lesson object
 
+Lesson **content** and **emailBody** are stored and exchanged as **Markdown** (headings, lists, **bold**, *italic*, [links](url)). Legacy packages may contain HTML; display/email layers render to HTML via `contentToHtml`.
+
 | Field | Type | Notes |
 |-------|------|--------|
 | lessonId | string | Required. Unique per course. |
 | dayNumber | number | |
 | language | string | |
 | title | string | |
-| content | string | |
+| content | string | **Markdown.** |
 | emailSubject | string | |
-| emailBody | string | |
+| emailBody | string | **Markdown.** |
 | quizConfig | object \| null | { enabled, successThreshold, questionCount, poolSize, required }. |
 | unlockConditions | object | |
 | pointsReward | number | |
@@ -111,16 +113,26 @@ Do **not** include: `_id`, `lessonId`/`courseId` (import sets from context), `sh
 - **New course** (no existing course with same courseId): Create Course, Lessons, QuizQuestions. Use default brand (e.g. amanoba) for brandId.
 - **Overwrite (update)** (existing course, overwrite=true): Merge only. Update course document (content/config fields above). Upsert lessons by lessonId. Upsert quiz questions by lessonId + uuid (or question text). Do **not** delete existing lessons or questions that are not in the package. Preserve: CourseProgress, ContentVote, Certificate, CertificateEntitlement, PaymentTransaction, child courses (shorts), enrolments.
 
+### How to create a new course from a package
+
+1. **Export** an existing course as ZIP (Admin → open course → Export ZIP).
+2. Unzip, edit **course.json**: set a new **courseId** (and name/description if desired). Optionally adjust lessonIds in **lessons.json** if you want different lesson keys. Re-zip (manifest.json, course.json, lessons.json).
+3. **Import**: Admin → **Course Management** → **Import course (JSON or ZIP)**. Choose the modified ZIP. The app creates the new course (by courseId) and opens its editor.  
+   Alternatively, open any course’s editor and use **Import (JSON or ZIP)** there; if the package’s courseId is different, the app creates/updates that course and redirects you to it.
+
+**Editing the package:** Save **course.json** (and **lessons.json** if you edit it) as **UTF-8** so characters like en-dash (–), em-dash (—), and accented letters are preserved. Import applies `name` and `description` from the package exactly when present.
+
 ---
 
-## Optional: ZIP package (future)
+## ZIP package (single JSON)
 
-A ZIP may contain:
+A ZIP contains one main file:
 
-- `manifest.json` — packageVersion, courseId, list of files.
-- `course.json` — course object.
-- `lessons.json` — array of lesson objects (or `lessons/day-01.json` …).
-- `canonical/<ccsId>.canonical.json`, `canonical/<ccsId>_CCS.md`.
-- `course_idea.md`.
+- **package.json** — single JSON with manifest metadata at the top, then course, then lessons: `{ packageVersion, exportedAt, exportedBy, course, lessons, canonicalSpec?, courseIdea? }`. No separate manifest.json / course.json / lessons.json.
 
-Import would parse ZIP and then apply the same merge/create rules as for single JSON.
+Optional files in the ZIP:
+
+- `canonical.json` — canonical spec when present.
+- `course_idea.md` — course idea markdown.
+
+**Backward compatibility:** Import also accepts the older 3-file layout: `manifest.json` + `course.json` + `lessons.json`. Export as ZIP is available in the course editor (Export ZIP).

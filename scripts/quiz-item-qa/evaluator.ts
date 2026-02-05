@@ -15,7 +15,7 @@ export interface EvaluationResult {
   autoPatch: Record<string, unknown>;
 }
 
-const GOLDEN_DOC = 'docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type';
+const GOLDEN_DOC = 'docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md#gold-standard-question-type';
 const COURSE_RULES_DOC = 'docs/COURSE_BUILDING_RULES.md#gold-standard-only-acceptable-form';
 const BANNED_PHRASES = [
   'this course',

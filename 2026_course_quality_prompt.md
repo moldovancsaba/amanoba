@@ -17,7 +17,7 @@ Rules:
 
 Hard rules (must do first, no exceptions):
 1) Immediately read and treat as the active rulebook: `agent_working_loop_canonical_operating_document.md`.
-2) Immediately read and follow: `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md` and `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`.
+2) Immediately read and follow: `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md` and `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`.
    - Also read: `docs/COURSE_BUILDING_RULES.md`.
    - For manual per-question fixes (one Q/A at a time), use `/<locale>/admin/questions` or the CRUD API under `/api/admin/questions` (API-token mode supported via `ADMIN_API_TOKEN` / `ADMIN_API_TOKENS`).
 3) No autonomous assumptions: confirm DB environment + scope before any DB write.
@@ -169,7 +169,7 @@ Shorts must be **read-only derived content**. They must not modify the parent co
 
 ## Gold-standard question type (only acceptable form)
 
-**Only questions that match this form are acceptable.** See `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` for the full section.
+**Only questions that match this form are acceptable.** See `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` for the full section.
 
 **Canonical example:** *"What is the concrete document or list needed to define the ICP according to different problem groups?"*
 

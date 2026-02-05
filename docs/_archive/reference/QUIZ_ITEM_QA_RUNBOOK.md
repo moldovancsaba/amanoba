@@ -60,7 +60,7 @@
   1. Re-fetch the question via `GET /api/admin/questions/[questionId]`.
   2. Reapply the previous values using `PATCH`, or use a saved backup (`scripts/quiz-backups/<course>/<lesson>.json`) with `npx tsx scripts/restore-lesson-quiz-from-backup.ts --file <path>`.
   3. Re-run `eval` to confirm golden standards still pass after rollback.
-- Always log the rollback action in `docs/QUIZ_ITEM_QA_HANDOVER.md` (include reason, timestamp, agent).
+- Always log the rollback action in `docs/_archive/reference/QUIZ_ITEM_QA_HANDOVER.md` (include reason, timestamp, agent).
 
 ## Configuration layer (all derived from env vars)
 - `pageSize`: number of items fetched per page (`QUIZ_ITEM_PAGE_SIZE` or 100).

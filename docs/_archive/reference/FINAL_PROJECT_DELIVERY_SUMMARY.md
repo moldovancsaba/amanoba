@@ -240,10 +240,10 @@ d25dbea Add executive summary for Quiz Quality Audit project completion
 ### Files Modified/Created
 - ✅ `app/lib/models/quiz-question.ts` - Schema updated
 - ✅ `docs/_archive/delivery/2026-01/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md`
-- ✅ `docs/PHASE_1_FINAL_REPORT.md`
-- ✅ `docs/PHASE_2_FINAL_REPORT.md`
+- ✅ `docs/_archive/reference/PHASE_1_FINAL_REPORT.md`
+- ✅ `docs/_archive/reference/PHASE_2_FINAL_REPORT.md`
 - ✅ `docs/PROJECT_COMPLETE.md`
-- ✅ `docs/MIGRATION_EXECUTION_PLAN.md`
+- ✅ `docs/_archive/reference/MIGRATION_EXECUTION_PLAN.md`
 - ✅ `docs/MIGRATION_PHASE_1_COMPLETE.md`
 - ✅ `scripts/migrate-add-audit-fields.ts`
 - ✅ `scripts/migrate-audit-data-phase-1.ts`
@@ -284,7 +284,7 @@ This project has been completed to the highest quality standards and is approved
 ## REFERENCE DOCUMENTS
 
 **Quick Start**:
-- `/docs/EXECUTIVE_SUMMARY.md` - Leadership overview
+- `/docs/_archive/reference/EXECUTIVE_SUMMARY.md` - Leadership overview
 
 **Detailed Information**:
 - `/docs/_archive/delivery/2026-01/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md` - Complete plan
@@ -292,7 +292,7 @@ This project has been completed to the highest quality standards and is approved
 - `/docs/MIGRATION_PHASE_1_COMPLETE.md` - Database deployment report
 
 **Technical Details**:
-- `/docs/MIGRATION_EXECUTION_PLAN.md` - Migration procedures
+- `/docs/_archive/reference/MIGRATION_EXECUTION_PLAN.md` - Migration procedures
 - `app/lib/models/quiz-question.ts` - Updated schema
 
 **Audit Logs**:

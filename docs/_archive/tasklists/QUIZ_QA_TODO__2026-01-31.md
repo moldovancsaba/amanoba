@@ -3,11 +3,11 @@
 This is the execution tasklist to reach the **minimum quiz pool** requirements across the system and to enforce the **gold-standard question type**.
 
 SSOT (rules):
-- `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` (gold-standard canonical example + rule breakdown)
+- `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` (gold-standard canonical example + rule breakdown)
 - `docs/COURSE_BUILDING_RULES.md` (“Gold standard (only acceptable form)” + hard gates)
 
 Operating docs (workflow + logging):
-- `docs/QUIZ_ITEM_QA_HANDOVER.md`
+- `docs/_archive/reference/QUIZ_ITEM_QA_HANDOVER.md`
 - Run log (newest-first): `docs/QUIZ_ITEM_QA_HANDOVER_NEW2OLD.md`
 - Cursor/state SSOT: `.state/quiz_item_qa_state.json`
 
@@ -124,7 +124,7 @@ npx tsx --env-file=.env.local scripts/quiz-item-qa/mongodb-cli.ts loop:run --ite
 ```
 
 Manual review mode (1 item at a time, human check opportunity):
-Follow `docs/QUIZ_ITEM_QA_HANDOVER.md#human-check-loop-1-item-at-a-time`.
+Follow `docs/_archive/reference/QUIZ_ITEM_QA_HANDOVER.md#human-check-loop-1-item-at-a-time`.
 
 Acceptance criteria:
 - Re-run `audit-quiz-coverage.ts` and confirm `toCheck = 0`.

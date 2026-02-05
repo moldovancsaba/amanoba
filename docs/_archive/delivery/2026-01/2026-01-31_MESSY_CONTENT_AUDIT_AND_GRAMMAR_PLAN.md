@@ -38,7 +38,7 @@ Content is **messy** or **lowest quality** when one or more of the following app
 |--------|----------|--------|
 | **Generator templates** | `scripts/content-based-question-generator.ts` | HU (and other locale) question/option **templates**. Root cause of e.g. „visszacsatolást”, truncated „${p}” (60 chars), stiff phrasing. |
 | **Database** | MongoDB (questions collection) | Live questions served to lesson quiz and QUIZZZ. Seeded/updated via scripts; can contain old or generator-produced text. |
-| **Run log (evidence only)** | `docs/QUIZ_ITEM_QA_HANDOVER_NEW2OLD.md`, `docs/QUIZ_ITEM_QA_HANDOVER.md` | Log of evaluated items; many HU questions with „visszacsatolást”, truncation, repeated pattern. Not UI, but proves DB has messy items. |
+| **Run log (evidence only)** | `docs/QUIZ_ITEM_QA_HANDOVER_NEW2OLD.md`, `docs/_archive/reference/QUIZ_ITEM_QA_HANDOVER.md` | Log of evaluated items; many HU questions with „visszacsatolást”, truncation, repeated pattern. Not UI, but proves DB has messy items. |
 
 ### 2.2 Lesson content (user-facing)
 
@@ -59,7 +59,7 @@ Content is **messy** or **lowest quality** when one or more of the following app
 
 | Source | Location | Notes |
 |--------|----------|--------|
-| **Email templates** | See `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` (email integrity) | Localized footers and body. |
+| **Email templates** | See `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` (email integrity) | Localized footers and body. |
 | **Docs** | `docs/QUIZ_ITEM_QA_HANDOVER*.md` | Run logs; not user-facing but useful for **discovery** of bad question text. |
 
 ---
@@ -145,7 +145,7 @@ Repeat for other locales (e.g. RU, PL) with native-speaker or proven reference w
 
 ## 5. References
 
-- **Quality rules**: `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` (gold-standard question type; language integrity).
+- **Quality rules**: `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` (gold-standard question type; language integrity).
 - **Course quality**: `docs/_archive/delivery/2026-01/2026-01-25_COURSE_CONTENT_QUALITY_AUDIT_AND_FIX_MASTER_PLAN.md`.
 - **Layout / structure**: `docs/layout_grammar.md`.
 - **Existing HU fixes**: `scripts/fix-playbook-2026-30-hu-language-integrity.ts`, `scripts/fix-geo-shopify-30-hu-review-terms.ts`.

@@ -1,7 +1,7 @@
 # Debug Player Endpoint — Rollback Plan
 
 **Date**: 2026-01-25  
-**Related**: `docs/DEBUG_PLAYER_ENDPOINT_SECURITY_PLAN.md`
+**Related**: `docs/_archive/reference/DEBUG_PLAYER_ENDPOINT_SECURITY_PLAN.md`
 
 ---
 

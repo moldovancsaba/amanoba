@@ -341,7 +341,7 @@ npm run dev
 - `app/lib/models/quiz-question.ts` - Schema updated with audit fields
 
 **Created**:
-- `docs/MIGRATION_EXECUTION_PLAN.md` - Migration procedures
+- `docs/_archive/reference/MIGRATION_EXECUTION_PLAN.md` - Migration procedures
 - `scripts/migrate-add-audit-fields.ts` - UUID initialization
 - `scripts/migrate-audit-data-phase-1.ts` - Audit data population
 

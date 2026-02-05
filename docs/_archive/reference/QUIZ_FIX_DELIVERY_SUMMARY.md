@@ -33,9 +33,9 @@
 - **Test**: Day 1 seeded successfully ✅
 
 ### 4. Documentation Created ✅
-- **Action Plan**: `docs/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md`
-- **Summary**: `docs/QUIZ_SYSTEM_FIX_SUMMARY.md`
-- **This Document**: `docs/QUIZ_FIX_DELIVERY_SUMMARY.md`
+- **Action Plan**: `docs/_archive/reference/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md`
+- **Summary**: `docs/_archive/reference/QUIZ_SYSTEM_FIX_SUMMARY.md`
+- **This Document**: `docs/_archive/reference/QUIZ_FIX_DELIVERY_SUMMARY.md`
 
 ---
 
@@ -130,9 +130,9 @@ npx tsx --env-file=.env.local scripts/seed-all-productivity-quizzes.ts
 - `scripts/seed-dayX-enhanced.ts` - Individual day seed scripts (Days 1-30)
 
 ### Documentation
-- `docs/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md` - Complete action plan
-- `docs/QUIZ_SYSTEM_FIX_SUMMARY.md` - Progress summary
-- `docs/QUIZ_FIX_DELIVERY_SUMMARY.md` - This document
+- `docs/_archive/reference/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md` - Complete action plan
+- `docs/_archive/reference/QUIZ_SYSTEM_FIX_SUMMARY.md` - Progress summary
+- `docs/_archive/reference/QUIZ_FIX_DELIVERY_SUMMARY.md` - This document
 
 ### Reports
 - `scripts/AUDIT_REPORT_FULL_SYSTEM.json` - Full audit results

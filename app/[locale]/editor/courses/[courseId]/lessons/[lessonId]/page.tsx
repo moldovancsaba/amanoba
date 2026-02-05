@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
-import RichTextEditor from '@/components/ui/rich-text-editor';
+import MarkdownEditor from '@/components/ui/markdown-editor';
 import QuizManagerModal from '@/components/QuizManagerModal';
 
 type Lesson = {
@@ -153,8 +153,8 @@ export default function EditorLessonPage() {
             </div>
 
             <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
-              <label className="block text-xs text-gray-300 mb-2">Lesson content</label>
-              <RichTextEditor content={content} onChange={setContent} placeholder="Write lesson content…" />
+              <label className="block text-xs text-gray-300 mb-2">Lesson content (Markdown)</label>
+              <MarkdownEditor content={content} onChange={setContent} placeholder="Write lesson content in Markdown…" className="border-gray-700" />
             </div>
 
             <div className="bg-gray-800 border border-gray-700 rounded-lg p-4 pt-4 border-t border-gray-700">
@@ -178,7 +178,7 @@ export default function EditorLessonPage() {
             </div>
 
             <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
-              <label className="block text-xs text-gray-300 mb-2">Email body (HTML)</label>
+              <label className="block text-xs text-gray-300 mb-2">Email body (Markdown)</label>
               <textarea
                 value={emailBody}
                 onChange={(e) => setEmailBody(e.target.value)}

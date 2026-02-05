@@ -141,8 +141,8 @@ When the task involves **creating courses**, **refining lessons**, **generating 
 - **`docs/layout_grammar.md`** — Layout and structure grammar (course/lesson/quiz/UI/doc layout). Read first when touching content or course structure.
 - **`2026_course_creator_prompts.md`** — Recursive prompts + state management for course creation.
 - **`2026_course_quality_prompt.md`** — Single source of truth for course quality control (lessons + quizzes + language integrity gates).
-- **`docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md`** — Operational handover (rollback + commands + strict rules).
-- **`docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`** — Playbook (workflow + outputs).
+- **`docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md`** — Operational handover (rollback + commands + strict rules).
+- **`docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`** — Playbook (workflow + outputs).
 - **`docs/COURSE_BUILDING_RULES.md`** — Course creation rules (language prerequisites + standards).
 
 Rule: If any other document conflicts with the SSOT set above, **update the other document** or clearly mark it as historical, so the system stays contradiction-free.
@@ -275,9 +275,9 @@ TEAM:
 
 | Location | Document Name | Summary |
 |----------|---------------|---------|
-| `/docs/certificate_dev_plan.md` | Certificate Development Plan | Certification system development plan. Final exam, certificate issuance, verification, and rendering. |
+| `/docs/_archive/reference/certificate_dev_plan.md` | Certificate Development Plan | Certification system development plan. Final exam, certificate issuance, verification, and rendering. |
 | `/docs/CERTIFICATE_AB_TEST_DESIGN.md` | Certificate A/B Test Design | Template variant assignment at issue, rendering from cert.designTemplateId, tracking. Implementation: P1 #4–#5. |
-| `/docs/certification_final_exam_plan.md` | Certification Final Exam Plan | Detailed plan for final certification exam feature. Business rules, question pool, scoring, and certificate issuance. |
+| `/docs/_archive/reference/certification_final_exam_plan.md` | Certification Final Exam Plan | Detailed plan for final certification exam feature. Business rules, question pool, scoring, and certificate issuance. |
 | `/docs/course_ideas/` | Course Ideas | Blueprints and plans for future courses. Includes GEO Shopify course, B2B sales, and other course concepts. |
 
 ### Development Guides
@@ -294,14 +294,14 @@ TEAM:
 | Location | Document Name | Summary |
 |----------|---------------|---------|
 | `/docs/I18N_SETUP.md` | i18n Setup | Internationalization setup guide. Locale configuration, translation structure, and language switching implementation. |
-| `/docs/I18N_MIGRATION_SUMMARY.md` | i18n Migration Summary | Summary of internationalization migration. Changes made, files updated, and translation structure. |
+| `/docs/_archive/reference/I18N_MIGRATION_SUMMARY.md` | i18n Migration Summary | Summary of internationalization migration. Changes made, files updated, and translation structure. |
 | `/docs/MIGRATION_COMPLETE.md` | Migration Complete | Completion status of major migrations. Database migrations, code refactoring, and system updates. |
 
 ### Analysis & Planning
 
 | Location | Document Name | Summary |
 |----------|---------------|---------|
-| `/docs/DASHBOARD_ANALYSIS_AND_PLAN.md` | Dashboard Analysis | Analysis of dashboard functionality and improvement plans. Current state, issues, and proposed enhancements. |
+| `/docs/_archive/reference/DASHBOARD_ANALYSIS_AND_PLAN.md` | Dashboard Analysis | Analysis of dashboard functionality and improvement plans. Current state, issues, and proposed enhancements. |
 | `/docs/DEVELOPER_FEEDBACK_ANALYSIS.md` | Developer Feedback Analysis | Analysis of developer feedback and code review findings. Issues identified and solutions proposed. |
 | `/docs/CODE_REVIEW_FINDINGS.md` | Code Review Findings | Findings from code reviews. Security issues, performance problems, and code quality improvements. |
 
@@ -311,7 +311,7 @@ TEAM:
 |----------|---------------|---------|
 | `/docs/PHASE_1_COMPLETE.md` | Phase 1 Complete | Completion documentation for Phase 1 of development. Foundation work, data models, and initial setup. |
 | `/docs/PHASE_2_3_COMPLETE.md` | Phase 2 & 3 Complete | Completion documentation for Phases 2 and 3. Course builder, admin tools, and email automation. |
-| `/docs/TRANSFORMATION_PLAN.md` | Transformation Plan | Original plan for transforming from game platform to learning platform. Vision, milestones, and implementation strategy. |
+| `/docs/_archive/reference/TRANSFORMATION_PLAN.md` | Transformation Plan | Original plan for transforming from game platform to learning platform. Vision, milestones, and implementation strategy. |
 | `/docs/NEXT_PHASES.md` | Next Phases | Planned future phases of development. Upcoming features, priorities, and timeline estimates. |
 
 ---

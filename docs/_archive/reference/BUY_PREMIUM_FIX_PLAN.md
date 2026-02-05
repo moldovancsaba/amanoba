@@ -227,7 +227,7 @@ This single change should fix the issue immediately.
 ## 🛡️ Rollback Plan
 
 **CRITICAL**: A complete rollback plan is available in:
-- `docs/BUY_PREMIUM_FIX_ROLLBACK_PLAN.md`
+- `docs/_archive/reference/BUY_PREMIUM_FIX_ROLLBACK_PLAN.md`
 
 **Quick Rollback** (if changes NOT committed):
 ```bash

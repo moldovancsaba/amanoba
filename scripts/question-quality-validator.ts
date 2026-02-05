@@ -4,7 +4,7 @@
  * Purpose: Validate questions meet all quality requirements before saving.
  * This ensures no generic templates, proper context, and educational value.
  *
- * Gold-standard criteria (see docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md):
+ * Gold-standard criteria (see docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md):
  * Only questions that satisfy ALL of these are acceptable:
  * 1. Standalone — no "this course", "today", "the lesson".
  * 2. Grounded — tests what the lesson actually teaches (concepts, deliverables, procedures).

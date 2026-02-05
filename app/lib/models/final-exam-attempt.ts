@@ -12,7 +12,9 @@ export interface IFinalExamAttempt extends Document {
   poolCourseId: mongoose.Types.ObjectId; // Resolved pool course (_id)
   questionIds: string[]; // 50 question IDs
   questionOrder: string[]; // ordered list of question IDs
-  answerOrderByQuestion?: Record<string, number[]>; // questionId -> shuffled indices
+  /** For 3-option display: questionId -> index (0–2) of correct option in displayed order. Used for grading. */
+  correctIndexInDisplayByQuestion?: Record<string, number>;
+  answerOrderByQuestion?: Record<string, number[]>; // legacy: questionId -> shuffled indices (4 options)
   answers: Record<string, unknown>[]; // client payloads per question
   correctCount: number;
   scorePercentRaw?: number;
@@ -32,6 +34,7 @@ const FinalExamAttemptSchema = new Schema<IFinalExamAttempt>(
     poolCourseId: { type: Schema.Types.ObjectId, ref: 'Course', required: true, index: true },
     questionIds: { type: [String], required: true },
     questionOrder: { type: [String], required: true },
+    correctIndexInDisplayByQuestion: { type: Schema.Types.Mixed },
     answerOrderByQuestion: { type: Schema.Types.Mixed },
     answers: { type: Schema.Types.Mixed, default: [] },
     correctCount: { type: Number, default: 0 },

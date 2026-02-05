@@ -6,7 +6,7 @@ Run started: 2026-01-29
 - [ ] Confirm `.env.local` points to intended DB (prod/staging)
 
 ## Commands (read-first order)
-- Read: `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`
+- Read: `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`
 - Read: `2026_course_quality_prompt.md`
 
 ## Execution

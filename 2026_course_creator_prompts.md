@@ -6,8 +6,8 @@ This file is a **copy/paste prompt library** for creating, auditing, and fixing 
 - You (the agent) must **read and follow**:
   - `agent_working_loop_canonical_operating_document.md`
   - `docs/COURSE_BUILDING_RULES.md` (course creation + language prerequisites)
-  - `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md` (for any quiz-related work)
-  - `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` (for commands + reports)
+  - `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md` (for any quiz-related work)
+  - `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` (for commands + reports)
   - `2026_course_quality_prompt.md` (single-source-of-truth for course QC)
 - You must also ensure **end-to-end email language integrity** across all communication flows:
   - Run: `npx tsx scripts/audit-email-communications-language-integrity.ts`
@@ -88,7 +88,7 @@ You are the AI developer/content architect for AMANOBA.
 
 Hard rules:
 - Immediately read and treat as active rulebook: `agent_working_loop_canonical_operating_document.md`.
-- If quizzes are mentioned, also read: `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md`.
+- If quizzes are mentioned, also read: `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md`.
 - Use `functions.update_plan`.
 - No autonomous assumptions; ask questions before committing to a structure.
 - Stop after the outline phase and ask to continue.
@@ -112,7 +112,7 @@ Deliverable requirements (per day / lesson):
   - at least 5 application question archetypes
   - at least 2 critical-thinking question archetypes
   - what misconceptions/distractors should target
-  - **Gold standard**: every question must be standalone, grounded in the lesson, scenario-based, ask for a concrete deliverable/outcome, and use concrete distractors (see `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`)
+  - **Gold standard**: every question must be standalone, grounded in the lesson, scenario-based, ask for a concrete deliverable/outcome, and use concrete distractors (see `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`)
 
 End with:
 - A “Coverage Map” showing which concepts repeat across days (spiral learning)
@@ -160,7 +160,7 @@ CCS output format:
 
 Hard quiz rules (must be encoded in CCS):
 - 0 RECALL questions (hard disallow)
-- **Gold standard**: questions must be standalone, grounded in lesson, scenario-based, concrete deliverable/outcome, concrete distractors (see `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`)
+- **Gold standard**: questions must be standalone, grounded in lesson, scenario-based, concrete deliverable/outcome, concrete distractors (see `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`)
 - Questions and options must be standalone and educational; no “as described in the lesson”
 - No throwaway options; options must be detailed
  - **Language integrity (hard)**: non‑EN courses must not contain injected English sentences/bullets in lessons or quizzes.
@@ -180,7 +180,7 @@ You are the AI developer/content architect for AMANOBA.
 
 Hard rules:
 - Immediately read and treat as active rulebook: `agent_working_loop_canonical_operating_document.md`.
-- For quiz work, also read: `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md`.
+- For quiz work, also read: `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md`.
 - No autonomous assumptions; ask questions if courseId, language, or DB environment is unclear.
 - Provide a **Safety Rollback Plan** before any DB writes (seed/update/delete).
 - Use `functions.update_plan`.
@@ -220,7 +220,7 @@ You are the AI developer/content architect for AMANOBA.
 
 Hard rules:
 - Immediately read and treat as active rulebook: `agent_working_loop_canonical_operating_document.md`.
-- Immediately read and follow: `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md`.
+- Immediately read and follow: `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md`.
 - No autonomous assumptions; confirm DB environment and scope before writing.
 - Provide a **Safety Rollback Plan** before any destructive DB change.
 - Use `functions.update_plan`.
@@ -232,7 +232,7 @@ Audit and fix the quality of course **[COURSE_ID]**.
 
 Hard requirements:
 - 0 RECALL questions (hard disallow; if present, remove and replace with APPLICATION/CRITICAL_THINKING)
-- **Gold standard**: only questions that are standalone, grounded, scenario-based, concrete deliverable, concrete distractors (see `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`)
+- **Gold standard**: only questions that are standalone, grounded, scenario-based, concrete deliverable, concrete distractors (see `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`)
 - Minimum per lesson: **>= 7** valid questions (can be more)
 - Minimum per lesson: **>= 5 APPLICATION**
 - Standalone wording; no lesson-referential answers; no fuzzy title-references

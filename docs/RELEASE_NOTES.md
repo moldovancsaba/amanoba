@@ -7,7 +7,18 @@
 
 ---
 
-## [Unreleased] — Course package (export/import/update); P2 enrolment
+## [Unreleased] — Course package (export/import/update); P2 enrolment; Quiz system (3 options, pass rules)
+
+### Quiz system — 3 options, pass/fail rules, final exam immediate fail
+
+- **Question shape:** Quiz questions store `correctAnswer` + `wrongAnswers` (and legacy `options` + `correctIndex`). Display: 3 options per question (1 correct + 2 random wrong, shuffled). Lesson quiz GET and final exam start/answer use `buildThreeOptions()` from `app/lib/quiz-questions.ts`.
+- **Lesson quiz:** Submit grades by `selectedOption` (or selectedIndex into options) vs correct answer string. Pass rule: if course has `quizMaxWrongAllowed` (0–10), fail when `wrongCount > quizMaxWrongAllowed`; else use lesson `successThreshold` %.
+- **Final exam:** Start and answer routes build 3 options per question and store `correctIndexInDisplayByQuestion` on `FinalExamAttempt`. Grading uses `selectedIndex === correctIndexInDisplayByQuestion[questionId]` (with legacy fallback for old 4-option attempts). When course has `certification.maxErrorPercent`, exam fails immediately when current error rate exceeds that % (attempt marked GRADED, passed false).
+- **Course model:** `quizMaxWrongAllowed` (0–10) and `certification.maxErrorPercent` (0–100) already in schema; no change.
+- **Admin UI:** Course editor has “Lesson quizzes” section (Max wrong answers allowed) and under Certification “Pass rules” (Max error % immediate fail). Both optional.
+- **Export/import:** Course export includes `correctAnswer` and `wrongAnswers` for each quiz question when present; import accepts and persists them (merge-safe).
+
+---
 
 ### P2 — Course package (export/import/update) — content safety
 
@@ -689,7 +700,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - **Tiny-loop workflow**: Quiz rewrite scripts now process questions one-at-a-time: backup once per lesson; replace each invalid question with a single validated candidate (generate candidates → validate first passing → delete old, insert new); fill missing slots one-at-a-time. No batch delete/insert of multiple questions.
 - **Scripts updated**: `quiz-quality-pipeline.ts`, `process-course-questions-generic.ts`, `final-comprehensive-question-generation.ts`, `process-all-courses-with-quality-validation.ts` — configurable `MAX_REPLACE_ATTEMPTS`, `MAX_FILL_ATTEMPTS_PER_SLOT`, `CANDIDATES_PER_ATTEMPT`.
 - **Validator fix**: Legacy DB records with undefined `questionType` or `difficulty` now default to `'application'` and `MEDIUM` in validation payload and inside `validateQuestionQuality` to avoid false failures.
-- **Playbook**: `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` updated to document mandatory tiny-loop process for quiz rewriting.
+- **Playbook**: `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` updated to document mandatory tiny-loop process for quiz rewriting.
 
 ### Roadmap & Tasklist cleanup
 
@@ -821,8 +832,8 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - `app/api/debug/player/[playerId]/route.ts` – added auth, requireAdmin, NODE_ENV guard
 
 #### Documentation
-- `docs/DEBUG_PLAYER_ENDPOINT_SECURITY_PLAN.md` – root cause and fix
-- `docs/DEBUG_PLAYER_ENDPOINT_ROLLBACK_PLAN.md` – rollback steps
+- `docs/_archive/reference/DEBUG_PLAYER_ENDPOINT_SECURITY_PLAN.md` – root cause and fix
+- `docs/_archive/reference/DEBUG_PLAYER_ENDPOINT_ROLLBACK_PLAN.md` – rollback steps
 
 **Build Status**: Verified  
 **Status**: ✅ FIX APPLIED
@@ -839,7 +850,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 **Goal**: End-to-end payment flow testing (checkout → payment → webhook → premium), edge cases, and admin payments.
 
 **Delivered**:
-- ✅ **Test plan** (`docs/PAYMENT_E2E_TEST_PLAN.md`): Flow diagram, scenarios (happy path, cancel, invalid session, webhook idempotency, admin list/filters), Stripe test cards, Stripe CLI instructions
+- ✅ **Test plan** (`docs/_archive/reference/PAYMENT_E2E_TEST_PLAN.md`): Flow diagram, scenarios (happy path, cancel, invalid session, webhook idempotency, admin list/filters), Stripe test cards, Stripe CLI instructions
 - ✅ **Contract test** (`scripts/payment-e2e-contract-test.ts`): Unauthed create-checkout → 401, success redirect behaviour; run with `npm run test:payment-contract` (app must be running, `BASE_URL` optional)
 - ✅ ROADMAP updated: “End-to-end payment flow testing” marked complete
 
@@ -874,8 +885,8 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - `app/api/players/[playerId]/route.ts` - Added authorization checks, restricted sensitive data
 
 #### Documentation
-- `docs/PROFILE_DATA_EXPOSURE_SECURITY_PLAN.md` - Root cause analysis and fix details
-- `docs/PROFILE_DATA_EXPOSURE_ROLLBACK_PLAN.md` - Complete rollback instructions
+- `docs/_archive/reference/PROFILE_DATA_EXPOSURE_SECURITY_PLAN.md` - Root cause analysis and fix details
+- `docs/_archive/reference/PROFILE_DATA_EXPOSURE_ROLLBACK_PLAN.md` - Complete rollback instructions
 
 **Security Model**:
 - **Public Data**: Basic info, progression stats, game statistics, achievements, streaks
@@ -932,8 +943,8 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - `app/api/admin/stats/route.ts`
 
 #### Documentation
-- `docs/RATE_LIMITING_IMPLEMENTATION_PLAN.md` - Complete implementation details
-- `docs/RATE_LIMITING_ROLLBACK_PLAN.md` - Rollback instructions
+- `docs/_archive/reference/RATE_LIMITING_IMPLEMENTATION_PLAN.md` - Complete implementation details
+- `docs/_archive/reference/RATE_LIMITING_ROLLBACK_PLAN.md` - Rollback instructions
 
 **Build Status**: ✅ SUCCESS  
 **Status**: ✅ COMPLETE - Rate limiting wired to critical endpoints, pattern established for remaining admin endpoints
@@ -963,8 +974,8 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - `app/api/payments/create-checkout/route.ts` - Removed conflicting `customer_email` parameter
 
 #### Documentation
-- `docs/STRIPE_CUSTOMER_EMAIL_FIX_PLAN.md` - Root cause analysis and fix details
-- `docs/STRIPE_CUSTOMER_EMAIL_FIX_ROLLBACK_PLAN.md` - Complete rollback instructions
+- `docs/_archive/reference/STRIPE_CUSTOMER_EMAIL_FIX_PLAN.md` - Root cause analysis and fix details
+- `docs/_archive/reference/STRIPE_CUSTOMER_EMAIL_FIX_ROLLBACK_PLAN.md` - Complete rollback instructions
 
 **Build Status**: ✅ SUCCESS  
 **Status**: ✅ FIX APPLIED - Payment checkout now works correctly
@@ -992,8 +1003,8 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - `app/api/admin/payments/route.ts` - Added import, fixed courseId normalization
 
 #### Documentation
-- `docs/ADMIN_PAYMENTS_FIX_PLAN.md` - Root cause analysis and fix details
-- `docs/ADMIN_PAYMENTS_FIX_ROLLBACK_PLAN.md` - Complete rollback instructions
+- `docs/_archive/reference/ADMIN_PAYMENTS_FIX_PLAN.md` - Root cause analysis and fix details
+- `docs/_archive/reference/ADMIN_PAYMENTS_FIX_ROLLBACK_PLAN.md` - Complete rollback instructions
 
 **Build Status**: ✅ SUCCESS  
 **Status**: ✅ COMPLETE - Admin payments page now displays transactions correctly
@@ -1121,8 +1132,8 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 **Documentation**: 
 - `docs/FINAL_QUIZ_SYSTEM_DELIVERY.md`
-- `docs/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md`
-- `docs/QUIZ_SEEDING_COMPLETE_REPORT.md`
+- `docs/_archive/reference/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md`
+- `docs/_archive/reference/QUIZ_SEEDING_COMPLETE_REPORT.md`
 
 ### 📊 Metrics
 

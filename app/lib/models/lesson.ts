@@ -18,9 +18,9 @@ export interface ILesson extends Document {
   dayNumber: number; // 1-30 (position in course)
   language: string; // Language code (hu, en, etc.)
   title: string;
-  content: string; // HTML/markdown lesson content
+  content: string; // Markdown lesson content (legacy may be HTML; render with contentToHtml for display/email)
   emailSubject: string; // Email subject line template
-  emailBody: string; // Email body template (HTML)
+  emailBody: string; // Email body template (Markdown; render with contentToHtml for sending)
   translations?: Map<string, {
     title: string;
     content: string;

@@ -95,7 +95,7 @@ Designer courses in the system are expressed as **canonical course specs (CCS)**
 - **Metadata**: UUID v4, hashtags, `questionType` (APPLICATION | CRITICAL_THINKING), `difficulty`, `category`.  
 - **Content**: Standalone, scenario-based, grounded in the lesson and CCS; no lesson-referential wording; no throwaway options; distractors must be educational.
 
-See `docs/COURSE_BUILDING_RULES.md` and `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` for full quiz quality rules.
+See `docs/COURSE_BUILDING_RULES.md` and `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` for full quiz quality rules.
 
 ---
 

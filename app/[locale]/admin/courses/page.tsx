@@ -27,7 +27,10 @@ import {
   ChevronRight,
   FolderOpen,
   FileText,
+  Upload,
+  Loader2,
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 interface Course {
@@ -130,7 +133,9 @@ function CreateCourseFamilyForm({ onCreated }: { onCreated: () => void }) {
 
 export default function AdminCoursesPage() {
   const locale = useLocale();
+  const router = useRouter();
   const [viewMode, setViewMode] = useState<ViewMode>('ccs');
+  const [importing, setImporting] = useState(false);
   const [courses, setCourses] = useState<Course[]>([]);
   const [ccsList, setCcsList] = useState<CCSItem[]>([]);
   const [ccsCourses, setCcsCourses] = useState<Record<string, Course[]>>({});
@@ -145,6 +150,46 @@ export default function AdminCoursesPage() {
   const [editingCcsId, setEditingCcsId] = useState<string | null>(null);
   const [editForm, setEditForm] = useState<{ name: string; idea: string; outline: string }>({ name: '', idea: '', outline: '' });
   const [deletingCcsId, setDeletingCcsId] = useState<string | null>(null);
+
+  const handleImportCourse = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    if (!confirm('Import package to create a new course or update an existing one (by courseId). Continue?')) {
+      event.target.value = '';
+      return;
+    }
+    setImporting(true);
+    try {
+      const isZip = file.name.toLowerCase().endsWith('.zip');
+      let response: Response;
+      if (isZip) {
+        const formData = new FormData();
+        formData.set('file', file);
+        formData.set('overwrite', 'true');
+        response = await fetch('/api/admin/courses/import', { method: 'POST', body: formData });
+      } else {
+        const text = await file.text();
+        const courseData = JSON.parse(text);
+        response = await fetch('/api/admin/courses/import', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ courseData, overwrite: true }),
+        });
+      }
+      const data = await response.json();
+      if (data.success && data.course?.courseId) {
+        router.push(`/${locale}/admin/courses/${data.course.courseId}`);
+        return;
+      }
+      alert(data.error || 'Import failed');
+    } catch (e) {
+      console.error('Import failed', e);
+      alert('Import failed. Use a .json or .zip course package.');
+    } finally {
+      setImporting(false);
+      event.target.value = '';
+    }
+  };
 
   const fetchCCS = useCallback(async () => {
     try {
@@ -331,13 +376,29 @@ export default function AdminCoursesPage() {
           <h1 className="text-3xl font-bold text-white mb-2">Course Management</h1>
           <p className="text-gray-400">Create and manage 30-day learning courses</p>
         </div>
-        <Link
-          href={`/${locale}/admin/courses/new`}
-          className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
-        >
-          <Plus className="w-5 h-5" />
-          Create Course
-        </Link>
+        <div className="flex flex-col items-end gap-1">
+          <label className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${importing ? 'bg-green-700/70 text-white/90 cursor-wait pointer-events-none' : 'bg-green-600 text-white hover:bg-green-700 cursor-pointer'}`}>
+            {importing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Upload className="w-5 h-5" />}
+            {importing ? 'Importing…' : 'Import course (JSON or ZIP)'}
+            <input
+              type="file"
+              accept=".json,.zip"
+              className="hidden"
+              disabled={importing}
+              onChange={handleImportCourse}
+            />
+          </label>
+          {importing && (
+            <span className="text-sm text-gray-400">Importing package… You’ll be redirected when done.</span>
+          )}
+          <Link
+            href={`/${locale}/admin/courses/new`}
+            className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+          >
+            <Plus className="w-5 h-5" />
+            Create Course
+          </Link>
+        </div>
       </div>
 
       {/* View mode: CCS-first vs flat */}

@@ -10,10 +10,10 @@
 ## 📚 Main Documentation Files
 
 ### Planning & Strategy Documents
-1. `docs/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md` - Comprehensive action plan
+1. `docs/_archive/reference/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md` - Comprehensive action plan
 2. `docs/_archive/delivery/2026-01/2026-01-24_QUIZ_ENHANCEMENT_MASTER_PLAN.md` - Master enhancement plan
 3. `docs/_archive/delivery/2026-01/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md` - Quality audit plan
-4. `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md` - **Handover**: repeatable audit→refine→rewrite workflow + prompt + rollback
+4. `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md` - **Handover**: repeatable audit→refine→rewrite workflow + prompt + rollback
 4. `scripts/QUIZ_SYSTEM_COMPLETE_FIX_PLAN.md` - System fix plan
 5. `scripts/MASTER_QUESTION_GENERATION_PLAN.md` - Question generation strategy
 6. `scripts/systematic-question-review-process.md` - Review process documentation
@@ -21,14 +21,14 @@
 ### Release Notes & Summaries
 7. `docs/QUIZ_SYSTEM_FIX_RELEASE_NOTE.md` - Release note for quiz system fix
 8. `docs/QUIZ_SYSTEM_FIX_COMPLETE.md` - Completion report
-9. `docs/QUIZ_SYSTEM_FIX_SUMMARY.md` - Summary of fixes
-10. `docs/QUIZ_FIX_DELIVERY_SUMMARY.md` - Delivery summary
+9. `docs/_archive/reference/QUIZ_SYSTEM_FIX_SUMMARY.md` - Summary of fixes
+10. `docs/_archive/reference/QUIZ_FIX_DELIVERY_SUMMARY.md` - Delivery summary
 11. `docs/FINAL_QUIZ_SYSTEM_DELIVERY.md` - Final delivery report
 
 ### Management & Tracking
 12. `docs/_archive/delivery/2026-01/2026-01-25_QUIZ_QUESTION_CENTRAL_MANAGEMENT_PLAN.md` - Central management plan
 13. `docs/_archive/delivery/2026-01/2026-01-25_QUIZ_QUESTION_CENTRAL_MANAGEMENT_COMPLETE.md` - Management completion
-14. `docs/QUIZ_SEEDING_COMPLETE_REPORT.md` - Seeding completion report
+14. `docs/_archive/reference/QUIZ_SEEDING_COMPLETE_REPORT.md` - Seeding completion report
 
 ### Question Quality Documents
 15. `docs/DAY1_QUESTIONS_COMPARISON_EN.md` - Day 1 questions comparison
@@ -96,7 +96,7 @@
 - ✅ Proper cognitive mix (**0 RECALL**, **5 APPLICATION**, **2 CRITICAL_THINKING**)
 - ✅ Proper metadata (questionType, hashtags, difficulty, UUID)
 
-**SSOT**: For the current, authoritative QC rules use `2026_course_quality_prompt.md` + `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md`.
+**SSOT**: For the current, authoritative QC rules use `2026_course_quality_prompt.md` + `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md`.
 
 ---
 

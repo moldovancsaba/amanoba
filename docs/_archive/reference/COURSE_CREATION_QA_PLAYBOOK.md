@@ -12,8 +12,8 @@ It intentionally references the existing SSOT documents and the production-grade
 - `agent_working_loop_canonical_operating_document.md` — repo operating rules (**rollback plan required for every delivery**).
 - `docs/layout_grammar.md` — structure/layout rules for lessons + quizzes.
 - `docs/COURSE_BUILDING_RULES.md` — course creation rules + quiz hard gates (0 recall, >=7 per lesson, language integrity).
-- `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md` — operational “how to run the pipeline”.
-- `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` — gold-standard question type + anti-patterns + commands + outputs.
+- `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md` — operational “how to run the pipeline”.
+- `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` — gold-standard question type + anti-patterns + commands + outputs.
 - `2026_course_creator_prompts.md` — prompts + artifacts for **Idea → Outline → CCS → Create Course**.
 - `2026_course_quality_prompt.md` — full recursive QC runbook/prompt (esp. for families like `PRODUCTIVITY_2026_*`).
 
@@ -25,7 +25,7 @@ It intentionally references the existing SSOT documents and the production-grade
 - Course runs (logs/stateful execution): `docs/course_runs/`
 
 ### Quiz QA workflow + logging
-- `docs/QUIZ_ITEM_QA_HANDOVER.md` — workflow + commands
+- `docs/_archive/reference/QUIZ_ITEM_QA_HANDOVER.md` — workflow + commands
 - `docs/QUIZ_ITEM_QA_HANDOVER_NEW2OLD.md` — run log (newest-first)
 - `.state/quiz_item_qa_state.json` — cursor/state (SSOT; do not edit manually)
 

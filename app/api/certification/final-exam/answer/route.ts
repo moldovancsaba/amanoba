@@ -1,20 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { FinalExamAttempt, QuizQuestion } from '@/lib/models';
+import { Course, FinalExamAttempt, QuizQuestion } from '@/lib/models';
+import { buildThreeOptions } from '@/lib/quiz-questions';
 import mongoose from 'mongoose';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-
-function shuffle<T>(arr: T[]): T[] {
-  const copy = [...arr];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
 
 export async function POST(request: NextRequest) {
   const session = await auth();
@@ -53,18 +45,18 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: false, error: 'Question not found' }, { status: 404 });
   }
 
-  // Ensure answer order exists
-  if (!attempt.answerOrderByQuestion) {
-    attempt.answerOrderByQuestion = {};
+  // Grade: prefer 3-option display index when stored; fallback to legacy 4-option order
+  let isCorrect: boolean;
+  const storedCorrectIndex = attempt.correctIndexInDisplayByQuestion?.[questionId];
+  if (typeof storedCorrectIndex === 'number' && storedCorrectIndex >= 0 && storedCorrectIndex <= 2) {
+    isCorrect = selectedIndex === storedCorrectIndex;
+  } else if (attempt.answerOrderByQuestion?.[questionId] && typeof (question as { correctIndex?: number }).correctIndex === 'number') {
+    const optionOrder = attempt.answerOrderByQuestion[questionId];
+    const chosenOriginalIndex = optionOrder[selectedIndex];
+    isCorrect = chosenOriginalIndex === (question as { correctIndex: number }).correctIndex;
+  } else {
+    isCorrect = false;
   }
-  if (!attempt.answerOrderByQuestion[questionId]) {
-    attempt.answerOrderByQuestion[questionId] = shuffle([0, 1, 2, 3]);
-  }
-  const optionOrder = attempt.answerOrderByQuestion[questionId];
-
-  // Map selected index back to original correct index
-  const chosenOriginalIndex = optionOrder[selectedIndex];
-  const isCorrect = chosenOriginalIndex === question.correctIndex;
   if (isCorrect) {
     attempt.correctCount += 1;
   }
@@ -77,21 +69,51 @@ export async function POST(request: NextRequest) {
     isCorrect,
   });
 
-  // Determine next question
   const answeredCount = attempt.answers.length;
+  const wrongCount = answeredCount - attempt.correctCount;
+  const totalQuestions = attempt.questionOrder.length;
+
+  // Immediate fail: course-level max error % exceeded (e.g. 10% = fail as soon as error rate > 10%)
+  let immediateFail = false;
+  const course = await Course.findById(attempt.courseId).lean();
+  const maxErrorPercent = course?.certification?.maxErrorPercent;
+  if (
+    typeof maxErrorPercent === 'number' &&
+    maxErrorPercent >= 0 &&
+    answeredCount > 0
+  ) {
+    const currentErrorPercent = (wrongCount / answeredCount) * 100;
+    if (currentErrorPercent > maxErrorPercent) {
+      immediateFail = true;
+      attempt.status = 'GRADED';
+      attempt.passed = false;
+      attempt.submittedAtISO = new Date().toISOString();
+      attempt.scorePercentRaw = totalQuestions > 0 ? (attempt.correctCount / totalQuestions) * 100 : 0;
+      attempt.scorePercentInteger = Math.round(attempt.scorePercentRaw);
+    }
+  }
+
+  // Determine next question (3 options per question via buildThreeOptions)
   let nextQuestionPayload = null;
-  if (answeredCount < attempt.questionOrder.length) {
+  if (!immediateFail && answeredCount < attempt.questionOrder.length) {
     const nextQuestionId = attempt.questionOrder[answeredCount];
     const nextQuestion = await QuizQuestion.findById(new mongoose.Types.ObjectId(nextQuestionId)).lean();
     if (!nextQuestion) {
       return NextResponse.json({ success: false, error: 'Next question not found' }, { status: 500 });
     }
-    const nextOrder = shuffle([0, 1, 2, 3]);
-    attempt.answerOrderByQuestion[nextQuestionId] = nextOrder;
+    const nextThree = buildThreeOptions(nextQuestion);
+    if (!nextThree) {
+      return NextResponse.json({ success: false, error: 'Next question invalid' }, { status: 500 });
+    }
+    const nextCorrectIndex = nextThree.options.indexOf(nextThree.correctAnswerValue);
+    if (!attempt.correctIndexInDisplayByQuestion) {
+      attempt.correctIndexInDisplayByQuestion = {};
+    }
+    attempt.correctIndexInDisplayByQuestion[nextQuestionId] = nextCorrectIndex;
     nextQuestionPayload = {
       questionId: nextQuestionId,
       question: nextQuestion.question,
-      options: nextOrder.map((idx) => nextQuestion.options[idx]),
+      options: nextThree.options,
       index: answeredCount,
       total: attempt.questionOrder.length,
     };
@@ -105,6 +127,7 @@ export async function POST(request: NextRequest) {
       correct: isCorrect,
       nextQuestion: nextQuestionPayload,
       completed: nextQuestionPayload === null,
+      passed: immediateFail ? false : undefined,
     },
   });
 }

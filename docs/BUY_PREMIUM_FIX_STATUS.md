@@ -12,8 +12,8 @@
 
 ### 1. Root Cause Analysis ✅
 - ✅ Identified case-sensitivity mismatch in course lookup
-- ✅ Documented the issue in `docs/BUY_PREMIUM_FIX_PLAN.md`
-- ✅ Created summary in `docs/BUY_PREMIUM_FIX_SUMMARY.md`
+- ✅ Documented the issue in `docs/_archive/reference/BUY_PREMIUM_FIX_PLAN.md`
+- ✅ Created summary in `docs/_archive/reference/BUY_PREMIUM_FIX_SUMMARY.md`
 
 ### 2. Code Fixes ✅
 - ✅ Fixed `app/api/payments/create-checkout/route.ts` - added courseId normalization
@@ -55,9 +55,9 @@ Modified:
 - app/api/payments/webhook/route.ts
 
 New Documentation:
-- docs/BUY_PREMIUM_FIX_PLAN.md
-- docs/BUY_PREMIUM_FIX_SUMMARY.md
-- docs/BUY_PREMIUM_FIX_ROLLBACK_PLAN.md
+- docs/_archive/reference/BUY_PREMIUM_FIX_PLAN.md
+- docs/_archive/reference/BUY_PREMIUM_FIX_SUMMARY.md
+- docs/_archive/reference/BUY_PREMIUM_FIX_ROLLBACK_PLAN.md
 - docs/BUY_PREMIUM_FIX_STATUS.md (this file)
 ```
 
@@ -80,8 +80,8 @@ git diff app/api/payments/create-checkout/route.ts
 git diff app/api/payments/webhook/route.ts
 
 # Review documentation
-cat docs/BUY_PREMIUM_FIX_PLAN.md
-cat docs/BUY_PREMIUM_FIX_ROLLBACK_PLAN.md
+cat docs/_archive/reference/BUY_PREMIUM_FIX_PLAN.md
+cat docs/_archive/reference/BUY_PREMIUM_FIX_ROLLBACK_PLAN.md
 ```
 
 ### 2. Test the Fix
@@ -128,7 +128,7 @@ git restore app/api/payments/webhook/route.ts
 ```
 
 ### Full Rollback Plan
-See: `docs/BUY_PREMIUM_FIX_ROLLBACK_PLAN.md`
+See: `docs/_archive/reference/BUY_PREMIUM_FIX_ROLLBACK_PLAN.md`
 
 **Rollback Options**:
 1. ✅ Option 1: Discard changes (if not committed) - **READY**

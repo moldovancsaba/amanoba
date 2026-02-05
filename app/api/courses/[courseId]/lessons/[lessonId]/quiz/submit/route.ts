@@ -9,6 +9,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson, QuizQuestion, Player, CourseProgress } from '@/lib/models';
+import { getCorrectAnswerString } from '@/app/lib/quiz-questions';
 import { logger } from '@/lib/logger';
 import mongoose from 'mongoose';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
@@ -124,37 +125,43 @@ export async function POST(
       );
     }
 
-    // Calculate score
+    // Calculate score (grade by selected option value vs correct answer string; supports 3-option display)
     let correct = 0;
-    const results = answers.map((answer: { questionId: string; selectedIndex: number }) => {
-      const question = questions.find(
-        (q) => q._id.toString() === answer.questionId
-      );
+    const results = answers.map((answer: { questionId: string; selectedIndex?: number; selectedOption?: string }) => {
+      const question = questions.find((q) => q._id.toString() === answer.questionId);
       if (!question) return null;
 
-      const correctOption = question.options[question.correctIndex];
+      const correctAnswerValue = getCorrectAnswerString(question);
       const selectedOptionValue =
-        (answer as { selectedOption?: number; selectedIndex?: number }).selectedOption ?? question.options[answer.selectedIndex];
+        typeof (answer as { selectedOption?: string }).selectedOption === 'string'
+          ? (answer as { selectedOption: string }).selectedOption?.trim()
+          : Array.isArray(question.options) && typeof answer.selectedIndex === 'number'
+            ? question.options[answer.selectedIndex]
+            : undefined;
       const isCorrect =
-        !!selectedOptionValue && !!correctOption
-          ? selectedOptionValue === correctOption
-          : question.correctIndex === answer.selectedIndex;
+        correctAnswerValue != null && selectedOptionValue != null
+          ? selectedOptionValue === correctAnswerValue
+          : false;
       if (isCorrect) correct++;
 
       return {
         questionId: answer.questionId,
         question: question.question,
         selectedIndex: answer.selectedIndex,
-        correctIndex: question.correctIndex,
         isCorrect,
       };
     }).filter(Boolean);
 
     const total = answers.length;
     const score = correct;
-    const percentage = Math.round((score / total) * 100);
-    const threshold = lesson.quizConfig.successThreshold || 70;
-    const passed = percentage >= threshold;
+    const wrongCount = total - correct;
+    const percentage = total > 0 ? Math.round((score / total) * 100) : 0;
+    const threshold = lesson.quizConfig.successThreshold ?? 70;
+    const quizMaxWrongAllowed = (course as { quizMaxWrongAllowed?: number }).quizMaxWrongAllowed;
+    const passed =
+      typeof quizMaxWrongAllowed === 'number' && quizMaxWrongAllowed >= 0
+        ? wrongCount <= quizMaxWrongAllowed
+        : percentage >= threshold;
 
     // Track quiz completion in CourseProgress if passed
     if (passed && lesson.dayNumber) {
@@ -221,9 +228,11 @@ export async function POST(
       lessonId,
       score,
       total,
+      wrongCount,
       percentage,
       passed,
       threshold,
+      quizMaxWrongAllowed: (course as { quizMaxWrongAllowed?: number }).quizMaxWrongAllowed,
     }, 'Quiz submitted');
 
     return NextResponse.json({

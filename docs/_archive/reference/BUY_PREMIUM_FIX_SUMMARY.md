@@ -78,7 +78,7 @@ This same pattern may exist in other routes. Consider auditing:
 
 ## 🛡️ Rollback Plan
 
-**CRITICAL**: Complete rollback plan available in `docs/BUY_PREMIUM_FIX_ROLLBACK_PLAN.md`
+**CRITICAL**: Complete rollback plan available in `docs/_archive/reference/BUY_PREMIUM_FIX_ROLLBACK_PLAN.md`
 
 **Quick Rollback** (if changes NOT committed):
 ```bash

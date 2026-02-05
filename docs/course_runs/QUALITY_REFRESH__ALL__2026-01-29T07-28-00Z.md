@@ -5,7 +5,7 @@ Run started: 2026-01-29
 ## Scope
 - All active courses (course `createdAt` ascending)
 - Strict quality gates from:
-  - `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`
+  - `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`
   - `2026_course_quality_prompt.md`
 
 ## Safety (rollback)

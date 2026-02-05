@@ -34,7 +34,7 @@
 - **Test**: Day 1 seeded successfully ✅
 
 ### 4. Action Plan Created ✅
-- **Document**: `docs/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md`
+- **Document**: `docs/_archive/reference/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md`
 - **Contains**: Complete breakdown of all courses, issues, and fix plan
 
 ---
@@ -165,7 +165,7 @@
 
 ## 📝 KEY DOCUMENTS
 
-- **Action Plan**: `docs/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md`
+- **Action Plan**: `docs/_archive/reference/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md`
 - **Audit Report**: `scripts/AUDIT_REPORT_FULL_SYSTEM.json`
 - **Fix Scripts**: `scripts/fix-all-seed-categories.ts`
 - **Seed Scripts**: `scripts/seed-dayX-enhanced.ts` (Days 1-30)

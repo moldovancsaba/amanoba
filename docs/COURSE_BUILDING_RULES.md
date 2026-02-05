@@ -171,7 +171,7 @@ The app connects to MongoDB with `dbName: process.env.DB_NAME || 'amanoba'` (see
 
 #### Quiz Questions (MANDATORY QUALITY STANDARDS):
 
-**Gold standard (only acceptable form):** Every question must be standalone, grounded in the lesson, scenario-based, ask for a concrete deliverable/outcome, and use concrete educational distractors. See `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` for the canonical example and "why other types fail."
+**Gold standard (only acceptable form):** Every question must be standalone, grounded in the lesson, scenario-based, ask for a concrete deliverable/outcome, and use concrete educational distractors. See `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` for the canonical example and "why other types fail."
 
 - ✅ **Minimum 7 questions per quiz** - can be **more** than 7 (never delete valid questions just to cap)
 - ✅ **100% related to lesson content** - Every question must test actual lesson material

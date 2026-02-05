@@ -71,7 +71,7 @@ Audit and enhance ALL quiz questions across the entire Amanoba platform:
 ## IMMEDIATE NEXT STEPS
 
 ### For Database Team
-1. **Review** database migration checklist: `/docs/MIGRATION_CHECKLIST.md`
+1. **Review** database migration checklist: `/docs/_archive/reference/MIGRATION_CHECKLIST.md`
 2. **Prepare** staging environment for schema update
 3. **Plan** migration window
 4. **Execute** migration (16,800 questions with metadata)
@@ -117,10 +117,10 @@ Audit and enhance ALL quiz questions across the entire Amanoba platform:
 
 **Key Documents**:
 - Master Plan: `/docs/_archive/delivery/2026-01/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md`
-- Phase 1 Report: `/docs/PHASE_1_FINAL_REPORT.md`
-- Phase 2 Report: `/docs/PHASE_2_FINAL_REPORT.md`
+- Phase 1 Report: `/docs/_archive/reference/PHASE_1_FINAL_REPORT.md`
+- Phase 2 Report: `/docs/_archive/reference/PHASE_2_FINAL_REPORT.md`
 - Project Complete: `/docs/PROJECT_COMPLETE.md`
-- Migration Checklist: `/docs/MIGRATION_CHECKLIST.md`
+- Migration Checklist: `/docs/_archive/reference/MIGRATION_CHECKLIST.md`
 
 **Audit Worksheets**:
 - `/docs/PHASE_1_AUDIT_WORKSHEET.md`
@@ -156,7 +156,7 @@ This project has been completed to the highest quality standards. All 16,800 qui
 **For Questions About**:
 - **Project Details**: Review `/docs/PROJECT_COMPLETE.md`
 - **Audit Decisions**: Review `/docs/_archive/delivery/2026-01/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md`
-- **Migration Process**: Review `/docs/MIGRATION_CHECKLIST.md`
+- **Migration Process**: Review `/docs/_archive/reference/MIGRATION_CHECKLIST.md`
 - **Specific Questions**: Review lesson audit worksheets in `/docs/`
 
 ---

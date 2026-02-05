@@ -15,9 +15,9 @@ If anything conflicts with these, **these win**:
 - `agent_working_loop_canonical_operating_document.md`
 - `docs/layout_grammar.md`
 - `docs/COURSE_BUILDING_RULES.md`
-- `docs/COURSE_CREATION_QA_PLAYBOOK.md`
-- `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md`
-- `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`
+- `docs/_archive/reference/COURSE_CREATION_QA_PLAYBOOK.md`
+- `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md`
+- `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`
 - `2026_course_creator_prompts.md`
 - `2026_course_quality_prompt.md`
 
@@ -158,13 +158,13 @@ Validator-enforced minimums (no exceptions):
 - Exactly 4 unique options
 - `correctIndex` is 0–3
 
-Quiz SSOT: `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md` and `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`.
+Quiz SSOT: `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md` and `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`.
 
 ---
 
 ## 4) The end-to-end workflow (Idea → Outline → CCS → Build → QA → Publish)
 
-This section is a condensed “how to do it”; the full checklist is in `docs/COURSE_CREATION_QA_PLAYBOOK.md`.
+This section is a condensed “how to do it”; the full checklist is in `docs/_archive/reference/COURSE_CREATION_QA_PLAYBOOK.md`.
 
 ### Phase A — Prereqs & scope (no DB writes)
 - Confirm **environment** and which `.env` file / DB you will touch.
@@ -221,7 +221,7 @@ npx tsx --env-file=.env.local scripts/quiz-quality-pipeline.ts --course <COURSE_
 
 If you must fix a single question carefully (manual QA path):
 - Admin UI: `/<locale>/admin/questions`
-- Or follow `docs/QUIZ_ITEM_QA_HANDOVER.md` (+ `.state/quiz_item_qa_state.json` if using the cursor-based loop).
+- Or follow `docs/_archive/reference/QUIZ_ITEM_QA_HANDOVER.md` (+ `.state/quiz_item_qa_state.json` if using the cursor-based loop).
 
 ### Phase H — System integrity checks (must pass)
 Recommended checks:

@@ -21,7 +21,7 @@
 - Minimum **>= 7** valid questions per lesson (can be more; do not delete valid questions just to cap).
 - 0 RECALL questions; minimum 5 APPLICATION.
 - Language integrity is a hard gate (no English leakage into non‑EN courses).
-See: `2026_course_quality_prompt.md`, `docs/QUIZ_QUALITY_PIPELINE_HANDOVER.md`, `docs/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`.
+See: `2026_course_quality_prompt.md`, `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md`, `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`.
 
 ---
 

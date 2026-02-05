@@ -140,6 +140,8 @@ export async function GET(
             question: q.question || '',
             options: q.options || [],
             correctIndex: q.correctIndex !== undefined ? q.correctIndex : 0,
+            correctAnswer: (q as { correctAnswer?: string }).correctAnswer ?? undefined,
+            wrongAnswers: Array.isArray((q as { wrongAnswers?: string[] }).wrongAnswers) ? (q as { wrongAnswers: string[] }).wrongAnswers : undefined,
             difficulty: q.difficulty || 'MEDIUM',
             category: q.category || 'Course Specific',
             isActive: q.isActive !== undefined ? q.isActive : true,
@@ -157,15 +159,8 @@ export async function GET(
 
     if (formatZip) {
       const zip = new JSZip();
-      zip.file('manifest.json', JSON.stringify({
-        packageVersion: '2.0',
-        courseId: exportData.course.courseId,
-        exportedAt: exportData.exportedAt,
-        exportedBy: exportData.exportedBy,
-        files: ['manifest.json', 'course.json', 'lessons.json'],
-      }, null, 2));
-      zip.file('course.json', JSON.stringify(exportData.course, null, 2));
-      zip.file('lessons.json', JSON.stringify(exportData.lessons, null, 2));
+      // Single JSON: manifest metadata at top, then course, then lessons (see docs/COURSE_PACKAGE_FORMAT.md)
+      zip.file('package.json', JSON.stringify(exportData, null, 2));
       if (exportData.canonicalSpec != null) {
         zip.file('canonical.json', typeof exportData.canonicalSpec === 'object' ? JSON.stringify(exportData.canonicalSpec, null, 2) : String(exportData.canonicalSpec));
       }
