@@ -81,6 +81,10 @@
 
   /* Heading text (near black, aligned with brand) */
   --color-heading: #141414;
+
+  /* External brand colors (centralized to avoid inline hex in UI) */
+  --color-linkedin: #0a66c2;
+  --color-linkedin-hover: #0b5cad;
 }
 
 /* ============================================

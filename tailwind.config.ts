@@ -68,6 +68,11 @@ const config: Config = {
           800: '#2D2D2D',
           900: '#1F2937',
         },
+        // External brand colors (avoid inline hex in UI)
+        social: {
+          linkedin: 'var(--color-linkedin)',
+          linkedinHover: 'var(--color-linkedin-hover)',
+        },
       },
       animation: {
         'bounce-in': 'bounce-in 0.6s ease-out',

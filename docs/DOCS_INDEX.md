@@ -40,6 +40,7 @@
 | **DEPLOYMENT.md** / **VERCEL_DEPLOYMENT.md** | Deploy and env. |
 | **ENVIRONMENT_SETUP.md** | Env vars, email provider, .npmrc. |
 | **TECH_STACK.md** | Stack summary. |
+| **UI_LAYOUT_GRAMMAR_AUDIT.md** | Layout grammar drift scan for UI; regenerate via `npm run ui:audit:layout`. |
 
 ---
 
@@ -74,5 +75,5 @@ These are point-in-time plans or audits. Use for context; for current state see 
 - **docs/canonical/** — Canonical course specs (CCS): JSON + _CCS.md per course family.
 - **docs/course_ideas/** — Course idea and question notes.
 - **docs/course_runs/** — Course run metadata.
-- **docs/_archive/tasklists/** — Dated tasklist snapshots (reference).
+- **docs/_archive/** — Non-canonical, historical only: delivery/, reference/ (incl. superseded plans, orphan docs), tasklists/. Do not link from core docs unless needed.
 - **Root**: CREATE_A_COURSE_HANDOVER.md, agent_working_loop_canonical_operating_document.md — course creation and agent loop.

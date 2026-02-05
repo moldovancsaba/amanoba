@@ -425,7 +425,7 @@ export default function CertificatePage({
                             href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(verificationUrlForShare)}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2 bg-[#0A66C2] text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity"
+                            className="flex items-center justify-center gap-2 bg-social-linkedin text-brand-white px-6 py-3 rounded-lg font-bold hover:bg-social-linkedinHover transition-colors"
                           >
                             <Share2 className="w-5 h-5" />
                             Share on LinkedIn

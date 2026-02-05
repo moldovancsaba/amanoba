@@ -64,7 +64,7 @@
 | `docs/DESIGN_UPDATE.md` | Design System Update - New Brand Colors & Logo | 4.4 KB |
 | `docs/DEVELOPER_FEEDBACK_ANALYSIS.md` | Developer Feedback Analysis | 7.2 KB |
 | `docs/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 19.9 KB |
-| `docs/DOCS_INDEX.md` | Documentation index | 4.2 KB |
+| `docs/DOCS_INDEX.md` | Documentation index | 4.4 KB |
 | `docs/DOCS_INVENTORY.md` | Docs Inventory | 12.4 KB |
 | `docs/DOCS_TRIAGE.md` | Docs Triage | 5.5 KB |
 | `docs/DUPLICATE_QUESTIONS_PROCESS_FROM_START.md` | Duplicate questions: start from the very beginning | 3.2 KB |

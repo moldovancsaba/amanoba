@@ -52,7 +52,9 @@
     "docs:canonical-map": "node --import tsx scripts/docs/generate-docs-canonical-map.ts",
     "docs:triage": "node --import tsx scripts/docs/generate-docs-triage.ts",
     "docs:refresh": "npm run docs:inventory && npm run docs:canonical-map && npm run docs:triage",
-    "docs:check": "npm run docs:refresh && node scripts/docs/check-generated-docs.mjs"
+    "docs:check": "npm run docs:refresh && node scripts/docs/check-generated-docs.mjs",
+    "ui:audit:layout": "node --import tsx scripts/audit-layout-grammar-ui.ts --write",
+    "ui:check:layout": "node --import tsx scripts/audit-layout-grammar-ui.ts --check"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.0",
