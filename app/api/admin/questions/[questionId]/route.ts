@@ -84,21 +84,21 @@ export async function PATCH(
       return NextResponse.json({ error: 'Question not found' }, { status: 404 });
     }
 
-    // Validate correctIndex if provided (always)
+    // Validate correctIndex if provided (non-negative; model validates against options.length on save)
     if (body.correctIndex !== undefined) {
-      if (typeof body.correctIndex !== 'number' || body.correctIndex < 0 || body.correctIndex > 3) {
+      if (!Number.isInteger(body.correctIndex) || body.correctIndex < 0) {
         return NextResponse.json(
-          { error: 'correctIndex must be between 0 and 3' },
+          { error: 'correctIndex must be a non-negative integer (0 to options.length - 1)' },
           { status: 400 }
         );
       }
     }
 
-    // Validate options if provided
+    // Validate options if provided (minimum 4)
     if (body.options) {
-      if (!Array.isArray(body.options) || body.options.length !== 4) {
+      if (!Array.isArray(body.options) || body.options.length < 4) {
         return NextResponse.json(
-          { error: 'Must provide exactly 4 options' },
+          { error: 'Must provide at least 4 options' },
           { status: 400 }
         );
       }

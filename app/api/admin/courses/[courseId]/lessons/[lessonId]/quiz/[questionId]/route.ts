@@ -38,9 +38,9 @@ export async function PATCH(
 
     if (hasOwnProperty('options')) {
       const options = body.options;
-      if (!Array.isArray(options) || options.length !== 4) {
+      if (!Array.isArray(options) || options.length < 4) {
         return NextResponse.json(
-          { error: 'Must provide exactly 4 options' },
+          { error: 'Must provide at least 4 options' },
           { status: 400 }
         );
       }
@@ -55,9 +55,9 @@ export async function PATCH(
 
     if (hasOwnProperty('correctIndex')) {
       const correctIndex = Number(body.correctIndex);
-      if (!Number.isInteger(correctIndex) || correctIndex < 0 || correctIndex > 3) {
+      if (!Number.isInteger(correctIndex) || correctIndex < 0) {
         return NextResponse.json(
-          { error: 'correctIndex must be between 0 and 3' },
+          { error: 'correctIndex must be a non-negative integer (0 to options.length - 1)' },
           { status: 400 }
         );
       }

@@ -61,15 +61,15 @@ export async function POST(request: NextRequest) {
         throw new Error(`Question ${index + 1}: Missing required fields (question, options, correctIndex)`);
       }
 
-      // Validate options
-      if (!Array.isArray(q.options) || q.options.length !== 4) {
-        throw new Error(`Question ${index + 1}: Must provide exactly 4 options`);
+      // Validate options (minimum 4)
+      if (!Array.isArray(q.options) || q.options.length < 4) {
+        throw new Error(`Question ${index + 1}: Must provide at least 4 options`);
       }
 
-      // Validate correctIndex
+      // Validate correctIndex (0 to options.length - 1)
       const correctIndexNum = typeof q.correctIndex === 'number' ? q.correctIndex : Number(q.correctIndex);
-      if (correctIndexNum < 0 || correctIndexNum > 3 || Number.isNaN(correctIndexNum)) {
-        throw new Error(`Question ${index + 1}: correctIndex must be between 0 and 3`);
+      if (!Number.isInteger(correctIndexNum) || correctIndexNum < 0 || correctIndexNum >= q.options.length || Number.isNaN(correctIndexNum)) {
+        throw new Error(`Question ${index + 1}: correctIndex must be between 0 and options.length - 1`);
       }
 
       // Validate options are unique

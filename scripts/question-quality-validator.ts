@@ -517,8 +517,8 @@ export function validateQuestionQuality(
   }
 
   // 4. Check options quality
-  if (safeOptions.length !== 4) {
-    errors.push(`Must have exactly 4 options, found ${safeOptions.length}`);
+  if (safeOptions.length < 4) {
+    errors.push(`Must have at least 4 options, found ${safeOptions.length}`);
   }
 
   // 4.1 Language script check (hard) for non-Latin-script courses

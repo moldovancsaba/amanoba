@@ -110,6 +110,7 @@ export async function GET(
           ? course.prerequisiteCourseIds.map((id: unknown) => String(id))
           : undefined,
         prerequisiteEnforcement: course.prerequisiteEnforcement ?? undefined,
+        quizMaxWrongAllowed: (course as { quizMaxWrongAllowed?: number }).quizMaxWrongAllowed ?? undefined,
         certification: course.certification ?? undefined,
       },
       lessons: lessons.map((lesson) => {

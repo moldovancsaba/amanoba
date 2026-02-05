@@ -26,7 +26,7 @@ export function getCorrectAnswerString(q: { options?: string[]; correctIndex?: n
 /**
  * Builds exactly 3 display options: correct + 2 random wrong, shuffled.
  * Returns { options: string[3], correctAnswerValue: string }.
- * For legacy questions (4 options), uses correct + 2 random from the 3 wrong.
+ * For legacy questions (4+ options), uses correct + 2 random from the wrong options.
  */
 export function buildThreeOptions(
   q: { options?: string[]; correctIndex?: number; correctAnswer?: string; wrongAnswers?: string[] }
@@ -38,7 +38,7 @@ export function buildThreeOptions(
   if (Array.isArray(q.wrongAnswers) && q.wrongAnswers.length >= 2) {
     wrongs = q.wrongAnswers.filter((w) => w && String(w).trim() && String(w).trim() !== correct);
     if (wrongs.length < 2) return null;
-  } else if (Array.isArray(q.options) && q.options.length === 4 && typeof q.correctIndex === 'number') {
+  } else if (Array.isArray(q.options) && q.options.length >= 4 && typeof q.correctIndex === 'number' && q.correctIndex >= 0 && q.correctIndex < q.options.length) {
     wrongs = q.options.filter((_, i) => i !== q.correctIndex).map((s) => String(s).trim()).filter(Boolean);
     if (wrongs.length < 2) return null;
   } else {

@@ -40,9 +40,9 @@ export enum QuestionType {
  */
 export interface IQuizQuestion extends Document {
   question: string;
-  /** Legacy: exactly 4 options; correctIndex 0-3. Optional when correctAnswer + wrongAnswers are used. */
+  /** Legacy: at least 4 options; correctIndex 0 to options.length-1. Optional when correctAnswer + wrongAnswers are used. */
   options?: string[];
-  /** Legacy: index of correct answer in options (0-3). Optional when correctAnswer + wrongAnswers are used. */
+  /** Legacy: index of correct answer in options (0 to options.length-1). Optional when correctAnswer + wrongAnswers are used. */
   correctIndex?: number;
   /** New format: single correct answer; display shows this + 2 random from wrongAnswers (3 options total). */
   correctAnswer?: string;
@@ -92,25 +92,24 @@ const QuizQuestionSchema = new Schema<IQuizQuestion>(
       index: true, // Why: Used for alphabetical tie-breaking in selection algorithm
     },
 
-    // Answer options (legacy: 4 options; optional when correctAnswer + wrongAnswers are used)
+    // Answer options (legacy: minimum 4 options; optional when correctAnswer + wrongAnswers are used)
     options: {
       type: [String],
       default: undefined,
       validate: {
         validator: function (this: IQuizQuestion, opts: string[]) {
           if (!opts || opts.length === 0) return !!this.correctAnswer && Array.isArray(this.wrongAnswers) && this.wrongAnswers.length >= 2;
-          return opts.length === 4 && opts.every(opt => typeof opt === 'string' && opt.length > 0);
+          return opts.length >= 4 && opts.every(opt => typeof opt === 'string' && opt.length > 0);
         },
-        message: 'Must provide exactly 4 non-empty options, or use correctAnswer + wrongAnswers (min 2)',
+        message: 'Must provide at least 4 non-empty options, or use correctAnswer + wrongAnswers (min 2)',
       },
     },
 
-    // Correct answer index 0-3 (legacy; optional when correctAnswer + wrongAnswers are used)
+    // Correct answer index 0 to options.length-1 (legacy; optional when correctAnswer + wrongAnswers are used)
     correctIndex: {
       type: Number,
       default: undefined,
-      min: [0, 'Correct index must be 0-3'],
-      max: [3, 'Correct index must be 0-3'],
+      min: [0, 'Correct index must be at least 0'],
     },
 
     // Correct answer (new format: 1 good + N bad; display shows 3 options: correct + 2 random wrong)
@@ -400,10 +399,11 @@ QuizQuestionSchema.pre('save', function (next) {
  * Validation: Require either (options + correctIndex) or (correctAnswer + wrongAnswers)
  */
 QuizQuestionSchema.pre('save', function (next) {
-  const hasLegacy = Array.isArray(this.options) && this.options.length === 4 && typeof this.correctIndex === 'number' && this.correctIndex >= 0 && this.correctIndex <= 3;
+  const optsLen = Array.isArray(this.options) ? this.options.length : 0;
+  const hasLegacy = optsLen >= 4 && typeof this.correctIndex === 'number' && this.correctIndex >= 0 && this.correctIndex < optsLen;
   const hasNewFormat = this.correctAnswer && Array.isArray(this.wrongAnswers) && this.wrongAnswers.length >= 2;
   if (hasLegacy || hasNewFormat) return next();
-  return next(new Error('Question must have either options (4) + correctIndex (0-3) or correctAnswer + wrongAnswers (min 2)'));
+  return next(new Error('Question must have either options (min 4) + correctIndex (0 to options.length-1) or correctAnswer + wrongAnswers (min 2)'));
 });
 
 /**

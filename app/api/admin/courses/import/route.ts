@@ -112,13 +112,24 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: 'Invalid package: provide package.json (single file with course + lessons) or manifest.json + course.json + lessons.json' }, { status: 400 });
       }
     } else {
-      const body = await request.json();
-      courseData = body.courseData;
+      const body = (await request.json()) as Record<string, unknown>;
       overwrite = body.overwrite === true;
+      // Accept either { courseData: { course, lessons }, overwrite } or raw package { course, lessons, overwrite? }
+      if (body.courseData != null && typeof body.courseData === 'object') {
+        courseData = body.courseData as { course: Record<string, unknown>; lessons?: PackageLesson[] };
+      } else if (body.course != null && typeof body.course === 'object') {
+        courseData = {
+          course: body.course as Record<string, unknown>,
+          lessons: Array.isArray(body.lessons) ? (body.lessons as PackageLesson[]) : [],
+        };
+        logger.info({ courseId: (body.course as Record<string, unknown>).courseId, overwrite }, 'Admin importing from single JSON (raw package body)');
+      } else {
+        courseData = undefined as unknown as { course: Record<string, unknown>; lessons?: PackageLesson[] };
+      }
     }
 
     if (!courseData || !courseData.course) {
-      return NextResponse.json({ error: 'Invalid course data' }, { status: 400 });
+      return NextResponse.json({ error: 'Invalid course data. Send JSON with course (with courseId) and lessons, or wrap in courseData.' }, { status: 400 });
     }
 
     const brand = await Brand.findOne({ slug: 'amanoba' });
@@ -168,6 +179,7 @@ export async function POST(request: NextRequest) {
       ccsId: courseInfo.ccsId ?? undefined,
       prerequisiteCourseIds: prerequisiteCourseIds ?? undefined,
       prerequisiteEnforcement: courseInfo.prerequisiteEnforcement ?? undefined,
+      quizMaxWrongAllowed: courseInfo.quizMaxWrongAllowed !== undefined ? courseInfo.quizMaxWrongAllowed : undefined,
       certification: courseInfo.certification ?? undefined,
     };
     // Apply string content exactly when provided (preserves – vs - and avoids overwriting with undefined)

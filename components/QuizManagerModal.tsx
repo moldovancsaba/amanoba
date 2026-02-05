@@ -75,15 +75,34 @@ export default function QuizManagerModal({
 
   const handleSaveQuestion = async () => {
     try {
+      const optionsToSend = questionForm.options.map((o) => o.trim()).filter(Boolean);
+      if (optionsToSend.length < 4) {
+        alert('At least 4 options must be filled');
+        return;
+      }
+      if (new Set(optionsToSend).size !== optionsToSend.length) {
+        alert('All options must be unique');
+        return;
+      }
+      const correctValue = questionForm.options[questionForm.correctIndex]?.trim();
+      if (!correctValue) {
+        alert('Please select the correct answer (one of the filled options)');
+        return;
+      }
+      const correctIndexToSend = optionsToSend.indexOf(correctValue);
+      if (correctIndexToSend === -1) {
+        alert('Correct answer must be one of the filled options');
+        return;
+      }
       const url = editingQuestion ? `${baseUrl}/quiz/${editingQuestion._id}` : `${baseUrl}/quiz`;
       const method = editingQuestion ? 'PATCH' : 'POST';
       const response = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          question: questionForm.question,
-          options: questionForm.options,
-          correctIndex: questionForm.correctIndex,
+          question: questionForm.question.trim(),
+          options: optionsToSend,
+          correctIndex: correctIndexToSend,
           difficulty: questionForm.difficulty,
           category: questionForm.category,
           isActive: questionForm.isActive,
@@ -106,10 +125,12 @@ export default function QuizManagerModal({
 
   const handleEdit = (question: QuizQuestionItem) => {
     setEditingQuestion(question);
+    const opts = question.options || [];
+    const options = opts.length >= 4 ? [...opts] : [...opts, ...Array(4 - opts.length).fill('')];
     setQuestionForm({
       question: question.question,
-      options: question.options,
-      correctIndex: question.correctIndex,
+      options,
+      correctIndex: Math.min(question.correctIndex ?? 0, Math.max(0, options.length - 1)),
       difficulty: question.difficulty as Difficulty,
       category: question.category,
       isActive: question.isActive,
@@ -201,7 +222,7 @@ export default function QuizManagerModal({
               />
             </div>
             <div>
-              <label className={`block text-sm font-medium ${textCls} mb-2`}>Options *</label>
+              <label className={`block text-sm font-medium ${textCls} mb-2`}>Options * (minimum 4)</label>
               {questionForm.options.map((option, index) => (
                 <div key={index} className="mb-2 flex items-center gap-2">
                   <input
@@ -221,10 +242,34 @@ export default function QuizManagerModal({
                     }}
                     placeholder={`Option ${index + 1}`}
                     className={`flex-1 px-4 py-2 rounded-lg border-2 ${inputBg} ${textCls} focus:outline-none focus:border-brand-accent`}
-                    required
                   />
+                  {questionForm.options.length > 4 && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const newOptions = questionForm.options.filter((_, i) => i !== index);
+                        const newCorrect =
+                          questionForm.correctIndex >= newOptions.length
+                            ? newOptions.length - 1
+                            : questionForm.correctIndex > index
+                              ? questionForm.correctIndex - 1
+                              : questionForm.correctIndex;
+                        setQuestionForm({ ...questionForm, options: newOptions, correctIndex: newCorrect });
+                      }}
+                      className={`text-xs ${mutedCls} hover:underline`}
+                    >
+                      Remove
+                    </button>
+                  )}
                 </div>
               ))}
+              <button
+                type="button"
+                onClick={() => setQuestionForm({ ...questionForm, options: [...questionForm.options, ''] })}
+                className={`mt-1 text-sm text-brand-accent hover:underline`}
+              >
+                + Add option
+              </button>
               <p className={`text-xs ${mutedCls} mt-1`}>Select the radio button next to the correct answer</p>
             </div>
             <div className="grid grid-cols-2 gap-4">

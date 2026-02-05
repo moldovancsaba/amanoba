@@ -196,12 +196,23 @@ export default function AdminQuestionsPage() {
         alert('Question text is required');
         return;
       }
-      if (questionForm.options.some(opt => !opt.trim())) {
-        alert('All 4 options must be filled');
+      const optionsToSend = questionForm.options.map(opt => opt.trim()).filter(Boolean);
+      if (optionsToSend.length < 4) {
+        alert('At least 4 options must be filled');
         return;
       }
-      if (new Set(questionForm.options).size !== questionForm.options.length) {
+      if (new Set(optionsToSend).size !== optionsToSend.length) {
         alert('All options must be unique');
+        return;
+      }
+      const correctValue = questionForm.options[questionForm.correctIndex]?.trim();
+      if (!correctValue) {
+        alert('Please select the correct answer (one of the filled options)');
+        return;
+      }
+      const correctIndexToSend = optionsToSend.indexOf(correctValue);
+      if (correctIndexToSend === -1) {
+        alert('Correct answer must be one of the filled options');
         return;
       }
 
@@ -213,8 +224,8 @@ export default function AdminQuestionsPage() {
 
       const body: Record<string, unknown> = {
         question: questionForm.question.trim(),
-        options: questionForm.options.map(opt => opt.trim()),
-        correctIndex: questionForm.correctIndex,
+        options: optionsToSend,
+        correctIndex: correctIndexToSend,
         difficulty: questionForm.difficulty,
         category: questionForm.category,
         questionType: questionForm.questionType,
@@ -818,10 +829,10 @@ export default function AdminQuestionsPage() {
                 />
               </div>
 
-              {/* Options */}
+              {/* Options (minimum 4) */}
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Answer Options * (4 required)
+                  Answer Options * (minimum 4)
                 </label>
                 {questionForm.options.map((option, idx) => (
                   <div key={idx} className="mb-2 flex items-center gap-2">
@@ -843,8 +854,32 @@ export default function AdminQuestionsPage() {
                       placeholder={`Option ${idx + 1}${questionForm.correctIndex === idx ? ' (correct)' : ''}`}
                       className="flex-1 px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400"
                     />
+                    {questionForm.options.length > 4 && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const newOptions = questionForm.options.filter((_, i) => i !== idx);
+                          const newCorrect = questionForm.correctIndex >= newOptions.length
+                            ? newOptions.length - 1
+                            : questionForm.correctIndex > idx
+                              ? questionForm.correctIndex - 1
+                              : questionForm.correctIndex;
+                          setQuestionForm(prev => ({ ...prev, options: newOptions, correctIndex: newCorrect }));
+                        }}
+                        className="px-2 py-1 text-xs text-red-400 hover:underline"
+                      >
+                        Remove
+                      </button>
+                    )}
                   </div>
                 ))}
+                <button
+                  type="button"
+                  onClick={() => setQuestionForm(prev => ({ ...prev, options: [...prev.options, ''] }))}
+                  className="mt-1 text-sm text-brand-accent hover:underline"
+                >
+                  + Add option
+                </button>
               </div>
 
               {/* Metadata Row 1 */}
