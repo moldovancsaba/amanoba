@@ -374,7 +374,7 @@ export default function AdminCoursesPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-white mb-2">Course Management</h1>
-          <p className="text-gray-400">Create and manage 30-day learning courses</p>
+          <p className="text-brand-white/80">Create and manage 30-day learning courses</p>
         </div>
         <div className="flex flex-col items-end gap-1">
           <label className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${importing ? 'bg-green-700/70 text-white/90 cursor-wait pointer-events-none' : 'bg-green-600 text-white hover:bg-green-700 cursor-pointer'}`}>
@@ -389,7 +389,7 @@ export default function AdminCoursesPage() {
             />
           </label>
           {importing && (
-            <span className="text-sm text-gray-400">Importing package… You’ll be redirected when done.</span>
+            <span className="text-sm text-brand-white/80">Importing package… You’ll be redirected when done.</span>
           )}
           <Link
             href={`/${locale}/admin/courses/new`}
@@ -571,6 +571,15 @@ export default function AdminCoursesPage() {
                           </div>
                         )}
                         <p className="text-sm text-brand-darkGrey mb-2">Language variants — click to edit course</p>
+                        <div className="mb-3">
+                          <Link
+                            href={`/${locale}/admin/courses/new?ccsId=${encodeURIComponent(ccs.ccsId)}`}
+                            className="inline-flex items-center gap-2 bg-brand-accent text-brand-black px-3 py-2 rounded-lg font-bold hover:bg-brand-primary-400 text-sm"
+                          >
+                            <Plus className="w-4 h-4" />
+                            Create language variant
+                          </Link>
+                        </div>
                         <div className="flex flex-wrap gap-2">
                           {variants.length === 0 ? (
                             <span className="text-brand-darkGrey text-sm">No courses linked to this CCS yet (set course.ccsId when creating/editing).</span>

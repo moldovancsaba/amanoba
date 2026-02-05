@@ -52,7 +52,7 @@ All fields below are optional in the package unless noted. Omitted fields are no
 | discussionEnabled | boolean | Feature toggle. |
 | leaderboardEnabled | boolean | Feature toggle. |
 | studyGroupsEnabled | boolean | Feature toggle. |
-| ccsId | string | CCS family id (e.g. SPORT_SALES_NETWORK_EUROPE_2026). |
+| ccsId | string | CCS family id (e.g. SPORT_SALES_NETWORK_EUROPE_2026). Can also be set in the Admin UI (create/edit course) to link language variants to a family. |
 | prerequisiteCourseIds | string[] | Course IDs (string; import resolves to ObjectId). |
 | prerequisiteEnforcement | "hard" \| "soft" | |
 | quizMaxWrongAllowed | number | Lesson quiz: max wrong answers allowed (0–10). If set, fail when wrongCount > this; else use successThreshold %. |

@@ -7,8 +7,8 @@
 
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { ArrowLeft, Save } from 'lucide-react';
 import Link from 'next/link';
@@ -18,12 +18,14 @@ import { COURSE_LANGUAGE_OPTIONS } from '@/app/lib/constants/course-languages';
 export default function NewCoursePage() {
   const router = useRouter();
   const locale = useLocale();
+  const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     courseId: '',
     name: '',
     description: '',
     language: 'hu',
+    ccsId: '',
     thumbnail: '',
     requiresPremium: false,
     priceAmount: 2999,
@@ -35,6 +37,22 @@ export default function NewCoursePage() {
     lessonXP: 25,
   });
 
+  useEffect(() => {
+    const ccsId = searchParams.get('ccsId');
+    const language = searchParams.get('language');
+    if (!ccsId && !language) return;
+    setFormData((prev) => ({
+      ...prev,
+      ccsId: ccsId ? ccsId.trim().toUpperCase().replace(/\s+/g, '_') : prev.ccsId,
+      language: language ? language.trim() : prev.language,
+    }));
+  }, [searchParams]);
+
+  const suggestedCourseId =
+    formData.ccsId && formData.language
+      ? `${formData.ccsId.trim().toUpperCase().replace(/\s+/g, '_')}_${String(formData.language).toUpperCase().replace(/[^A-Z0-9]/g, '_')}`
+      : '';
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -45,6 +63,7 @@ export default function NewCoursePage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
+          ccsId: formData.ccsId ? formData.ccsId.trim().toUpperCase().replace(/\s+/g, '_') : undefined,
           price: formData.requiresPremium ? {
             amount: formData.priceAmount,
             currency: formData.priceCurrency,
@@ -113,6 +132,19 @@ export default function NewCoursePage() {
                   className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
                 />
                 <p className="text-xs text-brand-darkGrey mt-1">Unique identifier (uppercase, underscores)</p>
+                {suggestedCourseId && (
+                  <div className="mt-2 flex items-center gap-2">
+                    <span className="text-xs text-brand-darkGrey">Suggested:</span>
+                    <code className="text-xs bg-brand-darkGrey/10 px-2 py-1 rounded text-brand-black">{suggestedCourseId}</code>
+                    <button
+                      type="button"
+                      onClick={() => setFormData({ ...formData, courseId: suggestedCourseId })}
+                      className="text-xs font-bold bg-brand-accent text-brand-black px-2 py-1 rounded hover:bg-brand-primary-400 transition-colors"
+                    >
+                      Use
+                    </button>
+                  </div>
+                )}
               </div>
 
               <div>
@@ -130,6 +162,27 @@ export default function NewCoursePage() {
                     </option>
                   ))}
                 </select>
+              </div>
+
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-brand-black mb-2">
+                  Course Family (CCS ID)
+                </label>
+                <input
+                  type="text"
+                  value={formData.ccsId}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      ccsId: e.target.value,
+                    })
+                  }
+                  placeholder="e.g., PRODUCTIVITY_2026"
+                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                />
+                <p className="text-xs text-brand-darkGrey mt-1">
+                  Optional. Use this to link language variants to a course family (e.g. PRODUCTIVITY_2026_HU, PRODUCTIVITY_2026_EN share ccsId=PRODUCTIVITY_2026).
+                </p>
               </div>
 
               <div className="md:col-span-2">

@@ -124,6 +124,7 @@ export async function POST(request: NextRequest) {
       language = 'hu',
       thumbnail,
       requiresPremium = false,
+      ccsId,
       brandId,
       pointsConfig,
       xpConfig,
@@ -146,6 +147,17 @@ export async function POST(request: NextRequest) {
         { error: 'Course ID already exists' },
         { status: 400 }
       );
+    }
+
+    // Validate ccsId (optional): uppercase letters, numbers, underscores
+    if (ccsId != null) {
+      const raw = String(ccsId).trim();
+      if (raw.length > 0 && !/^[A-Z0-9_]+$/.test(raw.toUpperCase())) {
+        return NextResponse.json(
+          { error: 'Invalid ccsId. Use uppercase letters, numbers, and underscores (e.g. PRODUCTIVITY_2026).' },
+          { status: 400 }
+        );
+      }
     }
 
     // Get or create default brand
@@ -197,6 +209,7 @@ export async function POST(request: NextRequest) {
       durationDays: 30, // Always 30 for standard courses
       isActive: false, // Start as inactive (draft)
       requiresPremium,
+      ccsId: typeof ccsId === 'string' && ccsId.trim() ? ccsId.trim().toUpperCase() : undefined,
       brandId: finalBrandId,
       pointsConfig: pointsConfig || {
         completionPoints: 1000,
