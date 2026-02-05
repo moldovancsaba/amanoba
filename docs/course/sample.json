@@ -1,0 +1,143 @@
+{
+  "course": {
+    "courseId": "MY_COURSE_2026",
+    "name": "My New Course",
+    "description": "A 30-day course. Edit this package and import via Admin → Course Management → Import (JSON or ZIP).",
+    "language": "en",
+    "durationDays": 30,
+    "isActive": true,
+    "requiresPremium": false,
+    "pointsConfig": {
+      "completionPoints": 1000,
+      "lessonPoints": 50,
+      "perfectCourseBonus": 500
+    },
+    "xpConfig": {
+      "completionXP": 500,
+      "lessonXP": 25
+    },
+    "discussionEnabled": false,
+    "leaderboardEnabled": false,
+    "studyGroupsEnabled": false,
+    "quizMaxWrongAllowed": 1,
+    "certification": null,
+    "metadata": {},
+    "translations": {}
+  },
+  "lessons": [
+    {
+      "lessonId": "day-1",
+      "dayNumber": 1,
+      "language": "en",
+      "title": "Day 1: Getting started",
+      "content": "# Day 1: Getting started\n\n**One-liner:** Set your first goal.\n**Time:** 15–20 min\n**Deliverable:** One written goal\n\n## Learning goal\n\nYou will be able to **write one clear, measurable goal**.\n\n### Success criteria (observable)\n\n- [ ] Goal is written in one sentence\n- [ ] It includes a measurable outcome\n- [ ] You can check it in 24 hours\n\n## Who\n\n**Primary persona:** Learner\n**Secondary persona(s):** Team lead\n\n## What\n\n### What it is\nA goal that is specific and checkable.\n\n### What it is not\nA vague wish or a long list.\n\n### Key terms\n\n- **Goal:** A desired result with a clear outcome\n- **Measurable:** You can say yes/no whether it was achieved\n\n## Where\n\n### Applies in\n- Daily planning\n- Project milestones\n\n## When\n\n### Use it when\n- Starting a new task or week\n- You need to commit to one outcome\n\n### Frequency\nOnce per day or per focus block.\n\n## Why it matters\n\n### Practical benefits\n- Reduces overwhelm\n- Increases completion rate\n- Builds accountability\n\n## How\n\n### Step-by-step method\n1. Choose one outcome you want by end of day.\n2. Write it in one sentence.\n3. Add a number or yes/no check so it is measurable.\n4. Save it where you will see it.\n\n### Do and don't\n\n**Do**\n- Use one sentence\n- Include a number or clear yes/no\n\n**Don't**\n- List multiple goals in one\n- Leave it vague\n\n## Guided exercise (10 min)\n\n### Inputs\n- Notepad or doc\n\n### Steps\n1. Pick one work or learning outcome for today.\n2. Write: \"By end of day I will have ______.\"\n3. Add a number or yes/no so you can tick it done.\n\n### Output format\n| Field | Value |\n|-------|-------|\n| Goal | |\n| Measurable check | |\n\n## Independent exercise (5 min)\n\nWrite a second goal for tomorrow using the same format.\n\n## Self-check (yes/no)\n\n- [ ] I have one written goal\n- [ ] It has a measurable check\n- [ ] I can verify it in 24 hours\n\n## Bibliography (sources used)\n\n1. *(Add your sources with Read URLs)*\n\n## Read more (optional)\n\n1. *(Add optional links with Read/Buy URLs)*\n",
+      "emailSubject": "Day 1: Your first goal",
+      "emailBody": "Hi,\n\nToday's focus: **one clear, measurable goal**.\n\n1. Choose one outcome for today.\n2. Write it in one sentence with a number or yes/no check.\n3. Save it where you'll see it.\n\nCheck off when done.\n\n— Your course",
+      "quizConfig": {
+        "enabled": true,
+        "successThreshold": 70,
+        "questionCount": 5,
+        "poolSize": 7,
+        "required": true
+      },
+      "unlockConditions": {},
+      "pointsReward": 50,
+      "xpReward": 25,
+      "isActive": true,
+      "displayOrder": 1,
+      "metadata": {},
+      "translations": {},
+      "quizQuestions": [
+        {
+          "uuid": "day1-q1",
+          "question": "What makes a goal measurable?",
+          "options": [
+            "It is written in one sentence.",
+            "You can say yes or no whether it was achieved.",
+            "It has a deadline.",
+            "It is long and detailed."
+          ],
+          "correctIndex": 1,
+          "difficulty": "EASY",
+          "category": "Course Specific",
+          "questionType": "recall",
+          "hashtags": ["#goal-setting", "#difficulty-easy", "#type-definition"],
+          "isActive": true
+        },
+        {
+          "uuid": "day1-q2",
+          "question": "Which is the best formulation for a daily goal?",
+          "options": [
+            "Do more stuff.",
+            "By end of day I will have sent the proposal to the client.",
+            "Work on the project.",
+            "Be productive."
+          ],
+          "correctIndex": 1,
+          "difficulty": "MEDIUM",
+          "category": "Course Specific",
+          "questionType": "application",
+          "hashtags": ["#goal-setting", "#difficulty-medium", "#type-scenario"],
+          "isActive": true
+        }
+      ]
+    },
+    {
+      "lessonId": "day-2",
+      "dayNumber": 2,
+      "language": "en",
+      "title": "Day 2: Review and adjust",
+      "content": "# Day 2: Review and adjust\n\n**One-liner:** Check yesterday's goal and set today's.\n**Time:** 10–15 min\n**Deliverable:** Completed check + one new goal\n\n## Learning goal\n\nYou will be able to **review one goal and set the next one**.\n\n### Success criteria (observable)\n\n- [ ] Yesterday's goal is marked done or not done\n- [ ] One new goal is written for today\n- [ ] New goal is measurable\n\n## Who\n\n**Primary persona:** Learner\n\n## What\n\n### What it is\nA short review of the previous goal and a new goal for today.\n\n### What it is not\nA long report or multiple goals.\n\n### Key terms\n\n- **Review:** Check whether the goal was achieved (yes/no)\n- **Adjust:** Set the next goal based on what you learned\n\n## How\n\n### Step-by-step method\n1. Look at yesterday's goal.\n2. Mark it: done or not done.\n3. If not done, note one reason (optional).\n4. Write one new goal for today using the same format.\n\n### Do and don't\n\n**Do**\n- Keep the review to one sentence\n- Write one goal for today\n\n**Don't**\n- Skip the review\n- Set more than one goal for today\n\n## Guided exercise (10 min)\n\n### Steps\n1. Open yesterday's goal.\n2. Mark it done or not done.\n3. Write one goal for today (one sentence, measurable).\n\n## Self-check (yes/no)\n\n- [ ] I reviewed yesterday's goal\n- [ ] I have one new goal for today\n\n## Bibliography (sources used)\n\n1. *(Add sources with Read URLs)*\n",
+      "emailSubject": "Day 2: Review and set today's goal",
+      "emailBody": "Hi,\n\nQuick check:\n1. Did you achieve yesterday's goal? Mark it done or not.\n2. Write one measurable goal for today.\n\n— Your course",
+      "quizConfig": {
+        "enabled": true,
+        "successThreshold": 70,
+        "questionCount": 5,
+        "poolSize": 7,
+        "required": true
+      },
+      "unlockConditions": {},
+      "pointsReward": 50,
+      "xpReward": 25,
+      "isActive": true,
+      "displayOrder": 2,
+      "metadata": {},
+      "translations": {},
+      "quizQuestions": [
+        {
+          "uuid": "day2-q1",
+          "question": "Why is it useful to review yesterday's goal before setting today's?",
+          "options": [
+            "It takes a long time.",
+            "It helps you learn what works and set a better next goal.",
+            "It is required by the platform only.",
+            "It has no benefit."
+          ],
+          "correctIndex": 1,
+          "difficulty": "EASY",
+          "category": "Course Specific",
+          "questionType": "recall",
+          "hashtags": ["#review", "#difficulty-easy", "#type-definition"],
+          "isActive": true
+        },
+        {
+          "uuid": "day2-q2",
+          "question": "How many goals should you set for one day in this method?",
+          "options": [
+            "As many as possible.",
+            "One clear, measurable goal.",
+            "None if you are busy.",
+            "Only long-term goals."
+          ],
+          "correctIndex": 1,
+          "difficulty": "EASY",
+          "category": "Course Specific",
+          "questionType": "recall",
+          "hashtags": ["#goal-setting", "#difficulty-easy", "#type-metric"],
+          "isActive": true
+        }
+      ]
+    }
+  ]
+}

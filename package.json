@@ -51,7 +51,8 @@
     "docs:inventory": "node --import tsx scripts/docs/generate-docs-inventory.ts",
     "docs:canonical-map": "node --import tsx scripts/docs/generate-docs-canonical-map.ts",
     "docs:triage": "node --import tsx scripts/docs/generate-docs-triage.ts",
-    "docs:refresh": "npm run docs:inventory && npm run docs:canonical-map && npm run docs:triage"
+    "docs:refresh": "npm run docs:inventory && npm run docs:canonical-map && npm run docs:triage",
+    "docs:check": "npm run docs:refresh && node scripts/docs/check-generated-docs.mjs"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.0",

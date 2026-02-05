@@ -1,15 +1,13 @@
-import { glob } from 'glob';
 import { resolve } from 'node:path';
-import { getDocFile, formatBytes, mdEscapePipes, writeGeneratedMarkdown } from './_shared';
+import { existsSync } from 'node:fs';
+import { getDocFile, formatBytes, listGitTrackedFiles, mdEscapePipes, writeGeneratedMarkdown } from './_shared';
 
 async function main() {
   const cwd = process.cwd();
-  const paths = await glob('docs/**/*.md', {
-    cwd,
-    absolute: true,
-    ignore: ['docs/_archive/**'],
-    nodir: true,
-  });
+  const relPaths = listGitTrackedFiles(['docs/*.md', 'docs/**/*.md']).filter(
+    (p) => !p.startsWith('docs/_archive/'),
+  );
+  const paths = relPaths.map((p) => resolve(cwd, p)).filter((p) => existsSync(p));
 
   const docs = (await Promise.all(paths.map(getDocFile))).sort((a, b) =>
     a.relPath.localeCompare(b.relPath),

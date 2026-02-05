@@ -1,4 +1,6 @@
-# Quiz questions: requirements summary and delivery plan
+# Quiz questions: requirements summary and delivery plan (Archived)
+
+> Archived on 2026-02-05. This is historical planning context.
 
 **Last updated:** 2026-02-03  
 **Status:** Plan — not yet implemented.

@@ -7,7 +7,7 @@
 
 **Last Updated**: 2026-02-05
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=1, KEEP(unclassified)=86
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=0, KEEP(unclassified)=87
 
 This file is the “what to do next” view derived from `docs/DOCS_CANONICAL_MAP.md`.
 
@@ -18,12 +18,11 @@ This file is the “what to do next” view derived from `docs/DOCS_CANONICAL_MA
 - —
 
 ## ARCHIVE (grouped by target)
-### docs/_archive/reference/
-- `docs/QUIZ_QUESTIONS_REQUIREMENTS_AND_PLAN.md` — Quiz questions: requirements summary and delivery plan (11.7 KB)
-
+- —
 ## KEEP (needs review)
 - `docs/ADMIN_LANGUAGE_SETUP.md` — Admin Language Configuration
 - `docs/ALL_QUESTIONS_DELIVERED_COMPLETE.md` — ✅ ALL QUESTIONS DELIVERED - COMPLETE
+- `docs/amanoba_course_content_standard_v1_0.md` — AMANOBA COURSE CONTENT STANDARD v1.0 (Markdown-first)
 - `docs/ARCHITECTURE_FIX_QUICK_START.md` — ⚡ ARCHITECTURE FIX - ACTION CHECKLIST & QUICK START
 - `docs/ARCHITECTURE_GAP_ANALYSIS.md` — ARCHITECTURE_GAP_ANALYSIS.md
 - `docs/ASSESSMENT_GAME_ID_MIGRATION.md` — assessmentGameId Migration Plan
@@ -81,8 +80,7 @@ This file is the “what to do next” view derived from `docs/DOCS_CANONICAL_MA
 - `docs/QUIZ_ITEM_QA_HANDOVER_NEW2OLD.md` — Quiz Item QA Handover (new-to-old)
 - `docs/QUIZ_ITEM_QA_HANDOVER_UPDATED.md` — Quiz Item QA Handover - MongoDB Direct Access
 - `docs/QUIZ_PIPELINE_UPDATED_SAMPLE__2026-01-29.md` — Quiz pipeline – updated sample (2026-01-29)
-- `docs/QUIZ_SYSTEM_FIX_COMPLETE.md` — 🎉 QUIZ SYSTEM FIX - COMPLETE
-- … +26 more
+- … +27 more
 
 ## Next suggested move
 - Create `docs/_archive/delivery/2026-01/` and `docs/_archive/tasklists/`, then move the corresponding files and update links.

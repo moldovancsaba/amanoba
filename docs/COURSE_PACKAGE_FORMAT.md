@@ -55,7 +55,8 @@ All fields below are optional in the package unless noted. Omitted fields are no
 | ccsId | string | CCS family id (e.g. SPORT_SALES_NETWORK_EUROPE_2026). |
 | prerequisiteCourseIds | string[] | Course IDs (string; import resolves to ObjectId). |
 | prerequisiteEnforcement | "hard" \| "soft" | |
-| certification | object | See Course model: enabled, passThresholdPercent, requireAllLessonsCompleted, requireAllQuizzesPassed, templateId, templateVariantIds, credentialTitleId, priceMoney, pricePoints, etc. |
+| quizMaxWrongAllowed | number | Lesson quiz: max wrong answers allowed (0–10). If set, fail when wrongCount > this; else use successThreshold %. |
+| certification | object | See Course model: enabled, passThresholdPercent, maxErrorPercent, requireAllLessonsCompleted, requireAllQuizzesPassed, templateId, templateVariantIds, credentialTitleId, priceMoney, pricePoints, etc. |
 
 Do **not** include in package (or import must ignore): `_id`, `createdAt`, `updatedAt`, `brandId`, `createdBy`, `assignedEditors`, `parentCourseId`, `selectedLessonIds`, `isDraft`, `syncStatus`, `lastSyncedAt`.
 
@@ -121,6 +122,15 @@ Do **not** include: `_id`, `lessonId`/`courseId` (import sets from context), `sh
    Alternatively, open any course’s editor and use **Import (JSON or ZIP)** there; if the package’s courseId is different, the app creates/updates that course and redirects you to it.
 
 **Editing the package:** Save **course.json** (and **lessons.json** if you edit it) as **UTF-8** so characters like en-dash (–), em-dash (—), and accented letters are preserved. Import applies `name` and `description` from the package exactly when present.
+
+### Single JSON (no ZIP)
+
+You can import from a **single JSON file** with the same shape:
+
+- **Upload in UI:** Admin → Course Management → **Import course (JSON or ZIP)**. Choose a `.json` file whose content is `{ "course": { ... }, "lessons": [ ... ] }`. The UI sends it as the request body; the API accepts either `{ courseData: { course, lessons }, overwrite }` or the raw package `{ course, lessons, overwrite? }`.
+- **API:** POST `/api/admin/courses/import` with `Content-Type: application/json` and body either `{ courseData: { course, lessons }, overwrite: true }` or directly `{ course, lessons, overwrite: true }`.
+
+A template is in **docs/course/sample.json** — copy and edit it to create a new course, then import that file.
 
 ---
 

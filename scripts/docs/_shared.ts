@@ -1,5 +1,6 @@
 import { readFile, stat, writeFile } from 'node:fs/promises';
 import { relative } from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 export type DocFile = {
   path: string;
@@ -8,6 +9,16 @@ export type DocFile = {
   sizeBytes: number;
   title: string;
 };
+
+export function listGitTrackedFiles(patterns: string[]) {
+  const args = ['ls-files', '-z', '--', ...patterns];
+  const out = execFileSync('git', args, { encoding: 'utf8' });
+  return out
+    .split('\0')
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .map((s) => s.replaceAll('\\', '/'));
+}
 
 export async function readText(filePath: string) {
   return readFile(filePath, 'utf8');
