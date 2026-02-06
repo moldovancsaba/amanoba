@@ -153,6 +153,8 @@ export default function CourseEditorPage({
     lastSyncedAt: string | null;
   } | null>(null);
   const [syncActionLoading, setSyncActionLoading] = useState(false);
+  const [applyQuizDefaultsLoading, setApplyQuizDefaultsLoading] = useState(false);
+  const [applyQuizDefaultsMessage, setApplyQuizDefaultsMessage] = useState<string | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [editorNames, setEditorNames] = useState<Record<string, string>>({});
   const [editorSearch, setEditorSearch] = useState('');
@@ -816,6 +818,9 @@ export default function CourseEditorPage({
       {/* Lesson quizzes */}
       <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-darkGrey">
         <h2 className="text-xl font-bold text-brand-black mb-4">Lesson quizzes</h2>
+        <p className="text-sm text-brand-darkGrey mb-4">
+          These settings apply to every lesson in this course. Each lesson can override &quot;Questions to Show&quot; in its own quiz settings (when editing that lesson). <strong>Save this course</strong> after changing values below.
+        </p>
         <div>
           <label className="block text-sm font-medium text-brand-black mb-2">
             Max wrong answers allowed
@@ -857,6 +862,37 @@ export default function CourseEditorPage({
           <p className="text-xs text-brand-darkGrey mt-1">
             Used when a lesson does not set its own &quot;Questions to Show&quot;. Leave empty to use each lesson&apos;s setting or 5.
           </p>
+        </div>
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            disabled={applyQuizDefaultsLoading || (course.defaultLessonQuizQuestionCount == null || course.defaultLessonQuizQuestionCount < 1)}
+            onClick={async () => {
+              if (!courseId || !confirm('Apply the course default question count to all lessons that have a quiz enabled? This overwrites each lesson\'s "Questions to Show".')) return;
+              setApplyQuizDefaultsLoading(true);
+              setApplyQuizDefaultsMessage(null);
+              try {
+                const res = await fetch(`/api/admin/courses/${courseId}/apply-quiz-defaults`, { method: 'POST' });
+                const data = await res.json();
+                if (data.success) {
+                  setApplyQuizDefaultsMessage(data.message ?? `Applied to ${data.updated} lesson(s).`);
+                  fetchLessons(courseId);
+                } else {
+                  setApplyQuizDefaultsMessage(data.error ?? 'Failed');
+                }
+              } catch (e) {
+                setApplyQuizDefaultsMessage('Request failed');
+              } finally {
+                setApplyQuizDefaultsLoading(false);
+              }
+            }}
+            className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {applyQuizDefaultsLoading ? 'Applying…' : 'Apply to all lessons'}
+          </button>
+          {applyQuizDefaultsMessage != null && (
+            <span className="text-sm text-brand-darkGrey">{applyQuizDefaultsMessage}</span>
+          )}
         </div>
       </div>
 
@@ -1543,9 +1579,10 @@ export default function CourseEditorPage({
       </div>
 
       {/* Lesson Form Modal (not used for child courses) */}
-      {showLessonForm && courseId && !course.parentCourseId && (
+      {showLessonForm && courseId && course && !course.parentCourseId && (
         <LessonFormModal
           courseId={courseId}
+          course={course}
           dayNumber={editingLesson || 1}
           lesson={lessons.find((l) => l.dayNumber === editingLesson) || null}
           games={games}
@@ -1567,6 +1604,7 @@ export default function CourseEditorPage({
 // Lesson Form Modal Component
 function LessonFormModal({
   courseId,
+  course,
   dayNumber,
   lesson,
   games,
@@ -1574,12 +1612,14 @@ function LessonFormModal({
   onSave,
 	}: {
 	  courseId: string;
+	  course: Course;
 	  dayNumber: number;
 	  lesson: LessonWithQuizConfig | null;
 	  games: Game[];
 	  onClose: () => void;
 	  onSave: () => void;
 	}) {
+  const useCoursePassRule = typeof course.quizMaxWrongAllowed === 'number' && course.quizMaxWrongAllowed >= 0;
   const [formData, setFormData] = useState({
     lessonId: lesson?.lessonId || `DAY_${dayNumber.toString().padStart(2, '0')}`,
     title: lesson?.title || '',
@@ -1744,7 +1784,11 @@ function LessonFormModal({
 
             {formData.quizConfig.enabled && (
               <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                {useCoursePassRule ? (
+                  <p className="text-sm text-brand-darkGrey py-1">
+                    Pass rule: <strong>Course setting</strong> — max {course.quizMaxWrongAllowed} wrong answer{course.quizMaxWrongAllowed !== 1 ? 's' : ''} allowed (unified for all lessons).
+                  </p>
+                ) : (
                   <div>
                     <label className="block text-sm font-medium text-brand-black mb-2">
                       Success Threshold (%)
@@ -1764,10 +1808,11 @@ function LessonFormModal({
                       className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
                     />
                     <p className="text-xs text-brand-darkGrey mt-1">
-                      Minimum % of correct answers to pass (0-100)
+                      Minimum % of correct answers to pass (0-100). Set &quot;Max wrong answers allowed&quot; on the course to use a unified rule instead.
                     </p>
                   </div>
-
+                )}
+                <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-brand-black mb-2">
                       Questions to Show
