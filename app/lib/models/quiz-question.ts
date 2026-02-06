@@ -26,12 +26,19 @@ export enum QuestionDifficulty {
 
 /**
  * Question Type Enum
- * Why: Categorize questions by cognitive level for analytics and filtering
+ * Why: Categorize questions by cognitive level for analytics and filtering.
+ * Extended types (definition, concept, best_practice, diagnostic, metric) align with course export/import and audit taxonomies.
  */
 export enum QuestionType {
   RECALL = 'recall',
   APPLICATION = 'application',
   CRITICAL_THINKING = 'critical-thinking',
+  // Course/audit taxonomy (export/import alignment)
+  DEFINITION = 'definition',
+  CONCEPT = 'concept',
+  BEST_PRACTICE = 'best_practice',
+  DIAGNOSTIC = 'diagnostic',
+  METRIC = 'metric',
 }
 
 /**
@@ -63,7 +70,7 @@ export interface IQuizQuestion extends Document {
   // Why: Support for quiz quality audit with metadata and filtering
   uuid?: string; // Unique v4 UUID for anonymized referencing
   hashtags?: string[]; // Multi-level tags for filtering (#topic #difficulty #type #language)
-  questionType?: QuestionType; // Cognitive level: recall, application, or critical-thinking
+  questionType?: QuestionType; // Cognitive level + course taxonomy: recall, application, critical-thinking, definition, concept, best_practice, diagnostic, metric
   metadata: {
     createdAt: Date;
     updatedAt: Date;

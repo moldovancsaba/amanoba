@@ -172,7 +172,7 @@ export default function AdminCoursesPage() {
         router.push(`/${locale}/admin/courses/${data.course.courseId}`);
         return;
       }
-      alert(data.error || 'Import failed');
+      alert([data.error || 'Import failed', data.details].filter(Boolean).join('\n\n'));
     } catch (e) {
       console.error('Import failed', e);
       alert('Import failed. Use a .json package.');

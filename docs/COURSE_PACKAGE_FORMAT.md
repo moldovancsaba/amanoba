@@ -99,7 +99,7 @@ Do **not** include: `_id`, `courseId` (import sets from context), `createdAt`, `
 | correctIndex | number | |
 | difficulty | string | EASY \| MEDIUM \| HARD \| EXPERT. |
 | category | string | |
-| questionType | string | application \| critical-thinking \| recall. |
+| questionType | string | recall \| application \| critical-thinking \| definition \| concept \| best_practice \| diagnostic \| metric. |
 | hashtags | string[] | Optional. |
 | isActive | boolean | |
 

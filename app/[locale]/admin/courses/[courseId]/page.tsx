@@ -391,7 +391,7 @@ export default function CourseEditorPage({
           window.location.reload();
         }
       } else {
-        alert(data.error || 'Failed to import');
+        alert([data.error || 'Failed to import', data.details].filter(Boolean).join('\n\n'));
       }
     } catch (error) {
       console.error('Failed to import:', error);

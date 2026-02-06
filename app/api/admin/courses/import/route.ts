@@ -17,8 +17,14 @@ import connectDB from '@/lib/mongodb';
 import { Course, Lesson, QuizQuestion, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdmin } from '@/lib/rbac';
-import { QuestionDifficulty } from '@/lib/models';
+import { QuestionDifficulty, QuizQuestionType } from '@/lib/models';
 import mongoose from 'mongoose';
+
+const VALID_QUESTION_TYPES = new Set(Object.values(QuizQuestionType));
+function normalizeQuestionType(value: unknown): string | undefined {
+  if (typeof value !== 'string') return undefined;
+  return VALID_QUESTION_TYPES.has(value as QuizQuestionType) ? value : undefined;
+}
 
 /** Shape of a lesson as stored in the course package (JSON/ZIP). */
 interface PackageLesson {
@@ -278,7 +284,7 @@ export async function POST(request: NextRequest) {
           courseId: course._id,
           isCourseSpecific: true,
           uuid: questionData.uuid ?? undefined,
-          questionType: questionData.questionType ?? undefined,
+          questionType: normalizeQuestionType(questionData.questionType) ?? undefined,
           hashtags: questionData.hashtags ?? undefined,
         };
         const updatePayload = { ...basePayload, 'metadata.updatedAt': new Date() };
