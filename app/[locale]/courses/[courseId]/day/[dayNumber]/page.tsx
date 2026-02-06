@@ -94,7 +94,7 @@ const dayPageTranslations: Record<string, Record<string, string>> = {
     markAsComplete: 'Befejezveként jelölés',
     completed: 'Befejezve',
     nextDay: 'Következő nap',
-    quizRequiredMessage: 'A kvíz sikeres teljesítése (5/5) szükséges a befejezéshez. A kérdések a „Kitöltöm a kvízt” gombbal érhetők el.',
+    quizRequiredMessage: 'A kvíz sikeres teljesítése ({{count}}/{{count}}) szükséges a befejezéshez. A kérdések a „Kitöltöm a kvízt” gombbal érhetők el.',
     testYourKnowledge: 'Teszteld a tudásodat',
     assessmentDescription: 'Teljesítsd az értékelő játékot, hogy megerősítsd a tanultakat. Az eredményeid ehhez a leckéhez lesznek kapcsolva.',
     playAssessment: 'Játssz értékelőt →',
@@ -120,7 +120,7 @@ const dayPageTranslations: Record<string, Record<string, string>> = {
     markAsComplete: 'Mark as Complete',
     completed: 'Completed',
     nextDay: 'Next Day',
-    quizRequiredMessage: 'You need to pass the quiz (5/5) to complete this lesson. Use the "Take Quiz" button to open it.',
+    quizRequiredMessage: 'You need to pass the quiz ({{count}}/{{count}}) to complete this lesson. Use the "Take Quiz" button to open it.',
     testYourKnowledge: 'Test Your Knowledge',
     assessmentDescription: 'Complete the assessment game to reinforce what you learned. Your results will be linked to this lesson.',
     playAssessment: 'Play Assessment →',
@@ -146,7 +146,7 @@ const dayPageTranslations: Record<string, Record<string, string>> = {
     markAsComplete: 'Отметить как завершенный',
     completed: 'Завершено',
     nextDay: 'Следующий день',
-    quizRequiredMessage: 'Нужно пройти квиз (5/5), чтобы завершить урок. Нажмите «Пройти квиз».',
+    quizRequiredMessage: 'Нужно пройти квиз ({{count}}/{{count}}), чтобы завершить урок. Нажмите «Пройти квиз».',
     testYourKnowledge: 'Проверьте знания',
     assessmentDescription: 'Пройдите оценочный квиз, чтобы закрепить материал. Результаты будут связаны с уроком.',
     playAssessment: 'Пройти оценку →',
@@ -370,6 +370,7 @@ export default function DailyLessonPage({
   const [quizPassed, setQuizPassed] = useState(false);
   const [courseLanguage, setCourseLanguage] = useState<string>('en');
   const [totalDays, setTotalDays] = useState<number>(30);
+  const [defaultLessonQuizQuestionCount, setDefaultLessonQuizQuestionCount] = useState<number | undefined>(undefined);
   const searchParams = useSearchParams();
   const locale = useLocale(); // URL locale (e.g. /hu/ → 'hu') for fallback when lesson not found before courseLanguage is set
 
@@ -391,6 +392,7 @@ export default function DailyLessonPage({
         setLesson(data.lesson);
         setNavigation(data.navigation);
         if (data.progress?.totalDays != null) setTotalDays(data.progress.totalDays);
+        if (data.defaultLessonQuizQuestionCount != null) setDefaultLessonQuizQuestionCount(data.defaultLessonQuizQuestionCount);
         // Refresh quiz passed flag from localStorage (set by quiz page)
         // Include player ID in key to make it user-specific
         const user = session?.user as { id?: string; playerId?: string } | undefined;
@@ -669,7 +671,9 @@ export default function DailyLessonPage({
               </div>
               {lesson.quizConfig?.enabled && lesson.quizConfig.required && !quizPassed && (
                 <p className="mt-4 text-sm text-brand-darkGrey text-center">
-                  {getDayPageText('quizRequiredMessage', courseLanguage)}
+                  {getDayPageText('quizRequiredMessage', courseLanguage, {
+                    count: lesson.quizConfig?.questionCount ?? defaultLessonQuizQuestionCount ?? 5,
+                  })}
                 </p>
               )}
             </div>

@@ -68,8 +68,10 @@ export interface ICourse extends Document {
   prerequisiteCourseIds?: mongoose.Types.ObjectId[];
   /** When prerequisites are set: 'hard' = block enrolment until met; 'soft' = warn but allow. Default 'hard'. */
   prerequisiteEnforcement?: 'hard' | 'soft';
-  /** Lesson quiz pass rule: max wrong answers allowed (0–5). If set, fail when wrongCount > this; else use successThreshold %. */
+  /** Lesson quiz pass rule: max wrong answers allowed (0–10). If set, fail when wrongCount > this; else use successThreshold %. */
   quizMaxWrongAllowed?: number;
+  /** Default number of questions per lesson quiz. Used when a lesson does not set quizConfig.questionCount. 1–50. */
+  defaultLessonQuizQuestionCount?: number;
   /** For shorts: draft until editor publishes. Catalog shows only non-draft. */
   isDraft?: boolean;
   /** Child courses only: 'synced' | 'out_of_sync'. Used for selective unsync/re-sync and admin sync alerts. */
@@ -272,6 +274,7 @@ const CourseSchema = new Schema<ICourse>(
     prerequisiteCourseIds: [{ type: Schema.Types.ObjectId, ref: 'Course', default: undefined }],
     prerequisiteEnforcement: { type: String, enum: ['hard', 'soft'], default: 'hard', trim: true },
     quizMaxWrongAllowed: { type: Number, min: 0, max: 10, default: undefined },
+    defaultLessonQuizQuestionCount: { type: Number, min: 1, max: 50, default: undefined },
     // Short/child course fields (optional)
     parentCourseId: { type: String, uppercase: true, trim: true },
     selectedLessonIds: [{ type: String, trim: true }],

@@ -137,6 +137,7 @@ async function main() {
     prerequisiteCourseIds: prerequisiteCourseIds ?? undefined,
     prerequisiteEnforcement: courseInfo.prerequisiteEnforcement ?? undefined,
     quizMaxWrongAllowed: courseInfo.quizMaxWrongAllowed !== undefined ? courseInfo.quizMaxWrongAllowed : undefined,
+    defaultLessonQuizQuestionCount: courseInfo.defaultLessonQuizQuestionCount !== undefined ? courseInfo.defaultLessonQuizQuestionCount : undefined,
     certification: courseInfo.certification ?? undefined,
   };
   if (courseInfo.name !== undefined && courseInfo.name !== null) courseSet.name = String(courseInfo.name);

@@ -27,6 +27,8 @@ interface LessonResponse {
 
 type LessonDayApiResponse = LessonResponse & {
   courseLanguage?: string;
+  quizMaxWrongAllowed?: number;
+  defaultLessonQuizQuestionCount?: number;
 };
 
 interface Question {
@@ -215,6 +217,8 @@ export default function LessonQuizPage({
   const [feedback, setFeedback] = useState<string | null>(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [quizMaxWrongAllowed, setQuizMaxWrongAllowed] = useState<number | undefined>(undefined);
+  const [wrongCount, setWrongCount] = useState(0);
 
   const loadLessonAndQuestions = useCallback(async (cid: string, day: number, fallbackLanguage: string) => {
     try {
@@ -234,8 +238,10 @@ export default function LessonQuizPage({
       
       setLessonId(lessonData.lesson.lessonId);
       setLessonTitle(lessonData.lesson.title);
+      setQuizMaxWrongAllowed(lessonData.quizMaxWrongAllowed);
+      setWrongCount(0);
 
-      const count = lessonData.lesson.quizConfig?.questionCount || 5;
+      const count = lessonData.lesson.quizConfig?.questionCount ?? lessonData.defaultLessonQuizQuestionCount ?? 5;
       const qRes = await fetch(
         `/api/games/quizzz/questions?lessonId=${lessonData.lesson.lessonId}&courseId=${cid}&count=${count}&t=${Date.now()}`,
         { cache: 'no-store' }
@@ -343,9 +349,10 @@ export default function LessonQuizPage({
           }, 700);
         }
       } else {
+        const newWrongCount = wrongCount + 1;
+        setWrongCount(newWrongCount);
         setFeedback(getQuizPageText('quizSupportiveRetry', courseLanguage));
         if (lessonId) {
-          // Include player ID in key to make it user-specific
           const user = session?.user as { id?: string; playerId?: string } | undefined;
           const playerId = user?.playerId || user?.id;
           const key = playerId 
@@ -353,9 +360,27 @@ export default function LessonQuizPage({
             : `quiz-passed-${courseId}-${lessonId}`;
           localStorage.removeItem(key);
         }
-        setTimeout(() => {
-          router.replace(`/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
-        }, 1200);
+        // Only redirect when wrong count exceeds course limit (e.g. 3 wrong allowed → fail on 4th)
+        const maxWrong = quizMaxWrongAllowed;
+        if (typeof maxWrong === 'number' && newWrongCount > maxWrong) {
+          setTimeout(() => {
+            router.replace(`/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
+          }, 1200);
+        } else {
+          // Stay in quiz and go to next question
+          const nextIndex = currentIndex + 1;
+          if (nextIndex >= questions.length) {
+            setTimeout(() => {
+              router.replace(`/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}?quizRetry=1`);
+            }, 1200);
+          } else {
+            setTimeout(() => {
+              setFeedback(null);
+              setIsAnswerCorrect(null);
+              setCurrentIndex(nextIndex);
+            }, 1200);
+          }
+        }
       }
     } catch (err) {
       console.error(err);

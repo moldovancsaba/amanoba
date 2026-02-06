@@ -56,6 +56,8 @@ interface Course {
   assignedEditors?: string[];
   /** Lesson quiz pass rule: max wrong answers allowed (0–10). If set, fail when wrongCount > this; else use successThreshold %. */
   quizMaxWrongAllowed?: number;
+  /** Default number of questions per lesson quiz when lesson does not set questionCount. */
+  defaultLessonQuizQuestionCount?: number;
   pointsConfig: {
     completionPoints: number;
     lessonPoints: number;
@@ -833,6 +835,27 @@ export default function CourseEditorPage({
           />
           <p className="text-xs text-brand-darkGrey mt-1">
             If set (0–10), lesson quiz fails when wrong answers exceed this. Leave empty to use success threshold % per lesson.
+          </p>
+        </div>
+        <div className="mt-4">
+          <label className="block text-sm font-medium text-brand-black mb-2">
+            Number of questions per lesson quiz (default)
+          </label>
+          <input
+            type="number"
+            min="1"
+            max="50"
+            step="1"
+            value={course.defaultLessonQuizQuestionCount ?? ''}
+            onChange={(e) => {
+              const v = e.target.value === '' ? undefined : Math.min(50, Math.max(1, parseInt(e.target.value, 10) || 1));
+              setCourse({ ...course, defaultLessonQuizQuestionCount: v });
+            }}
+            className="w-full max-w-[120px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+            placeholder="e.g. 5"
+          />
+          <p className="text-xs text-brand-darkGrey mt-1">
+            Used when a lesson does not set its own &quot;Questions to Show&quot;. Leave empty to use each lesson&apos;s setting or 5.
           </p>
         </div>
       </div>

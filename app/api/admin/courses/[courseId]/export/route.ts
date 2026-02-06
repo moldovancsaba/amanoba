@@ -110,6 +110,7 @@ export async function GET(
           : undefined,
         prerequisiteEnforcement: course.prerequisiteEnforcement ?? undefined,
         quizMaxWrongAllowed: (course as { quizMaxWrongAllowed?: number }).quizMaxWrongAllowed ?? undefined,
+        defaultLessonQuizQuestionCount: (course as { defaultLessonQuizQuestionCount?: number }).defaultLessonQuizQuestionCount ?? undefined,
         certification: course.certification ?? undefined,
       },
       lessons: lessons.map((lesson) => {

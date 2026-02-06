@@ -202,6 +202,7 @@ export async function GET(
       logger.info({ courseId, dayNumber: day, source: 'canonical' }, 'Served canonical lesson fallback');
     }
 
+    const courseObj = course as { language?: string; quizMaxWrongAllowed?: number; defaultLessonQuizQuestionCount?: number };
     return NextResponse.json({
       success: true,
       lesson: {
@@ -219,7 +220,9 @@ export async function GET(
         completedDays: progress.completedDays?.length || 0,
         totalDays,
       },
-      courseLanguage: course.language, // Include course language for locale matching
+      courseLanguage: course.language,
+      quizMaxWrongAllowed: courseObj.quizMaxWrongAllowed,
+      defaultLessonQuizQuestionCount: courseObj.defaultLessonQuizQuestionCount,
     });
   } catch (error) {
     logger.error({ error, courseId: (await params).courseId, dayNumber: (await params).dayNumber }, 'Failed to fetch lesson');

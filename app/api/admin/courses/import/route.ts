@@ -186,6 +186,7 @@ export async function POST(request: NextRequest) {
       prerequisiteCourseIds: prerequisiteCourseIds ?? undefined,
       prerequisiteEnforcement: courseInfo.prerequisiteEnforcement ?? undefined,
       quizMaxWrongAllowed: courseInfo.quizMaxWrongAllowed !== undefined ? courseInfo.quizMaxWrongAllowed : undefined,
+      defaultLessonQuizQuestionCount: courseInfo.defaultLessonQuizQuestionCount !== undefined ? courseInfo.defaultLessonQuizQuestionCount : undefined,
       certification: courseInfo.certification ?? undefined,
     };
     // Apply string content exactly when provided (preserves – vs - and avoids overwriting with undefined)
