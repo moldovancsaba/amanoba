@@ -12,6 +12,7 @@ import connectDB from '@/lib/mongodb';
 import { Course, Lesson, QuizQuestion, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
+import { contentToMarkdown } from '@/app/lib/lesson-content';
 
 /**
  * GET /api/admin/courses/[courseId]/export
@@ -115,15 +116,28 @@ export async function GET(
         const lessonQuestions = quizQuestions.filter(
           (q) => q.lessonId === lesson.lessonId
         );
+        const rawTranslations = mapToObject(lesson.translations) as Record<string, { content?: string; emailBody?: string; [k: string]: unknown }>;
+        const translationsMarkdown: Record<string, unknown> = {};
+        for (const [loc, val] of Object.entries(rawTranslations)) {
+          if (val && typeof val === 'object') {
+            translationsMarkdown[loc] = {
+              ...val,
+              ...(typeof val.content === 'string' && { content: contentToMarkdown(val.content) }),
+              ...(typeof val.emailBody === 'string' && { emailBody: contentToMarkdown(val.emailBody) }),
+            };
+          } else {
+            translationsMarkdown[loc] = val;
+          }
+        }
 
         return {
           lessonId: lesson.lessonId,
           dayNumber: lesson.dayNumber || 1,
           language: lesson.language || 'hu',
           title: lesson.title || '',
-          content: lesson.content || '',
+          content: contentToMarkdown(lesson.content),
           emailSubject: lesson.emailSubject || '',
-          emailBody: lesson.emailBody || '',
+          emailBody: contentToMarkdown(lesson.emailBody),
           quizConfig: lesson.quizConfig || null,
           unlockConditions: lesson.unlockConditions || {},
           pointsReward: lesson.pointsReward || 0,
@@ -131,7 +145,7 @@ export async function GET(
           isActive: lesson.isActive !== undefined ? lesson.isActive : true,
           displayOrder: lesson.displayOrder || lesson.dayNumber || 1,
           metadata: lesson.metadata || {},
-          translations: mapToObject(lesson.translations),
+          translations: translationsMarkdown,
           quizQuestions: lessonQuestions.map((q) => ({
             uuid: q.uuid ?? undefined,
             questionType: q.questionType ?? undefined,
