@@ -1,10 +1,10 @@
 # Amanoba Task List
 
-**Last Updated**: 2026-02-05
+**Last Updated**: 2026-02-06
 
 This document lists **actionable tasks** derived from the roadmap and current backlog. Each item is something to do. When a task is completed, move it to **RELEASE_NOTES.md** and remove it from this list. Ideas and vision live in **ROADMAP.md**. Completed work lives only in RELEASE_NOTES (not here). **Only related items:** Only open/actionable tasks that belong in the TASKLIST may appear here — no completed work (→ RELEASE_NOTES), no vision (→ ROADMAP), no unrelated content. For alignment of ROADMAP vs TASKLIST and "what to deliver next", see **ROADMAP_TASKLIST_SYSTEM_COMPARISON.md**.
 
-**Current status (snapshot)**: Production stable as of 2026-01-28; PV/POL delivered. Full historical status snapshot: `docs/_archive/reference/STATUS__2026-01-28.md`.
+**Current status (snapshot)**: Last confirmed production-stable snapshot: 2026-01-28 (PV/POL delivered). Latest archived status: `docs/_archive/reference/STATUS__2026-02-06.md` (includes verification notes). Full historical snapshot: `docs/_archive/reference/STATUS__2026-01-28.md`.
 
 Completed items (formerly 1–4, 6–11, course voting, UI/UX polish, course leaderboard UI, Community Phase 1 & 2) are not listed here; they live only in **RELEASE_NOTES.md**.
 

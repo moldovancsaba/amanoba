@@ -880,7 +880,7 @@ export default function CourseEditorPage({
                 } else {
                   setApplyQuizDefaultsMessage(data.error ?? 'Failed');
                 }
-              } catch (e) {
+              } catch (_e) {
                 setApplyQuizDefaultsMessage('Request failed');
               } finally {
                 setApplyQuizDefaultsLoading(false);

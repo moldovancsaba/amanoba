@@ -11,7 +11,7 @@
  * - Efficient bulk update operations
  */
 
-import type { PipelineStage } from 'mongoose';
+import mongoose, { type PipelineStage } from 'mongoose';
 import { LeaderboardEntry, PlayerProgression, PointsWallet, Streak, Course, CourseProgress } from '@/lib/models';
 import logger from '@/lib/logger';
 
@@ -129,36 +129,39 @@ export async function calculateLeaderboard(
     const filterKey = isCourseLeaderboard ? 'courseId' : 'gameId';
     const filterValue = isCourseLeaderboard ? courseId!.toUpperCase() : gameId;
 
-    // Update or create leaderboard entries
-    const bulkOps = rankings.map((entry, index) => ({
-      updateOne: {
-        filter: {
-          playerId: entry.playerId,
-          metric: type,
-          period,
-          ...(filterValue && { [filterKey]: filterValue }),
-        },
-        update: {
-          $set: {
-            value: entry.value,
-            rank: index + 1,
-            lastCalculated: new Date(),
-            'metadata.lastCalculated': new Date(),
-            'metadata.periodStart': dateRange.start,
-            'metadata.periodEnd': dateRange.end,
-          },
-          $setOnInsert: {
-            playerId: entry.playerId,
-            ...(filterValue && { [filterKey]: filterValue }),
+    // Update or create leaderboard entries (playerId stored as ObjectId in schema)
+    const bulkOps = rankings.map((entry, index) => {
+      const playerObjectId = new mongoose.Types.ObjectId(entry.playerId);
+      return {
+        updateOne: {
+          filter: {
+            playerId: playerObjectId,
             metric: type,
             period,
-            'metadata.createdAt': new Date(),
-            'metadata.updatedAt': new Date(),
+            ...(filterValue && { [filterKey]: filterValue }),
           },
+          update: {
+            $set: {
+              value: entry.value,
+              rank: index + 1,
+              lastCalculated: new Date(),
+              'metadata.lastCalculated': new Date(),
+              'metadata.periodStart': dateRange.start,
+              'metadata.periodEnd': dateRange.end,
+            },
+            $setOnInsert: {
+              playerId: playerObjectId,
+              ...(filterValue && { [filterKey]: filterValue }),
+              metric: type,
+              period,
+              'metadata.createdAt': new Date(),
+              'metadata.updatedAt': new Date(),
+            },
+          },
+          upsert: true,
         },
-        upsert: true,
-      },
-    }));
+      };
+    });
 
     if (bulkOps.length > 0) {
       await LeaderboardEntry.bulkWrite(bulkOps);

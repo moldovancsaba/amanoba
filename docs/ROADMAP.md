@@ -1,7 +1,7 @@
 # Amanoba Roadmap — Future Vision & Client Benefits
 
-**Version**: 2.9.33  
-**Last Updated**: 2026-01-28
+**Version**: 2.9.44  
+**Last Updated**: 2026-02-06
 
 This document describes **what we want to build in the future** and **what benefits we want to give to clients**. It is not a task list. **Rules:** Do not list anything that is already delivered (see **RELEASE_NOTES.md**). Do not list anything that has been turned into tasks (see **TASKLIST.md**). Only future vision that is not yet broken down into tasks belongs here. **Only related items:** Only content that belongs in the ROADMAP may appear here — no delivered items, no task-list items, no unrelated content.
 

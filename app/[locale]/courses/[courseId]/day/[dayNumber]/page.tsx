@@ -348,7 +348,8 @@ const getDayPageText = (key: string, courseLang: string, params?: Record<string,
   let text = translations[key] || dayPageTranslations.en[key] || key;
   if (params) {
     Object.entries(params).forEach(([k, v]) => {
-      text = text.replaceAll(`{{${k}}}`, String(v));
+      const placeholder = `{{${k}}}`;
+      text = text.split(placeholder).join(String(v));
     });
   }
   return text;

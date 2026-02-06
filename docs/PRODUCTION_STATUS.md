@@ -1,8 +1,8 @@
 # Production Deployment Status
 
 **Last Check**: 2026-01-23T22:45:00.000Z  
-**Current Issues**: Admin pages were down due to build failure; rolled back to last known good commit  
-**Status**: 🟡 Rollback completed, waiting for Vercel redeployment
+**Current Issues**: This document is **stale** and needs a fresh production verification pass.  
+**Status**: 🟡 Needs re-verification (do not treat as current production truth)
 
 ---
 
@@ -133,15 +133,15 @@ Go to: **https://vercel.com/[your-username]/amanoba/deployments**
 
 Go to: **https://vercel.com/[your-username]/amanoba/settings/environment-variables**
 
-**Required Variables for Production**:
+**Required Variables for Production** (values intentionally omitted; check Vercel):
 
 | Variable | Value | Status |
 |----------|-------|--------|
-| `AUTH_SECRET` | `<32-char base64 string>` | ❓ |
-| `NEXTAUTH_URL` | `https://amanoba.com` | ❓ |
-| `MONGODB_URI` | `mongodb+srv://playmass:xeDfip-7gavvo-betgab@playmass-cluster.lbzmcrq.mongodb.net/?retryWrites=true&w=majority&appName=playmass-cluster` | ❓ |
-| `FACEBOOK_APP_ID` | `1522241068777501` | ❓ |
-| `FACEBOOK_APP_SECRET` | `36f35cfc31152fbe9fba13ab76908f4c` | ❓ |
+| `AUTH_SECRET` | `<generate: openssl rand -base64 32>` | ❓ |
+| `NEXTAUTH_URL` | `<e.g. https://amanoba.com>` | ❓ |
+| `MONGODB_URI` | `<MongoDB connection string>` | ❓ |
+| `FACEBOOK_APP_ID` | `<app id>` | ❓ |
+| `FACEBOOK_APP_SECRET` | `<app secret>` | ❓ |
 | `NODE_ENV` | `production` | ❓ |
 
 **If ANY are missing**:

@@ -1,7 +1,7 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.42  
-**Last Updated**: 2026-02-03
+**Current Version**: 2.9.44  
+**Last Updated**: 2026-02-06
 
 **Rule:** Each task exists in exactly one place.
 

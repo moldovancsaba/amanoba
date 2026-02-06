@@ -23,7 +23,24 @@ export interface ILeaderboardEntry extends Document {
   gameId?: mongoose.Types.ObjectId; // Null for global/course leaderboards
   courseId?: string; // Course ID string for course-specific leaderboards
   period: 'daily' | 'weekly' | 'monthly' | 'all_time';
-  metric: 'score' | 'wins' | 'points' | 'xp' | 'streak' | 'accuracy';
+  metric:
+    | 'score'
+    | 'wins'
+    | 'points'
+    | 'xp'
+    | 'streak'
+    | 'accuracy'
+    | 'points_balance'
+    | 'points_lifetime'
+    | 'xp_total'
+    | 'level'
+    | 'win_streak'
+    | 'daily_streak'
+    | 'games_won'
+    | 'win_rate'
+    | 'elo'
+    | 'course_points'
+    | 'course_completion_speed';
   rank: number;
   previousRank?: number;
   value: number; // The metric value (e.g., total score, win count)
