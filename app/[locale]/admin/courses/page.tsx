@@ -511,7 +511,7 @@ export default function AdminCoursesPage() {
                       </span>
                     </button>
                     {isExpanded && (
-                      <div className="border-t border-brand-accent/30 bg-brand-darkGrey/5 p-4" onClick={(e) => e.stopPropagation()}>
+                      <div className="border-t border-brand-accent/30 bg-brand-white/95 p-4" onClick={(e) => e.stopPropagation()}>
                         <div className="flex flex-wrap items-center gap-2 mb-3">
                           <button
                             type="button"
@@ -532,36 +532,36 @@ export default function AdminCoursesPage() {
                           </button>
                         </div>
                         {editingCcsId === ccs.ccsId && (
-                          <div className="mb-4 p-3 bg-brand-white rounded-lg border border-brand-accent/30 space-y-2">
+                          <div className="mb-4 p-4 page-card space-y-4">
                             <label className="block text-sm font-bold text-brand-black">Name</label>
                             <input
                               type="text"
                               value={editForm.name}
                               onChange={(e) => setEditForm((f) => ({ ...f, name: e.target.value }))}
-                              className="w-full px-3 py-2 border border-brand-accent/30 rounded text-brand-black"
+                              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black placeholder:text-brand-darkGrey/70 focus:outline-none focus:border-brand-accent"
                               placeholder="Display name"
                             />
                             <label className="block text-sm font-bold text-brand-black">Idea (optional)</label>
                             <textarea
                               value={editForm.idea}
                               onChange={(e) => setEditForm((f) => ({ ...f, idea: e.target.value }))}
-                              className="w-full px-3 py-2 border border-brand-accent/30 rounded text-brand-black min-h-[60px]"
+                              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black placeholder:text-brand-darkGrey/70 focus:outline-none focus:border-brand-accent min-h-[60px]"
                               placeholder="Course idea / markdown"
                             />
                             <label className="block text-sm font-bold text-brand-black">Outline (optional)</label>
                             <textarea
                               value={editForm.outline}
                               onChange={(e) => setEditForm((f) => ({ ...f, outline: e.target.value }))}
-                              className="w-full px-3 py-2 border border-brand-accent/30 rounded text-brand-black min-h-[80px]"
+                              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black placeholder:text-brand-darkGrey/70 focus:outline-none focus:border-brand-accent min-h-[80px]"
                               placeholder="30-day outline / markdown"
                             />
                             <div className="flex gap-2">
-                              <button type="button" onClick={saveEditCcs} className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold text-sm">Save</button>
-                              <button type="button" onClick={() => setEditingCcsId(null)} className="px-4 py-2 bg-brand-darkGrey text-brand-white rounded-lg font-bold text-sm">Cancel</button>
+                              <button type="button" onClick={saveEditCcs} className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold text-sm hover:bg-brand-primary-400">Save</button>
+                              <button type="button" onClick={() => setEditingCcsId(null)} className="px-4 py-2 bg-brand-darkGrey text-brand-white rounded-lg font-bold text-sm hover:bg-brand-secondary-700">Cancel</button>
                             </div>
                           </div>
                         )}
-                        <p className="text-sm text-brand-darkGrey mb-2">Language variants — click to edit course</p>
+                        <p className="text-sm text-brand-black mb-2">Language variants — click to edit course</p>
                         <div className="mb-3">
                           <Link
                             href={`/${locale}/admin/courses/new?ccsId=${encodeURIComponent(ccs.ccsId)}`}

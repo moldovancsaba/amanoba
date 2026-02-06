@@ -9,7 +9,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson } from '@/lib/models';
-import { requireAdminOrEditor, getPlayerIdFromSession, canAccessCourse } from '@/lib/rbac';
+import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
 import { logger } from '@/lib/logger';
 
 export async function POST(
@@ -28,7 +28,7 @@ export async function POST(
     if (!course) {
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
-    if (!canAccessCourse(course, getPlayerIdFromSession(session))) {
+    if (!isAdmin(session) && !canAccessCourse(course, getPlayerIdFromSession(session))) {
       return NextResponse.json({ error: 'Forbidden', message: 'You do not have access to this course' }, { status: 403 });
     }
 
