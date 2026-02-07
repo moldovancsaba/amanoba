@@ -62,3 +62,11 @@ Bing does not expose a simple “submit sitemap” REST API like GSC. Options:
 - **GSC**: In Search Console, **Sitemaps** should list the sitemap; indexation may take days.
 - **Bing**: Similarly in Bing Webmaster Tools.
 - Re-run `npm run seo:submit-sitemap` after deploying if you want to ping GSC that the sitemap URL is updated (optional; crawlers also re-fetch periodically).
+
+## Troubleshooting: "Sitemap could not be read" (GSC)
+
+If Google Search Console reports that the sitemap could not be read:
+
+1. **Open the URL in a browser**: Visit `https://www.amanoba.com/sitemap.xml`. You should see XML (list of `<url>` entries). If you see HTML, a redirect, or an error page, the sitemap route or middleware is not serving XML.
+2. **Check production env**: The sitemap is generated at request time and uses MongoDB. Ensure `MONGODB_URI` (or your DB env) is set in Vercel (or your host) so the serverless function can connect. If the DB is unavailable, the sitemap still returns static entries (locale roots + courses index) so the URL remains valid.
+3. **Redeploy**: After fixing env or code, redeploy and use **OPEN SITEMAP** in GSC to test again. You can also use "Resubmit" (or remove and re-add the sitemap) so GSC re-fetches.

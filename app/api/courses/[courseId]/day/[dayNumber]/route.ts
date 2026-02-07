@@ -166,6 +166,11 @@ export async function GET(
       return NextResponse.json({ error: 'Lesson not found' }, { status: 404 });
     }
 
+    // For child courses, the resolved lesson has the parent's dayNumber; normalize to the requested (child) day so the UI shows "Day 1", "Day 2", etc.
+    if (course.parentCourseId && course.selectedLessonIds?.length && lesson) {
+      lesson = { ...lesson, dayNumber: day };
+    }
+
     // Check if lesson is unlocked
     // Lesson is unlocked if it's day 1, or if the previous day is completed, or if currentDay >= day
     const isUnlocked =

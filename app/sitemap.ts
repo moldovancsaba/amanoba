@@ -16,9 +16,9 @@ export const revalidate = 3600; // revalidate at most every hour
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = APP_URL.replace(/\/$/, '');
   const entries: MetadataRoute.Sitemap = [];
-
-  // Static: locale roots and courses index per locale
   const now = new Date();
+
+  // Static: locale roots and courses index per locale (always returned so GSC gets valid XML even if DB fails)
   for (const locale of locales) {
     entries.push({
       url: `${base}/${locale}`,
@@ -34,32 +34,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  await connectDB();
-  const courses = await Course.find({ isActive: true })
-    .select({ courseId: 1, durationDays: 1 })
-    .lean();
+  try {
+    await connectDB();
+    const courses = await Course.find({ isActive: true })
+      .select({ courseId: 1, durationDays: 1 })
+      .lean();
 
-  const durationDaysByCourse = (courses as { courseId: string; durationDays?: number }[]).map(
-    (c) => ({ courseId: c.courseId, durationDays: Math.max(1, c.durationDays ?? 30) })
-  );
+    const durationDaysByCourse = (courses as { courseId: string; durationDays?: number }[]).map(
+      (c) => ({ courseId: c.courseId, durationDays: Math.max(1, c.durationDays ?? 30) })
+    );
 
-  for (const locale of locales) {
-    for (const { courseId, durationDays } of durationDaysByCourse) {
-      entries.push({
-        url: `${base}/${locale}/courses/${courseId}`,
-        lastModified: now,
-        changeFrequency: 'weekly',
-        priority: 0.8,
-      });
-      for (let day = 1; day <= durationDays; day++) {
+    for (const locale of locales) {
+      for (const { courseId, durationDays } of durationDaysByCourse) {
         entries.push({
-          url: `${base}/${locale}/courses/${courseId}/day/${day}/view`,
+          url: `${base}/${locale}/courses/${courseId}`,
           lastModified: now,
           changeFrequency: 'weekly',
-          priority: 0.7,
+          priority: 0.8,
         });
+        for (let day = 1; day <= durationDays; day++) {
+          entries.push({
+            url: `${base}/${locale}/courses/${courseId}/day/${day}/view`,
+            lastModified: now,
+            changeFrequency: 'weekly',
+            priority: 0.7,
+          });
+        }
       }
     }
+  } catch (_err) {
+    // DB unavailable (e.g. serverless cold start, timeout): return static entries only so sitemap is still valid
   }
 
   return entries;
