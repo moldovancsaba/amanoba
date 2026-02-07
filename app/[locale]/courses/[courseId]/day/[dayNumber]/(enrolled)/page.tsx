@@ -682,7 +682,7 @@ export default function DailyLessonPage({
             <div className="bg-brand-white rounded-2xl p-6 sm:p-10 border-2 border-brand-accent shadow-lg mb-6 sm:mb-8">
               <div
                 className="prose prose-base sm:prose-lg lesson-prose max-w-none text-brand-black"
-                dangerouslySetInnerHTML={{ __html: contentToHtml(lesson.content) }}
+                dangerouslySetInnerHTML={{ __html: contentToHtml(lesson.content, { stripFirstH1: true }) }}
               />
               <ContentVoteWidget
                 targetType="lesson"

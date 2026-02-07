@@ -46,9 +46,19 @@ export function contentToMarkdown(content: string | null | undefined): string {
  * - If content looks like HTML, return as-is (legacy).
  * - Otherwise treat as Markdown and convert to HTML.
  */
-export function contentToHtml(content: string | null | undefined): string {
+function stripLeadingH1(html: string): string {
+  return html.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/i, '');
+}
+
+export function contentToHtml(
+  content: string | null | undefined,
+  options?: { stripFirstH1?: boolean }
+): string {
   const trimmed = (content || '').trim();
   if (!trimmed) return '';
-  if (LOOKS_LIKE_HTML.test(trimmed)) return trimmed;
-  return marked.parse(trimmed) as string;
+  if (LOOKS_LIKE_HTML.test(trimmed)) {
+    return options?.stripFirstH1 ? stripLeadingH1(trimmed) : trimmed;
+  }
+  const html = marked.parse(trimmed) as string;
+  return options?.stripFirstH1 ? stripLeadingH1(html) : html;
 }
