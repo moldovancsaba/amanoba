@@ -198,6 +198,15 @@ export default function CoursesPage() {
       days: 'дни',
       points: 'баллы',
     },
+    sw: {
+      premium: 'Kozi ya Premium',
+      free: 'Kozi ya Bure',
+      certification: 'Cheti',
+      noCertification: 'Hakuna cheti',
+      viewCourse: 'Tazama kozi',
+      days: 'siku',
+      points: 'pointi',
+    },
   };
 
   const formatPrice = (amount: number, currency: string): string => {
@@ -315,6 +324,7 @@ export default function CoursesPage() {
                         course.language === 'pt' ? 'Português' :
                         course.language === 'hi' ? 'हिन्दी' :
                         course.language === 'ru' ? 'Русский' :
+                        course.language === 'sw' ? 'Kiswahili' :
                         course.language.toUpperCase()
                       }>
                         {course.language === 'hu' ? '🇭🇺' :
@@ -328,6 +338,7 @@ export default function CoursesPage() {
                          course.language === 'pt' ? '🇵🇹' :
                          course.language === 'hi' ? '🇮🇳' :
                          course.language === 'ru' ? '🇷🇺' :
+                         course.language === 'sw' ? '🇹🇿' :
                          '🌐'}
                       </span>
                       {/* Premium/Free Chips - CRITICAL: Use course language, not URL locale */}

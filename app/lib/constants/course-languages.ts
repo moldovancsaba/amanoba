@@ -10,6 +10,7 @@ export const COURSE_LANGUAGE_OPTIONS = [
   { code: 'ar', label: 'Arabic' },
   { code: 'pt', label: 'Portuguese' },
   { code: 'hi', label: 'Hindi' },
+  { code: 'sw', label: 'Swahili' },
 ] as const;
 
 export type CourseLanguageCode = (typeof COURSE_LANGUAGE_OPTIONS)[number]['code'];

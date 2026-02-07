@@ -253,6 +253,26 @@ const finalExamTranslations: Record<string, Record<string, string>> = {
     backToCourseButton: 'Wróć do kursu',
     examDescription: 'Masz dostęp. Egzamin to jedna sesja, 50 losowych pytań. Opuszczenie anuluje postęp.',
   },
+  sw: {
+    loadingCourse: 'Inapakia kozi...',
+    signInToEnroll: 'Tafadhali ingia ili kufikia mtihani wa cheti.',
+    finalExamTitle: 'Mtihani wa Mwisho wa Cheti',
+    certificationUnavailable: 'Cheti haipatikani',
+    certificationPoolMessage: 'Ukubwa wa kundi: {{poolCount}}. Cheti imezimwa hadi kundi liwe na maswali angalau 50.',
+    backToCourse: 'Rudi kwenye kozi',
+    certificationAccess: 'Pata ufikiaji wa cheti',
+    certificationPriceLine: 'Bei: {{price}} | Pointi: {{points}}',
+    redeemPoints: 'Badilisha pointi',
+    startExam: 'Anza mtihani',
+    question: 'Swali',
+    discardAttempt: 'Ondoa jaribio',
+    passed: 'Amepita',
+    notPassed: 'Hajapita',
+    score: 'Alama',
+    refreshStatus: 'Onyesha hali upya',
+    backToCourseButton: 'Rudi kwenye kozi',
+    examDescription: 'Una ufikiaji. Mtihani ni kikao kimoja, maswali 50 nasibu. Kuondoka kunafuta maendeleo.',
+  },
 };
 
 // Helper to get translation by course language

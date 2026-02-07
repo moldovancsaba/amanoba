@@ -23,6 +23,7 @@ const languageNames: Record<Locale, string> = {
   bg: 'Български',
   pl: 'Polski',
   ru: 'Русский',
+  sw: 'Kiswahili',
 };
 
 /**

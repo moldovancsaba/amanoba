@@ -649,6 +649,8 @@ const termsContent: Record<string, TermsContent> = {
     },
   },
 };
+// Swahili: use English content until translated
+(termsContent as Record<string, TermsContent>).sw = termsContent.en;
 
 function List({ items, ordered }: { items: string[]; ordered?: boolean }) {
   const ListComponent = ordered ? "ol" : "ul";

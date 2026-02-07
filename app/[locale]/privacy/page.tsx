@@ -357,6 +357,8 @@ const privacyContent: Record<string, PrivacyContent> = {
     },
   },
 };
+// Swahili: use English content until translated
+(privacyContent as Record<string, PrivacyContent>).sw = privacyContent.en;
 
 function List({ items, ordered }: { items: string[]; ordered?: boolean }) {
   const ListComponent = ordered ? "ol" : "ul";

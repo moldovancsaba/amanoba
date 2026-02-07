@@ -74,6 +74,7 @@ const SAMPLE_COURSE_NAMES: Record<Locale, string> = {
   bg: 'Продуктивност 2026',
   pl: 'Produktywność 2026',
   ru: 'Продуктивность 2026',
+  sw: 'Uzalishaji 2026',
 };
 
 const SAMPLE_PLAYER_NAMES: Record<Locale, string> = {
@@ -88,6 +89,7 @@ const SAMPLE_PLAYER_NAMES: Record<Locale, string> = {
   bg: 'Тестов потребител',
   pl: 'Użytkownik testowy',
   ru: 'Тестовый пользователь',
+  sw: 'Mtumiaji wa Majaribio',
 };
 
 function auditLessonUnsubscribeFooter() {

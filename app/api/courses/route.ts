@@ -12,7 +12,7 @@ import { logger } from '@/lib/logger';
 import { resolveCourseNameForLocale, resolveCourseDescriptionForLocale } from '@/app/lib/utils/course-i18n';
 import type { Locale } from '@/app/lib/i18n/locales';
 
-const VALID_LOCALES: Locale[] = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru'];
+const VALID_LOCALES: Locale[] = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru', 'sw'];
 function parseLocale(value: string | null): Locale | null {
   if (!value) return null;
   return VALID_LOCALES.includes(value as Locale) ? (value as Locale) : null;

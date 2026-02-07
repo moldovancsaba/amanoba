@@ -182,6 +182,19 @@ const quizPageTranslations: Record<string, Record<string, string>> = {
     quiz: 'Quiz',
     question: 'Pytanie',
   },
+  sw: {
+    failedToLoadLesson: 'Imeshindwa kupakia somo',
+    quizError: 'Hitilafu katika jaribio',
+    noQuizQuestions: 'Hakuna maswali yanayopatikana kwa somo hili. Maswali ya kozi huenda bado hayajaandaliwa.',
+    someQuestionsNotFound: 'Baadhi ya maswali hayakupatikana. Tafadhali jaribu tena.',
+    quizCorrect: 'Jibu sahihi, vizuri! 🚀',
+    quizSupportiveRetry: 'Jibu si sahihi. Jaribu tena!',
+    backToLesson: 'Rudi kwenye somo',
+    questionProgress: 'Swali {{current}} / {{total}}',
+    lessonQuiz: 'Jaribio la Somo',
+    quiz: 'Jaribio',
+    question: 'Swali',
+  },
 };
 
 // Helper to get translation by course language

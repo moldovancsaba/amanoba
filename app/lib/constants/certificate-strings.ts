@@ -3,7 +3,7 @@
  * Used by certificate image APIs (profile and slug) for locale-aware labels
  */
 
-export type CertificateLocale = 'en' | 'hu' | 'ar' | 'ru' | 'pt' | 'vi' | 'id' | 'hi' | 'tr' | 'bg' | 'pl';
+export type CertificateLocale = 'en' | 'hu' | 'ar' | 'ru' | 'pt' | 'vi' | 'id' | 'hi' | 'tr' | 'bg' | 'pl' | 'sw';
 
 export interface CertificateStrings {
   title: string;
@@ -90,6 +90,13 @@ const certificateStrings: Record<CertificateLocale, CertificateStrings> = {
     hasCompleted: 'ukończył(a) pomyślnie kurs',
     finalExamScore: 'Wynik egzaminu końcowego',
     revoked: 'Certyfikat unieważniony',
+  },
+  sw: {
+    title: 'Cheti cha Kukamilisha',
+    certifyThat: 'Hii inathibitisha kuwa',
+    hasCompleted: 'amemaliza kwa mafanikio kozi',
+    finalExamScore: 'Matokeo ya Mtihani wa Mwisho',
+    revoked: 'Cheti kimebatilishwa',
   },
 };
 

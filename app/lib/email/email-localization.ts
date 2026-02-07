@@ -91,6 +91,12 @@ const LESSON_UNSUBSCRIBE_STRINGS: Record<
     langAttr: 'ru',
     dirAttr: 'ltr',
   },
+  sw: {
+    reason: (courseName: string) => `Unapokea barua pepe hii kwa sababu umejiandikisha katika ${courseName}.`,
+    linkText: 'Jiondoe kwenye barua pepe za masomo',
+    langAttr: 'sw',
+    dirAttr: 'ltr',
+  },
 };
 
 export function renderLessonUnsubscribeFooterHtml(params: UnsubscribeFooterParams) {
@@ -190,6 +196,12 @@ const PAYMENT_UNSUBSCRIBE_STRINGS: Record<
     reason: `Вы получили это письмо, потому что совершили оплату в Amanoba.`,
     linkText: 'Отписаться от email‑уведомлений',
     langAttr: 'ru',
+    dirAttr: 'ltr',
+  },
+  sw: {
+    reason: `Unapokea barua pepe hii kwa sababu ulifanya malipo kwenye Amanoba.`,
+    linkText: 'Jiondoe kwenye arifa za barua pepe',
+    langAttr: 'sw',
     dirAttr: 'ltr',
   },
 };
@@ -678,6 +690,46 @@ function getLocaleStrings(locale: Locale) {
       paymentThanksClosing: 'Спасибо, что учитесь с Amanoba!',
 
       teamSignoff: '— Команда Amanoba',
+    },
+    sw: {
+      welcomeSubject: courseName => `Karibu kwenye ${courseName}!`,
+      welcomeHeading: courseName => `Karibu kwenye ${courseName}!`,
+      welcomeIntro: (playerName, courseName) =>
+        `Habari ${playerName}, umejiandikisha kwa mafanikio katika ${courseName}.`,
+      welcomeBody: durationDays =>
+        `Utapokea barua pepe ya somo kila siku unapoendelea na safari hii ya siku ${durationDays}.`,
+      welcomeCta: 'Fungua dashibodi yako ya kozi',
+
+      completionSubject: courseName => `Hongera! Umemaliza ${courseName}!`,
+      completionHeading: playerName => `Hongera, ${playerName}!`,
+      completionBody: (courseName, durationDays) =>
+        `Umemaliza kwa mafanikio ${courseName}. Kumaliza siku zote ${durationDays} ni mafanikio makubwa.`,
+      completionCta: 'Gusa kozi nyingine',
+      completionUpsellHeading: 'Inapendekezwa kwako',
+
+      reminderSubject: (dayNumber, courseName) => `Usikose Siku ${dayNumber} ya ${courseName}`,
+      reminderHeading: playerName => `Habari ${playerName}!`,
+      reminderBody: (dayNumber, courseName) =>
+        `Hujamaliza Siku ${dayNumber} ya ${courseName}. Endelea leo ili uendelee na mwendo wako.`,
+      reminderCta: dayNumber => `Maliza Siku ${dayNumber}`,
+
+      paymentSubject: courseName => `Malipo yamethibitishwa — ${courseName}`,
+      paymentHeading: 'Malipo yamefanikiwa!',
+      paymentThanks: playerName => `Habari ${playerName},`,
+      paymentActivated: 'Asante kwa malipo yako. Ufikiaji wako wa premium umeanzishwa.',
+      paymentDetailsHeading: 'Maelezo ya malipo',
+      paymentLabels: {
+        product: 'Bidhaa',
+        amount: 'Kiasi',
+        premiumExpires: 'Premium inaisha',
+        transactionId: 'Kitambulisho cha shughuli',
+      },
+      paymentCtaCourse: 'Tazama kozi',
+      paymentCtaBrowse: 'Gusa kozi',
+      paymentSupport: email => `Kama una maswali yoyote, wasiliana nasi kwa ${email}.`,
+      paymentThanksClosing: 'Asante kwa kusoma na Amanoba!',
+
+      teamSignoff: '— Timu ya Amanoba',
     },
   };
 
