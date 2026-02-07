@@ -78,11 +78,7 @@ Completed items (formerly 1–4, 6–11, course voting, UI/UX polish, course lea
 
 ### P3 — Public lesson view pages (GEO — from GEO_IMPROVEMENT_PLAN.md)
 
-**Goal:** Expose each lesson as a public, read-only page at `/[locale]/courses/[courseId]/day/[dayNumber]/view` for GEO/SEO. No in-app links to `/view`; discovery via sitemap, search, or shared/AI links. Completed items 1–5 and 7 → **RELEASE_NOTES.md**.
-
-| # | Action item | Status |
-|---|-------------|--------|
-| 6 | **Sitemap:** When sitemap is implemented, include all `/[locale]/courses/[courseId]/day/[dayNumber]/view` URLs for every active course and every active lesson (e.g. days 1–durationDays). | ⏳ PENDING |
+**Goal:** Expose each lesson as a public, read-only page at `/[locale]/courses/[courseId]/day/[dayNumber]/view` for GEO/SEO. No in-app links to `/view`; discovery via sitemap, search, or shared/AI links. **All items (1–7) completed** → **RELEASE_NOTES.md**.
 
 ---
 

@@ -17,7 +17,7 @@
 - **Metadata:** `generateMetadata` sets title `Day N: [Lesson title] | [Course name] | Amanoba`, description (first ~160 chars of plain text), canonical = view URL, `robots: index`, openGraph/twitter.
 - **Noindex for enrolled:** Enrolled lesson page moved to `(enrolled)/page.tsx`; `(enrolled)/layout.tsx` sets `metadata.robots: { index: false, follow: true }`. Only `/view` is indexed for lesson content.
 - **Policy:** Documented in `docs/GEO_IMPROVEMENT_PLAN.md`: do not add in-app links to `/view`; discovery via sitemap, external links, or AI/search only.
-- **Remaining:** Sitemap to include all `/view` URLs (TASKLIST P3 Public lesson #6).
+- **Sitemap:** `app/sitemap.ts` — dynamic sitemap at `/sitemap.xml`. Lists locale roots, `/[locale]/courses`, each active course page `/[locale]/courses/[courseId]`, and all public lesson view URLs `/[locale]/courses/[courseId]/day/[dayNumber]/view` for days 1–durationDays per active course. Middleware skips `/sitemap.xml` and `/robots.txt` so crawlers get the response directly.
 
 ---
 
