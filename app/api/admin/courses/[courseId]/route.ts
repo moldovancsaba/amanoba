@@ -91,9 +91,15 @@ export async function PATCH(
       payload.certification = { ...existingCert, ...payload.certification };
     }
 
+    const update: { $set: Record<string, unknown>; $unset?: Record<string, 1> } = { $set: payload };
+    if ('thumbnail' in payload && (payload.thumbnail === null || payload.thumbnail === '')) {
+      delete update.$set.thumbnail;
+      update.$unset = { ...(update.$unset || {}), thumbnail: 1 };
+    }
+
     const course = await Course.findOneAndUpdate(
       { courseId },
-      { $set: payload },
+      update,
       { new: true, runValidators: true }
     );
 

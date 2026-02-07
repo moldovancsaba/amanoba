@@ -23,6 +23,7 @@ import {
   Calendar,
   Award,
   Star,
+  ArrowUpDown,
   ChevronDown,
   ChevronRight,
   FolderOpen,
@@ -46,6 +47,9 @@ interface Course {
   createdAt: string;
   updatedAt: string;
   ccsId?: string;
+  enrollmentCount?: number;
+  likeCount?: number;
+  likeScore?: number;
   pointsConfig: {
     completionPoints: number;
     lessonPoints: number;
@@ -145,6 +149,18 @@ export default function AdminCoursesPage() {
   const [search, setSearch] = useState('');
   const debouncedSearch = useDebounce(search, 500);
   const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'inactive'>('all');
+  const [sortBy, setSortBy] = useState<
+    | 'created_desc'
+    | 'created_asc'
+    | 'updated_desc'
+    | 'updated_asc'
+    | 'enrolled_desc'
+    | 'enrolled_asc'
+    | 'liked_desc'
+    | 'liked_asc'
+    | 'alpha_asc'
+    | 'alpha_desc'
+  >('created_desc');
   const [deletingCourseId, setDeletingCourseId] = useState<string | null>(null);
   const [ccsError, setCcsError] = useState<string | null>(null);
   const [editingCcsId, setEditingCcsId] = useState<string | null>(null);
@@ -231,6 +247,9 @@ export default function AdminCoursesPage() {
       if (debouncedSearch) {
         params.append('search', debouncedSearch);
       }
+      if (sortBy) {
+        params.append('sort', sortBy);
+      }
 
       const response = await fetch(`/api/admin/courses?${params.toString()}`);
       const data = await response.json();
@@ -244,7 +263,7 @@ export default function AdminCoursesPage() {
       setLoading(false);
       setInitialLoading(false);
     }
-  }, [debouncedSearch, statusFilter]);
+  }, [debouncedSearch, statusFilter, sortBy]);
 
   useEffect(() => {
     setInitialLoading(true);
@@ -444,6 +463,25 @@ export default function AdminCoursesPage() {
                 <option value="all">All Courses</option>
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>
+              </select>
+            </div>
+            <div className="flex items-center gap-2">
+              <ArrowUpDown className="w-5 h-5 text-brand-white/50" />
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+                className="px-4 py-2 bg-brand-black border border-brand-accent/30 rounded-lg text-brand-white focus:outline-none focus:border-brand-accent"
+              >
+                <option value="created_desc">Newest created</option>
+                <option value="created_asc">Oldest created</option>
+                <option value="updated_desc">Newest updated</option>
+                <option value="updated_asc">Oldest updated</option>
+                <option value="enrolled_desc">Most enrolled</option>
+                <option value="enrolled_asc">Least enrolled</option>
+                <option value="liked_desc">Most liked</option>
+                <option value="liked_asc">Least liked</option>
+                <option value="alpha_asc">A → Z</option>
+                <option value="alpha_desc">Z → A</option>
               </select>
             </div>
           </div>

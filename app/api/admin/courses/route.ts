@@ -8,7 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { Course, Brand } from '@/lib/models';
+import { Course, Brand, CourseProgress, ContentVote } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdmin, requireAdminOrEditor, getPlayerIdFromSession, isAdmin } from '@/lib/rbac';
 import mongoose from 'mongoose';
@@ -41,6 +41,7 @@ export async function GET(request: NextRequest) {
     const language = searchParams.get('language');
     const search = searchParams.get('search');
     const parentCourseId = searchParams.get('parentCourseId'); // list children of this parent
+    const sort = searchParams.get('sort') || 'created_desc';
 
     const query: Record<string, unknown> = {};
 
@@ -74,16 +75,83 @@ export async function GET(request: NextRequest) {
       }
     }
 
+    const sortMap: Record<string, Record<string, 1 | -1>> = {
+      created_desc: { createdAt: -1 },
+      created_asc: { createdAt: 1 },
+      updated_desc: { updatedAt: -1 },
+      updated_asc: { updatedAt: 1 },
+      alpha_asc: { name: 1 },
+      alpha_desc: { name: -1 },
+    };
+
+    const useDbSort = sortMap[sort] ?? sortMap.created_desc;
     const courses = await Course.find(finalQuery)
-      .sort({ createdAt: -1 })
+      .sort(useDbSort)
       .lean();
+
+    // Optional aggregates for sorting by enroll/likes
+    const needsEnrollSort = sort === 'enrolled_desc' || sort === 'enrolled_asc';
+    const needsLikeSort = sort === 'liked_desc' || sort === 'liked_asc';
+
+    const courseIds = courses.map((c) => c._id);
+    const courseIdStrings = courses.map((c) => c.courseId);
+
+    let enrollMap = new Map<string, number>();
+    let likeMap = new Map<string, { up: number; down: number; score: number }>();
+
+    if (needsEnrollSort && courseIds.length > 0) {
+      const enrollAgg = await CourseProgress.aggregate([
+        { $match: { courseId: { $in: courseIds } } },
+        { $group: { _id: '$courseId', count: { $sum: 1 } } },
+      ]);
+      enrollMap = new Map(enrollAgg.map((r: { _id: mongoose.Types.ObjectId; count: number }) => [String(r._id), r.count]));
+    }
+
+    if (needsLikeSort && courseIdStrings.length > 0) {
+      const likeAgg = await ContentVote.aggregate([
+        { $match: { targetType: 'course', targetId: { $in: courseIdStrings } } },
+        {
+          $group: {
+            _id: '$targetId',
+            up: { $sum: { $cond: [{ $eq: ['$value', 1] }, 1, 0] } },
+            down: { $sum: { $cond: [{ $eq: ['$value', -1] }, 1, 0] } },
+            score: { $sum: '$value' },
+          },
+        },
+      ]);
+      likeMap = new Map(likeAgg.map((r: { _id: string; up: number; down: number; score: number }) => [r._id, r]));
+    }
+
+    const withCounts = courses.map((c) => {
+      const enrollmentCount = enrollMap.get(String(c._id)) ?? 0;
+      const likeAgg = likeMap.get(c.courseId) ?? { up: 0, down: 0, score: 0 };
+      return {
+        ...c,
+        enrollmentCount,
+        likeCount: likeAgg.up,
+        likeScore: likeAgg.score,
+      };
+    });
+
+    let finalCourses = withCounts;
+    if (needsEnrollSort) {
+      finalCourses = [...withCounts].sort((a, b) => {
+        const diff = (a.enrollmentCount ?? 0) - (b.enrollmentCount ?? 0);
+        return sort === 'enrolled_asc' ? diff : -diff;
+      });
+    } else if (needsLikeSort) {
+      finalCourses = [...withCounts].sort((a, b) => {
+        const diff = (a.likeCount ?? 0) - (b.likeCount ?? 0);
+        return sort === 'liked_asc' ? diff : -diff;
+      });
+    }
 
     logger.info({ count: courses.length, filters: { status, language, search } }, 'Admin fetched courses');
 
     return NextResponse.json({
       success: true,
-      courses,
-      count: courses.length,
+      courses: finalCourses,
+      count: finalCourses.length,
     });
   } catch (error) {
     logger.error({ error }, 'Failed to fetch courses');

@@ -549,7 +549,7 @@ export default function CourseEditorPage({
                     sizes="(max-width: 768px) 100vw, 24rem"
                   />
                   <button
-                    onClick={() => setCourse({ ...course, thumbnail: undefined })}
+                    onClick={() => setCourse({ ...course, thumbnail: null as unknown as string | undefined })}
                     className="absolute top-2 right-2 bg-red-500 text-white px-3 py-1 rounded-lg text-sm font-bold hover:bg-red-600"
                   >
                     Remove

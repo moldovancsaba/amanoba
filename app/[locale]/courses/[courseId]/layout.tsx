@@ -16,6 +16,37 @@ const _courseLocales = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'p
 
 const baseUrl = APP_URL;
 
+/** Default OG image (absolute) so link previews always have an image (e.g. LinkedIn, Twitter). */
+const defaultOgImageUrl = `${baseUrl}/AMANOBA.png`;
+
+/**
+ * Build minimal metadata with full Open Graph/Twitter so crawlers always get a valid preview.
+ * Use when course is missing, inactive, or on error.
+ */
+function fallbackCourseMetadata(courseId: string, locale: string): Metadata {
+  const courseUrl = `${baseUrl}/${locale}/courses/${courseId}`;
+  const title = 'Course | Amanoba';
+  const description = '30-day structured learning course on Amanoba. Lessons, quizzes, and certificates.';
+  return {
+    title,
+    description,
+    openGraph: {
+      type: 'website',
+      url: courseUrl,
+      siteName: 'Amanoba',
+      title,
+      description,
+      images: [{ url: defaultOgImageUrl, width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [defaultOgImageUrl],
+    },
+  };
+}
+
 /**
  * Generate metadata for course detail page
  * 
@@ -30,8 +61,8 @@ export async function generateMetadata({
 }: {
   params: Promise<{ courseId: string; locale: string }>;
 }): Promise<Metadata> {
+  const { courseId, locale } = await params;
   try {
-    const { courseId, locale } = await params;
     await connectDB();
 
     // Fetch course data
@@ -40,10 +71,7 @@ export async function generateMetadata({
       .lean();
 
     if (!course || !course.isActive) {
-      return {
-        title: 'Course Not Found',
-        description: 'The requested course could not be found.',
-      };
+      return fallbackCourseMetadata(courseId, locale);
     }
 
     // Get default thumbnail if course doesn't have one
@@ -68,8 +96,7 @@ export async function generateMetadata({
         absoluteImageUrl = `${baseUrl}${thumbnailUrl.startsWith('/') ? '' : '/'}${thumbnailUrl}`;
       }
     } else {
-      // Fallback to default Amanoba logo
-      absoluteImageUrl = `${baseUrl}/AMANOBA.png`;
+      absoluteImageUrl = defaultOgImageUrl;
     }
 
     // Build course URL (force course language in URL)
@@ -149,11 +176,7 @@ export async function generateMetadata({
     };
   } catch (error) {
     console.error('Failed to generate course metadata:', error);
-    // Return default metadata on error
-    return {
-      title: 'Course | Amanoba',
-      description: '30-day structured learning course on Amanoba platform.',
-    };
+    return fallbackCourseMetadata(courseId, locale);
   }
 }
 
