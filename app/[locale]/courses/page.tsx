@@ -21,9 +21,11 @@ import {
   CreditCard,
   ThumbsUp,
   ThumbsDown,
+  ChevronDown,
 } from 'lucide-react';
 import Image from 'next/image';
 import Logo from '@/components/Logo';
+import { COURSE_LANGUAGE_OPTIONS } from '@/app/lib/constants/course-languages';
 
 interface Course {
   _id: string;
@@ -56,12 +58,15 @@ interface Course {
 export default function CoursesPage() {
   const { data: session } = useSession();
   const t = useTranslations('courses');
-  const _tCommon = useTranslations('common');
+  const tCommon = useTranslations('common');
+  const tSettings = useTranslations('settings');
   const tAuth = useTranslations('auth');
   const locale = useLocale();
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
+  const [selectedLanguages, setSelectedLanguages] = useState<string[]>([locale]);
+  const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
 
   const fetchCourses = useCallback(async () => {
     try {
@@ -70,6 +75,7 @@ export default function CoursesPage() {
       params.append('status', 'active');
       params.append('locale', locale);
       params.append('includeVoteAggregates', '1');
+      params.append('languages', (selectedLanguages.length > 0 ? selectedLanguages : [locale]).join(','));
       // SHOW ALL COURSES: No language filter
       // Each course card displays in requested locale when translations exist (P0 catalog language integrity)
       if (search) {
@@ -87,7 +93,7 @@ export default function CoursesPage() {
     } finally {
       setLoading(false);
     }
-  }, [search, locale]);
+  }, [search, locale, selectedLanguages]);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -95,6 +101,87 @@ export default function CoursesPage() {
     }, 300);
     return () => clearTimeout(timeoutId);
   }, [fetchCourses]);
+
+  useEffect(() => {
+    setSelectedLanguages([locale]);
+  }, [locale]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      const stored = window.localStorage.getItem('courseLanguageFilters');
+      if (!stored) return;
+      const parsed = JSON.parse(stored);
+      if (!Array.isArray(parsed)) return;
+      const allowed = new Set(COURSE_LANGUAGE_OPTIONS.map((opt) => opt.code));
+      const cleaned = parsed.filter((value) => typeof value === 'string' && allowed.has(value));
+      if (cleaned.length > 0) {
+        setSelectedLanguages(cleaned);
+      }
+    } catch {
+      // ignore storage errors
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      window.localStorage.setItem('courseLanguageFilters', JSON.stringify(selectedLanguages));
+    } catch {
+      // ignore storage errors
+    }
+  }, [selectedLanguages]);
+
+  const getLanguageLabel = (code: string): string => {
+    if (code === 'hu') return 'Magyar';
+    if (code === 'en') return 'English';
+    if (code === 'tr') return 'Türkçe';
+    if (code === 'bg') return 'Български';
+    if (code === 'pl') return 'Polski';
+    if (code === 'vi') return 'Tiếng Việt';
+    if (code === 'id') return 'Bahasa Indonesia';
+    if (code === 'ar') return 'العربية';
+    if (code === 'pt') return 'Português';
+    if (code === 'hi') return 'हिन्दी';
+    if (code === 'ru') return 'Русский';
+    if (code === 'sw') return 'Kiswahili';
+    return code.toUpperCase();
+  };
+
+  const getLanguageFlag = (code: string): string => {
+    if (code === 'hu') return '🇭🇺';
+    if (code === 'en') return '🇬🇧';
+    if (code === 'tr') return '🇹🇷';
+    if (code === 'bg') return '🇧🇬';
+    if (code === 'pl') return '🇵🇱';
+    if (code === 'vi') return '🇻🇳';
+    if (code === 'id') return '🇮🇩';
+    if (code === 'ar') return '🇸🇦';
+    if (code === 'pt') return '🇵🇹';
+    if (code === 'hi') return '🇮🇳';
+    if (code === 'ru') return '🇷🇺';
+    if (code === 'sw') return '🇹🇿';
+    return '🌐';
+  };
+
+  const toggleLanguage = (code: string) => {
+    setSelectedLanguages((prev) => {
+      const exists = prev.includes(code);
+      if (exists) {
+        const next = prev.filter((item) => item !== code);
+        return next.length > 0 ? next : prev;
+      }
+      return [...prev, code];
+    });
+  };
+
+  const selectAllLanguages = () => {
+    setSelectedLanguages(COURSE_LANGUAGE_OPTIONS.map((option) => option.code));
+  };
+
+  const clearLanguages = () => {
+    setSelectedLanguages([locale]);
+  };
 
   // Map course language to UI text translations
   // This ensures course cards display in their NATIVE language, not URL locale
@@ -261,15 +348,69 @@ export default function CoursesPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 py-5 sm:py-10 pb-24 sm:pb-10 pb-safe">
         {/* Search */}
         <div className="mb-8">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-brand-white/50" />
-            <input
-              type="text"
-              placeholder={t('searchCourses')}
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-brand-darkGrey border-2 border-brand-accent/30 rounded-xl text-brand-white placeholder-brand-white/50 focus:outline-none focus:border-brand-accent text-base sm:text-lg"
-            />
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-brand-white/50" />
+              <input
+                type="text"
+                placeholder={t('searchCourses')}
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 bg-brand-darkGrey border-2 border-brand-accent/30 rounded-xl text-brand-white placeholder-brand-white/50 focus:outline-none focus:border-brand-accent text-base sm:text-lg"
+              />
+            </div>
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setShowLanguageDropdown((prev) => !prev)}
+                className="min-h-[48px] inline-flex items-center justify-between gap-3 bg-brand-darkGrey border-2 border-brand-accent/30 rounded-xl px-4 py-3 text-brand-white hover:border-brand-accent transition-colors w-full sm:w-64"
+              >
+                <span className="flex items-center gap-2">
+                  {tSettings('language')}
+                  <span className="text-brand-white/60 text-sm">({selectedLanguages.length})</span>
+                </span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${showLanguageDropdown ? 'rotate-180' : ''}`} />
+              </button>
+              {showLanguageDropdown && (
+                <div className="absolute right-0 mt-2 w-full sm:w-72 bg-brand-darkGrey border-2 border-brand-accent rounded-xl shadow-xl z-20 p-2 max-h-72 overflow-auto">
+                  <div className="px-3 py-2 text-xs uppercase tracking-wide text-brand-white/60">
+                    {tCommon('filter')}
+                  </div>
+                  <div className="flex items-center gap-2 px-3 pb-2">
+                    <button
+                      type="button"
+                      onClick={selectAllLanguages}
+                      className="text-xs font-semibold text-brand-white/80 hover:text-brand-white"
+                    >
+                      Select all
+                    </button>
+                    <span className="text-brand-white/40">•</span>
+                    <button
+                      type="button"
+                      onClick={clearLanguages}
+                      className="text-xs font-semibold text-brand-white/80 hover:text-brand-white"
+                    >
+                      Clear
+                    </button>
+                  </div>
+                  {COURSE_LANGUAGE_OPTIONS.map((option) => (
+                    <label
+                      key={option.code}
+                      className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-brand-black/30 cursor-pointer"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedLanguages.includes(option.code)}
+                        onChange={() => toggleLanguage(option.code)}
+                        className="h-4 w-4 rounded border-brand-white/30 text-brand-accent focus:ring-brand-accent"
+                      />
+                      <span className="text-lg">{getLanguageFlag(option.code)}</span>
+                      <span className="text-brand-white">{getLanguageLabel(option.code)}</span>
+                    </label>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
 

@@ -30,6 +30,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const status = searchParams.get('status'); // 'all' | 'active'
     const language = searchParams.get('language');
+    const languages = searchParams.get('languages');
     const search = searchParams.get('search');
     const locale = parseLocale(searchParams.get('locale'));
     const includeVoteAggregates = searchParams.get('includeVoteAggregates') === '1' || searchParams.get('includeVoteAggregates') === 'true';
@@ -48,8 +49,20 @@ export async function GET(request: NextRequest) {
     // Catalog: only show published shorts (exclude isDraft === true)
     query.isDraft = { $ne: true };
 
-    if (language) {
-      query.language = language;
+    if (languages) {
+      const languageList = languages
+        .split(',')
+        .map((value) => value.trim())
+        .filter(Boolean)
+        .filter((value) => parseLocale(value) !== null);
+      if (languageList.length > 0) {
+        query.language = { $in: languageList };
+      }
+    } else if (language) {
+      const parsed = parseLocale(language);
+      if (parsed) {
+        query.language = parsed;
+      }
     }
 
     if (search) {
@@ -115,7 +128,7 @@ export async function GET(request: NextRequest) {
 
     logger.info({ 
       count: courses.length, 
-      filters: { status, language, search },
+      filters: { status, language, languages, search },
       defaultThumbnailUsed: defaultThumbnail ? true : false
     }, 'Fetched courses');
 
