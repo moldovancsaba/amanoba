@@ -25,7 +25,7 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Logo from '@/components/Logo';
-import { COURSE_LANGUAGE_OPTIONS } from '@/app/lib/constants/course-languages';
+import { COURSE_LANGUAGE_OPTIONS, type CourseLanguageCode } from '@/app/lib/constants/course-languages';
 
 interface Course {
   _id: string;
@@ -113,8 +113,10 @@ export default function CoursesPage() {
       if (!stored) return;
       const parsed = JSON.parse(stored);
       if (!Array.isArray(parsed)) return;
-      const allowed = new Set(COURSE_LANGUAGE_OPTIONS.map((opt) => opt.code));
-      const cleaned = parsed.filter((value) => typeof value === 'string' && allowed.has(value));
+      const allowed = new Set<CourseLanguageCode>(COURSE_LANGUAGE_OPTIONS.map((opt) => opt.code));
+      const cleaned = parsed.filter(
+        (value): value is CourseLanguageCode => typeof value === 'string' && allowed.has(value as CourseLanguageCode)
+      );
       if (cleaned.length > 0) {
         setSelectedLanguages(cleaned);
       }
