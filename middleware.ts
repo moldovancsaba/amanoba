@@ -41,6 +41,7 @@ export default auth((req) => {
     pathname.startsWith('/admin-docs/') ||
     pathname === '/sitemap.xml' ||
     pathname === '/robots.txt' ||
+    pathname === '/BingSiteAuth.xml' ||
     pathname.match(/\.(ico|png|svg|jpg|jpeg|gif|webp|json|md)$/i)
   ) {
     return NextResponse.next();

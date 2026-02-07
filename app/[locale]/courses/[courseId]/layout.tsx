@@ -11,6 +11,7 @@ import connectDB from '@/app/lib/mongodb';
 import { Course } from '@/app/lib/models';
 import { Brand } from '@/app/lib/models';
 import { APP_URL } from '@/app/lib/constants/app-url';
+import CourseJsonLd from '@/app/components/CourseJsonLd';
 
 const _courseLocales = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru'] as const;
 
@@ -195,18 +196,42 @@ export default async function CourseDetailLayout({
   await connectDB();
 
   const course = await Course.findOne({ courseId })
-    .select('courseId language isActive')
+    .select('courseId name description language thumbnail isActive durationDays')
     .lean();
 
   if (!course || !course.isActive) {
     notFound();
   }
 
-  // OPTION 2: Allow any URL locale, but UI will use course language
-  // URL locale controls general site navigation (header, menus)
-  // Course language controls ALL course-related UI (buttons, labels, content)
-  // This is secure because courseLanguage is fetched from API, not URL
-  // Result: /hu/courses/PRODUCTIVITY_2026_AR works and shows 100% Arabic UI
+  const courseLocale = course.language || _locale;
+  const courseUrl = `${baseUrl}/${courseLocale}/courses/${courseId}`;
+  let thumbnailUrl = course.thumbnail;
+  if (!thumbnailUrl) {
+    const brand = await Brand.findOne({ slug: 'amanoba' }).lean();
+    if (brand?.metadata) {
+      const defaultThumb = (brand.metadata as Record<string, unknown>)?.defaultCourseThumbnail;
+      thumbnailUrl = typeof defaultThumb === 'string' ? defaultThumb : undefined;
+    }
+  }
+  if (thumbnailUrl && !thumbnailUrl.startsWith('http')) {
+    thumbnailUrl = `${baseUrl}${thumbnailUrl.startsWith('/') ? '' : '/'}${thumbnailUrl}`;
+  }
+  const description = (course.description || '')
+    .replace(/<[^>]*>/g, '')
+    .trim()
+    .slice(0, 500);
 
-  return <>{children}</>;
+  return (
+    <>
+      <CourseJsonLd
+        name={course.name || courseId}
+        description={description || `30-day structured course. ${course.durationDays ?? 30} days of lessons and assessments.`}
+        url={courseUrl}
+        image={thumbnailUrl || undefined}
+        durationDays={course.durationDays ?? 30}
+        inLanguage={course.language || 'en'}
+      />
+      {children}
+    </>
+  );
 }

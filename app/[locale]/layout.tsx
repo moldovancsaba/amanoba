@@ -17,6 +17,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
 import { APP_URL, THEME_COLOR } from '@/app/lib/constants/app-url';
+import OrganizationWebSiteJsonLd from '@/app/components/OrganizationWebSiteJsonLd';
 import "../globals.css";
 import "../mobile-styles.css";
 
@@ -133,6 +134,7 @@ export default async function LocaleLayout({
         dir={direction}
         className="antialiased bg-brand-white dark:bg-brand-black text-brand-black dark:text-brand-white"
       >
+        <OrganizationWebSiteJsonLd />
         <GoogleAnalytics />
         <NextIntlClientProvider locale={validLocale} messages={messages}>
           <ConsentProvider>
