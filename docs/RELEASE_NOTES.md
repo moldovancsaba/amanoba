@@ -7,7 +7,19 @@
 
 ---
 
-## [Unreleased] — Course package (export/import/update); P2 enrolment; Quiz system (3 options, pass rules)
+## [Unreleased] — Course package (export/import/update); P2 enrolment; Quiz system (3 options, pass rules); P3 Public lesson view (GEO)
+
+### P3 — Public lesson view pages (GEO)
+
+- **Public lesson data:** `app/lib/public-lesson.ts` — `getPublicLessonData(courseId, dayNumber)` returns `{ course, lesson }` for **active** courses only; no auth. Resolves lesson via DB or child-course/canonical fallback.
+- **Public API:** GET `/api/courses/[courseId]/day/[dayNumber]/public` — no auth, rate-limited; returns JSON (title, content, course name, dayNumber) or 404.
+- **View page:** `app/[locale]/courses/[courseId]/day/[dayNumber]/view/page.tsx` — server component; header (logo + “Back to Course”), main column (lesson content via `contentToHtml`), sidebar Enroll card (course name, pitch, link to course). No quiz, no prev/next.
+- **Metadata:** `generateMetadata` sets title `Day N: [Lesson title] | [Course name] | Amanoba`, description (first ~160 chars of plain text), canonical = view URL, `robots: index`, openGraph/twitter.
+- **Noindex for enrolled:** Enrolled lesson page moved to `(enrolled)/page.tsx`; `(enrolled)/layout.tsx` sets `metadata.robots: { index: false, follow: true }`. Only `/view` is indexed for lesson content.
+- **Policy:** Documented in `docs/GEO_IMPROVEMENT_PLAN.md`: do not add in-app links to `/view`; discovery via sitemap, external links, or AI/search only.
+- **Remaining:** Sitemap to include all `/view` URLs (TASKLIST P3 Public lesson #6).
+
+---
 
 ### Quiz system — 3 options, pass/fail rules, final exam immediate fail
 
