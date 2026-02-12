@@ -34,7 +34,24 @@ interface Achievement {
   icon: string;
   isHidden: boolean;
   criteria: {
-    type: 'games_played' | 'wins' | 'streak' | 'points_earned' | 'level_reached' | 'perfect_score' | 'speed' | 'accuracy' | 'custom';
+    type:
+      | 'games_played'
+      | 'wins'
+      | 'streak'
+      | 'points_earned'
+      | 'level_reached'
+      | 'perfect_score'
+      | 'speed'
+      | 'accuracy'
+      | 'first_lesson'
+      | 'lessons_completed'
+      | 'course_completed'
+      | 'course_master'
+      | 'perfect_assessment'
+      | 'lesson_streak'
+      | 'perfect_week'
+      | 'early_finisher'
+      | 'custom';
     gameId?: string;
     target: number;
     condition?: string;
@@ -58,7 +75,24 @@ interface FormData {
   icon: string;
   isHidden: boolean;
   criteria: {
-    type: 'games_played' | 'wins' | 'streak' | 'points_earned' | 'level_reached' | 'perfect_score' | 'speed' | 'accuracy' | 'custom';
+    type:
+      | 'games_played'
+      | 'wins'
+      | 'streak'
+      | 'points_earned'
+      | 'level_reached'
+      | 'perfect_score'
+      | 'speed'
+      | 'accuracy'
+      | 'first_lesson'
+      | 'lessons_completed'
+      | 'course_completed'
+      | 'course_master'
+      | 'perfect_assessment'
+      | 'lesson_streak'
+      | 'perfect_week'
+      | 'early_finisher'
+      | 'custom';
     gameId?: string;
     target: number;
     condition?: string;
@@ -99,6 +133,14 @@ const CRITERIA_TYPES = [
   { value: 'perfect_score', label: 'Perfect Score', description: 'Achieve perfect score in a game' },
   { value: 'speed', label: 'Speed', description: 'Complete game within time limit' },
   { value: 'accuracy', label: 'Accuracy', description: 'Achieve accuracy percentage' },
+  { value: 'first_lesson', label: 'First Lesson', description: 'Complete the first course lesson' },
+  { value: 'lessons_completed', label: 'Lessons Completed', description: 'Complete a number of course lessons' },
+  { value: 'course_completed', label: 'Course Completed', description: 'Finish a course' },
+  { value: 'course_master', label: 'Course Master', description: 'Master a course (completion-based)' },
+  { value: 'perfect_assessment', label: 'Perfect Assessment', description: 'Score 100% on final exam' },
+  { value: 'lesson_streak', label: 'Lesson Streak', description: 'Complete consecutive lessons' },
+  { value: 'perfect_week', label: 'Perfect Week', description: 'Complete 7 lessons in a row' },
+  { value: 'early_finisher', label: 'Early Finisher', description: 'Complete a course within N days' },
   { value: 'custom', label: 'Custom', description: 'Custom criteria (use condition field)' },
 ] as const;
 
@@ -593,6 +635,14 @@ export default function EditAchievementPage() {
                   {formData.criteria.type === 'perfect_score' && 'Score to achieve (usually max score)'}
                   {formData.criteria.type === 'speed' && 'Time in seconds'}
                   {formData.criteria.type === 'accuracy' && 'Accuracy percentage (0-100)'}
+                  {formData.criteria.type === 'first_lesson' && 'First lesson completed (target usually 1)'}
+                  {formData.criteria.type === 'lessons_completed' && 'Number of lessons completed'}
+                  {formData.criteria.type === 'course_completed' && 'Course completion (target usually 1)'}
+                  {formData.criteria.type === 'course_master' && 'Course mastery (target usually 1)'}
+                  {formData.criteria.type === 'perfect_assessment' && '100% on final exam (target usually 1)'}
+                  {formData.criteria.type === 'lesson_streak' && 'Consecutive lesson days'}
+                  {formData.criteria.type === 'perfect_week' && '7 consecutive lessons (target usually 7)'}
+                  {formData.criteria.type === 'early_finisher' && 'Finish course within N days'}
                   {formData.criteria.type === 'custom' && 'Custom value (explain in condition field)'}
                 </p>
               </div>

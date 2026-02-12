@@ -140,6 +140,7 @@ export default function AdminCoursesPage() {
   const router = useRouter();
   const [viewMode, setViewMode] = useState<ViewMode>('ccs');
   const [importing, setImporting] = useState(false);
+  const [importQuestionMode, setImportQuestionMode] = useState<'add' | 'overwrite'>('add');
   const [courses, setCourses] = useState<Course[]>([]);
   const [ccsList, setCcsList] = useState<CCSItem[]>([]);
   const [ccsCourses, setCcsCourses] = useState<Record<string, Course[]>>({});
@@ -170,7 +171,11 @@ export default function AdminCoursesPage() {
   const handleImportCourse = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
-    if (!confirm('Import package to create a new course or update an existing one (by courseId). Continue?')) {
+    const questionModeText =
+      importQuestionMode === 'overwrite'
+        ? 'Overwrite questions in imported lessons when updating an existing course.'
+        : 'Add only missing questions when updating an existing course.';
+    if (!confirm(`Import package to create a new course or update an existing one (by courseId)?\n\n${questionModeText}`)) {
       event.target.value = '';
       return;
     }
@@ -181,7 +186,11 @@ export default function AdminCoursesPage() {
       const response = await fetch('/api/admin/courses/import', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ courseData, overwrite: true }),
+        body: JSON.stringify({
+          courseData,
+          overwrite: true,
+          questionImportMode: importQuestionMode,
+        }),
       });
       const data = await response.json();
       if (data.success && data.course?.courseId) {
@@ -387,6 +396,16 @@ export default function AdminCoursesPage() {
           <p className="text-brand-white/80">Create and manage 30-day learning courses</p>
         </div>
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+          <select
+            value={importQuestionMode}
+            onChange={(event) => setImportQuestionMode(event.target.value as 'add' | 'overwrite')}
+            disabled={importing}
+            className="px-3 py-2 rounded-lg border border-brand-white/20 bg-brand-darkGrey text-brand-white text-sm font-semibold focus:outline-none focus:border-brand-accent disabled:opacity-60"
+            aria-label="Question import mode"
+          >
+            <option value="add">Questions: Add Only</option>
+            <option value="overwrite">Questions: Overwrite</option>
+          </select>
           <label className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${importing ? 'bg-green-700/70 text-white/90 cursor-wait pointer-events-none' : 'bg-green-600 text-white hover:bg-green-700 cursor-pointer'}`}>
             {importing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Upload className="w-5 h-5" />}
             {importing ? 'Importing…' : 'Import'}

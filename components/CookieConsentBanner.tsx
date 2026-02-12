@@ -9,7 +9,7 @@
 
 import { useConsent } from '@/app/components/providers/ConsentProvider';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 /**
  * Cookie Consent Banner Component
@@ -20,13 +20,39 @@ export default function CookieConsentBanner() {
   const { showBanner, acceptAll, rejectAll, updateConsent, consent } = useConsent();
   const t = useTranslations('consent');
   const [showDetails, setShowDetails] = useState(false);
+  const bannerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!showBanner || !consent) return;
+    const banner = bannerRef.current;
+    if (!banner) return;
+
+    const updateSpacing = () => {
+      const height = banner.getBoundingClientRect().height;
+      document.body.style.setProperty('--consent-banner-height', `${height}px`);
+      document.body.classList.add('consent-banner-open');
+    };
+
+    updateSpacing();
+    const observer = new ResizeObserver(updateSpacing);
+    observer.observe(banner);
+
+    return () => {
+      observer.disconnect();
+      document.body.style.removeProperty('--consent-banner-height');
+      document.body.classList.remove('consent-banner-open');
+    };
+  }, [showBanner, consent, showDetails]);
 
   if (!showBanner || !consent) {
     return null;
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-brand-white dark:bg-brand-black border-t border-brand-gray-200 dark:border-brand-gray-800 shadow-lg">
+    <div
+      ref={bannerRef}
+      className="sticky bottom-0 left-0 right-0 z-50 bg-brand-white dark:bg-brand-black border-t border-brand-gray-200 dark:border-brand-gray-800 shadow-lg sm:fixed"
+    >
       <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4">
           {/* Main message */}

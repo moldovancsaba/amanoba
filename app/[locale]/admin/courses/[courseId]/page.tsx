@@ -365,12 +365,18 @@ export default function CourseEditorPage({
   };
 
   const [importing, setImporting] = useState(false);
+  const [importQuestionMode, setImportQuestionMode] = useState<'add' | 'overwrite'>('add');
 
   const handleImportCourse = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
 
-    if (!confirm('Merge package into this course? Content will be updated; progress, upvotes, certificates, and shorts are preserved.')) {
+    const questionModeText =
+      importQuestionMode === 'overwrite'
+        ? 'Overwrite questions: existing questions in imported lessons will be replaced by the package.'
+        : 'Add questions: existing questions stay; only missing questions are added.';
+
+    if (!confirm(`Import package into this course?\n\n${questionModeText}\n\nCourse content/config will still be merged and learner stats are preserved.`)) {
       event.target.value = '';
       return;
     }
@@ -382,13 +388,22 @@ export default function CourseEditorPage({
       const response = await fetch('/api/admin/courses/import', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ courseData, overwrite: true }),
+        body: JSON.stringify({
+          courseData,
+          overwrite: true,
+          questionImportMode: importQuestionMode,
+        }),
       });
 
       const data = await response.json();
 
       if (data.success) {
-        alert(`Course ${data.message}\n\nLessons: ${data.stats.lessonsCreated} created, ${data.stats.lessonsUpdated} updated\nQuestions: ${data.stats.questionsCreated} created, ${data.stats.questionsUpdated} updated`);
+        const questionsDeleted = Number(data.stats?.questionsDeleted ?? 0);
+        const questionsSummary =
+          importQuestionMode === 'overwrite'
+            ? `Questions: ${data.stats.questionsCreated} created, ${data.stats.questionsUpdated} updated, ${questionsDeleted} deleted`
+            : `Questions: ${data.stats.questionsCreated} created, ${data.stats.questionsUpdated} updated`;
+        alert(`Course ${data.message}\n\nLessons: ${data.stats.lessonsCreated} created, ${data.stats.lessonsUpdated} updated\n${questionsSummary}`);
         if (data.course?.courseId && data.course.courseId !== courseId) {
           router.push(`/${locale}/admin/courses/${data.course.courseId}`);
         } else {
@@ -439,6 +454,16 @@ export default function CourseEditorPage({
           </div>
         </div>
         <div className="flex items-center gap-3">
+          <select
+            value={importQuestionMode}
+            onChange={(event) => setImportQuestionMode(event.target.value as 'add' | 'overwrite')}
+            disabled={importing}
+            className="px-3 py-2 rounded-lg border border-brand-white/20 bg-brand-darkGrey text-brand-white text-sm font-semibold focus:outline-none focus:border-brand-accent disabled:opacity-60"
+            aria-label="Question import mode"
+          >
+            <option value="add">Questions: Add Only</option>
+            <option value="overwrite">Questions: Overwrite</option>
+          </select>
           <button
             onClick={handleExportCourse}
             className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700 transition-colors"

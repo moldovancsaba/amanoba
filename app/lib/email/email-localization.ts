@@ -16,7 +16,7 @@ type UnsubscribeFooterParams = {
   tokens: EmailTokens;
 };
 
-const LESSON_UNSUBSCRIBE_STRINGS: Record<
+const LESSON_UNSUBSCRIBE_STRINGS: Partial<Record<
   Locale,
   {
     reason: (courseName: string) => string;
@@ -24,7 +24,7 @@ const LESSON_UNSUBSCRIBE_STRINGS: Record<
     langAttr?: string;
     dirAttr?: 'ltr' | 'rtl';
   }
-> = {
+>> = {
   en: {
     reason: (courseName: string) => `You're receiving this email because you're enrolled in ${courseName}.`,
     linkText: 'Unsubscribe from lesson emails',
@@ -101,7 +101,7 @@ const LESSON_UNSUBSCRIBE_STRINGS: Record<
 
 export function renderLessonUnsubscribeFooterHtml(params: UnsubscribeFooterParams) {
   const { locale, unsubscribeUrl, courseName, tokens } = params;
-  const strings = LESSON_UNSUBSCRIBE_STRINGS[locale] || LESSON_UNSUBSCRIBE_STRINGS.en;
+  const strings = LESSON_UNSUBSCRIBE_STRINGS[locale] || LESSON_UNSUBSCRIBE_STRINGS.en!;
   const lang = strings.langAttr || locale;
   const dir = strings.dirAttr || (locale === 'ar' ? 'rtl' : 'ltr');
 
@@ -123,7 +123,7 @@ type PaymentUnsubscribeFooterParams = {
   tokens: EmailTokens;
 };
 
-const PAYMENT_UNSUBSCRIBE_STRINGS: Record<
+const PAYMENT_UNSUBSCRIBE_STRINGS: Partial<Record<
   Locale,
   {
     reason: string;
@@ -131,7 +131,7 @@ const PAYMENT_UNSUBSCRIBE_STRINGS: Record<
     langAttr?: string;
     dirAttr?: 'ltr' | 'rtl';
   }
-> = {
+>> = {
   en: {
     reason: `You're receiving this email because you made a payment on Amanoba.`,
     linkText: 'Unsubscribe from email notifications',
@@ -208,7 +208,7 @@ const PAYMENT_UNSUBSCRIBE_STRINGS: Record<
 
 export function renderPaymentUnsubscribeFooterHtml(params: PaymentUnsubscribeFooterParams) {
   const { locale, unsubscribeUrl, tokens } = params;
-  const strings = PAYMENT_UNSUBSCRIBE_STRINGS[locale] || PAYMENT_UNSUBSCRIBE_STRINGS.en;
+  const strings = PAYMENT_UNSUBSCRIBE_STRINGS[locale] || PAYMENT_UNSUBSCRIBE_STRINGS.en!;
   const lang = strings.langAttr || locale;
   const dir = strings.dirAttr || (locale === 'ar' ? 'rtl' : 'ltr');
 
@@ -231,7 +231,7 @@ type BasicEmailParams = {
 };
 
 function getLocaleStrings(locale: Locale) {
-  const stringsByLocale: Record<
+  const stringsByLocale: Partial<Record<
     Locale,
     {
       welcomeSubject: (courseName: string) => string;
@@ -269,7 +269,7 @@ function getLocaleStrings(locale: Locale) {
 
       teamSignoff: string;
     }
-  > = {
+  >> = {
     en: {
       welcomeSubject: courseName => `Welcome to ${courseName}!`,
       welcomeHeading: courseName => `Welcome to ${courseName}!`,
@@ -733,7 +733,7 @@ function getLocaleStrings(locale: Locale) {
     },
   };
 
-  return stringsByLocale[locale] || stringsByLocale.en;
+  return stringsByLocale[locale] || stringsByLocale.en!;
 }
 
 function getDirection(locale: Locale): 'ltr' | 'rtl' {

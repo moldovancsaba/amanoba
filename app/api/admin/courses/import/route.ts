@@ -26,6 +26,14 @@ function normalizeQuestionType(value: unknown): string | undefined {
   return VALID_QUESTION_TYPES.has(value as QuizQuestionType) ? value : undefined;
 }
 
+type QuestionImportMode = 'merge' | 'add' | 'overwrite';
+const VALID_QUESTION_IMPORT_MODES = new Set<QuestionImportMode>(['merge', 'add', 'overwrite']);
+function normalizeQuestionImportMode(value: unknown): QuestionImportMode | undefined {
+  if (typeof value !== 'string') return undefined;
+  if (!VALID_QUESTION_IMPORT_MODES.has(value as QuestionImportMode)) return undefined;
+  return value as QuestionImportMode;
+}
+
 /** Shape of a lesson as stored in the course package (JSON/ZIP). */
 interface PackageLesson {
   lessonId: string;
@@ -76,6 +84,7 @@ export async function POST(request: NextRequest) {
 
     let courseData: { course: Record<string, unknown>; lessons?: PackageLesson[] };
     let overwrite = false;
+    let questionImportMode: QuestionImportMode = 'merge';
 
     const contentType = request.headers.get('content-type') || '';
     if (contentType.includes('multipart/form-data')) {
@@ -83,6 +92,8 @@ export async function POST(request: NextRequest) {
       const file = formData.get('file') ?? formData.get('package');
       const overwriteStr = formData.get('overwrite');
       overwrite = overwriteStr === 'true' || overwriteStr === '1';
+      const questionImportModeRaw = formData.get('questionImportMode');
+      questionImportMode = normalizeQuestionImportMode(questionImportModeRaw) ?? questionImportMode;
 
       if (!file || typeof file === 'string') {
         return NextResponse.json({ error: 'No file provided. Send multipart form with "file" (ZIP package).' }, { status: 400 });
@@ -120,6 +131,10 @@ export async function POST(request: NextRequest) {
     } else {
       const body = (await request.json()) as Record<string, unknown>;
       overwrite = body.overwrite === true;
+      const questionModeFromRequest = normalizeQuestionImportMode(body.questionImportMode);
+      const questionModeFromLegacyFlag =
+        body.overwriteQuestions === true ? 'overwrite' : body.overwriteQuestions === false ? 'add' : undefined;
+      questionImportMode = questionModeFromRequest ?? questionModeFromLegacyFlag ?? questionImportMode;
       // Accept either { courseData: { course, lessons }, overwrite } or raw package { course, lessons, overwrite? }
       if (body.courseData != null && typeof body.courseData === 'object') {
         courseData = body.courseData as { course: Record<string, unknown>; lessons?: PackageLesson[] };
@@ -218,12 +233,13 @@ export async function POST(request: NextRequest) {
       { upsert: true, new: true, setDefaultsOnInsert: true, omitUndefined: true }
     );
 
-    logger.info({ courseId, overwrite }, 'Course created/updated during import (merge)');
+    logger.info({ courseId, overwrite, questionImportMode }, 'Course created/updated during import (merge)');
 
     let lessonsCreated = 0;
     let lessonsUpdated = 0;
     let questionsCreated = 0;
     let questionsUpdated = 0;
+    let questionsDeleted = 0;
 
     for (const lessonData of lessons) {
       const lesson = await Lesson.findOneAndUpdate(
@@ -254,7 +270,47 @@ export async function POST(request: NextRequest) {
       if (lesson.isNew) lessonsCreated++;
       else lessonsUpdated++;
 
-      const quizQuestions = lessonData.quizQuestions || [];
+      if (!Array.isArray(lessonData.quizQuestions)) {
+        continue;
+      }
+      const quizQuestions = lessonData.quizQuestions as NonNullable<PackageLesson['quizQuestions']>;
+
+      if (questionImportMode === 'overwrite') {
+        const deleteResult = await QuizQuestion.deleteMany({
+          lessonId: lessonData.lessonId,
+          courseId: course._id,
+        });
+        questionsDeleted += deleteResult.deletedCount ?? 0;
+
+        for (const questionData of quizQuestions) {
+          await QuizQuestion.create({
+            question: questionData.question ?? '',
+            options: questionData.options ?? [],
+            correctIndex: questionData.correctIndex ?? 0,
+            correctAnswer: questionData.correctAnswer ?? undefined,
+            wrongAnswers: Array.isArray(questionData.wrongAnswers) ? questionData.wrongAnswers : undefined,
+            difficulty: (questionData.difficulty as QuestionDifficulty) ?? 'MEDIUM',
+            category: questionData.category ?? 'Course Specific',
+            isActive: questionData.isActive !== undefined ? questionData.isActive : true,
+            lessonId: lessonData.lessonId,
+            courseId: course._id,
+            isCourseSpecific: true,
+            uuid: questionData.uuid ?? undefined,
+            questionType: normalizeQuestionType(questionData.questionType) ?? undefined,
+            hashtags: questionData.hashtags ?? undefined,
+            showCount: 0,
+            correctCount: 0,
+            metadata: {
+              createdAt: new Date(),
+              updatedAt: new Date(),
+              createdBy: session.user.email || 'import',
+            },
+          });
+          questionsCreated++;
+        }
+        continue;
+      }
+
       for (const questionData of quizQuestions) {
         const matchByUuid =
           questionData.uuid &&
@@ -291,8 +347,10 @@ export async function POST(request: NextRequest) {
         const updatePayload = { ...basePayload, 'metadata.updatedAt': new Date() };
 
         if (existingQuestion) {
-          await QuizQuestion.updateOne({ _id: existingQuestion._id }, { $set: updatePayload });
-          questionsUpdated++;
+          if (questionImportMode === 'merge') {
+            await QuizQuestion.updateOne({ _id: existingQuestion._id }, { $set: updatePayload });
+            questionsUpdated++;
+          }
         } else {
           await QuizQuestion.create({
             ...basePayload,
@@ -316,7 +374,9 @@ export async function POST(request: NextRequest) {
         lessonsUpdated,
         questionsCreated,
         questionsUpdated,
+        questionsDeleted,
         overwrite,
+        questionImportMode,
       },
       'Admin imported course'
     );
@@ -338,6 +398,10 @@ export async function POST(request: NextRequest) {
         lessonsUpdated,
         questionsCreated,
         questionsUpdated,
+        questionsDeleted,
+      },
+      importOptions: {
+        questionImportMode,
       },
     });
   } catch (error) {
