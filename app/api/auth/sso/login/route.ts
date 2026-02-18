@@ -14,6 +14,35 @@ import { getAuthBaseUrl } from '@/app/lib/constants/app-url';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
+function normalizeProvider(value: string | null | undefined): 'google' | 'facebook' | null {
+  if (!value) return null;
+  const provider = value.trim().toLowerCase();
+  if (provider === 'google' || provider === 'facebook') return provider;
+  return null;
+}
+
+function toRelativeReturnPath(value: string | null | undefined, request: NextRequest): string | null {
+  if (!value) return null;
+  const trimmed = value.trim();
+  if (!trimmed) return null;
+
+  if (trimmed.startsWith('/')) {
+    return trimmed;
+  }
+
+  try {
+    const candidate = new URL(trimmed);
+    const requestUrl = new URL(request.url);
+    if (candidate.origin === requestUrl.origin) {
+      return `${candidate.pathname}${candidate.search}${candidate.hash}`;
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+}
+
 /**
  * GET /api/auth/sso/login
  * 
@@ -50,7 +79,15 @@ export async function GET(request: NextRequest) {
 
     // Get returnTo and referral code from query params
     const { searchParams } = new URL(request.url);
-    const returnTo = searchParams.get('returnTo') || '/dashboard';
+    const returnTo =
+      toRelativeReturnPath(searchParams.get('returnTo'), request) ||
+      toRelativeReturnPath(request.headers.get('referer'), request) ||
+      '/';
+    const requestedProvider =
+      normalizeProvider(searchParams.get('provider')) ||
+      normalizeProvider(process.env.SSO_DEFAULT_PROVIDER);
+    const loginHint = searchParams.get('login_hint');
+    const prompt = searchParams.get('prompt');
     const referralCode = searchParams.get('ref'); // Extract referral code from URL
 
     // Build authorization URL
@@ -64,12 +101,17 @@ export async function GET(request: NextRequest) {
       nonce,
     });
 
-    // Only add prompt if explicitly supported (some providers don't support it)
-    // Remove prompt=login if provider shows empty page
-    // const promptSupported = process.env.SSO_PROMPT_SUPPORTED === 'true';
-    // if (promptSupported) {
-    //   authParams.set('prompt', 'login');
-    // }
+    if (requestedProvider) {
+      authParams.set('provider', requestedProvider);
+    }
+
+    if (prompt) {
+      authParams.set('prompt', prompt);
+    }
+
+    if (loginHint) {
+      authParams.set('login_hint', loginHint);
+    }
 
     const authUrlWithParams = `${authUrl}?${authParams.toString()}`;
     
@@ -78,6 +120,7 @@ export async function GET(request: NextRequest) {
         authUrl: authUrlWithParams.substring(0, 100) + '...', // Log partial URL for security
         redirectUri,
         clientId: clientId.substring(0, 8) + '...', // Log partial client ID
+        provider: requestedProvider,
       },
       'SSO login redirect URL generated'
     );
@@ -105,7 +148,7 @@ export async function GET(request: NextRequest) {
       logger.info({ referralCode }, 'Referral code stored in cookie');
     }
 
-    logger.info({ state, returnTo }, 'SSO login initiated');
+    logger.info({ state, returnTo, provider: requestedProvider }, 'SSO login initiated');
 
     return response;
   } catch (error) {

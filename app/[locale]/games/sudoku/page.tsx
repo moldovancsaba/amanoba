@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { Play, RotateCcw, Lightbulb, X, Clock, Zap } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   type SudokuGrid,
   type SudokuDifficulty,
@@ -35,6 +35,11 @@ export default function SudokuGame() {
   }
   
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const signInUrl = `/auth/signin?callbackUrl=${encodeURIComponent(
+    `${pathname}${searchParams?.toString() ? `?${searchParams.toString()}` : ''}`
+  )}`;
   const [isClient, setIsClient] = useState(false);
   
   // Game state
@@ -239,7 +244,7 @@ export default function SudokuGame() {
   // Auth check
   if (!session) {
     if (typeof window !== 'undefined') {
-      router.push('/auth/signin');
+      router.push(signInUrl);
     }
     return null;
   }

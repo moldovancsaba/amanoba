@@ -18,6 +18,13 @@ import { getAuthBaseUrl } from '@/app/lib/constants/app-url';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
+function sanitizeReturnToPath(value: string | undefined): string {
+  if (!value) return '/';
+  if (!value.startsWith('/')) return '/';
+  if (value.startsWith('//')) return '/';
+  return value;
+}
+
 /**
  * GET /api/auth/sso/callback
  * 
@@ -43,7 +50,7 @@ export async function GET(request: NextRequest) {
   }
   
   // Get returnTo from cookie early to extract locale
-  const returnToCookie = request.cookies.get('sso_return_to')?.value || '/dashboard';
+  const returnToCookie = sanitizeReturnToPath(request.cookies.get('sso_return_to')?.value);
   let locale = extractLocaleFromPath(returnToCookie);
   
   // Also try to get locale from referer header as fallback

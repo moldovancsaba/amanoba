@@ -9,7 +9,7 @@
 
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { LocaleLink } from '@/components/LocaleLink';
 
 type Difficulty = 'EASY' | 'MEDIUM' | 'HARD' | 'EXPERT';
@@ -87,6 +87,11 @@ const QUESTION_COUNTS: Record<Difficulty, number> = {
 export default function QuizzzGame() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const signInUrl = `/auth/signin?callbackUrl=${encodeURIComponent(
+    `${pathname}${searchParams?.toString() ? `?${searchParams.toString()}` : ''}`
+  )}`;
   const [gameState, setGameState] = useState<'ready' | 'playing' | 'finished'>('ready');
   const [difficulty, setDifficulty] = useState<Difficulty>('MEDIUM');
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -357,7 +362,7 @@ export default function QuizzzGame() {
   const startGame = async () => {
     if (!session?.user) {
       console.error('Cannot start game without authentication');
-      router.push('/auth/signin');
+      router.push(signInUrl);
       return;
     }
 
@@ -530,7 +535,7 @@ export default function QuizzzGame() {
   }
 
   if (!session) {
-    router.push('/auth/signin');
+    router.push(signInUrl);
     return null;
   }
 

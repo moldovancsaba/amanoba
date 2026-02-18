@@ -8,7 +8,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { RotateCcw, Home } from 'lucide-react';
 import {
   type MadokuGameState,
@@ -24,6 +24,11 @@ type AILevel = 1 | 2 | 3;
 export default function MadokuGame() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const signInUrl = `/auth/signin?callbackUrl=${encodeURIComponent(
+    `${pathname}${searchParams?.toString() ? `?${searchParams.toString()}` : ''}`
+  )}`;
   
   // Game setup
   const [aiLevel, setAiLevel] = useState<AILevel | null>(null);
@@ -208,7 +213,7 @@ export default function MadokuGame() {
   // Auth check
   if (!session) {
     if (typeof window !== 'undefined') {
-      router.push('/auth/signin');
+      router.push(signInUrl);
     }
     return null;
   }

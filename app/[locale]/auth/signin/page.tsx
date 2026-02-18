@@ -37,13 +37,13 @@ export default async function SignInPage({
   const searchParamsResolved = await searchParams;
   const t = await getTranslations({ locale, namespace: 'auth' });
   const tCommon = await getTranslations({ locale, namespace: 'common' });
+  const callbackUrl = searchParamsResolved.callbackUrl || `/${locale}`;
   
   // Check if user is already authenticated
   const session = await auth();
   
   if (session?.user) {
-    // Redirect authenticated users to dashboard
-    const callbackUrl = searchParamsResolved.callbackUrl || `/${locale}/dashboard`;
+    // Redirect authenticated users back to the requested page
     redirect(callbackUrl);
   }
 
@@ -66,7 +66,7 @@ export default async function SignInPage({
           <div className="text-center mb-10">
             <div className="flex justify-center mb-4">
               <Image
-                src="/amanoba_logo.png"
+                src="/AMANOBA_2026_512.png"
                 alt="Amanoba Logo"
                 width={120}
                 height={120}
@@ -86,7 +86,7 @@ export default async function SignInPage({
           {process.env.SSO_CLIENT_ID && (
             <>
               <a
-                href={`/api/auth/sso/login?returnTo=${encodeURIComponent(searchParamsResolved.callbackUrl || `/${locale}/dashboard`)}`}
+                href={`/api/auth/sso/login?provider=google&returnTo=${encodeURIComponent(callbackUrl)}`}
                 className="w-full bg-brand-accent hover:bg-brand-primary-600 text-brand-white font-semibold text-lg py-4 px-6 rounded-xl transition-colors duration-200 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl block text-center"
               >
                 <svg

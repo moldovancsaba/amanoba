@@ -6,7 +6,7 @@
  * Why: Use client-side session to avoid SSR auth redirect loops that send users back to dashboard.
  */
 
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import MemoryGame from '@/components/games/MemoryGame';
 import { Card } from '@/components/ui/card';
@@ -14,6 +14,11 @@ import { Card } from '@/components/ui/card';
 export default function MemoryGamePage() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const signInUrl = `/auth/signin?callbackUrl=${encodeURIComponent(
+    `${pathname}${searchParams?.toString() ? `?${searchParams.toString()}` : ''}`
+  )}`;
 
   if (status === 'loading') {
     return (
@@ -24,7 +29,7 @@ export default function MemoryGamePage() {
   }
 
   if (!session?.user) {
-    router.push('/auth/signin');
+    router.push(signInUrl);
     return null;
   }
 

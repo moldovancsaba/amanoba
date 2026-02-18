@@ -23,6 +23,7 @@ export default async function LandingPage({
   const t = await getTranslations({ locale, namespace: 'common' });
   const tAuth = await getTranslations({ locale, namespace: 'auth' });
   const tLanding = await getTranslations({ locale, namespace: 'landing' });
+  const signInHref = `/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}`)}`;
 
   return (
     <div className="min-h-screen bg-brand-black">
@@ -32,7 +33,7 @@ export default async function LandingPage({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Image
-                src="/amanoba_logo.png"
+                src="/AMANOBA_2026_512.png"
                 alt="Amanoba Logo"
                 width={48}
                 height={48}
@@ -55,7 +56,7 @@ export default async function LandingPage({
                 </LocaleLink>
               ) : (
                 <LocaleLink
-                  href="/auth/signin"
+                  href={signInHref}
                   className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-semibold hover:bg-brand-primary-400 transition-colors"
                 >
                   {tAuth('signIn')}
@@ -95,7 +96,7 @@ export default async function LandingPage({
             ) : (
               <>
                 <LocaleLink
-                  href="/auth/signin"
+                  href={signInHref}
                   className="px-8 py-4 bg-brand-accent text-brand-black rounded-lg font-bold text-lg hover:bg-brand-primary-400 transition-colors"
                 >
                   {tLanding('getStarted')}

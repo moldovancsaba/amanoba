@@ -7,9 +7,10 @@
 
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useSession } from 'next-auth/react';
 import { useTranslations, useLocale } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { LocaleLink } from '@/components/LocaleLink';
 import {
   BookOpen,
@@ -22,6 +23,7 @@ import {
   ThumbsUp,
   ThumbsDown,
   ChevronDown,
+  AlertTriangle,
 } from 'lucide-react';
 import Image from 'next/image';
 import Logo from '@/components/Logo';
@@ -53,20 +55,43 @@ interface Course {
     enabled?: boolean;
   };
   voteAggregate?: { up: number; down: number; score: number; count: number };
+  prerequisiteCourses?: Array<{ courseId: string; name?: string }>;
+  prerequisiteEnforcement?: 'hard' | 'soft';
+}
+
+interface MyCourseProgress {
+  course: {
+    courseId: string;
+    language: string;
+    name: string;
+  };
+  progress: {
+    currentDay: number;
+    completedDays: number;
+    totalDays: number;
+    progressPercentage: number;
+    isCompleted: boolean;
+  };
 }
 
 export default function CoursesPage() {
   const { data: session } = useSession();
+  const router = useRouter();
   const t = useTranslations('courses');
   const tCommon = useTranslations('common');
   const tSettings = useTranslations('settings');
   const tAuth = useTranslations('auth');
   const locale = useLocale();
+  const signInHref = `/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}/courses`)}`;
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
+  const [myCourses, setMyCourses] = useState<MyCourseProgress[]>([]);
+  const [loadingMyCourses, setLoadingMyCourses] = useState(false);
   const [search, setSearch] = useState('');
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>([locale]);
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
+  const [enrollingCourseId, setEnrollingCourseId] = useState<string | null>(null);
+  const [enrollErrors, setEnrollErrors] = useState<Record<string, Array<{ courseId: string; name?: string }>>>({});
 
   const fetchCourses = useCallback(async () => {
     try {
@@ -94,6 +119,22 @@ export default function CoursesPage() {
       setLoading(false);
     }
   }, [search, locale, selectedLanguages]);
+
+  const fetchMyCourses = useCallback(async () => {
+    if (!session) return;
+    try {
+      setLoadingMyCourses(true);
+      const response = await fetch(`/api/my-courses?locale=${locale}`);
+      const data = await response.json();
+      if (data.success) {
+        setMyCourses(data.courses || []);
+      }
+    } catch (error) {
+      console.error('Failed to fetch my courses:', error);
+    } finally {
+      setLoadingMyCourses(false);
+    }
+  }, [session, locale]);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -134,6 +175,73 @@ export default function CoursesPage() {
     }
   }, [selectedLanguages]);
 
+  useEffect(() => {
+    if (session) {
+      void fetchMyCourses();
+    } else {
+      setMyCourses([]);
+    }
+  }, [fetchMyCourses, session]);
+
+  const normalizeCourseId = (value?: string | null) => (value ? value.toUpperCase() : '');
+  const myCourseById = useMemo(() => {
+    const map = new Map<string, MyCourseProgress>();
+    myCourses.forEach((course) => {
+      map.set(normalizeCourseId(course.course.courseId), course);
+    });
+    return map;
+  }, [myCourses]);
+  const completedCourseIds = useMemo(() => {
+    const set = new Set<string>();
+    myCourses.forEach((course) => {
+      if (course.progress.isCompleted) {
+        set.add(normalizeCourseId(course.course.courseId));
+      }
+    });
+    return set;
+  }, [myCourses]);
+
+  const getUnmetPrereqs = (course: Course) => {
+    if (!course.prerequisiteCourses || course.prerequisiteCourses.length === 0) return [];
+    return course.prerequisiteCourses.filter((prereq) => !completedCourseIds.has(normalizeCourseId(prereq.courseId)));
+  };
+
+  const handleEnroll = async (course: Course) => {
+    if (!session) {
+      router.push(`/auth/signin?callbackUrl=${encodeURIComponent(`/${course.language}/courses/${course.courseId}`)}`);
+      return;
+    }
+    const courseKey = normalizeCourseId(course.courseId);
+    setEnrollingCourseId(courseKey);
+    setEnrollErrors((prev) => {
+      const next = { ...prev };
+      delete next[courseKey];
+      return next;
+    });
+    try {
+      const response = await fetch(`/api/courses/${course.courseId}/enroll`, { method: 'POST' });
+      const data = await response.json();
+      if (response.ok && data.success) {
+        await fetchMyCourses();
+        router.push(`/${course.language}/courses/${course.courseId}/day/1`);
+        return;
+      }
+      if (response.status === 403 && data?.code === 'PREREQUISITES_NOT_MET') {
+        setEnrollErrors((prev) => ({
+          ...prev,
+          [courseKey]: (data?.unmetPrerequisites || []) as Array<{ courseId: string; name?: string }>,
+        }));
+        return;
+      }
+      alert(data?.error || t('failedToEnroll'));
+    } catch (error) {
+      console.error('Failed to enroll:', error);
+      alert(t('failedToEnroll'));
+    } finally {
+      setEnrollingCourseId(null);
+    }
+  };
+
   const getLanguageLabel = (code: string): string => {
     if (code === 'hu') return 'Magyar';
     if (code === 'en') return 'English';
@@ -147,6 +255,11 @@ export default function CoursesPage() {
     if (code === 'hi') return 'हिन्दी';
     if (code === 'ru') return 'Русский';
     if (code === 'sw') return 'Kiswahili';
+    if (code === 'zh') return '中文';
+    if (code === 'es') return 'Español';
+    if (code === 'fr') return 'Français';
+    if (code === 'bn') return 'বাংলা';
+    if (code === 'ur') return 'اردو';
     return code.toUpperCase();
   };
 
@@ -163,6 +276,11 @@ export default function CoursesPage() {
     if (code === 'hi') return '🇮🇳';
     if (code === 'ru') return '🇷🇺';
     if (code === 'sw') return '🇹🇿';
+    if (code === 'zh') return '🇨🇳';
+    if (code === 'es') return '🇪🇸';
+    if (code === 'fr') return '🇫🇷';
+    if (code === 'bn') return '🇧🇩';
+    if (code === 'ur') return '🇵🇰';
     return '🌐';
   };
 
@@ -337,7 +455,7 @@ export default function CoursesPage() {
             </div>
             {!session && (
               <LocaleLink
-                href="/auth/signin"
+                href={signInHref}
                 className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center bg-brand-accent text-brand-black px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-sm sm:text-base"
               >
                 {tAuth('signIn')}
@@ -433,121 +551,188 @@ export default function CoursesPage() {
               // Get translations in COURSE language (not URL locale)
               // This ensures card text matches the course's native language
               const courseTexts = courseCardTranslations[course.language as keyof typeof courseCardTranslations] || courseCardTranslations.en;
-              
+              const courseKey = normalizeCourseId(course.courseId);
+              const myCourse = myCourseById.get(courseKey);
+              const isEnrolled = Boolean(myCourse);
+              const unmetPrereqs = getUnmetPrereqs(course);
+              const prereqEnforcement = course.prerequisiteEnforcement ?? 'hard';
+              const prereqBlocked = Boolean(session) && unmetPrereqs.length > 0 && prereqEnforcement === 'hard';
+              const apiPrereqs = enrollErrors[courseKey] ?? [];
+
               return (
-                <LocaleLink
+                <div
                   key={course._id}
-                  href={`/${course.language}/courses/${course.courseId}`}
-                  className="block bg-brand-white rounded-2xl p-6 sm:p-7 border-2 border-brand-accent hover:shadow-xl transition-all"
+                  className="bg-brand-white rounded-2xl p-6 sm:p-7 border-2 border-brand-accent hover:shadow-xl transition-all"
                 >
-                  {course.thumbnail && (
-                    <div className="relative w-full h-44 sm:h-48 bg-brand-darkGrey rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                      <Image
-                        src={course.thumbnail}
-                        alt={course.name}
-                        fill
-                        className="object-cover rounded-lg"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
+                  <LocaleLink href={`/${course.language}/courses/${course.courseId}`} className="block">
+                    {course.thumbnail && (
+                      <div className="relative w-full h-44 sm:h-48 bg-brand-darkGrey rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <Image
+                          src={course.thumbnail}
+                          alt={course.name}
+                          fill
+                          className="object-cover rounded-lg"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      </div>
+                    )}
+                    <div className="mb-3">
+                      <h3 className="text-xl sm:text-2xl font-bold text-brand-black leading-tight mb-2 line-clamp-2">{course.name}</h3>
+                      <div className="flex items-center gap-2 flex-wrap text-sm sm:text-base">
+                        {/* Language Flag */}
+                        <span className="text-lg" title={
+                          course.language === 'hu' ? 'Magyar' :
+                          course.language === 'en' ? 'English' :
+                          course.language === 'tr' ? 'Türkçe' :
+                          course.language === 'bg' ? 'Български' :
+                          course.language === 'pl' ? 'Polski' :
+                          course.language === 'vi' ? 'Tiếng Việt' :
+                          course.language === 'id' ? 'Bahasa Indonesia' :
+                          course.language === 'ar' ? 'العربية' :
+                          course.language === 'pt' ? 'Português' :
+                          course.language === 'hi' ? 'हिन्दी' :
+                          course.language === 'ru' ? 'Русский' :
+                          course.language === 'sw' ? 'Kiswahili' :
+                          course.language === 'zh' ? '中文' :
+                          course.language === 'es' ? 'Español' :
+                          course.language === 'fr' ? 'Français' :
+                          course.language === 'bn' ? 'বাংলা' :
+                          course.language === 'ur' ? 'اردو' :
+                          course.language.toUpperCase()
+                        }>
+                          {course.language === 'hu' ? '🇭🇺' :
+                           course.language === 'en' ? '🇬🇧' :
+                           course.language === 'tr' ? '🇹🇷' :
+                           course.language === 'bg' ? '🇧🇬' :
+                           course.language === 'pl' ? '🇵🇱' :
+                           course.language === 'vi' ? '🇻🇳' :
+                           course.language === 'id' ? '🇮🇩' :
+                           course.language === 'ar' ? '🇸🇦' :
+                           course.language === 'pt' ? '🇵🇹' :
+                           course.language === 'hi' ? '🇮🇳' :
+                           course.language === 'ru' ? '🇷🇺' :
+                           course.language === 'sw' ? '🇹🇿' :
+                           course.language === 'zh' ? '🇨🇳' :
+                           course.language === 'es' ? '🇪🇸' :
+                           course.language === 'fr' ? '🇫🇷' :
+                           course.language === 'bn' ? '🇧🇩' :
+                           course.language === 'ur' ? '🇵🇰' :
+                           '🌐'}
+                        </span>
+                        {/* Premium/Free Chips - CRITICAL: Use course language, not URL locale */}
+                        {course.requiresPremium ? (
+                          <span className="bg-brand-accent text-brand-black text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                            <Star className="w-3.5 h-3.5" />
+                            {courseTexts.premium}
+                          </span>
+                        ) : (
+                          <span className="bg-brand-darkGrey/20 text-brand-darkGrey text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                            {courseTexts.free}
+                          </span>
+                        )}
+                        {course.certification?.enabled ? (
+                          <span className="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                            <Award className="w-3.5 h-3.5" />
+                            {courseTexts.certification}
+                          </span>
+                        ) : (
+                          <span className="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1.5 rounded-full">
+                            {courseTexts.noCertification}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  )}
-                  <div className="mb-3">
-                    <h3 className="text-xl sm:text-2xl font-bold text-brand-black leading-tight mb-2 line-clamp-2">{course.name}</h3>
-                    <div className="flex items-center gap-2 flex-wrap text-sm sm:text-base">
-                      {/* Language Flag */}
-                      <span className="text-lg" title={
-                        course.language === 'hu' ? 'Magyar' :
-                        course.language === 'en' ? 'English' :
-                        course.language === 'tr' ? 'Türkçe' :
-                        course.language === 'bg' ? 'Български' :
-                        course.language === 'pl' ? 'Polski' :
-                        course.language === 'vi' ? 'Tiếng Việt' :
-                        course.language === 'id' ? 'Bahasa Indonesia' :
-                        course.language === 'ar' ? 'العربية' :
-                        course.language === 'pt' ? 'Português' :
-                        course.language === 'hi' ? 'हिन्दी' :
-                        course.language === 'ru' ? 'Русский' :
-                        course.language === 'sw' ? 'Kiswahili' :
-                        course.language.toUpperCase()
-                      }>
-                        {course.language === 'hu' ? '🇭🇺' :
-                         course.language === 'en' ? '🇬🇧' :
-                         course.language === 'tr' ? '🇹🇷' :
-                         course.language === 'bg' ? '🇧🇬' :
-                         course.language === 'pl' ? '🇵🇱' :
-                         course.language === 'vi' ? '🇻🇳' :
-                         course.language === 'id' ? '🇮🇩' :
-                         course.language === 'ar' ? '🇸🇦' :
-                         course.language === 'pt' ? '🇵🇹' :
-                         course.language === 'hi' ? '🇮🇳' :
-                         course.language === 'ru' ? '🇷🇺' :
-                         course.language === 'sw' ? '🇹🇿' :
-                         '🌐'}
-                      </span>
-                      {/* Premium/Free Chips - CRITICAL: Use course language, not URL locale */}
-                      {course.requiresPremium ? (
-                        <span className="bg-brand-accent text-brand-black text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                          <Star className="w-3.5 h-3.5" />
-                          {courseTexts.premium}
+                    {course.requiresPremium && course.price && (
+                      <div className="mb-4 flex items-center gap-2 text-lg font-bold text-brand-black">
+                        <CreditCard className="w-5 h-5" />
+                        <span>{formatPrice(course.price.amount, course.price.currency)}</span>
+                      </div>
+                    )}
+                    {course.requiresPremium && !course.price && (
+                      <div className="mb-4 flex items-center gap-2 text-base text-brand-darkGrey">
+                        <CreditCard className="w-4 h-4" />
+                        <span>{t('premiumRequired')}</span>
+                      </div>
+                    )}
+                    <p className="text-brand-darkGrey text-sm sm:text-base mb-5 line-clamp-2 leading-relaxed">
+                      {course.description}
+                    </p>
+                    <div className="flex items-center gap-4 text-sm sm:text-base text-brand-darkGrey mb-3">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>
+                          {course.durationDays} {courseTexts.days}
                         </span>
-                      ) : (
-                        <span className="bg-brand-darkGrey/20 text-brand-darkGrey text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                          {courseTexts.free}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Award className="w-4 h-4" />
+                        <span>
+                          {course.pointsConfig.completionPoints} {courseTexts.points}
                         </span>
+                      </div>
+                    </div>
+                    {course.voteAggregate && course.voteAggregate.count > 0 && (
+                      <div className="flex items-center gap-2 text-sm text-brand-darkGrey mb-5">
+                        <ThumbsUp className="w-4 h-4 text-green-600" />
+                        <span>{course.voteAggregate.up}</span>
+                        <ThumbsDown className="w-4 h-4 text-amber-600" />
+                        <span>{course.voteAggregate.down}</span>
+                      </div>
+                    )}
+                  </LocaleLink>
+
+                  {course.prerequisiteCourses && course.prerequisiteCourses.length > 0 && (
+                    <div className={`mt-3 rounded-lg border px-3 py-2 text-xs sm:text-sm ${prereqBlocked ? 'border-amber-500/60 bg-amber-50 text-amber-900' : 'border-brand-darkGrey/20 bg-brand-darkGrey/5 text-brand-darkGrey'}`}>
+                      <div className="flex items-center gap-2 font-semibold">
+                        <AlertTriangle className="w-4 h-4" />
+                        {prereqBlocked ? 'Prerequisites required' : 'Prerequisites'}
+                      </div>
+                      <div className="mt-1">
+                        {(prereqBlocked ? unmetPrereqs : course.prerequisiteCourses).map((prereq) => prereq.name ?? prereq.courseId).join(', ')}
+                      </div>
+                      {prereqBlocked && (
+                        <div className="mt-1 text-xs">
+                          Complete the prerequisites before enrolling.
+                        </div>
                       )}
-                      {course.certification?.enabled ? (
-                        <span className="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                          <Award className="w-3.5 h-3.5" />
-                          {courseTexts.certification}
-                        </span>
-                      ) : (
-                        <span className="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1.5 rounded-full">
-                          {courseTexts.noCertification}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  {course.requiresPremium && course.price && (
-                    <div className="mb-4 flex items-center gap-2 text-lg font-bold text-brand-black">
-                      <CreditCard className="w-5 h-5" />
-                      <span>{formatPrice(course.price.amount, course.price.currency)}</span>
                     </div>
                   )}
-                  {course.requiresPremium && !course.price && (
-                    <div className="mb-4 flex items-center gap-2 text-base text-brand-darkGrey">
-                      <CreditCard className="w-4 h-4" />
-                      <span>{t('premiumRequired')}</span>
+
+                  {apiPrereqs.length > 0 && (
+                    <div className="mt-3 rounded-lg border border-red-500/40 bg-red-50 px-3 py-2 text-xs sm:text-sm text-red-700">
+                      <div className="font-semibold">Prerequisites not met</div>
+                      <div className="mt-1">
+                        {apiPrereqs.map((prereq) => prereq.name ?? prereq.courseId).join(', ')}
+                      </div>
                     </div>
                   )}
-                  <p className="text-brand-darkGrey text-sm sm:text-base mb-5 line-clamp-2 leading-relaxed">
-                    {course.description}
-                  </p>
-                  <div className="flex items-center gap-4 text-sm sm:text-base text-brand-darkGrey mb-3">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      <span>
-                        {course.durationDays} {courseTexts.days}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Award className="w-4 h-4" />
-                      <span>
-                        {course.pointsConfig.completionPoints} {courseTexts.points}
-                      </span>
-                    </div>
+
+                  <div className="mt-4 grid grid-cols-1 gap-2">
+                    {isEnrolled ? (
+                      <LocaleLink
+                        href={`/${myCourse?.course.language ?? course.language}/courses/${course.courseId}/day/${myCourse?.progress.currentDay || 1}`}
+                        className="min-h-[44px] flex items-center justify-center bg-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base w-full touch-manipulation"
+                      >
+                        {t('continueLearning')} →
+                      </LocaleLink>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => handleEnroll(course)}
+                        disabled={Boolean(enrollingCourseId) || prereqBlocked || loadingMyCourses}
+                        className="min-h-[44px] flex items-center justify-center bg-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base w-full touch-manipulation disabled:opacity-60 disabled:cursor-not-allowed"
+                      >
+                        {enrollingCourseId === courseKey ? t('enrolling') : t('enroll')}
+                      </button>
+                    )}
+                    <LocaleLink
+                      href={`/${course.language}/courses/${course.courseId}`}
+                      className="min-h-[44px] flex items-center justify-center border-2 border-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold text-center hover:bg-brand-accent/10 transition-colors text-base w-full touch-manipulation"
+                    >
+                      {courseTexts.viewCourse} →
+                    </LocaleLink>
                   </div>
-                  {course.voteAggregate && course.voteAggregate.count > 0 && (
-                    <div className="flex items-center gap-2 text-sm text-brand-darkGrey mb-5">
-                      <ThumbsUp className="w-4 h-4 text-green-600" />
-                      <span>{course.voteAggregate.up}</span>
-                      <ThumbsDown className="w-4 h-4 text-amber-600" />
-                      <span>{course.voteAggregate.down}</span>
-                    </div>
-                  )}
-                  <div className="min-h-[44px] flex items-center justify-center bg-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base w-full touch-manipulation">
-                    {courseTexts.viewCourse} →
-                  </div>
-                </LocaleLink>
+                </div>
               );
             })}
           </div>

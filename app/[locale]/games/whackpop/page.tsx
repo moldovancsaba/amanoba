@@ -9,7 +9,7 @@
 
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 type Difficulty = 'EASY' | 'MEDIUM' | 'HARD' | 'EXPERT';
 
@@ -92,6 +92,11 @@ const DIFFICULTY_CONFIGS: Record<Difficulty, DifficultyConfig> = {
 export default function WhackPopGame() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const signInUrl = `/auth/signin?callbackUrl=${encodeURIComponent(
+    `${pathname}${searchParams?.toString() ? `?${searchParams.toString()}` : ''}`
+  )}`;
   const [gameState, setGameState] = useState<'ready' | 'playing' | 'finished'>('ready');
   const [difficulty, setDifficulty] = useState<Difficulty>('MEDIUM');
   const [score, setScore] = useState(0);
@@ -409,7 +414,7 @@ export default function WhackPopGame() {
   }
 
   if (!session) {
-    router.push('/auth/signin');
+    router.push(signInUrl);
     return null;
   }
 

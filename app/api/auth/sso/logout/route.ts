@@ -105,6 +105,8 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(new URL(returnTo, request.url));
   } catch (error) {
     logger.error({ error }, 'SSO logout error');
-    return NextResponse.redirect(new URL('/auth/signin', request.url));
+    return NextResponse.redirect(
+      new URL(`/auth/signin?callbackUrl=${encodeURIComponent(returnTo)}`, request.url)
+    );
   }
 }

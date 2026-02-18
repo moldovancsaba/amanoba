@@ -44,6 +44,7 @@ export default function MyCoursesPage() {
   const t = useTranslations('dashboard');
   const tCourses = useTranslations('courses');
   const tAuth = useTranslations('auth');
+  const signInHref = `/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}/my-courses`)}`;
   const [courses, setCourses] = useState<CourseProgress[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -83,7 +84,7 @@ export default function MyCoursesPage() {
         <div className="text-center">
           <h2 className="text-2xl font-bold text-brand-white mb-4">{tCourses('signInToView')}</h2>
           <LocaleLink
-            href="/auth/signin"
+            href={signInHref}
             className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400"
           >
             {tAuth('signIn')}
