@@ -43,13 +43,27 @@
       "signIn": "Вход",
       "signOut": "Изход"
     },
-    "courses": { "title": "Курсове" },
-    "games": { "title": "Игри" },
-    "leaderboard": { "title": "Класация" },
-    "challenges": { "title": "Предизвикателства" },
-    "quests": { "title": "Задачи" },
-    "achievements": { "title": "Постижения" },
-    "rewards": { "title": "Награди" },
+    "courses": {
+      "title": "Курсове"
+    },
+    "games": {
+      "title": "Игри"
+    },
+    "leaderboard": {
+      "title": "Класация"
+    },
+    "challenges": {
+      "title": "Предизвикателства"
+    },
+    "quests": {
+      "title": "Задачи"
+    },
+    "achievements": {
+      "title": "Постижения"
+    },
+    "rewards": {
+      "title": "Награди"
+    },
     "or": "или",
     "termsOfService": "Условия за ползване",
     "privacyPolicy": "Политика за поверителност",
@@ -75,7 +89,9 @@
     "interactiveAssessments": "Интерактивни оценки",
     "or": "или",
     "tryGamesInstantly": "Опитайте игри веднага с произволно име",
-    "creatingAccount": "Създаване на акаунт..."
+    "creatingAccount": "Създаване на акаунт...",
+    "signInWithGoogle": "Продължи с Google",
+    "signInAnotherWay": "Вход по друг начин"
   },
   "landing": {
     "tagline": "Платформа за обучение за 30 дни",
@@ -184,7 +200,7 @@
     "notAvailable": "Н/Д"
   },
   "courses": {
-    "title": "Courses",
+    "title": "Курсове",
     "myCourses": "My Courses",
     "availableCourses": "Налични курсове",
     "enroll": "Enroll",

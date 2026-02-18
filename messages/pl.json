@@ -43,13 +43,27 @@
       "signIn": "Zaloguj się",
       "signOut": "Wyloguj się"
     },
-    "courses": { "title": "Kursy" },
-    "games": { "title": "Gry" },
-    "leaderboard": { "title": "Ranking" },
-    "challenges": { "title": "Wyzwania" },
-    "quests": { "title": "Zadania" },
-    "achievements": { "title": "Osiągnięcia" },
-    "rewards": { "title": "Nagrody" },
+    "courses": {
+      "title": "Kursy"
+    },
+    "games": {
+      "title": "Gry"
+    },
+    "leaderboard": {
+      "title": "Ranking"
+    },
+    "challenges": {
+      "title": "Wyzwania"
+    },
+    "quests": {
+      "title": "Zadania"
+    },
+    "achievements": {
+      "title": "Osiągnięcia"
+    },
+    "rewards": {
+      "title": "Nagrody"
+    },
     "or": "lub",
     "termsOfService": "Regulamin",
     "privacyPolicy": "Polityka prywatności",
@@ -75,7 +89,9 @@
     "interactiveAssessments": "Interaktywne quizy",
     "or": "lub",
     "tryGamesInstantly": "Wypróbuj gry od razu z losową nazwą",
-    "creatingAccount": "Tworzenie konta..."
+    "creatingAccount": "Tworzenie konta...",
+    "signInWithGoogle": "Kontynuuj z Google",
+    "signInAnotherWay": "Zaloguj się w inny sposób"
   },
   "landing": {
     "tagline": "Platforma nauki 30-dniowa",
@@ -184,7 +200,7 @@
     "notAvailable": "N/D"
   },
   "courses": {
-    "title": "Courses",
+    "title": "Kursy",
     "myCourses": "My Courses",
     "availableCourses": "Dostępne kursy",
     "enroll": "Enroll",
@@ -504,7 +520,7 @@
     "administrator": "Administrator",
     "adminUser": "Użytkownik admina",
     "editor": "Edytor",
-    "title": "Admin",
+    "title": "Administrator",
     "dashboard": "Panel admina",
     "dashboardTitle": "Panel admina",
     "dashboardDescription": "Witaj! Oto, co się dzieje na platformie.",

@@ -43,13 +43,27 @@
       "signIn": "Masuk",
       "signOut": "Keluar"
     },
-    "courses": { "title": "Kursus" },
-    "games": { "title": "Permainan" },
-    "leaderboard": { "title": "Papan peringkat" },
-    "challenges": { "title": "Tantangan" },
-    "quests": { "title": "Misi" },
-    "achievements": { "title": "Pencapaian" },
-    "rewards": { "title": "Hadiah" },
+    "courses": {
+      "title": "Kursus"
+    },
+    "games": {
+      "title": "Permainan"
+    },
+    "leaderboard": {
+      "title": "Papan peringkat"
+    },
+    "challenges": {
+      "title": "Tantangan"
+    },
+    "quests": {
+      "title": "Misi"
+    },
+    "achievements": {
+      "title": "Pencapaian"
+    },
+    "rewards": {
+      "title": "Hadiah"
+    },
     "or": "atau",
     "termsOfService": "Ketentuan Layanan",
     "privacyPolicy": "Kebijakan Privasi",
@@ -75,7 +89,9 @@
     "interactiveAssessments": "Penilaian interaktif",
     "or": "atau",
     "tryGamesInstantly": "Coba permainan dengan nama acak",
-    "creatingAccount": "Membuat akun..."
+    "creatingAccount": "Membuat akun...",
+    "signInWithGoogle": "Lanjutkan dengan Google",
+    "signInAnotherWay": "Masuk dengan cara lain"
   },
   "landing": {
     "tagline": "Platform belajar 30 hari",
@@ -504,7 +520,7 @@
     "administrator": "Administrator",
     "adminUser": "Pengguna admin",
     "editor": "Editor",
-    "title": "Admin",
+    "title": "Pengelola",
     "dashboard": "Dasbor admin",
     "dashboardTitle": "Dasbor admin",
     "dashboardDescription": "Selamat datang! Ini yang terjadi di platform.",

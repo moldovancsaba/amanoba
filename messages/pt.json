@@ -43,13 +43,27 @@
       "signIn": "Entrar",
       "signOut": "Sair"
     },
-    "courses": { "title": "Cursos" },
-    "games": { "title": "Jogos" },
-    "leaderboard": { "title": "Classificação" },
-    "challenges": { "title": "Desafios" },
-    "quests": { "title": "Missões" },
-    "achievements": { "title": "Conquistas" },
-    "rewards": { "title": "Recompensas" },
+    "courses": {
+      "title": "Cursos"
+    },
+    "games": {
+      "title": "Jogos"
+    },
+    "leaderboard": {
+      "title": "Classificação"
+    },
+    "challenges": {
+      "title": "Desafios"
+    },
+    "quests": {
+      "title": "Missões"
+    },
+    "achievements": {
+      "title": "Conquistas"
+    },
+    "rewards": {
+      "title": "Recompensas"
+    },
     "or": "ou",
     "termsOfService": "Termos de Serviço",
     "privacyPolicy": "Política de Privacidade",
@@ -75,7 +89,9 @@
     "interactiveAssessments": "Avaliações interativas",
     "or": "ou",
     "tryGamesInstantly": "Experimente jogos com um nome aleatório",
-    "creatingAccount": "A criar conta..."
+    "creatingAccount": "A criar conta...",
+    "signInWithGoogle": "Continuar com o Google",
+    "signInAnotherWay": "Entrar de outra forma"
   },
   "landing": {
     "tagline": "Plataforma de aprendizagem de 30 dias",
@@ -504,7 +520,7 @@
     "administrator": "Administrador",
     "adminUser": "Utilizador admin",
     "editor": "Editor",
-    "title": "Admin",
+    "title": "Administração",
     "dashboard": "Painel de administração",
     "dashboardTitle": "Painel de administração",
     "dashboardDescription": "Bem-vindo! Eis o que se passa na plataforma.",

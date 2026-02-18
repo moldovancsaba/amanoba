@@ -89,7 +89,9 @@
     "interactiveAssessments": "इंटरैक्टिव आकलन",
     "or": "या",
     "tryGamesInstantly": "यादृच्छिक उपयोगकर्ता नाम से तुरंत खेल आज़माएं",
-    "creatingAccount": "खाता बन रहा है..."
+    "creatingAccount": "खाता बन रहा है...",
+    "signInWithGoogle": "Google के साथ जारी रखें",
+    "signInAnotherWay": "किसी अन्य तरीके से साइन इन करें"
   },
   "landing": {
     "tagline": "30-दिन का लर्निंग प्लेटफ़ॉर्म",

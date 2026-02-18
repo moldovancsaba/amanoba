@@ -89,7 +89,9 @@
     "interactiveAssessments": "تقييمات تفاعلية",
     "or": "أو",
     "tryGamesInstantly": "جرّب الألعاب فوراً باسم مستخدم عشوائي",
-    "creatingAccount": "جاري إنشاء الحساب..."
+    "creatingAccount": "جاري إنشاء الحساب...",
+    "signInWithGoogle": "المتابعة باستخدام Google",
+    "signInAnotherWay": "تسجيل الدخول بطريقة أخرى"
   },
   "landing": {
     "tagline": "منصة تعلم 30 يوماً",

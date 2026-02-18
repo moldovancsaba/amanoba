@@ -95,7 +95,9 @@
     "errorCallback": "Sign in didn't complete. Please try again.",
     "errorTokenValidation": "Your sign-in link may have expired. Please try again.",
     "errorSessionCreation": "We couldn't start your session. Please try again.",
-    "errorSignInFailed": "Sign in failed. Please try again."
+    "errorSignInFailed": "Sign in failed. Please try again.",
+    "signInWithGoogle": "Continue with Google",
+    "signInAnotherWay": "Sign in another way"
   },
   "landing": {
     "tagline": "30-day learning platform",
@@ -253,7 +255,7 @@
     "backToLesson": "Back to lesson",
     "quizSupportiveRetry": "Not quite. Let’s review the lesson, then try again.",
     "quizCorrect": "Correct. Well done.",
-    "quizRequiredMessage": "You need to pass the quiz (5/5) to complete this lesson. Use the “Take Quiz” button to open it.",
+    "quizRequiredMessage": "You need to pass the quiz ({{count}}/{{count}}) to complete this lesson. Use the “Take Quiz” button to open it.",
     "quiz": "Quiz",
     "loadingQuiz": "Loading quiz questions...",
     "noQuizQuestions": "No quiz questions available for this lesson.",

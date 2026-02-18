@@ -43,13 +43,27 @@
       "signIn": "Войти",
       "signOut": "Выйти"
     },
-    "courses": { "title": "Курсы" },
-    "games": { "title": "Игры" },
-    "leaderboard": { "title": "Таблица лидеров" },
-    "challenges": { "title": "Испытания" },
-    "quests": { "title": "Квесты" },
-    "achievements": { "title": "Достижения" },
-    "rewards": { "title": "Награды" },
+    "courses": {
+      "title": "Курсы"
+    },
+    "games": {
+      "title": "Игры"
+    },
+    "leaderboard": {
+      "title": "Таблица лидеров"
+    },
+    "challenges": {
+      "title": "Испытания"
+    },
+    "quests": {
+      "title": "Квесты"
+    },
+    "achievements": {
+      "title": "Достижения"
+    },
+    "rewards": {
+      "title": "Награды"
+    },
     "or": "или",
     "termsOfService": "Условия использования",
     "privacyPolicy": "Политика конфиденциальности",
@@ -75,7 +89,9 @@
     "interactiveAssessments": "Интерактивные квизы",
     "or": "или",
     "tryGamesInstantly": "Попробуйте игры с случайным именем",
-    "creatingAccount": "Создание аккаунта..."
+    "creatingAccount": "Создание аккаунта...",
+    "signInWithGoogle": "Продолжить через Google",
+    "signInAnotherWay": "Войти другим способом"
   },
   "landing": {
     "tagline": "Платформа обучения за 30 дней",
@@ -150,7 +166,7 @@
     "backToLesson": "Назад к уроку",
     "quizSupportiveRetry": "Не совсем. Давайте вернемся к уроку и попробуем снова.",
     "quizCorrect": "Верно. Отлично!",
-    "quizRequiredMessage": "Нужно пройти квиз (5/5), чтобы завершить урок. Нажмите «Пройти квиз».",
+    "quizRequiredMessage": "Нужно пройти квиз ({{count}}/{{count}}), чтобы завершить урок. Нажмите «Пройти квиз».",
     "loadingQuiz": "Загружаем вопросы...",
     "noQuizQuestions": "Для этого урока нет вопросов.",
     "quizError": "Ошибка загрузки вопросов.",

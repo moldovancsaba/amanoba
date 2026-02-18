@@ -43,13 +43,27 @@
       "signIn": "Giriş yap",
       "signOut": "Çıkış yap"
     },
-    "courses": { "title": "Kurslar" },
-    "games": { "title": "Oyunlar" },
-    "leaderboard": { "title": "Lider tablosu" },
-    "challenges": { "title": "Meydan okumalar" },
-    "quests": { "title": "Görevler" },
-    "achievements": { "title": "Başarılar" },
-    "rewards": { "title": "Ödüller" },
+    "courses": {
+      "title": "Kurslar"
+    },
+    "games": {
+      "title": "Oyunlar"
+    },
+    "leaderboard": {
+      "title": "Lider tablosu"
+    },
+    "challenges": {
+      "title": "Meydan okumalar"
+    },
+    "quests": {
+      "title": "Görevler"
+    },
+    "achievements": {
+      "title": "Başarılar"
+    },
+    "rewards": {
+      "title": "Ödüller"
+    },
     "or": "veya",
     "termsOfService": "Hizmet koşulları",
     "privacyPolicy": "Gizlilik politikası",
@@ -75,7 +89,9 @@
     "interactiveAssessments": "Etkileşimli değerlendirmeler",
     "or": "veya",
     "tryGamesInstantly": "Rastgele kullanıcı adıyla anında oyun dene",
-    "creatingAccount": "Hesap oluşturuluyor..."
+    "creatingAccount": "Hesap oluşturuluyor...",
+    "signInWithGoogle": "Google ile devam et",
+    "signInAnotherWay": "Başka bir şekilde giriş yap"
   },
   "landing": {
     "tagline": "30 günlük öğrenme platformu",

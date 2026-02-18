@@ -43,13 +43,27 @@
       "signIn": "Đăng nhập",
       "signOut": "Đăng xuất"
     },
-    "courses": { "title": "Khóa học" },
-    "games": { "title": "Trò chơi" },
-    "leaderboard": { "title": "Bảng xếp hạng" },
-    "challenges": { "title": "Thử thách" },
-    "quests": { "title": "Nhiệm vụ" },
-    "achievements": { "title": "Thành tựu" },
-    "rewards": { "title": "Phần thưởng" },
+    "courses": {
+      "title": "Khóa học"
+    },
+    "games": {
+      "title": "Trò chơi"
+    },
+    "leaderboard": {
+      "title": "Bảng xếp hạng"
+    },
+    "challenges": {
+      "title": "Thử thách"
+    },
+    "quests": {
+      "title": "Nhiệm vụ"
+    },
+    "achievements": {
+      "title": "Thành tựu"
+    },
+    "rewards": {
+      "title": "Phần thưởng"
+    },
     "or": "Hoặc",
     "termsOfService": "Điều khoản dịch vụ",
     "privacyPolicy": "Chính sách bảo mật",
@@ -75,7 +89,9 @@
     "interactiveAssessments": "Đánh giá tương tác",
     "or": "Hoặc",
     "tryGamesInstantly": "Thử trò chơi ngay với tên ngẫu nhiên",
-    "creatingAccount": "Đang tạo tài khoản..."
+    "creatingAccount": "Đang tạo tài khoản...",
+    "signInWithGoogle": "Tiếp tục với Google",
+    "signInAnotherWay": "Đăng nhập theo cách khác"
   },
   "landing": {
     "tagline": "Nền tảng học 30 ngày",
@@ -184,7 +200,7 @@
     "notAvailable": "N/A"
   },
   "courses": {
-    "title": "Courses",
+    "title": "Khóa học",
     "myCourses": "My Courses",
     "availableCourses": "Khóa học khả dụng",
     "enroll": "Enroll",
