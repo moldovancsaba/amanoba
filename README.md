@@ -95,6 +95,13 @@ See `.env.local.example` for required configuration including:
 - VAPID keys for push notifications
 - Optional analytics ID
 
+### SSO Sign-In UX
+
+- Primary sign-in is an explicit Google button (`Continue with Google`) on `/{locale}/auth/signin`.
+- Secondary sign-in option is `Sign in another way` (generic provider route).
+- All sign-in entry points pass `callbackUrl`/`returnTo` so users return to the page where they started.
+- `callbackUrl` labels are localized through `messages/*.json` (`auth.signInWithGoogle`, `auth.signInAnotherWay`).
+
 ## 📁 Project Structure
 
 ```
