@@ -227,7 +227,7 @@
 ### Pre-Implementation
 
 - [ ] Read `agent_working_loop_canonical_operating_document.md`
-- [ ] Read `docs/certification_final_exam_plan_v5.md`
+- [ ] Read `docs/certification/certification_final_exam_plan_v5.md`
 - [ ] Study dashboard page patterns
 - [ ] Study profile page patterns
 - [ ] Study API route patterns

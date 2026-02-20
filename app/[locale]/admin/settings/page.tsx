@@ -48,6 +48,16 @@ interface MailSettings {
   mailgunDomain?: string | null;
 }
 
+interface I18nSettings {
+  supportedLanguages: string[];
+  defaultLanguage: string;
+}
+
+const ADMIN_LANGUAGE_OPTIONS = [
+  { code: 'hu', labelKey: 'hungarian' },
+  { code: 'en', labelKey: 'english' },
+];
+
 export default function AdminSettingsPage() {
   const _locale = useLocale();
   const t = useTranslations('admin');
@@ -64,11 +74,15 @@ export default function AdminSettingsPage() {
   const [certSettings, setCertSettings] = useState<CertSettings | null>(null);
   const [certSettingsLoading, setCertSettingsLoading] = useState(true);
   const [certSaving, setCertSaving] = useState(false);
+  const [i18nSettings, setI18nSettings] = useState<I18nSettings | null>(null);
+  const [i18nLoading, setI18nLoading] = useState(true);
+  const [i18nError, setI18nError] = useState<string | null>(null);
 
   useEffect(() => {
     fetchDefaultThumbnail();
     fetchCertificationSettings();
     fetchMailSettings();
+    fetchI18nSettings();
   }, []);
 
   const fetchCertificationSettings = async () => {
@@ -195,14 +209,79 @@ export default function AdminSettingsPage() {
     }
   };
 
+  const fetchI18nSettings = async () => {
+    setI18nLoading(true);
+    setI18nError(null);
+    try {
+      const response = await fetch('/api/admin/settings/i18n');
+      const data = await response.json();
+      if (response.ok && data.success && data.settings) {
+        setI18nSettings(data.settings as I18nSettings);
+      } else {
+        setI18nError(data.error || 'Failed to load language settings');
+      }
+    } catch (error) {
+      console.error('Failed to fetch i18n settings:', error);
+      setI18nError('Failed to load language settings');
+    } finally {
+      setI18nLoading(false);
+    }
+  };
+
+  const updateSupportedLanguage = (code: string, checked: boolean) => {
+    if (!i18nSettings) return;
+    const current = new Set(i18nSettings.supportedLanguages);
+    if (checked) {
+      current.add(code);
+    } else {
+      current.delete(code);
+    }
+    const nextSupported = Array.from(current);
+    if (nextSupported.length === 0) {
+      return;
+    }
+    let nextDefault = i18nSettings.defaultLanguage;
+    if (!nextSupported.includes(nextDefault)) {
+      nextDefault = nextSupported[0];
+    }
+    setI18nSettings({
+      supportedLanguages: nextSupported,
+      defaultLanguage: nextDefault,
+    });
+  };
+
+  const getLanguageLabel = (code: string) => {
+    const option = ADMIN_LANGUAGE_OPTIONS.find((item) => item.code === code);
+    return option ? t(option.labelKey) : code.toUpperCase();
+  };
+
   const handleSave = async () => {
+    if (!i18nSettings) return;
     setSaving(true);
-    // TODO: Implement settings save
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/admin/settings/i18n', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          supportedLanguages: i18nSettings.supportedLanguages,
+          defaultLanguage: i18nSettings.defaultLanguage,
+        }),
+      });
+      const data = await response.json();
+      if (!response.ok || !data.success) {
+        alert(data.error || 'Failed to save language settings');
+        return;
+      }
+      setI18nSettings(data.settings as I18nSettings);
       setSaving(false);
       setSaved(true);
       setTimeout(() => setSaved(false), 3000);
-    }, 1000);
+    } catch (error) {
+      console.error('Failed to save i18n settings:', error);
+      alert('Failed to save language settings. Please try again.');
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -236,9 +315,23 @@ export default function AdminSettingsPage() {
               <label className="block text-sm font-medium text-brand-white/80 mb-2">
                 {t('defaultLanguage')}
               </label>
-              <select className="w-full px-4 py-2 input-on-dark">
-                <option value="hu">{t('hungarian')}</option>
-                <option value="en">{t('english')}</option>
+              <select
+                className="w-full px-4 py-2 input-on-dark"
+                value={i18nSettings?.defaultLanguage || 'en'}
+                onChange={(event) => {
+                  if (!i18nSettings) return;
+                  setI18nSettings({
+                    ...i18nSettings,
+                    defaultLanguage: event.target.value,
+                  });
+                }}
+                disabled={i18nLoading || !i18nSettings}
+              >
+                {(i18nSettings?.supportedLanguages || ADMIN_LANGUAGE_OPTIONS.map((item) => item.code)).map((code) => (
+                  <option key={code} value={code}>
+                    {getLanguageLabel(code)} ({code})
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -442,32 +535,67 @@ export default function AdminSettingsPage() {
             <Globe className="w-6 h-6 text-brand-accent" />
             <h2 className="text-xl font-bold text-brand-white">{t('internationalization')}</h2>
           </div>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                {t('supportedLanguages')}
-              </label>
-              <div className="flex items-center gap-4">
-                <label className="flex items-center gap-2">
-                  <input type="checkbox" defaultChecked className="rounded" />
-                  <span className="text-brand-white">{t('hungarian')} (hu)</span>
+          {i18nLoading ? (
+            <p className="text-sm text-brand-white/70">{t('loading')}</p>
+          ) : i18nSettings ? (
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-brand-white/80 mb-2">
+                  {t('supportedLanguages')}
                 </label>
-                <label className="flex items-center gap-2">
-                  <input type="checkbox" defaultChecked className="rounded" />
-                  <span className="text-brand-white">{t('english')} (en)</span>
+                <div className="flex flex-wrap items-center gap-4">
+                  {Array.from(new Set([
+                    ...ADMIN_LANGUAGE_OPTIONS.map((option) => option.code),
+                    ...i18nSettings.supportedLanguages,
+                  ])).map((code) => {
+                    const checked = i18nSettings.supportedLanguages.includes(code);
+                    const isOnlyOne = checked && i18nSettings.supportedLanguages.length === 1;
+                    return (
+                      <label key={code} className="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          disabled={isOnlyOne}
+                          onChange={(event) => updateSupportedLanguage(code, event.target.checked)}
+                          className="rounded"
+                        />
+                        <span className="text-brand-white">
+                          {getLanguageLabel(code)} ({code})
+                        </span>
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-brand-white/80 mb-2">
+                  {t('defaultLocale')}
                 </label>
+                <select
+                  className="w-full px-4 py-2 input-on-dark"
+                  value={i18nSettings.defaultLanguage}
+                  onChange={(event) => {
+                    setI18nSettings({
+                      ...i18nSettings,
+                      defaultLanguage: event.target.value,
+                    });
+                  }}
+                >
+                  {i18nSettings.supportedLanguages.map((code) => {
+                    return (
+                      <option key={code} value={code}>
+                        {getLanguageLabel(code)} ({code})
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                {t('defaultLocale')}
-              </label>
-              <select className="w-full px-4 py-2 input-on-dark">
-                <option value="hu">{t('hungarian')}</option>
-                <option value="en">{t('english')}</option>
-              </select>
-            </div>
-          </div>
+          ) : (
+            <p className="text-sm text-red-400">
+              {i18nError || 'Failed to load language settings'}
+            </p>
+          )}
         </div>
 
         {/* Certification Settings */}
@@ -667,7 +795,7 @@ export default function AdminSettingsPage() {
         )}
         <button
           onClick={handleSave}
-          disabled={saving}
+          disabled={saving || i18nLoading || !i18nSettings}
           className="page-button-primary flex items-center gap-2 px-6 py-3 disabled:opacity-50"
         >
           <Save className="w-5 h-5" />

@@ -95,6 +95,7 @@ const dayPageTranslations: Record<string, Record<string, string>> = {
     completed: 'Befejezve',
     nextDay: 'Következő nap',
     quizRequiredMessage: 'A kvíz sikeres teljesítése ({{count}}/{{count}}) szükséges a befejezéshez. A kérdések a „Kitöltöm a kvízt” gombbal érhetők el.',
+    quizRequiredMaxWrongMessage: 'A lecke befejezéséhez legfeljebb {{maxWrong}} hibád lehet {{count}} kérdésből. A kérdések a „Kitöltöm a kvízt” gombbal érhetők el.',
     testYourKnowledge: 'Teszteld a tudásodat',
     assessmentDescription: 'Teljesítsd az értékelő játékot, hogy megerősítsd a tanultakat. Az eredményeid ehhez a leckéhez lesznek kapcsolva.',
     playAssessment: 'Játssz értékelőt →',
@@ -121,6 +122,7 @@ const dayPageTranslations: Record<string, Record<string, string>> = {
     completed: 'Completed',
     nextDay: 'Next Day',
     quizRequiredMessage: 'You need to pass the quiz ({{count}}/{{count}}) to complete this lesson. Use the "Take Quiz" button to open it.',
+    quizRequiredMaxWrongMessage: 'To complete this lesson, you can have at most {{maxWrong}} wrong answers out of {{count}} questions. Use the "Take Quiz" button to open it.',
     testYourKnowledge: 'Test Your Knowledge',
     assessmentDescription: 'Complete the assessment game to reinforce what you learned. Your results will be linked to this lesson.',
     playAssessment: 'Play Assessment →',
@@ -147,6 +149,7 @@ const dayPageTranslations: Record<string, Record<string, string>> = {
     completed: 'Завершено',
     nextDay: 'Следующий день',
     quizRequiredMessage: 'Нужно пройти квиз ({{count}}/{{count}}), чтобы завершить урок. Нажмите «Пройти квиз».',
+    quizRequiredMaxWrongMessage: 'Чтобы завершить урок, можно допустить не более {{maxWrong}} ошибок из {{count}} вопросов. Нажмите «Пройти квиз».',
     testYourKnowledge: 'Проверьте знания',
     assessmentDescription: 'Пройдите оценочный квиз, чтобы закрепить материал. Результаты будут связаны с уроком.',
     playAssessment: 'Пройти оценку →',
@@ -355,6 +358,7 @@ const dayPageTranslations: Record<string, Record<string, string>> = {
     completed: 'Imekamilika',
     nextDay: 'Siku inayofuata',
     quizRequiredMessage: 'Unahitaji kupita jaribio ({{count}}/{{count}}) kukamilisha somo hili. Tumia kitufe "Fanya Jaribio" kufungua.',
+    quizRequiredMaxWrongMessage: 'Ili kukamilisha somo hili, unaweza kukosea si zaidi ya maswali {{maxWrong}} kati ya {{count}}. Tumia kitufe "Fanya Jaribio" kufungua.',
     testYourKnowledge: 'Jaribu Ujuzi wako',
     assessmentDescription: 'Kamilisha mchezo wa tathmini kuthibitisha ulichojifunza. Matokeo yako yataunganishwa na somo hili.',
     playAssessment: 'Cheza Tathmini →',
@@ -398,6 +402,7 @@ export default function DailyLessonPage({
   const [courseLanguage, setCourseLanguage] = useState<string>('en');
   const [totalDays, setTotalDays] = useState<number>(30);
   const [defaultLessonQuizQuestionCount, setDefaultLessonQuizQuestionCount] = useState<number | undefined>(undefined);
+  const [quizMaxWrongAllowed, setQuizMaxWrongAllowed] = useState<number | undefined>(undefined);
   const searchParams = useSearchParams();
   const locale = useLocale(); // URL locale (e.g. /hu/ → 'hu') for fallback when lesson not found before courseLanguage is set
 
@@ -419,7 +424,20 @@ export default function DailyLessonPage({
         setLesson(data.lesson);
         setNavigation(data.navigation);
         if (data.progress?.totalDays != null) setTotalDays(data.progress.totalDays);
-        if (data.defaultLessonQuizQuestionCount != null) setDefaultLessonQuizQuestionCount(data.defaultLessonQuizQuestionCount);
+        setDefaultLessonQuizQuestionCount(
+          typeof data.quizPolicy?.questionCount === 'number'
+            ? data.quizPolicy.questionCount
+            : (typeof data.defaultLessonQuizQuestionCount === 'number'
+              ? data.defaultLessonQuizQuestionCount
+              : undefined)
+        );
+        setQuizMaxWrongAllowed(
+          typeof data.quizPolicy?.maxWrongAllowed === 'number'
+            ? data.quizPolicy.maxWrongAllowed
+            : (typeof data.quizMaxWrongAllowed === 'number'
+              ? data.quizMaxWrongAllowed
+              : undefined)
+        );
         // Refresh quiz passed flag from localStorage (set by quiz page)
         // Include player ID in key to make it user-specific
         const user = session?.user as { id?: string; playerId?: string } | undefined;
@@ -555,6 +573,21 @@ export default function DailyLessonPage({
       </div>
     );
   }
+
+  const effectiveQuestionCount =
+    defaultLessonQuizQuestionCount ?? lesson.quizConfig?.questionCount ?? 5;
+  const hasMaxWrongRule =
+    typeof quizMaxWrongAllowed === 'number' && quizMaxWrongAllowed >= 0;
+  const courseLanguageBase = courseLanguage.toLowerCase().split('-')[0];
+  const showMaxWrongMessageByLanguage = ['hu', 'en', 'ru', 'sw'].includes(courseLanguageBase);
+  const quizRequiredMessage = hasMaxWrongRule && showMaxWrongMessageByLanguage
+    ? getDayPageText('quizRequiredMaxWrongMessage', courseLanguageBase, {
+        maxWrong: quizMaxWrongAllowed,
+        count: effectiveQuestionCount,
+      })
+    : getDayPageText('quizRequiredMessage', courseLanguage, {
+        count: effectiveQuestionCount,
+      });
 
   return (
     <div className="min-h-screen bg-brand-black pb-safe" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
@@ -698,9 +731,7 @@ export default function DailyLessonPage({
               </div>
               {lesson.quizConfig?.enabled && lesson.quizConfig.required && !quizPassed && (
                 <p className="mt-4 text-sm text-brand-darkGrey text-center">
-                  {getDayPageText('quizRequiredMessage', courseLanguage, {
-                    count: lesson.quizConfig?.questionCount ?? defaultLessonQuizQuestionCount ?? 5,
-                  })}
+                  {quizRequiredMessage}
                 </p>
               )}
             </div>

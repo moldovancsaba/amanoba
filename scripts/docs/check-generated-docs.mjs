@@ -5,7 +5,11 @@ function runGit(args) {
 }
 
 function main() {
-  const files = ['docs/DOCS_INVENTORY.md', 'docs/DOCS_CANONICAL_MAP.md', 'docs/DOCS_TRIAGE.md'];
+  const files = [
+    'docs/core/DOCS_INVENTORY.md',
+    'docs/core/DOCS_CANONICAL_MAP.md',
+    'docs/core/DOCS_TRIAGE.md',
+  ];
 
   try {
     // If any of these files changed after regeneration, fail.
@@ -21,4 +25,3 @@ function main() {
 }
 
 main();
-

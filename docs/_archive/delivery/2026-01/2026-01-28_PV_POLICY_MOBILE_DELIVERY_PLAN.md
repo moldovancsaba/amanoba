@@ -2,7 +2,7 @@
 
 **Date**: 2026-01-28  
 **Scope**: Profile Visibility & Privacy (PV1–PV4), Policy/legal localization + LocaleLink, Mobile responsiveness (MOB1–MOB8)  
-**Source**: `docs/TASKLIST.md`, `docs/ROADMAP.md`  
+**Source**: `docs/product/TASKLIST.md`, `docs/product/ROADMAP.md`  
 **Status**: Phase 1 (POL) and Phase 2 (PV full PV1–PV4) delivered 2026-01-28. Phase 3 (MOB) baseline already in place; page-level MOB2–MOB8 remain.
 
 ---
@@ -21,7 +21,7 @@
 
 ## 2. Pack A: Profile Visibility & Privacy (PV1–PV4)
 
-**Reference**: `docs/TASKLIST.md` § P1 Profile Visibility & Privacy  
+**Reference**: `docs/product/TASKLIST.md` § P1 Profile Visibility & Privacy  
 **Owner**: Tribeca (dev); content/copy: Katja
 
 ### 2.1 Goal 1 — User can see their private profile
@@ -67,7 +67,7 @@
 
 ## 3. Pack B: Policy/legal localization + LocaleLink
 
-**Reference**: `docs/ROADMAP.md` § Tech Debt P1 — “Localize and brand policy/legal pages; switch plain Link/href to LocaleLink, add missing HU/EN messages, and apply globals.css shell”
+**Reference**: `docs/product/ROADMAP.md` § Tech Debt P1 — “Localize and brand policy/legal pages; switch plain Link/href to LocaleLink, add missing HU/EN messages, and apply globals.css shell”
 
 ### 3.1 Policy/legal pages
 
@@ -91,7 +91,7 @@
 
 ## 4. Pack C: Mobile responsiveness (MOB1–MOB8)
 
-**Reference**: `docs/TASKLIST.md` § Mobile UX & Responsive Polish
+**Reference**: `docs/product/TASKLIST.md` § Mobile UX & Responsive Polish
 
 ### 4.1 Tasks in recommended order
 
@@ -145,7 +145,7 @@ Use this order to minimise rework and dependencies.
 - **Policy/LocaleLink**: After POL1–POL6, verify: (1) no root-relative `href="/"` or `href="/path"` on policy pages and swept pages; (2) policy pages use shared layout and design tokens; (3) all supported locales have required message keys.
 - **Mobile**: After MOB1–MOB8, verify: (1) key flows (discovery → course → lesson → quiz, dashboard, onboarding) are usable on 320px–640px width; (2) tap targets ≥44px; (3) no horizontal scroll on content; (4) charts and forms readable.
 
-**Update after delivery**: Mark tasks in this doc and in `docs/TASKLIST.md`; add release note to `docs/RELEASE_NOTES.md`; optionally update `docs/ROADMAP.md` and `docs/_archive/reference/STATUS__2026-01-28.md`.
+**Update after delivery**: Mark tasks in this doc and in `docs/product/TASKLIST.md`; add release note to `docs/product/RELEASE_NOTES.md`; optionally update `docs/product/ROADMAP.md` and `docs/_archive/reference/STATUS__2026-01-28.md`.
 
 ---
 

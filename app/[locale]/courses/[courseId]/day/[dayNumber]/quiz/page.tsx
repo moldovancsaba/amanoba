@@ -22,14 +22,19 @@ interface LessonResponse {
       questionCount: number;
     };
   };
+  quizPolicy?: {
+    enabled: boolean;
+    required: boolean;
+    questionCount: number;
+    shownAnswerCount: number;
+    maxWrongAllowed?: number;
+    successThreshold: number;
+    availableQuestionCount?: number;
+  };
   error?: string;
 }
 
-type LessonDayApiResponse = LessonResponse & {
-  courseLanguage?: string;
-  quizMaxWrongAllowed?: number;
-  defaultLessonQuizQuestionCount?: number;
-};
+type LessonDayApiResponse = LessonResponse & { courseLanguage?: string };
 
 interface Question {
   id: string;
@@ -251,12 +256,17 @@ export default function LessonQuizPage({
       
       setLessonId(lessonData.lesson.lessonId);
       setLessonTitle(lessonData.lesson.title);
-      setQuizMaxWrongAllowed(lessonData.quizMaxWrongAllowed);
+      setQuizMaxWrongAllowed(lessonData.quizPolicy?.maxWrongAllowed);
       setWrongCount(0);
 
-      const count = lessonData.lesson.quizConfig?.questionCount ?? lessonData.defaultLessonQuizQuestionCount ?? 5;
+      if (lessonData.quizPolicy?.enabled === false) {
+        setError(getQuizPageText('noQuizQuestions', apiLanguage));
+        return;
+      }
+
+      const count = lessonData.quizPolicy?.questionCount ?? lessonData.lesson.quizConfig?.questionCount ?? 5;
       const qRes = await fetch(
-        `/api/games/quizzz/questions?lessonId=${lessonData.lesson.lessonId}&courseId=${cid}&count=${count}&t=${Date.now()}`,
+        `/api/games/quizzz/questions?lessonId=${lessonData.lesson.lessonId}&courseId=${cid}&count=${count}&shownAnswerCount=${lessonData.quizPolicy?.shownAnswerCount ?? 3}&t=${Date.now()}`,
         { cache: 'no-store' }
       );
       const qData = await qRes.json();

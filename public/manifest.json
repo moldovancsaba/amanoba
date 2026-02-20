@@ -9,20 +9,27 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/amanoba_logo.png",
+      "src": "/AMANOBA_2026_192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/amanoba_logo.png",
+      "src": "/AMANOBA_2026_512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
   "categories": ["education", "learning", "courses"],
-  "screenshots": [],
+  "screenshots": [
+    {
+      "src": "/AMANOBA.png",
+      "sizes": "828x975",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
   "shortcuts": [
     {
       "name": "Browse Courses",
@@ -31,7 +38,7 @@
       "url": "/courses",
       "icons": [
         {
-          "src": "/amanoba_logo.png",
+          "src": "/AMANOBA_2026_192.png",
           "sizes": "192x192"
         }
       ]
@@ -43,7 +50,7 @@
       "url": "/my-courses",
       "icons": [
         {
-          "src": "/amanoba_logo.png",
+          "src": "/AMANOBA_2026_192.png",
           "sizes": "192x192"
         }
       ]

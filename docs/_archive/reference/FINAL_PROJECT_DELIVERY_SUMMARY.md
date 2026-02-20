@@ -239,12 +239,12 @@ d25dbea Add executive summary for Quiz Quality Audit project completion
 
 ### Files Modified/Created
 - ✅ `app/lib/models/quiz-question.ts` - Schema updated
-- ✅ `docs/_archive/delivery/2026-01/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md`
+- ✅ `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/_archive/delivery/2026-01/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md`
 - ✅ `docs/_archive/reference/PHASE_1_FINAL_REPORT.md`
 - ✅ `docs/_archive/reference/PHASE_2_FINAL_REPORT.md`
-- ✅ `docs/PROJECT_COMPLETE.md`
+- ✅ `docs/status/PROJECT_COMPLETE.md`
 - ✅ `docs/_archive/reference/MIGRATION_EXECUTION_PLAN.md`
-- ✅ `docs/MIGRATION_PHASE_1_COMPLETE.md`
+- ✅ `docs/status/MIGRATION_PHASE_1_COMPLETE.md`
 - ✅ `scripts/migrate-add-audit-fields.ts`
 - ✅ `scripts/migrate-audit-data-phase-1.ts`
 - ✅ And 5+ additional audit/tracking documents
@@ -288,15 +288,15 @@ This project has been completed to the highest quality standards and is approved
 
 **Detailed Information**:
 - `/docs/_archive/delivery/2026-01/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md` - Complete plan
-- `/docs/PROJECT_COMPLETE.md` - Project certification
-- `/docs/MIGRATION_PHASE_1_COMPLETE.md` - Database deployment report
+- `/docs/status/PROJECT_COMPLETE.md` - Project certification
+- `/docs/status/MIGRATION_PHASE_1_COMPLETE.md` - Database deployment report
 
 **Technical Details**:
 - `/docs/_archive/reference/MIGRATION_EXECUTION_PLAN.md` - Migration procedures
 - `app/lib/models/quiz-question.ts` - Updated schema
 
 **Audit Logs**:
-- `/docs/PHASE_1_AUDIT_WORKSHEET.md` - Detailed audit decisions
+- `/docs/quality/PHASE_1_AUDIT_WORKSHEET.md` - Detailed audit decisions
 - `/docs/LESSON_*_AUDIT_COMPLETE.md` - Per-lesson reports
 
 ---

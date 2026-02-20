@@ -24,28 +24,40 @@ export function getCorrectAnswerString(q: { options?: string[]; correctIndex?: n
 }
 
 /**
- * Builds exactly 3 display options: correct + 2 random wrong, shuffled.
- * Returns { options: string[3], correctAnswerValue: string }.
- * For legacy questions (4+ options), uses correct + 2 random from the wrong options.
+ * Builds N display options: correct + (N-1) random wrong, shuffled.
+ * Returns { options: string[N], correctAnswerValue: string }.
+ * For legacy questions (4+ options), uses the wrong options from `options`.
  */
-export function buildThreeOptions(
-  q: { options?: string[]; correctIndex?: number; correctAnswer?: string; wrongAnswers?: string[] }
+export function buildQuizOptions(
+  q: { options?: string[]; correctIndex?: number; correctAnswer?: string; wrongAnswers?: string[] },
+  shownAnswerCount = 3
 ): { options: string[]; correctAnswerValue: string } | null {
+  const desiredCount = Math.max(2, Math.min(4, Math.round(shownAnswerCount)));
+  const wrongsNeeded = desiredCount - 1;
   const correct = getCorrectAnswerString(q);
   if (!correct) return null;
 
   let wrongs: string[];
-  if (Array.isArray(q.wrongAnswers) && q.wrongAnswers.length >= 2) {
+  if (Array.isArray(q.wrongAnswers) && q.wrongAnswers.length >= wrongsNeeded) {
     wrongs = q.wrongAnswers.filter((w) => w && String(w).trim() && String(w).trim() !== correct);
-    if (wrongs.length < 2) return null;
+    if (wrongs.length < wrongsNeeded) return null;
   } else if (Array.isArray(q.options) && q.options.length >= 4 && typeof q.correctIndex === 'number' && q.correctIndex >= 0 && q.correctIndex < q.options.length) {
     wrongs = q.options.filter((_, i) => i !== q.correctIndex).map((s) => String(s).trim()).filter(Boolean);
-    if (wrongs.length < 2) return null;
+    if (wrongs.length < wrongsNeeded) return null;
   } else {
     return null;
   }
 
-  const twoWrong = shuffle(wrongs).slice(0, 2);
-  const three = shuffle([correct, ...twoWrong]);
-  return { options: three, correctAnswerValue: correct };
+  const sampledWrong = shuffle(wrongs).slice(0, wrongsNeeded);
+  const finalOptions = shuffle([correct, ...sampledWrong]);
+  return { options: finalOptions, correctAnswerValue: correct };
+}
+
+/**
+ * Backward-compatible alias for 3-option quiz rendering.
+ */
+export function buildThreeOptions(
+  q: { options?: string[]; correctIndex?: number; correctAnswer?: string; wrongAnswers?: string[] }
+): { options: string[]; correctAnswerValue: string } | null {
+  return buildQuizOptions(q, 3);
 }

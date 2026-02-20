@@ -19,7 +19,7 @@ import { z } from 'zod';
 import mongoose from 'mongoose';
 import connectDB, { getConnectionState } from '@/app/lib/mongodb';
 import { QuizQuestion, QuestionDifficulty, Course } from '@/app/lib/models';
-import { buildThreeOptions } from '@/app/lib/quiz-questions';
+import { buildQuizOptions } from '@/app/lib/quiz-questions';
 import logger from '@/app/lib/logger';
 
 export const runtime = 'nodejs';
@@ -37,6 +37,7 @@ const QuerySchema = z.object({
   // Lesson-specific quiz mode
   lessonId: z.string().optional(), // Lesson ID for course-specific assessments
   courseId: z.string().optional(), // Course ID for course-specific assessments
+  shownAnswerCount: z.string().transform(Number).pipe(z.number().min(2).max(4)).optional(),
 });
 
 /**
@@ -76,6 +77,7 @@ export async function GET(request: NextRequest) {
       runId: searchParams.get('runId') || undefined,
       lessonId: searchParams.get('lessonId') || undefined,
       courseId: searchParams.get('courseId') || undefined,
+      shownAnswerCount: searchParams.get('shownAnswerCount') || undefined,
     };
 
     // Why: Validate parameters with Zod
@@ -96,7 +98,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const { difficulty, count, exclude, runId, lessonId, courseId } = validation.data;
+    const { difficulty, count, exclude, runId, lessonId, courseId, shownAnswerCount } = validation.data;
 
     // Parse exclude ids (robust handling of invalid IDs)
     const excludeIds = (exclude ? exclude.split(',') : [])
@@ -304,16 +306,17 @@ export async function GET(request: NextRequest) {
       return copy;
     };
     
-    // Why: Shuffle questions; each question shows 3 options (1 correct + 2 random wrong), shuffled
+    // Why: Shuffle questions; each question shows configured options (default 3), shuffled
     const shuffled = shuffle(uniqueQuestions);
     const responseQuestions: ResponseQuestion[] = [];
+    const effectiveShownAnswerCount = shownAnswerCount ?? 3;
     for (const q of shuffled) {
-      const three = buildThreeOptions(q);
-      if (!three || three.options.length !== 3) continue;
+      const configured = buildQuizOptions(q, effectiveShownAnswerCount);
+      if (!configured || configured.options.length !== effectiveShownAnswerCount) continue;
       responseQuestions.push({
         id: q._id.toString(),
         question: q.question,
-        options: three.options,
+        options: configured.options,
         difficulty: q.difficulty,
         category: q.category,
       });
@@ -339,6 +342,7 @@ export async function GET(request: NextRequest) {
             difficulty,
             count: responseQuestions.length,
             requestedCount: count,
+            shownAnswerCount: effectiveShownAnswerCount,
           },
         },
       },

@@ -1,4 +1,4 @@
-name: Docs (generated files)
+name: Docs (generated + links)
 
 on:
   pull_request:
@@ -17,4 +17,3 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run docs:check
-

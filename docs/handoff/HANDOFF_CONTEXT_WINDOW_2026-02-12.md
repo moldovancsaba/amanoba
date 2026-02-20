@@ -164,3 +164,77 @@ Archive-doc link status:
   - `DOCS_CHECK_INCLUDE_ARCHIVE=1 npm run docs:links:check`
 - Strict external FS links:
   - `DOCS_CHECK_EXTERNAL=1 npm run docs:links:check`
+
+---
+
+## 7) Delta update (same day, later window)
+
+**Context-window status**: this handoff update was written when the active context window reached approximately **82%** usage.
+
+### A) Lesson-quiz bug triage completed
+
+Observed user issue:
+- lesson page said `5/5` required,
+- course settings were `Max wrong answers allowed = 2`, `Number of questions per lesson quiz (default) = 3`,
+- quiz run still showed 5 questions and passed with 2 wrong / failed with 3 wrong.
+
+Root cause found:
+1. Seeded lesson-level `quizConfig.questionCount` values (commonly 5) still existed in DB.
+2. Runtime had mixed authority (lesson-level + course-level fallback).
+3. Pass/fail already used course-level `quizMaxWrongAllowed` override.
+
+Relevant files:
+- `scripts/seed-ai-30-nap-course.ts`
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx`
+- `app/api/courses/[courseId]/lessons/[lessonId]/quiz/submit/route.ts`
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx`
+
+### B) Hotfixes applied
+
+1. Learner quiz runtime now prefers course default question count before lesson-level fallback.
+2. Required-quiz message on day page now supports max-wrong mode wording (instead of implying fixed `count/count` pass logic).
+3. Translation JSONs were normalized to use `{{count}}/{{count}}` placeholders instead of hardcoded `5/5`.
+4. Course admin helper text was updated to reduce misunderstanding.
+
+Build verification:
+- `npm run build` passed after these edits.
+
+### C) System inventory + migration-plan prep completed
+
+User requirement:
+- quiz behavior must be controlled only at **course level**:
+  - number of questions per lesson quiz,
+  - number of shown answers per question,
+  - accepted wrong answers / pass rules,
+  - no lesson-level or seed-JSON ownership of runtime behavior.
+
+Inventory findings captured:
+1. Course model already stores partial policy (`quizMaxWrongAllowed`, `defaultLessonQuizQuestionCount`).
+2. Lesson model still stores authoritative behavior fields (`quizConfig.enabled/successThreshold/questionCount/poolSize/required`).
+3. Runtime answer display count is hardwired to 3 via `buildThreeOptions()` pipeline.
+4. Admin lesson modal still exposes lesson-level behavior controls.
+5. Import/export and package docs still include lesson-level `quizConfig`.
+6. Seed scripts widely set lesson-level `quizConfig`.
+7. Question validators and admin APIs still enforce legacy "at least 4 options" authoring constraints in multiple places.
+
+### D) Tasklist + next-window coordination updated
+
+1. `docs/product/TASKLIST.md` now includes:
+- **P2 — Lesson quiz governance centralization (course-level only)** with **10 actionable items** and explicit statuses.
+2. `docs/handoff/NEXT_WINDOW_PROMPT.md` now prioritizes this P2 track.
+
+### E) Next-window execution focus
+
+1. Implement course-level canonical quiz policy object and resolver.
+2. Remove lesson-level behavior authority in runtime/admin while keeping lesson question-content management.
+3. Align import/export/package format and seed scripts to stop behavior ownership in `lessons[].quizConfig`.
+4. Update docs (architecture/package/quality/release notes) in lockstep.
+
+### F) Delivery package for next window handoff
+
+1. `docs/product/TASKLIST.md`
+- Added/confirmed the new P2 section: **Lesson quiz governance centralization (course-level only)** with 10 actionable items and statuses.
+2. `docs/handoff/NEXT_WINDOW_PROMPT.md`
+- Updated prompt priorities to continue this exact migration track, includes the ~82% context note, plus concrete next tasks mapped to TASKLIST P2 items.
+3. `docs/handoff/HANDOFF_CONTEXT_WINDOW_2026-02-12.md`
+- Updated with explicit delivery confirmation and package summary.

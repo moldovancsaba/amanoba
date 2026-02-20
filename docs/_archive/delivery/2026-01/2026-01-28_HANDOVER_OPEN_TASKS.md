@@ -2,7 +2,7 @@
 
 **Date**: 2026-01-28  
 **Purpose**: Single document with everything needed to pick up and deliver the remaining open work.  
-**Related**: `docs/TASKLIST.md`, `docs/ROADMAP.md`, `docs/RELEASE_NOTES.md`, `docs/_archive/delivery/2026-01/2026-01-28_PV_POLICY_MOBILE_DELIVERY_PLAN.md`
+**Related**: `docs/product/TASKLIST.md`, `docs/product/ROADMAP.md`, `docs/product/RELEASE_NOTES.md`, `docs/_archive/delivery/2026-01/2026-01-28_PV_POLICY_MOBILE_DELIVERY_PLAN.md`
 
 ---
 
@@ -14,7 +14,7 @@
 - **GET /api/players/[playerId]** and **GET /api/profile/[playerId]**: Private profile → 404 "Profile not available" for non-owner. Public profile → only public fields and sections where `profileSectionVisibility[section] === 'public'`.
 - **PATCH /api/profile**: Accepts `profileVisibility` and `profileSectionVisibility`; only current user; GET /api/profile returns these fields.
 - **Profile page** (`app/[locale]/profile/[playerId]/page.tsx`): "Profile not available" for 404; owner: Profile visibility dropdown, "View as others see it", per-section toggles; sections (streaks, wallet, achievements, certificates) respect visibility; LocaleLink for certificate links; locale from `useParams`.
-- **Schema**: `docs/PUBLIC_PROFILE_SCHEMA.md` — list of public fields and section keys.
+- **Schema**: `docs/features/PUBLIC_PROFILE_SCHEMA.md` — list of public fields and section keys.
 
 ### Policy/LocaleLink (POL) — MOSTLY COMPLETE
 
@@ -109,7 +109,7 @@
 | Area | Key files |
 |------|-----------|
 | Profile visibility | `app/lib/models/player.ts`, `app/api/profile/route.ts`, `app/api/profile/[playerId]/route.ts`, `app/api/players/[playerId]/route.ts`, `app/[locale]/profile/[playerId]/page.tsx` |
-| Public profile schema | `docs/PUBLIC_PROFILE_SCHEMA.md` |
+| Public profile schema | `docs/features/PUBLIC_PROFILE_SCHEMA.md` |
 | Policy pages | `app/[locale]/privacy/page.tsx`, `app/[locale]/terms/page.tsx`, `app/[locale]/data-deletion/page.tsx` |
 | Email | `app/lib/email/email-service.ts`, `messages/*.json` (if email copy moved to i18n) |
 | Mobile CSS | `app/globals.css`, `app/mobile-styles.css` |

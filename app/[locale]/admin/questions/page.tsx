@@ -418,9 +418,12 @@ export default function AdminQuestionsPage() {
                 <option value="hu">Hungarian</option>
                 <option value="en">English</option>
                 <option value="de">German</option>
+                <option value="zh">Chinese</option>
                 <option value="es">Spanish</option>
                 <option value="fr">French</option>
                 <option value="it">Italian</option>
+                <option value="bn">Bengali</option>
+                <option value="ur">Urdu</option>
                 <option value="pt">Portuguese</option>
                 <option value="pl">Polish</option>
                 <option value="tr">Turkish</option>
@@ -429,6 +432,8 @@ export default function AdminQuestionsPage() {
                 <option value="hi">Hindi</option>
                 <option value="ar">Arabic</option>
                 <option value="bg">Bulgarian</option>
+                <option value="ru">Russian</option>
+                <option value="sw">Swahili</option>
               </select>
             </div>
 

@@ -12,6 +12,7 @@ import { ConsentProvider } from "@/app/components/providers/ConsentProvider";
 import SessionProvider from "@/components/session-provider";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
+import ServiceWorkerRegister from "@/app/components/ServiceWorkerRegister";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -151,6 +152,7 @@ export default async function LocaleLayout({
                 </div>
                 {/* Cookie Consent Banner */}
                 <CookieConsentBanner />
+                <ServiceWorkerRegister />
               </ThemeProvider>
             </SessionProvider>
           </ConsentProvider>

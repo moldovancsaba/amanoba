@@ -95,7 +95,7 @@
 
 ### 5.1 Positive
 
-- **Naming**: kebab-case files, camelCase functions/vars, PascalCase components/types — aligned with `docs/NAMING_GUIDE.md`.
+- **Naming**: kebab-case files, camelCase functions/vars, PascalCase components/types — aligned with `docs/core/NAMING_GUIDE.md`.
 - **Structure**: App Router, locale under `[locale]`, API under `api/`, lib under `lib/`.
 - **Design tokens**: `design-system.css` and `tailwind.config.ts` define brand colors and CTA tokens; used in many places.
 
@@ -174,7 +174,7 @@
 
 ### 9.1 Image usage
 
-- **Next.js Image**: Lint reports `<img>` in admin (courses, games, rewards). Prefer `<Image />` from `next/image` for better optimisation and consistency (see `docs/layout_grammar.md`).
+- **Next.js Image**: Lint reports `<img>` in admin (courses, games, rewards). Prefer `<Image />` from `next/image` for better optimisation and consistency (see `docs/architecture/layout_grammar.md`).
 - **Alt text**: Several `<img>` usages have `alt={course.name}` or similar; keep alt meaningful and concise.
 
 ### 9.2 Inline styles and tokens
@@ -209,11 +209,11 @@
 
 ## 11. References
 
-- **Layout and design**: `docs/layout_grammar.md`, `docs/DESIGN_UPDATE.md`
-- **Naming**: `docs/NAMING_GUIDE.md`
+- **Layout and design**: `docs/architecture/layout_grammar.md`, `docs/product/DESIGN_UPDATE.md`
+- **Naming**: `docs/core/NAMING_GUIDE.md`
 - **Deep code audit (historical)**: `docs/_archive/delivery/2026-01/2026-01-28_DEEP_CODE_AUDIT.md`
-- **Roadmap tech debt**: `docs/ROADMAP.md` § Tech Debt
-- **Task list**: `docs/TASKLIST.md`
+- **Roadmap tech debt**: `docs/product/ROADMAP.md` § Tech Debt
+- **Task list**: `docs/product/TASKLIST.md`
 
 ---
 

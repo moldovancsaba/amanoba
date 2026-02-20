@@ -85,6 +85,10 @@ export async function PATCH(
     }
 
     const body = await request.json();
+    // Lesson quiz behavior is course-level only; ignore any lesson-level quizConfig updates.
+    if ('quizConfig' in body) {
+      delete body.quizConfig;
+    }
 
     // Handle assessmentGameId conversion if provided
     // If empty string, set to null/undefined to remove the assessment

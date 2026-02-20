@@ -111,7 +111,7 @@
 5. (Optional) Auto-sync
 
 **Documentation**: 
-- `docs/_archive/delivery/2026-01/2026-01-23_SHORT_COURSES_FEATURE.md`
+- `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/_archive/delivery/2026-01/2026-01-23_SHORT_COURSES_FEATURE.md`
 - `docs/FEATURES_SINCE_F20C34A_COMPLETE_DOCUMENTATION copy.md` (Section 2)
 
 **Dependencies**: Certification system (uses poolCourseId concept)

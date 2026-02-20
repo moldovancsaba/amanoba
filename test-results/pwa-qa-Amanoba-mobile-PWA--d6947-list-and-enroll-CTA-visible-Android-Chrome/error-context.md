@@ -1,0 +1,106 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - link "Amanoba Logo" [ref=e7] [cursor=pointer]:
+            - /url: /en
+            - img "Amanoba Logo" [ref=e9]
+          - link "Back to Courses" [ref=e10] [cursor=pointer]:
+            - /url: /en/courses
+            - img [ref=e11]
+            - text: Back to Courses
+        - heading "Build an AI App in a Week" [level=1] [ref=e13]
+    - main [ref=e14]:
+      - generic [ref=e16]:
+        - img "Build an AI App in a Week" [ref=e18]
+        - generic [ref=e19]:
+          - heading "Course Overview" [level=2] [ref=e20]
+          - paragraph [ref=e21]: A 7-day execution course for You to build AI features and launch to the public
+          - generic [ref=e22]:
+            - generic [ref=e23]: Was this course helpful?
+            - generic [ref=e24]:
+              - button "Vote up" [disabled] [ref=e25]:
+                - img [ref=e26]
+              - button "Vote down" [disabled] [ref=e28]:
+                - img [ref=e29]
+            - generic [ref=e31]: 0 ↑ / 1 ↓
+        - generic [ref=e32]:
+          - heading "What You Get" [level=2] [ref=e33]
+          - generic [ref=e34]:
+            - generic [ref=e35]:
+              - img [ref=e36]
+              - generic [ref=e39]:
+                - heading "7 day course" [level=3] [ref=e40]
+                - paragraph [ref=e41]: Daily 20-30 min lessons with AI support
+            - generic [ref=e42]:
+              - img [ref=e43]
+              - generic [ref=e46]:
+                - heading "1000 points" [level=3] [ref=e47]
+                - paragraph [ref=e48]: Earn points for completion
+            - generic [ref=e49]:
+              - img [ref=e50]
+              - generic [ref=e52]:
+                - heading "Delivered to your inbox" [level=3] [ref=e53]
+                - paragraph [ref=e54]: New lessons emailed to you each day
+            - generic [ref=e55]:
+              - img [ref=e56]
+              - generic [ref=e58]:
+                - heading "Interactive Quizzes" [level=3] [ref=e59]
+                - paragraph [ref=e60]: Test your knowledge with games
+        - generic [ref=e61]:
+          - heading "Curriculum" [level=2] [ref=e62]
+          - generic [ref=e63]:
+            - generic [ref=e64]:
+              - generic [ref=e65]: "1"
+              - generic [ref=e66]:
+                - heading "Problem selection and niche" [level=3] [ref=e67]
+                - generic [ref=e69]: Day 1
+            - generic [ref=e70]:
+              - generic [ref=e71]: "2"
+              - generic [ref=e72]:
+                - heading "Feature scoping for a first release" [level=3] [ref=e73]
+                - generic [ref=e75]: Day 2
+            - generic [ref=e76]:
+              - generic [ref=e77]: "3"
+              - generic [ref=e78]:
+                - heading "Tech stack decision" [level=3] [ref=e79]
+                - generic [ref=e81]: Day 3
+            - generic [ref=e82]:
+              - generic [ref=e83]: "4"
+              - generic [ref=e84]:
+                - heading "OpenAI API basics and safe patterns" [level=3] [ref=e85]
+                - generic [ref=e87]: Day 4
+            - generic [ref=e88]:
+              - generic [ref=e89]: "5"
+              - generic [ref=e90]:
+                - heading "Agent workflow design" [level=3] [ref=e91]
+                - generic [ref=e93]: Day 5
+            - generic [ref=e94]:
+              - generic [ref=e95]: "6"
+              - generic [ref=e96]:
+                - heading "Domain and production readiness" [level=3] [ref=e97]
+                - generic [ref=e99]: Day 6
+            - generic [ref=e100]:
+              - generic [ref=e101]: "7"
+              - generic [ref=e102]:
+                - heading "Launch checklist" [level=3] [ref=e103]
+                - generic [ref=e105]: Day 7
+      - generic [ref=e107]:
+        - generic [ref=e109]: Build an AI App in a Week
+        - link "Sign In to Enroll" [ref=e111] [cursor=pointer]:
+          - /url: /en/auth/signin?callbackUrl=%2Fen%2Fcourses%2FGENERATIVE_AI_APPS_AGENTS_2026_EN_BEGINNER
+  - alert [ref=e112]: Build an AI App in a Week | Amanoba
+  - generic [ref=e115]:
+    - generic [ref=e116]:
+      - heading "Cookie Consent" [level=3] [ref=e117]
+      - paragraph [ref=e118]: We use cookies and similar technologies to enhance your experience, analyze site usage, and assist in our marketing efforts. You can choose which cookies to accept.
+    - generic [ref=e119]:
+      - button "Customize" [ref=e120] [cursor=pointer]
+      - generic [ref=e121]:
+        - button "Reject All" [ref=e122] [cursor=pointer]
+        - button "Accept All" [ref=e123] [cursor=pointer]
+```

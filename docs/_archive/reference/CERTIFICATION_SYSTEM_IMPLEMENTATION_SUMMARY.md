@@ -281,7 +281,7 @@ To enable course completion achievements, create achievements in the database:
 
 ## 📚 RELATED DOCUMENTS
 
-- `docs/CERTIFICATION_CURRENT_IMPLEMENTATION_ANALYSIS.md` - Detailed analysis
+- `docs/certification/CERTIFICATION_CURRENT_IMPLEMENTATION_ANALYSIS.md` - Detailed analysis
 - `app/api/certification/final-exam/start/route.ts` - Final exam start
 - `app/api/certification/final-exam/submit/route.ts` - Final exam submit
 - `app/api/courses/[courseId]/day/[dayNumber]/route.ts` - Lesson completion

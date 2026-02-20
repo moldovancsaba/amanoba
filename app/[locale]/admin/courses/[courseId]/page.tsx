@@ -58,6 +58,15 @@ interface Course {
   quizMaxWrongAllowed?: number;
   /** Default number of questions per lesson quiz when lesson does not set questionCount. */
   defaultLessonQuizQuestionCount?: number;
+  /** Canonical course-level lesson-quiz policy. */
+  lessonQuizPolicy?: {
+    enabled?: boolean;
+    required?: boolean;
+    questionCount?: number;
+    shownAnswerCount?: number;
+    maxWrongAllowed?: number;
+    successThreshold?: number;
+  };
   pointsConfig: {
     completionPoints: number;
     lessonPoints: number;
@@ -153,8 +162,6 @@ export default function CourseEditorPage({
     lastSyncedAt: string | null;
   } | null>(null);
   const [syncActionLoading, setSyncActionLoading] = useState(false);
-  const [applyQuizDefaultsLoading, setApplyQuizDefaultsLoading] = useState(false);
-  const [applyQuizDefaultsMessage, setApplyQuizDefaultsMessage] = useState<string | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [editorNames, setEditorNames] = useState<Record<string, string>>({});
   const [editorSearch, setEditorSearch] = useState('');
@@ -844,8 +851,42 @@ export default function CourseEditorPage({
       <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-darkGrey">
         <h2 className="text-xl font-bold text-brand-black mb-4">Lesson quizzes</h2>
         <p className="text-sm text-brand-darkGrey mb-4">
-          These settings apply to every lesson in this course. Each lesson can override &quot;Questions to Show&quot; in its own quiz settings (when editing that lesson). <strong>Save this course</strong> after changing values below.
+          Course-level single source of truth for lesson quiz runtime behavior. Lesson editor no longer controls pass rule, required gate, or question count.
         </p>
+        <div>
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={course.lessonQuizPolicy?.enabled !== false}
+              onChange={(e) => setCourse({
+                ...course,
+                lessonQuizPolicy: {
+                  ...course.lessonQuizPolicy,
+                  enabled: e.target.checked,
+                },
+              })}
+              className="w-5 h-5 text-brand-accent rounded focus:ring-brand-accent"
+            />
+            <span className="text-sm font-medium text-brand-black">Enable lesson quizzes for this course</span>
+          </label>
+        </div>
+        <div className="mt-4">
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={course.lessonQuizPolicy?.required !== false}
+              onChange={(e) => setCourse({
+                ...course,
+                lessonQuizPolicy: {
+                  ...course.lessonQuizPolicy,
+                  required: e.target.checked,
+                },
+              })}
+              className="w-5 h-5 text-brand-accent rounded focus:ring-brand-accent"
+            />
+            <span className="text-sm font-medium text-brand-black">Require lesson quiz pass before lesson completion</span>
+          </label>
+        </div>
         <div>
           <label className="block text-sm font-medium text-brand-black mb-2">
             Max wrong answers allowed
@@ -855,69 +896,101 @@ export default function CourseEditorPage({
             min="0"
             max="10"
             step="1"
-            value={course.quizMaxWrongAllowed ?? ''}
+            value={course.lessonQuizPolicy?.maxWrongAllowed ?? course.quizMaxWrongAllowed ?? ''}
             onChange={(e) => {
               const v = e.target.value === '' ? undefined : Math.min(10, Math.max(0, parseInt(e.target.value, 10) || 0));
-              setCourse({ ...course, quizMaxWrongAllowed: v });
+              setCourse({
+                ...course,
+                quizMaxWrongAllowed: v,
+                lessonQuizPolicy: {
+                  ...course.lessonQuizPolicy,
+                  maxWrongAllowed: v,
+                },
+              });
             }}
             className="w-full max-w-[120px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
             placeholder="e.g. 1"
           />
           <p className="text-xs text-brand-darkGrey mt-1">
-            If set (0–10), lesson quiz fails when wrong answers exceed this. Leave empty to use success threshold % per lesson.
+            If set (0–10), lesson quiz fails when wrong answers exceed this. Leave empty to use the course success threshold % below.
           </p>
         </div>
         <div className="mt-4">
           <label className="block text-sm font-medium text-brand-black mb-2">
-            Number of questions per lesson quiz (default)
+            Number of questions per lesson quiz
           </label>
           <input
             type="number"
             min="1"
             max="50"
             step="1"
-            value={course.defaultLessonQuizQuestionCount ?? ''}
+            value={course.lessonQuizPolicy?.questionCount ?? course.defaultLessonQuizQuestionCount ?? ''}
             onChange={(e) => {
               const v = e.target.value === '' ? undefined : Math.min(50, Math.max(1, parseInt(e.target.value, 10) || 1));
-              setCourse({ ...course, defaultLessonQuizQuestionCount: v });
+              setCourse({
+                ...course,
+                defaultLessonQuizQuestionCount: v,
+                lessonQuizPolicy: {
+                  ...course.lessonQuizPolicy,
+                  questionCount: v,
+                },
+              });
             }}
             className="w-full max-w-[120px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
             placeholder="e.g. 5"
           />
           <p className="text-xs text-brand-darkGrey mt-1">
-            Used when a lesson does not set its own &quot;Questions to Show&quot;. Leave empty to use each lesson&apos;s setting or 5.
+            Runtime uses this course-level value directly (lesson-level questionCount is ignored).
           </p>
         </div>
-        <div className="mt-4 flex flex-wrap items-center gap-3">
-          <button
-            type="button"
-            disabled={applyQuizDefaultsLoading || (course.defaultLessonQuizQuestionCount == null || course.defaultLessonQuizQuestionCount < 1)}
-            onClick={async () => {
-              if (!courseId || !confirm('Apply the course default question count to all lessons that have a quiz enabled? This overwrites each lesson\'s "Questions to Show".')) return;
-              setApplyQuizDefaultsLoading(true);
-              setApplyQuizDefaultsMessage(null);
-              try {
-                const res = await fetch(`/api/admin/courses/${courseId}/apply-quiz-defaults`, { method: 'POST' });
-                const data = await res.json();
-                if (data.success) {
-                  setApplyQuizDefaultsMessage(data.message ?? `Applied to ${data.updated} lesson(s).`);
-                  fetchLessons(courseId);
-                } else {
-                  setApplyQuizDefaultsMessage(data.error ?? 'Failed');
-                }
-              } catch (_e) {
-                setApplyQuizDefaultsMessage('Request failed');
-              } finally {
-                setApplyQuizDefaultsLoading(false);
-              }
+        <div className="mt-4">
+          <label className="block text-sm font-medium text-brand-black mb-2">
+            Shown answer options per question
+          </label>
+          <select
+            value={course.lessonQuizPolicy?.shownAnswerCount ?? 3}
+            onChange={(e) => {
+              const v = Math.min(4, Math.max(2, parseInt(e.target.value, 10) || 3));
+              setCourse({
+                ...course,
+                lessonQuizPolicy: {
+                  ...course.lessonQuizPolicy,
+                  shownAnswerCount: v,
+                },
+              });
             }}
-            className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full max-w-[140px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
           >
-            {applyQuizDefaultsLoading ? 'Applying…' : 'Apply to all lessons'}
-          </button>
-          {applyQuizDefaultsMessage != null && (
-            <span className="text-sm text-brand-darkGrey">{applyQuizDefaultsMessage}</span>
-          )}
+            <option value={2}>2 options</option>
+            <option value={3}>3 options</option>
+            <option value={4}>4 options</option>
+          </select>
+        </div>
+        <div className="mt-4">
+          <label className="block text-sm font-medium text-brand-black mb-2">
+            Success threshold (%) fallback
+          </label>
+          <input
+            type="number"
+            min="0"
+            max="100"
+            step="1"
+            value={course.lessonQuizPolicy?.successThreshold ?? 70}
+            onChange={(e) => {
+              const v = Math.min(100, Math.max(0, parseInt(e.target.value, 10) || 0));
+              setCourse({
+                ...course,
+                lessonQuizPolicy: {
+                  ...course.lessonQuizPolicy,
+                  successThreshold: v,
+                },
+              });
+            }}
+            className="w-full max-w-[120px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+          />
+          <p className="text-xs text-brand-darkGrey mt-1">
+            Used when &quot;Max wrong answers allowed&quot; is empty.
+          </p>
         </div>
       </div>
 
@@ -1644,7 +1717,6 @@ function LessonFormModal({
 	  onClose: () => void;
 	  onSave: () => void;
 	}) {
-  const useCoursePassRule = typeof course.quizMaxWrongAllowed === 'number' && course.quizMaxWrongAllowed >= 0;
   const [formData, setFormData] = useState({
     lessonId: lesson?.lessonId || `DAY_${dayNumber.toString().padStart(2, '0')}`,
     title: lesson?.title || '',
@@ -1654,13 +1726,6 @@ function LessonFormModal({
     assessmentGameId: lesson?.assessmentGameId || '',
     pointsReward: lesson?.pointsReward || 50,
     xpReward: lesson?.xpReward || 25,
-    quizConfig: {
-      enabled: lesson?.quizConfig?.enabled || false,
-      successThreshold: lesson?.quizConfig?.successThreshold || 70,
-      questionCount: lesson?.quizConfig?.questionCount || 5,
-      poolSize: lesson?.quizConfig?.poolSize || 10,
-      required: lesson?.quizConfig?.required !== false, // Default true
-    },
   });
   const [saving, setSaving] = useState(false);
   const [showQuizManager, setShowQuizManager] = useState(false);
@@ -1786,140 +1851,35 @@ function LessonFormModal({
             </div>
           </div>
 
-          {/* Quiz Configuration Section */}
+          {/* Lesson Quiz Section */}
           <div className="border-2 border-brand-accent rounded-lg p-4 bg-brand-darkGrey/10">
-            <div className="flex items-center justify-between mb-4">
+            <div className="mb-4">
               <div>
-                <h3 className="text-lg font-bold text-brand-black">Lesson Quiz/Survey</h3>
-                <p className="text-sm text-brand-darkGrey">Configure assessment quiz for this lesson</p>
+                <h3 className="text-lg font-bold text-brand-black">Lesson Quiz Questions</h3>
+                <p className="text-sm text-brand-darkGrey">
+                  Quiz behavior is configured at course level. Here you manage only the question content for this lesson.
+                </p>
+                <p className="text-xs text-brand-darkGrey mt-2">
+                  Course policy: {course.lessonQuizPolicy?.enabled !== false ? 'enabled' : 'disabled'}; required: {course.lessonQuizPolicy?.required !== false ? 'yes' : 'no'}; questions: {course.lessonQuizPolicy?.questionCount ?? course.defaultLessonQuizQuestionCount ?? 5}; shown answers: {course.lessonQuizPolicy?.shownAnswerCount ?? 3}; max wrong: {course.lessonQuizPolicy?.maxWrongAllowed ?? course.quizMaxWrongAllowed ?? 'n/a'}; threshold: {course.lessonQuizPolicy?.successThreshold ?? 70}%.
+                </p>
               </div>
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={formData.quizConfig.enabled}
-                  onChange={(e) => setFormData({
-                    ...formData,
-                    quizConfig: { ...formData.quizConfig, enabled: e.target.checked }
-                  })}
-                  className="w-5 h-5 text-brand-accent rounded focus:ring-brand-accent"
-                />
-                <span className="text-sm font-medium text-brand-black">Enable Quiz</span>
-              </label>
             </div>
 
-            {formData.quizConfig.enabled && (
-              <div className="space-y-4">
-                {useCoursePassRule ? (
-                  <p className="text-sm text-brand-darkGrey py-1">
-                    Pass rule: <strong>Course setting</strong> — max {course.quizMaxWrongAllowed} wrong answer{course.quizMaxWrongAllowed !== 1 ? 's' : ''} allowed (unified for all lessons).
-                  </p>
-                ) : (
-                  <div>
-                    <label className="block text-sm font-medium text-brand-black mb-2">
-                      Success Threshold (%)
-                    </label>
-                    <input
-                      type="number"
-                      min="0"
-                      max="100"
-                      value={formData.quizConfig.successThreshold}
-                      onChange={(e) => setFormData({
-                        ...formData,
-                        quizConfig: {
-                          ...formData.quizConfig,
-                          successThreshold: parseInt(e.target.value) || 0
-                        }
-                      })}
-                      className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-                    />
-                    <p className="text-xs text-brand-darkGrey mt-1">
-                      Minimum % of correct answers to pass (0-100). Set &quot;Max wrong answers allowed&quot; on the course to use a unified rule instead.
-                    </p>
-                  </div>
-                )}
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-brand-black mb-2">
-                      Questions to Show
-                    </label>
-                    <input
-                      type="number"
-                      min="1"
-                      max="50"
-                      value={formData.quizConfig.questionCount}
-                      onChange={(e) => setFormData({
-                        ...formData,
-                        quizConfig: {
-                          ...formData.quizConfig,
-                          questionCount: parseInt(e.target.value) || 1
-                        }
-                      })}
-                      className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-                    />
-                    <p className="text-xs text-brand-darkGrey mt-1">
-                      Number of questions users will answer
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-brand-black mb-2">
-                      Question Pool Size
-                    </label>
-                    <input
-                      type="number"
-                      min="1"
-                      value={formData.quizConfig.poolSize}
-                      onChange={(e) => setFormData({
-                        ...formData,
-                        quizConfig: {
-                          ...formData.quizConfig,
-                          poolSize: parseInt(e.target.value) || 1
-                        }
-                      })}
-                      className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-                    />
-                    <p className="text-xs text-brand-darkGrey mt-1">
-                      Total questions in pool (system selects from this)
-                    </p>
-                  </div>
-
-                  <div>
-                    <label className="flex items-center gap-2 cursor-pointer mt-6">
-                      <input
-                        type="checkbox"
-                        checked={formData.quizConfig.required}
-                        onChange={(e) => setFormData({
-                          ...formData,
-                          quizConfig: {
-                            ...formData.quizConfig,
-                            required: e.target.checked
-                          }
-                        })}
-                        className="w-5 h-5 text-brand-accent rounded focus:ring-brand-accent"
-                      />
-                      <span className="text-sm font-medium text-brand-black">Required to Complete Lesson</span>
-                    </label>
-                    <p className="text-xs text-brand-darkGrey mt-1 ml-7">
-                      Users must pass quiz to complete lesson
-                    </p>
-                  </div>
-                </div>
-
-                {lesson && (
-                  <div className="pt-4 border-t border-brand-darkGrey/20">
-                    <button
-                      type="button"
-                      onClick={() => setShowQuizManager(true)}
-                      className="w-full px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors flex items-center justify-center gap-2"
-                    >
-                      <span>📝</span>
-                      Manage Quiz Questions
-                    </button>
-                  </div>
-                )}
+            {lesson ? (
+              <div className="pt-4 border-t border-brand-darkGrey/20">
+                <button
+                  type="button"
+                  onClick={() => setShowQuizManager(true)}
+                  className="w-full px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors flex items-center justify-center gap-2"
+                >
+                  <span>📝</span>
+                  Manage Quiz Questions
+                </button>
               </div>
+            ) : (
+              <p className="text-xs text-brand-darkGrey">
+                Save the lesson first, then use &quot;Manage Quiz Questions&quot;.
+              </p>
             )}
           </div>
 

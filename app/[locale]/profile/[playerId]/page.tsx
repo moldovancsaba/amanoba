@@ -45,6 +45,11 @@ const languageNames: Record<LanguageNameKey, string> = {
   pl: 'Polski',
   ru: 'Русский',
   sw: 'Kiswahili',
+  zh: '中文',
+  es: 'Español',
+  fr: 'Français',
+  bn: 'বাংলা',
+  ur: 'اردو',
 };
 
 // Force dynamic rendering

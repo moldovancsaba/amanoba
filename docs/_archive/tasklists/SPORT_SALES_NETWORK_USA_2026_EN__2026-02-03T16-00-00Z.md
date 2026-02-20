@@ -13,7 +13,7 @@
 - [x] Confirm target is English-speaking, US-focused multi-motion sales leaders/teams
 
 ## Phase B — Course idea (artifact)
-- [x] Course positioning + outcomes captured in `docs/course_ideas/amanoba_course_sport_sales_network_usa_2026.md`
+- [x] Course positioning + outcomes captured in `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/course_ideas/amanoba_course_sport_sales_network_usa_2026.md`
 - [x] 30-day high-level syllabus in same doc (objectives, exercises, deliverables, sources)
 - [x] Reviewed differentiation; the “US multi-motion + procurement-ready + partner enablement” framing is complete for seeding
 
@@ -32,7 +32,7 @@
 
 ## Phase F — Lessons / quizzes / audits
 - [ ] Draft Day 1–30 lesson content + emails following canonical outline (EN, production-ready copy).
-- [ ] Generate/validate 7+ quiz questions per lesson (≥5 application, 0 recall) using `docs/course_ideas/amanoba_course_sport_sales_network_usa_2026_questions.md` as seed.
+- [ ] Generate/validate 7+ quiz questions per lesson (≥5 application, 0 recall) using `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/course_ideas/amanoba_course_sport_sales_network_usa_2026_questions.md` as seed.
 - [ ] Run lesson quality + language integrity audits (`audit-lesson-quality`, `audit-lesson-language-integrity`) after each batch of lessons.
 - [ ] Publish lessons (set `isActive=true`) and ensure quizzes tied via admin API/script once validated.
 - [ ] Conduct final course smoke test (enroll → lessons → quizzes → certificate workflow) before takeover.

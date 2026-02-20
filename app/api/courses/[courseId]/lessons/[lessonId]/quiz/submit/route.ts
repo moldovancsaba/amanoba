@@ -13,6 +13,7 @@ import { getCorrectAnswerString } from '@/app/lib/quiz-questions';
 import { logger } from '@/lib/logger';
 import mongoose from 'mongoose';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
+import { resolveCourseQuizPolicy } from '@/lib/course-quiz-policy';
 
 /**
  * POST /api/courses/[courseId]/lessons/[lessonId]/quiz/submit
@@ -54,10 +55,17 @@ export async function POST(
       return NextResponse.json({ error: 'Lesson not found' }, { status: 404 });
     }
 
-    // Check if quiz is enabled
-    if (!lesson.quizConfig?.enabled) {
+    const policy = resolveCourseQuizPolicy(course as Parameters<typeof resolveCourseQuizPolicy>[0]);
+    const availableQuestionCount = await QuizQuestion.countDocuments({
+      courseId: course._id,
+      lessonId,
+      isCourseSpecific: true,
+      isActive: true,
+    });
+    const quizEnabled = policy.enabled && availableQuestionCount > 0;
+    if (!quizEnabled) {
       return NextResponse.json(
-        { error: 'Quiz is not enabled for this lesson' },
+        { error: 'Quiz is not available for this lesson' },
         { status: 400 }
       );
     }
@@ -156,8 +164,8 @@ export async function POST(
     const score = correct;
     const wrongCount = total - correct;
     const percentage = total > 0 ? Math.round((score / total) * 100) : 0;
-    const threshold = lesson.quizConfig.successThreshold ?? 70;
-    const quizMaxWrongAllowed = (course as { quizMaxWrongAllowed?: number }).quizMaxWrongAllowed;
+    const threshold = policy.successThreshold;
+    const quizMaxWrongAllowed = policy.maxWrongAllowed;
     const passed =
       typeof quizMaxWrongAllowed === 'number' && quizMaxWrongAllowed >= 0
         ? wrongCount <= quizMaxWrongAllowed
@@ -232,7 +240,7 @@ export async function POST(
       percentage,
       passed,
       threshold,
-      quizMaxWrongAllowed: (course as { quizMaxWrongAllowed?: number }).quizMaxWrongAllowed,
+      quizMaxWrongAllowed: policy.maxWrongAllowed,
     }, 'Quiz submitted');
 
     return NextResponse.json({

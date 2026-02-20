@@ -60,7 +60,7 @@ function parseDocsIndexCoreDocs(docsIndex: string) {
 function decide(relPath: string, coreDocs: Set<string>): Decision {
   const filename = relPath.split('/').at(-1) || relPath;
 
-  if (relPath === 'docs/DOCS_INDEX.md') {
+  if (relPath === 'docs/core/DOCS_INDEX.md') {
     return { action: 'KEEP', reason: 'Single entry point (canonical docs index).' };
   }
 
@@ -105,7 +105,11 @@ function decide(relPath: string, coreDocs: Set<string>): Decision {
   }
 
   if (/^STATUS\.md$/i.test(filename)) {
-    return { action: 'MERGE', reason: 'Status should live in TASKLIST/ROADMAP/RELEASE_NOTES.', mergeInto: 'docs/TASKLIST.md' };
+    return {
+      action: 'MERGE',
+      reason: 'Status should live in TASKLIST/ROADMAP/RELEASE_NOTES.',
+      mergeInto: 'docs/product/TASKLIST.md',
+    };
   }
 
   if (/(PLAN|ROLLBACK_PLAN|DELIVERY_PLAN|EXECUTION_PLAN|PROGRESS_TRACKER|AUDIT|HANDOVER|SUMMARY|REPORT|CHECKLIST|RUNBOOK|PLAYBOOK)\.md$/i.test(filename)) {
@@ -121,7 +125,9 @@ function decide(relPath: string, coreDocs: Set<string>): Decision {
 
 async function main() {
   const cwd = process.cwd();
-  const docsIndexPath = resolve(cwd, 'docs', 'DOCS_INDEX.md');
+  const docsIndexPathPrimary = resolve(cwd, 'docs', 'core', 'DOCS_INDEX.md');
+  const docsIndexPathFallback = resolve(cwd, 'docs', 'DOCS_INDEX.md');
+  const docsIndexPath = existsSync(docsIndexPathPrimary) ? docsIndexPathPrimary : docsIndexPathFallback;
   const docsIndex = await readText(docsIndexPath);
   const { core: coreDocs, reference: referenceDocs } = parseDocsIndexCoreDocs(docsIndex);
 
@@ -175,7 +181,7 @@ async function main() {
     lines.push(`| ${action} | \`${path}\` | ${title} | ${size} | ${target === '—' ? '—' : `\`${target}\``} | ${reason} |`);
   }
 
-  const outPath = resolve(cwd, 'docs', 'DOCS_CANONICAL_MAP.md');
+  const outPath = resolve(cwd, 'docs', 'core', 'DOCS_CANONICAL_MAP.md');
   await writeGeneratedMarkdown(
     outPath,
     resolve(cwd, 'scripts', 'docs', 'generate-docs-canonical-map.ts'),

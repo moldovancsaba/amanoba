@@ -132,8 +132,8 @@ Total Locales Tested: 11
 2. `scripts/test-language-filtering.ts` - Language filtering validation
 
 ### Documentation
-1. `docs/_archive/delivery/2026-01/2026-01-24_ARCHITECTURE_FIX_COURSE_LANGUAGE_SEPARATION.md` - Feature document
-2. `docs/ARCHITECTURE_GAP_ANALYSIS.md` - Detailed gap analysis
+1. `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/_archive/delivery/2026-01/2026-01-24_ARCHITECTURE_FIX_COURSE_LANGUAGE_SEPARATION.md` - Feature document
+2. `docs/architecture/ARCHITECTURE_GAP_ANALYSIS.md` - Detailed gap analysis
 3. `ARCHITECTURE_FIX_DELIVERY_SUMMARY.md` - This summary
 
 ---
@@ -249,9 +249,9 @@ npm run dev         # Test locally
 
 After deployment, update:
 
-- [ ] `docs/ARCHITECTURE.md` - Add section on language separation
-- [ ] `docs/ADMIN_GUIDE.md` - Document per-language course management
-- [ ] `docs/DEPLOYMENT.md` - Note that language filtering is automatic
+- [ ] `docs/architecture/ARCHITECTURE.md` - Add section on language separation
+- [ ] Legacy `ADMIN_GUIDE.md` was removed during docs normalization; document per-language course management in `docs/architecture/ARCHITECTURE.md`
+- [ ] `docs/deployment/DEPLOYMENT.md` - Note that language filtering is automatic
 - [ ] `RELEASE_NOTES.md` - Document this fix
 - [ ] `TASKLIST.md` - Mark architecture fix complete
 

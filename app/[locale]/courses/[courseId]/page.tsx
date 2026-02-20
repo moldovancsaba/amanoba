@@ -40,6 +40,8 @@ interface Course {
   isActive: boolean;
   requiresPremium: boolean;
   durationDays: number;
+  prerequisiteCourses?: Array<{ courseId: string; name?: string }>;
+  prerequisiteEnforcement?: 'hard' | 'soft';
   pointsConfig: {
     completionPoints: number;
     lessonPoints: number;
@@ -111,6 +113,8 @@ export default function CourseDetailPage({
   const [thumbnailError, setThumbnailError] = useState(false);
   const [leaderboardEntries, setLeaderboardEntries] = useState<Array<{ rank: number; score: number; player?: { displayName?: string } | null }>>([]);
   const [leaderboardLoading, setLeaderboardLoading] = useState(false);
+  const [completedCourseIds, setCompletedCourseIds] = useState<string[]>([]);
+  const [unmetPrereqsFromEnroll, setUnmetPrereqsFromEnroll] = useState<Array<{ courseId: string; name?: string }>>([]);
 
   // All translations use course language via getCourseDetailText()
 
@@ -767,6 +771,8 @@ export default function CourseDetailPage({
     }
   }, []);
 
+  const normalizeCourseId = (value?: string | null) => (value ? value.toUpperCase() : '');
+
   const checkEnrollment = useCallback(async (cid: string) => {
     if (!session) return;
 
@@ -774,6 +780,12 @@ export default function CourseDetailPage({
       const response = await fetch(`/api/my-courses`);
       const data = await response.json();
       if (data.success) {
+        const completed = Array.isArray(data.courses)
+          ? data.courses
+              .filter((c: { progress?: { isCompleted?: boolean } }) => c?.progress?.isCompleted)
+              .map((c: { course: { courseId: string } }) => normalizeCourseId(c.course.courseId))
+          : [];
+        setCompletedCourseIds(completed);
         const myCourse = data.courses.find(
           (c: { course: { courseId: string } }) => c.course.courseId === cid
         );
@@ -900,6 +912,16 @@ export default function CourseDetailPage({
     return formatter.format(mainUnit);
   };
 
+  const completedCourseIdSet = useMemo(() => new Set(completedCourseIds.map(normalizeCourseId)), [completedCourseIds]);
+  const unmetPrereqs = useMemo(() => {
+    const prereqs = course?.prerequisiteCourses ?? [];
+    if (prereqs.length === 0) return unmetPrereqsFromEnroll;
+    const unmet = prereqs.filter((prereq) => !completedCourseIdSet.has(normalizeCourseId(prereq.courseId)));
+    return unmet.length > 0 ? unmet : unmetPrereqsFromEnroll;
+  }, [course?.prerequisiteCourses, completedCourseIdSet, unmetPrereqsFromEnroll]);
+  const prereqEnforcement = course?.prerequisiteEnforcement ?? 'hard';
+  const prereqBlocked = unmetPrereqs.length > 0 && prereqEnforcement === 'hard';
+
   const renderCertificationBlock = () => {
     if (!course || !entitlement) return null;
     const completed = Boolean(enrollment?.progress?.isCompleted);
@@ -969,12 +991,18 @@ export default function CourseDetailPage({
     if (!session || !courseId) return;
 
     setEnrolling(true);
+    setUnmetPrereqsFromEnroll([]);
     try {
       const response = await fetch(`/api/courses/${courseId}/enroll`, {
         method: 'POST',
       });
 
       const data = await response.json();
+
+      if (response.status === 403 && data?.code === 'PREREQUISITES_NOT_MET') {
+        setUnmetPrereqsFromEnroll((data.unmetPrerequisites || []) as Array<{ courseId: string; name?: string }>);
+        return;
+      }
 
       if (data.success) {
         trackGAEvent('course_enroll', {
@@ -1274,6 +1302,22 @@ export default function CourseDetailPage({
                   </div>
                 )}
 
+                {(course.prerequisiteCourses && course.prerequisiteCourses.length > 0) || unmetPrereqs.length > 0 ? (
+                  <div className={`rounded-lg border p-3 ${prereqBlocked ? 'border-amber-500/60 bg-amber-50' : 'border-brand-darkGrey/25 bg-brand-darkGrey/5'}`}>
+                    <div className="text-sm font-semibold text-brand-darkGrey">
+                      {prereqBlocked ? 'Prerequisites required' : 'Prerequisites'}
+                    </div>
+                    <div className="mt-1 text-xs text-brand-darkGrey">
+                      {(unmetPrereqs.length > 0 ? unmetPrereqs : course.prerequisiteCourses || []).map((prereq) => prereq.name ?? prereq.courseId).join(', ')}
+                    </div>
+                    {prereqBlocked && (
+                      <div className="mt-2 text-xs text-amber-700">
+                        Complete the prerequisites before enrolling.
+                      </div>
+                    )}
+                  </div>
+                ) : null}
+
                 {enrollment?.enrolled ? (
                   <div className="space-y-3">
                     <div className="bg-green-500/20 border border-green-500 rounded-lg p-3">
@@ -1352,7 +1396,7 @@ export default function CourseDetailPage({
                     </div>
                     <button
                       onClick={handleEnroll}
-                      disabled={enrolling}
+                      disabled={enrolling || prereqBlocked}
                       className="w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base"
                     >
                       {enrolling ? getCourseDetailText('enrolling') : getCourseDetailText('enrollNow')}
@@ -1361,7 +1405,7 @@ export default function CourseDetailPage({
                 ) : (
                   <button
                     onClick={handleEnroll}
-                    disabled={enrolling}
+                    disabled={enrolling || prereqBlocked}
                     className="w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base"
                   >
                     {enrolling ? getCourseDetailText('enrolling') : getCourseDetailText('enrollNow')}
@@ -1379,13 +1423,21 @@ export default function CourseDetailPage({
 
         {/* Mobile CTA bar */}
         {course && (
-          <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-brand-darkGrey/95 backdrop-blur border-t border-brand-accent px-4 py-3">
+          <div
+            className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-brand-darkGrey/95 backdrop-blur border-t border-brand-accent px-4 py-3"
+            style={{ bottom: 'var(--consent-banner-height, 0px)' }}
+          >
             <div className="flex items-center justify-between gap-3">
               <div className="flex-1 text-brand-white text-sm leading-tight">
                 <div className="font-bold text-base line-clamp-1">{course.name}</div>
                 {enrollment?.progress && (
                   <div className="text-xs opacity-80">
                     {getCourseDetailText('dayOf', { currentDay: enrollment.progress.currentDay, totalDays: course.durationDays })} • {getCourseDetailText('daysCompleted', { count: enrollment.progress.completedDays })}
+                  </div>
+                )}
+                {prereqBlocked && (
+                  <div className="text-xs text-amber-300 mt-1">
+                    Prerequisites required
                   </div>
                 )}
               </div>
@@ -1416,7 +1468,7 @@ export default function CourseDetailPage({
                 ) : (
                   <button
                     onClick={handleEnroll}
-                    disabled={enrolling}
+                    disabled={enrolling || prereqBlocked}
                     className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
                   >
                     {enrolling ? getCourseDetailText('enrolling') : getCourseDetailText('enrollNow')}

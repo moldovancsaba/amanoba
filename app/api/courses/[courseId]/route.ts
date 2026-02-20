@@ -12,7 +12,7 @@ import { logger } from '@/lib/logger';
 import { resolveCourseNameForLocale, resolveCourseDescriptionForLocale } from '@/app/lib/utils/course-i18n';
 import type { Locale } from '@/app/lib/i18n/locales';
 
-const VALID_LOCALES: Locale[] = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru', 'sw'];
+const VALID_LOCALES: Locale[] = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru', 'sw', 'zh', 'es', 'fr', 'bn', 'ur'];
 function parseLocale(value: string | null): Locale | null {
   if (!value) return null;
   return VALID_LOCALES.includes(value as Locale) ? (value as Locale) : null;
@@ -36,18 +36,38 @@ export async function GET(
 
     const selectFields =
       locale != null
-        ? 'courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig metadata price createdAt translations discussionEnabled leaderboardEnabled studyGroupsEnabled'
-        : 'courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig metadata price createdAt discussionEnabled leaderboardEnabled studyGroupsEnabled';
+        ? 'courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig metadata price createdAt prerequisiteCourseIds prerequisiteEnforcement translations discussionEnabled leaderboardEnabled studyGroupsEnabled'
+        : 'courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig metadata price createdAt prerequisiteCourseIds prerequisiteEnforcement discussionEnabled leaderboardEnabled studyGroupsEnabled';
     const course = await Course.findOne({ courseId })
       .select(selectFields)
+      .populate('prerequisiteCourseIds', 'courseId name')
       .lean();
 
     if (!course) {
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
 
+    const prerequisiteCourses = Array.isArray(course.prerequisiteCourseIds)
+      ? course.prerequisiteCourseIds
+          .map((prereq) => {
+            if (prereq && typeof prereq === 'object' && 'courseId' in prereq) {
+              const typed = prereq as { courseId?: string; name?: string };
+              if (!typed.courseId) return null;
+              return { courseId: typed.courseId, name: typed.name };
+            }
+            return null;
+          })
+          .filter(Boolean)
+      : [];
+    const base = {
+      ...course,
+      prerequisiteCourses,
+      prerequisiteEnforcement: course.prerequisiteEnforcement ?? undefined,
+    };
+    const { prerequisiteCourseIds: _prereqIds, ...restBase } = base as typeof base & { prerequisiteCourseIds?: unknown };
+
     if (locale != null && course.name != null && course.description != null) {
-      const { translations: _translations, ...rest } = course as typeof course & { translations?: unknown };
+      const { translations: _translations, ...rest } = restBase as typeof restBase & { translations?: unknown };
       const resolved = {
         ...rest,
         name: resolveCourseNameForLocale(course as Parameters<typeof resolveCourseNameForLocale>[0], locale),
@@ -56,8 +76,8 @@ export async function GET(
       return NextResponse.json({ success: true, course: resolved });
     }
 
-    const { translations: _t, ...rest } = course as typeof course & { translations?: unknown };
-    const payload = _t !== undefined ? rest : course;
+    const { translations: _t, ...rest } = restBase as typeof restBase & { translations?: unknown };
+    const payload = _t !== undefined ? rest : restBase;
     return NextResponse.json({ success: true, course: payload });
   } catch (error) {
     logger.error({ error, courseId: (await params).courseId }, 'Failed to fetch course');

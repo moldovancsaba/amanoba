@@ -30,7 +30,7 @@
 
 ## Phase D — CCS (repo canonical)
 - [x] Create `docs/canonical/SCRUMMASTER_LESZEK_2026/SCRUMMASTER_LESZEK_2026.canonical.json`
-- [x] Create `docs/canonical/SCRUMMASTER_LESZEK_2026/SCRUMMASTER_LESZEK_2026_CCS.md`
+- [x] Create `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/canonical/SCRUMMASTER_LESZEK_2026/SCRUMMASTER_LESZEK_2026_CCS.md`
 
 ## Next command
 `Proceed to Phase E: implement a seed script for SCRUMMASTER_LESZEK_2026_HU (dry-run first), creating CCS DB record + course + 30 lessons in production dbName=amanoba.`

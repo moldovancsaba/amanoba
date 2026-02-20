@@ -8,15 +8,15 @@
 
 ### To Resume Work:
 ```
-[ ] Read: docs/HANDOFF_DOCUMENT_COMPREHENSIVE.md (full context)
-[ ] Read: docs/DAY_1_QUESTIONS_ALL_LANGUAGES.md (see the actual question data)
+[ ] Read: docs/handoff/HANDOFF_DOCUMENT_COMPREHENSIVE.md (full context)
+[ ] Read: /Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/DAY_1_QUESTIONS_ALL_LANGUAGES.md (see the actual question data)
 [ ] Open: scripts/seed-day-1-professional.ts (see what's incomplete)
 ```
 
 ### To Complete Day 1:
 ```
 [ ] Edit: scripts/seed-day-1-professional.ts
-    - Copy Q2-Q7 data from docs/DAY_1_QUESTIONS_ALL_LANGUAGES.md
+    - Copy Q2-Q7 data from /Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/DAY_1_QUESTIONS_ALL_LANGUAGES.md
     - Follow the Q1 structure as template
     - Add all 10 languages for each question
 
@@ -36,13 +36,13 @@
 [ ] Run: MONGODB_URI=$(sed -n 's/^MONGODB_URI=//p' .env.local) npx tsx scripts/get-lesson-content.ts
     - Adapt for PRODUCTIVITY_2026_HU_DAY_02
 
-[ ] Create: docs/DAY_2_QUESTIONS_PROFESSIONAL.md
+[ ] Create: /Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/DAY_2_QUESTIONS_PROFESSIONAL.md
     - Follow Day 1 structure
     - Create 7 professional questions in English
     - Mix: 3 recall, 3 application, 1 critical thinking
 
 [ ] Translate: All 7 questions to 10 languages
-    - Create: docs/DAY_2_QUESTIONS_ALL_LANGUAGES.md
+    - Create: /Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/DAY_2_QUESTIONS_ALL_LANGUAGES.md
 
 [ ] Seed: Create scripts/seed-day-2-professional.ts
     - Copy from Day 1 template
@@ -82,13 +82,13 @@
 **If you need to...**:
 
 **Understand the problem**:
-→ `docs/HANDOFF_DOCUMENT_COMPREHENSIVE.md` section "CRITICAL FINDING: DATABASE IS CORRUPTED"
+→ `docs/handoff/HANDOFF_DOCUMENT_COMPREHENSIVE.md` section "CRITICAL FINDING: DATABASE IS CORRUPTED"
 
 **See Day 1 professional questions**:
-→ `docs/DAY_1_QUESTIONS_PROFESSIONAL.md`
+→ `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/DAY_1_QUESTIONS_PROFESSIONAL.md`
 
 **Get the actual translation data for Day 1**:
-→ `docs/DAY_1_QUESTIONS_ALL_LANGUAGES.md`
+→ `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/DAY_1_QUESTIONS_ALL_LANGUAGES.md`
 
 **Examine current database state**:
 → `scripts/reality-check.ts`
@@ -121,13 +121,13 @@
     MONGODB_URI=$(sed -n 's/^MONGODB_URI=//p' .env.local) npx tsx scripts/reality-check.ts
 
 [ ] You have day 1 data
-    Review: docs/DAY_1_QUESTIONS_ALL_LANGUAGES.md
+    Review: /Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/DAY_1_QUESTIONS_ALL_LANGUAGES.md
 
 [ ] You understand the format
     Review: scripts/seed-day-1-professional.ts structure
 
 [ ] You know the quality standards
-    Review: docs/HANDOFF_DOCUMENT_COMPREHENSIVE.md "Quality Standards"
+    Review: docs/handoff/HANDOFF_DOCUMENT_COMPREHENSIVE.md "Quality Standards"
 ```
 
 ---

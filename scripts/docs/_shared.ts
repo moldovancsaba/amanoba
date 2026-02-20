@@ -11,13 +11,16 @@ export type DocFile = {
 };
 
 export function listGitTrackedFiles(patterns: string[]) {
-  const args = ['ls-files', '-z', '--', ...patterns];
-  const out = execFileSync('git', args, { encoding: 'utf8' });
-  return out
-    .split('\0')
+  const trackedArgs = ['ls-files', '-z', '--', ...patterns];
+  const untrackedArgs = ['ls-files', '--others', '--exclude-standard', '-z', '--', ...patterns];
+  const tracked = execFileSync('git', trackedArgs, { encoding: 'utf8' });
+  const untracked = execFileSync('git', untrackedArgs, { encoding: 'utf8' });
+
+  return [...tracked.split('\0'), ...untracked.split('\0')]
     .map((s) => s.trim())
     .filter(Boolean)
-    .map((s) => s.replaceAll('\\', '/'));
+    .map((s) => s.replaceAll('\\', '/'))
+    .filter((v, i, a) => a.indexOf(v) === i);
 }
 
 export async function readText(filePath: string) {

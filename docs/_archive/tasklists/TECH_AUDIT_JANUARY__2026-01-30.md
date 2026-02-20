@@ -38,13 +38,13 @@
 - [x] P2.4 Email service: map hex colors to design tokens or single email theme object — **done**: `EMAIL_TOKENS.ctaBg` uses `NEXT_PUBLIC_THEME_COLOR` or #FAB908
 - [x] P2.5 Admin analytics Recharts: move stroke/fill hex to shared chart theme — **done**: `CHART_THEME` in admin analytics page
 - [x] P2.6 Layout themeColor and APP_URL fallbacks — **done**: APP_URL from `app/lib/constants/app-url.ts` (env); themeColor from `THEME_COLOR` (NEXT_PUBLIC_THEME_COLOR or #FAB908)
-- [x] P2.7 Plan removal of `assessmentGameId` — **done**: see `docs/ASSESSMENT_GAME_ID_MIGRATION.md`; keep field for backward compatibility
+- [x] P2.7 Plan removal of `assessmentGameId` — **done**: see `docs/features/ASSESSMENT_GAME_ID_MIGRATION.md`; keep field for backward compatibility
 
 ---
 
 ## P3 — Known issues, UI, consistency
 
-- [x] P3.1 Resolve or ticket: profile highestScore/perfectGames, admin settings save, system-info uptime, game status API, challenge retry queue — **done**: backlog in `docs/P3_KNOWN_ISSUES_BACKLOG.md`
+- [x] P3.1 Resolve or ticket: profile highestScore/perfectGames, admin settings save, system-info uptime, game status API, challenge retry queue — **done**: backlog in `docs/product/P3_KNOWN_ISSUES_BACKLOG.md`
 - [x] P3.2 Replace admin `<img>` with Next.js `<Image />` — **done**: admin settings, rewards, games, courses list, course editor
 - [x] P3.3 Audit CTA yellow usage (ensure only primary actions use #FAB908; badges/TOC use neutral) — **done**: `docs/_archive/delivery/2026-01/2026-01-28_CTA_YELLOW_AUDIT.md`; admin rewards/games badges → neutral
 - [x] P3.4 Standardise import alias (`@/` vs `@/app/`) and prefer `logger` over `console` in server code — **documented**: alias convention in P3 backlog; logger preference backlog

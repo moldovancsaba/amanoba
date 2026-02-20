@@ -32,7 +32,7 @@ async function main() {
     lines.push(`| \`${path}\` | ${title} | ${size} |`);
   }
 
-  const outPath = resolve(cwd, 'docs', 'DOCS_INVENTORY.md');
+  const outPath = resolve(cwd, 'docs', 'core', 'DOCS_INVENTORY.md');
   await writeGeneratedMarkdown(outPath, resolve(cwd, 'scripts', 'docs', 'generate-docs-inventory.ts'), lines.join('\n') + '\n');
 }
 

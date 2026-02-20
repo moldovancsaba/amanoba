@@ -471,6 +471,58 @@ async function seedAchievements() {
         isActive: true,
       },
     },
+
+    // Perfect week: 7 consecutive lessons in a row
+    {
+      name: 'Perfect Week',
+      description: 'Complete 7 lessons in a row without breaking your streak',
+      category: 'streak',
+      tier: 'gold',
+      icon: '📆',
+      isHidden: false,
+      criteria: {
+        type: 'perfect_week',
+        target: 7,
+        condition: 'Complete 7 consecutive lessons in a course',
+      },
+      rewards: {
+        points: 350,
+        xp: 700,
+        title: 'Perfect Week',
+      },
+      metadata: {
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        unlockCount: 0,
+        isActive: true,
+      },
+    },
+
+    // Early finisher: complete a course within N days
+    {
+      name: 'Early Finisher',
+      description: 'Complete a course within 10 days of enrolling',
+      category: 'mastery',
+      tier: 'gold',
+      icon: '⏱️',
+      isHidden: false,
+      criteria: {
+        type: 'early_finisher',
+        target: 10,
+        condition: 'Finish the course within 10 days of starting',
+      },
+      rewards: {
+        points: 500,
+        xp: 1000,
+        title: 'Early Finisher',
+      },
+      metadata: {
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        unlockCount: 0,
+        isActive: true,
+      },
+    },
   ];
   
   for (const achievementData of achievements) {

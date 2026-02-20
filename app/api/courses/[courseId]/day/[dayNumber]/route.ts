@@ -9,12 +9,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import mongoose from 'mongoose';
-import { Course, Lesson, CourseProgress, Player, CourseProgressStatus } from '@/lib/models';
+import { Course, Lesson, CourseProgress, Player, CourseProgressStatus, QuizQuestion } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { checkAndUnlockCourseAchievements, checkAndUnlockCourseCompletionAchievements } from '@/lib/gamification';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 import { resolveLessonForChildDay } from '@/lib/course-helpers';
 import { canonicalLessonForDay, canonicalLessonSpecsForCourse, buildCanonicalLessonContent } from '@/lib/canonical-spec';
+import { resolveCourseQuizPolicy } from '@/lib/course-quiz-policy';
 
 /**
  * Calculate the current day (first uncompleted lesson) based on completed days
@@ -207,12 +208,27 @@ export async function GET(
       logger.info({ courseId, dayNumber: day, source: 'canonical' }, 'Served canonical lesson fallback');
     }
 
-    const courseObj = course as { language?: string; quizMaxWrongAllowed?: number; defaultLessonQuizQuestionCount?: number };
+    const policy = resolveCourseQuizPolicy(course as Parameters<typeof resolveCourseQuizPolicy>[0]);
+    const lessonQuestionCount = await QuizQuestion.countDocuments({
+      courseId: course._id,
+      lessonId: lesson.lessonId,
+      isCourseSpecific: true,
+      isActive: true,
+    });
+    const quizEnabled = policy.enabled && lessonQuestionCount > 0;
+    const quizRequired = quizEnabled && policy.required;
+
     return NextResponse.json({
       success: true,
       lesson: {
         ...lesson,
-        quizConfig: lesson.quizConfig || undefined,
+        quizConfig: {
+          enabled: quizEnabled,
+          required: quizRequired,
+          successThreshold: policy.successThreshold,
+          questionCount: policy.questionCount,
+          poolSize: lessonQuestionCount,
+        },
         isUnlocked,
         isCompleted: progress.completedDays?.includes(day) || false,
       },
@@ -226,8 +242,15 @@ export async function GET(
         totalDays,
       },
       courseLanguage: course.language,
-      quizMaxWrongAllowed: courseObj.quizMaxWrongAllowed,
-      defaultLessonQuizQuestionCount: courseObj.defaultLessonQuizQuestionCount,
+      quizPolicy: {
+        ...policy,
+        enabled: quizEnabled,
+        required: quizRequired,
+        availableQuestionCount: lessonQuestionCount,
+      },
+      // Legacy response fields kept temporarily for client compatibility.
+      quizMaxWrongAllowed: policy.maxWrongAllowed,
+      defaultLessonQuizQuestionCount: policy.questionCount,
     });
   } catch (error) {
     logger.error({ error, courseId: (await params).courseId, dayNumber: (await params).dayNumber }, 'Failed to fetch lesson');

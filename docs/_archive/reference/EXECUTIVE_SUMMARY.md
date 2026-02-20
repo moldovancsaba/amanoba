@@ -119,11 +119,11 @@ Audit and enhance ALL quiz questions across the entire Amanoba platform:
 - Master Plan: `/docs/_archive/delivery/2026-01/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md`
 - Phase 1 Report: `/docs/_archive/reference/PHASE_1_FINAL_REPORT.md`
 - Phase 2 Report: `/docs/_archive/reference/PHASE_2_FINAL_REPORT.md`
-- Project Complete: `/docs/PROJECT_COMPLETE.md`
+- Project Complete: `/docs/status/PROJECT_COMPLETE.md`
 - Migration Checklist: `/docs/_archive/reference/MIGRATION_CHECKLIST.md`
 
 **Audit Worksheets**:
-- `/docs/PHASE_1_AUDIT_WORKSHEET.md`
+- `/docs/quality/PHASE_1_AUDIT_WORKSHEET.md`
 - `/docs/LESSON_1_AUDIT_COMPLETE.md`
 - `/docs/LESSON_2_AUDIT_COMPLETE.md`
 - `/docs/LESSONS_3_11_AUDIT_COMPLETE.md`
@@ -154,7 +154,7 @@ This project has been completed to the highest quality standards. All 16,800 qui
 ## CONTACT
 
 **For Questions About**:
-- **Project Details**: Review `/docs/PROJECT_COMPLETE.md`
+- **Project Details**: Review `/docs/status/PROJECT_COMPLETE.md`
 - **Audit Decisions**: Review `/docs/_archive/delivery/2026-01/2026-01-24_QUIZ_QUALITY_AUDIT_AND_ENHANCEMENT_MASTER_PLAN.md`
 - **Migration Process**: Review `/docs/_archive/reference/MIGRATION_CHECKLIST.md`
 - **Specific Questions**: Review lesson audit worksheets in `/docs/`

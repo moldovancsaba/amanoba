@@ -11,9 +11,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import connectDB from '@/lib/mongodb';
-import { Course, Lesson } from '@/lib/models';
+import { Course, Lesson, QuizQuestion } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { canonicalLessonSpecsForCourse } from '@/lib/canonical-spec';
+import { resolveCourseQuizPolicy } from '@/lib/course-quiz-policy';
 
 type LessonRow = {
   lessonId: string;
@@ -70,7 +71,7 @@ export async function GET(
         dayNumber: i + 1,
         title: (l as { title: string }).title,
         estimatedMinutes: (l as { metadata?: { estimatedMinutes?: number } }).metadata?.estimatedMinutes,
-        hasQuiz: !!((l as { quizConfig?: { enabled?: boolean } }).quizConfig?.enabled),
+        hasQuiz: false,
       }));
     } else {
       const raw = await Lesson.find({
@@ -85,7 +86,7 @@ export async function GET(
         dayNumber: l.dayNumber,
         title: l.title,
         estimatedMinutes: l.metadata?.estimatedMinutes,
-        hasQuiz: !!l.quizConfig?.enabled,
+        hasQuiz: false,
       }));
     }
 
@@ -100,6 +101,33 @@ export async function GET(
           hasQuiz: lesson.hasQuiz ?? true,
         }));
         usedCanonicalFallback = true;
+      }
+    }
+
+    const quizPolicy = resolveCourseQuizPolicy(course as Parameters<typeof resolveCourseQuizPolicy>[0]);
+    if (quizPolicy.enabled && lessons.length > 0) {
+      const lessonIds = Array.from(new Set(lessons.map((l) => l.lessonId).filter(Boolean)));
+      if (lessonIds.length > 0) {
+        const activeQuizByLesson = await QuizQuestion.aggregate([
+          {
+            $match: {
+              courseId: course._id,
+              isCourseSpecific: true,
+              isActive: true,
+              lessonId: { $in: lessonIds },
+            },
+          },
+          { $group: { _id: '$lessonId', count: { $sum: 1 } } },
+        ]);
+        const lessonIdsWithQuiz = new Set(
+          activeQuizByLesson
+            .filter((row: { count?: number }) => typeof row.count === 'number' && row.count > 0)
+            .map((row: { _id: unknown }) => String(row._id))
+        );
+        lessons = lessons.map((lesson) => ({
+          ...lesson,
+          hasQuiz: lessonIdsWithQuiz.has(lesson.lessonId),
+        }));
       }
     }
 

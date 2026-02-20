@@ -12,7 +12,7 @@ import { logger } from '@/lib/logger';
 import { resolveCourseNameForLocale, resolveCourseDescriptionForLocale } from '@/app/lib/utils/course-i18n';
 import type { Locale } from '@/app/lib/i18n/locales';
 
-const VALID_LOCALES: Locale[] = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru', 'sw'];
+const VALID_LOCALES: Locale[] = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru', 'sw', 'zh', 'es', 'fr', 'bn', 'ur'];
 function parseLocale(value: string | null): Locale | null {
   if (!value) return null;
   return VALID_LOCALES.includes(value as Locale) ? (value as Locale) : null;
@@ -75,10 +75,11 @@ export async function GET(request: NextRequest) {
 
     const selectFields =
       locale != null
-        ? 'courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig price certification translations'
-        : 'courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig price certification';
+        ? 'courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig price certification prerequisiteCourseIds prerequisiteEnforcement translations'
+        : 'courseId name description language thumbnail isActive requiresPremium durationDays pointsConfig xpConfig price certification prerequisiteCourseIds prerequisiteEnforcement';
     const courses = await Course.find(query)
       .select(selectFields)
+      .populate('prerequisiteCourseIds', 'courseId name')
       .sort({ createdAt: -1 })
       .lean();
 
@@ -95,20 +96,35 @@ export async function GET(request: NextRequest) {
 
     // Add default thumbnail; resolve name/description for locale when requested (P0 catalog language integrity)
     let coursesWithThumbnails = courses.map((course) => {
+      const prerequisiteCourses = Array.isArray(course.prerequisiteCourseIds)
+        ? course.prerequisiteCourseIds
+            .map((prereq) => {
+              if (prereq && typeof prereq === 'object' && 'courseId' in prereq) {
+                const typed = prereq as { courseId?: string; name?: string };
+                if (!typed.courseId) return null;
+                return { courseId: typed.courseId, name: typed.name };
+              }
+              return null;
+            })
+            .filter(Boolean)
+        : [];
       const base = {
         ...course,
         thumbnail: course.thumbnail || defaultThumbnail || null,
+        prerequisiteCourses,
+        prerequisiteEnforcement: course.prerequisiteEnforcement ?? undefined,
       };
+      const { prerequisiteCourseIds: _prereqIds, ...restBase } = base as typeof base & { prerequisiteCourseIds?: unknown };
       if (locale != null && base.name != null && base.description != null) {
-        const { translations: _translations, ...rest } = base as typeof base & { translations?: unknown };
+        const { translations: _translations, ...rest } = restBase as typeof restBase & { translations?: unknown };
         return {
           ...rest,
           name: resolveCourseNameForLocale(base as Parameters<typeof resolveCourseNameForLocale>[0], locale),
           description: resolveCourseDescriptionForLocale(base as Parameters<typeof resolveCourseDescriptionForLocale>[0], locale),
         };
       }
-      const { translations: _t, ...rest } = base as typeof base & { translations?: unknown };
-      return _t != null ? rest : base;
+      const { translations: _t, ...rest } = restBase as typeof restBase & { translations?: unknown };
+      return _t != null ? rest : restBase;
     });
 
     if (includeVoteAggregates && coursesWithThumbnails.length > 0) {

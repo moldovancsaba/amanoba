@@ -3,7 +3,7 @@
 **Date**: 2026-01-24  
 **Status**: 📋 RECOMMENDATIONS  
 **Based on**: Current bug list, certification system progress, and business impact  
-**Update (2026-01-27)**: BUG7 marked **DONE** in TASKLIST. Admin can open user profile from user list (e.g. https://www.amanoba.com/hu/profile/6970a39a4d9263663b412d96). Further work (self-view, public/private, section visibility) is captured in **Profile Visibility & Privacy** — see `docs/ROADMAP.md` and `docs/TASKLIST.md` § P1: Profile Visibility & Privacy.
+**Update (2026-01-27)**: BUG7 marked **DONE** in TASKLIST. Admin can open user profile from user list (e.g. https://www.amanoba.com/hu/profile/6970a39a4d9263663b412d96). Further work (self-view, public/private, section visibility) is captured in **Profile Visibility & Privacy** — see `docs/product/ROADMAP.md` and `docs/product/TASKLIST.md` § P1: Profile Visibility & Privacy.
 
 ---
 

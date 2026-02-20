@@ -265,7 +265,7 @@ Single source of "locale" ✅
 ✅ app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx (day page - verified clean)
 ✅ app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx (quiz page)
 ✅ app/[locale]/courses/[courseId]/final-exam/page.tsx (final exam page)
-📝 docs/_archive/delivery/2026-01/2026-01-24_UI_REFACTORING_COURSE_LANGUAGE_SEPARATION.md (documentation)
+📝 /Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/_archive/delivery/2026-01/2026-01-24_UI_REFACTORING_COURSE_LANGUAGE_SEPARATION.md (documentation)
 ```
 
 ---

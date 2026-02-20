@@ -23,7 +23,7 @@
 | Default survey seed | ✅ | `scripts/seed-onboarding-survey.ts` (npm run seed:survey) |
 | Admin survey analytics | ✅ | `app/[locale]/admin/surveys/page.tsx`, GET/PATCH /api/admin/surveys |
 
-**Deployment**: Ensure default brand exists (slug `amanoba`); run `npm run seed:survey` (or equivalent) to create/update onboarding survey. See `docs/ENVIRONMENT_SETUP.md` / `docs/DEPLOYMENT.md` for order of seeds.
+**Deployment**: Ensure default brand exists (slug `amanoba`); run `npm run seed:survey` (or equivalent) to create/update onboarding survey. See `docs/core/ENVIRONMENT_SETUP.md` / `docs/deployment/DEPLOYMENT.md` for order of seeds.
 
 ### Email Automation (Phase 1)
 
@@ -65,6 +65,6 @@
 
 ## References
 
-- **ROADMAP**: `docs/ROADMAP.md` § Onboarding Survey & Segmentation, Email Automation Enhancement.
-- **TASKLIST**: `docs/TASKLIST.md` — Recommended next: Onboarding Survey / Email Automation / Multi-Format Forking.
-- **Multi-Format Forking**: `docs/_archive/delivery/2026-01/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md`, RELEASE_NOTES v2.9.24.
+- **ROADMAP**: `docs/product/ROADMAP.md` § Onboarding Survey & Segmentation, Email Automation Enhancement.
+- **TASKLIST**: `docs/product/TASKLIST.md` — Recommended next: Onboarding Survey / Email Automation / Multi-Format Forking.
+- **Multi-Format Forking**: `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/_archive/delivery/2026-01/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md`, RELEASE_NOTES v2.9.24.

@@ -75,4 +75,4 @@ Build remains unchanged: `npm run build` still passes with `typescript.ignoreBui
 
 - **Tech audit**: `docs/_archive/delivery/2026-01/2026-01-30_TECH_AUDIT_JANUARY.md` §3 (Lint/TS).
 - **Tasklist**: `docs/_archive/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md` — P1.7 marked complete.
-- **Release**: `docs/RELEASE_NOTES.md` — v2.9.21 TypeScript audit.
+- **Release**: `docs/product/RELEASE_NOTES.md` — v2.9.21 TypeScript audit.

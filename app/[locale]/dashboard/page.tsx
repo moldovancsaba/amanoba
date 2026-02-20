@@ -77,6 +77,26 @@ interface PlayerData {
   };
 }
 
+interface MyCourseProgress {
+  course: {
+    courseId: string;
+    name: string;
+    description: string;
+    thumbnail?: string;
+    language: string;
+    durationDays: number;
+  };
+  progress: {
+    currentDay: number;
+    completedDays: number;
+    totalDays: number;
+    progressPercentage: number;
+    isCompleted: boolean;
+    startedAt: string;
+    lastAccessedAt: string;
+  };
+}
+
 export default function Dashboard() {
   const { data: session, status } = useSession();
   const _router = useRouter();
@@ -100,6 +120,8 @@ export default function Dashboard() {
   type RecommendationCourse = { courseId: string; name?: string; description?: string; thumbnail?: string; durationDays?: number; requiresPremium?: boolean };
   const [recommendations, setRecommendations] = useState<RecommendationCourse[]>([]);
   const [loadingRecommendations, setLoadingRecommendations] = useState(false);
+  const [myCourses, setMyCourses] = useState<MyCourseProgress[]>([]);
+  const [loadingMyCourses, setLoadingMyCourses] = useState(false);
   const [featureFlags, setFeatureFlags] = useState<{
     courses: boolean;
     myCourses: boolean;
@@ -231,16 +253,33 @@ export default function Dashboard() {
     }
   }, [session, status, locale]);
 
+  const fetchMyCourses = useCallback(async () => {
+    if (status === 'loading' || !session) return;
+    try {
+      setLoadingMyCourses(true);
+      const response = await fetch(`/api/my-courses?locale=${locale}`);
+      const data = await response.json();
+      if (data.success) {
+        setMyCourses(data.courses || []);
+      }
+    } catch (error) {
+      console.error('Failed to fetch my courses:', error);
+    } finally {
+      setLoadingMyCourses(false);
+    }
+  }, [session, status, locale]);
+
   useEffect(() => {
     void fetchPlayerData();
     void fetchFeatureFlags();
     void fetchRecommendations();
+    void fetchMyCourses();
     if (session?.user) {
       void fetchAdminAccess();
     } else {
       setAdminAccess({ canAccessAdmin: false, isAdmin: false, isEditorOnly: false });
     }
-  }, [fetchAdminAccess, fetchFeatureFlags, fetchPlayerData, fetchRecommendations, session]);
+  }, [fetchAdminAccess, fetchFeatureFlags, fetchMyCourses, fetchPlayerData, fetchRecommendations, session]);
 
   // Fire GA purchase when redirected here after payment success (e.g. general premium)
   useEffect(() => {
@@ -297,6 +336,13 @@ export default function Dashboard() {
   const { player, progression, wallet, streaks, achievementStats, courseStats } = playerData;
   const xpProgress = progression ? (progression.currentXP / progression.xpToNextLevel) * 100 : 0;
   const currentPlayerId = player?.id ?? (session?.user as { id?: string; playerId?: string })?.playerId ?? (session?.user as { id?: string })?.id;
+  const activeCourses = myCourses.filter((course) => !course.progress.isCompleted);
+  const courseLabel = (key: string, fallback: string, values?: Record<string, string | number>) => {
+    const out = values ? tCourses(key, values as Record<string, string | number>) : tCourses(key);
+    if (typeof out !== 'string') return fallback;
+    if (out === key || out === `courses.${key}`) return fallback;
+    return out;
+  };
 
   return (
     <div className="min-h-screen bg-brand-black">
@@ -512,6 +558,88 @@ export default function Dashboard() {
                 {t('viewAllCourses')} →
               </LocaleLink>
             </div>
+          </div>
+        )}
+
+        {/* My Courses Today */}
+        {featureFlags?.myCourses && (
+          <div className="bg-brand-white rounded-xl shadow-lg p-6 mb-8 border-2 border-brand-accent">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h3 className="text-xl font-bold text-brand-black flex items-center gap-2">
+                  <Icon icon={MdAutoStories} size={20} className="text-brand-accent" />
+                  {t('myCourses')}
+                </h3>
+                <p className="text-sm text-brand-darkGrey">{t('trackLearningProgress')}</p>
+              </div>
+              <LocaleLink
+                href="/my-courses"
+                className="text-sm font-semibold text-brand-accent hover:text-brand-primary-500"
+              >
+                {t('viewAllCourses')} →
+              </LocaleLink>
+            </div>
+
+            {loadingMyCourses ? (
+              <div className="text-center py-8 text-brand-darkGrey">
+                {t('loading')}...
+              </div>
+            ) : activeCourses.length === 0 ? (
+              <div className="text-center py-8 text-brand-darkGrey">
+                <p className="mb-4">{t('noCoursesEnrolled')}</p>
+                <LocaleLink
+                  href="/courses"
+                  className="inline-block bg-brand-accent text-brand-black px-6 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+                >
+                  {t('browseCourses')}
+                </LocaleLink>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {activeCourses.map((item) => (
+                  <div
+                    key={item.course.courseId}
+                    className="bg-brand-darkGrey/5 rounded-lg p-4 border-2 border-brand-darkGrey/20"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <h4 className="font-bold text-brand-black text-lg">{item.course.name}</h4>
+                        <div className="text-xs text-brand-darkGrey mt-1">
+                          {courseLabel('dayOf', `Day ${item.progress.currentDay} of ${item.progress.totalDays}`, {
+                            currentDay: item.progress.currentDay,
+                            totalDays: item.progress.totalDays,
+                          })}
+                        </div>
+                      </div>
+                      <span className="text-sm font-bold text-brand-accent">
+                        {item.progress.progressPercentage}%
+                      </span>
+                    </div>
+
+                    <div className="mt-3 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
+                      <div
+                        className="bg-brand-accent h-full transition-all"
+                        style={{ width: `${item.progress.progressPercentage}%` }}
+                      />
+                    </div>
+
+                    <div className="mt-3 flex items-center justify-between text-xs text-brand-darkGrey">
+                      <span>
+                        {courseLabel('daysCompleted', `${item.progress.completedDays} days completed`, {
+                          count: item.progress.completedDays,
+                        })}
+                      </span>
+                      <LocaleLink
+                        href={`/${item.course.language}/courses/${item.course.courseId}/day/${item.progress.currentDay}`}
+                        className="text-brand-accent font-semibold"
+                      >
+                        {courseLabel('nextLesson', 'Next Lesson')}
+                      </LocaleLink>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         )}
 

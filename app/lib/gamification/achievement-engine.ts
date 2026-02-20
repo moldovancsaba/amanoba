@@ -39,6 +39,9 @@ export interface AchievementCheckContext {
     status: string;
     /** Longest consecutive lesson streak (e.g. days 1,2,3,4 -> 4). Used for lesson_streak. */
     lessonStreak?: number;
+    startedAt?: Date;
+    completedAt?: Date;
+    totalDays?: number;
   };
   /** Final exam score (0–100). Used for perfect_assessment (100% on final exam). */
   finalExamScorePercent?: number;
@@ -205,7 +208,7 @@ export function evaluateAchievementCriteria(
   }
 
   // Course-specific achievements: require courseProgress when criteria is course-scoped
-  const courseCriteriaTypes = ['first_lesson', 'lessons_completed', 'course_completed', 'course_master', 'perfect_assessment', 'lesson_streak'];
+  const courseCriteriaTypes = ['first_lesson', 'lessons_completed', 'course_completed', 'course_master', 'perfect_assessment', 'lesson_streak', 'perfect_week', 'early_finisher'];
   if (courseCriteriaTypes.includes(criteria.type)) {
     const criteriaCourseId = (criteria as { courseId?: string }).courseId?.toUpperCase?.();
     if (criteriaCourseId && context.courseId && criteriaCourseId !== context.courseId.toUpperCase()) {
@@ -237,6 +240,23 @@ export function evaluateAchievementCriteria(
         // Longest consecutive lesson streak (e.g. complete days 1,2,3,4 -> 4)
         currentValue = context.courseProgress?.lessonStreak ?? 0;
         break;
+      case 'perfect_week':
+        // 7 consecutive lessons in a row (uses lessonStreak)
+        currentValue = context.courseProgress?.lessonStreak ?? 0;
+        break;
+      case 'early_finisher': {
+        const startedAt = context.courseProgress?.startedAt;
+        const completedAt = context.courseProgress?.completedAt;
+        if (status === 'completed' && startedAt && completedAt) {
+          const msPerDay = 1000 * 60 * 60 * 24;
+          const daysToComplete = Math.max(1, Math.ceil((completedAt.getTime() - startedAt.getTime()) / msPerDay));
+          const meetsEarly = daysToComplete <= targetValue;
+          currentValue = meetsEarly ? targetValue : 0;
+          const progressOut = meetsEarly ? 100 : 0;
+          return { meetsRequirements: meetsEarly, currentValue, targetValue, progress: progressOut };
+        }
+        break;
+      }
       default:
         break;
     }
@@ -586,6 +606,11 @@ export async function checkAndUnlockCourseAchievements(
 
     // Longest consecutive lesson streak (e.g. days 1,2,3,4 -> 4)
     const lessonStreak = computeLessonStreak(completedDays);
+    const startedAt = (progress as { startedAt?: Date }).startedAt;
+    const completedAt = (progress as { completedAt?: Date }).completedAt;
+    const totalDays = typeof (course as { durationDays?: number }).durationDays === 'number'
+      ? (course as { durationDays?: number }).durationDays
+      : undefined;
 
     let finalExamScorePercent: number | undefined;
     if (status === 'completed') {
@@ -602,7 +627,7 @@ export async function checkAndUnlockCourseAchievements(
       if (typeof score === 'number') finalExamScorePercent = score;
     }
 
-    const courseCriteriaTypes = ['first_lesson', 'lessons_completed', 'course_completed', 'course_master', 'perfect_assessment', 'lesson_streak'];
+    const courseCriteriaTypes = ['first_lesson', 'lessons_completed', 'course_completed', 'course_master', 'perfect_assessment', 'lesson_streak', 'perfect_week', 'early_finisher'];
     const achievements = await Achievement.find({
       'metadata.isActive': true,
       'criteria.type': { $in: courseCriteriaTypes },
@@ -625,7 +650,7 @@ export async function checkAndUnlockCourseAchievements(
       playerId,
       progression: progression as unknown as IPlayerProgression,
       courseId: courseIdUpper,
-      courseProgress: { lessonsCompleted, status, lessonStreak },
+      courseProgress: { lessonsCompleted, status, lessonStreak, startedAt, completedAt, totalDays },
       ...(finalExamScorePercent !== undefined && { finalExamScorePercent }),
     };
 

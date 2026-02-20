@@ -941,8 +941,8 @@ git push
 - [ ] Update this document with completion status
 - [ ] Update `docs/_archive/delivery/2026-01/2026-01-25_PROFILE_PAGE_RESTORATION_LOG.md`
 - [ ] Update `docs/_archive/delivery/2026-01/2026-01-25_CERTIFICATION_IMPLEMENTATION_LOG.md`
-- [ ] Update `docs/TASKLIST.md` (if applicable)
-- [ ] Update `docs/RELEASE_NOTES.md` (after completion)
+- [ ] Update `docs/product/TASKLIST.md` (if applicable)
+- [ ] Update `docs/product/RELEASE_NOTES.md` (after completion)
 
 ---
 

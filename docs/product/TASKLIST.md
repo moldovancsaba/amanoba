@@ -66,6 +66,26 @@ Completed items (formerly 1–4, 6–11, course voting, UI/UX polish, course lea
 
 ---
 
+### P2 — Lesson quiz governance centralization (course-level only)
+
+**Goal:** Manage lesson-quiz runtime behavior only at **course level** (question count, shown answer options, accepted wrong answers/pass rule), not in lesson-level config or seed JSON.
+**Section contract:** Exactly **10 actionable items** with explicit per-item status tracking (current snapshot: 1 done, 9 pending).
+
+| # | Action item | Status |
+|---|-------------|--------|
+| 1 | Complete full system inventory and migration plan (data model, runtime business rules, admin/editor UI, import/export/package docs, seed scripts, validators). | ✅ DONE (2026-02-12) |
+| 2 | Add canonical course-level quiz policy fields (single source of truth) and validation bounds; keep temporary fallback for compatibility. | ✅ DONE (2026-02-12) |
+| 3 | Refactor learner runtime to resolve quiz behavior from course policy only (count, pass/fail, required gate); remove lesson-level authority. | ✅ DONE (2026-02-12) |
+| 4 | Remove lesson-level quiz behavior controls from lesson editor/admin lesson modal; keep lesson question-content management only. | ✅ DONE (2026-02-12) |
+| 5 | Deprecate and remove `apply-quiz-defaults` flow once runtime no longer depends on lesson `quizConfig.questionCount`. | ✅ DONE (2026-02-12) |
+| 6 | Update import/export + package spec to stop treating `lessons[].quizConfig` as authoritative for behavior; support compatibility ingest during transition. | ⏳ PENDING |
+| 7 | Update seed scripts to stop setting lesson-level quiz behavior (questionCount/poolSize/successThreshold/required) and move policy to course-level setup. | ⏳ PENDING |
+| 8 | Align question authoring + validators with configurable shown-answer-count policy (current system still enforces legacy 4-option authoring in several places). | ⏳ PENDING |
+| 9 | Data migration/backfill: compute and persist course-level policy from existing data, with conflict reporting where lessons diverge. | ⏳ PENDING |
+| 10 | Documentation alignment: update architecture, package format, and quality docs to reflect course-level-only governance. | ⏳ PENDING |
+
+---
+
 ### P2 — Documentation operations (handover continuity)
 
 **Goal:** Keep docs navigable across repos and make handover resilient to context resets.

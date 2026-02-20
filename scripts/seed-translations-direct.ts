@@ -16,12 +16,26 @@ import { logger } from '../app/lib/logger';
 import fs from 'fs';
 import path from 'path';
 
-const locales = ['hu', 'en'];
 const messagesDir = path.join(process.cwd(), 'messages');
+
+const getLocalesFromMessagesDir = () => {
+  if (!fs.existsSync(messagesDir)) return [];
+  return fs
+    .readdirSync(messagesDir)
+    .filter((file) => file.endsWith('.json'))
+    .map((file) => path.basename(file, '.json'))
+    .sort();
+};
 
 async function seedTranslations() {
   logger.info('Starting translation seeding...');
   await connectDB();
+
+  const locales = getLocalesFromMessagesDir();
+  if (locales.length === 0) {
+    logger.warn('No translation files found. Nothing to seed.');
+    process.exit(0);
+  }
 
   for (const locale of locales) {
     const filePath = path.join(messagesDir, `${locale}.json`);

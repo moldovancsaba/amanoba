@@ -25,7 +25,7 @@
 - [ ] **P3.1** (Optional) Add chart color tokens to design-system (e.g. `--chart-grid`, `--chart-axis`, `--chart-series-1` …) and use them in admin analytics page instead of inline hex. File: `app/[locale]/admin/analytics/page.tsx`.
 - [ ] **P3.2** (Optional) layout_grammar.md §1: Add one sentence that repo root may contain operating doc (`agent_working_loop_canonical_operating_document.md`) and course-quality prompt (`2026_course_quality_prompt.md`) as exceptions to "feature docs in /docs".
 - [ ] **P3.3** (Optional) Document LinkedIn blue (`#0A66C2`) as allowed exception for social/share buttons in layout_grammar or DESIGN_UPDATE (certificate page "Share on LinkedIn").
-- [ ] **P3.4** (Optional) Run quiz quality validator / pipeline against layout grammar §5 (min 7 questions, cognitive mix, 4 options, standalone/scenario-based). Reference: `docs/COURSE_BUILDING_RULES.md`, `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`.
+- [ ] **P3.4** (Optional) Run quiz quality validator / pipeline against layout grammar §5 (min 7 questions, cognitive mix, 4 options, standalone/scenario-based). Reference: `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/COURSE_BUILDING_RULES.md`, `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`.
 
 ---
 
@@ -36,4 +36,4 @@
 
 ---
 
-**Cross-references**: `docs/layout_grammar.md`, `docs/_archive/delivery/2026-01/2026-01_LAYOUT_AUDIT.md`, `app/design-system.css`, `docs/DESIGN_UPDATE.md`.
+**Cross-references**: `docs/architecture/layout_grammar.md`, `docs/_archive/delivery/2026-01/2026-01_LAYOUT_AUDIT.md`, `app/design-system.css`, `docs/product/DESIGN_UPDATE.md`.

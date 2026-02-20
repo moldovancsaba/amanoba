@@ -28,7 +28,7 @@
   - “Method 3: Facebook Disconnection” replaced with “Method 3: Revoke SSO Access” and copy updated to SSO (e.g. Google, Microsoft, organisation provider).
   - “Third-Party Data” note: “Facebook or other services” → “SSO or other third-party services”.
 - **app/api/auth/anonymous/route.ts**: Comment “consistency with Facebook login” → “consistency with SSO login”.
-- **docs/SSO_MIGRATION_COMPLETE.md**: Noted that data-deletion page and auth comments now use SSO wording (no Facebook copy).
+- **docs/sso/SSO_MIGRATION_COMPLETE.md**: Noted that data-deletion page and auth comments now use SSO wording (no Facebook copy).
 
 **Left as-is (per SSO_MIGRATION_COMPLETE)**: Migration script `scripts/migrate-remove-facebookid.ts` and npm scripts; env var removal instructions; messages keys like `signInWithFacebook` (values already “Sign in” etc.). Optional doc updates (ENVIRONMENT_SETUP, VERCEL_DEPLOYMENT, PRODUCTION_STATUS) to remove Facebook sections can be done separately.
 

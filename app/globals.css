@@ -43,6 +43,12 @@ body {
   letter-spacing: -0.01em;
 }
 
+@media (min-width: 640px) {
+  body.consent-banner-open {
+    padding-bottom: var(--consent-banner-height, 0px);
+  }
+}
+
 p,
 li,
 ol,

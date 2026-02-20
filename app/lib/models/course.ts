@@ -72,6 +72,15 @@ export interface ICourse extends Document {
   quizMaxWrongAllowed?: number;
   /** Default number of questions per lesson quiz. Used when a lesson does not set quizConfig.questionCount. 1–50. */
   defaultLessonQuizQuestionCount?: number;
+  /** Canonical lesson-quiz runtime policy (course-level authority). */
+  lessonQuizPolicy?: {
+    enabled?: boolean;
+    required?: boolean;
+    questionCount?: number;
+    shownAnswerCount?: number;
+    maxWrongAllowed?: number;
+    successThreshold?: number;
+  };
   /** For shorts: draft until editor publishes. Catalog shows only non-draft. */
   isDraft?: boolean;
   /** Child courses only: 'synced' | 'out_of_sync'. Used for selective unsync/re-sync and admin sync alerts. */
@@ -275,6 +284,14 @@ const CourseSchema = new Schema<ICourse>(
     prerequisiteEnforcement: { type: String, enum: ['hard', 'soft'], default: 'hard', trim: true },
     quizMaxWrongAllowed: { type: Number, min: 0, max: 10, default: undefined },
     defaultLessonQuizQuestionCount: { type: Number, min: 1, max: 50, default: undefined },
+    lessonQuizPolicy: {
+      enabled: { type: Boolean, default: true },
+      required: { type: Boolean, default: true },
+      questionCount: { type: Number, min: 1, max: 50, default: undefined },
+      shownAnswerCount: { type: Number, min: 2, max: 4, default: 3 },
+      maxWrongAllowed: { type: Number, min: 0, max: 10, default: undefined },
+      successThreshold: { type: Number, min: 0, max: 100, default: 70 },
+    },
     // Short/child course fields (optional)
     parentCourseId: { type: String, uppercase: true, trim: true },
     selectedLessonIds: [{ type: String, trim: true }],

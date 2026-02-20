@@ -47,7 +47,7 @@ function groupBy<T>(items: T[], keyFn: (item: T) => string) {
 
 async function main() {
   const cwd = process.cwd();
-  const canonicalMapPath = resolve(cwd, 'docs', 'DOCS_CANONICAL_MAP.md');
+  const canonicalMapPath = resolve(cwd, 'docs', 'core', 'DOCS_CANONICAL_MAP.md');
   const markdown = await readFile(canonicalMapPath, 'utf8');
   const rows = parseCanonicalMap(markdown);
 
@@ -65,7 +65,7 @@ async function main() {
   lines.push('');
   lines.push(`**Counts**: DELETE=${deletes.length}, MERGE=${merges.length}, ARCHIVE=${archives.length}, KEEP(unclassified)=${unclassified.length}`);
   lines.push('');
-  lines.push('This file is the “what to do next” view derived from `docs/DOCS_CANONICAL_MAP.md`.');
+  lines.push('This file is the “what to do next” view derived from `docs/core/DOCS_CANONICAL_MAP.md`.');
   lines.push('');
 
   lines.push('## DELETE');
@@ -110,11 +110,11 @@ async function main() {
   lines.push('');
 
   lines.push('## Next suggested move');
-  lines.push('- Create `docs/_archive/delivery/2026-01/` and `docs/_archive/tasklists/`, then move the corresponding files and update links.');
-  lines.push('- After moves, rerun `npm run docs:refresh` and ensure `docs/DOCS_INDEX.md` still points to canonical docs only.');
+  lines.push('- Review KEEP(unclassified) docs and either promote to canonical sections in `docs/core/DOCS_INDEX.md` or archive.');
+  lines.push('- After updates, rerun `npm run docs:refresh` and ensure `docs/core/DOCS_INDEX.md` remains current.');
   lines.push('');
 
-  const outPath = resolve(cwd, 'docs', 'DOCS_TRIAGE.md');
+  const outPath = resolve(cwd, 'docs', 'core', 'DOCS_TRIAGE.md');
   await writeGeneratedMarkdown(outPath, resolve(cwd, 'scripts', 'docs', 'generate-docs-triage.ts'), lines.join('\n'));
 }
 

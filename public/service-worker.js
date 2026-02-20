@@ -4,17 +4,32 @@
  * Version: 2.0.0
  */
 
-const CACHE_NAME = 'amanoba-v2.0.0';
-const RUNTIME_CACHE = 'amanoba-runtime-v2.0.0';
+const CACHE_NAME = 'amanoba-v2.0.1';
+const RUNTIME_CACHE = 'amanoba-runtime-v2.0.1';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
   '/',
-  '/games',
-  '/dashboard',
+  '/hu',
+  '/en',
+  '/ar',
+  '/hi',
+  '/id',
+  '/pt',
+  '/vi',
+  '/tr',
+  '/bg',
+  '/pl',
+  '/ru',
+  '/sw',
+  '/zh',
+  '/es',
+  '/fr',
+  '/bn',
+  '/ur',
   '/manifest.json',
-  '/icon-192.png',
-  '/icon-512.png',
+  '/AMANOBA_2026_192.png',
+  '/AMANOBA_2026_512.png',
   '/offline.html',
 ];
 
@@ -34,11 +49,17 @@ self.addEventListener('install', (event) => {
   console.log('[Service Worker] Installing...');
   
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
+    caches.open(CACHE_NAME).then(async (cache) => {
       console.log('[Service Worker] Caching static assets');
-      return cache.addAll(STATIC_ASSETS).catch((error) => {
-        console.error('[Service Worker] Failed to cache assets:', error);
-      });
+      await Promise.all(
+        STATIC_ASSETS.map(async (asset) => {
+          try {
+            await cache.add(asset);
+          } catch (error) {
+            console.warn('[Service Worker] Failed to cache asset:', asset, error);
+          }
+        })
+      );
     })
   );
   
@@ -198,6 +219,11 @@ async function networkFirstWithOfflineFallback(request) {
     return response;
   } catch (error) {
     console.log('[Service Worker] Showing offline page');
+    const url = new URL(request.url);
+    const localeFallback = await caches.match(`/${url.pathname.split('/').filter(Boolean)[0] || ''}`);
+    if (localeFallback) {
+      return localeFallback;
+    }
     const cachedResponse = await caches.match('/offline.html');
     return cachedResponse || new Response('Offline', { status: 503 });
   }
@@ -280,8 +306,8 @@ self.addEventListener('push', (event) => {
   const title = data.title || 'Amanoba';
   const options = {
     body: data.body || 'New update available!',
-    icon: '/icon-192.png',
-    badge: '/icon-192.png',
+    icon: '/AMANOBA_2026_192.png',
+    badge: '/AMANOBA_2026_192.png',
     image: data.image,
     data: data.url,
     actions: [

@@ -70,7 +70,7 @@
 **Rule:** Key docs point to correct locations; README links to docs/; audit reports reference tasklists.
 
 **Audit:**
-- README: Documentation section links to `docs/ARCHITECTURE.md`, `docs/TASKLIST.md`, etc. ✅
+- README: Documentation section links to `docs/architecture/ARCHITECTURE.md`, `docs/product/TASKLIST.md`, etc. ✅
 - Layout audit (`docs/_archive/delivery/2026-01/2026-01_LAYOUT_AUDIT.md`): References `docs/_archive/tasklists/LAYOUT_AUDIT_JANUARY__2026-01-28.md`. ✅
 - Core docs: TASKLIST → RELEASE_NOTES, ROADMAP; ROADMAP → RELEASE_NOTES, TASKLIST. ✅
 
@@ -107,7 +107,7 @@
 
 ## References
 
-- **Layout grammar**: `docs/layout_grammar.md` (§2 Documentation layout)
+- **Layout grammar**: `docs/architecture/layout_grammar.md` (§2 Documentation layout)
 - **Layout audit**: `docs/_archive/delivery/2026-01/2026-01_LAYOUT_AUDIT.md`
 - **Single-place rule**: `agent_working_loop_canonical_operating_document.md`, TASKLIST.md, ROADMAP.md, RELEASE_NOTES.md headers
 

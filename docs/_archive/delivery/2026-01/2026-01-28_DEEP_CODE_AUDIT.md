@@ -3,7 +3,7 @@
 **Date**: 2026-01-28  
 **Scope**: Full codebase — inconsistencies, deprecated/obsolete items, hardcoded values, design system deviation, inline styles, hardening  
 **Rulebook**: `agent_working_loop_canonical_operating_document.md`  
-**Related**: `docs/ROADMAP.md`, `docs/TASKLIST.md`, `docs/DESIGN_UPDATE.md`, `docs/ARCHITECTURE.md`
+**Related**: `docs/product/ROADMAP.md`, `docs/product/TASKLIST.md`, `docs/product/DESIGN_UPDATE.md`, `docs/architecture/ARCHITECTURE.md`
 
 ---
 
@@ -22,7 +22,7 @@ This audit identifies **inconsistencies**, **deprecated/obsolete references**, *
 | Source | Primary | Secondary | Accent | CTA |
 |--------|--------|-----------|--------|-----|
 | `app/design-system.css` | Indigo (#6366f1) | Pink (#ec4899) | Purple (#a855f7) | #FAB908 |
-| `app/globals.css` + `docs/DESIGN_UPDATE.md` | Gold (#FAB908) | Dark grey (#2D2D2D) | Gold (#FAB908) | #FAB908 |
+| `app/globals.css` + `docs/product/DESIGN_UPDATE.md` | Gold (#FAB908) | Dark grey (#2D2D2D) | Gold (#FAB908) | #FAB908 |
 | `tailwind.config.ts` | #FAB908 (primary) | #2D2D2D (secondary) | — | — |
 
 **Impact**: Components or pages importing `design-system.css` get indigo/pink/purple; rest of app uses gold/black. Recharts in admin analytics use indigo/pink/purple hex directly.
@@ -72,17 +72,17 @@ This audit identifies **inconsistencies**, **deprecated/obsolete references**, *
 | Location | Content |
 |----------|---------|
 | `app/lib/models/player.ts` | `facebookId?: string`, `authProvider: 'facebook' \| 'sso' \| 'anonymous'`, default `'facebook'`, index on `facebookId`, validation allowing `facebookId` |
-| `docs/ARCHITECTURE.md` | "Facebook OAuth", "api/auth/facebook/" |
+| `docs/architecture/ARCHITECTURE.md` | "Facebook OAuth", "api/auth/facebook/" |
 | `messages/*.json` (11 files) | `signInWithFacebook` key |
 | `app/[locale]/privacy/page.tsx` | Section "Facebook Login", "Facebook OAuth" |
 | `app/[locale]/terms/page.tsx` | "Facebook OAuth authentication" |
-| `docs/ENVIRONMENT_SETUP.md`, `VERCEL_DEPLOYMENT.md`, `PRODUCTION_STATUS.md` | Facebook app, callback, test steps |
+| `docs/core/ENVIRONMENT_SETUP.md`, `VERCEL_DEPLOYMENT.md`, `PRODUCTION_STATUS.md` | Facebook app, callback, test steps |
 | `app/lib/security.ts` | CSP: `connect.facebook.net`, `frame-src https://www.facebook.com` |
 | `app/lib/utils/anonymous-auth.ts` | Comment "Called when anonymous user signs in with Facebook" |
 | `scripts/migrate-player-roles.ts` | Default `authProvider: 'facebook'` |
 
 **Action** (after migration): (1) Run `migrate:remove-facebookid` if not done; (2) Remove `facebookId` and `'facebook'` from Player schema and types; (3) Remove Facebook from CSP and env/docs; (4) Replace privacy/terms copy with SSO/anonymous; (5) Remove `signInWithFacebook` from messages or repurpose; (6) Update ARCHITECTURE.md and all docs to remove Facebook.  
-**Ref**: `docs/SSO_MIGRATION_COMPLETE.md`, `docs/SSO_ALIGNMENT_ANALYSIS.md`.
+**Ref**: `docs/sso/SSO_MIGRATION_COMPLETE.md`, `docs/sso/SSO_ALIGNMENT_ANALYSIS.md`.
 
 ---
 
@@ -237,7 +237,7 @@ This audit identifies **inconsistencies**, **deprecated/obsolete references**, *
 ## 8. Safety Rollback Plan
 
 - **Baseline**: Current main branch (pre-audit doc and ROADMAP/TASKLIST edits).  
-- **Rollback**: Revert commits that only touch docs (`docs/_archive/delivery/2026-01/2026-01-28_DEEP_CODE_AUDIT.md`, `docs/ROADMAP.md`, `docs/TASKLIST.md`, `agent_working_loop_canonical_operating_document.md`).  
+- **Rollback**: Revert commits that only touch docs (`docs/_archive/delivery/2026-01/2026-01-28_DEEP_CODE_AUDIT.md`, `docs/product/ROADMAP.md`, `docs/product/TASKLIST.md`, `agent_working_loop_canonical_operating_document.md`).  
 - **Verification**: No application code is changed in this audit delivery; build and tests remain unchanged.  
 - **Future code changes** from this audit will each have their own rollback plan in the implementing task.
 

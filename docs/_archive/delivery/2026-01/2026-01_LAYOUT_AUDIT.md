@@ -1,7 +1,7 @@
 # January Layout Audit
 
 **Date**: 2026-01-28  
-**Reference**: `docs/layout_grammar.md` (v1.0, 2026-01-30)  
+**Reference**: `docs/architecture/layout_grammar.md` (v1.0, 2026-01-30)  
 **Scope**: Project layout (§1), documentation layout (§2), CCS layout (§3), lesson layout (§4), UI/design layout (§6), API/route layout (§7), language layout (§8). Quiz layout (§5) alignment is noted as optional follow-up.
 
 ---
@@ -148,10 +148,10 @@
 
 ## References
 
-- **Layout grammar**: `docs/layout_grammar.md`
-- **Course/quiz quality**: `docs/COURSE_BUILDING_RULES.md`, `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, `docs/_archive/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md`
-- **Design**: `app/design-system.css`, `docs/DESIGN_UPDATE.md`
-- **Naming**: `docs/NAMING_GUIDE.md`
+- **Layout grammar**: `docs/architecture/layout_grammar.md`
+- **Course/quiz quality**: `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/COURSE_BUILDING_RULES.md`, `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md`
+- **Design**: `app/design-system.css`, `docs/product/DESIGN_UPDATE.md`
+- **Naming**: `docs/core/NAMING_GUIDE.md`
 - **Documentation audit**: `docs/_archive/delivery/2026-01/2026-01_DOCUMENTATION_AUDIT.md` (placeholders, single-place rule); tasklist: `docs/_archive/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md`
 
 ---
