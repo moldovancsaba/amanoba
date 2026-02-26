@@ -257,8 +257,7 @@ TEAM:
 | Location | Document Name | Summary |
 |----------|---------------|---------|
 | `/docs/core/ENVIRONMENT_SETUP.md` | Environment Setup | Complete guide for setting up development and production environments. Includes prerequisites, MongoDB setup, environment variables, and local development instructions. |
-| `/docs/deployment/DEPLOYMENT.md` | Deployment Guide | Production deployment procedures for Vercel. Includes pre-deployment checklist, environment configuration, database seeding, cron jobs, and post-deployment verification. |
-| `/docs/deployment/VERCEL_DEPLOYMENT.md` | Vercel Deployment | Specific Vercel deployment instructions. Domain configuration, environment variables, build settings, and troubleshooting. |
+| `/docs/deployment/DEPLOYMENT.md` | Deployment Guide | Canonical deployment runbook. GitHub push to `origin/main` triggers automated Vercel production deployment; includes verification and rollback flow. |
 | `/docs/deployment/STRIPE_VERCEL_SETUP.md` | Stripe Vercel Setup | Stripe payment integration setup for Vercel. Webhook configuration, environment variables, and testing procedures. |
 
 ### Feature Documents (Date-Based Format)

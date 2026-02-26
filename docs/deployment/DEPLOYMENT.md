@@ -1,232 +1,94 @@
 # Amanoba Deployment Guide
 
-**Version**: 1.8.0  
-**Last Updated**: 2026-01-28
+**Last Updated**: 2026-02-26
 
 ---
 
-## Pre-Deployment Checklist
+## Source Of Truth
 
-### ✅ Phase 9: Polish (Complete)
-- [x] Design system established (Tailwind + Radix UI)
-- [x] Animations implemented (Framer Motion)
-- [x] Responsive design across all pages
-- [x] PWA configuration (manifest.json)
-- [x] Accessibility basics (semantic HTML, ARIA labels)
+Production deployment is automated from GitHub:
+- Push to `origin/main`
+- GitHub integration triggers Vercel production build/deploy
 
-### ✅ Phase 10: Launch Preparation
-
-#### Security
-- [x] Environment variables secured
-- [x] MongoDB connection uses SSL
-- [x] NextAuth.js authentication configured
-- [x] API routes protected
-- [ ] Rate limiting enabled (configured, needs testing)
-- [ ] CORS policies reviewed
-- [ ] CSP headers configured
-
-#### Performance
-- [x] Next.js optimizations (Image, Font optimization)
-- [x] Database indexes on all models
-- [x] Lazy loading for heavy components
-- [x] Code splitting via Next.js
-- [ ] CDN setup (pending deployment)
-- [ ] Caching strategies implemented
-- [ ] Bundle size optimization
-
-#### Quality Assurance
-- [x] TypeScript strict mode enabled
-- [x] Build passes with 0 errors
-- [x] All API routes tested manually
-- [x] Game flows tested
-- [x] Authentication flows tested
-- [ ] Load testing (pending)
-- [ ] Cross-browser testing (pending)
-- [ ] Mobile device testing (pending)
+Manual Vercel CLI deploy is exception-only and should be used only when explicitly requested.
 
 ---
 
-## Deployment Steps
+## Standard Deployment Flow
 
-### 1. Environment Configuration
+### 1. Pre-push checks
 
-Create production `.env.local` with:
-
-```bash
-# MongoDB
-MONGODB_URI=mongodb+srv://production-uri
-
-# NextAuth
-AUTH_SECRET=generate-with-openssl-rand-base64-32
-NEXTAUTH_URL=https://your-domain.com
-
-# Facebook OAuth
-FACEBOOK_APP_ID=your-production-app-id
-FACEBOOK_APP_SECRET=your-production-secret
-
-# Cron Protection
-CRON_SECRET=generate-secure-token
-
-# Optional
-NEXT_PUBLIC_APP_URL=https://your-domain.com
-```
-
-### 2. Vercel Deployment
+Run before shipping:
 
 ```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Login
-vercel login
-
-# Deploy to preview
-vercel
-
-# Deploy to production
-vercel --prod
+npm run build
+npm run lint
+npm run docs:check
 ```
 
-### 3. Database Seeding (Production)
+If a command is not applicable for the change, document why.
+
+### 2. Commit and push
 
 ```bash
-# Seed core data
-npm run seed:core
-
-# Seed achievements
-npm run seed:achievements
-
-# Seed rewards
-npm run seed:rewards
+git add -A
+git commit -m "<semantic message>"
+git push origin main
 ```
 
-### 4. Cron Jobs Setup
+### 3. Verify deployment
 
-Configure the following cron jobs in Vercel:
+After push:
+- Confirm the latest commit SHA is deployed in Vercel
+- Open production and verify critical routes:
+  - `/`
+  - `/robots.txt`
+  - `/sitemap.xml`
+  - `/en/auth/signin`
+  - `/en/admin` (authorized admin only)
 
-| Endpoint | Schedule | Description |
-|----------|----------|-------------|
-| `/api/cron/calculate-leaderboards` | Every 15 min | Update leaderboards |
-| `/api/cron/analytics-snapshot?period=daily` | Daily at 00:00 UTC | Daily analytics |
-| `/api/cron/analytics-snapshot?period=weekly` | Weekly Mon 00:00 UTC | Weekly analytics |
-| `/api/cron/analytics-snapshot?period=monthly` | Monthly 1st 00:00 UTC | Monthly analytics |
+### 4. Smoke-check critical APIs
 
-**Headers Required**:
-```
-Authorization: Bearer YOUR_CRON_SECRET
-```
-
-### 5. Domain Configuration
-
-1. Add custom domain in Vercel dashboard
-2. Update DNS records
-3. Update `NEXTAUTH_URL` in environment variables
-4. Update Facebook OAuth redirect URIs
-5. Test OAuth flow with production domain
-
-### 6. Monitoring Setup
-
-**Vercel Analytics** (Built-in):
-- Automatically enabled
-- View at vercel.com/dashboard
-
-**Custom Monitoring**:
-- Health check endpoint: `/api/health`
-- Real-time analytics: `/admin/analytics/realtime`
-- Error tracking: Vercel logs
-
-### 7. Post-Deployment Verification
-
-Test the following after deployment:
-
-- [ ] Homepage loads correctly
-- [ ] Authentication (sign in/sign out)
-- [ ] Game sessions (start, complete)
-- [ ] Points and rewards system
-- [ ] Achievements unlock
-- [ ] Leaderboards display
-- [ ] Admin dashboard access
-- [ ] Analytics dashboard
-- [ ] Profile pages
-- [ ] Referral system
+Run a minimal health pass appropriate for the change (for example auth, courses, certification, or admin endpoints touched by the release).
 
 ---
 
-## Performance Targets
+## Environment Configuration
 
-| Metric | Target | Current |
-|--------|--------|---------|
-| Lighthouse Performance | >90 | — |
-| First Contentful Paint | <1.5s | — |
-| Time to Interactive | <3.0s | — |
-| Cumulative Layout Shift | <0.1 | — |
-| API Response Time (p95) | <300ms | — |
-| Error Rate | <0.5% | — |
+Environment variables are managed in Vercel project settings.
 
-_Current values: to be filled when baseline is measured. Requirement: see `docs/_archive/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md` item 2._
+Canonical variable references:
+- `.env.local.example`
+- `docs/core/ENVIRONMENT_SETUP.md`
+- `docs/sso/SSO_IMPLEMENTATION_DETAILS.md`
+
+Do not store secrets in repository docs.
 
 ---
 
 ## Rollback Plan
 
-If critical issues arise:
+If production regression is found:
 
-1. **Immediate**: Revert to previous Vercel deployment
-   ```bash
-   vercel rollback
-   ```
+1. Revert the offending commit on `main`:
+```bash
+git revert <bad_commit_sha>
+git push origin main
+```
 
-2. **Database**: MongoDB Atlas has point-in-time recovery
-   - Navigate to Atlas > Backup > Restore
+2. Confirm the rollback commit deploys successfully.
 
-3. **Code**: Revert to previous tag
-   ```bash
-   git checkout v1.7.0
-   vercel --prod
-   ```
+3. Re-run focused smoke checks on affected areas.
+
+Optional emergency action (UI/manual): promote previous known-good deployment in Vercel dashboard when immediate service restoration is required.
 
 ---
 
-## Support & Maintenance
+## Release Checklist
 
-### Regular Tasks
+A release is complete only when all are true:
+- Code is merged and pushed to `origin/main`
+- Automated production deployment finished successfully
+- Core smoke checks pass
+- Relevant docs are updated (tasklist/release notes/feature docs as applicable)
 
-**Daily**:
-- Monitor Vercel logs
-- Check error rates
-- Review player feedback
-
-**Weekly**:
-- Analyze analytics snapshots
-- Review leaderboard data
-- Check database performance
-
-**Monthly**:
-- Database optimization
-- Dependency updates
-- Security patches
-
-### Contact
-
-**Developer**: Narimato  
-**Support**: csaba@doneisbetter.com  
-**Repository**: https://github.com/moldovancsaba/amanoba
-
----
-
-## Architecture Reference
-
-- **Frontend**: Next.js 15.5.2
-- **Backend**: Next.js API Routes
-- **Database**: MongoDB Atlas
-- **Authentication**: NextAuth.js v5
-- **Deployment**: Vercel
-- **CDN**: Vercel Edge Network
-
-For detailed architecture, see `ARCHITECTURE.md`.
-
----
-
-**Deployment Status**: ✅ Ready for Production  
-**Last Review**: 2025-10-13T08:28:34.000Z  
-**Next Review**: Before v2.0.0 release

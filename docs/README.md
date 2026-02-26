@@ -5,6 +5,8 @@ This documentation was normalized into domain folders so work can continue witho
 ## Start Here
 
 - `docs/core/DOCS_INDEX.md` - high-level index and reading order
+- `docs/core/ENVIRONMENT_SETUP.md` - canonical environment variable and setup guide
+- `docs/deployment/DEPLOYMENT.md` - canonical deployment runbook (push to `origin/main` -> auto deploy)
 - `docs/product/ROADMAP.md` - long-term vision
 - `docs/product/TASKLIST.md` - actionable work
 - `docs/product/RELEASE_NOTES.md` - shipped changes

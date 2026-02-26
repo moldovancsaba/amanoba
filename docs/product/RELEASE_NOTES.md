@@ -604,7 +604,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - **APP_URL**: Single source in `app/lib/constants/app-url.ts`; comment added for scripts (use NEXT_PUBLIC_APP_URL or CANONICAL_APP_URL). App code already used APP_URL/getAuthBaseUrl().
 - **Certificate colors**: New `app/lib/constants/certificate-colors.ts` — default palette uses THEME_COLOR and SECONDARY_HEX (design-system aligned). Both certificate image APIs (`api/profile/[playerId]/certificate/[courseId]/image`, `api/certificates/[slug]/image`) import from it; Brand.themeColors override at runtime.
 - **Auth analytics**: `app/lib/analytics/event-logger.ts` — logAuthEvent `method` changed from `'facebook_oauth'` to `'sso'`.
-- **Docs**: `docs/core/ENVIRONMENT_SETUP.md` — "Facebook App Configuration" replaced with "SSO / Auth Configuration" (SSO callback URIs, no Facebook); secrets list and Secret Rotation updated to SSO/OAuth. `docs/deployment/VERCEL_DEPLOYMENT.md` — support step "Verify Facebook App settings" → "Verify SSO provider redirect URIs and secrets".
+- **Docs**: `docs/core/ENVIRONMENT_SETUP.md` — "Facebook App Configuration" replaced with "SSO / Auth Configuration" (SSO callback URIs, no Facebook); secrets list and Secret Rotation updated to SSO/OAuth. Deployment guidance is now consolidated in `docs/deployment/DEPLOYMENT.md` (legacy Vercel-only checklist retired).
 - **CSP**: Already done (AUDIT11) — no Facebook in `app/lib/security.ts`; frame-src `'none'`.
 
 **Documentation**: ROADMAP P2 items 7–9 marked done; TASKLIST unchanged (P2 backlog).

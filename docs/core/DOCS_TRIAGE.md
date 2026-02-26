@@ -5,9 +5,9 @@
 
 # Docs Triage
 
-**Last Updated**: 2026-02-12
+**Last Updated**: 2026-02-26
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=3, KEEP(unclassified)=63
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=3, KEEP(unclassified)=61
 
 This file is the “what to do next” view derived from `docs/core/DOCS_CANONICAL_MAP.md`.
 
@@ -43,8 +43,6 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/core/TECH_STACK.md` — Technology Stack
 - `docs/core/templates/FEATURE_TEMPLATE.md` — YYYY-MM-DD Feature Title
 - `docs/deployment/STRIPE_VERCEL_SETUP.md` — Stripe Setup Guide for Vercel
-- `docs/deployment/VERCEL_DEPLOYMENT.md` — Vercel Deployment Checklist
-- `docs/deployment/VERCEL_ENV_CHECK.md` — Vercel Environment Variables - CRITICAL CHECK
 - `docs/features/ASSESSMENT_GAME_ID_MIGRATION.md` — assessmentGameId Migration Plan
 - `docs/features/BUY_PREMIUM_FIX_DONE.md` — Buy premium fix — done
 - `docs/features/BUY_PREMIUM_FIX_STATUS.md` — Buy Premium Fix - Status Report
@@ -84,7 +82,9 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/status/MIGRATION_COMPLETE.md` — Page Migration to [locale] Structure - Complete
 - `docs/status/MIGRATION_PHASE_1_COMPLETE.md` — DATABASE MIGRATION PHASE 1 - FINAL STATUS
 - `docs/status/PHASE_1_COMPLETE.md` — Phase 1 Complete: Foundation & Data Models
-- … +3 more
+- `docs/status/PHASE_1_EXECUTION_COMPLETE.md` — PHASE 1 EXECUTION COMPLETE
+- `docs/status/PHASE_2_3_COMPLETE.md` — Phase 2 & 3 Complete — Course Builder & Email Automation
+- … +1 more
 
 ## Next suggested move
 - Review KEEP(unclassified) docs and either promote to canonical sections in `docs/core/DOCS_INDEX.md` or archive.
