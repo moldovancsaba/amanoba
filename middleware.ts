@@ -246,6 +246,6 @@ export const config = {
      * 
      * Note: Static files in public/ folder are automatically excluded by Next.js
      */
-    '/((?!_next/static|_next/image|favicon.ico|manifest.json|api).*)',
+    '/((?!_next/static|_next/image|favicon.ico|manifest.json|sitemap\\.xml|robots\\.txt|BingSiteAuth\\.xml|api).*)',
   ],
 };
