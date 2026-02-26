@@ -231,7 +231,8 @@ A task is **complete** only when:
 3. ✅ All relevant documentation updated
 4. ✅ `npm run build` passes
 5. ✅ Code properly commented (What + Why)
-6. ✅ Committed and pushed to GitHub
+6. ✅ Committed and pushed to `origin/main`
+7. ✅ Deployment is triggered automatically by GitHub push to `main` (Vercel Git integration); manual Vercel CLI deployment is exception-only and requires explicit request.
 
 ---
 

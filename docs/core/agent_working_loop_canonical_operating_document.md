@@ -27,6 +27,7 @@
 - **Certificate A/B:** Template variant assigned at issue (stable hash); render from **certificate.designTemplateId**. See **`docs/certification/CERTIFICATE_AB_TEST_DESIGN.md`**.
 - **Auth / NextAuth / service worker:** Do not modify without explicit approval. See “Authentication System (CRITICAL)” later in this document.
 - **Push to main origin:** When the user says you must push to main origin (or similar), do it without questioning. If there is nothing to commit, make a small modification (e.g. update "Last agent sync" in this doc or a one-line doc note) so you can commit, then push to `origin main`. No "nothing to commit" or "everything up-to-date" as a stopping answer — always end with a successful push.
+- **Deployment trigger:** Deployment is automated via GitHub integration. Pushing to `origin/main` is the standard production deployment trigger. Do not run manual Vercel CLI deployment unless the user explicitly requests a manual deploy.
 
 ---
 

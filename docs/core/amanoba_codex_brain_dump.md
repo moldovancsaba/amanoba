@@ -1,6 +1,6 @@
 # Amanoba Codex Brain Dump (Continuity Doc)
 
-**Last Updated**: 2026-02-12  
+**Last Updated**: 2026-02-26  
 **Audience**: Codex / assistants working inside this repo  
 **Purpose**: Fast continuity transfer after context loss.
 
@@ -11,6 +11,7 @@
 - Do **not** store secrets in docs.
 - Keep this document project-focused and operational.
 - When uncertain, verify from files and run checks before claiming status.
+- Deployment path is GitHub-automated: commit and push to `origin/main`; do not run manual Vercel CLI deployment unless explicitly requested.
 
 ---
 

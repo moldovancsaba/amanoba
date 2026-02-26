@@ -325,7 +325,8 @@ A task is considered **fully complete** only when:
 3. ✅ **Documentation**: All relevant docs updated (ARCHITECTURE.md, TASKLIST.md, LEARNINGS.md, README.md, RELEASE_NOTES.md, ROADMAP.md)
 4. ✅ **Build**: `npm run build` passes without errors
 5. ✅ **Code Quality**: TypeScript strict mode satisfied, properly commented
-6. ✅ **Git**: Committed with semantic message and pushed to GitHub
+6. ✅ **Git**: Committed with semantic message and pushed to `origin/main`
+7. ✅ **Deployment path**: Production deployment is triggered automatically by GitHub push to `main` (Vercel Git integration). Manual Vercel CLI deploy is only for explicit manual-deploy requests.
 
 **No partial completion accepted.**
 
