@@ -27,8 +27,6 @@ export default function robots(): MetadataRoute.Robots {
           '/dashboard/',
           '/my-courses',
           '/my-courses/',
-          '/_next/',
-          '/auth/',
         ],
       },
     ],
