@@ -1,9 +1,12 @@
+import type { Metadata } from 'next';
 import { auth } from '@/auth';
 import { getTranslations } from 'next-intl/server';
 import { LocaleLink } from '@/components/LocaleLink';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import Image from 'next/image';
 import Icon, { MdMenuBook, MdEmail, MdGpsFixed, MdEmojiEvents, MdTrendingUp, MdStar } from '@/components/Icon';
+import { APP_URL } from '@/app/lib/constants/app-url';
+import { locales } from '@/app/lib/i18n/locales';
 
 /**
  * Landing Page
@@ -12,6 +15,24 @@ import Icon, { MdMenuBook, MdEmail, MdGpsFixed, MdEmojiEvents, MdTrendingUp, MdS
  * Why: Users should see what the platform offers before being asked to sign in
  * Locale: All copy uses next-intl so /en shows English, /hu shows Hungarian, etc.
  */
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const base = APP_URL.replace(/\/$/, '');
+  const canonical = `${base}/${locale}`;
+  const languages = Object.fromEntries(locales.map((loc) => [loc, `${base}/${loc}`]));
+
+  return {
+    alternates: {
+      canonical,
+      languages,
+    },
+  };
+}
 
 export default async function LandingPage({
   params,
