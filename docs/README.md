@@ -20,7 +20,7 @@ This documentation was normalized into domain folders so work can continue witho
 - `docs/architecture` - system architecture and layout rules
 - `docs/features` - feature-specific specs and notes
 - `docs/i18n` - localization setup and language integrity
-- `docs/sso` - SSO requirements, implementation, troubleshooting
+- `docs/sso` - SSO requirements, implementation, troubleshooting, and the Google-first sign-in flow used by Amanoba
 - `docs/certification` - certificate/certification plans and analysis
 - `docs/deployment` - deployment and platform setup
 - `docs/quality` - audits, validation, and quality control docs

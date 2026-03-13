@@ -1,51 +1,155 @@
-# SSO Integration Plan (sso.doneisbetter.com)
+# SSO Integration Guide (Amanoba)
 
-Goal: Replace Facebook login with sso.doneisbetter.com (OIDC), keep anonymous browsing for public pages, enforce roles (`admin`, `user`) for all protected UI/API paths.
+This document describes the current Amanoba integration with `https://sso.doneisbetter.com`.
 
-Assumptions:
-- Provider exposes standard OIDC endpoints (auth, token, userinfo, JWKS, issuer).
-- Role claim is `roles: ["admin" | "user"]`; default to `user` if missing.
-- Local logout is sufficient unless provider logout URL is confirmed.
-- No downstream provider API calls needed; we do not persist access/refresh unless later required.
+## Current User Journey
 
-## Tasks
-1) Provider Intake & Config
-   - Collect endpoints: `authorization_endpoint`, `token_endpoint`, `userinfo_endpoint` (optional), `jwks_uri`, `issuer`, logout endpoint (if any), supported scopes.
-   - Confirm role claim name/values; confirm refresh-token support.
-   - Add envs: `SSO_AUTH_URL`, `SSO_TOKEN_URL`, `SSO_USERINFO_URL`, `SSO_JWKS_URL`, `SSO_ISSUER`, `SSO_CLIENT_ID`, `SSO_CLIENT_SECRET`, `SSO_REDIRECT_URI`, `SSO_SCOPES` (e.g., `openid profile email roles`).
-   - Document envs in ENVIRONMENT_SETUP/README.
+Recommended user journey for Amanoba:
 
-2) Auth Flow
-   - `/auth/sso/login`: redirect with state+nonce (PKCE if required).
-   - `/auth/sso/callback`: exchange code → tokens; validate ID token (sig via JWKS, iss/aud/exp/nonce). Extract `sub`, `email`, `name`, `roles`.
-   - `/auth/sso/logout`: clear local session; if provider logout exists, call it.
-   - Session: HTTP-only cookie with `playerId`, `email`, `role`; short-lived.
+1. User opens any Amanoba page.
+2. User clicks a sign-in entry point.
+3. Amanoba sends the user to `/{locale}/auth/signin`.
+4. The sign-in page shows:
+   - `Continue with Google` as the primary action
+   - `Sign in another way` as the secondary action
+5. The Google-first path sends the user into SSO with `provider=google`.
+6. After Google and the SSO callback complete, the user returns to the page where the journey started.
 
-3) User Upsert & Role Mapping
-   - Upsert Player by provider `sub`; sync `email`, `name`.
-   - Map roles: contains `admin` → `role=admin`; else `role=user` (default).
-   - Store admin flag for admin UI gating.
+This is the production behavior behind `https://www.amanoba.com/en/auth/signin`.
 
-4) Guards & UI
-   - Replace Facebook buttons with “Sign in with SSO”.
-   - Middleware/guards: admin routes → admin only; protected user routes → session required; allow anonymous for public browse.
-   - Preserve `returnTo` across login.
+## Why This Flow Exists
 
-5) API Enforcement
-   - Protect profile/progress to self; admin APIs require `admin`.
-   - Optionally apply existing rate limiter to auth/profile/admin/progress endpoints.
+- It removes one unnecessary provider-choice step for Google users.
+- It preserves Amanoba branding on the first screen.
+- It keeps SSO as the identity provider and OAuth authority.
+- It returns users to the exact page they started from instead of forcing `/dashboard`.
 
-6) UX & Errors
-   - Friendly errors for canceled/invalid/expired login; retry link.
-   - Sign-out confirmation → home redirect.
-   - i18n for new SSO strings.
+## Implementation Summary
 
-7) Testing
-   - Unit/integration: ID token validation (good/bad sig, iss/aud/exp/nonce), role mapping, upsert logic.
-   - E2E: login → protected page; admin gate; anon browse still works; logout clears access.
-   - API checks: admin-only endpoints reject non-admin; profile limited to self.
+### 1. App-Owned Sign-In Page
 
-## Open Items (to confirm from provider docs)
-- Role claim name and values; any superadmin?
-- Logout endpoint and required params (front/back-channel or RP-initiated).
-- Refresh token availability/requirement for downstream API calls.
+File:
+- `/Users/moldovancsaba/Projects/amanoba/app/[locale]/auth/signin/page.tsx`
+
+Behavior:
+- Reads `callbackUrl` from the query string.
+- Defaults to `/${locale}` when `callbackUrl` is missing or invalid.
+- Renders two localized buttons:
+  - `auth.signInWithGoogle`
+  - `auth.signInAnotherWay`
+
+### 2. Primary Google Button
+
+Primary button URL pattern:
+
+```text
+/api/auth/sso/login?provider=google&returnTo=<encoded callbackUrl>
+```
+
+This sends the user to Amanoba's SSO login route, which then redirects to the SSO authorization endpoint with `provider=google`.
+
+Result:
+- SSO skips the generic login chooser.
+- Google starts immediately.
+
+### 3. Secondary Generic SSO Button
+
+Secondary button URL pattern:
+
+```text
+/api/auth/sso/login?returnTo=<encoded callbackUrl>
+```
+
+This keeps the SSO provider choice generic for cases where the user does not want Google.
+
+### 4. Return-To Preservation
+
+Files:
+- `/Users/moldovancsaba/Projects/amanoba/app/api/auth/sso/login/route.ts`
+- `/Users/moldovancsaba/Projects/amanoba/app/api/auth/sso/callback/route.ts`
+
+Behavior:
+- Amanoba accepts `returnTo` from the sign-in page.
+- `returnTo` is normalized to a safe in-app path.
+- Amanoba stores the intended path during the OAuth redirect.
+- After the SSO callback finishes, Amanoba redirects back to that original path.
+
+This is the key fix that prevents users from landing on the dashboard when they started somewhere else.
+
+## Recommended Pattern for New Entry Points
+
+Any page that links to sign-in should preserve the current page in `callbackUrl`.
+
+Example:
+
+```tsx
+const signInHref = `/${locale}/auth/signin?callbackUrl=${encodeURIComponent(
+  pathname + search
+)}`;
+```
+
+Use this pattern for:
+- marketing pages
+- course pages
+- game pages
+- premium/paywall prompts
+- any protected page that redirects unauthenticated users
+
+## i18n Requirements
+
+The sign-in buttons must not be hardcoded.
+
+Current translation keys:
+- `auth.signInWithGoogle`
+- `auth.signInAnotherWay`
+
+Files:
+- `/Users/moldovancsaba/Projects/amanoba/messages/en.json`
+- `/Users/moldovancsaba/Projects/amanoba/messages/en-US.json`
+- `/Users/moldovancsaba/Projects/amanoba/messages/en-GB.json`
+- `/Users/moldovancsaba/Projects/amanoba/messages/hu.json`
+- other locale files in `/Users/moldovancsaba/Projects/amanoba/messages`
+
+## How Amanoba Uses SSO
+
+### Login Route
+
+Amanoba server route:
+
+```text
+/api/auth/sso/login
+```
+
+Supported query parameters:
+- `provider`: currently used for `google`
+- `returnTo`: in-app page to restore after callback
+- `login_hint`: optional email hint
+- `prompt`: optional OAuth prompt override
+
+### Callback Route
+
+Amanoba server route:
+
+```text
+/api/auth/sso/callback
+```
+
+Responsibilities:
+- validate OAuth callback state
+- exchange code via SSO
+- create/update local Amanoba session
+- restore the original `returnTo` destination
+
+## Recommended UX Rules
+
+1. Use `Continue with Google` as the top button when Google is the most common path.
+2. Keep a fallback button such as `Sign in another way`.
+3. Never lose the original page location during sign-in.
+4. Only force `prompt=select_account` when the user explicitly wants another Google account.
+5. Keep button copy localized in every supported language.
+
+## Related SSO Documentation
+
+For SSO provider-side details, see:
+- `/Users/moldovancsaba/Projects/sso/docs/THIRD_PARTY_INTEGRATION_GUIDE.md`
+- `/Users/moldovancsaba/Projects/sso/docs/README.md`
