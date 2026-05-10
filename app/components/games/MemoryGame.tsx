@@ -262,19 +262,19 @@ export default function MemoryGame({
   if (!gameStarted || !gameState) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[500px] space-y-6">
-        <h2 className="text-3xl font-bold text-center">Memory Match</h2>
-        <p className="text-muted-foreground text-center max-w-md">
+        <h2 className="text-3xl font-bold text-center text-brand-white">Memory Match</h2>
+        <p className="ds-copy-subtle text-center max-w-md">
           Find matching pairs of cards by flipping them over. Complete all pairs before time runs out!
         </p>
         
         <div className="space-y-4 w-full max-w-sm">
           <div className="space-y-2">
-            <label className="text-sm font-medium">Difficulty</label>
+            <label className="text-sm font-medium text-brand-white">Difficulty</label>
             <div className="grid grid-cols-4 gap-2">
               {(['EASY', 'MEDIUM', 'HARD', 'EXPERT'] as MemoryDifficulty[]).map(diff => (
                 <Button
                   key={diff}
-                  variant={difficulty === diff ? 'default' : 'outline'}
+                  variant={difficulty === diff ? 'default' : 'secondary'}
                   size="sm"
                   onClick={() => setDifficulty(diff)}
                   disabled={diff === 'EXPERT' && !isPremium}
@@ -284,7 +284,7 @@ export default function MemoryGame({
               ))}
             </div>
             {!isPremium && (
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs ds-copy-subtle">
                 Expert mode requires Premium
               </p>
             )}
@@ -307,42 +307,42 @@ export default function MemoryGame({
     <div className="space-y-6 pb-8">
       {/* Game Stats Header */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card className="p-4">
+        <Card variant="subtle" className="p-4">
           <div className="flex items-center space-x-2">
-            <Clock className="h-5 w-5 text-blue-500" />
+            <Clock className="h-5 w-5 ds-icon-info" />
             <div>
-              <p className="text-xs text-muted-foreground">Time</p>
-              <p className="text-lg font-bold">{Math.floor(timeRemaining / 60)}:{(timeRemaining % 60).toString().padStart(2, '0')}</p>
+              <p className="text-xs ds-copy-muted">Time</p>
+              <p className="text-lg font-bold ds-stat-value">{Math.floor(timeRemaining / 60)}:{(timeRemaining % 60).toString().padStart(2, '0')}</p>
             </div>
           </div>
         </Card>
         
-        <Card className="p-4">
+        <Card variant="subtle" className="p-4">
           <div className="flex items-center space-x-2">
-            <Zap className="h-5 w-5 text-yellow-500" />
+            <Zap className="h-5 w-5 ds-icon-warning" />
             <div>
-              <p className="text-xs text-muted-foreground">Moves</p>
-              <p className="text-lg font-bold">{gameState.moves}</p>
+              <p className="text-xs ds-copy-muted">Moves</p>
+              <p className="text-lg font-bold ds-stat-value">{gameState.moves}</p>
             </div>
           </div>
         </Card>
         
-        <Card className="p-4">
+        <Card variant="subtle" className="p-4">
           <div className="flex items-center space-x-2">
-            <Target className="h-5 w-5 text-green-500" />
+            <Target className="h-5 w-5 ds-icon-success" />
             <div>
-              <p className="text-xs text-muted-foreground">Pairs</p>
-              <p className="text-lg font-bold">{gameState.matchedPairs} / {gameState.totalPairs}</p>
+              <p className="text-xs ds-copy-muted">Pairs</p>
+              <p className="text-lg font-bold ds-stat-value">{gameState.matchedPairs} / {gameState.totalPairs}</p>
             </div>
           </div>
         </Card>
         
-        <Card className="p-4">
+        <Card variant="subtle" className="p-4">
           <div className="flex items-center space-x-2">
-            <Trophy className="h-5 w-5 text-purple-500" />
+            <Trophy className="h-5 w-5 ds-icon-accent" />
             <div>
-              <p className="text-xs text-muted-foreground">Score</p>
-              <p className="text-lg font-bold">{calculateScore(gameState, config)}</p>
+              <p className="text-xs ds-copy-muted">Score</p>
+              <p className="text-lg font-bold ds-stat-value">{calculateScore(gameState, config)}</p>
             </div>
           </div>
         </Card>
@@ -394,10 +394,10 @@ export default function MemoryGame({
               gameState.flippedCards.length >= 2
             }
             className={`
-              aspect-square rounded-lg transition-all duration-300 transform
+              aspect-square rounded-xl border transition-all duration-300 transform
               ${card.isFlipped || card.isMatched
-                ? 'bg-gradient-to-br from-indigo-500 to-purple-600 text-white scale-100'
-                : 'bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 hover:scale-105 active:scale-95'
+                ? 'border-brand-accent bg-gradient-to-br from-brand-accent to-primary-600 text-brand-black scale-100'
+                : 'border-brand-border-subtle bg-gradient-to-br from-brand-white to-brand-surface-subtle text-brand-text-muted hover:scale-105 active:scale-95'
               }
               ${card.isMatched ? 'opacity-50 cursor-not-allowed' : ''}
               disabled:cursor-not-allowed disabled:hover:scale-100
@@ -413,14 +413,14 @@ export default function MemoryGame({
 
       {/* Game Complete Overlay */}
       {gameState.isComplete && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 ds-overlay flex items-center justify-center z-50 p-4">
           <Card className="p-8 max-w-md w-full space-y-6 animate-in zoom-in duration-300">
             <div className="text-center space-y-2">
-              <Trophy className="h-16 w-16 text-yellow-500 mx-auto" />
+              <Trophy className="h-16 w-16 ds-icon-accent mx-auto" />
               <h2 className="text-3xl font-bold">
                 {gameState.matchedPairs === gameState.totalPairs ? 'Victory!' : 'Time Up!'}
               </h2>
-              <p className="text-muted-foreground">
+              <p className="ds-copy-muted">
                 {gameState.matchedPairs === gameState.totalPairs
                   ? 'You found all the pairs!'
                   : `You found ${gameState.matchedPairs} of ${gameState.totalPairs} pairs`
@@ -445,25 +445,25 @@ export default function MemoryGame({
             
             {/* Rewards & Challenges */}
             <div className="space-y-3">
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-4">
-                <div className="font-bold text-gray-900 mb-2">
-                  Rewards {isCompleting && <span className="text-sm text-gray-500">Calculating…</span>}
+              <div className="ds-panel-soft-accent p-4">
+                <div className="font-bold text-brand-text-primary mb-2">
+                  Rewards {isCompleting && <span className="text-sm ds-copy-muted">Calculating…</span>}
                 </div>
                 <div className="flex justify-between">
                   <span>XP</span>
-                  <span className="font-bold text-purple-600">{rewards ? `+${rewards.xp || 0}` : '—'}</span>
+                  <span className="font-bold text-brand-black">{rewards ? `+${rewards.xp || 0}` : '—'}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Points</span>
-                  <span className="font-bold text-indigo-600">{rewards ? `+${rewards.points || 0}` : '—'}</span>
+                  <span className="font-bold text-brand-black">{rewards ? `+${rewards.points || 0}` : '—'}</span>
                 </div>
                 {rewards?.streakBonus && rewards.streakBonus > 0 && (
-                  <div className="text-sm text-orange-700 mt-2">🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}%</div>
+                  <div className="text-sm mt-2" style={{ color: 'var(--color-warning-dark)' }}>🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}%</div>
                 )}
               </div>
               {completedChallenges.length > 0 && (
-                <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-lg p-4">
-                  <div className="font-bold text-gray-900 mb-2">Daily Challenges Completed</div>
+                <div className="ds-panel-soft-success p-4">
+                  <div className="font-bold text-brand-text-primary mb-2">Daily Challenges Completed</div>
                   <div className="space-y-1 text-sm">
                     {completedChallenges.map((c, idx) => (
                       <div key={idx} className="flex justify-between">

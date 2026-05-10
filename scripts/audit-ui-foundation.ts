@@ -121,10 +121,10 @@ function formatMarkdown(params: {
   sections.push(`**Generated at**: ${generatedAtISO}`, '');
   sections.push(
     [
-      'This report enforces **hard UI foundation rules** derived from `docs/layout_grammar.md` (UI layout).',
+      'This report enforces **hard UI foundation rules** derived from `docs/architecture/layout_grammar.md` (UI layout).',
       'Goal: a rock-solid, maintainable UI foundation by preventing **raw color literals** (hex/rgb/hsl) from leaking into UI/output code, except in explicit token or asset sources.',
       '',
-      'This is intentionally stricter than `docs/UI_LAYOUT_GRAMMAR_AUDIT.md` (which is heuristic and counts “likely drift”).',
+      'This is intentionally stricter than `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` (which is heuristic and counts “likely drift”).',
     ].join('\n'),
     '',
   );
@@ -150,7 +150,7 @@ function main() {
   const shouldWrite = args.has('--write');
   const shouldCheck = args.has('--check');
 
-  const reportPath = 'docs/UI_FOUNDATION_AUDIT.md';
+  const reportPath = 'docs/quality/UI_FOUNDATION_AUDIT.md';
 
   // Token sources are allowed to contain raw literals; everywhere else they are treated as hard violations.
   const tokenSourceFiles = new Set<string>([

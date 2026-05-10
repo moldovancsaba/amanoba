@@ -194,7 +194,7 @@ function formatMarkdown(params: {
   sections.push(mdTable(topFilesRows, ['File', 'Group', 'Findings']), '');
   sections.push('## Rules checked (what counts as a “defect”)', '');
   sections.push(
-    'These rules are derived from `docs/layout_grammar.md` (§ UI layout) + the design tokens in `app/design-system.css` and Tailwind brand colors (`tailwind.config.ts`).',
+    'These rules are derived from `docs/architecture/layout_grammar.md` (§ UI layout) + the design tokens in `app/design-system.css` and Tailwind brand colors (`tailwind.config.ts`).',
     '',
   );
   sections.push(mdTable(patternRulesRows, ['Rule', 'Severity', 'Scope', 'Notes']), '');
@@ -349,7 +349,7 @@ function main() {
   });
 
   if (shouldWrite) {
-    writeFileSync('docs/UI_LAYOUT_GRAMMAR_AUDIT.md', markdown);
+    writeFileSync('docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md', markdown);
   }
 
   if (shouldCheck) {
@@ -372,7 +372,7 @@ function main() {
     for (const row of topFiles.slice(0, 10)) {
       console.log(`- ${row.file}: ${row.count}`);
     }
-    console.log('\nTip: run with --write to generate docs/UI_LAYOUT_GRAMMAR_AUDIT.md');
+    console.log('\nTip: run with --write to generate docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md');
   }
 }
 

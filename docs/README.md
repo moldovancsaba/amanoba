@@ -5,11 +5,13 @@ This documentation was normalized into domain folders so work can continue witho
 ## Start Here
 
 - `docs/core/DOCS_INDEX.md` - high-level index and reading order
+- `docs/architecture/layout_grammar.md` - structural and UI grammar source of truth
 - `docs/core/ENVIRONMENT_SETUP.md` - canonical environment variable and setup guide
 - `docs/deployment/DEPLOYMENT.md` - canonical deployment runbook (push to `origin/main` -> auto deploy)
 - `docs/product/ROADMAP.md` - long-term vision
 - `docs/product/TASKLIST.md` - actionable work
 - `docs/product/RELEASE_NOTES.md` - shipped changes
+- `docs/product/DESIGN_UPDATE.md` - current design-system status and migration policy
 - `docs/handoff/HANDOFF_CONTEXT_WINDOW_2026-02-12.md` - current context-transfer snapshot
 - `docs/handoff/NEXT_WINDOW_PROMPT.md` - copy-paste prompt for the next context window
 
@@ -39,3 +41,5 @@ Course creation and maintenance documents were moved to:
 
 - `npm run docs:check` - generated docs + active link validation
 - `npm run docs:links:check` - active link validation only
+- `npm run ui:check:layout` - heuristic UI token/layout drift check
+- `npm run ui:check:foundation` - hard-rule raw-color/token check

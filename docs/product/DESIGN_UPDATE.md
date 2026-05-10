@@ -1,157 +1,90 @@
-# Design System Update - New Brand Colors & Logo
+# Design System Status
 
-**Completed**: 2025-01-14T14:00:00.000Z  
-**Status**: ✅ Design system updated with new brand colors and logo
-
----
-
-## ✅ Completed Updates
-
-### 1. Brand Colors Implemented
-- ✅ **Black** (`#000000`) - Primary background/text
-- ✅ **Dark Grey** (`#2D2D2D`) - Secondary elements, headers
-- ✅ **White** (`#FFFFFF`) - Cards, content backgrounds
-- ✅ **Accent Yellow** (`#FAB908`) - Primary accent, CTAs, highlights
-
-### 2. Logo Integration
-- ✅ Logo component created (`components/Logo.tsx`)
-- ✅ Logo added to signin page
-- ✅ Logo added to dashboard header
-- ✅ Responsive sizing (sm, md, lg)
-- ✅ Optional text label support
-
-### 3. Tailwind Configuration Updated
-- ✅ Brand color palette added to `tailwind.config.ts`
-- ✅ Primary color set to accent yellow (#FAB908)
-- ✅ Secondary color set to dark grey (#2D2D2D)
-- ✅ Custom color classes: `brand-black`, `brand-darkGrey`, `brand-white`, `brand-accent`
-
-### 4. Global Styles Updated
-- ✅ CSS variables updated in `globals.css`
-- ✅ Dark mode colors updated
-- ✅ Theme color set to accent yellow
-
-### 5. Pages Updated
-
-#### Sign In Page
-- ✅ Black background
-- ✅ White card with accent border
-- ✅ Logo displayed prominently
-- ✅ Accent yellow for links
-- ✅ Dark grey for secondary elements
-
-#### Dashboard
-- ✅ Black background
-- ✅ Dark grey header with accent border
-- ✅ Logo in header
-- ✅ White cards with accent borders
-- ✅ Accent yellow for buttons and highlights
-- ✅ All stats cards use new color scheme
-
-#### Games Page
-- ✅ Black background
-- ✅ Dark grey header with accent border
-- ✅ White game cards with accent borders
-- ✅ Accent yellow for play buttons
-- ✅ Dark grey for locked games
-
-### 6. Components Updated
-- ✅ AnonymousLoginButton - Dark grey background
-- ✅ Logo component - Reusable with sizes
-- ✅ All buttons use accent yellow or dark grey
+**Last Updated**: 2026-05-10  
+**Status**: Active foundation, incremental migration still required
 
 ---
 
-## 🎨 Color Usage
+## Current truth
 
-### Primary Actions (Accent Yellow #FAB908)
-- Buttons
-- Links
-- Progress bars
-- Highlights
-- Borders on active cards
+The Amanoba design system is **not fully migrated** across the app. The central foundation exists, but UI drift accumulated in shared primitives and page-level Tailwind classes.
 
-### Backgrounds
-- **Black** (`#000000`) - Main page backgrounds
-- **White** (`#FFFFFF`) - Card backgrounds, content areas
-- **Dark Grey** (`#2D2D2D`) - Headers, secondary elements
+As of this update, the active source of truth is:
 
-### Text
-- **Black** - Text on white backgrounds
-- **White** - Text on black/dark backgrounds
-- **Dark Grey** - Secondary text, labels
+1. `app/design-system.css`  
+   CSS variables for brand, semantic, surface, border, text, motion, and external-brand colors.
+2. `tailwind.config.ts`  
+   Tailwind aliases that expose the CSS-token system to components via `brand.*`, `primary.*`, `semantic.*`, and `social.*`.
+3. `app/globals.css`  
+   Shared shell/panel/page utility classes such as `.page-shell`, `.page-card`, `.ds-panel`, `.ds-panel-dark`, and `.ds-copy-muted`.
+4. `app/components/ui/button.tsx` and `app/components/ui/card.tsx`  
+   Shared UI primitives that must stay aligned with the token system.
+5. `app/lib/constants/color-tokens.ts` and `app/lib/constants/certificate-colors.ts`  
+   Non-CSS token sources for emails, OG/certificate image rendering, charts, and similar server-rendered contexts.
 
 ---
 
-## 📁 Files Modified
+## What was broken
 
-1. `tailwind.config.ts` - Brand colors added
-2. `app/globals.css` - CSS variables updated
-3. `app/[locale]/layout.tsx` - Theme color updated
-4. `app/[locale]/auth/signin/page.tsx` - New design with logo
-5. `app/[locale]/dashboard/page.tsx` - New color scheme
-6. `app/[locale]/games/page.tsx` - New color scheme
-7. `app/components/AnonymousLoginButton.tsx` - Updated colors
-
-## 📁 Files Created
-
-1. `components/Logo.tsx` - Logo component
+- Shared UI primitives still used generic template colors (`indigo-*`, `gray-*`) instead of Amanoba brand tokens.
+- Some app pages used raw hard-coded UI colors directly in JSX.
+- Audit scripts wrote to obsolete doc paths (`docs/UI_*`) while the real quality docs live in `docs/quality/`.
+- Older docs claimed the design system was "complete", which no longer matched the codebase.
 
 ---
 
-## 🎯 Design Principles
+## What is now fixed
 
-1. **High Contrast**: Black/white with accent yellow for visibility
-2. **Bold Accents**: Yellow (#FAB908) for important actions
-3. **Clean Layout**: Dark backgrounds with white content cards
-4. **Consistent Branding**: Logo prominently displayed
-5. **Accessibility**: High contrast ratios maintained
+### Shared foundations
 
----
+- `Button` now defaults to Amanoba brand styling instead of generic template colors.
+- `Card` now supports brand-aligned variants (`default`, `dark`, `subtle`) instead of a generic white/gray shell.
+- New shared surface/text utility classes were added in `app/globals.css` for dark-shell layouts and token-driven panels.
 
-## 🔒 CTA Yellow Exclusivity Rule
+### Token coverage
 
-- **If it’s not a CTA button, it cannot be yellow.** The CTA yellow (`#FAB908`) is now reserved exclusively for primary actions.
-- CTA tokens added to the design system: `--cta-bg`, `--cta-bg-hover`, `--cta-text`, `--cta-shadow`.
-- Non-interactive elements must not use CTA yellow backgrounds, hover states, button-like shadows, or pointer cursors.
-- Table of contents numbers on course detail pages now use neutral styling (no yellow backgrounds/hover).
+- Google sign-in brand colors are now centralized as CSS variables instead of raw hex values in the sign-in page.
+- Surface, text, and border aliases were added to `app/design-system.css` so shared UI primitives reference the same semantic layer.
+- Tailwind now exposes those token groups under `brand.surface`, `brand.text`, `brand.border`, `semantic`, and `social.google`.
 
-**Action for engineers/designers:** Use the CTA tokens only on clickable primary actions. Default to neutral/secondary palette for badges, labels, numbering, and other non-interactive UI.
+### Validation pipeline
 
----
-
-## 📊 Color Palette Reference
-
-```css
-/* Brand Colors */
---brand-black: #000000
---brand-darkGrey: #2D2D2D
---brand-white: #FFFFFF
---brand-accent: #FAB908
-
-/* Tailwind Classes */
-bg-brand-black
-bg-brand-darkGrey
-bg-brand-white
-bg-brand-accent
-text-brand-black
-text-brand-darkGrey
-text-brand-white
-text-brand-accent
-border-brand-accent
-```
+- `ui:check:foundation` now points to the canonical quality-doc path under `docs/quality/`.
+- The hard-rule audit is clean for the current codebase after the sign-in raw-color fix.
 
 ---
 
-## ✅ Status
+## Migration policy
 
-**Design System**: ✅ COMPLETE  
-**Logo Integration**: ✅ COMPLETE  
-**Color Updates**: ✅ COMPLETE  
-**Pages Updated**: ✅ 3/3 core pages  
-**Components Updated**: ✅ 2/2 components
+### Hard rules
+
+- No raw color literals in tracked UI code outside approved token sources.
+- CTA yellow is reserved for primary actions only.
+- Shared primitives must use the design-system token layer, not ad-hoc Tailwind palettes.
+- Non-CSS rendering contexts must pull colors from `app/lib/constants/color-tokens.ts` or related token files.
+
+### Soft rules
+
+- Existing page-level Tailwind drift can be migrated incrementally.
+- When touching a page, prefer replacing repeated visual patterns with token-driven primitives instead of rewriting entire screens.
+- Games may keep distinct visual personality, but their reusable chrome should still sit on the shared token foundation.
 
 ---
 
-**Maintained By**: Narimato  
-**Next Review**: After user feedback
+## Validation commands
+
+- `npm run ui:check:foundation`
+- `npm run ui:check:layout`
+- `npm run lint`
+- `npm run build`
+
+Use `npm run ui:audit:foundation` and `npm run ui:audit:layout` to refresh the quality docs after UI refactors.
+
+---
+
+## Next migration targets
+
+1. Admin pages with heavy `indigo-*` / `gray-*` drift, especially achievements and players.
+2. Profile and certificate pages with large counts of token-drift findings.
+3. Shared components that still rely on generic Tailwind palette classes.
+4. Any documentation that still describes the design system as fully migrated.

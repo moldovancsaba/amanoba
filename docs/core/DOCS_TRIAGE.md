@@ -5,9 +5,9 @@
 
 # Docs Triage
 
-**Last Updated**: 2026-02-26
+**Last Updated**: 2026-04-26
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=3, KEEP(unclassified)=61
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=4, KEEP(unclassified)=62
 
 This file is the “what to do next” view derived from `docs/core/DOCS_CANONICAL_MAP.md`.
 
@@ -20,6 +20,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 ## ARCHIVE (grouped by target)
 ### docs/_archive/reference/
 - `docs/features/GEO_IMPROVEMENT_PLAN.md` — GEO Improvement Plan — Appearance in AI Chat Results (12.4 KB)
+- `docs/HANDOVER.md` — Amanoba — Developer Handover (8.7 KB)
 - `docs/quality/UI_FOUNDATION_AUDIT.md` — UI Foundation Audit (Hard Rules) (1.4 KB)
 - `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` — UI Layout Grammar Audit (23.0 KB)
 
@@ -48,6 +49,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/features/BUY_PREMIUM_FIX_STATUS.md` — Buy Premium Fix - Status Report
 - `docs/features/GOOGLE_ANALYTICS_ENRICHMENT.md` — Google Analytics Enrichment
 - `docs/features/PUBLIC_PROFILE_SCHEMA.md` — Public Profile Schema
+- `docs/handoff/AmanobaAuditDocMapping.md` — Amanoba Audit: Document ↔ Code Inventory
 - `docs/handoff/feature_issues/FEATURE_DASHBOARD_MULTI_COURSE_ENROL_P2_3.md` — Feature issue (mvp-factory-control) — Dashboard / multi-course Enrol + prerequisites
 - `docs/handoff/HANDOFF_ARCHITECTURE_FIX_CRITICAL.md` — 📋 COMPREHENSIVE HANDOFF - ARCHITECTURAL GAP DISCOVERY & FIX PLAN
 - `docs/handoff/HANDOFF_DOCUMENT_COMPREHENSIVE.md` — 📋 QUIZ ENHANCEMENT PROJECT - COMPREHENSIVE STATUS & HANDOFF DOCUMENT
@@ -67,7 +69,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/quality/QUALITY_SECURED_SYSTEM_COMPLETE.md` — 🔒 Quality-Secured Question Generation System - COMPLETE
 - `docs/README.md` — Amanoba Docs
 - `docs/seo/SEO_SITEMAP_SUBMISSION.md` — Sitemap submission (GSC and Bing)
-- `docs/sso/enable_sso.md` — SSO Integration Plan (sso.doneisbetter.com)
+- `docs/sso/enable_sso.md` — SSO Integration Guide (Amanoba)
 - `docs/sso/SSO_ALIGNMENT_ANALYSIS.md` — SSO Alignment Analysis & Refactoring Plan
 - `docs/sso/SSO_CLIENT_ID_UPDATE.md` — SSO Client ID Update
 - `docs/sso/SSO_CLIENT_SIDE_INSTRUCTIONS.md` — SSO Client-Side Instructions for Amanoba Agent
@@ -83,8 +85,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/status/MIGRATION_PHASE_1_COMPLETE.md` — DATABASE MIGRATION PHASE 1 - FINAL STATUS
 - `docs/status/PHASE_1_COMPLETE.md` — Phase 1 Complete: Foundation & Data Models
 - `docs/status/PHASE_1_EXECUTION_COMPLETE.md` — PHASE 1 EXECUTION COMPLETE
-- `docs/status/PHASE_2_3_COMPLETE.md` — Phase 2 & 3 Complete — Course Builder & Email Automation
-- … +1 more
+- … +2 more
 
 ## Next suggested move
 - Review KEEP(unclassified) docs and either promote to canonical sections in `docs/core/DOCS_INDEX.md` or archive.

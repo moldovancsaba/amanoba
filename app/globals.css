@@ -151,6 +151,79 @@ h3 {
     @apply bg-brand-darkGrey text-brand-white rounded-xl border-2 border-brand-accent;
   }
 
+  .ds-shell {
+    @apply min-h-screen bg-brand-black text-brand-white;
+  }
+
+  .ds-shell-gradient {
+    background:
+      radial-gradient(circle at top, color-mix(in srgb, var(--cta-bg) 12%, transparent), transparent 42%),
+      linear-gradient(180deg, var(--color-surface-panel) 0%, var(--color-surface-shell) 100%);
+  }
+
+  .ds-panel {
+    @apply rounded-2xl border bg-brand-white text-brand-black shadow-lg;
+    border-color: var(--color-border-strong);
+  }
+
+  .ds-panel-dark {
+    @apply rounded-2xl border bg-brand-darkGrey text-brand-white shadow-lg;
+    border-color: var(--color-border-strong);
+  }
+
+  .ds-panel-soft {
+    @apply rounded-xl border shadow-sm;
+    background: var(--color-surface-subtle);
+    border-color: var(--color-border-subtle);
+    color: var(--color-text-primary);
+  }
+
+  .ds-panel-soft-accent {
+    @apply rounded-xl border shadow-sm;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--cta-bg) 12%, white), var(--color-surface-card));
+    border-color: color-mix(in srgb, var(--cta-bg) 40%, transparent);
+    color: var(--color-text-primary);
+  }
+
+  .ds-panel-soft-success {
+    @apply rounded-xl border shadow-sm;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-success) 12%, white), var(--color-surface-card));
+    border-color: color-mix(in srgb, var(--color-success) 40%, transparent);
+    color: var(--color-text-primary);
+  }
+
+  .ds-copy-muted {
+    color: var(--color-text-muted);
+  }
+
+  .ds-copy-subtle {
+    color: var(--color-text-subtle);
+  }
+
+  .ds-stat-value {
+    color: var(--color-text-primary);
+  }
+
+  .ds-overlay {
+    background: var(--color-surface-overlay);
+  }
+
+  .ds-icon-info {
+    color: var(--color-info);
+  }
+
+  .ds-icon-warning {
+    color: var(--color-warning);
+  }
+
+  .ds-icon-success {
+    color: var(--color-success);
+  }
+
+  .ds-icon-accent {
+    color: var(--cta-bg);
+  }
+
   .page-button-primary {
     @apply bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors;
   }

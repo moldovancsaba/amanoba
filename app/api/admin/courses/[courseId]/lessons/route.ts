@@ -13,6 +13,7 @@ import { Course, Lesson } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
 import mongoose from 'mongoose';
+import { contentToMarkdown } from '@/lib/lesson-content';
 
 async function assertCourseAccess(
   request: NextRequest,
@@ -166,9 +167,9 @@ export async function POST(
       courseId: course._id,
       dayNumber,
       title,
-      content,
+      content: contentToMarkdown(content),
       emailSubject: emailSubject || `Day ${dayNumber}: ${title}`,
-      emailBody: emailBody || content,
+      emailBody: contentToMarkdown(emailBody || content),
       assessmentGameId: assessmentGameId && mongoose.Types.ObjectId.isValid(assessmentGameId)
         ? new mongoose.Types.ObjectId(assessmentGameId)
         : undefined,

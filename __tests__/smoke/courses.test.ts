@@ -12,12 +12,18 @@ vi.mock('@/lib/models', () => ({
   Course: {
     find: vi.fn().mockReturnValue({
       select: vi.fn().mockReturnThis(),
+      populate: vi.fn().mockReturnThis(),
       sort: vi.fn().mockReturnThis(),
       lean: vi.fn().mockResolvedValue([]),
     }),
   },
   Brand: {
     findOne: vi.fn().mockResolvedValue(null),
+  },
+  ContentVote: {
+    aggregate: vi.fn().mockReturnValue({
+      exec: vi.fn().mockResolvedValue([]),
+    }),
   },
 }));
 

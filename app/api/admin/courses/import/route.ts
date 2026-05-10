@@ -19,6 +19,7 @@ import { logger } from '@/lib/logger';
 import { requireAdmin } from '@/lib/rbac';
 import { QuestionDifficulty, QuizQuestionType } from '@/lib/models';
 import mongoose from 'mongoose';
+import { contentToMarkdown } from '@/lib/lesson-content';
 
 const VALID_QUESTION_TYPES = new Set(Object.values(QuizQuestionType));
 function normalizeQuestionType(value: unknown): string | undefined {
@@ -251,9 +252,9 @@ export async function POST(request: NextRequest) {
             dayNumber: lessonData.dayNumber ?? 1,
             language: lessonData.language ?? 'hu',
             title: lessonData.title ?? '',
-            content: lessonData.content ?? '',
+            content: contentToMarkdown(lessonData.content ?? ''),
             emailSubject: lessonData.emailSubject ?? '',
-            emailBody: lessonData.emailBody ?? '',
+            emailBody: contentToMarkdown(lessonData.emailBody ?? lessonData.content ?? ''),
             quizConfig: lessonData.quizConfig ?? null,
             unlockConditions: lessonData.unlockConditions ?? {},
             pointsReward: lessonData.pointsReward ?? 0,

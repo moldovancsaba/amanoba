@@ -22,8 +22,8 @@ export default function MemoryGamePage() {
 
   if (status === 'loading') {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
-        <div className="text-white text-2xl font-bold animate-pulse">Loading...</div>
+      <div className="ds-shell ds-shell-gradient flex items-center justify-center px-4">
+        <div className="ds-panel-dark px-8 py-6 text-2xl font-bold animate-pulse">Loading...</div>
       </div>
     );
   }
@@ -37,10 +37,12 @@ export default function MemoryGamePage() {
   const isPremium = (session.user as { isPremium?: boolean }).isPremium || false;
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="ds-shell ds-shell-gradient">
+      <div className="page-container py-8">
       <Card className="p-6 md:p-8">
         <MemoryGame playerId={playerId} isPremium={isPremium} />
       </Card>
+      </div>
     </div>
   );
 }

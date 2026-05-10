@@ -1,7 +1,7 @@
 # Amanoba Layout Grammar
 
-**Version**: 1.0  
-**Last Updated**: 2026-01-30  
+**Version**: 1.1  
+**Last Updated**: 2026-05-10  
 **Status**: ACTIVE — Single source of truth for structural and layout rules
 
 ---
@@ -101,7 +101,15 @@ See `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/COURSE_BUIL
 
 ## 6. UI and design layout
 
-**Design system**: `app/design-system.css`, `app/globals.css`, `tailwind.config.ts`.
+**Design system**: `app/design-system.css`, `app/globals.css`, `tailwind.config.ts`, `app/components/ui/button.tsx`, `app/components/ui/card.tsx`.
+
+**Authority order**:
+
+1. `app/design-system.css` — CSS variable source of truth for brand, semantic, surface, text, border, and external-brand colors.
+2. `tailwind.config.ts` — Tailwind aliases for those tokens (`brand.*`, `primary.*`, `semantic.*`, `social.*`).
+3. `app/globals.css` — shared shell/page/panel utility classes.
+4. Shared primitives in `app/components/ui/*`.
+5. Non-CSS token files for server-rendered contexts: `app/lib/constants/color-tokens.ts`, `app/lib/constants/certificate-colors.ts`, `app/lib/constants/app-url.ts`.
 
 **Color tokens**:
 
@@ -120,12 +128,18 @@ See `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/COURSE_BUIL
 - **Primary actions**: Accent yellow; hover per design tokens.  
 - **Links**: Accent for primary links; grey for secondary.
 
-**Components**: Prefer Tailwind and design-system tokens. Avoid inline hex for brand/CTA colors; use `brand-accent`, `brand-black`, `brand-darkGrey`, `brand-white`, or CSS variables.
+**Components**: Prefer Tailwind and design-system tokens. Avoid inline hex for brand/CTA colors; use `brand-accent`, `brand-black`, `brand-darkGrey`, `brand-white`, semantic token classes, or CSS variables from the token source files.
+
+**Shared primitive rule**:
+
+- If a visual pattern is reused, it must go through shared primitives or shared utility classes before page-level duplication grows.
+- `Button` and `Card` variants must remain design-system aligned; page code should not reintroduce generic template palettes into those primitives.
 
 **Guardrails (recommended)**:
 
 - Heuristic drift audit (tokens/palette): `npm run ui:audit:layout` and `npm run ui:check:layout`
 - Hard rule check (no raw color literals outside token sources): `npm run ui:audit:foundation` and `npm run ui:check:foundation`
+- Generated reports live in `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` and `docs/quality/UI_FOUNDATION_AUDIT.md`
 
 ---
 

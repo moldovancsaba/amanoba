@@ -1,14 +1,14 @@
 # Amanoba Architecture
 
-**Version**: 2.9.40  
-**Last Updated**: 2026-01-31  
-**Status**: Active — Course system, certificate system, payment, GA consent mode v2, course progress; course achievements/leaderboards, content voting, certificate enhancements (pass rules, template A/B at issue; v2.9.40)
+**Version**: 2.9.48  
+**Last Updated**: 2026-05-10  
+**Status**: Active — production course platform with SSO-only auth, gamified learning, content voting, certificate flows, and an active design-system migration
 
 ---
 
 ## System Overview
 
-Amanoba is a unified 30-day learning platform built on Next.js 15.5.2 (App Router) that combines PlayMass's multi-game infrastructure with Madoku's comprehensive gamification system. The platform delivers structured education through daily email lessons, interactive quiz assessments, and maintains a full gamification system. The architecture follows a monolithic serverless design optimized for Vercel deployment with MongoDB Atlas for data persistence.
+Amanoba is a unified 30-day learning platform built on Next.js 15.5.18 (App Router) that combines multi-game infrastructure with a course, quiz, and certification platform. The architecture follows a monolithic serverless design optimized for Vercel deployment with MongoDB Atlas for persistence and a centralized design-token system for UI consistency.
 
 ### Core Principles
 
@@ -24,9 +24,9 @@ Amanoba is a unified 30-day learning platform built on Next.js 15.5.2 (App Route
 ## Technology Stack
 
 ### Frontend
-- **Framework**: Next.js 15.5.2 (App Router)
+- **Framework**: Next.js 15.5.18 (App Router)
 - **Language**: TypeScript 5
-- **Styling**: Tailwind CSS 3.4.11 with custom animations; design tokens in `app/design-system.css`
+- **Styling**: Tailwind CSS 3.4.11 with centralized tokens in `app/design-system.css`, Tailwind aliases in `tailwind.config.ts`, shared utilities in `app/globals.css`, and shared primitives in `app/components/ui/*`
 - **UI Components**: Radix UI primitives
 - **Animation**: Framer Motion 10.18.0
 - **State Management**: TanStack React Query 5.56.2
@@ -190,7 +190,7 @@ amanoba/
 │       ├── rateLimit.ts         # Rate limiting utilities
 │       ├── validation.ts        # Zod schemas
 │       ├── anti-cheat.ts        # Anti-cheat validation
-│       ├── design-tokens.ts     # Centralized design system
+│       ├── constants/           # Non-CSS token sources for server-rendered contexts
 │       ├── animations.ts        # Framer Motion variants
 │       │
 │       ├── models/              # Mongoose schemas (17 models)

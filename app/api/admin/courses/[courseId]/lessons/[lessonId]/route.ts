@@ -13,6 +13,7 @@ import { logger } from '@/lib/logger';
 import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
 import { resetVotesForLesson } from '@/lib/content-votes';
 import mongoose from 'mongoose';
+import { contentToMarkdown } from '@/lib/lesson-content';
 
 /**
  * GET /api/admin/courses/[courseId]/lessons/[lessonId]
@@ -102,6 +103,13 @@ export async function PATCH(
         { error: 'Invalid assessmentGameId format' },
         { status: 400 }
       );
+    }
+
+    if (typeof body.content === 'string') {
+      body.content = contentToMarkdown(body.content);
+    }
+    if (typeof body.emailBody === 'string') {
+      body.emailBody = contentToMarkdown(body.emailBody);
     }
 
     const lesson = await Lesson.findOneAndUpdate(

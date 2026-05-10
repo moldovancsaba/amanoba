@@ -1,9 +1,31 @@
 # Amanoba Release Notes
 
 **Current Version**: 2.9.48  
-**Last Updated**: 2026-02-12
+**Last Updated**: 2026-03-10
 
 **Rule:** Each task exists in exactly one place.
+
+---
+
+## [Unreleased] — 2026-03-10 📋 Audit consolidation (docs ↔ code + quality gates)
+
+**Status**: In progress (audit findings consolidated; gate evidence captured)  
+**Type**: Audit, Documentation, Quality
+
+- **Doc/code discrepancy consolidation**:
+  - Version drift recorded: `README.md` (2.9.33) and `docs/architecture/ARCHITECTURE.md` (2.9.40) lag behind release tracking (2.9.48 baseline).
+  - Lesson-quiz governance transition documented: course-level policy is authoritative, while legacy `quizConfig` compatibility fields still appear in selected APIs/routes for backward compatibility.
+  - Cross-repo path portability risk documented for machine-local references to `/Users/moldovancsaba/Projects/amanoba_courses/process_them/...`.
+- **Audit evidence logged** in `docs/HANDOVER.md` and `docs/status/PRODUCTION_STATUS.md` for SSOT transparency.
+- **Quality gate run (2026-03-10):**
+  - `npm run lint` ✅
+  - `npm test` ❌ initially (`__tests__/smoke/courses.test.ts`: `/api/courses` returned 500, expected 200), then ✅ after smoke mock update (`populate` + `ContentVote` aggregate mock).
+  - `npm run type-check` ✅
+  - `npm run docs:check` ❌ (generated docs files out of date by policy; checker requires no diff in generated docs files unless committed)
+  - `DOCS_CHECK_INCLUDE_ARCHIVE=1 npm run docs:links:check` ✅ (177 files checked)
+  - `npm run build` ✅
+
+**Follow-up required before closing audit cards:** fix failing smoke test and resolve docs-generated-file drift so `docs:check` passes.
 
 ---
 

@@ -1,6 +1,6 @@
 # UI Layout Grammar Audit
 
-**Generated at**: 2026-02-05T20:03:58.760Z
+**Generated at**: 2026-05-10T12:44:47.278Z
 
 This report scans tracked UI code (`app/**`, `components/**`) for **layout-grammar / design-token** drift. It is a *heuristic* scan: it finds likely violations, then humans decide which are intentional.
 
@@ -11,34 +11,34 @@ This report scans tracked UI code (`app/**`, `components/**`) for **layout-gramm
 
 ## Summary
 
-- Files scanned: **194**
+- Files scanned: **205**
 
 ### Findings by area
 | Group | Findings |
 | --- | --- |
 | admin | 615 |
-| app | 465 |
-| games | 200 |
+| app | 458 |
+| games | 199 |
 | components | 15 |
 
 ### Findings by severity
 | Severity | Findings |
 | --- | --- |
-| major | 777 |
-| minor | 464 |
-| info | 54 |
+| major | 774 |
+| minor | 460 |
+| info | 53 |
 
 ### Top patterns (most frequent)
 | Pattern | Severity | Findings |
 | --- | --- | --- |
-| Default Tailwind gray scale in UI | major | 562 |
-| Plain white/black classes (bg-white, text-white, bg-black, text-black) | minor | 464 |
-| Default Tailwind indigo/blue palette in UI | major | 118 |
+| Default Tailwind gray scale in UI | major | 559 |
+| Plain white/black classes (bg-white, text-white, bg-black, text-black) | minor | 460 |
+| Default Tailwind indigo/blue palette in UI | major | 117 |
 | CTA accent background on non-action elements (likely misuse) | major | 40 |
 | Tailwind yellow palette usage (prefer brand accent token) | major | 38 |
-| Inline style={{...}} in components/pages | info | 28 |
-| Uses Tailwind dark: variants | info | 26 |
-| CTA accent text on non-link elements (review) | major | 19 |
+| Inline style={{...}} in components/pages | info | 31 |
+| Uses Tailwind dark: variants | info | 22 |
+| CTA accent text on non-link elements (review) | major | 20 |
 
 ### Top files (most findings)
 | File | Group | Findings |
@@ -101,117 +101,117 @@ Use this section to spot-check; the totals above are the authoritative counts.
 | `app/[locale]/achievements/page.tsx:236` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
 | `app/[locale]/achievements/page.tsx:288` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
 | `app/[locale]/achievements/page.tsx:308` | Inline style={{...}} in components/pages | `style={{` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:417` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:433` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:451` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:467` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:487` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:504` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` `bg-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:521` | Default Tailwind indigo/blue palette in UI | `text-indigo-600` `ring-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:544` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:564` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:583` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:609` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:631` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:645` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:660` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:678` | Default Tailwind indigo/blue palette in UI | `text-indigo-600` `ring-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:732` | Default Tailwind indigo/blue palette in UI | `bg-indigo-600` `bg-indigo-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:88` | Default Tailwind gray scale in UI | `bg-gray-400` `text-gray-300` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:365` | Default Tailwind gray scale in UI | `bg-gray-800` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:373` | Default Tailwind gray scale in UI | `text-gray-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:417` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:422` | Default Tailwind gray scale in UI | `text-gray-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:433` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:439` | Default Tailwind gray scale in UI | `text-gray-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:451` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:467` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:487` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:492` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:505` | Default Tailwind gray scale in UI | `border-gray-700` `border-gray-600` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:521` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:539` | Default Tailwind gray scale in UI | `text-gray-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:544` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:564` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:583` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:587` | Default Tailwind gray scale in UI | `text-gray-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:609` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:631` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:645` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:660` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:678` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:689` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:701` | Default Tailwind gray scale in UI | `text-gray-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:702` | Default Tailwind gray scale in UI | `text-gray-300` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:725` | Default Tailwind gray scale in UI | `bg-gray-700` `bg-gray-600` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:744` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:746` | Default Tailwind gray scale in UI | `text-gray-300` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:760` | Default Tailwind gray scale in UI | `bg-gray-700` `bg-gray-600` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:89` | Tailwind yellow palette usage (prefer brand accent token) | `bg-yellow-500/20` `text-yellow-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:390` | Tailwind yellow palette usage (prefer brand accent token) | `bg-yellow-900/20` `border-yellow-500/50` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:391` | Tailwind yellow palette usage (prefer brand accent token) | `text-yellow-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:392` | Tailwind yellow palette usage (prefer brand accent token) | `text-yellow-300` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:749` | Tailwind yellow palette usage (prefer brand accent token) | `text-yellow-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:352` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:367` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:370` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:402` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:410` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:417` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:427` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:433` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:445` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:451` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:461` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:467` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:479` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:459` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:475` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:493` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:509` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:529` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:546` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` `bg-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:563` | Default Tailwind indigo/blue palette in UI | `text-indigo-600` `ring-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:586` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:606` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:625` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:659` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:681` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:695` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:710` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:728` | Default Tailwind indigo/blue palette in UI | `text-indigo-600` `ring-indigo-500` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:782` | Default Tailwind indigo/blue palette in UI | `bg-indigo-600` `bg-indigo-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:122` | Default Tailwind gray scale in UI | `bg-gray-400` `text-gray-300` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:407` | Default Tailwind gray scale in UI | `bg-gray-800` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:415` | Default Tailwind gray scale in UI | `text-gray-400` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:459` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:464` | Default Tailwind gray scale in UI | `text-gray-400` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:475` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:481` | Default Tailwind gray scale in UI | `text-gray-400` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:493` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:509` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:529` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:534` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:547` | Default Tailwind gray scale in UI | `border-gray-700` `border-gray-600` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:563` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:581` | Default Tailwind gray scale in UI | `text-gray-400` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:586` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:606` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:625` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:629` | Default Tailwind gray scale in UI | `text-gray-400` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:659` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:681` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:695` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:710` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:728` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:739` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:751` | Default Tailwind gray scale in UI | `text-gray-400` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:752` | Default Tailwind gray scale in UI | `text-gray-300` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:775` | Default Tailwind gray scale in UI | `bg-gray-700` `bg-gray-600` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:794` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:796` | Default Tailwind gray scale in UI | `text-gray-300` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:810` | Default Tailwind gray scale in UI | `bg-gray-700` `bg-gray-600` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:123` | Tailwind yellow palette usage (prefer brand accent token) | `bg-yellow-500/20` `text-yellow-400` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:432` | Tailwind yellow palette usage (prefer brand accent token) | `bg-yellow-900/20` `border-yellow-500/50` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:433` | Tailwind yellow palette usage (prefer brand accent token) | `text-yellow-400` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:434` | Tailwind yellow palette usage (prefer brand accent token) | `text-yellow-300` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:799` | Tailwind yellow palette usage (prefer brand accent token) | `text-yellow-400` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:394` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:409` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:412` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:444` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:452` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:459` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:469` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:475` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
 | `app/[locale]/admin/achievements/[achievementId]/page.tsx:487` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:523` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:532` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:537` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:544` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:558` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:564` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:576` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:583` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:602` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:609` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:619` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:624` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:631` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:638` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:645` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:653` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:660` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:670` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:680` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:493` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:503` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:509` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:521` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:529` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:565` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:574` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:579` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:586` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:600` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:606` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:618` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:625` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:652` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:659` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:669` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:674` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:681` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
 | `app/[locale]/admin/achievements/[achievementId]/page.tsx:688` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:694` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:717` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:725` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:732` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:743` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `bg-black` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:745` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:760` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:768` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:63` | Tailwind yellow palette usage (prefer brand accent token) | `bg-yellow-500/20` `text-yellow-400` |
-| `app/[locale]/admin/achievements/new/page.tsx:261` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:264` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:285` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:293` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:695` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:703` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:710` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:720` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:730` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:738` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:744` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:767` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:775` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:782` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:793` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `bg-black` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:795` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:810` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/[achievementId]/page.tsx:818` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:80` | Tailwind yellow palette usage (prefer brand accent token) | `bg-yellow-500/20` `text-yellow-400` |
+| `app/[locale]/admin/achievements/new/page.tsx:286` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:289` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
 | `app/[locale]/admin/achievements/new/page.tsx:310` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:328` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:344` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:362` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:406` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:415` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:420` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:441` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:459` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:485` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:502` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:507` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:521` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:318` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:335` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:353` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:369` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:387` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:431` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:440` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:445` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:466` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:484` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:518` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:535` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:540` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/achievements/new/page.tsx:554` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
 
 ## Actionable next steps (recommended)
 

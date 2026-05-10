@@ -27,17 +27,48 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        // Amanoba brand colors — source of truth: app/design-system.css (--cta-bg, --color-primary-*)
+        semantic: {
+          success: 'var(--color-success)',
+          warning: 'var(--color-warning)',
+          error: 'var(--color-error)',
+          info: 'var(--color-info)',
+        },
+        // Amanoba brand colors — source of truth: app/design-system.css
         brand: {
-          black: '#000000',
-          darkGrey: '#2D2D2D',
-          white: '#FFFFFF',
-          accent: 'var(--cta-bg)', // CTA token from design-system.css
+          black: 'var(--color-surface-shell)',
+          darkGrey: 'var(--color-surface-panel)',
+          white: 'var(--color-surface-card)',
+          accent: 'var(--cta-bg)',
+          surface: {
+            shell: 'var(--color-surface-shell)',
+            panel: 'var(--color-surface-panel)',
+            card: 'var(--color-surface-card)',
+            subtle: 'var(--color-surface-subtle)',
+          },
+          text: {
+            primary: 'var(--color-text-primary)',
+            inverse: 'var(--color-text-inverse)',
+            muted: 'var(--color-text-muted)',
+            subtle: 'var(--color-text-subtle)',
+          },
+          border: {
+            strong: 'var(--color-border-strong)',
+            subtle: 'var(--color-border-subtle)',
+          },
           primary: {
-            400: 'var(--cta-bg-hover)', // Hover from design-system.css
+            400: 'var(--cta-bg-hover)',
           },
           secondary: {
-            700: '#374151',
+            50: 'var(--color-secondary-50)',
+            100: 'var(--color-secondary-100)',
+            200: 'var(--color-secondary-200)',
+            300: 'var(--color-secondary-300)',
+            400: 'var(--color-secondary-400)',
+            500: 'var(--color-secondary-500)',
+            600: 'var(--color-secondary-600)',
+            700: 'var(--color-secondary-700)',
+            800: 'var(--color-secondary-800)',
+            900: 'var(--color-secondary-900)',
           },
         },
         // Primary palette from design-system.css (CTAs and primary actions)
@@ -72,6 +103,12 @@ const config: Config = {
         social: {
           linkedin: 'var(--color-linkedin)',
           linkedinHover: 'var(--color-linkedin-hover)',
+          google: {
+            blue: 'var(--color-google-blue)',
+            green: 'var(--color-google-green)',
+            yellow: 'var(--color-google-yellow)',
+            red: 'var(--color-google-red)',
+          },
         },
       },
       animation: {

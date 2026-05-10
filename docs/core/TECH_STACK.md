@@ -1,20 +1,20 @@
 # Technology Stack
 
-**Version**: 2.8.0  
-**Last Updated**: 2026-01-28
+**Version**: 2.9.2  
+**Last Updated**: 2026-05-10
 
 ---
 
 ## Frontend Technologies
 
 ### Core Framework
-- **Next.js**: 15.5.2 (App Router)
+- **Next.js**: 15.5.18 (App Router)
 - **React**: 18.3.1
 - **TypeScript**: 5.5.3
 
 ### Styling & Design
 - **Tailwind CSS**: 3.4.11
-- **PostCSS**: 8.4.47
+- **PostCSS**: 8.5.14
 - **Autoprefixer**: 10.4.20
 - **tailwind-merge**: 2.5.2
 - **tailwindcss-animate**: 1.0.7
@@ -58,7 +58,7 @@
 
 ### Runtime & Framework
 - **Node.js**: >= 20.0.0
-- **Next.js API Routes**: 15.5.2 (App Router)
+- **Next.js API Routes**: 15.5.18 (App Router)
 
 ### Database
 - **MongoDB**: 6.18.0 (MongoDB Atlas)
@@ -66,7 +66,8 @@
 
 ### Authentication
 - **Facebook SDK**: OAuth 2.0
-- **next-auth**: Session management
+- **next-auth**: 5.0.0-beta.31 (session management)
+- **@auth/mongodb-adapter**: 3.11.2
 
 ### Payment Processing
 - **Stripe**: 20.2.0 (Payment processing for premium courses)
@@ -97,19 +98,19 @@
 ## Development Tools
 
 ### TypeScript
-- **typescript**: 5.5.3
-- **@types/node**: 22.5.5
-- **@types/react**: 18.3.3
-- **@types/react-dom**: 18.3.0
+- **typescript**: 5.9.3
+- **@types/node**: 20.19.40
+- **@types/react**: 18.x
+- **@types/react-dom**: 18.x
 - **@types/uuid**: 9.0.8
 - **@types/web-push**: 3.6.3
 
 ### Linting
-- **ESLint**: 8.57.1
-- **eslint-config-next**: 15.4.4
+- **ESLint**: 9.x
+- **eslint-config-next**: 15.5.18
 
 ### Build Tools
-- **@next/env**: 15.5.0
+- **@next/env**: 15.5.18
 
 ---
 
@@ -148,8 +149,8 @@
 ```json
 {
   "engines": {
-    "node": ">=20.0.0",
-    "npm": ">=9.0.0"
+    "node": ">=20.0.0 <25.0.0",
+    "npm": ">=10.0.0"
   }
 }
 ```
@@ -160,7 +161,8 @@
 {
   "overrides": {
     "brace-expansion": "^2.0.2",
-    "nanoid": "^3.3.8"
+    "nanoid": "^3.3.8",
+    "baseline-browser-mapping": "^2.9.0"
   }
 }
 ```
