@@ -278,6 +278,134 @@ export async function updateDailyLoginStreak(
 }
 
 /**
+ * Update daily learning streak
+ *
+ * What: Tracks consecutive days with at least one meaningful learning action
+ * Why: Rewards course-learning consistency without requiring multiple actions per day
+ */
+export async function updateDailyLearningStreak(
+  playerId: mongoose.Types.ObjectId
+): Promise<{
+  currentStreak: number;
+  continued: boolean;
+  milestoneReached?: number;
+}> {
+  try {
+    const now = new Date();
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const yesterdayStart = new Date(todayStart);
+    yesterdayStart.setDate(yesterdayStart.getDate() - 1);
+
+    let streak = await Streak.findOne({
+      playerId,
+      type: 'daily_learning',
+    });
+
+    if (!streak) {
+      streak = new Streak({
+        playerId,
+        type: 'daily_learning',
+        currentStreak: 1,
+        bestStreak: 1,
+        lastActivity: now,
+        streakStart: now,
+        bonusMultiplier: 1.0,
+        milestones: [],
+        metadata: {
+          createdAt: now,
+          updatedAt: now,
+          expiresAt: getNextDayEnd(now),
+        },
+      });
+
+      await streak.save();
+
+      return {
+        currentStreak: 1,
+        continued: false,
+      };
+    }
+
+    const lastActivity = streak.lastActivity;
+    const lastActivityDate = new Date(
+      lastActivity.getFullYear(),
+      lastActivity.getMonth(),
+      lastActivity.getDate()
+    );
+
+    if (lastActivityDate.getTime() === todayStart.getTime()) {
+      return {
+        currentStreak: streak.currentStreak,
+        continued: false,
+      };
+    }
+
+    if (lastActivityDate.getTime() === yesterdayStart.getTime()) {
+      const previousStreak = streak.currentStreak;
+      streak.currentStreak += 1;
+      streak.lastActivity = now;
+      streak.metadata.expiresAt = getNextDayEnd(now);
+
+      if (streak.currentStreak > streak.bestStreak) {
+        streak.bestStreak = streak.currentStreak;
+      }
+
+      const milestoneReached = checkStreakMilestone(
+        streak.currentStreak,
+        previousStreak
+      );
+
+      if (milestoneReached) {
+        streak.milestones.push({
+          value: milestoneReached,
+          achievedAt: now,
+          rewardGiven: false,
+        });
+      }
+
+      await streak.save();
+
+      logger.info(
+        {
+          playerId,
+          currentStreak: streak.currentStreak,
+          milestoneReached,
+        },
+        'Daily learning streak continued'
+      );
+
+      return {
+        currentStreak: streak.currentStreak,
+        continued: true,
+        milestoneReached,
+      };
+    }
+
+    const brokenStreak = streak.currentStreak;
+    streak.currentStreak = 1;
+    streak.lastActivity = now;
+    streak.streakStart = now;
+    streak.bonusMultiplier = 1.0;
+    streak.metadata.expiresAt = getNextDayEnd(now);
+
+    await streak.save();
+
+    logger.info(
+      { playerId, brokenStreak },
+      'Daily learning streak broken and restarted'
+    );
+
+    return {
+      currentStreak: 1,
+      continued: false,
+    };
+  } catch (error) {
+    logger.error({ err: error, playerId }, 'Failed to update daily learning streak');
+    throw error;
+  }
+}
+
+/**
  * Get next day end timestamp
  * Why: Used for streak expiration
  */
@@ -326,11 +454,17 @@ export async function getPlayerStreaks(
     best: number;
     expiresAt?: Date;
   };
+  learningStreak: {
+    current: number;
+    best: number;
+    expiresAt?: Date;
+  };
 }> {
   const streaks = await Streak.find({ playerId }).lean();
   
   const winStreak = streaks.find(s => s.type === 'win');
   const loginStreak = streaks.find(s => s.type === 'daily_login');
+  const learningStreak = streaks.find(s => s.type === 'daily_learning');
   
   return {
     winStreak: {
@@ -342,6 +476,11 @@ export async function getPlayerStreaks(
       current: loginStreak?.currentStreak || 0,
       best: loginStreak?.bestStreak || 0,
       expiresAt: loginStreak?.metadata?.expiresAt,
+    },
+    learningStreak: {
+      current: learningStreak?.currentStreak || 0,
+      best: learningStreak?.bestStreak || 0,
+      expiresAt: learningStreak?.metadata?.expiresAt,
     },
   };
 }
@@ -358,7 +497,7 @@ export async function expireOldStreaks(): Promise<number> {
     
     const result = await Streak.updateMany(
       {
-        type: 'daily_login',
+        type: { $in: ['daily_login', 'daily_learning'] },
         'metadata.expiresAt': { $lt: now },
         currentStreak: { $gt: 0 },
       },

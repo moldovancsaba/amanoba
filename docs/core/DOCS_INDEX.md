@@ -31,6 +31,7 @@
 | Doc | Path | Purpose |
 |-----|------|---------|
 | **ENROLMENT_AND_PREREQUISITES.md** | `docs/features/ENROLMENT_AND_PREREQUISITES.md` | Multi-course enrolment model, API and UI behavior. |
+| **FRIEND_STREAKS_MVP.md** | `docs/features/FRIEND_STREAKS_MVP.md` | Invite-based pair accountability loop built on real learning actions. |
 | **PRACTICE_HUB_MVP_CONTRACT.md** | `docs/features/PRACTICE_HUB_MVP_CONTRACT.md` | Practice Hub MVP review modes, prioritization rules, and current data limits. |
 | **I18N_SETUP.md** | `docs/i18n/I18N_SETUP.md` | Locale setup and language integrity requirements. |
 | **SSO_IMPLEMENTATION_DETAILS.md** | `docs/sso/SSO_IMPLEMENTATION_DETAILS.md` | SSO architecture and implementation details. |

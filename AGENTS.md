@@ -12,6 +12,7 @@ Before making changes, read in this order:
 4. `docs/status/PRODUCTION_STATUS.md`
 
 If the task touches docs, architecture, lessons, quizzes, or UI layout, also read `docs/architecture/layout_grammar.md`.
+If the task touches GitHub Project 12 workflow or board field updates, also read `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` and `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md`.
 
 ## 2. Repo Workflow
 
@@ -25,6 +26,7 @@ gh issue list --repo moldovancsaba/mvp-factory-control --state open --assignee "
 ```
 
 - Use the `sentinel-squad/` prefix for local branch names before making changes.
+- Update GitHub Project 12 fields from this repo with `./scripts/mvp-factory-set-project-fields.sh ISSUE_NUMBER` when board status or ownership metadata changes.
 - Keep `docs/HANDOVER.md` current when runtime behavior, process, or board status changes.
 
 ## 3. Core Commands
@@ -49,6 +51,7 @@ Docs checks:
 
 ```sh
 npm run docs:refresh
+npm run docs:links:check
 npm run docs:check
 DOCS_CHECK_INCLUDE_ARCHIVE=1 npm run docs:links:check
 ```
@@ -74,10 +77,18 @@ Typical script pattern for operational scripts that need env:
 npx tsx --env-file=.env.local scripts/<script-name>.ts
 ```
 
+Project board auth bootstrap:
+
+```sh
+gh auth refresh -h github.com -s read:project,project
+```
+
 ## 4. Repo-Specific Notes
 
 - `npm run docs:check` runs generated-doc checks and active-doc link validation.
 - `npm run docs:check` refreshes generated docs first and can fail if regenerated docs changed but were not committed with the rest of the doc work.
+- `npm run docs:links:check` validates active docs only; add `DOCS_CHECK_INCLUDE_ARCHIVE=1` when archive docs are in scope.
+- GitHub Project field writes require one-time project scope auth via `gh auth refresh -h github.com -s read:project,project`.
 - CI currently runs `npm run ui:check:foundation` on pushes to `main` and pull requests.
 - `npm run workers` starts the background job workers and requires `MONGODB_URI` from `.env.local`.
 - Release scripts in `package.json` are `npm run release:patch`, `npm run release:minor`, and `npm run release:major`.

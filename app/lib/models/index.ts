@@ -42,6 +42,7 @@ export { default as SystemVersion, type ISystemVersion } from './system-version'
 export { default as EmailActivity, type IEmailActivity, type EmailType, type EmailSegment } from './email-activity';
 export { default as PracticeHubRewardGrant, type IPracticeHubRewardGrant } from './practice-hub-reward-grant';
 export { default as SavedLesson, type ISavedLesson } from './saved-lesson';
+export { default as FriendStreak, type IFriendStreak } from './friend-streak';
 
 // Referral System Model (1)
 export { default as ReferralTracking, type IReferralTracking } from './referral-tracking';

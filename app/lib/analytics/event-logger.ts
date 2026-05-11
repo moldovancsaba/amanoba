@@ -277,7 +277,7 @@ export async function logStreakEvent(
   playerId: string,
   brandId: string,
   streakData: {
-    type: 'win' | 'daily_login';
+    type: 'win' | 'daily_login' | 'daily_learning';
     event: 'started' | 'broken';
     streakLength: number;
     milestonesReached?: number[];

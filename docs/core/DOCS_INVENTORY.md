@@ -7,7 +7,7 @@
 
 **Last Updated**: 2026-05-11
 **Scope**: `docs/**/*.md` (excluding `docs/_archive/**`)
-**Count**: 93
+**Count**: 95
 
 | Path | Title | Size |
 |------|-------|------|
@@ -27,9 +27,9 @@
 | `docs/core/amanoba_codex_brain_dump.md` | Amanoba Codex Brain Dump (Continuity Doc) | 5.1 KB |
 | `docs/core/amanoba_system_outline.md` | Amanoba System Outline — Table of Contents | 24.2 KB |
 | `docs/core/CONTRIBUTING.md` | Contributing to Amanoba | 13.5 KB |
-| `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 14.2 KB |
-| `docs/core/DOCS_INDEX.md` | Documentation index | 4.5 KB |
-| `docs/core/DOCS_INVENTORY.md` | Docs Inventory | 8.5 KB |
+| `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 14.5 KB |
+| `docs/core/DOCS_INDEX.md` | Documentation index | 4.6 KB |
+| `docs/core/DOCS_INVENTORY.md` | Docs Inventory | 8.7 KB |
 | `docs/core/DOCS_TRIAGE.md` | Docs Triage | 5.9 KB |
 | `docs/core/ENVIRONMENT_SETUP.md` | Environment Setup Guide | 3.6 KB |
 | `docs/core/LEARNINGS.md` | Amanoba Learnings | 76.8 KB |
@@ -45,8 +45,10 @@
 | `docs/features/BUY_PREMIUM_FIX_DONE.md` | Buy premium fix — done | 967 B |
 | `docs/features/BUY_PREMIUM_FIX_STATUS.md` | Buy Premium Fix - Status Report | 4.8 KB |
 | `docs/features/ENROLMENT_AND_PREREQUISITES.md` | Enrolment and prerequisites | 3.6 KB |
+| `docs/features/FRIEND_STREAKS_MVP.md` | Friend Streaks MVP | 2.2 KB |
 | `docs/features/GEO_IMPROVEMENT_PLAN.md` | GEO Improvement Plan — Appearance in AI Chat Results | 12.4 KB |
 | `docs/features/GOOGLE_ANALYTICS_ENRICHMENT.md` | Google Analytics Enrichment | 2.7 KB |
+| `docs/features/LEARNING_STREAK_MVP.md` | Learning Streak MVP | 2.3 KB |
 | `docs/features/PRACTICE_HUB_MVP_CONTRACT.md` | Practice Hub MVP Contract | 11.3 KB |
 | `docs/features/PUBLIC_PROFILE_SCHEMA.md` | Public Profile Schema | 2.1 KB |
 | `docs/features/QUIZ_ANSWER_EXPLANATION_PILOT.md` | Quiz Answer Explanation Pilot | 2.9 KB |
@@ -59,7 +61,7 @@
 | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 5.2 KB |
 | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | MVP Factory Project — one-time setup (grant project scope) | 1.1 KB |
 | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Prompt for Next Context Window | 2.8 KB |
-| `docs/HANDOVER.md` | Amanoba — Developer Handover | 45.2 KB |
+| `docs/HANDOVER.md` | Amanoba — Developer Handover | 48.2 KB |
 | `docs/i18n/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB |
 | `docs/i18n/I18N_SETUP.md` | i18n Setup Complete | 8.7 KB |
 | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB |

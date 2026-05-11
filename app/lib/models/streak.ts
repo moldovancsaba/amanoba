@@ -20,7 +20,7 @@ import mongoose, { Schema, Document, Model } from 'mongoose';
  */
 export interface IStreak extends Document {
   playerId: mongoose.Types.ObjectId;
-  type: 'win' | 'daily_login';
+  type: 'win' | 'daily_login' | 'daily_learning';
   currentStreak: number;
   bestStreak: number;
   lastActivity: Date;
@@ -53,8 +53,8 @@ const StreakSchema = new Schema<IStreak>(
     type: {
       type: String,
       enum: {
-        values: ['win', 'daily_login'],
-        message: 'Type must be win or daily_login',
+        values: ['win', 'daily_login', 'daily_learning'],
+        message: 'Type must be win, daily_login, or daily_learning',
       },
       required: [true, 'Streak type is required'],
       // Why: Different types of streaks with different rules

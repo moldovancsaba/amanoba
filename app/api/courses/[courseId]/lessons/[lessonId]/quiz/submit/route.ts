@@ -15,6 +15,9 @@ import { logger } from '@/lib/logger';
 import mongoose from 'mongoose';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 import { resolveCourseQuizPolicy } from '@/lib/course-quiz-policy';
+import { updateDailyLearningStreak } from '@/lib/gamification';
+import { updateFriendStreaksForLearningAction } from '@/lib/friend-streaks';
+import { logStreakEvent } from '@/app/lib/analytics/event-logger';
 
 /**
  * POST /api/courses/[courseId]/lessons/[lessonId]/quiz/submit
@@ -179,6 +182,14 @@ export async function POST(
         ? wrongCount <= quizMaxWrongAllowed
         : percentage >= threshold;
 
+    let learningStreak:
+      | {
+          currentStreak: number;
+          continued: boolean;
+          milestoneReached?: number;
+        }
+      | null = null;
+
     // Track quiz completion in CourseProgress if passed
     if (passed && lesson.dayNumber) {
       try {
@@ -213,6 +224,32 @@ export async function POST(
                 playerId: (player as { _id: { toString(): string } })._id.toString(),
               }, 'Quiz completion tracked in CourseProgress');
             }
+          }
+
+          learningStreak = await updateDailyLearningStreak(
+            player._id as mongoose.Types.ObjectId
+          );
+
+          if (learningStreak.milestoneReached) {
+            await logStreakEvent(
+              (player._id as mongoose.Types.ObjectId).toString(),
+              course.brandId.toString(),
+              {
+                type: 'daily_learning',
+                event: 'started',
+                streakLength: learningStreak.currentStreak,
+                milestonesReached: [learningStreak.milestoneReached],
+              }
+            );
+          }
+
+          try {
+            await updateFriendStreaksForLearningAction(player._id as mongoose.Types.ObjectId);
+          } catch (friendStreakError) {
+            logger.warn(
+              { error: friendStreakError, courseId, lessonId, playerId: (player._id as mongoose.Types.ObjectId).toString() },
+              'Failed to update friend streaks after passed quiz'
+            );
           }
         }
       } catch (progressError) {
@@ -259,6 +296,7 @@ export async function POST(
       passed,
       threshold,
       results,
+      learningStreak,
     });
   } catch (error) {
     logger.error(

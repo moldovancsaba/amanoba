@@ -47,6 +47,7 @@ export {
 export {
   updateWinStreak,
   updateDailyLoginStreak,
+  updateDailyLearningStreak,
   getPlayerStreaks,
   expireOldStreaks,
 } from './streak-manager';

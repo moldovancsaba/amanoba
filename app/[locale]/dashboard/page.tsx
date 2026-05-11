@@ -99,6 +99,24 @@ interface MyCourseProgress {
   };
 }
 
+interface FriendStreakItem {
+  id: string;
+  status: 'pending' | 'active';
+  inviteCode: string | null;
+  createdAt: string | null;
+  joinedAt: string | null;
+  lastSharedActivity: string | null;
+  currentSharedStreak: number;
+  bestSharedStreak: number;
+  statusLabel: string;
+  atRisk: boolean;
+  stale: boolean;
+  partner: {
+    id: string | null;
+    displayName: string;
+  };
+}
+
 function getCourseDayHref(course: {
   courseId: string;
   language: string;
@@ -147,6 +165,11 @@ export default function Dashboard() {
   const [loadingRecommendations, setLoadingRecommendations] = useState(false);
   const [myCourses, setMyCourses] = useState<MyCourseProgress[]>([]);
   const [loadingMyCourses, setLoadingMyCourses] = useState(false);
+  const [friendStreaks, setFriendStreaks] = useState<FriendStreakItem[]>([]);
+  const [loadingFriendStreaks, setLoadingFriendStreaks] = useState(false);
+  const [friendInviteCode, setFriendInviteCode] = useState('');
+  const [friendStreakBusy, setFriendStreakBusy] = useState(false);
+  const [friendStreakMessage, setFriendStreakMessage] = useState<string | null>(null);
   const [featureFlags, setFeatureFlags] = useState<{
     courses: boolean;
     myCourses: boolean;
@@ -294,17 +317,107 @@ export default function Dashboard() {
     }
   }, [session, status, locale]);
 
+  const fetchFriendStreaks = useCallback(async () => {
+    if (status === 'loading' || !session) return;
+    try {
+      setLoadingFriendStreaks(true);
+      const response = await fetch('/api/friend-streaks', { cache: 'no-store' });
+      const data = await response.json();
+      if (data.success) {
+        setFriendStreaks(data.friendStreaks || []);
+      }
+    } catch (error) {
+      console.error('Failed to fetch friend streaks:', error);
+    } finally {
+      setLoadingFriendStreaks(false);
+    }
+  }, [session, status]);
+
+  const handleCreateFriendInvite = useCallback(async () => {
+    try {
+      setFriendStreakBusy(true);
+      setFriendStreakMessage(null);
+      const response = await fetch('/api/friend-streaks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'create' }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to create invite');
+      }
+      setFriendStreakMessage('Invite code created.');
+      await fetchFriendStreaks();
+    } catch (error) {
+      setFriendStreakMessage(error instanceof Error ? error.message : 'Failed to create invite');
+    } finally {
+      setFriendStreakBusy(false);
+    }
+  }, [fetchFriendStreaks]);
+
+  const handleJoinFriendInvite = useCallback(async () => {
+    try {
+      const inviteCode = friendInviteCode.trim().toUpperCase();
+      if (!inviteCode) {
+        setFriendStreakMessage('Enter an invite code first.');
+        return;
+      }
+
+      setFriendStreakBusy(true);
+      setFriendStreakMessage(null);
+      const response = await fetch('/api/friend-streaks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'join', inviteCode }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to join invite');
+      }
+      setFriendInviteCode('');
+      setFriendStreakMessage('Friend streak connected.');
+      await fetchFriendStreaks();
+    } catch (error) {
+      setFriendStreakMessage(error instanceof Error ? error.message : 'Failed to join invite');
+    } finally {
+      setFriendStreakBusy(false);
+    }
+  }, [fetchFriendStreaks, friendInviteCode]);
+
+  const handleRemoveFriendStreak = useCallback(async (friendStreakId: string) => {
+    try {
+      setFriendStreakBusy(true);
+      setFriendStreakMessage(null);
+      const response = await fetch('/api/friend-streaks', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ friendStreakId }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to remove friend streak');
+      }
+      setFriendStreakMessage('Friend streak removed.');
+      await fetchFriendStreaks();
+    } catch (error) {
+      setFriendStreakMessage(error instanceof Error ? error.message : 'Failed to remove friend streak');
+    } finally {
+      setFriendStreakBusy(false);
+    }
+  }, [fetchFriendStreaks]);
+
   useEffect(() => {
     void fetchPlayerData();
     void fetchFeatureFlags();
     void fetchRecommendations();
     void fetchMyCourses();
+    void fetchFriendStreaks();
     if (session?.user) {
       void fetchAdminAccess();
     } else {
       setAdminAccess({ canAccessAdmin: false, isAdmin: false, isEditorOnly: false });
     }
-  }, [fetchAdminAccess, fetchFeatureFlags, fetchMyCourses, fetchPlayerData, fetchRecommendations, session]);
+  }, [fetchAdminAccess, fetchFeatureFlags, fetchFriendStreaks, fetchMyCourses, fetchPlayerData, fetchRecommendations, session]);
 
   // Fire GA purchase when redirected here after payment success (e.g. general premium)
   useEffect(() => {
@@ -362,6 +475,8 @@ export default function Dashboard() {
   const xpProgress = progression ? (progression.currentXP / progression.xpToNextLevel) * 100 : 0;
   const currentPlayerId = player?.id ?? (session?.user as { id?: string; playerId?: string })?.playerId ?? (session?.user as { id?: string })?.id;
   const activeCourses = myCourses.filter((course) => !course.progress.isCompleted);
+  const pendingFriendInvite = friendStreaks.find((item) => item.status === 'pending');
+  const activeFriendStreaks = friendStreaks.filter((item) => item.status === 'active');
   const courseLabel = (key: string, fallback: string, values?: Record<string, string | number>) => {
     const out = values ? tCourses(key, values as Record<string, string | number>) : tCourses(key);
     if (typeof out !== 'string') return fallback;
@@ -801,6 +916,7 @@ export default function Dashboard() {
                 streaks.map((streak, index) => {
                   const labelMap: Record<string, string> = {
                     daily_login: t('dailyLoginStreak'),
+                    daily_learning: 'Learning Streak',
                     win: t('winStreak'),
                   };
                   const streakLabel = labelMap[streak.type] ?? streak.type.replace('_', ' ');
@@ -838,6 +954,141 @@ export default function Dashboard() {
 
           {/* Referral Card */}
           <ReferralCard />
+        </div>
+
+        <div className="bg-brand-white rounded-xl shadow-lg p-6 mb-8 border-2 border-brand-accent">
+          <div className="flex items-center justify-between gap-4 mb-4">
+            <div>
+              <h3 className="text-xl font-bold text-brand-black flex items-center gap-2">
+                <Icon icon={MdLocalFireDepartment} size={24} className="text-brand-accent" />
+                Friend Streaks
+              </h3>
+              <p className="text-sm text-brand-darkGrey">
+                Pair up with one learner at a time and keep a shared learning rhythm.
+              </p>
+            </div>
+            <button
+              onClick={() => void fetchFriendStreaks()}
+              className="text-sm font-semibold text-brand-accent hover:text-brand-primary-500"
+            >
+              Refresh
+            </button>
+          </div>
+
+          {friendStreakMessage && (
+            <div className="mb-4 rounded-lg border border-brand-accent/40 bg-brand-accent/10 px-4 py-3 text-sm text-brand-black">
+              {friendStreakMessage}
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+            <div className="rounded-lg border-2 border-brand-darkGrey/15 bg-brand-darkGrey/5 p-4">
+              <h4 className="font-bold text-brand-black mb-2">Create Invite</h4>
+              {pendingFriendInvite ? (
+                <div className="space-y-3">
+                  <div className="text-sm text-brand-darkGrey">
+                    Share this code with your learning partner.
+                  </div>
+                  <div className="rounded-lg bg-brand-black px-4 py-3 text-xl font-bold tracking-[0.25em] text-brand-accent">
+                    {pendingFriendInvite.inviteCode}
+                  </div>
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => void navigator.clipboard?.writeText(pendingFriendInvite.inviteCode || '')}
+                      className="rounded-lg bg-brand-accent px-4 py-2 font-bold text-brand-black hover:bg-brand-primary-400 transition-colors"
+                    >
+                      Copy Code
+                    </button>
+                    <button
+                      onClick={() => void handleRemoveFriendStreak(pendingFriendInvite.id)}
+                      disabled={friendStreakBusy}
+                      className="rounded-lg border-2 border-brand-darkGrey/20 px-4 py-2 font-bold text-brand-black hover:bg-brand-darkGrey/5 transition-colors disabled:opacity-60"
+                    >
+                      Cancel Invite
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <button
+                  onClick={() => void handleCreateFriendInvite()}
+                  disabled={friendStreakBusy}
+                  className="rounded-lg bg-brand-accent px-4 py-3 font-bold text-brand-black hover:bg-brand-primary-400 transition-colors disabled:opacity-60"
+                >
+                  Create Invite Code
+                </button>
+              )}
+            </div>
+
+            <div className="rounded-lg border-2 border-brand-darkGrey/15 bg-brand-darkGrey/5 p-4">
+              <h4 className="font-bold text-brand-black mb-2">Join Invite</h4>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <input
+                  value={friendInviteCode}
+                  onChange={(event) => setFriendInviteCode(event.target.value.toUpperCase())}
+                  placeholder="Paste invite code"
+                  className="flex-1 rounded-lg border-2 border-brand-darkGrey/20 px-4 py-3 text-brand-black outline-none focus:border-brand-accent"
+                />
+                <button
+                  onClick={() => void handleJoinFriendInvite()}
+                  disabled={friendStreakBusy}
+                  className="rounded-lg bg-brand-darkGrey px-4 py-3 font-bold text-brand-white hover:bg-brand-secondary-700 transition-colors disabled:opacity-60"
+                >
+                  Join
+                </button>
+              </div>
+              <p className="mt-3 text-sm text-brand-darkGrey">
+                A shared day only counts when both partners complete a learning action on the same day.
+              </p>
+            </div>
+          </div>
+
+          {loadingFriendStreaks ? (
+            <div className="py-6 text-center text-brand-darkGrey">{t('loading')}...</div>
+          ) : activeFriendStreaks.length === 0 ? (
+            <div className="rounded-lg border-2 border-dashed border-brand-darkGrey/20 px-4 py-8 text-center text-brand-darkGrey">
+              No active friend streaks yet.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {activeFriendStreaks.map((item) => (
+                <div
+                  key={item.id}
+                  className="rounded-lg border-2 border-brand-darkGrey/15 bg-brand-darkGrey/5 p-4"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <div className="text-sm text-brand-darkGrey">Partner</div>
+                      <div className="text-lg font-bold text-brand-black">{item.partner.displayName}</div>
+                    </div>
+                    <button
+                      onClick={() => void handleRemoveFriendStreak(item.id)}
+                      disabled={friendStreakBusy}
+                      className="text-sm font-semibold text-brand-darkGrey hover:text-brand-black disabled:opacity-60"
+                    >
+                      Remove
+                    </button>
+                  </div>
+
+                  <div className="mt-4 flex items-end justify-between">
+                    <div>
+                      <div className="text-sm text-brand-darkGrey">Shared streak</div>
+                      <div className="text-3xl font-bold text-brand-accent">{item.currentSharedStreak}</div>
+                    </div>
+                    <div className="text-right text-sm text-brand-darkGrey">
+                      <div>{item.statusLabel}</div>
+                      <div>Best: {item.bestSharedStreak}</div>
+                    </div>
+                  </div>
+
+                  {item.lastSharedActivity && (
+                    <div className="mt-3 text-xs text-brand-darkGrey">
+                      Last shared day: {new Date(item.lastSharedActivity).toLocaleDateString('hu-HU')}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </main>
     </div>

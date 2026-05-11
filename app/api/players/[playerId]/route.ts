@@ -76,12 +76,21 @@ export async function GET(
     await connectToDatabase();
 
     // Why: Fetch all player-related data in parallel for performance
+    const now = new Date();
     const [player, progressionRaw, walletRaw, streaks, achievementCount, totalAchievements, courseProgresses] =
       await Promise.all([
         Player.findById(playerId),
         PlayerProgression.findOne({ playerId }),
         PointsWallet.findOne({ playerId }),
-        Streak.find({ playerId, currentStreak: { $gt: 0 } }),
+        Streak.find({
+          playerId,
+          currentStreak: { $gt: 0 },
+          $or: [
+            { 'metadata.expiresAt': { $exists: false } },
+            { 'metadata.expiresAt': null },
+            { 'metadata.expiresAt': { $gte: now } },
+          ],
+        }),
         AchievementUnlock.countDocuments({ playerId }),
         Achievement.countDocuments({ 'metadata.isActive': true }),
         CourseProgress.find({ playerId }).lean(),

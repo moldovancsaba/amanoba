@@ -532,3 +532,68 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ### Notes
 - This MVP intentionally saves only lesson days. That keeps the saved library tied to real learner intent and makes the resume surface explainable from existing `CourseProgress` rather than inventing a separate history system.
+
+## Learning streak MVP update (2026-05-11)
+
+### What changed
+- Delivered a bounded `#750` streak slice centered on real course-learning behavior rather than logins or cosmetic counters.
+- Extended the streak model in [`/Users/moldovancsaba/Projects/amanoba/app/lib/models/streak.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/models/streak.ts) with a new `daily_learning` type.
+- Added `updateDailyLearningStreak` in [`/Users/moldovancsaba/Projects/amanoba/app/lib/gamification/streak-manager.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/gamification/streak-manager.ts) and exported it through [`/Users/moldovancsaba/Projects/amanoba/app/lib/gamification/index.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/gamification/index.ts).
+- Wired the streak to qualifying learning actions:
+  - lesson completion in [`/Users/moldovancsaba/Projects/amanoba/app/api/courses/[courseId]/day/[dayNumber]/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/courses/[courseId]/day/[dayNumber]/route.ts)
+  - passed lesson quiz submission in [`/Users/moldovancsaba/Projects/amanoba/app/api/courses/[courseId]/lessons/[lessonId]/quiz/submit/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/courses/[courseId]/lessons/[lessonId]/quiz/submit/route.ts)
+- Adjusted active-streak reading and expiry behavior so expired daily learning streaks do not remain visible until the next action:
+  - [`/Users/moldovancsaba/Projects/amanoba/app/api/players/[playerId]/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/players/[playerId]/route.ts)
+  - [`/Users/moldovancsaba/Projects/amanoba/app/lib/gamification/streak-manager.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/gamification/streak-manager.ts)
+- Updated the dashboard streak label map in [`/Users/moldovancsaba/Projects/amanoba/app/[locale]/dashboard/page.tsx`](/Users/moldovancsaba/Projects/amanoba/app/[locale]/dashboard/page.tsx) so the new streak is learner-visible.
+- Added focused regression coverage in [`/Users/moldovancsaba/Projects/amanoba/__tests__/unit/daily-learning-streak.test.ts`](/Users/moldovancsaba/Projects/amanoba/__tests__/unit/daily-learning-streak.test.ts).
+- Added the product contract doc [`/Users/moldovancsaba/Projects/amanoba/docs/features/LEARNING_STREAK_MVP.md`](/Users/moldovancsaba/Projects/amanoba/docs/features/LEARNING_STREAK_MVP.md).
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm test -- __tests__/unit/daily-learning-streak.test.ts` ✅ pass
+- `npx eslint --no-warn-ignored app/lib/models/streak.ts app/lib/gamification/streak-manager.ts app/lib/gamification/index.ts app/lib/analytics/event-logger.ts app/api/courses/[courseId]/day/[dayNumber]/route.ts app/api/courses/[courseId]/lessons/[lessonId]/quiz/submit/route.ts app/api/players/[playerId]/route.ts app/[locale]/dashboard/page.tsx __tests__/unit/daily-learning-streak.test.ts` ✅ pass
+
+### Notes
+- The MVP counting rule is strict and simple: one qualifying learning action per calendar day preserves the streak, and same-day repeats do not increment it. Qualifying actions are lesson completion or a passed lesson quiz.
+
+## Friend streaks MVP update (2026-05-11)
+
+### What changed
+- Delivered a bounded `#752` peer-accountability slice on top of the new solo learning streak foundation.
+- Added the new pair model [`/Users/moldovancsaba/Projects/amanoba/app/lib/models/friend-streak.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/models/friend-streak.ts) and exported it through [`/Users/moldovancsaba/Projects/amanoba/app/lib/models/index.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/models/index.ts).
+- Added the shared-streak rules helper [`/Users/moldovancsaba/Projects/amanoba/app/lib/friend-streaks.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/friend-streaks.ts), including:
+  - pair-day reconciliation
+  - shared streak increment / restart logic
+  - display-state normalization (`Shared today`, `At risk today`, `Needs restart`)
+- Added the authenticated learner API [`/Users/moldovancsaba/Projects/amanoba/app/api/friend-streaks/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/friend-streaks/route.ts) with:
+  - `GET` current pending + active friend streaks
+  - `POST { action: "create" }` invite creation
+  - `POST { action: "join" }` invite acceptance
+  - `DELETE` connection removal
+- Wired real learning actions into the pair logic so the friend streak updates on:
+  - lesson completion in [`/Users/moldovancsaba/Projects/amanoba/app/api/courses/[courseId]/day/[dayNumber]/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/courses/[courseId]/day/[dayNumber]/route.ts)
+  - passed lesson quiz submission in [`/Users/moldovancsaba/Projects/amanoba/app/api/courses/[courseId]/lessons/[lessonId]/quiz/submit/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/courses/[courseId]/lessons/[lessonId]/quiz/submit/route.ts)
+- Added the learner dashboard card in [`/Users/moldovancsaba/Projects/amanoba/app/[locale]/dashboard/page.tsx`](/Users/moldovancsaba/Projects/amanoba/app/[locale]/dashboard/page.tsx) so users can:
+  - create an invite code
+  - join an invite code
+  - view active partner streaks
+  - remove a pending or active connection
+- Added focused regression coverage in [`/Users/moldovancsaba/Projects/amanoba/__tests__/unit/friend-streaks.test.ts`](/Users/moldovancsaba/Projects/amanoba/__tests__/unit/friend-streaks.test.ts).
+- Added the product contract doc [`/Users/moldovancsaba/Projects/amanoba/docs/features/FRIEND_STREAKS_MVP.md`](/Users/moldovancsaba/Projects/amanoba/docs/features/FRIEND_STREAKS_MVP.md) and indexed it in [`/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_INDEX.md`](/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_INDEX.md).
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm test -- __tests__/unit/daily-learning-streak.test.ts __tests__/unit/friend-streaks.test.ts` ✅ pass
+- `npx eslint --no-warn-ignored app/lib/models/friend-streak.ts app/lib/friend-streaks.ts app/lib/models/index.ts app/api/friend-streaks/route.ts app/api/courses/[courseId]/day/[dayNumber]/route.ts app/api/courses/[courseId]/lessons/[lessonId]/quiz/submit/route.ts app/[locale]/dashboard/page.tsx __tests__/unit/friend-streaks.test.ts` ✅ pass
+- `npm run docs:refresh` ✅ pass
+- `DOCS_CHECK_INCLUDE_ARCHIVE=1 npm run docs:links:check` ✅ pass
+- `curl -I http://127.0.0.1:3002/en/dashboard` ✅ returned `307` redirect to sign-in when unauthenticated
+- `curl --max-time 10 -i http://127.0.0.1:3002/api/friend-streaks` ✅ returned `401 Unauthorized` when unauthenticated
+- `npm run docs:check` ⚠️ fails only on the repo’s generated-doc commit guard because refreshed generated docs changed:
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_CANONICAL_MAP.md`](/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_CANONICAL_MAP.md)
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_INVENTORY.md`](/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_INVENTORY.md)
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_TRIAGE.md`](/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_TRIAGE.md)
+
+### Notes
+- This MVP is intentionally invite-only and pair-only. It avoids a public social graph, discovery feed, or notifications until the accountability mechanic proves useful.

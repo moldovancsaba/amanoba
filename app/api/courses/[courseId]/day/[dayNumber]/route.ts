@@ -11,7 +11,13 @@ import connectDB from '@/lib/mongodb';
 import mongoose from 'mongoose';
 import { Course, Lesson, CourseProgress, Player, CourseProgressStatus, QuizQuestion } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import { checkAndUnlockCourseAchievements, checkAndUnlockCourseCompletionAchievements } from '@/lib/gamification';
+import {
+  checkAndUnlockCourseAchievements,
+  checkAndUnlockCourseCompletionAchievements,
+  updateDailyLearningStreak,
+} from '@/lib/gamification';
+import { updateFriendStreaksForLearningAction } from '@/lib/friend-streaks';
+import { logStreakEvent } from '@/app/lib/analytics/event-logger';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 import { resolveLessonForChildDay } from '@/lib/course-helpers';
 import { canonicalLessonForDay, canonicalLessonSpecsForCourse, buildCanonicalLessonContent } from '@/lib/canonical-spec';
@@ -334,6 +340,14 @@ export async function POST(
       return NextResponse.json({ error: 'Lesson not found' }, { status: 404 });
     }
 
+    let learningStreak:
+      | {
+          currentStreak: number;
+          continued: boolean;
+          milestoneReached?: number;
+        }
+      | null = null;
+
     // Mark as completed
     if (!progress.completedDays?.includes(day)) {
       progress.completedDays.push(day);
@@ -386,6 +400,31 @@ export async function POST(
       }
 
       await progress.save();
+      learningStreak = await updateDailyLearningStreak(
+        player._id as mongoose.Types.ObjectId
+      );
+
+      if (learningStreak.milestoneReached) {
+        await logStreakEvent(
+          (player._id as mongoose.Types.ObjectId).toString(),
+          course.brandId.toString(),
+          {
+            type: 'daily_learning',
+            event: 'started',
+            streakLength: learningStreak.currentStreak,
+            milestonesReached: [learningStreak.milestoneReached],
+          }
+        );
+      }
+
+      try {
+        await updateFriendStreaksForLearningAction(player._id as mongoose.Types.ObjectId);
+      } catch (friendStreakError) {
+        logger.warn(
+          { error: friendStreakError, courseId, playerId: (player._id as mongoose.Types.ObjectId).toString() },
+          'Failed to update friend streaks after lesson completion'
+        );
+      }
 
       // Check course-specific achievements (First Lesson, Week 1, etc.) after every lesson completion
       try {
@@ -424,6 +463,7 @@ export async function POST(
       success: true,
       message: 'Lesson completed',
       progress,
+      learningStreak,
     });
   } catch (error) {
     logger.error({ error, courseId: (await params).courseId, dayNumber: (await params).dayNumber }, 'Failed to complete lesson');
