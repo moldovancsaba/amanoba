@@ -10,6 +10,7 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, Lesson, QuizQuestion, Player, CourseProgress } from '@/lib/models';
 import { getCorrectAnswerString } from '@/app/lib/quiz-questions';
+import { buildQuizAnswerExplanation } from '@/app/lib/quiz-answer-feedback';
 import { logger } from '@/lib/logger';
 import mongoose from 'mongoose';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
@@ -157,6 +158,13 @@ export async function POST(
         question: question.question,
         selectedIndex: answer.selectedIndex,
         isCorrect,
+        correctAnswer: isCorrect ? undefined : correctAnswerValue,
+        explanation: isCorrect
+          ? undefined
+          : buildQuizAnswerExplanation({
+              authoredExplanation: (question as { explanation?: string }).explanation,
+              questionType: (question as { questionType?: string }).questionType,
+            }),
       };
     }).filter(Boolean);
 

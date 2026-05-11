@@ -30,7 +30,9 @@ import Icon, {
   MdStar, 
   MdTrendingUp, 
   MdLocalFireDepartment,
-  MdDiamond
+  MdDiamond,
+  MdPsychology,
+  MdFlag
 } from '@/components/Icon';
 
 interface PlayerData {
@@ -97,6 +99,21 @@ interface MyCourseProgress {
   };
 }
 
+function getCourseDayHref(course: {
+  courseId: string;
+  language: string;
+}, progress: {
+  currentDay: number;
+  totalDays: number;
+  isCompleted?: boolean;
+}) {
+  const safeTotalDays = Math.max(progress.totalDays || 1, 1);
+  const requestedDay = progress.isCompleted
+    ? safeTotalDays
+    : Math.min(Math.max(progress.currentDay || 1, 1), safeTotalDays);
+  return `/${course.language}/courses/${course.courseId}/day/${requestedDay}`;
+}
+
 export default function Dashboard() {
   const { data: session, status } = useSession();
   const _router = useRouter();
@@ -117,7 +134,15 @@ export default function Dashboard() {
   const [playerData, setPlayerData] = useState<PlayerData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  type RecommendationCourse = { courseId: string; name?: string; description?: string; thumbnail?: string; durationDays?: number; requiresPremium?: boolean };
+  type RecommendationCourse = {
+    courseId: string;
+    language?: string;
+    name?: string;
+    description?: string;
+    thumbnail?: string;
+    durationDays?: number;
+    requiresPremium?: boolean;
+  };
   const [recommendations, setRecommendations] = useState<RecommendationCourse[]>([]);
   const [loadingRecommendations, setLoadingRecommendations] = useState(false);
   const [myCourses, setMyCourses] = useState<MyCourseProgress[]>([]);
@@ -436,6 +461,24 @@ export default function Dashboard() {
                 {t('myCourses')}
               </LocaleLink>
             )}
+            {featureFlags?.myCourses && (
+              <LocaleLink
+                href="/practice"
+                className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
+              >
+                <Icon icon={MdPsychology} size={18} />
+                Practice Hub
+              </LocaleLink>
+            )}
+            {featureFlags?.myCourses && (
+              <LocaleLink
+                href="/saved"
+                className="block bg-brand-white border-2 border-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-accent/15 transition-all text-sm flex items-center justify-center gap-2"
+              >
+                <Icon icon={MdFlag} size={18} />
+                Saved Lessons
+              </LocaleLink>
+            )}
             {featureFlags?.games && (
               <LocaleLink
                 href="/games"
@@ -518,7 +561,7 @@ export default function Dashboard() {
                 {recommendations.map((course) => (
                   <LocaleLink
                     key={course.courseId}
-                    href={`/courses/${course.courseId}`}
+                    href={`/${course.language ?? locale}/courses/${course.courseId}`}
                     className="block bg-brand-darkGrey/5 rounded-lg p-4 border-2 border-brand-darkGrey/20 hover:border-brand-accent transition-all hover:shadow-lg"
                   >
                     {course.thumbnail && (
@@ -630,7 +673,7 @@ export default function Dashboard() {
                         })}
                       </span>
                       <LocaleLink
-                        href={`/${item.course.language}/courses/${item.course.courseId}/day/${item.progress.currentDay}`}
+                        href={getCourseDayHref(item.course, item.progress)}
                         className="text-brand-accent font-semibold"
                       >
                         {courseLabel('nextLesson', 'Next Lesson')}

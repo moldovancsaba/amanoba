@@ -18,12 +18,15 @@ import {
   Lock,
   Award,
   Play,
+  Bookmark,
+  BookmarkCheck,
 } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Logo from '@/components/Logo';
 import ContentVoteWidget from '@/components/ContentVoteWidget';
 import { contentToHtml } from '@/app/lib/lesson-content';
+import { readPracticeContextFromSearchParams } from '@/app/lib/practice-hub';
 
 interface Lesson {
   _id: string;
@@ -132,6 +135,9 @@ const dayPageTranslations: Record<string, Record<string, string>> = {
     mustPassQuiz: 'You must pass the quiz before completing this lesson.',
     failedToComplete: 'Failed to complete lesson',
     failedToLoadLesson: 'Failed to load lesson',
+    saveLesson: 'Save lesson',
+    removeSavedLesson: 'Remove saved lesson',
+    savingLesson: 'Saving...',
   },
   ru: {
     loadingLesson: 'Загрузка урока...',
@@ -403,6 +409,8 @@ export default function DailyLessonPage({
   const [totalDays, setTotalDays] = useState<number>(30);
   const [defaultLessonQuizQuestionCount, setDefaultLessonQuizQuestionCount] = useState<number | undefined>(undefined);
   const [quizMaxWrongAllowed, setQuizMaxWrongAllowed] = useState<number | undefined>(undefined);
+  const [isSavedLesson, setIsSavedLesson] = useState(false);
+  const [savingLesson, setSavingLesson] = useState(false);
   const searchParams = useSearchParams();
   const locale = useLocale(); // URL locale (e.g. /hu/ → 'hu') for fallback when lesson not found before courseLanguage is set
 
@@ -489,6 +497,25 @@ export default function DailyLessonPage({
     void loadData();
   }, [fetchLesson, params]);
 
+  useEffect(() => {
+    const fetchSavedStatus = async () => {
+      if (!session?.user || !courseId || !dayNumber) return;
+      try {
+        const response = await fetch(
+          `/api/saved-lessons?courseId=${encodeURIComponent(courseId)}&lessonDay=${dayNumber}`,
+          { cache: 'no-store' }
+        );
+        if (!response.ok) return;
+        const data = await response.json();
+        setIsSavedLesson(data.isSaved === true);
+      } catch (error) {
+        console.error('Failed to fetch saved lesson status:', error);
+      }
+    };
+
+    void fetchSavedStatus();
+  }, [courseId, dayNumber, session?.user]);
+
   const handleComplete = async () => {
     if (!lesson || completing) return;
 
@@ -500,8 +527,13 @@ export default function DailyLessonPage({
 
     setCompleting(true);
     try {
+      const practiceContext = readPracticeContextFromSearchParams(searchParams);
       const response = await fetch(`/api/courses/${courseId}/day/${dayNumber}`, {
         method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(
+          practiceContext ? { practiceContext } : {}
+        ),
       });
 
       const data = await response.json();
@@ -518,6 +550,17 @@ export default function DailyLessonPage({
         );
         // Refresh lesson state silently to pick up progress/unlocks
         await fetchLesson(courseId, dayNumber, { silent: true, fallbackLanguage: courseLanguage });
+
+        if (practiceContext) {
+          await fetch('/api/practice-hub/complete', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              practiceContext,
+              trigger: 'lesson_completed',
+            }),
+          });
+        }
         // Alert removed - lesson completion is already visible in the UI
       } else {
         alert(data.error || getDayPageText('failedToComplete', courseLanguage));
@@ -527,6 +570,34 @@ export default function DailyLessonPage({
       alert(getDayPageText('failedToComplete', courseLanguage));
     } finally {
       setCompleting(false);
+    }
+  };
+
+  const handleToggleSavedLesson = async () => {
+    if (!lesson?.lessonId || !courseId || !dayNumber || savingLesson) return;
+
+    setSavingLesson(true);
+    try {
+      const response = await fetch('/api/saved-lessons', {
+        method: isSavedLesson ? 'DELETE' : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          courseId,
+          lessonDay: dayNumber,
+          lessonId: lesson.lessonId,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update saved lesson');
+      }
+
+      const data = await response.json();
+      setIsSavedLesson(data.saved === true);
+    } catch (error) {
+      console.error('Failed to update saved lesson:', error);
+    } finally {
+      setSavingLesson(false);
     }
   };
 
@@ -655,6 +726,29 @@ export default function DailyLessonPage({
               </div>
             </div>
           )}
+          {lesson.isUnlocked && session?.user ? (
+            <div className="mt-4">
+              <button
+                type="button"
+                onClick={handleToggleSavedLesson}
+                disabled={savingLesson}
+                className="min-h-[44px] inline-flex items-center gap-2 rounded-lg border-2 border-brand-accent px-4 py-2 font-bold text-brand-black transition-colors hover:bg-brand-accent/15 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {isSavedLesson ? (
+                  <BookmarkCheck className="h-5 w-5 text-brand-accent" />
+                ) : (
+                  <Bookmark className="h-5 w-5 text-brand-accent" />
+                )}
+                <span>
+                  {savingLesson
+                    ? getDayPageText('savingLesson', courseLanguage)
+                    : isSavedLesson
+                    ? getDayPageText('removeSavedLesson', courseLanguage)
+                    : getDayPageText('saveLesson', courseLanguage)}
+                </span>
+              </button>
+            </div>
+          ) : null}
         </div>
 
         {/* Lesson Content */}

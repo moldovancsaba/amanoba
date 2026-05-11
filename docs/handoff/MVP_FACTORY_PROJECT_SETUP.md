@@ -1,6 +1,6 @@
 # MVP Factory Project — one-time setup (grant project scope)
 
-To allow scripts and agents to **set project fields** (Status, Agent, Product, Type, Priority) on the [MVP Factory Board](https://github.com/users/moldovancsaba/projects/1) from this repo, the GitHub CLI token must include **project** scope.
+To allow scripts and agents to **set project fields** (Status, Agent, Product, Type, Priority) on the [Amanoba Project board](https://github.com/users/moldovancsaba/projects/12/views/1) from this repo, the GitHub CLI token must include **project** scope.
 
 ## One-time step
 

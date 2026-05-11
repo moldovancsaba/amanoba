@@ -40,6 +40,8 @@ export { default as EventLog, type IEventLog } from './event-log';
 export { default as AnalyticsSnapshot, type IAnalyticsSnapshot } from './analytics-snapshot';
 export { default as SystemVersion, type ISystemVersion } from './system-version';
 export { default as EmailActivity, type IEmailActivity, type EmailType, type EmailSegment } from './email-activity';
+export { default as PracticeHubRewardGrant, type IPracticeHubRewardGrant } from './practice-hub-reward-grant';
+export { default as SavedLesson, type ISavedLesson } from './saved-lesson';
 
 // Referral System Model (1)
 export { default as ReferralTracking, type IReferralTracking } from './referral-tracking';
@@ -108,4 +110,4 @@ export { default as DiscussionPost, type IDiscussionPost } from './discussion-po
 export { default as StudyGroup, type IStudyGroup } from './study-group';
 export { default as StudyGroupMembership, type IStudyGroupMembership, type StudyGroupRole } from './study-group-membership';
 
-// Total: 36 models
+// Total: 37 models

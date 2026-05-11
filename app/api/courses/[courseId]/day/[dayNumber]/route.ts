@@ -222,6 +222,7 @@ export async function GET(
       success: true,
       lesson: {
         ...lesson,
+        // Compatibility projection for older clients. The course-level quizPolicy block below is authoritative.
         quizConfig: {
           enabled: quizEnabled,
           required: quizRequired,
@@ -248,7 +249,7 @@ export async function GET(
         required: quizRequired,
         availableQuestionCount: lessonQuestionCount,
       },
-      // Legacy response fields kept temporarily for client compatibility.
+      // Legacy course-level aliases kept temporarily for client compatibility.
       quizMaxWrongAllowed: policy.maxWrongAllowed,
       defaultLessonQuizQuestionCount: policy.questionCount,
     });

@@ -13,6 +13,7 @@ import { useState, useEffect, useCallback } from 'react';
 export type QuizQuestionItem = {
   _id: string;
   question: string;
+  explanation?: string;
   options: string[];
   correctIndex: number;
   difficulty: string;
@@ -24,6 +25,7 @@ type Difficulty = 'EASY' | 'MEDIUM' | 'HARD' | 'EXPERT';
 
 const DEFAULT_FORM = {
   question: '',
+  explanation: '',
   options: ['', '', '', ''],
   correctIndex: 0,
   difficulty: 'MEDIUM' as Difficulty,
@@ -101,6 +103,7 @@ export default function QuizManagerModal({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           question: questionForm.question.trim(),
+          explanation: questionForm.explanation.trim() || undefined,
           options: optionsToSend,
           correctIndex: correctIndexToSend,
           difficulty: questionForm.difficulty,
@@ -129,6 +132,7 @@ export default function QuizManagerModal({
     const options = opts.length >= 4 ? [...opts] : [...opts, ...Array(4 - opts.length).fill('')];
     setQuestionForm({
       question: question.question,
+      explanation: question.explanation || '',
       options,
       correctIndex: Math.min(question.correctIndex ?? 0, Math.max(0, options.length - 1)),
       difficulty: question.difficulty as Difficulty,
@@ -219,6 +223,19 @@ export default function QuizManagerModal({
                 rows={3}
                 required
               />
+            </div>
+            <div>
+              <label className={`block text-sm font-medium ${textCls} mb-2`}>Answer explanation</label>
+              <textarea
+                value={questionForm.explanation}
+                onChange={(e) => setQuestionForm({ ...questionForm, explanation: e.target.value })}
+                className={`w-full px-4 py-2 rounded-lg ${inputCls} ${textCls}`}
+                rows={4}
+                placeholder="Optional: explain why the correct answer is right or what concept the learner should review."
+              />
+              <p className={`text-xs ${mutedCls} mt-1`}>
+                Shown to learners after an incorrect answer. Keep it short, specific, and tied to the lesson concept.
+              </p>
             </div>
             <div>
               <label className={`block text-sm font-medium ${textCls} mb-2`}>Options * (minimum 4)</label>
@@ -386,6 +403,11 @@ export default function QuizManagerModal({
                                   <span>Difficulty: {question.difficulty}</span>
                                   <span>Category: {question.category}</span>
                                 </div>
+                                {question.explanation ? (
+                                  <p className={`mt-3 text-sm ${mutedCls}`}>
+                                    Explanation: {question.explanation}
+                                  </p>
+                                ) : null}
                               </div>
                               <div className="flex items-center gap-2 ml-4">
                                 <button
@@ -445,6 +467,11 @@ export default function QuizManagerModal({
                                   <span>Difficulty: {question.difficulty}</span>
                                   <span>Category: {question.category}</span>
                                 </div>
+                                {question.explanation ? (
+                                  <p className={`mt-3 text-sm ${mutedCls}`}>
+                                    Explanation: {question.explanation}
+                                  </p>
+                                ) : null}
                               </div>
                               <div className="flex items-center gap-2 ml-4">
                                 <button

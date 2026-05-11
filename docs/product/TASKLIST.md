@@ -1,6 +1,6 @@
 # Amanoba Task List
 
-> **Source of truth is now the [MVP Factory Board](https://github.com/users/moldovancsaba/projects/1).** Tasks have been migrated: **Backlog** = not yet broken down; **Ready** = actionable deliverables (Product = amanoba). This file is kept as reference only. For next work, use the board. See [MIGRATION_ROADMAP_TASKLIST.md](https://github.com/moldovancsaba/mvp-factory-control/blob/main/docs/MIGRATION_ROADMAP_TASKLIST.md).
+> **Source of truth is now the [Amanoba Project board](https://github.com/users/moldovancsaba/projects/12/views/1).** Tasks have been migrated into the Project 12 status lane model (`IDEABANK (SOMEDAY)` -> `Roadmap (LATER)` -> `Backlog (SOONER)` -> `Todo (NEXT)` -> `In Progress (NOW)` -> `Review (ALMOST)` -> `Done` / `Declined (NEVER)`). This file is kept as reference only. For next work, use the board. See [MIGRATION_ROADMAP_TASKLIST.md](https://github.com/moldovancsaba/mvp-factory-control/blob/main/docs/MIGRATION_ROADMAP_TASKLIST.md).
 
 **Last Updated**: 2026-02-12
 

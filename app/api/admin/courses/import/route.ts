@@ -55,6 +55,7 @@ interface PackageLesson {
   quizQuestions?: Array<{
     uuid?: string;
     question?: string;
+    explanation?: string;
     options?: string[];
     correctIndex?: number;
     correctAnswer?: string;
@@ -255,6 +256,7 @@ export async function POST(request: NextRequest) {
             content: contentToMarkdown(lessonData.content ?? ''),
             emailSubject: lessonData.emailSubject ?? '',
             emailBody: contentToMarkdown(lessonData.emailBody ?? lessonData.content ?? ''),
+            // Compatibility ingest only. Runtime behavior is resolved from course.lessonQuizPolicy.
             quizConfig: lessonData.quizConfig ?? null,
             unlockConditions: lessonData.unlockConditions ?? {},
             pointsReward: lessonData.pointsReward ?? 0,
@@ -286,6 +288,7 @@ export async function POST(request: NextRequest) {
         for (const questionData of quizQuestions) {
           await QuizQuestion.create({
             question: questionData.question ?? '',
+            explanation: questionData.explanation ?? undefined,
             options: questionData.options ?? [],
             correctIndex: questionData.correctIndex ?? 0,
             correctAnswer: questionData.correctAnswer ?? undefined,
@@ -331,6 +334,7 @@ export async function POST(request: NextRequest) {
 
         const basePayload = {
           question: questionData.question ?? '',
+          explanation: questionData.explanation ?? undefined,
           options: questionData.options ?? [],
           correctIndex: questionData.correctIndex ?? 0,
           correctAnswer: questionData.correctAnswer ?? undefined,

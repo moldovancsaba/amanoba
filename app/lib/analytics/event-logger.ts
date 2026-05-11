@@ -15,6 +15,7 @@
 import { EventLog } from '@/lib/models';
 import logger from '@/lib/logger';
 import crypto from 'crypto';
+import type { PracticeCompletionTrigger, PracticeContext } from '@/app/lib/practice-hub';
 
 /**
  * Event Types
@@ -37,6 +38,10 @@ export type EventType =
   | 'challenge_completed'
   | 'quest_started'
   | 'quest_completed'
+  | 'practice_hub_viewed'
+  | 'practice_hub_recommendation_opened'
+  | 'practice_hub_completion_recorded'
+  | 'practice_hub_reward_granted'
   | 'system';
 
 /**
@@ -418,6 +423,52 @@ export async function logSystemEvent(
       ...eventData,
       timestamp: new Date().toISOString(),
     },
+  });
+}
+
+/**
+ * Log Practice Hub telemetry
+ *
+ * What: Records bounded Practice Hub funnel and reward events
+ * Why: Makes Practice Hub usage queryable without expanding the broader analytics surface
+ */
+export async function logPracticeHubEvent(
+  playerId: string,
+  brandId: string | undefined,
+  data: {
+    event: 'viewed' | 'recommendation_opened' | 'completion_recorded' | 'reward_granted';
+    context?: PracticeContext;
+    trigger?: PracticeCompletionTrigger;
+    availableRecommendationCount?: number;
+    availableModeCount?: number;
+    pointsAwarded?: number;
+    xpAwarded?: number;
+    leveledUp?: boolean;
+  },
+  context?: EventContext
+): Promise<string> {
+  const eventTypeMap = {
+    viewed: 'practice_hub_viewed',
+    recommendation_opened: 'practice_hub_recommendation_opened',
+    completion_recorded: 'practice_hub_completion_recorded',
+    reward_granted: 'practice_hub_reward_granted',
+  } as const;
+
+  return logEvent({
+    playerId,
+    brandId,
+    eventType: eventTypeMap[data.event],
+    eventData: {
+      practiceContext: data.context,
+      trigger: data.trigger,
+      availableRecommendationCount: data.availableRecommendationCount,
+      availableModeCount: data.availableModeCount,
+      pointsAwarded: data.pointsAwarded,
+      xpAwarded: data.xpAwarded,
+      leveledUp: data.leveledUp,
+      recordedAt: new Date().toISOString(),
+    },
+    context,
   });
 }
 

@@ -121,6 +121,10 @@ export async function PATCH(
     if (body.question !== undefined) {
       updateData.question = body.question.trim();
     }
+    if (body.explanation !== undefined) {
+      updateData.explanation =
+        typeof body.explanation === 'string' ? body.explanation.trim() || undefined : undefined;
+    }
     if (body.options !== undefined) {
       updateData.options = body.options.map((opt: string) => opt.trim());
     }

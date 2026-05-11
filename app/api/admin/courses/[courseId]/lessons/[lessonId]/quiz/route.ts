@@ -13,6 +13,7 @@ import { logger } from '@/lib/logger';
 import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
 import type { Session } from 'next-auth';
 import { getEditorActorId } from './utils';
+import { resolveCourseQuizPolicy } from '@/lib/course-quiz-policy';
 
 /**
  * GET /api/admin/courses/[courseId]/lessons/[lessonId]/quiz
@@ -66,8 +67,10 @@ export async function GET(
       count: questions.length,
       lesson: {
         lessonId: lesson.lessonId,
+        // Compatibility-only lesson payload; admin clients should prefer courseQuizPolicy below.
         quizConfig: lesson.quizConfig,
       },
+      courseQuizPolicy: resolveCourseQuizPolicy(course as Parameters<typeof resolveCourseQuizPolicy>[0]),
     });
   } catch (error) {
     logger.error({ error, courseId: (await params).courseId, lessonId: (await params).lessonId }, 'Failed to fetch lesson quiz questions');
@@ -120,6 +123,7 @@ export async function POST(
 
     const {
       question,
+      explanation,
       options,
       correctIndex,
       difficulty = QuestionDifficulty.MEDIUM,
@@ -154,6 +158,7 @@ export async function POST(
     const actor = getEditorActorId(session);
     const quizQuestion = new QuizQuestion({
       question,
+      explanation: typeof explanation === 'string' && explanation.trim().length > 0 ? explanation.trim() : undefined,
       options,
       correctIndex,
       difficulty: difficulty as QuestionDifficulty,

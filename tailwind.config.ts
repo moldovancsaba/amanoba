@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import tailwindcssAnimate from 'tailwindcss-animate'
 
 // What: Tailwind CSS configuration for Amanoba unified platform
 // Why: Provides design system with custom animations, colors, and responsive breakpoints for games and gamification UI
@@ -150,7 +151,7 @@ const config: Config = {
     },
   },
   plugins: [
-    require('tailwindcss-animate'),
+    tailwindcssAnimate,
   ],
 }
 

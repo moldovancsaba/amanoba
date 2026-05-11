@@ -3,7 +3,7 @@
 **Template**: Feature  
 **Objective**: Dashboard/course pages: show every course in progress, surface "Enrol" with prerequisite notices, respect multi-course state  
 **TASKLIST**: P2 § Multiple courses: enrolment + prerequisites — item #3  
-**Status**: [mvp-factory-control #2](https://github.com/moldovancsaba/mvp-factory-control/issues/2) · **Board:** Status Backlog, Agent Tribeca, Product amanoba, Type Feature, Priority P0. Move to **Ready** to start work.
+**Status**: [mvp-factory-control #2](https://github.com/moldovancsaba/mvp-factory-control/issues/2) · **Board:** Status `Todo (NEXT)`, Agent Tribeca, Product amanoba, Type Feature, Priority P0.
 
 ---
 
@@ -42,8 +42,8 @@ Dashboard & course pages: multi-course in progress, Enrol CTA, prerequisite noti
 
 - **TASKLIST**: `docs/product/TASKLIST.md` — P2 #3
 - **Enrolment & prerequisites**: `docs/features/ENROLMENT_AND_PREREQUISITES.md` (model, API, GET /api/my-courses, POST /api/courses/[courseId]/enroll)
-- **Handoff**: `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` — work starts when this card is in **Ready**
+- **Handoff**: `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` — work starts when this card is in **Todo (NEXT)** or `In Progress (NOW)`
 
 ---
 
-**Next step**: Create this as a Feature issue in mvp-factory-control using your Feature template; move to **Ready** when approved so work can start.
+**Next step**: Create this as a Feature issue in mvp-factory-control using your Feature template; move to **Todo (NEXT)** when approved so work can start.

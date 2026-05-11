@@ -92,6 +92,14 @@ interface Lesson {
   hasQuiz: boolean;
 }
 
+function getCourseDayHref(course: Pick<Course, 'courseId' | 'language' | 'durationDays'>, currentDay?: number, isCompleted?: boolean) {
+  const safeTotalDays = Math.max(course.durationDays || 1, 1);
+  const requestedDay = isCompleted
+    ? safeTotalDays
+    : Math.min(Math.max(currentDay || 1, 1), safeTotalDays);
+  return `/${course.language}/courses/${course.courseId}/day/${requestedDay}`;
+}
+
 export default function CourseDetailPage({
   params,
 }: {
@@ -921,6 +929,9 @@ export default function CourseDetailPage({
   }, [course?.prerequisiteCourses, completedCourseIdSet, unmetPrereqsFromEnroll]);
   const prereqEnforcement = course?.prerequisiteEnforcement ?? 'hard';
   const prereqBlocked = unmetPrereqs.length > 0 && prereqEnforcement === 'hard';
+  const continueCourseHref = course && enrollment?.enrolled
+    ? getCourseDayHref(course, enrollment.progress?.currentDay, enrollment.progress?.isCompleted)
+    : null;
 
   const renderCertificationBlock = () => {
     if (!course || !entitlement) return null;
@@ -1348,7 +1359,7 @@ export default function CourseDetailPage({
                       )}
                     </div>
                     <LocaleLink
-                      href={`/courses/${courseId}/day/${enrollment.progress?.currentDay || 1}`}
+                      href={continueCourseHref ?? `/${course.language}/courses/${courseId}/day/1`}
                       className="block w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base"
                     >
                       {getCourseDetailTexts().continuelLearning}
@@ -1445,7 +1456,7 @@ export default function CourseDetailPage({
               <div className="flex-1 flex justify-end">
                 {enrollment?.enrolled ? (
                   <LocaleLink
-                    href={`/courses/${courseId}/day/${enrollment.progress?.currentDay || 1}`}
+                    href={continueCourseHref ?? `/${course.language}/courses/${courseId}/day/1`}
                     className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-sm"
                   >
                     {getCourseDetailTexts().continuelLearning}

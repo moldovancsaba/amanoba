@@ -80,7 +80,7 @@ Designer courses in the system are expressed as **canonical course specs (CCS)**
 
 **Quality**: 20–30 min reading time; clear structure; specific and actionable; no fluff; same language as course (language integrity). Email fields (`emailSubject`, `emailBody`) must be in-language and free of leakage from other languages.
 
-**Quiz linkage**: `quizConfig`: `enabled`, `successThreshold` (e.g. 70), `questionCount`, `poolSize`, `required`. Quizzes are generated/aligned from CCS and lesson content.
+**Quiz linkage**: learner quiz behavior is governed at `course.lessonQuizPolicy` level. `lesson.quizConfig` remains a compatibility payload for import/export and legacy responses only; it is not authoritative for runtime behavior. Quizzes are generated/aligned from CCS and lesson content.
 
 ---
 

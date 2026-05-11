@@ -31,6 +31,7 @@
 | Doc | Path | Purpose |
 |-----|------|---------|
 | **ENROLMENT_AND_PREREQUISITES.md** | `docs/features/ENROLMENT_AND_PREREQUISITES.md` | Multi-course enrolment model, API and UI behavior. |
+| **PRACTICE_HUB_MVP_CONTRACT.md** | `docs/features/PRACTICE_HUB_MVP_CONTRACT.md` | Practice Hub MVP review modes, prioritization rules, and current data limits. |
 | **I18N_SETUP.md** | `docs/i18n/I18N_SETUP.md` | Locale setup and language integrity requirements. |
 | **SSO_IMPLEMENTATION_DETAILS.md** | `docs/sso/SSO_IMPLEMENTATION_DETAILS.md` | SSO architecture and implementation details. |
 | **CERTIFICATION_REFERENCE.md** | `docs/certification/CERTIFICATION_REFERENCE.md` | Certification-related reference index. |
@@ -38,6 +39,7 @@
 | **PRODUCTION_STATUS.md** | `docs/status/PRODUCTION_STATUS.md` | Current production status and deployment checks. |
 | **HANDOFF_MVP_FACTORY_CONTROL.md** | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Board handoff and issue workflow model. |
 | **MVP_FACTORY_PROJECT_SETUP.md** | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | One-time project scope setup for board automation. |
+| **AmanobaAuditDocMapping.md** | `docs/handoff/AmanobaAuditDocMapping.md` | Audit SSOT inventory: board workflow, doc-to-code mapping, and quality gates. |
 | **HANDOFF_CONTEXT_WINDOW_2026-02-12.md** | `docs/handoff/HANDOFF_CONTEXT_WINDOW_2026-02-12.md` | Current context-transfer snapshot and continuation state. |
 | **NEXT_WINDOW_PROMPT.md** | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Copy-paste prompt for the next context window. |
 | **QUALITY_VALIDATION_SYSTEM.md** | `docs/quality/QUALITY_VALIDATION_SYSTEM.md` | Quiz/content quality validation model. |

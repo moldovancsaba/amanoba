@@ -75,7 +75,7 @@ export async function GET(
       return {};
     };
 
-    // Build export structure (package format v2 — see docs/COURSE_PACKAGE_FORMAT.md)
+    // Build export structure (package format v2 — legacy lesson.quizConfig is emitted for compatibility only)
     const exportData = {
       packageVersion: '2.0',
       version: '2.0',
@@ -139,6 +139,7 @@ export async function GET(
           content: contentToMarkdown(lesson.content),
           emailSubject: lesson.emailSubject || '',
           emailBody: contentToMarkdown(lesson.emailBody),
+          // Compatibility export only. Course.lessonQuizPolicy is the live authority for quiz behavior.
           quizConfig: lesson.quizConfig || null,
           unlockConditions: lesson.unlockConditions || {},
           pointsReward: lesson.pointsReward || 0,
@@ -152,6 +153,7 @@ export async function GET(
             questionType: q.questionType ?? undefined,
             hashtags: q.hashtags ?? undefined,
             question: q.question || '',
+            explanation: (q as { explanation?: string }).explanation ?? undefined,
             options: q.options || [],
             correctIndex: q.correctIndex !== undefined ? q.correctIndex : 0,
             correctAnswer: (q as { correctAnswer?: string }).correctAnswer ?? undefined,

@@ -38,6 +38,14 @@ interface CourseProgress {
   };
 }
 
+function getCourseDayHref(course: CourseProgress['course'], progress: CourseProgress['progress']) {
+  const safeTotalDays = Math.max(progress.totalDays || 1, 1);
+  const requestedDay = progress.isCompleted
+    ? safeTotalDays
+    : Math.min(Math.max(progress.currentDay || 1, 1), safeTotalDays);
+  return `/${course.language}/courses/${course.courseId}/day/${requestedDay}`;
+}
+
 export default function MyCoursesPage() {
   const { data: session } = useSession();
   const locale = useLocale();
@@ -189,7 +197,7 @@ export default function MyCoursesPage() {
 
                 {/* Actions */}
                 <LocaleLink
-                  href={`/${item.course.language}/courses/${item.course.courseId}/day/${item.progress.currentDay}`}
+                  href={getCourseDayHref(item.course, item.progress)}
                   className="block w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors mobile-full-width"
                 >
                   {item.progress.isCompleted

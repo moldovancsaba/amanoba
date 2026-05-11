@@ -5,12 +5,13 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { CheckCircle, XCircle, ArrowLeft, Loader2 } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
 import { useSession } from 'next-auth/react';
+import { readPracticeContextFromSearchParams } from '@/app/lib/practice-hub';
 
 interface LessonResponse {
   success: boolean;
@@ -40,6 +41,15 @@ interface Question {
   id: string;
   question: string;
   options: string[];
+}
+
+interface QuizSubmitResult {
+  questionId: string;
+  question: string;
+  selectedIndex?: number;
+  isCorrect: boolean;
+  correctAnswer?: string;
+  explanation?: string | null;
 }
 
 // Static translations for quiz page - keyed by COURSE LANGUAGE
@@ -82,6 +92,8 @@ const quizPageTranslations: Record<string, Record<string, string>> = {
     lessonQuiz: 'Lesson Quiz',
     quiz: 'Quiz',
     question: 'Question',
+    correctAnswerLabel: 'Correct answer',
+    explanationLabel: 'Why this answer works',
   },
   ru: {
     failedToLoadLesson: 'Не удалось загрузить урок',
@@ -222,6 +234,7 @@ export default function LessonQuizPage({
 }) {
   const { data: session } = useSession();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const locale = useLocale();
   const [courseId, setCourseId] = useState<string>('');
   const [courseLanguage, setCourseLanguage] = useState<string>('en');
@@ -233,6 +246,8 @@ export default function LessonQuizPage({
   const [loading, setLoading] = useState(true);
   const [answering, setAnswering] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
+  const [answerExplanation, setAnswerExplanation] = useState<string | null>(null);
+  const [correctAnswerLabel, setCorrectAnswerLabel] = useState<string | null>(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [quizMaxWrongAllowed, setQuizMaxWrongAllowed] = useState<number | undefined>(undefined);
@@ -314,6 +329,8 @@ export default function LessonQuizPage({
     if (!currentQuestion || answering) return;
     setAnswering(true);
     setFeedback(null);
+    setAnswerExplanation(null);
+    setCorrectAnswerLabel(null);
     setIsAnswerCorrect(null);
     try {
       const res = await fetch(
@@ -344,9 +361,9 @@ export default function LessonQuizPage({
         return;
       }
 
-      const result = data.results?.[0];
-      const isCorrect = result?.isCorrect;
-      setIsAnswerCorrect(isCorrect);
+      const result = data.results?.[0] as QuizSubmitResult | undefined;
+      const isCorrect = result?.isCorrect === true;
+      setIsAnswerCorrect(result?.isCorrect ?? null);
       if (isCorrect) {
         setFeedback(getQuizPageText('quizCorrect', courseLanguage));
         const nextIndex = currentIndex + 1;
@@ -362,11 +379,33 @@ export default function LessonQuizPage({
             localStorage.setItem(key, 'true');
           }
           setTimeout(() => {
-            router.replace(`/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}?quiz=passed`);
+            const completePracticeFlow = async () => {
+              const practiceContext = readPracticeContextFromSearchParams(searchParams);
+              if (practiceContext) {
+                try {
+                  await fetch('/api/practice-hub/complete', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                      practiceContext,
+                      trigger: 'quiz_passed',
+                    }),
+                  });
+                } catch (practiceError) {
+                  console.error('Failed to record Practice Hub quiz completion:', practiceError);
+                }
+              }
+
+              router.replace(`/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}?quiz=passed`);
+            };
+
+            void completePracticeFlow();
           }, 900);
         } else {
           setTimeout(() => {
             setFeedback(null);
+            setAnswerExplanation(null);
+            setCorrectAnswerLabel(null);
             setIsAnswerCorrect(null);
             setCurrentIndex(nextIndex);
           }, 700);
@@ -375,6 +414,8 @@ export default function LessonQuizPage({
         const newWrongCount = wrongCount + 1;
         setWrongCount(newWrongCount);
         setFeedback(getQuizPageText('quizSupportiveRetry', courseLanguage));
+        setCorrectAnswerLabel(result?.correctAnswer ?? null);
+        setAnswerExplanation(result?.explanation ?? null);
         if (lessonId) {
           const user = session?.user as { id?: string; playerId?: string } | undefined;
           const playerId = user?.playerId || user?.id;
@@ -399,6 +440,8 @@ export default function LessonQuizPage({
           } else {
             setTimeout(() => {
               setFeedback(null);
+              setAnswerExplanation(null);
+              setCorrectAnswerLabel(null);
               setIsAnswerCorrect(null);
               setCurrentIndex(nextIndex);
             }, 1200);
@@ -493,21 +536,39 @@ export default function LessonQuizPage({
           </div>
 
           {feedback && (
-            <div className={`mt-8 flex items-center gap-3 font-semibold rounded-lg px-5 py-4 ${
+            <div className={`mt-8 rounded-lg px-5 py-4 ${
               isAnswerCorrect === true
                 ? 'bg-green-500/15 border border-green-500 text-green-700'
                 : isAnswerCorrect === false
                 ? 'bg-red-500/15 border border-red-500 text-red-700'
                 : 'bg-brand-accent/15 border border-brand-accent text-brand-black'
             }`}>
-              {isAnswerCorrect === true ? (
-                <CheckCircle className="w-6 h-6 text-green-500" />
-              ) : isAnswerCorrect === false ? (
-                <XCircle className="w-6 h-6 text-red-500" />
-              ) : (
-                <CheckCircle className="w-6 h-6 text-brand-accent" />
-              )}
-              <span>{feedback}</span>
+              <div className="flex items-center gap-3 font-semibold">
+                {isAnswerCorrect === true ? (
+                  <CheckCircle className="w-6 h-6 text-green-500" />
+                ) : isAnswerCorrect === false ? (
+                  <XCircle className="w-6 h-6 text-red-500" />
+                ) : (
+                  <CheckCircle className="w-6 h-6 text-brand-accent" />
+                )}
+                <span>{feedback}</span>
+              </div>
+              {(correctAnswerLabel || answerExplanation) && isAnswerCorrect === false ? (
+                <div className="mt-4 space-y-2 border-t border-current/20 pt-4 text-sm leading-relaxed">
+                  {correctAnswerLabel ? (
+                    <p>
+                      <span className="font-bold">{getQuizPageText('correctAnswerLabel', courseLanguage)}:</span>{' '}
+                      <span>{correctAnswerLabel}</span>
+                    </p>
+                  ) : null}
+                  {answerExplanation ? (
+                    <p>
+                      <span className="font-bold">{getQuizPageText('explanationLabel', courseLanguage)}:</span>{' '}
+                      <span>{answerExplanation}</span>
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
             </div>
           )}
         </div>

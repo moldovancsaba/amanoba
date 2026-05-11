@@ -47,6 +47,7 @@ export enum QuestionType {
  */
 export interface IQuizQuestion extends Document {
   question: string;
+  explanation?: string;
   /** Legacy: at least 4 options; correctIndex 0 to options.length-1. Optional when correctAnswer + wrongAnswers are used. */
   options?: string[];
   /** Legacy: index of correct answer in options (0 to options.length-1). Optional when correctAnswer + wrongAnswers are used. */
@@ -97,6 +98,15 @@ const QuizQuestionSchema = new Schema<IQuizQuestion>(
       minlength: [10, 'Question must be at least 10 characters'],
       maxlength: [500, 'Question cannot exceed 500 characters'],
       index: true, // Why: Used for alphabetical tie-breaking in selection algorithm
+    },
+
+    // Optional authored teaching note shown after incorrect answers
+    // Why: Enables bounded, content-grounded mistake feedback without requiring AI generation
+    explanation: {
+      type: String,
+      trim: true,
+      maxlength: [800, 'Explanation cannot exceed 800 characters'],
+      default: undefined,
     },
 
     // Answer options (legacy: minimum 4 options; optional when correctAnswer + wrongAnswers are used)

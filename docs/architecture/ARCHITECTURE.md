@@ -19,6 +19,12 @@ Amanoba is a unified 30-day learning platform built on Next.js 15.5.18 (App Rout
 5. **Security-First**: Rate limiting, input validation, XSS protection, and anti-cheat on all endpoints
 6. **Reuse via discriminator**: Same feature in 2+ places = one model, one API, one component; discriminator (e.g. `targetType`) selects context. See **docs/product/VOTING_AND_REUSE_PATTERN.md** (unified voting and how to reuse features).
 
+### Lesson quiz governance
+
+- **Authority**: learner lesson-quiz behavior is resolved from `Course.lessonQuizPolicy` via `app/lib/course-quiz-policy.ts`.
+- **Compatibility only**: `Lesson.quizConfig` may still appear in import/export payloads and selected API responses, but it is no longer authoritative for question count, pass threshold, or required-gate behavior.
+- **Runtime rule**: learner-facing routes should expose `quizPolicy` or course-level aliases when needed, and any `lesson.quizConfig` payload should be treated as a compatibility projection only.
+
 ---
 
 ## Technology Stack

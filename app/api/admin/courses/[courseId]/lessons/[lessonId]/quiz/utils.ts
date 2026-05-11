@@ -9,6 +9,7 @@ import type { Session } from 'next-auth';
 
 export const quizEditableFields = [
   'question',
+  'explanation',
   'options',
   'correctIndex',
   'difficulty',

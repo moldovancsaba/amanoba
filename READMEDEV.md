@@ -12,11 +12,11 @@ This is the **Brain Boost** every developer must read before touching Amanoba co
 4. Update your local branch name with the `sentinel-squad/` prefix before making changes.
 
 ## 2. SSOT discipline and governance
-- **Board**: https://github.com/users/moldovancsaba/projects/1 (Product column set to “Amanoba”; Project column governs status).
+- **Board**: https://github.com/users/moldovancsaba/projects/12/views/1 (Amanoba board; this is the live project SSOT).
 - **Naming**: Issues that belong to this product are titled `Amanoba: <short description>`.
 - **Product repo ≠ project repo**: Always execute work through the project repo (`mvp-factory-control`). Do not create issues in `moldovancsaba/amanoba`.
 - **Cadence**:
-  - Start: move the SSOT card to _In Progress_ and add a start note (objective + quick approach).
+  - Start: move the SSOT card to `In Progress (NOW)` and add a start note (objective + quick approach).
   - Milestones/blocks: update the card status and comment with next steps or blockers.
   - Finish: move status to _Done_, note validation evidence, and mention the docs touched.
 
@@ -56,7 +56,7 @@ This is the **Brain Boost** every developer must read before touching Amanoba co
 
 ## 8. Handoff checklist (end-of-session)
 1. Document: append `docs/HANDOVER.md` entries and mention files changed.
-2. SSOT: update the project card (status + validation + blockers).
+2. SSOT: update the Project 12 card (status + validation + blockers).
 3. Tests: rerun relevant suites; capture commands and outcomes.
 4. Communicate: share completion message + next steps referencing the board card.
 

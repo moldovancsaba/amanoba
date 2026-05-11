@@ -5,9 +5,9 @@
 
 # Docs Triage
 
-**Last Updated**: 2026-04-26
+**Last Updated**: 2026-05-11
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=4, KEEP(unclassified)=62
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=4, KEEP(unclassified)=63
 
 This file is the “what to do next” view derived from `docs/core/DOCS_CANONICAL_MAP.md`.
 
@@ -20,7 +20,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 ## ARCHIVE (grouped by target)
 ### docs/_archive/reference/
 - `docs/features/GEO_IMPROVEMENT_PLAN.md` — GEO Improvement Plan — Appearance in AI Chat Results (12.4 KB)
-- `docs/HANDOVER.md` — Amanoba — Developer Handover (8.7 KB)
+- `docs/HANDOVER.md` — Amanoba — Developer Handover (45.2 KB)
 - `docs/quality/UI_FOUNDATION_AUDIT.md` — UI Foundation Audit (Hard Rules) (1.4 KB)
 - `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` — UI Layout Grammar Audit (23.0 KB)
 
@@ -49,14 +49,15 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/features/BUY_PREMIUM_FIX_STATUS.md` — Buy Premium Fix - Status Report
 - `docs/features/GOOGLE_ANALYTICS_ENRICHMENT.md` — Google Analytics Enrichment
 - `docs/features/PUBLIC_PROFILE_SCHEMA.md` — Public Profile Schema
-- `docs/handoff/AmanobaAuditDocMapping.md` — Amanoba Audit: Document ↔ Code Inventory
+- `docs/features/QUIZ_ANSWER_EXPLANATION_PILOT.md` — Quiz Answer Explanation Pilot
+- `docs/features/SAVED_LESSONS_MVP.md` — Saved Lessons MVP
 - `docs/handoff/feature_issues/FEATURE_DASHBOARD_MULTI_COURSE_ENROL_P2_3.md` — Feature issue (mvp-factory-control) — Dashboard / multi-course Enrol + prerequisites
 - `docs/handoff/HANDOFF_ARCHITECTURE_FIX_CRITICAL.md` — 📋 COMPREHENSIVE HANDOFF - ARCHITECTURAL GAP DISCOVERY & FIX PLAN
 - `docs/handoff/HANDOFF_DOCUMENT_COMPREHENSIVE.md` — 📋 QUIZ ENHANCEMENT PROJECT - COMPREHENSIVE STATUS & HANDOFF DOCUMENT
 - `docs/i18n/ADMIN_LANGUAGE_SETUP.md` — Admin Language Configuration
 - `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` — 📑 INDEX: Language Separation Project - Complete Documentation
 - `docs/i18n/LANGUAGE_DROPDOWN_PROBLEM_LOG.md` — Language dropdown / i18n problem — collected information
-- `docs/product/DESIGN_UPDATE.md` — Design System Update - New Brand Colors & Logo
+- `docs/product/DESIGN_UPDATE.md` — Design System Status
 - `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` — Developer Feedback Analysis
 - `docs/product/NEXT_PHASES.md` — Next Phases: Detailed Implementation Plan
 - `docs/product/P3_KNOWN_ISSUES_BACKLOG.md` — P3 Known Issues — Backlog
@@ -84,8 +85,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/status/MIGRATION_COMPLETE.md` — Page Migration to [locale] Structure - Complete
 - `docs/status/MIGRATION_PHASE_1_COMPLETE.md` — DATABASE MIGRATION PHASE 1 - FINAL STATUS
 - `docs/status/PHASE_1_COMPLETE.md` — Phase 1 Complete: Foundation & Data Models
-- `docs/status/PHASE_1_EXECUTION_COMPLETE.md` — PHASE 1 EXECUTION COMPLETE
-- … +2 more
+- … +3 more
 
 ## Next suggested move
 - Review KEEP(unclassified) docs and either promote to canonical sections in `docs/core/DOCS_INDEX.md` or archive.

@@ -7,7 +7,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 **Status**: Production stable, SSO-only auth, daily lessons + gamified learning live.
 
 ## SSOT (Work Tracking)
-- **Board**: https://github.com/users/moldovancsaba/projects/1 (Product column filters to “Amanoba”). The board is the single source of truth; no local task files.
+- **Board**: https://github.com/users/moldovancsaba/projects/12/views/1. This Amanoba GitHub Project board is the single source of truth; no local task files.
 - **Issues repo**: `moldovancsaba/mvp-factory-control`. All Amanoba work (P1–P4) is tracked there. Issue titles follow `Amanoba: <short description>`.
 - **Product repo ≠ project repo**: Do not raise issues in `moldovancsaba/amanoba`. Find or request the related card in the board before coding.
 - **Workflow**:  
@@ -168,3 +168,367 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 ### Notes / remaining work
 - The hard-rule foundation audit is now clean, but the heuristic layout audit still reports large migration backlog across admin, profile, certificate, and several game pages. Those are next-step refactors, not resolved by this foundation pass.
 - Standalone `npm run type-check` initially failed because `.next/types` was stale in the working tree; rerunning it after `npm run build` regenerated the route types and cleared the issue.
+
+## Board execution ordering update (2026-05-10)
+
+### What changed
+- Reviewed the live MVP Factory Board state for Amanoba against the repo handover snapshot and current open issues.
+- Confirmed the immediate execution sequence remains:
+  - `#2` multi-course dashboard/course-page work first because it is already in `Review`
+  - `#16` multi-enrolment scheduler/email next
+  - audit prep issues `#371`, `#373`, `#374` next for board/doc SSOT hygiene
+  - `#225` after that for lesson-quiz governance doc alignment
+  - `#65` stays behind the above until the release-notes wiki direction is explicitly reconfirmed
+- Wrote GitHub issue comments in `moldovancsaba/mvp-factory-control` on `#16`, `#225`, `#371`, `#373`, `#374`, and `#65` so the recommended execution order and intended board field targets are recorded in the issue history even though direct project-field mutation was unavailable.
+
+### Blocker / risk
+- Direct Project field updates were blocked in that session by GitHub GraphQL rate limiting on the authenticated account even though REST quota remains available.
+- `gh api rate_limit` reported `graphql.remaining = 0` with reset at `2026-05-10 15:07:02 CEST`.
+- Because project item creation and field mutation for GitHub Projects V2 use GraphQL, the board itself could not be updated in this session.
+
+### Follow-up
+- After the GraphQL quota resets, rerun:
+  - `./scripts/mvp-factory-set-project-fields.sh 16 --status "Todo (NEXT)"`
+  - `./scripts/mvp-factory-set-project-fields.sh 225 --status "Todo (NEXT)" --agent "Tribeca" --product "amanoba" --type "Docs" --priority "P1"`
+  - `./scripts/mvp-factory-set-project-fields.sh 371 --status "Todo (NEXT)" --agent "Tribeca" --product "amanoba" --type "Docs" --priority "P1"`
+  - `./scripts/mvp-factory-set-project-fields.sh 373 --status "Todo (NEXT)" --agent "Tribeca" --product "amanoba" --type "Docs" --priority "P1"`
+  - `./scripts/mvp-factory-set-project-fields.sh 374 --status "Todo (NEXT)" --agent "Tribeca" --product "amanoba" --type "Docs" --priority "P1"`
+
+## Project 12 issue migration update (2026-05-10)
+
+### What changed
+- Collected Amanoba-related issues from `moldovancsaba/mvp-factory-control` using GitHub REST search with query scope `repo:moldovancsaba/mvp-factory-control amanoba in:title,body`.
+- Excluded `amanoba_courses:` Idea Bank issues from this migration pass so Project 12 stays focused on Amanoba rather than cross-repo course-pipeline backlog.
+- Added the resulting **47** issues to GitHub Project 12 (`https://github.com/users/moldovancsaba/projects/12/views/1`) with batched `addProjectV2ItemById` mutations.
+
+### Verification
+- Queried Project 12 items after insertion and matched project contents against the expected issue-number set.
+- Expected Amanoba issues migrated: `47`
+- Matching Amanoba issues now present in Project 12: `47`
+- Missing after verification: `0`
+
+### Notes
+- This migration step added/ensured issue membership in Project 12. It did not remove cards from any other GitHub project.
+
+## Research ideabank + board normalization update (2026-05-10)
+
+### What changed
+- Researched feature patterns from major learning-platform leaders using official product and help sources across:
+  - Coursera
+  - LinkedIn Learning
+  - Udemy Business
+  - Duolingo
+  - Khan Academy
+  - Moodle
+  - Codecademy
+- Reorganized GitHub Project 12 (`amanoba`) so the board status workflow now mirrors the example structure from `sovereignsquad/projects/3`:
+  - `IDEABANK (SOMEDAY)`
+  - `Roadmap (LATER)`
+  - `Backlog (SOONER)`
+  - `Todo (NEXT)`
+  - `In Progress (NOW)`
+  - `Review (ALMOST)`
+  - `Done`
+  - `Declined (NEVER)`
+- Rewrote the existing Amanoba issue bodies in `moldovancsaba/mvp-factory-control` into a consistent structured format aligned to the example quality bar from `sovereignsquad/train#17`:
+  - `Objective`
+  - `Unified Context`
+  - `Problem`
+  - `Goal`
+  - `Scope`
+  - `Execution Prompt`
+  - `Constraints`
+  - `Acceptance Checks`
+  - `Dependencies`
+  - `Risks`
+  - `Delivery Artifact`
+  - `Developer Notes`
+- Created **25 active Amanoba ideabank issues** from the research and set them to `IDEABANK (SOMEDAY)` on Project 12.
+- Created an initial overflow of 33 ideabank issues by mistake, then corrected the set by closing issues `#773`–`#780` and marking them `Declined (NEVER)` so the live ideabank matches the requested top-25 count.
+
+### Verification
+- Existing Amanoba issues rewritten in place: `47`
+- Active research ideabank issues added to Project 12: `25`
+- Overflow ideabank issues closed/declined: `8`
+- Final Project 12 status counts after verification:
+  - `Backlog (SOONER)`: `32`
+  - `Todo (NEXT)`: `6`
+  - `Review (ALMOST)`: `1`
+  - `Roadmap (LATER)`: `6`
+  - `Done`: `2`
+  - `IDEABANK (SOMEDAY)`: `25`
+  - `Declined (NEVER)`: `8`
+
+## Practice Hub MVP contract update (2026-05-10)
+
+### What changed
+- Added [`/Users/moldovancsaba/Projects/amanoba/docs/features/PRACTICE_HUB_MVP_CONTRACT.md`](/Users/moldovancsaba/Projects/amanoba/docs/features/PRACTICE_HUB_MVP_CONTRACT.md) as the implementation contract for issue `#781`.
+- Defined the first three real Practice Hub review modes against current Amanoba data:
+  - `Continue Next`
+  - `Quiz Recovery`
+  - `Stale Refresh`
+- Explicitly documented that a true `Mistakes` mode is not an MVP capability yet because learner-specific wrong-answer history is not currently persisted in the lesson-quiz submit path.
+- Added a shared recommendation shape and cross-mode ordering so `#782` and `#783` can implement UI and telemetry without reopening product definition.
+
+### Verification run (2026-05-10)
+- `npm run docs:refresh` ✅ pass
+- `DOCS_CHECK_INCLUDE_ARCHIVE=1 npm run docs:links:check` ✅ pass
+- `npm run docs:check` ❌ fail by generated-doc policy after refresh because the working tree contains updated generated docs:
+  - `docs/core/DOCS_CANONICAL_MAP.md`
+  - `docs/core/DOCS_INVENTORY.md`
+  - `docs/core/DOCS_TRIAGE.md`
+
+### Rollback
+- Delete [`/Users/moldovancsaba/Projects/amanoba/docs/features/PRACTICE_HUB_MVP_CONTRACT.md`](/Users/moldovancsaba/Projects/amanoba/docs/features/PRACTICE_HUB_MVP_CONTRACT.md)
+- Remove this `Practice Hub MVP contract update (2026-05-10)` section from [`/Users/moldovancsaba/Projects/amanoba/docs/HANDOVER.md`](/Users/moldovancsaba/Projects/amanoba/docs/HANDOVER.md)
+- Re-run `DOCS_CHECK_INCLUDE_ARCHIVE=1 npm run docs:links:check`
+
+## Practice Hub learner shell update (2026-05-10)
+
+### What changed
+- Added [`/Users/moldovancsaba/Projects/amanoba/app/api/practice-hub/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/practice-hub/route.ts) to compute real learner-facing Practice Hub modes from course progress, lesson availability, and quiz completion markers.
+- Added [`/Users/moldovancsaba/Projects/amanoba/app/[locale]/practice/page.tsx`](/Users/moldovancsaba/Projects/amanoba/app/[locale]/practice/page.tsx) as the first learner-facing Practice Hub shell.
+- Added a dashboard entry point in [`/Users/moldovancsaba/Projects/amanoba/app/[locale]/dashboard/page.tsx`](/Users/moldovancsaba/Projects/amanoba/app/[locale]/dashboard/page.tsx) so learners can discover the hub from the main learning actions area.
+- Fixed [`/Users/moldovancsaba/Projects/amanoba/tailwind.config.ts`](/Users/moldovancsaba/Projects/amanoba/tailwind.config.ts) to use an ESM plugin import for `tailwindcss-animate`, which was required for the new page to compile under `next dev`.
+- The shell now renders:
+  - `Continue Next` launch cards into real lesson-day routes
+  - `Quiz Recovery` launch cards into real lesson-quiz routes
+  - `Stale Refresh` launch cards into real lesson revisit routes
+  - an explicit unavailable state for mistake-history review, grounded in the current telemetry gap from `#781`
+
+### Verification run (2026-05-10)
+- `npm run type-check` ✅ pass
+- `npx eslint --no-warn-ignored app/api/practice-hub/route.ts app/[locale]/practice/page.tsx app/[locale]/dashboard/page.tsx` ✅ pass
+- local runtime verification:
+  - `curl -sS --max-time 15 -D - http://127.0.0.1:3000/en/practice` ✅ returned `200 OK`
+  - rendered HTML includes the unauthenticated Practice Hub sign-in shell text (`Practice Hub`, `Sign in to continue lessons...`)
+  - `curl -sS --max-time 15 -D - http://127.0.0.1:3000/api/practice-hub` ✅ returned `401 Unauthorized` when called without a learner session
+
+### Notes / limitation
+- Browser-level verification for the authenticated learner states was not completed in this session because the local runtime check did not have a signed-in learner cookie. The route and API compiled successfully, and the anonymous shell/auth gate behaved correctly.
+- `next dev` still logs the pre-existing `i18n.ts` fallback warning about `@/app/lib/i18n/translation-service` not resolving from the server bundle. The Practice Hub work did not introduce that warning; the new route now renders correctly despite it.
+
+### Rollback
+- Delete [`/Users/moldovancsaba/Projects/amanoba/app/api/practice-hub/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/practice-hub/route.ts)
+- Delete [`/Users/moldovancsaba/Projects/amanoba/app/[locale]/practice/page.tsx`](/Users/moldovancsaba/Projects/amanoba/app/[locale]/practice/page.tsx)
+- Remove the dashboard Practice Hub entry from [`/Users/moldovancsaba/Projects/amanoba/app/[locale]/dashboard/page.tsx`](/Users/moldovancsaba/Projects/amanoba/app/[locale]/dashboard/page.tsx)
+- Remove this `Practice Hub learner shell update (2026-05-10)` section from [`/Users/moldovancsaba/Projects/amanoba/docs/HANDOVER.md`](/Users/moldovancsaba/Projects/amanoba/docs/HANDOVER.md)
+- Final active ideabank count confirmed: `25`
+
+### Notes
+- This pass standardized issue structure and board workflow; it did not de-duplicate historical issue concepts beyond closing the eight overflow ideabank issues.
+- Some of the rewritten legacy issues still rely on generic structured framing built from their prior title/body context and may benefit from deeper manual refinement if they rise in priority.
+
+## Multi-course routing fix update (2026-05-10)
+
+### What changed
+- Patched the learner course-routing surfaces that still leaked single-course or wrong-locale assumptions while `moldovancsaba/mvp-factory-control#2` is in progress.
+- Updated [`/Users/moldovancsaba/Projects/amanoba/app/[locale]/dashboard/page.tsx`](/Users/moldovancsaba/Projects/amanoba/app/[locale]/dashboard/page.tsx) so:
+  - recommended course cards link to the course's own language route instead of always using the current UI locale
+  - active-course "Next Lesson" links clamp to a valid day path and use the enrolled course language
+- Updated [`/Users/moldovancsaba/Projects/amanoba/app/[locale]/my-courses/page.tsx`](/Users/moldovancsaba/Projects/amanoba/app/[locale]/my-courses/page.tsx) so course action links clamp to a valid lesson day; completed courses now open the last real lesson instead of a non-existent `day/31`-style path.
+- Updated [`/Users/moldovancsaba/Projects/amanoba/app/[locale]/courses/[courseId]/page.tsx`](/Users/moldovancsaba/Projects/amanoba/app/[locale]/courses/[courseId]/page.tsx) so the sidebar and mobile "Continue Learning" CTAs route to the correct locale-scoped lesson URL for the enrolled course.
+
+### Verification
+- `npx tsc --noEmit --pretty false --incremental false` ✅ pass
+
+### Notes
+- This is a partial delivery against issue `#2`, focused on fixing course/day routing and multi-course navigation consistency. The broader issue still needs final review against all acceptance checks before it should be closed.
+
+## Multi-enrolment scheduler verification update (2026-05-10)
+
+### What changed
+- Hardened the daily lesson scheduler in [`/Users/moldovancsaba/Projects/amanoba/app/lib/courses/email-scheduler.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/courses/email-scheduler.ts) so active progress lookup is based on the real `CourseProgress.status` enum rather than a non-schema `isCompleted` field.
+- Added defensive runtime guards so the scheduler skips completed or abandoned progress rows, and skips malformed progress rows with invalid `currentDay` values instead of attempting an email send.
+- Added a focused regression test in [`/Users/moldovancsaba/Projects/amanoba/__tests__/unit/email-scheduler.test.ts`](/Users/moldovancsaba/Projects/amanoba/__tests__/unit/email-scheduler.test.ts) that proves:
+  - one learner with two active course enrolments gets one daily lesson send per enrolled course
+  - a second scheduler run on the same day is deduplicated per course/day using `emailSentDays`
+  - stale completed progress rows are ignored even if they slip through the query result
+
+### Verification
+- `npm test -- __tests__/unit/email-scheduler.test.ts` ✅ pass
+- `npm run type-check` ✅ pass
+- `npx eslint app/lib/courses/email-scheduler.ts __tests__/unit/email-scheduler.test.ts app/[locale]/dashboard/page.tsx app/[locale]/my-courses/page.tsx app/[locale]/courses/[courseId]/page.tsx` ✅ pass
+
+### Notes
+- This closes the main trust gap behind issue `#16`: the scheduler now has direct regression evidence for multi-enrolment per-course delivery and per-course/day deduplication, without changing the broader email architecture.
+
+## Lesson quiz governance docs alignment update (2026-05-10)
+
+### What changed
+- Clarified the lesson model contract in [`/Users/moldovancsaba/Projects/amanoba/app/lib/models/lesson.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/models/lesson.ts): `lesson.quizConfig` is now explicitly documented as a compatibility-only payload, while learner quiz behavior authority lives at `course.lessonQuizPolicy`.
+- Updated learner and admin quiz-facing routes so their remaining `quizConfig` fields are explicitly framed as compatibility projections instead of active governance:
+  - [`/Users/moldovancsaba/Projects/amanoba/app/api/courses/[courseId]/day/[dayNumber]/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/courses/[courseId]/day/[dayNumber]/route.ts)
+  - [`/Users/moldovancsaba/Projects/amanoba/app/api/admin/courses/import/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/admin/courses/import/route.ts)
+  - [`/Users/moldovancsaba/Projects/amanoba/app/api/admin/courses/[courseId]/export/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/admin/courses/[courseId]/export/route.ts)
+  - [`/Users/moldovancsaba/Projects/amanoba/app/api/admin/courses/[courseId]/lessons/[lessonId]/quiz/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/admin/courses/[courseId]/lessons/[lessonId]/quiz/route.ts)
+- Added `courseQuizPolicy` to the admin lesson-quiz questions response so admin consumers can read the authoritative course-level policy directly without inferring behavior from `lesson.quizConfig`.
+- Updated repo docs so architecture and quality guidance now consistently describe course-level-only governance:
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/architecture/ARCHITECTURE.md`](/Users/moldovancsaba/Projects/amanoba/docs/architecture/ARCHITECTURE.md)
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/architecture/layout_grammar.md`](/Users/moldovancsaba/Projects/amanoba/docs/architecture/layout_grammar.md)
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/features/ASSESSMENT_GAME_ID_MIGRATION.md`](/Users/moldovancsaba/Projects/amanoba/docs/features/ASSESSMENT_GAME_ID_MIGRATION.md)
+- Refreshed generated docs inventory outputs:
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_CANONICAL_MAP.md`](/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_CANONICAL_MAP.md)
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_INVENTORY.md`](/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_INVENTORY.md)
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_TRIAGE.md`](/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_TRIAGE.md)
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm run docs:links:check` ✅ pass
+- `npm run docs:check` ❌ fails by generated-doc policy until the refreshed docs inventory files are committed with the rest of the change; no broken-link or schema-validation error was reported before that policy stop.
+
+### Notes
+- This delivery closes the documentation and API-contract ambiguity behind issue `#225` without changing the broader seed/backfill work still tracked elsewhere in the lesson-quiz governance series.
+
+## Audit SSOT inventory update (2026-05-10)
+
+### What changed
+- Corrected the active board SSOT references from retired Project 1 language to the live Amanoba board at Project 12 in:
+  - [`/Users/moldovancsaba/Projects/amanoba/READMEDEV.md`](/Users/moldovancsaba/Projects/amanoba/READMEDEV.md)
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/HANDOVER.md`](/Users/moldovancsaba/Projects/amanoba/docs/HANDOVER.md)
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/product/TASKLIST.md`](/Users/moldovancsaba/Projects/amanoba/docs/product/TASKLIST.md)
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/product/ROADMAP.md`](/Users/moldovancsaba/Projects/amanoba/docs/product/ROADMAP.md)
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/handoff/MVP_FACTORY_PROJECT_SETUP.md`](/Users/moldovancsaba/Projects/amanoba/docs/handoff/MVP_FACTORY_PROJECT_SETUP.md)
+- Updated the board workflow handoff doc [`/Users/moldovancsaba/Projects/amanoba/docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md`](/Users/moldovancsaba/Projects/amanoba/docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md) so it reflects the Project 12 status model (`Todo (NEXT)`, `In Progress (NOW)`, `Review (ALMOST)`, etc.) instead of the old `Ready` / Project 1 framing.
+- Promoted [`/Users/moldovancsaba/Projects/amanoba/docs/handoff/AmanobaAuditDocMapping.md`](/Users/moldovancsaba/Projects/amanoba/docs/handoff/AmanobaAuditDocMapping.md) into the live audit SSOT inventory for issue `#371`, including:
+  - current audit execution lane (`#371`, `#373`, `#374`)
+  - board workflow SSOT
+  - document-to-implementation mapping
+  - quality gates used during the audit lane
+  - artifact locations for repo and issue-side evidence
+- Added the audit inventory doc to [`/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_INDEX.md`](/Users/moldovancsaba/Projects/amanoba/docs/core/DOCS_INDEX.md) so it is discoverable from the canonical docs index.
+
+### Verification
+- `npm run docs:links:check` ✅ pass
+- `npm run docs:check` ❌ fails by generated-doc policy because `docs/core/DOCS_CANONICAL_MAP.md`, `docs/core/DOCS_INVENTORY.md`, and `docs/core/DOCS_TRIAGE.md` changed after the docs refresh; the checker requires those refreshed generated docs to be committed with the same docs change
+
+### Notes
+- This delivers the concrete SSOT inventory slice for issue `#371`: the board reference is current, the audit plan has a stable in-repo inventory doc, and the follow-on audit issues now have a clear artifact path.
+
+## Document-to-code discrepancy inventory update (2026-05-10)
+
+### What changed
+- Extended [`/Users/moldovancsaba/Projects/amanoba/docs/handoff/AmanobaAuditDocMapping.md`](/Users/moldovancsaba/Projects/amanoba/docs/handoff/AmanobaAuditDocMapping.md) with a dedicated `Known discrepancies and follow-on audit targets` section that now records the main active doc-to-code drift:
+  - version-number disagreement across `README.md`, `docs/HANDOVER.md`, `package.json`, `docs/product/RELEASE_NOTES.md`, and `docs/architecture/ARCHITECTURE.md`
+  - locale-count drift between some audit docs and the real `app/lib/i18n/locales.ts`
+  - machine-local cross-repo path portability debt
+  - the generated-doc commit-enforcement behavior in `npm run docs:check`
+- Corrected additional active handoff/governance docs that still described the old Project 1 / `Ready` workflow:
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/core/agent_working_loop_canonical_operating_document.md`](/Users/moldovancsaba/Projects/amanoba/docs/core/agent_working_loop_canonical_operating_document.md)
+  - [`/Users/moldovancsaba/Projects/amanoba/docs/handoff/feature_issues/FEATURE_DASHBOARD_MULTI_COURSE_ENROL_P2_3.md`](/Users/moldovancsaba/Projects/amanoba/docs/handoff/feature_issues/FEATURE_DASHBOARD_MULTI_COURSE_ENROL_P2_3.md)
+- Normalized the remaining Project-field follow-up commands in [`/Users/moldovancsaba/Projects/amanoba/docs/HANDOVER.md`](/Users/moldovancsaba/Projects/amanoba/docs/HANDOVER.md) from the obsolete `Ready` wording to the current `Todo (NEXT)` status target so the repo no longer instructs contributors to use the wrong board state.
+
+### Verification
+- `npm run docs:links:check` ✅ pass
+- `npm run docs:check` ❌ fails by generated-doc policy because `docs/core/DOCS_CANONICAL_MAP.md`, `docs/core/DOCS_INVENTORY.md`, and `docs/core/DOCS_TRIAGE.md` changed after refresh; the checker requires those refreshed generated docs to be committed with the same docs change
+
+### Notes
+- This delivery gives the audit lane an explicit discrepancy register instead of leaving drift implicit in scattered comments. The remaining step for `#374` is packaging these known discrepancies into a final audit-readiness summary and execution checklist.
+
+## Audit readiness checklist update (2026-05-10)
+
+### What changed
+- Completed the audit-lane packaging step in [`/Users/moldovancsaba/Projects/amanoba/docs/handoff/AmanobaAuditDocMapping.md`](/Users/moldovancsaba/Projects/amanoba/docs/handoff/AmanobaAuditDocMapping.md) by adding:
+  - environment prerequisites
+  - execution checklist
+  - board and issue logging workflow
+  - final deliverables for audit closure
+  - current blocker summary
+- This turns the audit inventory into a usable runbook for the next contributor instead of just a mapping/discrepancy reference.
+- The runbook now explicitly tells the next person:
+  - which commands to run
+  - how to classify failures
+  - where to record evidence
+  - which board statuses to use in Project 12
+  - which unresolved follow-on items are still open after the current audit lane
+
+### Verification
+- `npm run docs:links:check` ✅ pass
+- `npm run docs:check` ❌ fails by generated-doc policy because `docs/core/DOCS_CANONICAL_MAP.md`, `docs/core/DOCS_INVENTORY.md`, and `docs/core/DOCS_TRIAGE.md` changed after refresh; the checker requires those refreshed generated docs to be committed with the same docs change
+
+### Notes
+- This completes the bounded `#374` delivery: the audit lane now has a current SSOT baseline, discrepancy register, and execution runbook. The remaining blocker is operational policy on generated docs, not missing audit-prep documentation.
+
+## Practice Hub telemetry and reward integration update (2026-05-11)
+
+### What changed
+- Delivered the `#783` integration slice for the Practice Hub so the learner shell from [`/Users/moldovancsaba/Projects/amanoba/app/[locale]/practice/page.tsx`](/Users/moldovancsaba/Projects/amanoba/app/[locale]/practice/page.tsx) now records bounded usage telemetry and can trigger verified completion logging from live learner flows.
+- Added shared Practice Hub context and reward helpers in:
+  - [`/Users/moldovancsaba/Projects/amanoba/app/lib/practice-hub.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/practice-hub.ts)
+  - [`/Users/moldovancsaba/Projects/amanoba/app/lib/practice-hub-rewards.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/practice-hub-rewards.ts)
+  - [`/Users/moldovancsaba/Projects/amanoba/app/lib/models/practice-hub-reward-grant.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/models/practice-hub-reward-grant.ts)
+- Added auth-gated Practice Hub telemetry and completion APIs:
+  - [`/Users/moldovancsaba/Projects/amanoba/app/api/practice-hub/track/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/practice-hub/track/route.ts)
+  - [`/Users/moldovancsaba/Projects/amanoba/app/api/practice-hub/complete/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/practice-hub/complete/route.ts)
+- Wired the learner entry and completion paths so Practice Hub context now follows the recommendation into the actual learning flow:
+  - the Practice Hub page logs `viewed` and `recommendation_opened`
+  - enrolled lesson completion posts a verified `lesson_completed` callback when launched from Practice Hub
+  - the lesson quiz page posts a verified `quiz_passed` callback when launched from Practice Hub
+- Extended analytics and economy models for the new bounded events and reward source:
+  - [`/Users/moldovancsaba/Projects/amanoba/app/lib/analytics/event-logger.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/analytics/event-logger.ts)
+  - [`/Users/moldovancsaba/Projects/amanoba/app/lib/models/event-log.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/models/event-log.ts)
+  - [`/Users/moldovancsaba/Projects/amanoba/app/lib/models/points-transaction.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/models/points-transaction.ts)
+  - [`/Users/moldovancsaba/Projects/amanoba/app/lib/models/index.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/models/index.ts)
+- The MVP reward rule is intentionally narrow:
+  - `continue-next`: telemetry only
+  - `stale-refresh`: telemetry only
+  - `quiz-recovery`: one-time `3 points` + `3 XP` only after backend verification that the target quiz day is actually passed in `CourseProgress.assessmentResults`
+- Added anti-farming persistence by keying reward grants on `{ playerId, mode, courseId, lessonDay }`, so the same recommendation cannot be rewarded twice.
+- Updated [`/Users/moldovancsaba/Projects/amanoba/docs/features/PRACTICE_HUB_MVP_CONTRACT.md`](/Users/moldovancsaba/Projects/amanoba/docs/features/PRACTICE_HUB_MVP_CONTRACT.md) so the docs now match the telemetry and reward implementation.
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npx eslint --no-warn-ignored app/lib/practice-hub.ts app/lib/practice-hub-rewards.ts app/lib/analytics/event-logger.ts app/lib/models/practice-hub-reward-grant.ts app/lib/models/event-log.ts app/lib/models/points-transaction.ts app/api/practice-hub/route.ts app/api/practice-hub/track/route.ts app/api/practice-hub/complete/route.ts app/[locale]/practice/page.tsx "app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx" app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx` ✅ pass
+
+### Notes
+- This delivery intentionally avoids rewarding page views or recommendation opens. The only rewardable Practice Hub path in MVP is verified `quiz-recovery` completion, which keeps the system auditable and resistant to reward farming.
+
+## Lesson quiz answer explanation pilot update (2026-05-11)
+
+### What changed
+- Delivered a bounded `#771` pilot for mistake-aware lesson quiz feedback.
+- Added optional authored explanation support to quiz-question content in [`/Users/moldovancsaba/Projects/amanoba/app/lib/models/quiz-question.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/models/quiz-question.ts).
+- Added the shared explanation helper in [`/Users/moldovancsaba/Projects/amanoba/app/lib/quiz-answer-feedback.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/quiz-answer-feedback.ts), which prefers author-written explanations and falls back only to short question-type hints.
+- Extended lesson-quiz content operations so explanations can be authored and preserved through the existing content pipeline:
+  - [`/Users/moldovancsaba/Projects/amanoba/app/api/admin/courses/[courseId]/lessons/[lessonId]/quiz/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/admin/courses/[courseId]/lessons/[lessonId]/quiz/route.ts)
+  - [`/Users/moldovancsaba/Projects/amanoba/app/api/admin/courses/[courseId]/lessons/[lessonId]/quiz/[questionId]/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/admin/courses/[courseId]/lessons/[lessonId]/quiz/[questionId]/route.ts)
+  - [`/Users/moldovancsaba/Projects/amanoba/app/api/admin/courses/import/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/admin/courses/import/route.ts)
+  - [`/Users/moldovancsaba/Projects/amanoba/app/api/admin/courses/[courseId]/export/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/admin/courses/[courseId]/export/route.ts)
+  - [`/Users/moldovancsaba/Projects/amanoba/components/QuizManagerModal.tsx`](/Users/moldovancsaba/Projects/amanoba/components/QuizManagerModal.tsx)
+- Extended quiz submission feedback so incorrect answers can now return both the correct answer and a bounded explanation in [`/Users/moldovancsaba/Projects/amanoba/app/api/courses/[courseId]/lessons/[lessonId]/quiz/submit/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/courses/[courseId]/lessons/[lessonId]/quiz/submit/route.ts).
+- Updated the learner lesson quiz UI in [`/Users/moldovancsaba/Projects/amanoba/app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx`](/Users/moldovancsaba/Projects/amanoba/app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx) so wrong answers now show:
+  - the existing supportive retry message
+  - the correct answer
+  - the authored explanation when available
+- Added the pilot contract doc [`/Users/moldovancsaba/Projects/amanoba/docs/features/QUIZ_ANSWER_EXPLANATION_PILOT.md`](/Users/moldovancsaba/Projects/amanoba/docs/features/QUIZ_ANSWER_EXPLANATION_PILOT.md).
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm test -- __tests__/unit/quiz-answer-feedback.test.ts` ✅ pass
+- `npx eslint --no-warn-ignored app/lib/models/quiz-question.ts app/lib/quiz-answer-feedback.ts app/api/admin/courses/import/route.ts app/api/admin/courses/[courseId]/export/route.ts app/api/admin/courses/[courseId]/lessons/[lessonId]/quiz/utils.ts app/api/admin/courses/[courseId]/lessons/[lessonId]/quiz/route.ts app/api/admin/courses/[courseId]/lessons/[lessonId]/quiz/[questionId]/route.ts app/api/admin/questions/route.ts app/api/admin/questions/[questionId]/route.ts app/api/courses/[courseId]/lessons/[lessonId]/quiz/submit/route.ts components/QuizManagerModal.tsx "app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx" __tests__/unit/quiz-answer-feedback.test.ts` ✅ pass
+
+### Notes
+- This pilot is intentionally not a broad AI-tutoring launch. The first rollout is content-grounded lesson-quiz feedback: show richer explanation only where the question content provides one or where a safe question-type hint exists.
+
+## Saved lessons continuity MVP update (2026-05-11)
+
+### What changed
+- Delivered a bounded `#770` continuity slice built around saved lesson days instead of a generic bookmark dump.
+- Added learner save persistence in [`/Users/moldovancsaba/Projects/amanoba/app/lib/models/saved-lesson.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/models/saved-lesson.ts) and exported it through [`/Users/moldovancsaba/Projects/amanoba/app/lib/models/index.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/models/index.ts).
+- Added the authenticated saved-lessons API in [`/Users/moldovancsaba/Projects/amanoba/app/api/saved-lessons/route.ts`](/Users/moldovancsaba/Projects/amanoba/app/api/saved-lessons/route.ts), including:
+  - a quick `isSaved` lookup for the lesson page
+  - create/delete for saved lesson days
+  - list output that joins saved items with live `Course`, `Lesson`, and `CourseProgress` resume context
+- Updated the enrolled lesson view [`/Users/moldovancsaba/Projects/amanoba/app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx`](/Users/moldovancsaba/Projects/amanoba/app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx) so authenticated learners can save or remove the current lesson day directly from the lesson header.
+- Added the learner library page [`/Users/moldovancsaba/Projects/amanoba/app/[locale]/saved/page.tsx`](/Users/moldovancsaba/Projects/amanoba/app/[locale]/saved/page.tsx), where each saved item now offers:
+  - `Open saved lesson`
+  - `Resume course`
+- Added a dashboard entry point in [`/Users/moldovancsaba/Projects/amanoba/app/[locale]/dashboard/page.tsx`](/Users/moldovancsaba/Projects/amanoba/app/[locale]/dashboard/page.tsx).
+- Added the MVP contract doc [`/Users/moldovancsaba/Projects/amanoba/docs/features/SAVED_LESSONS_MVP.md`](/Users/moldovancsaba/Projects/amanoba/docs/features/SAVED_LESSONS_MVP.md).
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npx eslint --no-warn-ignored app/lib/models/saved-lesson.ts app/api/saved-lessons/route.ts "app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx" app/[locale]/saved/page.tsx app/[locale]/dashboard/page.tsx` ✅ pass
+
+### Notes
+- This MVP intentionally saves only lesson days. That keeps the saved library tied to real learner intent and makes the resume surface explainable from existing `CourseProgress` rather than inventing a separate history system.

@@ -67,7 +67,10 @@ export async function PATCH(
     for (const field of quizEditableFields) {
       if (field === 'options' || field === 'correctIndex') continue;
       if (hasOwnProperty(field)) {
-        updatePayload[field] = body[field];
+        updatePayload[field] =
+          field === 'explanation' && typeof body[field] === 'string'
+            ? body[field].trim() || undefined
+            : body[field];
       }
     }
 

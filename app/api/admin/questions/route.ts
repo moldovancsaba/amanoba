@@ -189,6 +189,7 @@ export async function POST(request: NextRequest) {
 
     const {
       question,
+      explanation,
       options,
       correctIndex,
       difficulty = QuestionDifficulty.MEDIUM,
@@ -300,6 +301,7 @@ export async function POST(request: NextRequest) {
     const quizQuestion = new QuizQuestion({
       uuid: randomUUID(),
       question: question.trim(),
+      explanation: typeof explanation === 'string' && explanation.trim().length > 0 ? explanation.trim() : undefined,
       options: options.map((opt: string) => opt.trim()),
       correctIndex,
       difficulty: difficulty as QuestionDifficulty,

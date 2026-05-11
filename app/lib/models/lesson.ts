@@ -2,7 +2,7 @@
  * Lesson Model
  * 
  * What: Represents a single daily lesson within a 30-day course
- * Why: Stores lesson content, email templates, and assessment configuration
+ * Why: Stores lesson content, email templates, and lesson-local metadata
  */
 
 import mongoose, { Schema, Document, Model } from 'mongoose';
@@ -27,14 +27,14 @@ export interface ILesson extends Document {
     emailSubject: string;
     emailBody: string;
   }>; // Multi-language support
-  assessmentGameId?: mongoose.Types.ObjectId; // Optional game to play after lesson (DEPRECATED - use quizConfig)
+  assessmentGameId?: mongoose.Types.ObjectId; // Optional game to play after lesson (DEPRECATED - legacy compatibility only)
   quizConfig?: {
     enabled: boolean;
-    successThreshold: number; // Percentage (0-100) required to pass
-    questionCount: number; // Number of questions to show
-    poolSize: number; // Number of questions in pool (system selects questionCount from this)
-    required: boolean; // Whether quiz is required to complete lesson
-  };
+    successThreshold: number; // Legacy compatibility payload only; runtime authority is course.lessonQuizPolicy
+    questionCount: number; // Legacy compatibility payload only; runtime authority is course.lessonQuizPolicy
+    poolSize: number; // Observed active question pool for this lesson
+    required: boolean; // Legacy compatibility payload only; runtime authority is course.lessonQuizPolicy
+  }; // Compatibility-only field kept for import/export and legacy responses; not authoritative for learner behavior
   unlockConditions?: {
     requirePreviousLesson?: boolean; // Must complete previous lesson
     requireMinimumDay?: number; // Must be at least day X
@@ -152,43 +152,43 @@ const LessonSchema = new Schema<ILesson>(
       default: new Map(),
     },
 
-    // Optional assessment game (DEPRECATED - use quizConfig instead)
+    // Optional assessment game (DEPRECATED - compatibility only)
     // Why: Game to play after lesson (QUIZZZ, WHACKPOP, etc.)
-    // Note: This is kept for backward compatibility but lesson assessments should use quizConfig
+    // Note: This is kept for backward compatibility but lesson assessments should follow course.lessonQuizPolicy
     assessmentGameId: {
       type: Schema.Types.ObjectId,
       ref: 'Game',
       index: true,
     },
 
-    // Quiz/Survey configuration for lesson assessment
-    // Why: Configures QUIZZZ-based assessment at the end of lessons
+    // Legacy quiz compatibility payload
+    // Why: Keeps import/export and old client payloads readable while authority lives on course.lessonQuizPolicy
     quizConfig: {
       enabled: {
         type: Boolean,
         default: false,
       },
-      // Success threshold (percentage of correct answers required to pass)
+      // Legacy pass threshold snapshot; learner runtime resolves the live value from the course policy
       successThreshold: {
         type: Number,
         min: [0, 'Success threshold must be between 0 and 100'],
         max: [100, 'Success threshold must be between 0 and 100'],
         default: 70, // 70% correct answers required
       },
-      // Number of questions to show to the student
+      // Legacy question-count snapshot; learner runtime resolves the live value from the course policy
       questionCount: {
         type: Number,
         min: [1, 'Must show at least 1 question'],
         max: [50, 'Cannot show more than 50 questions'],
         default: 5,
       },
-      // Number of questions in the pool (system randomly selects questionCount from this pool)
+      // Informational pool size snapshot for compatibility/export consumers
       poolSize: {
         type: Number,
         min: [1, 'Pool must have at least 1 question'],
         default: 10,
       },
-      // Whether quiz is required to complete the lesson
+      // Legacy required flag snapshot; learner runtime resolves the live value from the course policy
       required: {
         type: Boolean,
         default: true,

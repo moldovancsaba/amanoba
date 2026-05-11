@@ -7,7 +7,7 @@
 
 import { logger } from '../logger';
 import connectDB from '../mongodb';
-import { CourseProgress, Lesson } from '../models';
+import { CourseProgress, CourseProgressStatus, Lesson } from '../models';
 import { sendLessonEmail, sendReminderEmail } from '../email/email-service';
 import { resolveLessonForChildDay } from '../course-helpers';
 import type { ILesson } from '../models/lesson';
@@ -47,8 +47,9 @@ export async function sendDailyLessons(targetDate?: Date): Promise<{
 
     // Find all active course progress records
     const activeProgress = await CourseProgress.find({
-      status: { $in: ['not_started', 'in_progress'] },
-      isCompleted: false,
+      status: {
+        $in: [CourseProgressStatus.NOT_STARTED, CourseProgressStatus.IN_PROGRESS],
+      },
     }).populate('playerId courseId');
 
     logger.info({ count: activeProgress.length }, 'Found active course progress records');
@@ -63,6 +64,25 @@ export async function sendDailyLessons(targetDate?: Date): Promise<{
         if (!player || !course || !player._id || !course._id) {
           logger.warn({ progressId: progress._id }, 'Progress record missing player or course');
           results.skipped++;
+          continue;
+        }
+
+        if (
+          progress.status === CourseProgressStatus.COMPLETED ||
+          progress.status === CourseProgressStatus.ABANDONED ||
+          progress.completedAt
+        ) {
+          logger.info(
+            { playerId: player._id, courseId: course._id, status: progress.status },
+            'Skipping inactive course progress record'
+          );
+          results.skipped++;
+          results.details.push({
+            playerId: player._id.toString(),
+            courseId: course._id.toString(),
+            day: progress.currentDay,
+            status: 'skipped_inactive_progress',
+          });
           continue;
         }
 
@@ -100,6 +120,21 @@ export async function sendDailyLessons(targetDate?: Date): Promise<{
 
         // Determine target day for email
         const targetDay = progress.currentDay;
+
+        if (!Number.isInteger(targetDay) || targetDay < 1) {
+          logger.warn(
+            { playerId: player._id, courseId: course._id, day: targetDay },
+            'Progress record has invalid current day'
+          );
+          results.skipped++;
+          results.details.push({
+            playerId: player._id.toString(),
+            courseId: course._id.toString(),
+            day: targetDay,
+            status: 'skipped_invalid_day',
+          });
+          continue;
+        }
 
         // Check if email already sent for this day
         if (progress.emailSentDays?.includes(targetDay)) {

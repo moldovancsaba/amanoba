@@ -1,6 +1,6 @@
 # Amanoba Roadmap — Future Vision & Client Benefits
 
-> **Source of truth is now the [MVP Factory Board](https://github.com/users/moldovancsaba/projects/1).** Roadmap items have been migrated to issues with **Status = Roadmap** (Product = amanoba). This file is kept as reference only. Add new vision items as issues in [mvp-factory-control](https://github.com/moldovancsaba/mvp-factory-control), add to the project, set Status = Roadmap. See [MIGRATION_ROADMAP_TASKLIST.md](https://github.com/moldovancsaba/mvp-factory-control/blob/main/docs/MIGRATION_ROADMAP_TASKLIST.md).
+> **Source of truth is now the [Amanoba Project board](https://github.com/users/moldovancsaba/projects/12/views/1).** Roadmap items have been migrated to issues with **Status = `Roadmap (LATER)`** (Product = amanoba). This file is kept as reference only. Add new vision items as issues in [mvp-factory-control](https://github.com/moldovancsaba/mvp-factory-control), add to Project 12, and place them in `Roadmap (LATER)`. See [MIGRATION_ROADMAP_TASKLIST.md](https://github.com/moldovancsaba/mvp-factory-control/blob/main/docs/MIGRATION_ROADMAP_TASKLIST.md).
 
 **Version**: 2.9.48  
 **Last Updated**: 2026-02-12
