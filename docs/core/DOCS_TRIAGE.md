@@ -7,7 +7,7 @@
 
 **Last Updated**: 2026-05-11
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=4, KEEP(unclassified)=64
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=4, KEEP(unclassified)=65
 
 This file is the “what to do next” view derived from `docs/core/DOCS_CANONICAL_MAP.md`.
 
@@ -20,7 +20,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 ## ARCHIVE (grouped by target)
 ### docs/_archive/reference/
 - `docs/features/GEO_IMPROVEMENT_PLAN.md` — GEO Improvement Plan — Appearance in AI Chat Results (12.4 KB)
-- `docs/HANDOVER.md` — Amanoba — Developer Handover (48.2 KB)
+- `docs/HANDOVER.md` — Amanoba — Developer Handover (54.0 KB)
 - `docs/quality/UI_FOUNDATION_AUDIT.md` — UI Foundation Audit (Hard Rules) (1.4 KB)
 - `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` — UI Layout Grammar Audit (23.0 KB)
 
@@ -49,6 +49,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/features/BUY_PREMIUM_FIX_STATUS.md` — Buy Premium Fix - Status Report
 - `docs/features/GOOGLE_ANALYTICS_ENRICHMENT.md` — Google Analytics Enrichment
 - `docs/features/LEARNING_STREAK_MVP.md` — Learning Streak MVP
+- `docs/features/NEWS_POSTS_MVP.md` — News Posts MVP
 - `docs/features/PUBLIC_PROFILE_SCHEMA.md` — Public Profile Schema
 - `docs/features/QUIZ_ANSWER_EXPLANATION_PILOT.md` — Quiz Answer Explanation Pilot
 - `docs/features/SAVED_LESSONS_MVP.md` — Saved Lessons MVP
@@ -84,8 +85,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/sso/SSO_SCOPE_FIX.md` — SSO Scope Error Fix
 - `docs/sso/SSO_TROUBLESHOOTING.md` — SSO Troubleshooting Guide
 - `docs/status/MIGRATION_COMPLETE.md` — Page Migration to [locale] Structure - Complete
-- `docs/status/MIGRATION_PHASE_1_COMPLETE.md` — DATABASE MIGRATION PHASE 1 - FINAL STATUS
-- … +4 more
+- … +5 more
 
 ## Next suggested move
 - Review KEEP(unclassified) docs and either promote to canonical sections in `docs/core/DOCS_INDEX.md` or archive.

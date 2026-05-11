@@ -210,6 +210,29 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 ### Notes
 - This migration step added/ensured issue membership in Project 12. It did not remove cards from any other GitHub project.
 
+## News posts MVP update (2026-05-11)
+
+### What changed
+- Added a public localized news surface:
+  - `/[locale]/news`
+  - `/[locale]/news/[slug]`
+- Published the first weekly `What's new` post from the `amanoba-news` automation output in [`/Users/moldovancsaba/Projects/amanoba/content/news-posts.json`](/Users/moldovancsaba/Projects/amanoba/content/news-posts.json).
+- Added [`/Users/moldovancsaba/Projects/amanoba/app/lib/news.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/news.ts) as the static content reader with English fallback for enabled locales.
+- Added automation publishing support through [`/Users/moldovancsaba/Projects/amanoba/scripts/publish-amanoba-news.ts`](/Users/moldovancsaba/Projects/amanoba/scripts/publish-amanoba-news.ts) and `npm run news:publish`.
+- Added a public `What's new` menu link to the landing page and a `What's New` dashboard shortcut.
+- Added news index and post URLs to the sitemap.
+- Documented the contract in [`/Users/moldovancsaba/Projects/amanoba/docs/features/NEWS_POSTS_MVP.md`](/Users/moldovancsaba/Projects/amanoba/docs/features/NEWS_POSTS_MVP.md).
+
+### Verification run
+- `node -e "JSON.parse(require('fs').readFileSync('content/news-posts.json','utf8')); console.log('news json ok')"` ✅
+- `npx eslint --no-warn-ignored app/lib/news.ts app/[locale]/news/page.tsx app/[locale]/news/[slug]/page.tsx app/[locale]/page.tsx app/[locale]/dashboard/page.tsx app/sitemap.ts scripts/publish-amanoba-news.ts` ✅
+- `npm run type-check` ✅
+- `npm run news:publish -- --file content/news-posts.json --dry-run` ✅
+- `npm run news:publish -- --file content/news-posts.json` ✅
+- `npm run docs:refresh` ✅
+- `npm run docs:links:check` ✅
+- `npm run build` ✅
+
 ## Research ideabank + board normalization update (2026-05-10)
 
 ### What changed

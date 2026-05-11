@@ -1,0 +1,690 @@
+[
+  {
+    "slug": "2026-05-11-smarter-review-saved-lessons-streaks",
+    "publishedAt": "2026-05-11",
+    "updatedAt": "2026-05-11",
+    "source": "amanoba-news",
+    "translations": {
+      "hu": {
+        "headline": "Az Amanoba okosabb gyakorlást, mentett leckéket és tanulási sorozatokat kapott",
+        "summary": "Ezen a héten megérkezett a Practice Hub, a mentett leckék, a jobb kvízmagyarázatok, a tanulási sorozat és a meghívásos baráti sorozat.",
+        "body": [
+          {
+            "heading": "Okosabb gyakorlási utak",
+            "paragraphs": [
+              "Az új Practice Hub három fókuszált visszatérési utat ad a tanulóknak: folytathatják a következő leckét, pótolhatják a nyitott kvízeket, vagy felfrissíthetik a régebben befejezett leckéket.",
+              "A kvízpótlás valódi teljesítési jelekhez kapcsolódik, és kis ellenőrzött jutalmat adhat, amikor a tanuló befejezi a pótló műveletet."
+            ]
+          },
+          {
+            "heading": "Mentett leckék",
+            "paragraphs": [
+              "A tanulók mostantól elmenthetik a leckenapokat a lecke nézetből, majd egy külön Mentett leckék könyvtárból térhetnek vissza hozzájuk.",
+              "Minden mentett elem megnyitható ismétlésre, és külön kurzusfolytatás linket is ad, így az ismétlés és a haladás együtt marad."
+            ]
+          },
+          {
+            "heading": "Hasznosabb kvíz-visszajelzés",
+            "paragraphs": [
+              "A leckekvízek hibás válasz után már megmutathatják a helyes választ és egy rövid magyarázatot.",
+              "Az első kiadás a szerző által írt magyarázatokat használja, ahol ilyen elérhető, és a tanulót a kvízfolyamatban tartja."
+            ]
+          },
+          {
+            "heading": "Tanulási és baráti sorozatok",
+            "paragraphs": [
+              "Az új Tanulási sorozat csak akkor lép tovább, ha a tanuló valódi tanulási műveletet végez, például befejez egy leckenapot vagy sikeresen teljesít egy leckekvízt.",
+              "A Baráti sorozatok meghívásos elszámoltathatósági kört adnak: két tanuló akkor épít közös sorozatot, ha ugyanazon a naptári napon mindketten tanulnak."
+            ]
+          },
+          {
+            "heading": "Felületi csiszolás",
+            "paragraphs": [
+              "A közös gombok, kártyák, bejelentkezési felületek és a memóriajáték is az új Amanoba design alapokra került, ezért egységesebb a tanulói élmény."
+            ]
+          }
+        ]
+      },
+      "en": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "ar": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "id": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "pt": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "vi": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "tr": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "bg": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "pl": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "ru": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "sw": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "zh": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "es": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "fr": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "bn": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      },
+      "ur": {
+        "headline": "Amanoba adds smarter review, saved lessons, and streak-based accountability",
+        "summary": "This week brings a new Practice Hub, Saved Lessons, quiz explanations, learning streaks, and invite-only friend streaks.",
+        "body": [
+          {
+            "heading": "Smarter review paths",
+            "paragraphs": [
+              "The new Practice Hub gives learners three focused ways to return to meaningful work: continue the next lesson, recover unfinished quizzes, or refresh lessons that have gone cold.",
+              "Quiz recovery is tied to real completion signals and can grant a small verified reward when the learner finishes the recovery action."
+            ]
+          },
+          {
+            "heading": "Saved lessons",
+            "paragraphs": [
+              "Learners can now save lesson days from the lesson view and return to them from a dedicated Saved Lessons library.",
+              "Each saved item offers both an open-saved-lesson action and a resume-course action, so review and course progression stay connected."
+            ]
+          },
+          {
+            "heading": "Better quiz feedback",
+            "paragraphs": [
+              "Lesson quizzes can now show the correct answer plus a short explanation after an incorrect answer.",
+              "The first rollout uses authored explanations where available and keeps learners inside the quiz flow instead of sending them to a separate help surface."
+            ]
+          },
+          {
+            "heading": "Learning and friend streaks",
+            "paragraphs": [
+              "A new Learning Streak advances only when a learner completes a meaningful action, such as finishing a lesson day or passing a lesson quiz.",
+              "Friend Streaks add an invite-only accountability loop where two learners build a shared streak when both study on the same calendar day."
+            ]
+          },
+          {
+            "heading": "Design polish",
+            "paragraphs": [
+              "Shared buttons, cards, sign-in surfaces, and the memory game now use the refreshed Amanoba design foundation for a more consistent learner experience."
+            ]
+          }
+        ]
+      }
+    }
+  }
+]

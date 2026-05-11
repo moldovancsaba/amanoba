@@ -9,6 +9,7 @@ import connectDB from '@/app/lib/mongodb';
 import { Course } from '@/app/lib/models';
 import { APP_URL } from '@/app/lib/constants/app-url';
 import { locales } from '@/app/lib/i18n/locales';
+import { getNewsSlugs } from '@/app/lib/news';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // revalidate at most every hour
@@ -32,6 +33,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'daily',
       priority: 0.8,
     });
+    entries.push({
+      url: `${base}/${locale}/news`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    });
+    for (const slug of getNewsSlugs()) {
+      entries.push({
+        url: `${base}/${locale}/news/${slug}`,
+        lastModified: now,
+        changeFrequency: 'weekly',
+        priority: 0.65,
+      });
+    }
   }
 
   try {

@@ -7,6 +7,22 @@
 
 ---
 
+## [Unreleased] — 2026-05-11 📰 Public What's New posts
+
+**Status**: Delivered in repo; deploys through the next push to `origin/main`
+**Type**: Feature, Automation, Documentation
+
+- **Public news surface:** Added `/[locale]/news` and `/[locale]/news/[slug]` for learner-facing weekly product updates.
+- **First weekly post:** Published the May 11, 2026 `What's new` post covering Practice Hub, Saved Lessons, quiz explanations, learning streaks, friend streaks, and design polish.
+- **Navigation:** Added a public `What's new` menu entry on the landing page and a `What's New` shortcut on the learner dashboard.
+- **Automation handoff:** Added `npm run news:publish -- --file <post.json>` so the `amanoba-news` automation can upsert a weekly post into `content/news-posts.json`.
+- **Locale availability:** News pages generate for every enabled locale, using locale-specific copy when provided and English fallback otherwise.
+- **SEO:** News index and individual post URLs are included in the sitemap.
+
+**Rollback:** Revert the news routes, `content/news-posts.json`, `app/lib/news.ts`, `scripts/publish-amanoba-news.ts`, package script, navigation links, sitemap entries, and this release note.
+
+---
+
 ## [Unreleased] — 2026-03-10 📋 Audit consolidation (docs ↔ code + quality gates)
 
 **Status**: In progress (audit findings consolidated; gate evidence captured)  

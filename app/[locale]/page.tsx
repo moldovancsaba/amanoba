@@ -67,6 +67,18 @@ export default async function LandingPage({
               </div>
             </div>
             <div className="flex items-center gap-4">
+              <LocaleLink
+                href="/news"
+                className="hidden text-sm font-semibold text-brand-white/75 transition-colors hover:text-brand-accent sm:inline-block"
+              >
+                What&apos;s new
+              </LocaleLink>
+              <LocaleLink
+                href="/courses"
+                className="hidden text-sm font-semibold text-brand-white/75 transition-colors hover:text-brand-accent sm:inline-block"
+              >
+                {tLanding('viewCourses')}
+              </LocaleLink>
               <LanguageSwitcher />
               {session?.user ? (
                 <LocaleLink

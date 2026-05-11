@@ -47,6 +47,7 @@
     "migrate:remove-facebookid": "tsx --env-file=.env.local scripts/migrate-remove-facebookid.ts",
     "admin:disable-course-discussion": "tsx --env-file=.env.local scripts/disable-course-discussion.ts",
     "seo:submit-sitemap": "tsx --env-file=.env.local scripts/submit-sitemap-search-console.ts",
+    "news:publish": "tsx scripts/publish-amanoba-news.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:payment-contract": "tsx scripts/payment-e2e-contract-test.ts",
