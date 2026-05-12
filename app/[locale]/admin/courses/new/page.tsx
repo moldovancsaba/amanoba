@@ -1,7 +1,7 @@
 /**
  * Create New Course Page
  * 
- * What: Form to create a new 30-day course
+ * What: Form to create a new flexible course
  * Why: Allows admins to create courses with basic metadata
  */
 
@@ -27,6 +27,7 @@ export default function NewCoursePage() {
     language: 'hu',
     ccsId: '',
     thumbnail: '',
+    durationDays: 1,
     requiresPremium: false,
     priceAmount: 2999,
     priceCurrency: 'usd',
@@ -182,6 +183,23 @@ export default function NewCoursePage() {
                 />
                 <p className="text-xs text-brand-darkGrey mt-1">
                   Optional. Use this to link language variants to a course family (e.g. PRODUCTIVITY_2026_HU, PRODUCTIVITY_2026_EN share ccsId=PRODUCTIVITY_2026).
+                </p>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-brand-black mb-2">
+                  Planned Lesson Count
+                </label>
+                <input
+                  type="number"
+                  min={1}
+                  step={1}
+                  value={formData.durationDays}
+                  onChange={(e) => setFormData({ ...formData, durationDays: Math.max(1, Math.floor(Number(e.target.value) || 1)) })}
+                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                />
+                <p className="text-xs text-brand-darkGrey mt-1">
+                  Start with 1 or any planned length. The course can grow as you add lessons.
                 </p>
               </div>
 

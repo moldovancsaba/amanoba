@@ -393,7 +393,7 @@ export default function AdminCoursesPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-white mb-2">Course Management</h1>
-          <p className="text-brand-white/80">Create and manage 30-day learning courses</p>
+          <p className="text-brand-white/80">Create and manage flexible learning courses</p>
         </div>
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
           <select
@@ -610,7 +610,7 @@ export default function AdminCoursesPage() {
                               value={editForm.outline}
                               onChange={(e) => setEditForm((f) => ({ ...f, outline: e.target.value }))}
                               className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black placeholder:text-brand-darkGrey/70 focus:outline-none focus:border-brand-accent min-h-[80px]"
-                              placeholder="30-day outline / markdown"
+                              placeholder="Course outline / markdown"
                             />
                             <div className="flex gap-2">
                               <button type="button" onClick={saveEditCcs} className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold text-sm hover:bg-brand-primary-400">Save</button>

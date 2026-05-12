@@ -98,13 +98,13 @@
     "signInAnotherWay": "Bejelentkezés más módon"
   },
   "landing": {
-    "tagline": "30 napos tanulási platform",
-    "heroTitle": "Tanulj 30 nap alatt",
-    "heroDescription": "Strukturált napi leckék, interaktív értékelések és gamifikált tanulási élmény. Kezdj el egy 30 napos kurzust még ma!",
+    "tagline": "rugalmas tanulási platform",
+    "heroTitle": "Tanulj a saját tempódban",
+    "heroDescription": "Strukturált leckék, interaktív értékelések és gamifikált tanulási élmény. Kezdj el egy kurzust még ma!",
     "browseCourses": "Kurzusok böngészése",
     "getStarted": "Kezdés",
     "viewCourses": "Kurzusok megtekintése",
-    "feature1Title": "30 napos kurzusok",
+    "feature1Title": "Rugalmas kurzusok",
     "feature1Description": "Strukturált napi leckék, amelyek emailben érkeznek és a platformon is elérhetők",
     "feature2Title": "Napi email leckék",
     "feature2Description": "Minden nap kapj egy új leckét emailben, időzítve a neked megfelelő időpontban",
@@ -293,7 +293,7 @@
     "aboutThisCourse": "A kurzusról",
     "whatYoullLearn": "Mit fogsz megtanulni?",
     "dailyLessons": "Napi leckék",
-    "structuredLearning": "Strukturált tanulás 30 nap alatt",
+    "structuredLearning": "Strukturált tanulás a saját tempódban",
     "emailDelivery": "Email kézbesítés",
     "dailyLessonsSent": "Napi leckék küldése emailben",
     "interactiveAssessments": "Interaktív értékelések",
@@ -491,7 +491,7 @@
     "referredFriends": "Meghívott barátok",
     "pending": "Folyamatban",
     "shareMessage": "Csatlakozz az Amanobához és kezdj el tanulni! Az ajánlókódom:",
-    "emailBody": "Szia!\n\nSzeretnélek meghívni, hogy csatlakozz az Amanobához - egy 30 napos tanulási platformhoz, ahol hasznos kurzusokat vehetsz igénybe.\n\nAz ajánlókódommal mindketten bónusz pontokat kapsz!"
+    "emailBody": "Szia!\n\nSzeretnélek meghívni, hogy csatlakozz az Amanobához - egy rugalmas tanulási platformhoz, ahol hasznos kurzusokat vehetsz igénybe.\n\nAz ajánlókódommal mindketten bónusz pontokat kapsz!"
   },
   "profile": {
     "title": "Profil",

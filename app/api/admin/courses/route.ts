@@ -14,6 +14,7 @@ import { requireAdmin, requireAdminOrEditor, getPlayerIdFromSession, isAdmin } f
 import mongoose from 'mongoose';
 import { checkRateLimit, adminRateLimiter } from '@/lib/security';
 import { DEFAULT_BRAND_THEME_COLORS } from '@/app/lib/constants/color-tokens';
+import { normalizeCourseDurationDays } from '@/lib/course-helpers';
 
 /**
  * GET /api/admin/courses
@@ -193,6 +194,7 @@ export async function POST(request: NextRequest) {
       language = 'hu',
       thumbnail,
       requiresPremium = false,
+      durationDays,
       ccsId,
       brandId,
       pointsConfig,
@@ -273,7 +275,7 @@ export async function POST(request: NextRequest) {
       description,
       language,
       thumbnail,
-      durationDays: 30, // Always 30 for standard courses
+      durationDays: normalizeCourseDurationDays(durationDays, 1),
       isActive: false, // Start as inactive (draft)
       requiresPremium,
       ccsId: typeof ccsId === 'string' && ccsId.trim() ? ccsId.trim().toUpperCase() : undefined,

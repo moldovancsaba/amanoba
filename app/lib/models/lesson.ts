@@ -1,7 +1,7 @@
 /**
  * Lesson Model
  * 
- * What: Represents a single daily lesson within a 30-day course
+ * What: Represents a single lesson within a course
  * Why: Stores lesson content, email templates, and lesson-local metadata
  */
 
@@ -15,7 +15,7 @@ import mongoose, { Schema, Document, Model } from 'mongoose';
 export interface ILesson extends Document {
   lessonId: string;
   courseId: mongoose.Types.ObjectId;
-  dayNumber: number; // 1-30 (position in course)
+  dayNumber: number; // Lesson position in course, starting at 1
   language: string; // Language code (hu, en, etc.)
   title: string;
   content: string; // Markdown lesson content (legacy may be HTML; render with contentToHtml for display/email)
@@ -84,13 +84,12 @@ const LessonSchema = new Schema<ILesson>(
       index: true,
     },
 
-    // Day number in course (1-30)
-    // Why: Defines position in 30-day course structure
+    // Day number in course
+    // Why: Defines lesson order in a flexible course structure
     dayNumber: {
       type: Number,
       required: [true, 'Day number is required'],
       min: [1, 'Day number must be at least 1'],
-      max: [365, 'Day number cannot exceed 365'],
       index: true,
     },
 
@@ -282,12 +281,13 @@ LessonSchema.index({ courseId: 1, language: 1, dayNumber: 1 }, { name: 'lesson_c
 /**
  * Pre-save hook to validate day number
  * 
- * Why: Ensure day number is within reasonable range
+ * Why: Ensure day number remains a positive lesson position
  */
 LessonSchema.pre('save', function (next) {
-  if (this.dayNumber < 1 || this.dayNumber > 365) {
-    return next(new Error('Day number must be between 1 and 365'));
+  if (!Number.isFinite(this.dayNumber) || this.dayNumber < 1) {
+    return next(new Error('Day number must be at least 1'));
   }
+  this.dayNumber = Math.floor(this.dayNumber);
   next();
 });
 

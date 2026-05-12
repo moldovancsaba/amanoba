@@ -1,7 +1,7 @@
 /**
  * Course Model
  * 
- * What: Represents a 30-day learning course in the system
+ * What: Represents a flexible learning course in the system
  * Why: Centralizes course definitions, structure, and configuration for the learning platform
  */
 
@@ -18,7 +18,7 @@ export interface ICourse extends Document {
   description: string;
   language: string; // Language code (hu, en, etc.)
   thumbnail?: string;
-  durationDays: number; // Always 30 for standard courses
+  durationDays: number; // Planned/fallback lesson count; actual length is derived from lessons
   isActive: boolean;
   requiresPremium: boolean;
   price?: {
@@ -33,7 +33,7 @@ export interface ICourse extends Document {
   pointsConfig: {
     completionPoints: number;
     lessonPoints: number; // Points per lesson completed
-    perfectCourseBonus?: number; // Bonus for completing all 30 days
+    perfectCourseBonus?: number; // Bonus for completing every lesson in the course
   };
   xpConfig: {
     completionXP: number;
@@ -52,7 +52,7 @@ export interface ICourse extends Document {
   discussionEnabled?: boolean;
   leaderboardEnabled?: boolean;
   studyGroupsEnabled?: boolean;
-  /** For short/child courses: parent 30-day courseId. Unset for language-variant or CCS. */
+  /** For short/child courses: parent courseId. Unset for language-variant or CCS. */
   parentCourseId?: string;
   /** For short/child courses: ordered list of parent lesson _ids. Index 0 = child Day 1. */
   selectedLessonIds?: string[];
@@ -180,13 +180,12 @@ const CourseSchema = new Schema<ICourse>(
     },
 
     // Course duration in days
-    // Why: Standard courses are 30 days, but flexible for shorter courses
+    // Why: Planned/fallback lesson count; active lessons define learner-facing course length
     durationDays: {
       type: Number,
       required: [true, 'Duration is required'],
-      default: 30,
+      default: 1,
       min: [1, 'Duration must be at least 1 day'],
-      max: [365, 'Duration cannot exceed 365 days'],
     },
 
     // Course activation status
@@ -416,12 +415,13 @@ CourseSchema.index({ brandId: 1, language: 1, isActive: 1 }, { name: 'course_bra
 /**
  * Pre-save hook to validate duration
  * 
- * Why: Ensure duration is reasonable
+ * Why: Ensure duration remains a positive course length fallback
  */
 CourseSchema.pre('save', function (next) {
-  if (this.durationDays < 1 || this.durationDays > 365) {
-    return next(new Error('Course duration must be between 1 and 365 days'));
+  if (!Number.isFinite(this.durationDays) || this.durationDays < 1) {
+    return next(new Error('Course duration must be at least 1 day'));
   }
+  this.durationDays = Math.floor(this.durationDays);
   next();
 });
 

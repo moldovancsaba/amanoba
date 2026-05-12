@@ -1,7 +1,7 @@
 /**
  * CourseProgress Model
  * 
- * What: Tracks student progress through a 30-day course
+ * What: Tracks student progress through a course
  * Why: Monitors completion, email delivery, and assessment results for each student
  */
 
@@ -27,7 +27,7 @@ export enum CourseProgressStatus {
 export interface ICourseProgress extends Document {
   playerId: mongoose.Types.ObjectId;
   courseId: mongoose.Types.ObjectId;
-  currentDay: number; // Current lesson day (1-30)
+  currentDay: number; // Current lesson day
   completedDays: number[]; // Array of completed day numbers
   startedAt: Date;
   completedAt?: Date;
@@ -74,13 +74,12 @@ const CourseProgressSchema = new Schema<ICourseProgress>(
     },
 
     // Current lesson day
-    // Why: Tracks which day student is on (1-30)
+    // Why: Tracks which lesson position the student is on
     currentDay: {
       type: Number,
       required: [true, 'Current day is required'],
       default: 1,
       min: [1, 'Current day must be at least 1'],
-      max: [365, 'Current day cannot exceed 365'],
     },
 
     // Array of completed day numbers
@@ -100,7 +99,7 @@ const CourseProgressSchema = new Schema<ICourseProgress>(
     },
 
     // Course completion timestamp
-    // Why: Track when student finished all 30 days
+    // Why: Track when student finished all lessons
     completedAt: {
       type: Date,
       index: true,

@@ -645,3 +645,24 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ### Notes
 - This MVP is intentionally invite-only and pair-only. It avoids a public social graph, discovery feed, or notifications until the accountability mechanic proves useful.
+
+## Flexible course length update (2026-05-12)
+
+### What changed
+- Removed the remaining hard course-length assumptions that blocked lessons beyond fixed 30/365-day ranges.
+- Added shared course-length resolution in [`/Users/moldovancsaba/Projects/amanoba/app/lib/course-helpers.ts`](/Users/moldovancsaba/Projects/amanoba/app/lib/course-helpers.ts):
+  - child courses use `selectedLessonIds.length`
+  - normal courses use the highest active lesson day
+  - canonical courses fall back to the CCS lesson list
+  - empty/draft courses use `durationDays` as a positive fallback only
+- Updated learner-facing progress APIs so completion, next-day navigation, public lesson views, My Courses, and Practice Hub use the effective lesson count instead of assuming 30 days.
+- Updated sitemap lesson URLs and email duration fallbacks so generated public URLs and welcome/completion copy follow flexible course length.
+- Updated admin course and lesson APIs so courses can be created with any positive planned length, lessons can use any positive `dayNumber`, and course `durationDays` is synced to active lessons after lesson edits.
+- Updated admin course creation/editing UI copy and controls from fixed 30-day courses to flexible lesson sequences.
+- Updated course metadata/JSON-LD and primary English/Hungarian marketing strings so public surfaces no longer promise a fixed 30-day course length.
+
+### Verification
+- `npm test -- __tests__/unit/course-helpers.test.ts` ✅ pass
+- `npx eslint --no-warn-ignored app/lib/course-helpers.ts app/lib/models/course.ts app/lib/models/lesson.ts app/lib/models/course-progress.ts app/lib/models/assessment-result.ts app/api/courses/[courseId]/day/[dayNumber]/route.ts app/api/admin/courses/route.ts app/api/admin/courses/[courseId]/route.ts app/api/admin/courses/[courseId]/lessons/route.ts app/api/admin/courses/[courseId]/lessons/[lessonId]/route.ts app/api/my-courses/route.ts app/api/practice-hub/route.ts app/lib/public-lesson.ts app/[locale]/admin/courses/[courseId]/page.tsx app/[locale]/admin/courses/new/page.tsx app/[locale]/admin/courses/page.tsx app/[locale]/courses/[courseId]/layout.tsx app/[locale]/layout.tsx app/components/CourseJsonLd.tsx app/components/OrganizationWebSiteJsonLd.tsx __tests__/unit/course-helpers.test.ts` ✅ pass
+- `npx eslint --no-warn-ignored app/sitemap.ts app/lib/email/email-service.ts app/lib/course-helpers.ts app/lib/public-lesson.ts` ✅ pass
+- `npm run type-check` ✅ pass

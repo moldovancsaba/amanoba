@@ -16,7 +16,7 @@ export interface IAssessmentResult extends Document {
   playerId: mongoose.Types.ObjectId;
   courseId: mongoose.Types.ObjectId;
   courseProgressId: mongoose.Types.ObjectId;
-  lessonDay: number; // Day number (1-30) this assessment belongs to
+  lessonDay: number; // Lesson position this assessment belongs to
   gameId: mongoose.Types.ObjectId;
   sessionId: mongoose.Types.ObjectId; // Game session reference
   score: number;
@@ -71,13 +71,12 @@ const AssessmentResultSchema = new Schema<IAssessmentResult>(
       index: true,
     },
 
-    // Lesson day number (1-30)
-    // Why: Identifies which lesson day this assessment belongs to
+    // Lesson day number
+    // Why: Identifies which lesson position this assessment belongs to
     lessonDay: {
       type: Number,
       required: [true, 'Lesson day is required'],
       min: [1, 'Lesson day must be at least 1'],
-      max: [365, 'Lesson day cannot exceed 365'],
       index: true,
     },
 

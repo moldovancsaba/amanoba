@@ -20,7 +20,7 @@ export default function CourseJsonLd({
   durationDays,
   inLanguage,
 }: CourseJsonLdProps) {
-  // schema.org timeRequired: ISO 8601 duration, e.g. P30D for 30 days
+  // schema.org timeRequired: ISO 8601 duration, e.g. P7D for a seven-lesson course
   const timeRequired = `P${durationDays}D`;
 
   const course = {

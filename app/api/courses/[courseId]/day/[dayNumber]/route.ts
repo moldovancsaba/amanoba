@@ -19,35 +19,9 @@ import {
 import { updateFriendStreaksForLearningAction } from '@/lib/friend-streaks';
 import { logStreakEvent } from '@/app/lib/analytics/event-logger';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
-import { resolveLessonForChildDay } from '@/lib/course-helpers';
+import { calculateCurrentLessonDay, resolveCourseLength, resolveLessonForChildDay } from '@/lib/course-helpers';
 import { canonicalLessonForDay, canonicalLessonSpecsForCourse, buildCanonicalLessonContent } from '@/lib/canonical-spec';
 import { resolveCourseQuizPolicy } from '@/lib/course-quiz-policy';
-
-/**
- * Calculate the current day (first uncompleted lesson) based on completed days
- * 
- * What: Finds the first day number that is not in the completedDays array
- * Why: Ensures currentDay always points to the next lesson the user should take
- */
-function calculateCurrentDay(completedDays: number[], totalDays: number): number {
-  // If no days completed, start at day 1
-  if (!completedDays || completedDays.length === 0) {
-    return 1;
-  }
-
-  // Sort completed days to handle out-of-order completion
-  const sortedCompleted = [...completedDays].sort((a, b) => a - b);
-
-  // Find the first gap in completed days
-  for (let day = 1; day <= totalDays; day++) {
-    if (!sortedCompleted.includes(day)) {
-      return day;
-    }
-  }
-
-  // All days completed
-  return totalDays + 1;
-}
 
 /**
  * GET /api/courses/[courseId]/day/[dayNumber]
@@ -80,7 +54,7 @@ export async function GET(
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
 
-    const totalDays = course.durationDays ?? 30;
+    const { totalDays } = await resolveCourseLength(course);
     if (isNaN(day) || day < 1 || day > totalDays) {
       return NextResponse.json({ error: 'Invalid day number' }, { status: 400 });
     }
@@ -116,7 +90,7 @@ export async function GET(
 
     // Ensure currentDay is correct based on completedDays
     // This fixes cases where currentDay might be out of sync
-    const correctCurrentDay = calculateCurrentDay(
+    const correctCurrentDay = calculateCurrentLessonDay(
       progress.completedDays || [],
       totalDays
     );
@@ -298,7 +272,7 @@ export async function POST(
       return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }
 
-    const totalDays = course.durationDays ?? 30;
+    const { totalDays } = await resolveCourseLength(course);
     if (isNaN(day) || day < 1 || day > totalDays) {
       return NextResponse.json({ error: 'Invalid day number' }, { status: 400 });
     }
@@ -353,7 +327,7 @@ export async function POST(
       progress.completedDays.push(day);
       
       // Recalculate currentDay based on all completed days
-      progress.currentDay = calculateCurrentDay(
+      progress.currentDay = calculateCurrentLessonDay(
         progress.completedDays,
         totalDays
       );

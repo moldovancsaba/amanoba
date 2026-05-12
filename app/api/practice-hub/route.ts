@@ -19,6 +19,7 @@ import { resolveCourseQuizPolicy } from '@/lib/course-quiz-policy';
 import { resolveCourseNameForLocale } from '@/app/lib/utils/course-i18n';
 import type { Locale } from '@/app/lib/i18n/locales';
 import { appendPracticeContextToHref, type PracticeModeId } from '@/app/lib/practice-hub';
+import { calculateCurrentLessonDay, resolveCourseLength } from '@/lib/course-helpers';
 
 const VALID_LOCALES: Locale[] = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru', 'sw', 'zh', 'es', 'fr', 'bn', 'ur'];
 const STALE_REFRESH_DAYS = 7;
@@ -42,6 +43,9 @@ type CourseDocument = {
     successThreshold?: number;
   };
   translations?: unknown;
+  parentCourseId?: string;
+  selectedLessonIds?: string[];
+  ccsId?: string;
 };
 
 type LessonDocument = {
@@ -83,21 +87,6 @@ function parseLocale(value: string | null): Locale | null {
 
 function normalizeStatus(value: string | undefined): string {
   return (value ?? '').toLowerCase();
-}
-
-function calculateCurrentDay(completedDays: number[], totalDays: number): number {
-  if (!completedDays || completedDays.length === 0) {
-    return 1;
-  }
-
-  const sortedCompleted = [...completedDays].sort((a, b) => a - b);
-  for (let day = 1; day <= totalDays; day++) {
-    if (!sortedCompleted.includes(day)) {
-      return day;
-    }
-  }
-
-  return totalDays + 1;
 }
 
 function getAssessmentResultKeys(
@@ -166,7 +155,7 @@ export async function GET(request: NextRequest) {
       (VALID_LOCALES.includes((player.locale as Locale) ?? '') ? (player.locale as Locale) : 'en');
 
     const progressList = await CourseProgress.find({ playerId: player._id })
-      .populate('courseId', 'courseId name description language durationDays isDraft translations lessonQuizPolicy')
+      .populate('courseId', 'courseId name description language durationDays isDraft translations lessonQuizPolicy parentCourseId selectedLessonIds ccsId')
       .sort({ startedAt: -1 })
       .lean();
 
@@ -191,11 +180,11 @@ export async function GET(request: NextRequest) {
       }
 
       const courseDbId = course._id.toString();
-      const totalDays = Math.max(course.durationDays || 30, 1);
+      const { totalDays } = await resolveCourseLength(course);
       const completedDays = Array.isArray(progress.completedDays)
         ? [...progress.completedDays].sort((a, b) => a - b)
         : [];
-      const resolvedCurrentDay = calculateCurrentDay(completedDays, totalDays);
+      const resolvedCurrentDay = calculateCurrentLessonDay(completedDays, totalDays);
       const normalizedStatus = normalizeStatus(progress.status);
       const lastAccessedTimestamp = Math.max(
         toTimestamp(progress.lastAccessedAt),

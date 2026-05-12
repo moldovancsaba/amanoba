@@ -69,7 +69,7 @@ Designer courses in the system are expressed as **canonical course specs (CCS)**
 **Model**: `app/lib/models/lesson.ts` (Lesson schema).
 
 **Required fields**:  
-- `lessonId`, `courseId`, `dayNumber` (1–30 for 30-day courses), `language`, `title`, `content`, `emailSubject`, `emailBody`, `pointsReward`, `xpReward`, `isActive`, `displayOrder`.
+- `lessonId`, `courseId`, `dayNumber` (positive lesson position; courses can contain 1 to any number of lessons), `language`, `title`, `content`, `emailSubject`, `emailBody`, `pointsReward`, `xpReward`, `isActive`, `displayOrder`.
 
 **Content structure (grammar for lesson content)**:
 

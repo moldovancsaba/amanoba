@@ -11,6 +11,7 @@ import connectDB from '@/lib/mongodb';
 import { Course, Lesson, CourseProgress, QuizQuestion, AssessmentResult } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdmin, requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
+import { normalizeCourseDurationDays } from '@/lib/course-helpers';
 
 /**
  * GET /api/admin/courses/[courseId]
@@ -82,6 +83,9 @@ export async function PATCH(
     if (!isAdmin(session)) {
       delete payload.assignedEditors;
       delete payload.createdBy;
+    }
+    if ('durationDays' in payload) {
+      payload.durationDays = normalizeCourseDurationDays(payload.durationDays, 1);
     }
 
     // Merge certification so partial updates (e.g. passThresholdPercent) don't wipe other fields

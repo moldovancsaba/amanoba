@@ -13,6 +13,7 @@ import { Course, Lesson, QuizQuestion, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
 import { contentToMarkdown } from '@/app/lib/lesson-content';
+import { normalizeCourseDurationDays } from '@/lib/course-helpers';
 
 /**
  * GET /api/admin/courses/[courseId]/export
@@ -87,7 +88,7 @@ export async function GET(
         description: course.description || '',
         language: course.language || 'hu',
         thumbnail: course.thumbnail || undefined,
-        durationDays: course.durationDays || 30,
+        durationDays: normalizeCourseDurationDays(course.durationDays, 1),
         isActive: course.isActive !== undefined ? course.isActive : true,
         requiresPremium: course.requiresPremium !== undefined ? course.requiresPremium : false,
         pointsConfig: course.pointsConfig || {

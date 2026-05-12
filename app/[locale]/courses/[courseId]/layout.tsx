@@ -12,6 +12,7 @@ import { Course } from '@/app/lib/models';
 import { Brand } from '@/app/lib/models';
 import { APP_URL } from '@/app/lib/constants/app-url';
 import CourseJsonLd from '@/app/components/CourseJsonLd';
+import { resolveCourseLength } from '@/app/lib/course-helpers';
 
 const _courseLocales = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru'] as const;
 
@@ -27,7 +28,7 @@ const defaultOgImageUrl = `${baseUrl}/AMANOBA.png`;
 function fallbackCourseMetadata(courseId: string, locale: string): Metadata {
   const courseUrl = `${baseUrl}/${locale}/courses/${courseId}`;
   const title = 'Course | Amanoba';
-  const description = '30-day structured learning course on Amanoba. Lessons, quizzes, and certificates.';
+  const description = 'Structured learning course on Amanoba. Lessons, quizzes, and certificates.';
   return {
     title,
     description,
@@ -68,7 +69,7 @@ export async function generateMetadata({
 
     // Fetch course data
     const course = await Course.findOne({ courseId })
-      .select('courseId name description language thumbnail isActive requiresPremium durationDays')
+      .select('courseId name description language thumbnail isActive requiresPremium durationDays parentCourseId selectedLessonIds ccsId')
       .lean();
 
     if (!course || !course.isActive) {
@@ -117,7 +118,8 @@ export async function generateMetadata({
     }
     // Fallback if no description
     if (!description) {
-      description = `30-day structured learning course. ${course.durationDays} days of lessons, quizzes, and assessments.`;
+      const { totalDays } = await resolveCourseLength(course);
+      description = `Structured learning course with ${totalDays} lessons, quizzes, and assessments.`;
     }
 
     // Determine locale for Open Graph
@@ -126,7 +128,7 @@ export async function generateMetadata({
     return {
       title: `${title} | Amanoba`,
       description,
-      keywords: ['course', 'learning', 'education', '30-day course', course.name],
+      keywords: ['course', 'learning', 'education', 'structured course', course.name],
       authors: [{ name: 'Amanoba' }],
       openGraph: {
         type: 'website',
@@ -196,7 +198,7 @@ export default async function CourseDetailLayout({
   await connectDB();
 
   const course = await Course.findOne({ courseId })
-    .select('courseId name description language thumbnail isActive durationDays')
+    .select('courseId name description language thumbnail isActive durationDays parentCourseId selectedLessonIds ccsId')
     .lean();
 
   if (!course || !course.isActive) {
@@ -221,14 +223,16 @@ export default async function CourseDetailLayout({
     .trim()
     .slice(0, 500);
 
+  const { totalDays } = await resolveCourseLength(course);
+
   return (
     <>
       <CourseJsonLd
         name={course.name || courseId}
-        description={description || `30-day structured course. ${course.durationDays ?? 30} days of lessons and assessments.`}
+        description={description || `Structured course with ${totalDays} lessons and assessments.`}
         url={courseUrl}
         image={thumbnailUrl || undefined}
-        durationDays={course.durationDays ?? 30}
+        durationDays={totalDays}
         inLanguage={course.language || 'en'}
       />
       {children}
