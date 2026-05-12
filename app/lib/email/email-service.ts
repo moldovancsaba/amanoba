@@ -160,7 +160,7 @@ function injectEmailTracking(html: string, messageId: string, appUrl: string): s
  * Send Lesson Email
  * 
  * What: Sends daily lesson email to student
- * Why: Primary method of lesson delivery for 30-day courses
+ * Why: Primary method of lesson delivery for flexible courses
  * 
  * @param playerId - Student's player ID
  * @param courseId - Course ID (Mongo _id of enrolled course)
@@ -368,7 +368,7 @@ export async function sendWelcomeEmail(
       locale: emailLocale,
       playerName: player.displayName,
       courseName,
-      durationDays: Number(course.durationDays || 30) || 30,
+      durationDays: Number(course.durationDays || 1) || 1,
       appUrl: APP_URL,
       tokens: EMAIL_THEME_DEFAULT,
     });
@@ -471,7 +471,7 @@ export async function sendCompletionEmail(
       locale: emailLocale,
       playerName: player.displayName,
       courseName,
-      durationDays: Number(course.durationDays || 30) || 30,
+      durationDays: Number(course.durationDays || 1) || 1,
       appUrl: APP_URL,
       tokens: EMAIL_THEME_DEFAULT,
       recommendedCourses:

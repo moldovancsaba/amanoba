@@ -6,11 +6,11 @@
 
 ## 🎓 Overview
 
-Amanoba is transforming into a **unified 30-day learning platform** that combines structured education with gamified engagement. Built on Next.js 15 with full TypeScript support, Amanoba delivers daily lessons via email, uses interactive games as student assessments, and maintains a comprehensive gamification system with achievements, leaderboards, and rewards.
+Amanoba is transforming into a **unified flexible learning platform** that combines structured education with gamified engagement. Built on Next.js 15 with full TypeScript support, Amanoba delivers lessons via email, uses interactive games as student assessments, and maintains a comprehensive gamification system with achievements, leaderboards, and rewards.
 
 ### Core Features
 
-- **30-Day Course System**: Structured learning with daily lessons delivered via email
+- **Flexible Course System**: Structured learning with courses from 1 lesson upward, delivered in-app and by email
 - **Quiz Assessment System**: Course-specific quizzes with configurable thresholds and question pools
 - **Course Export/Import**: Export complete courses (lessons + quizzes) to JSON and import with overwrite support
 - **Stripe Payment Integration**: Complete payment system for premium courses
@@ -26,7 +26,7 @@ Amanoba is transforming into a **unified 30-day learning platform** that combine
 - **First Course Available**: "AI 30 Nap" (AI 30 Days) - Complete 30-day AI learning course in Hungarian
 - **Interactive Assessments**: Games (QUIZZZ, WHACKPOP, Madoku) repurposed as student assessment tools
 - **Email-First Learning**: Daily lessons sent to students' email with in-platform access
-- **Course Builder**: Admin interface to create and manage 30-day courses with rich text editor
+- **Course Builder**: Admin interface to create and manage flexible courses with rich text editor
 - **Student Dashboard**: Browse courses, enroll, track progress, view daily lessons
 - **Feature Flags**: Admin-controlled feature toggles for courses, games, leaderboards, etc.
 - **Comprehensive Gamification** (Retained):
@@ -171,7 +171,7 @@ Admin dashboard available at `/{locale}/admin` with session-based authentication
 Set `ADMIN_PASSWORD` in your environment configuration.
 
 Features:
-- **Course Management**: Create, edit, delete, and manage 30-day courses with cascading deletes
+- **Course Management**: Create, edit, delete, and manage flexible courses with cascading deletes
 - **Lesson Builder**: Rich text editor for daily lesson content with email templates
 - **Quiz Management**: Create and manage course-specific quiz questions with two-step deletion
 - **Course Export/Import**: Export courses to JSON for backup/sharing, import with overwrite support

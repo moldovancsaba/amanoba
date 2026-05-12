@@ -14,6 +14,7 @@ import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse 
 import { resetVotesForLesson } from '@/lib/content-votes';
 import mongoose from 'mongoose';
 import { contentToMarkdown } from '@/lib/lesson-content';
+import { syncCourseDurationToLessons } from '@/lib/course-helpers';
 
 /**
  * GET /api/admin/courses/[courseId]/lessons/[lessonId]
@@ -111,6 +112,16 @@ export async function PATCH(
     if (typeof body.emailBody === 'string') {
       body.emailBody = contentToMarkdown(body.emailBody);
     }
+    if ('dayNumber' in body) {
+      const normalizedDayNumber = Number(body.dayNumber);
+      if (!Number.isInteger(normalizedDayNumber) || normalizedDayNumber < 1) {
+        return NextResponse.json(
+          { error: 'dayNumber must be a positive whole number' },
+          { status: 400 }
+        );
+      }
+      body.dayNumber = normalizedDayNumber;
+    }
 
     const lesson = await Lesson.findOneAndUpdate(
       { 
@@ -130,6 +141,7 @@ export async function PATCH(
     } catch (voteErr) {
       logger.warn({ error: voteErr, courseId, lessonId }, 'Vote reset on lesson update failed');
     }
+    await syncCourseDurationToLessons(course);
 
     logger.info({ courseId, lessonId }, 'Admin updated lesson');
 
@@ -175,6 +187,7 @@ export async function DELETE(
     if (!lesson) {
       return NextResponse.json({ error: 'Lesson not found' }, { status: 404 });
     }
+    await syncCourseDurationToLessons(course);
 
     logger.info({ courseId, lessonId }, 'Admin deleted lesson');
 

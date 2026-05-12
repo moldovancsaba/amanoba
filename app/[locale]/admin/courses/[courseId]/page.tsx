@@ -1,7 +1,7 @@
 /**
  * Course Editor Page
  * 
- * What: Edit course and manage 30-day lessons
+ * What: Edit course and manage flexible lesson sequences
  * Why: Allows admins to build complete courses with lessons
  */
 
@@ -176,6 +176,17 @@ export default function CourseEditorPage({
         ...COURSE_LANGUAGE_OPTIONS,
       ]
     : COURSE_LANGUAGE_OPTIONS;
+  const maxLessonDay = lessons.reduce((max, lesson) => Math.max(max, lesson.dayNumber || 0), 0);
+  const lessonGridLength = course?.parentCourseId
+    ? lessons.length
+    : Math.max(course?.durationDays || 1, maxLessonDay + 1, 1);
+  const nextEditableLessonDay = (() => {
+    const usedDays = new Set(lessons.map((lesson) => lesson.dayNumber));
+    for (let day = 1; day <= lessonGridLength; day += 1) {
+      if (!usedDays.has(day)) return day;
+    }
+    return lessonGridLength + 1;
+  })();
 
   useEffect(() => {
     const loadData = async () => {
@@ -457,7 +468,7 @@ export default function CourseEditorPage({
           </Link>
           <div>
             <h1 className="text-3xl font-bold text-white">{course.name}</h1>
-            <p className="text-brand-white/80">Course Editor - Manage 30-day lessons</p>
+            <p className="text-brand-white/80">Course Editor - Manage flexible lessons</p>
           </div>
         </div>
         <div className="flex items-center gap-3">
@@ -545,6 +556,20 @@ export default function CourseEditorPage({
                 </option>
               ))}
             </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-brand-black mb-2">Planned Lesson Count</label>
+            <input
+              type="number"
+              min={1}
+              step={1}
+              value={course.durationDays}
+              onChange={(e) => setCourse({ ...course, durationDays: Math.max(1, Math.floor(Number(e.target.value) || 1)) })}
+              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+            />
+            <p className="text-xs text-brand-darkGrey mt-1">
+              Used as a fallback for empty courses. Active lessons define the learner-facing course length.
+            </p>
           </div>
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-brand-black mb-2">Course Family (CCS ID)</label>
@@ -1319,7 +1344,7 @@ export default function CourseEditorPage({
         <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
           <h2 className="text-xl font-bold text-brand-black mb-4">Shorts</h2>
           <p className="text-sm text-brand-darkGrey mb-4">
-            Create short-course variants from this 30-day course. Select lessons; type is chosen by count (1–3 Essentials, 4–7 Beginner, 8–12 Foundations, 13–20 Core Skills, 21+ Full Program). New shorts start as draft; publish when ready.
+            Create short-course variants from this course. Select lessons; type is chosen by count (1–3 Essentials, 4–7 Beginner, 8–12 Foundations, 13–20 Core Skills, 21+ Full Program). New shorts start as draft; publish when ready.
           </p>
           {/* Existing shorts */}
           {shorts.length > 0 && (
@@ -1375,7 +1400,7 @@ export default function CourseEditorPage({
               </ul>
             </div>
           )}
-          {/* Create short — when active, checkboxes appear on the 30-Day Lesson Builder cards below */}
+          {/* Create short — when active, checkboxes appear on the Lesson Builder cards below */}
           <div>
             <button
               type="button"
@@ -1388,7 +1413,7 @@ export default function CourseEditorPage({
             {showShortsCreate && lessons.length > 0 && (
               <div className="mt-4 p-4 bg-brand-darkGrey/10 rounded-lg space-y-4">
                 <p className="text-sm text-brand-black font-medium">
-                  Tick the lessons you want in the short on the <strong>30-Day Lesson Builder</strong> cards below (order = Day 1..N). Then set cert question count and click Save short.
+                  Tick the lessons you want in the short on the <strong>Lesson Builder</strong> cards below (order = Day 1..N). Then set cert question count and click Save short.
                 </p>
                 <div className="flex flex-wrap items-center gap-4">
                   <div>
@@ -1452,11 +1477,14 @@ export default function CourseEditorPage({
       <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-bold text-brand-black">
-            {course.parentCourseId ? 'Short course — lessons from parent (read-only)' : '30-Day Lesson Builder'}
+            {course.parentCourseId ? 'Short course — lessons from parent (read-only)' : 'Lesson Builder'}
           </h2>
           {!course.parentCourseId && (
             <button
-              onClick={() => setShowLessonForm(true)}
+              onClick={() => {
+                setEditingLesson(nextEditableLessonDay);
+                setShowLessonForm(true);
+              }}
               className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
             >
               <Plus className="w-5 h-5" />
@@ -1586,7 +1614,7 @@ export default function CourseEditorPage({
         )}
         {/* Lessons Grid — when Create short is on, lesson cards get a "Include in short" checkbox */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {Array.from({ length: course.parentCourseId ? lessons.length : 30 }, (_, i) => i + 1).map((day) => {
+          {Array.from({ length: lessonGridLength }, (_, i) => i + 1).map((day) => {
             const lesson = lessons.find((l) => l.dayNumber === day);
             const inShortSelection = !course.parentCourseId && showShortsCreate && lesson;
             return (
@@ -1690,6 +1718,7 @@ export default function CourseEditorPage({
           }}
           onSave={() => {
             fetchLessons(courseId);
+            fetchCourse(courseId);
             setShowLessonForm(false);
             setEditingLesson(null);
           }}

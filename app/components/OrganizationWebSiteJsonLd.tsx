@@ -14,7 +14,7 @@ const organization = {
   name: 'Amanoba',
   url: base,
   logo: logoUrl,
-  description: '30-day learning platform with gamified education, email-based lesson delivery, and interactive assessments.',
+  description: 'Flexible learning platform with gamified education, email-based lesson delivery, and interactive assessments.',
 };
 
 const website = {

@@ -62,7 +62,7 @@ const afacad = Afacad({
 // Why: Optimizes discoverability and sharing across platforms
 export const metadata: Metadata = {
   title: "Amanoba - Unified Learning Platform",
-  description: "30-day learning platform with gamified education, email-based lesson delivery, and interactive assessments.",
+  description: "Flexible learning platform with gamified education, email-based lesson delivery, and interactive assessments.",
   keywords: ["learning", "courses", "education", "gamification", "achievements", "leaderboards"],
   authors: [{ name: "Narimato" }],
   creator: "Narimato",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     url: APP_URL,
     siteName: "Amanoba",
     title: "Amanoba - Unified Learning Platform",
-    description: "30-day learning platform with gamified education.",
+    description: "Flexible learning platform with gamified education.",
   },
   twitter: {
     card: "summary_large_image",

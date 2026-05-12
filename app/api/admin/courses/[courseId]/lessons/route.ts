@@ -14,6 +14,7 @@ import { logger } from '@/lib/logger';
 import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
 import mongoose from 'mongoose';
 import { contentToMarkdown } from '@/lib/lesson-content';
+import { syncCourseDurationToLessons } from '@/lib/course-helpers';
 
 async function assertCourseAccess(
   request: NextRequest,
@@ -135,10 +136,10 @@ export async function POST(
       );
     }
 
-    // Validate dayNumber (1-30)
-    if (dayNumber < 1 || dayNumber > 30) {
+    const normalizedDayNumber = Number(dayNumber);
+    if (!Number.isInteger(normalizedDayNumber) || normalizedDayNumber < 1) {
       return NextResponse.json(
-        { error: 'dayNumber must be between 1 and 30' },
+        { error: 'dayNumber must be a positive whole number' },
         { status: 400 }
       );
     }
@@ -153,7 +154,7 @@ export async function POST(
     }
 
     // Check if dayNumber already has a lesson
-    const existingDay = await Lesson.findOne({ courseId: course._id, dayNumber });
+    const existingDay = await Lesson.findOne({ courseId: course._id, dayNumber: normalizedDayNumber });
     if (existingDay) {
       return NextResponse.json(
         { error: `Day ${dayNumber} already has a lesson` },
@@ -165,10 +166,10 @@ export async function POST(
     const lesson = new Lesson({
       lessonId,
       courseId: course._id,
-      dayNumber,
+      dayNumber: normalizedDayNumber,
       title,
       content: contentToMarkdown(content),
-      emailSubject: emailSubject || `Day ${dayNumber}: ${title}`,
+      emailSubject: emailSubject || `Day ${normalizedDayNumber}: ${title}`,
       emailBody: contentToMarkdown(emailBody || content),
       assessmentGameId: assessmentGameId && mongoose.Types.ObjectId.isValid(assessmentGameId)
         ? new mongoose.Types.ObjectId(assessmentGameId)
@@ -176,19 +177,20 @@ export async function POST(
       pointsReward: pointsReward || course.pointsConfig.lessonPoints,
       xpReward: xpReward || course.xpConfig.lessonXP,
       unlockConditions: unlockConditions || {
-        requirePreviousLesson: dayNumber > 1,
+        requirePreviousLesson: normalizedDayNumber > 1,
         requireCourseStart: true,
       },
       isActive: true,
-      displayOrder: dayNumber,
+      displayOrder: normalizedDayNumber,
       language: language || course.language,
       translations: translations || {},
       metadata: metadata || {},
     });
 
     await lesson.save();
+    await syncCourseDurationToLessons(course);
 
-    logger.info({ courseId, lessonId, dayNumber }, 'Admin created lesson');
+    logger.info({ courseId, lessonId, dayNumber: normalizedDayNumber }, 'Admin created lesson');
 
     return NextResponse.json({
       success: true,

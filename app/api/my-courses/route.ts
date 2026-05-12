@@ -12,37 +12,12 @@ import { CourseProgress, Player } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { resolveCourseNameForLocale, resolveCourseDescriptionForLocale } from '@/app/lib/utils/course-i18n';
 import type { Locale } from '@/app/lib/i18n/locales';
+import { calculateCurrentLessonDay, resolveCourseLength } from '@/lib/course-helpers';
 
 const VALID_LOCALES: Locale[] = ['hu', 'en', 'ar', 'hi', 'id', 'pt', 'vi', 'tr', 'bg', 'pl', 'ru', 'sw', 'zh', 'es', 'fr', 'bn', 'ur'];
 function parseLocale(value: string | null): Locale | null {
   if (!value) return null;
   return VALID_LOCALES.includes(value as Locale) ? (value as Locale) : null;
-}
-
-/**
- * Calculate the current day (first uncompleted lesson) based on completed days
- * 
- * What: Finds the first day number that is not in the completedDays array
- * Why: Ensures currentDay always points to the next lesson the user should take
- */
-function calculateCurrentDay(completedDays: number[], totalDays: number): number {
-  // If no days completed, start at day 1
-  if (!completedDays || completedDays.length === 0) {
-    return 1;
-  }
-
-  // Sort completed days to handle out-of-order completion
-  const sortedCompleted = [...completedDays].sort((a, b) => a - b);
-
-  // Find the first gap in completed days
-  for (let day = 1; day <= totalDays; day++) {
-    if (!sortedCompleted.includes(day)) {
-      return day;
-    }
-  }
-
-  // All days completed
-  return totalDays + 1;
 }
 
 /**
@@ -74,8 +49,8 @@ export async function GET(request: NextRequest) {
 
     const populateFields =
       locale != null
-        ? 'courseId name description thumbnail language durationDays isDraft translations'
-        : 'courseId name description thumbnail language durationDays isDraft';
+        ? 'courseId name description thumbnail language durationDays isDraft translations parentCourseId selectedLessonIds ccsId'
+        : 'courseId name description thumbnail language durationDays isDraft parentCourseId selectedLessonIds ccsId';
 
     // Get all course progress for this player
     const progressList = await CourseProgress.find({ playerId: player._id })
@@ -84,22 +59,22 @@ export async function GET(request: NextRequest) {
       .lean();
 
     // My courses: only show published shorts (exclude isDraft === true)
-    type ProgressWithCourse = { courseId?: { isDraft?: boolean; courseId?: string; name?: string; description?: string; thumbnail?: string; language?: string; durationDays?: number }; completedDays?: number[]; status?: string; startedAt?: Date; lastAccessedAt?: Date };
+    type ProgressWithCourse = { courseId?: { _id?: unknown; isDraft?: boolean; courseId?: string; name?: string; description?: string; thumbnail?: string; language?: string; durationDays?: number; parentCourseId?: string; selectedLessonIds?: string[]; ccsId?: string }; completedDays?: number[]; status?: string; startedAt?: Date; lastAccessedAt?: Date };
     const list = progressList as ProgressWithCourse[];
     const filteredProgress = list.filter(
       (p) => p.courseId && typeof p.courseId === 'object' && (p.courseId as { isDraft?: boolean }).isDraft !== true
     );
 
     // Calculate progress for each course; resolve name/description for locale when set (P0 catalog language integrity)
-    const courses = filteredProgress.map((progress) => {
+    const courses = await Promise.all(filteredProgress.map(async (progress) => {
       const course = progress.courseId as ProgressWithCourse['courseId'] & { translations?: unknown };
       const completedDaysArray = Array.isArray(progress.completedDays) ? progress.completedDays : [];
       const completedDays = completedDaysArray.length;
-      const totalDays = (course?.durationDays as number) || 30;
+      const { totalDays } = await resolveCourseLength(course ?? null);
       const progressPercentage = totalDays > 0 ? (completedDays / totalDays) * 100 : 0;
 
       // Calculate correct currentDay based on completed days
-      const correctCurrentDay = calculateCurrentDay(completedDaysArray, totalDays);
+      const correctCurrentDay = calculateCurrentLessonDay(completedDaysArray, totalDays);
 
       let name = course?.name ?? '';
       let description = course?.description ?? '';
@@ -115,7 +90,7 @@ export async function GET(request: NextRequest) {
           description,
           thumbnail: course?.thumbnail,
           language: course?.language,
-          durationDays: course?.durationDays,
+          durationDays: totalDays,
         },
         progress: {
           currentDay: correctCurrentDay,
@@ -127,7 +102,7 @@ export async function GET(request: NextRequest) {
           lastAccessedAt: progress.lastAccessedAt,
         },
       };
-    });
+    }));
 
     return NextResponse.json({
       success: true,

@@ -20,6 +20,7 @@ import { requireAdmin } from '@/lib/rbac';
 import { QuestionDifficulty, QuizQuestionType } from '@/lib/models';
 import mongoose from 'mongoose';
 import { contentToMarkdown } from '@/lib/lesson-content';
+import { normalizeCourseDurationDays } from '@/lib/course-helpers';
 
 const VALID_QUESTION_TYPES = new Set(Object.values(QuizQuestionType));
 function normalizeQuestionType(value: unknown): string | undefined {
@@ -189,7 +190,7 @@ export async function POST(request: NextRequest) {
     // Course content/config payload (merge-safe: only set provided fields so package name/description etc. apply exactly)
     const courseSet: Record<string, unknown> = {
       courseId: courseInfo.courseId,
-      durationDays: courseInfo.durationDays ?? 30,
+      durationDays: normalizeCourseDurationDays(courseInfo.durationDays, Math.max(lessons.length, 1)),
       isActive: courseInfo.isActive !== undefined ? courseInfo.isActive : true,
       requiresPremium: courseInfo.requiresPremium !== undefined ? courseInfo.requiresPremium : false,
       pointsConfig: courseInfo.pointsConfig ?? { completionPoints: 1000, lessonPoints: 50, perfectCourseBonus: 500 },

@@ -6,7 +6,7 @@
 
 import connectDB from '@/app/lib/mongodb';
 import { Course, Lesson, type ICourse } from '@/app/lib/models';
-import { resolveLessonForChildDay } from '@/app/lib/course-helpers';
+import { resolveCourseLength, resolveLessonForChildDay } from '@/app/lib/course-helpers';
 import { canonicalLessonForDay, buildCanonicalLessonContent } from '@/app/lib/canonical-spec';
 
 export interface PublicLessonData {
@@ -38,7 +38,7 @@ export async function getPublicLessonData(
     return null;
   }
 
-  const totalDays = (course as { durationDays?: number }).durationDays ?? 30;
+  const { totalDays } = await resolveCourseLength(course as unknown as ICourse);
   if (dayNumber < 1 || dayNumber > totalDays) {
     return null;
   }

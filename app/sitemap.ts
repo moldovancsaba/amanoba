@@ -10,6 +10,7 @@ import { Course } from '@/app/lib/models';
 import { APP_URL } from '@/app/lib/constants/app-url';
 import { locales } from '@/app/lib/i18n/locales';
 import { getNewsSlugs } from '@/app/lib/news';
+import { resolveCourseLength } from '@/app/lib/course-helpers';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // revalidate at most every hour
@@ -64,11 +65,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     await connectDB();
     const courses = await Course.find({ isActive: true })
-      .select({ courseId: 1, durationDays: 1 })
+      .select({ courseId: 1, durationDays: 1, parentCourseId: 1, selectedLessonIds: 1, ccsId: 1, language: 1 })
       .lean();
 
-    const durationDaysByCourse = (courses as { courseId: string; durationDays?: number }[]).map(
-      (c) => ({ courseId: c.courseId, durationDays: Math.max(1, c.durationDays ?? 30) })
+    const durationDaysByCourse = await Promise.all(
+      (courses as { courseId: string; durationDays?: number }[]).map(async (course) => {
+        const { totalDays } = await resolveCourseLength(course);
+        return { courseId: course.courseId, durationDays: totalDays };
+      })
     );
 
     for (const locale of locales) {
