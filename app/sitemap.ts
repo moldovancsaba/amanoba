@@ -34,12 +34,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     });
     entries.push({
+      url: `${base}/${locale}/blog`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    });
+    entries.push({
       url: `${base}/${locale}/news`,
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.7,
     });
     for (const slug of getNewsSlugs()) {
+      entries.push({
+        url: `${base}/${locale}/blog/${slug}`,
+        lastModified: now,
+        changeFrequency: 'weekly',
+        priority: 0.7,
+      });
       entries.push({
         url: `${base}/${locale}/news/${slug}`,
         lastModified: now,

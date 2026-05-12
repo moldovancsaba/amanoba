@@ -7,6 +7,19 @@
 
 ---
 
+## [Unreleased] — 2026-05-12 📝 Blog publishing correction
+
+**Status**: Delivered in repo; deploys through the next push to `origin/main`  
+**Type**: Feature, Automation, SEO
+
+- **Canonical blog surface:** Added `/[locale]/blog` and `/[locale]/blog/[slug]` for weekly Amanoba product posts.
+- **Backfilled current post:** The existing May 11 weekly update now renders as a blog post at `/en/blog/2026-05-11-smarter-review-saved-lessons-streaks` after deployment.
+- **News compatibility:** Kept `/[locale]/news` as an alias backed by the same content so existing links do not break.
+- **Automation fix:** Added `npm run blog:publish -- --file <post.json>` and updated the local `amanoba-news` automation prompt to publish into the repo rather than only returning draft copy.
+- **Navigation and sitemap:** Landing and dashboard links now point to `Blog`; sitemap includes both blog and news URLs for all enabled locales.
+
+**Rollback:** Remove the blog routes, revert navigation/sitemap/script changes, restore the old automation prompt, and keep or remove the `/news` alias according to the release decision.
+
 ## [Unreleased] — 2026-05-11 📰 Public What's New posts
 
 **Status**: Delivered in repo; deploys through the next push to `origin/main`

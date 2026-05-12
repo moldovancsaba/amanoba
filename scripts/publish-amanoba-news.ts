@@ -122,7 +122,9 @@ function main() {
     fs.writeFileSync(contentPath, `${JSON.stringify(nextPosts, null, 2)}\n`);
   }
 
-  console.log(`${args['dry-run'] === true ? 'Validated' : 'Published'} Amanoba news post: ${nextPost.slug}`);
+  console.log(`${args['dry-run'] === true ? 'Validated' : 'Published'} Amanoba blog/news post: ${nextPost.slug}`);
+  console.log(`Blog URL: /en/blog/${nextPost.slug}`);
+  console.log(`News alias URL: /en/news/${nextPost.slug}`);
   console.log(`Locales available: ${locales.join(', ')}`);
 }
 

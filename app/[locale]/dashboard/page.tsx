@@ -560,11 +560,11 @@ export default function Dashboard() {
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-10 gap-3 dashboard-grid">
             <LocaleLink
-              href="/news"
+              href="/blog"
               className="block bg-brand-white border-2 border-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-accent/15 transition-all text-sm flex items-center justify-center gap-2"
             >
               <Icon icon={MdAutoAwesome} size={18} />
-              What&apos;s New
+              Blog
             </LocaleLink>
             {featureFlags?.courses && (
               <LocaleLink

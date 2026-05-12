@@ -233,6 +233,31 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run docs:links:check` ✅
 - `npm run build` ✅
 
+## Blog publishing correction (2026-05-12)
+
+### What changed
+- Added canonical public blog routes for automation-published weekly updates:
+  - `/[locale]/blog`
+  - `/[locale]/blog/[slug]`
+- Kept the existing `/[locale]/news` and `/[locale]/news/[slug]` routes as compatibility aliases backed by the same content source.
+- Pointed the public landing navigation and learner dashboard shortcut to `Blog` instead of the news-only surface.
+- Added `npm run blog:publish -- --file <post.json>` as the canonical automation publisher command while preserving `npm run news:publish`.
+- Updated the `amanoba-news` local automation prompt so future runs must publish through the repo publisher and report the resulting `/en/blog/<slug>` URL instead of stopping at a draft.
+- Backfilled the existing May 11 weekly update so it renders as a blog post at `/en/blog/2026-05-11-smarter-review-saved-lessons-streaks` after deployment.
+
+### Verification run
+- `npm run blog:publish -- --file content/news-posts.json --dry-run` ✅
+- `npx eslint --no-warn-ignored app/lib/news.ts app/[locale]/blog/page.tsx app/[locale]/blog/[slug]/page.tsx app/[locale]/page.tsx app/[locale]/dashboard/page.tsx app/sitemap.ts scripts/publish-amanoba-news.ts` ✅
+- `node -e "const posts=require('./content/news-posts.json'); console.log(posts[0].slug); console.log(posts[0].translations.en.headline)"` ✅
+- `npm run build` ✅
+- `npm run type-check` ✅ after `npm run build` regenerated `.next/types`
+- `npm run docs:refresh` ✅
+- `npm run docs:links:check` ✅
+- Local dev server (`npm run dev`, port 3001) route checks:
+  - `curl -I http://localhost:3001/en/blog` ✅ 200
+  - `curl -I http://localhost:3001/en/blog/2026-05-11-smarter-review-saved-lessons-streaks` ✅ 200
+  - `curl -s http://localhost:3001/sitemap.xml | rg -n "/en/blog|/en/news"` ✅ includes blog and news URLs
+
 ## Research ideabank + board normalization update (2026-05-10)
 
 ### What changed

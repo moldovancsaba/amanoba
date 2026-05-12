@@ -5,7 +5,7 @@
 
 # Docs Triage
 
-**Last Updated**: 2026-05-11
+**Last Updated**: 2026-05-12
 
 **Counts**: DELETE=0, MERGE=0, ARCHIVE=4, KEEP(unclassified)=65
 
@@ -20,7 +20,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 ## ARCHIVE (grouped by target)
 ### docs/_archive/reference/
 - `docs/features/GEO_IMPROVEMENT_PLAN.md` — GEO Improvement Plan — Appearance in AI Chat Results (12.4 KB)
-- `docs/HANDOVER.md` — Amanoba — Developer Handover (54.0 KB)
+- `docs/HANDOVER.md` — Amanoba — Developer Handover (55.8 KB)
 - `docs/quality/UI_FOUNDATION_AUDIT.md` — UI Foundation Audit (Hard Rules) (1.4 KB)
 - `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` — UI Layout Grammar Audit (23.0 KB)
 

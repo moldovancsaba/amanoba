@@ -68,10 +68,10 @@ export default async function LandingPage({
             </div>
             <div className="flex items-center gap-4">
               <LocaleLink
-                href="/news"
+                href="/blog"
                 className="hidden text-sm font-semibold text-brand-white/75 transition-colors hover:text-brand-accent sm:inline-block"
               >
-                What&apos;s new
+                Blog
               </LocaleLink>
               <LocaleLink
                 href="/courses"

@@ -50,6 +50,11 @@ export function getNewsLanguages(slug?: string) {
   return Object.fromEntries(locales.map((locale) => [locale, `/${locale}${base}`]));
 }
 
+export function getBlogLanguages(slug?: string) {
+  const base = slug ? `/blog/${slug}` : '/blog';
+  return Object.fromEntries(locales.map((locale) => [locale, `/${locale}${base}`]));
+}
+
 function localizeNewsPost(post: NewsPost, locale: string): NewsPostForLocale {
   const normalizedLocale = locales.includes(locale as Locale) ? (locale as Locale) : 'en';
   const translation = post.translations[normalizedLocale] ?? post.translations.en;
