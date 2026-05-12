@@ -101,7 +101,7 @@ export default function EditorLessonPage() {
 
   return (
     <div className="space-y-4">
-      <div className="text-xs text-gray-400">
+      <div className="text-xs text-brand-white/60">
         <Link className="hover:underline" href={`/${locale}/editor/courses`}>
           Courses
         </Link>{' '}
@@ -112,8 +112,8 @@ export default function EditorLessonPage() {
         / {lessonId}
       </div>
 
-      {loading && <div className="text-sm text-gray-300">Loading…</div>}
-      {error && <div className="text-sm text-red-300">{error}</div>}
+      {loading && <div className="text-sm text-brand-white/80">Loading...</div>}
+      {error && <div className="text-sm ds-text-error">{error}</div>}
 
       {!loading && lesson && (
         <>

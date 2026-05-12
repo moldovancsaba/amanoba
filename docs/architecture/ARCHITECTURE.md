@@ -1,14 +1,14 @@
 # Amanoba Architecture
 
-**Version**: 2.9.48  
-**Last Updated**: 2026-05-10  
+**Version**: 2.9.49
+**Last Updated**: 2026-05-12
 **Status**: Active — production course platform with SSO-only auth, gamified learning, content voting, certificate flows, and an active design-system migration
 
 ---
 
 ## System Overview
 
-Amanoba is a unified 30-day learning platform built on Next.js 15.5.18 (App Router) that combines multi-game infrastructure with a course, quiz, and certification platform. The architecture follows a monolithic serverless design optimized for Vercel deployment with MongoDB Atlas for persistence and a centralized design-token system for UI consistency.
+Amanoba is a unified flexible learning platform built on Next.js 15.5.18 (App Router) that combines multi-game infrastructure with a course, quiz, and certification platform. The architecture follows a monolithic serverless design optimized for Vercel deployment with MongoDB Atlas for persistence and a centralized design-token system for UI consistency.
 
 ### Core Principles
 
@@ -18,6 +18,7 @@ Amanoba is a unified 30-day learning platform built on Next.js 15.5.18 (App Rout
 4. **Type-Safe**: Full TypeScript coverage with strict mode enabled
 5. **Security-First**: Rate limiting, input validation, XSS protection, and anti-cheat on all endpoints
 6. **Reuse via discriminator**: Same feature in 2+ places = one model, one API, one component; discriminator (e.g. `targetType`) selects context. See **docs/product/VOTING_AND_REUSE_PATTERN.md** (unified voting and how to reuse features).
+7. **Design-system first**: UI code should use the token and shared utility layer described in `docs/core/CODING_STANDARDS.md` and `docs/architecture/layout_grammar.md`; do not reintroduce hard-coded template palettes in touched surfaces.
 
 ### Lesson quiz governance
 
@@ -327,10 +328,10 @@ amanoba/
 14. **GameBrandConfig**: Per-brand game configuration and theming
 15. **FeatureFlags**: Feature toggle configuration (courses, games, leaderboards, etc.)
 
-### Course System (NEW)
-16. **Course**: 30-day course definitions with metadata, points/XP config, multi-language support, certification settings
-17. **Lesson**: Daily lesson content (30 per course) with HTML content, email templates, quiz config
-18. **CourseProgress**: Student progress tracking through courses (current day, completed days, status)
+### Course System
+16. **Course**: Flexible course definitions with metadata, points/XP config, multi-language support, certification settings
+17. **Lesson**: Lesson content with positive lesson position (`dayNumber`), HTML content, email templates, quiz compatibility config
+18. **CourseProgress**: Student progress tracking through courses (current lesson position, completed lesson positions, status)
 19. **AssessmentResult**: Game session results linked to course lessons
 20. **QuizQuestion**: Course-specific quiz questions with options, correct answers, difficulty, category
 21. **Certificate**: Issued course completion certificates with verification slugs, privacy controls, revocation status
@@ -515,20 +516,20 @@ amanoba/
 
 **Why**: Course UI should match course language, not URL locale. This eliminates redirects and provides smooth navigation.
 
-### 7. Course System (NEW)
+### 7. Course System
 
 **Course Structure**
-- 30-day structured courses with daily lessons
+- Flexible structured courses with 1 to any number of lessons
 - Multi-language support (12 languages)
 - Points and XP configuration per course
 - Premium course gating
 - Course catalog with filtering and search
 
 **Lesson System**
-- Daily lessons with HTML content
+- Lessons with HTML content
 - Email templates for lesson delivery
 - Quiz integration per lesson
-- Progress tracking (completed days, current day)
+- Progress tracking (completed lesson positions, current lesson position)
 
 **Quiz System**
 - Course-specific quiz questions
@@ -659,8 +660,8 @@ amanoba/
 
 **Course Progress Tracking** (v2.9.2)
 - `CourseProgress` model tracks:
-  - Current day (1-30) - Calculated from completedDays array (first uncompleted lesson)
-  - Completed days array - Tracks which lessons have been completed
+  - Current lesson position - calculated from completedDays array (first uncompleted lesson position)
+  - Completed days array - tracks which lesson positions have been completed
   - Assessment results per lesson
   - Email delivery tracking
   - Status (not_started, in_progress, completed, abandoned)
@@ -685,8 +686,8 @@ amanoba/
 ### 8. Admin Dashboard
 
 **Course Management**
-- Create, edit, delete 30-day courses
-- 30-day lesson builder with rich text editor (TipTap)
+- Create, edit, delete flexible courses
+- Flexible lesson builder with rich text editor (TipTap)
 - Quiz question management (create, edit, soft delete, permanent delete)
 - Course export/import functionality
 - Publish/unpublish workflow
@@ -927,6 +928,6 @@ See [ROADMAP.md](../product/ROADMAP.md) for planned features and improvements.
 
 ---
 
-**Document Version**: 1.0.0  
-**Maintained By**: Narimato  
+**Document Version**: 1.0.0
+**Maintained By**: Narimato
 **Review Cycle**: Monthly or on major architectural changes

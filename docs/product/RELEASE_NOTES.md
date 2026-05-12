@@ -1,15 +1,32 @@
 # Amanoba Release Notes
 
-**Current Version**: 2.9.48  
-**Last Updated**: 2026-03-10
+**Current Version**: 2.9.49
+**Last Updated**: 2026-05-12
 
 **Rule:** Each task exists in exactly one place.
 
 ---
 
+## [v2.9.49] — 2026-05-12 🧱 Flexible course length + design-system hygiene
+
+**Status**: Delivered and verified in production
+**Type**: Feature, Documentation, Design System
+
+- **Flexible course length:** Courses can now run from one lesson upward. Learner-facing progress, public lesson views, My Courses, Practice Hub, sitemap URLs, and metadata resolve course length from the actual active lesson sequence, child-course selections, or CCS fallbacks rather than a fixed 30-day assumption.
+- **Admin course creation:** Admin/editor surfaces now describe flexible lesson sequences and allow a positive planned lesson count while the active lesson set remains the learner-facing source of truth.
+- **Version alignment:** `package.json`, `package-lock.json`, `README.md`, architecture docs, roadmap, tech stack, handover, and release notes are aligned on `2.9.49`.
+- **Coding standards:** Added active coding standards that require design-system tokens, shared primitives, no hard-coded visual palettes, and no stale implementation comments that contradict runtime behavior.
+- **Design-system cleanup:** Replaced generic palette classes in shared voting, discussion, study group, referral, quiz, theme toggle, quiz manager, and editor portal surfaces with brand/semantic design-system utilities.
+
+**Verification:** Production route checks passed after `origin/main` deploy of `05621e7`; local validation for this cleanup is captured in `docs/HANDOVER.md`.
+
+**Rollback:** Revert the flexible course-length commits and this docs/design cleanup commit, then re-run `npm run type-check`, `npm run ui:check:foundation`, and `npm run ui:check:layout`.
+
+---
+
 ## [Unreleased] — 2026-05-12 📝 Blog publishing correction
 
-**Status**: Delivered in repo; deploys through the next push to `origin/main`  
+**Status**: Delivered in repo; deploys through the next push to `origin/main`
 **Type**: Feature, Automation, SEO
 
 - **Canonical blog surface:** Added `/[locale]/blog` and `/[locale]/blog/[slug]` for weekly Amanoba product posts.
@@ -38,7 +55,7 @@
 
 ## [Unreleased] — 2026-03-10 📋 Audit consolidation (docs ↔ code + quality gates)
 
-**Status**: In progress (audit findings consolidated; gate evidence captured)  
+**Status**: In progress (audit findings consolidated; gate evidence captured)
 **Type**: Audit, Documentation, Quality
 
 - **Doc/code discrepancy consolidation**:
@@ -60,7 +77,7 @@
 
 ## [v2.9.48] — 2026-02-12 🔁 Course import question mode (add vs overwrite) + build stabilization
 
-**Status**: Delivered and verified in production build  
+**Status**: Delivered and verified in production build
 **Type**: Feature, Build/Quality, Documentation
 
 - **Course import API mode switch:** `POST /api/admin/courses/import` now accepts `questionImportMode` with:
@@ -84,7 +101,7 @@
 
 ## [v2.9.47] — 2026-02-12 📎 Documentation stabilization continuation (archive links + alignment)
 
-**Status**: Docs integrity verified for active + archive scopes; product docs re-aligned  
+**Status**: Docs integrity verified for active + archive scopes; product docs re-aligned
 **Type**: Documentation, Tooling
 
 - **Integrity verification:** Executed `npm run docs:check` (pass) and `DOCS_CHECK_INCLUDE_ARCHIVE=1 npm run docs:links:check` (pass). Link checker now validates 178 markdown files with archive included (strict external disabled).
@@ -99,7 +116,7 @@
 
 ## [v2.9.46] — 2026-02-12 📚 Documentation normalization, active-link integrity, handover package
 
-**Status**: Docs structure normalized; active docs links validated; handover package ready  
+**Status**: Docs structure normalized; active docs links validated; handover package ready
 **Type**: Documentation, Tooling
 
 - **Docs structure normalization:** Active docs reorganized into domain folders (`core`, `product`, `architecture`, `features`, `i18n`, `sso`, `certification`, `deployment`, `quality`, `status`, `handoff`, `seo`). Added root entrypoint `docs/README.md`; canonical index refreshed in `docs/core/DOCS_INDEX.md`.
@@ -114,7 +131,7 @@
 
 ## [v2.9.45] — 2026-02-07 🌍 Swahili (sw) locale; full UI in selected language; language file audit
 
-**Status**: 12 locales supported; Swahili full UI; all message files audited for English leftovers  
+**Status**: 12 locales supported; Swahili full UI; all message files audited for English leftovers
 **Type**: Feature (i18n), Quality
 
 - **Swahili (sw) locale:** Added as 12th supported locale. Single source of truth: **`app/lib/i18n/locales.ts`** (`hu`, `en`, `ar`, `hi`, `id`, `pt`, `vi`, `tr`, `bg`, `pl`, `ru`, `sw`). **`messages/sw.json`** created and fully translated to Kiswahili (common, auth, landing, dashboard, stats, courses, games, challenges, quests, achievements, leaderboard, rewards, referral, profile, settings, admin, errors, email, onboarding, consent). Course-language–keyed UI (course detail, day page, quiz, final exam, courses list) and **`app/lib/email/email-localization.ts`** (lesson/payment unsubscribe + transactional templates) include Swahili. **`app/lib/constants/certificate-strings.ts`** and **`COURSE_LANGUAGE_OPTIONS`** include `sw`. API **VALID_LOCALES** updated in courses, my-courses, recommendations. Privacy and Terms use explicit `sw` (English content until translated). Language switcher and profile show "Kiswahili".
@@ -204,7 +221,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.44] — 2026-02-03 🌍 i18n: Full UI translations (ar, hi, ru, id, pt); admin course page fix
 
-**Status**: All UI strings translated for 5 locales; build fix  
+**Status**: All UI strings translated for 5 locales; build fix
 **Type**: Feature (i18n), Bugfix
 
 - **messages/ar.json**: Full Arabic translations for common, auth, landing, dashboard, stats, courses, games, challenges, quests, achievements, leaderboard, rewards, referral, profile, settings, admin, errors, email (incl. unsubscribe), onboarding, consent.
@@ -220,7 +237,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.43] — 2026-02-03 🌍 Fix: Main UI language switcher and double-locale URLs
 
-**Status**: i18n fix — All languages visible in switcher; no more `/id/en`-style URLs  
+**Status**: i18n fix — All languages visible in switcher; no more `/id/en`-style URLs
 **Type**: Bugfix (i18n)
 
 - **Shared routing**: Added **`app/lib/i18n/routing.ts`** (`defineRouting`: locales, defaultLocale, localePrefix, localeDetection) and **`app/lib/i18n/navigation.ts`** (`createNavigation(routing)` exporting `Link`, `usePathname`, `useRouter`, `redirect`). Middleware now uses `createMiddleware(routing)` so config is single source of truth.
@@ -234,7 +251,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.42] — 2026-02-03 🌍
 
-**Status**: Internationalization — Supported languages and locale behaviour  
+**Status**: Internationalization — Supported languages and locale behaviour
 **Type**: Feature (i18n)
 
 ### Supported languages (UI)
@@ -252,7 +269,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.36] — 2026-01-28 🛠️
 
-**Status**: Community (Discussion forums, Study groups) — Phase 1 and Phase 2 delivered  
+**Status**: Community (Discussion forums, Study groups) — Phase 1 and Phase 2 delivered
 **Type**: Feature (TASKLIST § Community)
 
 ### Phase 1 — Discussion forums
@@ -277,7 +294,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.37] — 2026-01-31 📋
 
-**Status**: TASKLIST — Roadmap broken down into prioritized actionable tasks  
+**Status**: TASKLIST — Roadmap broken down into prioritized actionable tasks
 **Type**: Documentation (planning)
 
 ### TASKLIST update
@@ -295,7 +312,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.38] — 2026-01-31 🛠️
 
-**Status**: P1 #3 — Admin UI for certificate pass rules  
+**Status**: P1 #3 — Admin UI for certificate pass rules
 **Type**: Feature (TASKLIST § P1 Certificate enhancements)
 
 ### Admin UI: Pass rules per course
@@ -314,7 +331,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.39] — 2026-01-31 📋
 
-**Status**: P1 #4 — Certificate A/B test design  
+**Status**: P1 #4 — Certificate A/B test design
 **Type**: Documentation (design)
 
 ### Certificate template A/B test design
@@ -333,7 +350,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.40] — 2026-01-31 🛠️
 
-**Status**: P1 #5 — Certificate A/B assignment and tracking  
+**Status**: P1 #5 — Certificate A/B assignment and tracking
 **Type**: Feature (TASKLIST § P1 Certificate enhancements)
 
 ### A/B assignment at issue
@@ -358,7 +375,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.41] — 2026-02-02 🛠️
 
-**Status**: Editor portal, course automation scripts, and infra/dep docs  
+**Status**: Editor portal, course automation scripts, and infra/dep docs
 **Type**: Feature + Documentation
 
 ### Editor portal for course editors
@@ -384,7 +401,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [Unreleased] — 2026-01-31 🛠️
 
-**Status**: Messy content audit & grammar plan — Phase 1 delivery (/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/_archive/delivery/2026-01/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md)  
+**Status**: Messy content audit & grammar plan — Phase 1 delivery (/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/_archive/delivery/2026-01/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md)
 **Type**: Content quality (grammar, understandability)
 
 ### Generator (content-based-question-generator.ts)
@@ -430,7 +447,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.35] — 2026-01-28 🛠️
 
-**Status**: UI/UX polish (TASKLIST) — mobile responsiveness, email templates, assessment result visuals  
+**Status**: UI/UX polish (TASKLIST) — mobile responsiveness, email templates, assessment result visuals
 **Type**: UX (ROADMAP § UI/UX polish and reliability)
 
 ### Mobile responsiveness (course/lesson flows)
@@ -452,7 +469,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.34] — 2026-01-31 🛠️
 
-**Status**: Further course achievements (TASKLIST) — Perfect Assessment, Consistent Learner; smoke tests for dashboard/critical APIs  
+**Status**: Further course achievements (TASKLIST) — Perfect Assessment, Consistent Learner; smoke tests for dashboard/critical APIs
 **Type**: Feature + Quality (ROADMAP § Further course achievements, UI/UX reliability)
 
 ### Perfect Assessment achievement
@@ -492,7 +509,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.33] — 2026-01-28 🛠️
 
-**Status**: Certificate enhancements (TASKLIST Tasks 6, 7) — per-child overrides/templates, localized certificates, LinkedIn share, QR codes  
+**Status**: Certificate enhancements (TASKLIST Tasks 6, 7) — per-child overrides/templates, localized certificates, LinkedIn share, QR codes
 **Type**: Feature (ROADMAP § Certificate enhancements)
 
 ### Task 6: Per-child certificate overrides and multiple templates
@@ -515,7 +532,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.32] — 2026-01-31 🛠️
 
-**Status**: Tasks 3, 9, 10, 11 — imports/logging, course achievements, course leaderboards, content voting  
+**Status**: Tasks 3, 9, 10, 11 — imports/logging, course achievements, course leaderboards, content voting
 **Type**: Quality + Feature (ROADMAP § Course achievements & leaderboards, Course and content voting)
 
 ### Task 3: Standardise imports and logging
@@ -548,7 +565,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.29] — 2026-01-31 🛠️
 
-**Status**: Test harness and smoke tests (TASKLIST Task 1)  
+**Status**: Test harness and smoke tests (TASKLIST Task 1)
 **Type**: Quality (ROADMAP § UI/UX polish and reliability)
 
 ### Test harness and smoke tests
@@ -563,7 +580,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.30] — 2026-01-31 🛠️
 
-**Status**: Email tracking extended to lesson, reminder, welcome, payment (TASKLIST Task 4)  
+**Status**: Email tracking extended to lesson, reminder, welcome, payment (TASKLIST Task 4)
 **Type**: Feature (ROADMAP § Email automation Phase 2)
 
 ### Email tracking for all transactional types
@@ -582,7 +599,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ## [v2.9.31] — 2026-01-31 🛠️
 
-**Status**: Selective unsync/re-sync for child courses (TASKLIST Task 8)  
+**Status**: Selective unsync/re-sync for child courses (TASKLIST Task 8)
 **Type**: Feature (ROADMAP § Multi-format course enhancements)
 
 ### Child course sync controls and admin alerts
@@ -598,7 +615,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ## [v2.9.28] — 2026-01-28 🛠️
 
-**Status**: Email Automation Phase 1 — segment templates, open/click tracking, admin analytics  
+**Status**: Email Automation Phase 1 — segment templates, open/click tracking, admin analytics
 **Type**: Feature (P2; ROADMAP § Email Automation)
 
 ### Email Automation Phase 1 delivery
@@ -615,7 +632,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ## [v2.9.27] — 2026-01-28 📋
 
-**Status**: Docs alignment — ROADMAP, Tech Audit January, P2 status  
+**Status**: Docs alignment — ROADMAP, Tech Audit January, P2 status
 **Type**: Documentation (DOCUMENTATION = CODE)
 
 ### Docs alignment with audit and tasklist
@@ -630,7 +647,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ## [v2.9.26] — 2026-01-28 📋
 
-**Status**: Documentation and codebase sync per agent operating document  
+**Status**: Documentation and codebase sync per agent operating document
 **Type**: Docs/code alignment (DOCUMENTATION = CODE)
 
 ### Operating document and repo hygiene
@@ -647,7 +664,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ## [v2.9.25] — 2026-01-28 🛠️
 
-**Status**: P2 tech debt — APP_URL, certificate colors, auth analytics, docs (Facebook→SSO), CSP  
+**Status**: P2 tech debt — APP_URL, certificate colors, auth analytics, docs (Facebook→SSO), CSP
 **Type**: Tech debt (ROADMAP § P2 items 7–9; optional follow-up from Top 5)
 
 ### P2 tech debt delivery
@@ -666,8 +683,8 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ## [v2.9.24] — 2026-01-28 📋
 
-**Status**: Multi-Format Course Forking (Shorts) — documented and verified  
-**Type**: Feature (already implemented); docs/tasklist alignment  
+**Status**: Multi-Format Course Forking (Shorts) — documented and verified
+**Type**: Feature (already implemented); docs/tasklist alignment
 **Source**: `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/_archive/delivery/2026-01/2026-01-27_RAPID_CHILDREN_COURSES_DELIVERY_PLAN.md`, `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/_archive/delivery/2026-01/2026-01-27_RAPID_CHILDREN_COURSES_ACTION_PLAN_AND_HANDOVER.md`
 
 ### Multi-Format Course Forking (Shorts)
@@ -687,7 +704,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ## [v2.9.23] — 2026-01-28 🛠️
 
-**Status**: P1 Tech audit follow-up (remaining) — TypeScript enforced in build  
+**Status**: P1 Tech audit follow-up (remaining) — TypeScript enforced in build
 **Type**: Tech debt (P1.7; tasklist `docs/_archive/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md`)
 
 ### TypeScript enforced during build
@@ -701,14 +718,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - **docs/_archive/tasklists/TECH_AUDIT_JANUARY__2026-01-30.md**: P1.7 note updated (build now enforces TS); follow-up note added (P1.7 remaining).
 - **docs/_archive/delivery/2026-01/2026-01-28_TYPESCRIPT_AUDIT_COMPLETE.md**: Build now enforces TypeScript (`ignoreBuildErrors: false`).
 
-**Build Status**: `npm run build` passes with TypeScript and ESLint enforced.  
+**Build Status**: `npm run build` passes with TypeScript and ESLint enforced.
 **Status**: ✅ P1 Tech audit follow-up (remaining) delivered
 
 ---
 
 ## [v2.9.22] — 2026-01-28 🛠️
 
-**Status**: P1 Tech debt — design system/globals, client debug logs, Facebook cleanup  
+**Status**: P1 Tech debt — design system/globals, client debug logs, Facebook cleanup
 **Type**: Tech debt (ROADMAP § P1; TASKLIST Recommended Next 3 #3)
 
 ### Design system / globals alignment (gold/black)
@@ -727,14 +744,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 **Documentation**: `docs/_archive/delivery/2026-01/2026-01-28_P1_TECH_DEBT_DELIVERY.md`; ROADMAP and TASKLIST updated (P1 tech debt done).
 
-**Build Status**: Lint passes (`npx next lint` zero warnings).  
+**Build Status**: Lint passes (`npx next lint` zero warnings).
 **Status**: ✅ P1 Tech debt delivered
 
 ---
 
 ## [v2.9.21] — 2026-01-28 🛠️
 
-**Status**: TypeScript audit — application code  
+**Status**: TypeScript audit — application code
 **Type**: Tech debt (P1.7), quality
 
 ### TypeScript errors resolved
@@ -746,14 +763,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 **TASKLIST**: P1.7 TypeScript marked done; next suggested: P2.4–P2.5 (email/analytics colors), P3 items.
 
-**Build Status**: Verified (`tsc --noEmit` passes)  
+**Build Status**: Verified (`tsc --noEmit` passes)
 **Status**: ✅ TypeScript audit (app code) complete
 
 ---
 
 ## [v2.9.20] — 2026-01-30 📋
 
-**Status**: Certificate System v0.1 — shareable certificates, OG meta, admin revoke, profile share link  
+**Status**: Certificate System v0.1 — shareable certificates, OG meta, admin revoke, profile share link
 **Type**: Feature (certificates)
 
 ### Certificate System v0.1
@@ -766,14 +783,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 **TASKLIST**: Certificate v0.1 removed from backlog; Recommended Next 3 → Global audit P0, Onboarding/Email/Forking P2, P1 tech debt.
 
-**Build Status**: Verified  
+**Build Status**: Verified
 **Status**: ✅ Certificate System v0.1 delivered
 
 ---
 
 ## [v2.9.19] — 2026-01-30 📋
 
-**Status**: User profile customization (P1) + My profile access  
+**Status**: User profile customization (P1) + My profile access
 **Type**: Feature (profile photo, nickname, visibility), UX (dashboard profile link)
 
 ### User profile customization
@@ -788,14 +805,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 **TASKLIST**: User profile customization removed from backlog; Recommended Next 3 → Certificate System v0.1, Onboarding/Email/Forking, P1 tech debt.
 
-**Build Status**: Verified  
+**Build Status**: Verified
 **Status**: ✅ User profile customization (P1) delivered
 
 ---
 
 ## [v2.9.18] — 2026-01-30 📋
 
-**Status**: Editor User (P1) — Limited admin access by course assignment  
+**Status**: Editor User (P1) — Limited admin access by course assignment
 **Type**: Feature (editor role, course-scoped admin)
 
 ### Editor User
@@ -810,14 +827,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 **TASKLIST**: Editor User removed from backlog; Recommended Next 3 → User profile customization, Certificate v0.1, Onboarding/Email/Forking.
 
-**Build Status**: Verified  
+**Build Status**: Verified
 **Status**: ✅ Editor User (P1) delivered
 
 ---
 
 ## [v2.9.17] — 2026-01-30 📋
 
-**Status**: Global Audit P0 — CCS-AUDIT-EMAIL-4 + CCS-AUDIT-CONTENT-1  
+**Status**: Global Audit P0 — CCS-AUDIT-EMAIL-4 + CCS-AUDIT-CONTENT-1
 **Type**: Language integrity (lesson email fields), Content (Day 12–30)
 
 ### CCS-AUDIT-EMAIL-4 — Fix cross-language lesson email fields
@@ -830,18 +847,18 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 - **Status**: No missing day entries (`missingLessonDayEntries: 0`). All 30-day courses have 30 lesson records. Strategy A (EN-first, then localize) was completed in earlier phases (see execution docs). Content refinement for days 12–30 continues via quiz pipeline and lesson refine scripts where needed.
 
-**Files modified**: `scripts/fix-geo-shopify-30-hu-review-terms.ts` (added "Review blokk valós" replacement)  
-**Files added**: `scripts/fix-playbook-2026-30-hu-language-integrity.ts`  
+**Files modified**: `scripts/fix-geo-shopify-30-hu-review-terms.ts` (added "Review blokk valós" replacement)
+**Files added**: `scripts/fix-playbook-2026-30-hu-language-integrity.ts`
 **TASKLIST**: P0 Global Audit marked complete; active tasks table cleared; Recommended Next 3 updated to Editor User, User profile customization, Certificate v0.1.
 
-**Build Status**: Verified  
+**Build Status**: Verified
 **Status**: ✅ CCS-AUDIT-EMAIL-4 DONE; CCS-AUDIT-CONTENT-1 CONFIRMED (no missing days)
 
 ---
 
 ## [v2.9.16] — 2026-01-29 📋
 
-**Status**: Quiz pipeline tiny-loop quality + Roadmap & Tasklist cleanup  
+**Status**: Quiz pipeline tiny-loop quality + Roadmap & Tasklist cleanup
 **Type**: Quality (quiz pipeline), Documentation (roadmap, tasklist)
 
 ### Quiz quality pipeline — tiny loop
@@ -856,14 +873,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - **ROADMAP.md**: Tech debt section streamlined (completed items summarized with ref to RELEASE_NOTES); Upcoming Milestones reordered by priority; RECOMMENDED NEXT 3 ITEMS set to (1) Global audit, (2) Editor User, (3) User profile customization; Editor User and User profile customization planned features added; version 2.9.16, date 2026-01-29.
 - **TASKLIST.md**: Reduced to active P0 (Global Audit) only; completed work summarized with pointer to RELEASE_NOTES; Backlog and Recommended Next 3 aligned with ROADMAP; version 2.9.16, date 2026-01-29.
 
-**Build Status**: Verified  
+**Build Status**: Verified
 **Status**: ✅ QUIZ TINY-LOOP DELIVERED; ROADMAP & TASKLIST CLEANED
 
 ---
 
 ## [v2.9.15] — 2026-01-28 📋
 
-**Status**: Profile Visibility & Privacy (PV1–PV4) + Policy/LocaleLink delivery  
+**Status**: Profile Visibility & Privacy (PV1–PV4) + Policy/LocaleLink delivery
 **Type**: Feature (profile visibility), UX (policy shell, LocaleLink)
 
 ### Profile Visibility & Privacy (PV1–PV4)
@@ -878,17 +895,17 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 - Policy pages (privacy, terms, data-deletion) use shared layout and brand tokens (POL1, POL3, POL4). POL5/POL6 LocaleLink sweep done. POL2 (policy/legal message keys) deferred — policy pages use inline content.
 
-**Files modified**: `app/lib/models/player.ts`, `app/api/players/[playerId]/route.ts`, `app/api/profile/[playerId]/route.ts`, `app/api/profile/route.ts`, `app/[locale]/profile/[playerId]/page.tsx`, `docs/_archive/delivery/2026-01/2026-01-28_PV_POLICY_MOBILE_DELIVERY_PLAN.md`  
+**Files modified**: `app/lib/models/player.ts`, `app/api/players/[playerId]/route.ts`, `app/api/profile/[playerId]/route.ts`, `app/api/profile/route.ts`, `app/[locale]/profile/[playerId]/page.tsx`, `docs/_archive/delivery/2026-01/2026-01-28_PV_POLICY_MOBILE_DELIVERY_PLAN.md`
 **Files added**: `docs/features/PUBLIC_PROFILE_SCHEMA.md`
 
-**Build Status**: Verified  
+**Build Status**: Verified
 **Status**: ✅ PV1–PV4 delivered; POL1, POL3, POL4, POL5, POL6 done; POL2 deferred
 
 ---
 
 ## [v2.9.14] — 2026-01-28 🛠️
 
-**Status**: Admin analytics page fix + nav label consistency  
+**Status**: Admin analytics page fix + nav label consistency
 **Type**: Bug fix, UI consistency
 
 ### Admin analytics page not loading
@@ -903,14 +920,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 **Files modified**: `app/[locale]/admin/analytics/page.tsx`, `messages/en.json`, `messages/hu.json`, `messages/ar.json`, `messages/bg.json`, `messages/hi.json`, `messages/id.json`, `messages/pl.json`, `messages/pt.json`, `messages/tr.json`, `messages/vi.json`
 
-**Build Status**: Verified  
+**Build Status**: Verified
 **Status**: ✅ DONE
 
 ---
 
 ## [v2.9.13] — 2026-01-28 📋🔒
 
-**Status**: Deep Code Audit (P1 + P2) delivered — design system, links, email tokens, logs, inline styles, APP_URL, certificate colors, theme objects, ARCHITECTURE auth, Facebook cleanup, CSP  
+**Status**: Deep Code Audit (P1 + P2) delivered — design system, links, email tokens, logs, inline styles, APP_URL, certificate colors, theme objects, ARCHITECTURE auth, Facebook cleanup, CSP
 **Type**: Code audit follow-up (consistency, design, hardening)
 
 ### P1 – Design & Consistency (AUDIT1–AUDIT5)
@@ -937,17 +954,17 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - **TASKLIST**: Code Audit Follow-Up (AUDIT1–AUDIT11) all ✅ DONE; version 2.9.13.
 - **Agent doc**: `agent_working_loop_canonical_operating_document.md` — current feature set to audit; status AUDIT DELIVERED (P1+P2).
 
-**Files added**: `app/lib/constants/app-url.ts`, `docs/_archive/delivery/2026-01/2026-01-28_DEEP_CODE_AUDIT.md`  
+**Files added**: `app/lib/constants/app-url.ts`, `docs/_archive/delivery/2026-01/2026-01-28_DEEP_CODE_AUDIT.md`
 **Files modified**: design-system.css, email-service, security.ts, player model, anonymous-auth, certificate image route, layout/courses/auth/payments/referrals, dashboard/quizzz/sudoku/madoku/whackpop/MemoryGame/Icon, achievements/challenges, data-deletion, privacy/terms, 11 messages, ARCHITECTURE.md, ROADMAP.md, TASKLIST.md, agent doc, and scripts (migrate-player-roles).
 
-**Build Status**: Verified  
+**Build Status**: Verified
 **Status**: ✅ AUDIT P1+P2 DELIVERED
 
 ---
 
 ## [v2.9.12] — 2026-01-27 📋
 
-**Status**: Documentation – Profile visibility roadmap & BUG7 closed  
+**Status**: Documentation – Profile visibility roadmap & BUG7 closed
 **Type**: Roadmap and tasklist update
 
 ### Documentation updates
@@ -959,14 +976,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 **Files Modified**: `docs/product/ROADMAP.md`, `docs/product/TASKLIST.md`, `docs/product/RELEASE_NOTES.md`, `docs/_archive/reference/STATUS__2026-01-28.md`, `docs/_archive/delivery/2026-01/2026-01-24_NEXT_3_ACTIONS.md`
 
-**Build Status**: N/A  
+**Build Status**: N/A
 **Status**: ✅ DOCUMENTATION UPDATED
 
 ---
 
 ## [v2.9.11] — 2026-01-25 🔒✅
 
-**Status**: SECURITY FIX – Debug player endpoint  
+**Status**: SECURITY FIX – Debug player endpoint
 **Type**: Critical security fix
 
 ### Debug player endpoint restricted
@@ -984,14 +1001,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - `docs/_archive/reference/DEBUG_PLAYER_ENDPOINT_SECURITY_PLAN.md` – root cause and fix
 - `docs/_archive/reference/DEBUG_PLAYER_ENDPOINT_ROLLBACK_PLAN.md` – rollback steps
 
-**Build Status**: Verified  
+**Build Status**: Verified
 **Status**: ✅ FIX APPLIED
 
 ---
 
 ## [v2.9.10] — 2026-01-25 ✅
 
-**Status**: Payment E2E Test Plan  
+**Status**: Payment E2E Test Plan
 **Type**: Test coverage and documentation
 
 ### Payment E2E Test Plan
@@ -1005,14 +1022,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 **Full E2E** (real payment + webhook): run manually or with Stripe CLI per the test plan.
 
-**Build Status**: N/A  
+**Build Status**: N/A
 **Status**: ✅ COMPLETE
 
 ---
 
 ## [v2.9.9] — 2026-01-26 🔒✅
 
-**Status**: SECURITY FIX - Profile Data Exposure  
+**Status**: SECURITY FIX - Profile Data Exposure
 **Type**: Critical Security Fix
 
 ### 🔒 Profile Data Exposure Security Fix
@@ -1024,7 +1041,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - No distinction between public and private data
 - Wallet, email, and lastLoginAt were exposed to all users
 
-**Solution**: 
+**Solution**:
 - Added authorization checks (isViewingOwnProfile, isAdminUser, canViewPrivateData)
 - Restricted email, lastLoginAt, and wallet to self/admin only
 - Added rate limiting for additional security
@@ -1041,14 +1058,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - **Public Data**: Basic info, progression stats, game statistics, achievements, streaks
 - **Private Data** (self/admin only): Email, lastLoginAt, wallet balances
 
-**Build Status**: ✅ SUCCESS  
+**Build Status**: ✅ SUCCESS
 **Status**: ✅ FIX APPLIED - Profile data exposure properly restricted
 
 ---
 
 ## [v2.9.8] — 2026-01-26 🔒✅
 
-**Status**: SECURITY ENHANCEMENT - Rate Limiting Implementation  
+**Status**: SECURITY ENHANCEMENT - Rate Limiting Implementation
 **Type**: Security Hardening
 
 ### 🔒 Rate Limiting Implementation
@@ -1095,14 +1112,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - `docs/_archive/reference/RATE_LIMITING_IMPLEMENTATION_PLAN.md` - Complete implementation details
 - `docs/_archive/reference/RATE_LIMITING_ROLLBACK_PLAN.md` - Rollback instructions
 
-**Build Status**: ✅ SUCCESS  
+**Build Status**: ✅ SUCCESS
 **Status**: ✅ COMPLETE - Rate limiting wired to critical endpoints, pattern established for remaining admin endpoints
 
 ---
 
 ## [v2.9.7] — 2026-01-26 🐛✅
 
-**Status**: BUG FIX - Stripe Payment Checkout  
+**Status**: BUG FIX - Stripe Payment Checkout
 **Type**: Critical Payment System Bug Fix
 
 ### 🐛 Stripe Customer Email Fix
@@ -1114,7 +1131,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - Stripe API only allows **one** of these parameters, not both
 - This caused all payment checkouts to fail
 
-**Solution**: 
+**Solution**:
 - Removed `customer_email` parameter from checkout session creation
 - We always use `customer` (customer ID) since we create/get a customer before checkout
 - Stripe automatically uses the email from the customer record
@@ -1126,14 +1143,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - `docs/_archive/reference/STRIPE_CUSTOMER_EMAIL_FIX_PLAN.md` - Root cause analysis and fix details
 - `docs/_archive/reference/STRIPE_CUSTOMER_EMAIL_FIX_ROLLBACK_PLAN.md` - Complete rollback instructions
 
-**Build Status**: ✅ SUCCESS  
+**Build Status**: ✅ SUCCESS
 **Status**: ✅ FIX APPLIED - Payment checkout now works correctly
 
 ---
 
 ## [v2.9.6] — 2026-01-26 🐛✅
 
-**Status**: BUG FIX - Admin Payments Page  
+**Status**: BUG FIX - Admin Payments Page
 **Type**: Critical Bug Fix
 
 ### 🐛 Admin Payments Page Fix
@@ -1144,7 +1161,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 1. **Missing Import**: `requireAdmin` function was called but not imported, causing `ReferenceError: requireAdmin is not defined`
 2. **Case-Sensitivity Issue**: `courseId` filter parameter was not normalized to uppercase before querying, causing lookups to fail for lowercase/mixed-case inputs
 
-**Solution**: 
+**Solution**:
 - Added missing `import { requireAdmin } from '@/lib/rbac';` to `app/api/admin/payments/route.ts`
 - Normalized `courseId` to uppercase before querying (same pattern as buy premium fix)
 
@@ -1155,14 +1172,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - `docs/_archive/reference/ADMIN_PAYMENTS_FIX_PLAN.md` - Root cause analysis and fix details
 - `docs/_archive/reference/ADMIN_PAYMENTS_FIX_ROLLBACK_PLAN.md` - Complete rollback instructions
 
-**Build Status**: ✅ SUCCESS  
+**Build Status**: ✅ SUCCESS
 **Status**: ✅ COMPLETE - Admin payments page now displays transactions correctly
 
 ---
 
 ## [v2.9.5] — 2026-01-25 🎯✅
 
-**Status**: FEATURE RELEASE - Quiz Question Central Management System  
+**Status**: FEATURE RELEASE - Quiz Question Central Management System
 **Type**: Infrastructure Enhancement + Admin Tooling
 
 ### 🎯 Quiz Question Central Management System
@@ -1224,7 +1241,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ## [v2.9.4] — 2026-01-25 🎯✅
 
-**Status**: MAJOR RELEASE - Complete Quiz System Fix & Quality Enhancement  
+**Status**: MAJOR RELEASE - Complete Quiz System Fix & Quality Enhancement
 **Type**: System-Wide Quality Fix + Infrastructure Improvement
 
 ### 🎯 Complete Quiz System Fix
@@ -1279,7 +1296,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - **Total Questions**: 2,716 (388 × 7 at time of release; current SSOT: minimum >=7 per lesson)
 - **Total Issues**: 0 ✅
 
-**Documentation**: 
+**Documentation**:
 - `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/FINAL_QUIZ_SYSTEM_DELIVERY.md`
 - `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/_archive/reference/QUIZ_SYSTEM_COMPLETE_FIX_ACTION_PLAN.md`
 - `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/_archive/reference/QUIZ_SEEDING_COMPLETE_REPORT.md`
@@ -1296,16 +1313,16 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ### 🛡️ Safety Rollback Plan
 
-**Baseline**: Current HEAD commit  
-**Previous Stable**: v2.9.3 (Certificate Verification Enhancement)  
-**Rollback Time**: <10 minutes  
+**Baseline**: Current HEAD commit
+**Previous Stable**: v2.9.3 (Certificate Verification Enhancement)
+**Rollback Time**: <10 minutes
 **Data Impact**: All changes are additive/updates - no data loss risk
 
 ---
 
 ## [v2.9.3] — 2026-01-25 🔐📜
 
-**Status**: MINOR RELEASE - Certificate Verification Enhancement  
+**Status**: MINOR RELEASE - Certificate Verification Enhancement
 **Type**: Feature Addition + Security Improvement
 
 ### 🔐 Certificate Verification with Slug
@@ -1338,7 +1355,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - **No Information Leakage**: 404 responses for private/not-found certificates don't reveal existence
 - **Owner Verification**: Privacy toggle requires authentication and ownership verification
 
-**Documentation**: 
+**Documentation**:
 - `docs/_archive/delivery/2026-01/2026-01-25_CERTIFICATE_VERIFICATION_SLUG_DELIVERY_PLAN.md`
 - `docs/certification/CERTIFICATE_CREATION_GUIDE.md`
 
@@ -1373,16 +1390,16 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ### 🛡️ Safety Rollback Plan
 
-**Baseline**: Current HEAD commit  
-**Previous Stable**: v2.9.2 (Google Analytics + Course Progress Fix)  
-**Rollback Time**: <10 minutes  
+**Baseline**: Current HEAD commit
+**Previous Stable**: v2.9.2 (Google Analytics + Course Progress Fix)
+**Rollback Time**: <10 minutes
 **Backward Compatibility**: Old verification URLs still work
 
 ---
 
 ## [v2.9.2] — 2026-01-25 🔒📊🐛
 
-**Status**: MINOR RELEASE - Legal Compliance + Critical Bug Fix  
+**Status**: MINOR RELEASE - Legal Compliance + Critical Bug Fix
 **Type**: Feature Addition + Critical Bug Fix
 
 ### 🔒 Google Analytics with Consent Mode v2 (GDPR/CCPA Compliance)
@@ -1432,7 +1449,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - `app/api/courses/[courseId]/day/[dayNumber]/route.ts` - Added helper, fixed completion logic, added validation
 - `app/api/my-courses/route.ts` - Added helper, calculate currentDay on-the-fly
 
-**Impact**: 
+**Impact**:
 - ✅ Users are taken directly to their next uncompleted lesson
 - ✅ Progress is correctly restored when revisiting courses
 - ✅ Out-of-order completion is handled correctly
@@ -1447,16 +1464,16 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ### 🛡️ Safety Rollback Plan
 
-**Baseline**: Current HEAD commit  
-**Previous Stable**: v2.9.1 (Course Language Separation Complete)  
-**Rollback Time**: <10 minutes  
+**Baseline**: Current HEAD commit
+**Previous Stable**: v2.9.1 (Course Language Separation Complete)
+**Rollback Time**: <10 minutes
 **Documentation**: See feature document for detailed rollback steps
 
 ---
 
 ## [v2.9.1] — 2026-01-25 🔧🌍
 
-**Status**: PATCH RELEASE - Navigation & URL Enforcement Fixes  
+**Status**: PATCH RELEASE - Navigation & URL Enforcement Fixes
 **Type**: Bug Fixes + Architecture Refinement
 
 ### 🔧 Critical Navigation Fixes
@@ -1483,7 +1500,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 #### Allow Any URL Locale, Show Course Language UI
 - **Decision**: Implemented Option 2 - Allow any URL locale, but UI always uses course language
-- **Rationale**: 
+- **Rationale**:
   - URL locale controls general site navigation (header, menus)
   - Course language controls ALL course-related UI (buttons, labels, content)
   - Secure because `courseLanguage` is fetched from API, not URL
@@ -1500,16 +1517,16 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ### 🛡️ Safety Rollback Plan
 
-**Baseline**: Commit `876c27a` (current HEAD)  
-**Previous Stable**: `a046aaf` (before navigation fixes)  
-**Rollback Time**: <5 minutes  
+**Baseline**: Commit `876c27a` (current HEAD)
+**Previous Stable**: `a046aaf` (before navigation fixes)
+**Rollback Time**: <5 minutes
 **Documentation**: See feature document for detailed rollback steps
 
 ---
 
 ## [v2.9.0] — 2026-01-24 🌍✨🔧
 
-**Status**: MAJOR RELEASE - 100% COURSE LANGUAGE SEPARATION  
+**Status**: MAJOR RELEASE - 100% COURSE LANGUAGE SEPARATION
 **Type**: Feature Release + Critical Bug Fixes
 
 ### ✨ Major Feature: 100% Course Language Separation
@@ -1518,7 +1535,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 **Solution**: Complete architectural refactor to use course language for ALL course-related UI elements via static translation objects keyed by course language.
 
-**Impact**: 
+**Impact**:
 - ✅ All course pages now display UI in course's native language
 - ✅ 770+ translations added (70 keys × 11 languages)
 - ✅ Zero language mixing
@@ -1594,16 +1611,16 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ### 🛡️ Safety Rollback Plan
 
-**Baseline**: Commit `a046aaf` (current HEAD)  
-**Previous Stable**: `f20c34a`  
-**Rollback Time**: <5 minutes  
+**Baseline**: Commit `a046aaf` (current HEAD)
+**Previous Stable**: `f20c34a`
+**Rollback Time**: <5 minutes
 **Documentation**: See feature document for detailed rollback steps
 
 ---
 
 ## [v2.8.2] — 2025-01-21 🐛🔧✨
 
-**Status**: BUG FIXES + ARCHITECTURE IMPROVEMENTS  
+**Status**: BUG FIXES + ARCHITECTURE IMPROVEMENTS
 **Type**: Patch Release
 
 ### 🐛 Bug Fixes
@@ -1625,14 +1642,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ## [v2.8.1] — 2025-01-21 🐛🔧
 
-**Status**: BUG FIXES + NAVIGATION IMPROVEMENTS  
+**Status**: BUG FIXES + NAVIGATION IMPROVEMENTS
 **Type**: Patch Release
 
 ### 🐛 Bug Fixes
 
 #### Course UI: Use Course Language Instead of Redirecting
 
-**Problem**: 
+**Problem**:
 - Triple reload issue when navigating between lessons
 - UI language changed during navigation
 - Poor user experience with unnecessary redirects
@@ -1653,7 +1670,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 - `app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx` - Removed redirects, uses course language
 - `app/lib/hooks/useCourseTranslations.ts` - Fixed `{{param}}` format support for day numbering
 
-**Impact**: 
+**Impact**:
 - Smooth single-page navigation between lessons (no reloads)
 - UI language stays consistent with course language
 - Better user experience with no language switching during navigation
@@ -1695,13 +1712,13 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ## [v2.8.0] — 2025-01-20 💳✨🎨
 
-**Status**: STRIPE INTEGRATION COMPLETE + PREMIUM COURSE PRICING + UI IMPROVEMENTS  
+**Status**: STRIPE INTEGRATION COMPLETE + PREMIUM COURSE PRICING + UI IMPROVEMENTS
 **Type**: Major Feature Release
 
 ### 💳 Stripe Payment Integration (STRIPE1-STRIPE10)
 
-**Status**: ✅ COMPLETE  
-**Timeline**: 2025-01-20  
+**Status**: ✅ COMPLETE
+**Timeline**: 2025-01-20
 **Priority**: HIGH - Revenue Generation
 
 #### Core Payment System
@@ -1818,7 +1835,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ### 🎨 Premium Course Pricing in Admin Interface
 
-**Status**: ✅ COMPLETE  
+**Status**: ✅ COMPLETE
 **Timeline**: 2025-01-20
 
 **Course Model Updates**:
@@ -1879,7 +1896,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ### 🎨 UI Improvements: Lesson Action Buttons
 
-**Status**: ✅ COMPLETE  
+**Status**: ✅ COMPLETE
 **Timeline**: 2025-01-20
 
 **Lesson Page Updates** (`app/[locale]/courses/[courseId]/day/[dayNumber]/page.tsx`):
@@ -1906,14 +1923,14 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ## [v2.7.1] — 2025-01-20 🐛
 
-**Status**: BUG FIX - System Info API Crash  
+**Status**: BUG FIX - System Info API Crash
 **Type**: Critical Fix
 
 ### 🐛 System Info API Runtime Crash Fix
 
 **Issue**: Admin dashboard system info endpoint crashed at runtime with missing `fs` and `path` imports in `app/api/admin/system-info/route.ts`.
 
-**Root Cause**: 
+**Root Cause**:
 - Code attempted to read `package.json` using `fs.readFileSync()` and `path.join()`
 - These Node.js modules were not imported
 - Runtime error occurred when admin dashboard tried to fetch system information
@@ -1935,12 +1952,12 @@ const version = packageJson.version || '2.7.0';
 **Files Modified**:
 - `app/api/admin/system-info/route.ts` - Removed file I/O code, use imported packageJson directly
 
-**Testing**: 
+**Testing**:
 - ✅ Build passes successfully
 - ✅ No linter errors
 - ✅ Code simplified (removed unnecessary file I/O)
 
-**Impact**: 
+**Impact**:
 - Admin dashboard system info endpoint now works correctly
 - No more runtime crashes when accessing system information
 - Resolves P0 tech debt item from roadmap
@@ -1949,7 +1966,7 @@ const version = packageJson.version || '2.7.0';
 
 ## [v2.7.0] — 2025-01-17 🐛✨🎓
 
-**Status**: CRITICAL FIX + PHASES 1, 2, 3 COMPLETE + FIRST COURSE SEEDED  
+**Status**: CRITICAL FIX + PHASES 1, 2, 3 COMPLETE + FIRST COURSE SEEDED
 **Type**: Bug Fix + Feature Completion + Content Delivery
 
 ### 🐛 Production Error Fix: i18n Locale Configuration
@@ -1968,10 +1985,10 @@ const version = packageJson.version || '2.7.0';
 ```typescript
 // Added safe fallback and explicit locale return
 export default getRequestConfig(async ({ locale }) => {
-  const resolvedLocale = (locale && locales.includes(locale as Locale)) 
-    ? locale 
+  const resolvedLocale = (locale && locales.includes(locale as Locale))
+    ? locale
     : defaultLocale;
-  
+
   return {
     locale: resolvedLocale,  // Explicitly return locale
     messages: (await import(`./messages/${resolvedLocale}.json`)).default,
@@ -2000,7 +2017,7 @@ const messages = await getMessages({ locale });
 - `middleware.ts` - Changed localePrefix to 'always', fixed static file exclusion
 - `app/[locale]/page.tsx` - Updated redirect paths for locale prefix
 
-**Testing**: 
+**Testing**:
 - ✅ Production build successful
 - ✅ Root route redirects correctly
 - ✅ Locale routes work properly
@@ -2008,7 +2025,7 @@ const messages = await getMessages({ locale });
 - ✅ No redirect loops
 - ✅ Application loads successfully
 
-**Impact**: 
+**Impact**:
 - Production application now stable and loading correctly
 - All locale routes functional
 - No more server-side exceptions
@@ -2018,7 +2035,7 @@ const messages = await getMessages({ locale });
 
 ### ✨ Phase 1: Foundation & Data Models Complete
 
-**Status**: ✅ COMPLETE  
+**Status**: ✅ COMPLETE
 **Timeline**: Weeks 1-2 (Completed 2025-01-17)
 
 #### 1.1 Course & Lesson Data Models ✅
@@ -2100,7 +2117,7 @@ const messages = await getMessages({ locale });
 
 ### ✨ Phase 2: Course Builder & Student Dashboard Complete
 
-**Status**: ✅ COMPLETE  
+**Status**: ✅ COMPLETE
 **Timeline**: Weeks 3-4 (Completed 2025-01-17)
 
 #### 2.1 Course Builder Admin Interface ✅
@@ -2142,7 +2159,7 @@ const messages = await getMessages({ locale });
 
 ### ✨ Phase 3: Email Automation Complete
 
-**Status**: ✅ COMPLETE  
+**Status**: ✅ COMPLETE
 **Timeline**: Weeks 5-6 (Completed 2025-01-17)
 
 #### 3.1 Daily Email Scheduler ✅
@@ -2170,7 +2187,7 @@ const messages = await getMessages({ locale });
 
 ### 🎓 First Production Course: AI 30 Nap
 
-**Status**: ✅ SEEDED  
+**Status**: ✅ SEEDED
 **Timeline**: 2025-01-17
 
 #### Course Details
@@ -2207,7 +2224,7 @@ Each lesson includes:
 
 ### 🐛 Build Fixes
 
-**Status**: ✅ FIXED  
+**Status**: ✅ FIXED
 **Timeline**: 2025-01-17
 
 #### CSS Build Error Fix
@@ -2230,7 +2247,7 @@ Each lesson includes:
 
 ## [v2.4.0] — 2025-10-18 🐛
 
-**Status**: CRITICAL BUG FIX - MongoDB Transaction Errors  
+**Status**: CRITICAL BUG FIX - MongoDB Transaction Errors
 **Type**: Critical Reliability Fix
 
 ### 🐛 Game Completion Failures Due to MongoDB Transaction Aborts
@@ -2249,12 +2266,12 @@ Each lesson includes:
 // Added fallback path for transient transaction errors
 catch (error) {
   try { await sessionDb.abortTransaction(); } catch {}
-  
+
   const isTransient = !!(
     (error as any)?.codeName === 'NoSuchTransaction' ||
     (error as any)?.errorResponse?.errorLabels?.includes?.('TransientTransactionError')
   );
-  
+
   if (isTransient) {
     // Retry without transaction - sequential safe updates
     // Recalculate streak, points, XP
@@ -2268,8 +2285,8 @@ catch (error) {
 ```typescript
 // Added 'daily_challenge' to source type enum
 source: {
-  type: 'game_session' | 'reward_redemption' | 'achievement' | 
-        'streak' | 'admin' | 'referral' | 'daily_bonus' | 
+  type: 'game_session' | 'reward_redemption' | 'achievement' |
+        'streak' | 'admin' | 'referral' | 'daily_bonus' |
         'daily_challenge', // NEW
 }
 ```
@@ -2278,13 +2295,13 @@ source: {
 - `app/lib/gamification/session-manager.ts` (lines 794-893) - Added transient error fallback
 - `app/lib/models/points-transaction.ts` (lines 28-29, 103-104) - Added daily_challenge enum
 
-**Testing**: 
+**Testing**:
 - ✅ Verified build passes
 - ✅ Transaction errors now gracefully retry without transaction
 - ✅ Daily challenge progress tracking works
 - ✅ Points, XP, streaks, achievements update correctly
 
-**Impact**: 
+**Impact**:
 - Game completions now succeed even during MongoDB transient failures
 - Player progress (XP, points, challenges) updates reliably
 - No data loss on transaction errors
@@ -2296,7 +2313,7 @@ source: {
 
 ## [v2.2.0] — 2025-10-17 🐛
 
-**Status**: CRITICAL BUG FIX - Empty Leaderboards  
+**Status**: CRITICAL BUG FIX - Empty Leaderboards
 **Type**: Critical Fix
 
 ### 🐛 Leaderboard Entries Missing gameId
@@ -2385,13 +2402,13 @@ Promise.all([
 - `app/lib/gamification/leaderboard-calculator.ts` (lines 49-143)
 - `app/lib/gamification/session-manager.ts` (lines 583-599)
 
-**Testing**: 
+**Testing**:
 - ✅ Verified build passes
 - ✅ Guest usernames seeded (104 entries)
 - ✅ Leaderboard entries now include gameId
 - ✅ Anonymous login functional
 
-**Impact**: 
+**Impact**:
 - Players now appear on leaderboards after playing games
 - Game-specific leaderboards properly track per-game rankings
 - Anonymous players can log in and play
@@ -2402,7 +2419,7 @@ Promise.all([
 
 ## [v2.1.2] — 2025-10-17 🐛
 
-**Status**: CRITICAL BUG FIX - Question Repetition  
+**Status**: CRITICAL BUG FIX - Question Repetition
 **Type**: User Experience Fix
 
 ### 🐛 QUIZZZ Question Caching Bug (Same Questions Every Game)
@@ -2440,7 +2457,7 @@ fetch(
 - `app/api/games/quizzz/questions/route.ts` (lines 209-213)
 - `app/api/games/quizzz/questions/answers/route.ts` (lines 78-82)
 
-**Testing**: 
+**Testing**:
 - ✅ Verified build passes
 - ✅ Each game now fetches fresh questions from database
 - ✅ Question rotation working correctly
@@ -2454,14 +2471,14 @@ fetch(
 
 ## [v2.1.1] — 2025-10-17 🐛
 
-**Status**: BUG FIX - Challenge Progress Tracking  
+**Status**: BUG FIX - Challenge Progress Tracking
 **Type**: Critical Fix
 
 ### 🐛 Daily Challenge Progress Timezone Bug
 
 **Issue**: Challenge progress remained at 0/2 despite games being completed.
 
-**Root Cause**: 
+**Root Cause**:
 - Challenge creation API used UTC dates correctly
 - Challenge tracker used **local timezone** for date queries
 - Resulted in date range mismatch - challenges were never found for progress updates
@@ -2486,7 +2503,7 @@ startOfDay.setUTCHours(0, 0, 0, 0);
 - `app/lib/gamification/daily-challenge-tracker.ts` (lines 71-75, 84-128)
 - Enhanced logging throughout challenge tracking flow
 
-**Testing**: 
+**Testing**:
 - ✅ Verified build passes
 - ✅ Challenges now update progress correctly after game completion
 - ✅ Timezone-independent behavior confirmed
@@ -2497,7 +2514,7 @@ startOfDay.setUTCHours(0, 0, 0, 0);
 
 ## [v2.1.0] — 2025-10-16 🎮
 
-**Status**: ENHANCEMENT - Game Content Database Migration  
+**Status**: ENHANCEMENT - Game Content Database Migration
 **Type**: Feature Enhancement
 
 ### 🗄️ Game Content Database Migration
@@ -2683,7 +2700,7 @@ Migrated all hardcoded game content (QUIZZZ questions and WHACKPOP emojis) from 
 
 ## [v2.0.0] — 2025-01-13 🎉
 
-**Status**: PRODUCTION READY - Major Release  
+**Status**: PRODUCTION READY - Major Release
 **Phases Completed**: ALL 10 PHASES (100%)
 
 ### 🚀 MAJOR MILESTONE: Complete Platform Launch
@@ -2837,7 +2854,7 @@ This is the first production-ready release of Amanoba, representing the successf
 
 ### 📊 v2.0.0 Statistics
 
-**Total Development Timeline**: ~70 days (as planned)  
+**Total Development Timeline**: ~70 days (as planned)
 **Total Lines of Code**: ~15,000+ lines
 
 **Code Distribution**:
@@ -2870,17 +2887,17 @@ This is the first production-ready release of Amanoba, representing the successf
 - ✅ Security hardening with rate limiting
 - ✅ Production deployment documentation
 
-**API Endpoints**: 20+  
-**React Components**: 30+  
-**Database Collections**: 21  
-**Cron Jobs**: 2 (leaderboards, analytics)  
+**API Endpoints**: 20+
+**React Components**: 30+
+**Database Collections**: 21
+**Cron Jobs**: 2 (leaderboards, analytics)
 
-**Build Status**: ✅ Clean production build  
-**TypeScript**: ✅ Strict mode, 0 errors  
-**Warnings**: ✅ Zero build warnings  
-**Security**: ✅ Hardened and tested  
-**Performance**: ✅ Optimized (Lighthouse ready)  
-**Accessibility**: ✅ WCAG AA compliant  
+**Build Status**: ✅ Clean production build
+**TypeScript**: ✅ Strict mode, 0 errors
+**Warnings**: ✅ Zero build warnings
+**Security**: ✅ Hardened and tested
+**Performance**: ✅ Optimized (Lighthouse ready)
+**Accessibility**: ✅ WCAG AA compliant
 
 ---
 
@@ -2931,7 +2948,7 @@ This is the first production-ready release of Amanoba, representing the successf
 
 ## [v1.6.0] — 2025-10-13
 
-**Status**: In Development - Phase 6 Complete (Analytics System)  
+**Status**: In Development - Phase 6 Complete (Analytics System)
 **Phases Completed**: 1-6 of 10
 
 ### 📊 Phase 6: Analytics Complete ✅
@@ -3049,7 +3066,7 @@ This release delivers a comprehensive analytics and event tracking system with r
 
 ## [v1.5.0] — 2025-10-12
 
-**Status**: In Development - Major Milestone (60% Complete)  
+**Status**: In Development - Major Milestone (60% Complete)
 **Phases Completed**: 1-5 of 10
 
 ### 🎉 Major Milestone: Phases 2-5 Complete
@@ -3115,7 +3132,7 @@ This release represents the completion of the core platform infrastructure, data
 
 ## [v1.0.0] — 2025-10-10
 
-**Status**: In Development  
+**Status**: In Development
 **Target Launch**: 2025-12-11
 
 ### Foundation Completed
@@ -3241,7 +3258,7 @@ This release represents the completion of the core platform infrastructure, data
 
 ## [v1.5.0] — 2025-10-12
 
-**Status**: In Development - Major Milestone (60% Complete)  
+**Status**: In Development - Major Milestone (60% Complete)
 **Phases Completed**: 1-5 of 10
 
 ### 🎉 Major Milestone: Phases 2-5 Complete
@@ -3490,5 +3507,5 @@ For current roadmap see **ROADMAP.md**. The section below was an old placeholder
 
 ---
 
-**Maintained By**: Narimato  
+**Maintained By**: Narimato
 **Changelog Format**: Semantic Versioning (MAJOR.MINOR.PATCH)

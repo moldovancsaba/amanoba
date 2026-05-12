@@ -2,8 +2,8 @@
 
 > **Source of truth is now the [Amanoba Project board](https://github.com/users/moldovancsaba/projects/12/views/1).** Roadmap items have been migrated to issues with **Status = `Roadmap (LATER)`** (Product = amanoba). This file is kept as reference only. Add new vision items as issues in [mvp-factory-control](https://github.com/moldovancsaba/mvp-factory-control), add to Project 12, and place them in `Roadmap (LATER)`. See [MIGRATION_ROADMAP_TASKLIST.md](https://github.com/moldovancsaba/mvp-factory-control/blob/main/docs/MIGRATION_ROADMAP_TASKLIST.md).
 
-**Version**: 2.9.48  
-**Last Updated**: 2026-02-12
+**Version**: 2.9.49
+**Last Updated**: 2026-05-12
 
 This document describes **what we want to build in the future** and **what benefits we want to give to clients**. It is not a task list. **Rules:** Do not list anything that is already delivered (see **RELEASE_NOTES.md**). Do not list anything that has been turned into tasks (see **TASKLIST.md**). Only future vision that is not yet broken down into tasks belongs here. **Only related items:** Only content that belongs in the ROADMAP may appear here — no delivered items, no task-list items, no unrelated content.
 
@@ -11,9 +11,9 @@ This document describes **what we want to build in the future** and **what benef
 
 ## Vision
 
-**Amanoba** is a **unified 30-day learning platform** that combines:
+**Amanoba** is a **unified flexible learning platform** that combines:
 
-- **Structured learning**: 30-day courses with daily lessons delivered via email
+- **Structured learning**: flexible courses with lesson sequences delivered in-app and by email
 - **Gamified assessment**: Games (QUIZZZ, WHACKPOP, Madoku) as interactive surveys and assessments
 - **Retained systems**: Login, rewards, achievements, leaderboards, and gamification
 - **Course builder**: Admin interface to create and manage courses
@@ -23,7 +23,7 @@ This document describes **what we want to build in the future** and **what benef
 1. **Games as assessments** — Existing games become student assessment tools
 2. **Email-first learning** — Daily lessons via email with in-platform access
 3. **Gamification intact** — All rewards, points, XP, achievements, and streaks remain
-4. **30-day structure** — Each course is a 30-step journey (one lesson per day)
+4. **Flexible course structure** — Each course can be as short as one lesson and can grow as far as the curriculum requires
 5. **Modular course system** — Build courses using the same flexible architecture as games
 
 ---
@@ -91,6 +91,6 @@ Items already broken down into tasks (multiple courses, live sessions, AI person
 
 ---
 
-**Maintained By**: Product / Engineering  
-**Review**: When strategy or priorities change  
+**Maintained By**: Product / Engineering
+**Review**: When strategy or priorities change
 **Next Review**: 2026-02-19

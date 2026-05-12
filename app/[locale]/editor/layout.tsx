@@ -44,8 +44,8 @@ export default function EditorLayout({ children }: { children: React.ReactNode }
 
   if (canAccessEditor !== true) {
     return (
-      <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
-        <div className="text-sm text-gray-300">Loading editor portal…</div>
+      <div className="page-shell flex items-center justify-center">
+        <div className="text-sm text-brand-white/80">Loading editor portal...</div>
       </div>
     );
   }
@@ -54,8 +54,8 @@ export default function EditorLayout({ children }: { children: React.ReactNode }
   const isCoursesActive = pathname === coursesHref || pathname.startsWith(`${coursesHref}/`);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <header className="h-16 bg-gray-800 border-b border-gray-700 flex items-center justify-between px-6">
+    <div className="page-shell">
+      <header className="h-16 page-header flex items-center justify-between px-6">
         <div className="flex items-center gap-4">
           <Link href={coursesHref} className="font-bold">
             Amanoba — Editor
@@ -63,7 +63,7 @@ export default function EditorLayout({ children }: { children: React.ReactNode }
           <nav className="flex items-center gap-2 text-sm">
             <Link
               href={coursesHref}
-              className={`px-3 py-2 rounded ${isCoursesActive ? 'bg-indigo-600' : 'hover:bg-gray-700'}`}
+              className={`px-3 py-2 rounded ${isCoursesActive ? 'bg-brand-accent text-brand-black font-bold' : 'hover:bg-brand-secondary-700'}`}
             >
               Courses
             </Link>
@@ -71,7 +71,7 @@ export default function EditorLayout({ children }: { children: React.ReactNode }
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="text-xs text-gray-300">
+          <div className="text-xs text-brand-white/80">
             {session?.user?.email || session?.user?.name || 'Editor'}
           </div>
           <button
@@ -79,7 +79,7 @@ export default function EditorLayout({ children }: { children: React.ReactNode }
               await signOut({ redirect: false });
               router.push(`/${locale}/auth/signin`);
             }}
-            className="text-xs px-3 py-2 rounded bg-gray-700 hover:bg-gray-600"
+            className="text-xs px-3 py-2 rounded bg-brand-darkGrey hover:bg-brand-secondary-700"
           >
             Sign out
           </button>
@@ -90,4 +90,3 @@ export default function EditorLayout({ children }: { children: React.ReactNode }
     </div>
   );
 }
-

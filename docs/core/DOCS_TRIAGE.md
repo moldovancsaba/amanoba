@@ -7,7 +7,7 @@
 
 **Last Updated**: 2026-05-12
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=4, KEEP(unclassified)=65
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=4, KEEP(unclassified)=66
 
 This file is the “what to do next” view derived from `docs/core/DOCS_CANONICAL_MAP.md`.
 
@@ -20,7 +20,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 ## ARCHIVE (grouped by target)
 ### docs/_archive/reference/
 - `docs/features/GEO_IMPROVEMENT_PLAN.md` — GEO Improvement Plan — Appearance in AI Chat Results (12.4 KB)
-- `docs/HANDOVER.md` — Amanoba — Developer Handover (55.8 KB)
+- `docs/HANDOVER.md` — Amanoba — Developer Handover (59.9 KB)
 - `docs/quality/UI_FOUNDATION_AUDIT.md` — UI Foundation Audit (Hard Rules) (1.4 KB)
 - `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` — UI Layout Grammar Audit (23.0 KB)
 
@@ -35,6 +35,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/certification/certification_final_exam_plan_v4.md` — certification_final_exam_plan_v4.md
 - `docs/certification/certification_final_exam_plan_v5.md` — certification_final_exam_plan_v5.md
 - `docs/core/amanoba_system_outline.md` — Amanoba System Outline — Table of Contents
+- `docs/core/CODING_STANDARDS.md` — Amanoba Coding Standards
 - `docs/core/DOCS_CANONICAL_MAP.md` — Docs Canonicalization Map
 - `docs/core/DOCS_INVENTORY.md` — Docs Inventory
 - `docs/core/DOCS_TRIAGE.md` — Docs Triage
@@ -84,8 +85,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/sso/SSO_REDIRECT_URIS.md` — SSO Redirect URIs Configuration
 - `docs/sso/SSO_SCOPE_FIX.md` — SSO Scope Error Fix
 - `docs/sso/SSO_TROUBLESHOOTING.md` — SSO Troubleshooting Guide
-- `docs/status/MIGRATION_COMPLETE.md` — Page Migration to [locale] Structure - Complete
-- … +5 more
+- … +6 more
 
 ## Next suggested move
 - Review KEEP(unclassified) docs and either promote to canonical sections in `docs/core/DOCS_INDEX.md` or archive.

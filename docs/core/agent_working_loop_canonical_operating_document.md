@@ -1,8 +1,8 @@
 # Amanoba — Agent Operating Document
 
-**Project**: Amanoba (unified 30-day learning platform)  
-**Roles**: Sultan = Product Owner; Agent = AI Developer  
-**Scope**: This document is the **project-specific** rulebook for the Amanoba codebase. All paths, docs, and rules refer to this repository.  
+**Project**: Amanoba (unified flexible learning platform)
+**Roles**: Sultan = Product Owner; Agent = AI Developer
+**Scope**: This document is the **project-specific** rulebook for the Amanoba codebase. All paths, docs, and rules refer to this repository.
 **Last agent sync:** 2026-02-12 (docs normalization, link-check automation, context handover package).
 
 **Unified knowledge center:** A copy of the Amanoba agent operating document, updated for project/board management (MVP Factory Board, handoff, RULES, SETUP, SYNC), is stored in the [mvp-factory-control](https://github.com/moldovancsaba/mvp-factory-control) repo as [agent-operating-document-amanoba.md](https://github.com/moldovancsaba/mvp-factory-control/blob/main/docs/agent-operating-document-amanoba.md). Use that doc for project-related agentic rules and how Amanoba ties into the board; use this doc for full amanoba repo detail (layout grammar, course/quiz SSOT, auth, etc.).
@@ -115,10 +115,10 @@ This is a non-negotiable, critical part of your role.
 	•	✅ Every logic/file/feature update must trigger an immediate documentation review and refresh
 	•	✅ Code and documentation must always match — line by line
 	•	✅ **Only related items:** Each document must contain only content that belongs to that document (ROADMAP = vision; TASKLIST = open tasks; RELEASE_NOTES = completed). No unrelated items in any doc.
-	
+
 
 Documentation system:
-	
+
 - All feature and handover documents go in `/docs` under the domain folders (`docs/handoff`, `docs/product`, `docs/core`, etc.)
 - Template: `/docs/core/templates/FEATURE_TEMPLATE.md`
 - Feature/handover documents are referenced from TASKLIST, ROADMAP, RELEASE_NOTES, LEARNINGS, and architecture docs as needed.
@@ -155,7 +155,7 @@ Rule: If any other document conflicts with the SSOT set above, **update the othe
 ### Multi-language Course Authoring Rule (A: EN-first, then localize)
 
 Default strategy for multi-language course families:
-- Author and complete the **EN course first** (CCS idea/outline + Day 1–30 lessons).
+- Author and complete the **EN course first** (CCS idea/outline + the full intended lesson sequence).
 - Then localize each target language course from the EN baseline.
 
 Hard requirements:
@@ -225,7 +225,7 @@ TEAM:
 
 **Source of truth**: **`docs/product/ROADMAP.md`** = future vision and client benefits. **`docs/product/TASKLIST.md`** = actionable tasks to do (broken down from roadmap). **`docs/product/RELEASE_NOTES.md`** = completed work only. This section is a pointer; read TASKLIST and ROADMAP for current state.
 
-**As of last update**: Current version **v2.9.48** (see RELEASE_NOTES). TASKLIST holds remaining open items only (e.g. multi-enrolment email/scheduler and optional email/integration follow-ups). Completed work is not listed in TASKLIST; it lives only in RELEASE_NOTES. ROADMAP holds future functions and client benefits only; completed work is listed in the single “Already delivered” line and in RELEASE_NOTES only.
+**As of last update**: Current version **v2.9.49*** (see RELEASE_NOTES). TASKLIST holds remaining open items only (e.g. multi-enrolment email/scheduler and optional email/integration follow-ups). Completed work is not listed in TASKLIST; it lives only in RELEASE_NOTES. ROADMAP holds future functions and client benefits only; completed work is listed in the single “Already delivered” line and in RELEASE_NOTES only.
 
 **When starting work**:
 1. Read **`docs/product/TASKLIST.md`** for the next action items to do.
@@ -328,7 +328,7 @@ TEAM:
 
 ### Critical System State
 
-**Current version and status**: **v2.9.48** (see **`docs/product/RELEASE_NOTES.md`**). **`docs/product/TASKLIST.md`** lists remaining actionable tasks only. Build and deployment status are verified on release.
+**Current version and status**: **v2.9.49** (see **`docs/product/RELEASE_NOTES.md`**). **`docs/product/TASKLIST.md`** lists remaining actionable tasks only. Build and deployment status are verified on release.
 
 **Layout and structure**: For any work that affects **content layout**, **course/lesson/quiz layout**, **UI layout**, or **documentation layout**, follow **`docs/architecture/layout_grammar.md`** so all outputs stay consistent with the designer courses and project conventions.
 
@@ -394,5 +394,5 @@ TEAM:
 
 ---
 
-**Last Updated**: 2026-02-12  
-**Current Version**: v2.9.48 (see `docs/product/RELEASE_NOTES.md`). **Current Work**: See `docs/product/TASKLIST.md` for remaining action items; `docs/product/ROADMAP.md` for future vision and client benefits. Completed work → `docs/product/RELEASE_NOTES.md` only. For layout and structure, follow `docs/architecture/layout_grammar.md`.
+**Last Updated**: 2026-02-12
+**Current Version**: v2.9.49 (see `docs/product/RELEASE_NOTES.md`). **Current Work**: See `docs/product/TASKLIST.md` for remaining action items; `docs/product/ROADMAP.md` for future vision and client benefits. Completed work → `docs/product/RELEASE_NOTES.md` only. For layout and structure, follow `docs/architecture/layout_grammar.md`.

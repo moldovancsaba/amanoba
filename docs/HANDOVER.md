@@ -2,78 +2,104 @@
 
 This document is the single-stop operational snapshot for Amanoba. Keep it current whenever the system behavior, process, or board status changes. Append entries instead of rewriting history.
 
-**Last Updated**: 2026-03-10  
-**Current Product Version**: 2.9.33 (per `README.md`)  
+**Last Updated**: 2026-05-12
+**Current Product Version**: 2.9.49 (per `package.json` and `README.md`)
 **Status**: Production stable, SSO-only auth, daily lessons + gamified learning live.
 
 ## SSOT (Work Tracking)
 - **Board**: https://github.com/users/moldovancsaba/projects/12/views/1. This Amanoba GitHub Project board is the single source of truth; no local task files.
 - **Issues repo**: `moldovancsaba/mvp-factory-control`. All Amanoba work (P1–P4) is tracked there. Issue titles follow `Amanoba: <short description>`.
 - **Product repo ≠ project repo**: Do not raise issues in `moldovancsaba/amanoba`. Find or request the related card in the board before coding.
-- **Workflow**:  
-  1. Start: `gh issue list --repo moldovancsaba/mvp-factory-control --state open --assignee "@me" --search "amanoba" --limit 10`, pick the assigned card, move it to _In Progress_, note objective.  
-  2. During work: update card status for blockers/milestones, keep `docs/HANDOVER.md` + relevant docs updated.  
+- **Workflow**:
+  1. Start: `gh issue list --repo moldovancsaba/mvp-factory-control --state open --assignee "@me" --search "amanoba" --limit 10`, pick the assigned card, move it to _In Progress_, note objective.
+  2. During work: update card status for blockers/milestones, keep `docs/HANDOVER.md` + relevant docs updated.
   3. Finish: document validation evidence, move card to _Done_, and mention where the change is documented.
 
 ## Current Priorities (Board snapshot — from `docs/product/TASKLIST.md` + GitHub issues)
-- **P2 (Multiple courses + course governance)**  
-  - `#16`: `Email/scheduler: Respect multiple enrolments` — needs the scheduler to treat each course separately and avoid duplicate email sends.  
+- **P2 (Multiple courses + course governance)**
+  - `#16`: `Email/scheduler: Respect multiple enrolments` — needs the scheduler to treat each course separately and avoid duplicate email sends.
   - `#225`: `Lesson quiz governance #10` — finish doc alignment and migrations so quiz behavior is governed at the course level only; remaining checklist includes doc sync, seed cleanup, validator alignment, and backfills.
-- **Documentation ops / federation**  
-  - `#104`: `Cross-repo documentation federation (amanoba + amanoba_courses)` — finalize shared reference strategy between the two repos.  
-  - `#65`: `Move Amanoba release notes into Amanoba wiki by ISO UTC date` — reorganize release tracking per ISO date architecture.  
-- **P3 / P4 exploratory work (waiting for capacity)**  
+- **Documentation ops / federation**
+  - `#104`: `Cross-repo documentation federation (amanoba + amanoba_courses)` — finalize shared reference strategy between the two repos.
+  - `#65`: `Move Amanoba release notes into Amanoba wiki by ISO UTC date` — reorganize release tracking per ISO date architecture.
+- **P3 / P4 exploratory work (waiting for capacity)**
   - AI-powered personalization (#26, #27), live sessions (#22–#25), video lessons (#33–#35), community incubations (#28–#31), instructor dashboard (#6, #32), and mobile/offline (#20–#21, #7) remain backlog items awaiting decomposition.
 
 ## Documentation index (update when behavior changes)
-- `README.md` — quickstart + product overview (30-day courses, gamification, Stripe).  
-- `READMEDEV.md` — this repo’s Brain Boost ritual (start-of-session, SSOT rules, quality gates).  
-- `docs/product/TASKLIST.md` — prioritized actionable items (P1–P4). Completed tasks move to `docs/product/RELEASE_NOTES.md`.  
-- `docs/product/RELEASE_NOTES.md` — shipped work only (per release definition).  
-- `docs/status/PRODUCTION_STATUS.md` — deployment cadence, verification steps, and baseline route checks.  
-- `docs/ARCHITECTURE.md` / `docs/product/ROADMAP.md` — reference high-level architecture and future vision.  
+- `README.md` — quickstart + product overview (flexible courses, gamification, Stripe).
+- `READMEDEV.md` — this repo’s Brain Boost ritual (start-of-session, SSOT rules, quality gates).
+- `docs/product/TASKLIST.md` — prioritized actionable items (P1–P4). Completed tasks move to `docs/product/RELEASE_NOTES.md`.
+- `docs/product/RELEASE_NOTES.md` — shipped work only (per release definition).
+- `docs/status/PRODUCTION_STATUS.md` — deployment cadence, verification steps, and baseline route checks.
+- `docs/ARCHITECTURE.md` / `docs/product/ROADMAP.md` — reference high-level architecture and future vision.
 - `docs/product/ROADMAP_TASKLIST_SYSTEM_COMPARISON.md` — ensures roadmap vs tasklist alignment.
 
 ## Key runtime areas
-- `app/[locale]`: localized routes for hu/en, including admin, auth, dashboard, games, and course experiences.  
-- `lib/`: business logic (models, gamification, course scheduling, email, analytics).  
-- `components/`: UI fragments (gamification, games, charts, UI primitives).  
-- `scripts/`: seeds, analytics audits, doc generators, and workflow helpers (seed courses, start workers, doc checks).  
-- `messages/`: translation units used by `next-intl`.  
-- `public/`: static assets (logos, icons).  
+- `app/[locale]`: localized routes for hu/en, including admin, auth, dashboard, games, and course experiences.
+- `lib/`: business logic (models, gamification, course scheduling, email, analytics).
+- `components/`: UI fragments (gamification, games, charts, UI primitives).
+- `scripts/`: seeds, analytics audits, doc generators, and workflow helpers (seed courses, start workers, doc checks).
+- `messages/`: translation units used by `next-intl`.
+- `public/`: static assets (logos, icons).
 - `middleware.ts` & `auth.*`: SSO/auth wiring, guard logic, and rate limiting.
 
 ## Production verification policy
-- Automation path: git push → `origin/main` → Vercel (auto). Manual CLI deployments only with explicit request.  
-- Post-deploy checks (per `docs/status/PRODUCTION_STATUS.md`): `/`, `/robots.txt`, `/sitemap.xml`, `/en/auth/signin`, plus the feature area touched.  
-- Log each verification run in `docs/product/RELEASE_NOTES.md` when releasing for public consumption.  
-- Keep release numbering consistent: 2.9.33 currently live; bump patch/minor/major via `scripts/versioning`.
+- Automation path: git push → `origin/main` → Vercel (auto). Manual CLI deployments only with explicit request.
+- Post-deploy checks (per `docs/status/PRODUCTION_STATUS.md`): `/`, `/robots.txt`, `/sitemap.xml`, `/en/auth/signin`, plus the feature area touched.
+- Log each verification run in `docs/product/RELEASE_NOTES.md` when releasing for public consumption.
+- Keep release numbering consistent: 2.9.49 is the current active release; bump patch/minor/major via `scripts/versioning`.
 
 ## Known issues / risks
-- Scheduler does not yet honor multiple active enrolments (issue #16). Emails can still duplicate when a learner is in >1 course.  
-- Lesson-level quiz governance leftovers still exist in seeds, docs, and validators (#225).  
-- Cross-repo documentation references are fragile — ensure `docs/product/TASKLIST.md` links to canonical assets under `amanoba_courses` before releasing.  
+- Scheduler does not yet honor multiple active enrolments (issue #16). Emails can still duplicate when a learner is in >1 course.
+- Lesson-level quiz governance leftovers still exist in seeds, docs, and validators (#225).
+- Cross-repo documentation references are fragile — ensure `docs/product/TASKLIST.md` links to canonical assets under `amanoba_courses` before releasing.
 - Board fields for some linked issues may need manual verification (Product/Type/Priority/Status) via the GitHub Projects UI.
 
 ## Quick verification commands (run before marking work done)
-- `npm run lint` (ESLint 9 + Next.js config).  
-- `npm test` (Vitest).  
-- `npm run type-check` (TypeScript no emit).  
-- `npm run docs:check` (inventory + link checks) when touching docs/architecture.  
+- `npm run lint` (ESLint 9 + Next.js config).
+- `npm test` (Vitest).
+- `npm run type-check` (TypeScript no emit).
+- `npm run docs:check` (inventory + link checks) when touching docs/architecture.
 - `npm run build` (ensures Next.js build without warnings).
 
 ## Next steps
-1. Finish the scheduler + multiple enrolment email logic (`#16`).  
-2. Drive lesson-quiz governance documentation + validators (#225).  
-3. Sync documentation federation issue (#104) with the `amanoba_courses` repo and keep release notes grouped by ISO UTC date (#65).  
+1. Finish the scheduler + multiple enrolment email logic (`#16`).
+2. Drive lesson-quiz governance documentation + validators (#225).
+3. Sync documentation federation issue (#104) with the `amanoba_courses` repo and keep release notes grouped by ISO UTC date (#65).
 4. Keep `docs/HANDOVER.md` appended whenever these areas move.
+
+---
+
+## Version, architecture, and design-system hygiene update (2026-05-12)
+
+### What changed
+- Bumped the active product version to `2.9.49` across `package.json`, `package-lock.json`, `README.md`, architecture, tech stack, roadmap, release notes, and this handover.
+- Added `docs/core/CODING_STANDARDS.md` as the active coding standard for flexible course-length assumptions, comments, TypeScript boundaries, version alignment, and design-system usage.
+- Updated `READMEDEV.md`, `docs/architecture/layout_grammar.md`, `docs/architecture/ARCHITECTURE.md`, `docs/product/DESIGN_UPDATE.md`, and `docs/product/RELEASE_NOTES.md` so contributors have one current rule set for token-driven UI work and release notes.
+- Removed hard-coded design drift from shared learner/editor surfaces by moving success/warning/error states and editor portal chrome to design-system utilities and semantic tokens.
+- Mapped Tailwind secondary colours to `app/design-system.css` variables and added reusable `.ds-status-*`, `.ds-button-*`, and `.ds-text-*` utilities in `app/globals.css`.
+
+### Notes / risk
+- The broader admin and game areas still contain legacy generic palette classes; they are documented as remaining migration targets rather than being refactored wholesale in this pass.
+- Historical release notes, archive handoffs, and seed scripts still mention 30-day courses where they refer to old content or course titles. Active product docs now describe flexible course length.
+
+### Verification run (2026-05-12)
+- `npm run ui:check:foundation` ✅ pass.
+- `npm run ui:check:layout` ✅ pass.
+- `npm run type-check` ✅ pass.
+- `npm run lint` ✅ pass.
+- `npm test` ✅ pass.
+- `npm run docs:refresh` ✅ pass.
+- `npm run docs:links:check` ✅ pass.
+- `npm run build` ✅ pass.
+- `npm run docs:check` ✅ pass after committing regenerated docs inventory files.
 
 ---
 
 ## Audit update (2026-03-10)
 
 ### Consolidated doc/code discrepancies
-- **Version drift**: `README.md` reports **2.9.33** and `docs/architecture/ARCHITECTURE.md` reports **2.9.40**, while `docs/product/RELEASE_NOTES.md` reports **2.9.48** and runtime build uses Next.js 15.5.12.
+- **Version drift resolved later**: active docs now align on 2.9.49 and Next.js 15.5.18; this March audit note is retained as historical context.
 - **Lesson quiz governance still in transition**: runtime authority is course-level (`lessonQuizPolicy` resolver), but compatibility surfaces remain in APIs/UI as `lesson.quizConfig` fields and import/export payload compatibility (`app/api/admin/courses/import/route.ts`, `app/api/admin/courses/[courseId]/export/route.ts`, learner day/quiz routes).
 - **Cross-repo portability risk**: active docs still include many machine-local references to `/Users/moldovancsaba/Projects/amanoba_courses/process_them/...` across `docs/core`, `docs/product`, `docs/handoff`, and archive docs.
 - **Scheduler reality vs risk note**: `app/lib/courses/email-scheduler.ts` already iterates per active enrolment and deduplicates by `emailSentDays`, so the risk text should be interpreted as broader multi-enrolment behavior validation, not absence of dedupe logic.

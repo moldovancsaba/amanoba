@@ -157,7 +157,7 @@ export default function LessonQuiz({
     return (
       <div className="bg-brand-white rounded-xl p-8 border-2 border-brand-accent">
         <div className="text-center">
-          <div className="text-red-600 mb-4">{error}</div>
+          <div className="ds-text-error mb-4">{error}</div>
           <button
             onClick={fetchQuestions}
             className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400"
@@ -243,8 +243,8 @@ export default function LessonQuiz({
           <div
             className={`rounded-xl border-2 p-6 mb-4 text-left ${
               result.passed
-                ? 'bg-green-50 dark:bg-green-950/30 border-green-500 text-green-800 dark:text-green-200'
-                : 'bg-red-50 dark:bg-red-950/30 border-red-500 text-red-800 dark:text-red-200'
+                ? 'ds-status-success'
+                : 'ds-status-error'
             }`}
           >
             <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 gap-3">
@@ -268,14 +268,14 @@ export default function LessonQuiz({
           </div>
 
           {result.passed ? (
-            <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-500 rounded-xl p-5 mb-4 text-left">
-              <p className="text-green-800 dark:text-green-200 font-bold">
+            <div className="ds-status-success border-2 rounded-xl p-5 mb-4 text-left">
+              <p className="font-bold">
                 {t('quizPassedMessage')}
               </p>
             </div>
           ) : (
-            <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-500 rounded-xl p-5 mb-4 text-left">
-              <p className="text-red-800 dark:text-red-200 font-bold mb-2">
+            <div className="ds-status-error border-2 rounded-xl p-5 mb-4 text-left">
+              <p className="font-bold mb-2">
                 {t('quizFailedMessage', { threshold: quizConfig.successThreshold })}
               </p>
               {canRetake && (

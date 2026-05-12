@@ -392,7 +392,7 @@ export default function QuizManagerModal({
                                   {question.options.map((option, index) => (
                                     <div
                                       key={index}
-                                      className={`text-sm ${index === question.correctIndex ? 'text-green-600 font-bold' : mutedCls}`}
+                                      className={`text-sm ${index === question.correctIndex ? 'ds-text-success font-bold' : mutedCls}`}
                                     >
                                       {index === question.correctIndex ? '✓ ' : '  '}
                                       {option}
@@ -419,7 +419,7 @@ export default function QuizManagerModal({
                                 </button>
                                 <button
                                   onClick={() => handleDeactivate(question._id)}
-                                  className="p-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
+                                  className="p-2 ds-button-warning rounded"
                                   title="Deactivate"
                                 >
                                   👁️
@@ -456,7 +456,7 @@ export default function QuizManagerModal({
                                   {question.options.map((option, index) => (
                                     <div
                                       key={index}
-                                      className={`text-sm ${index === question.correctIndex ? 'text-green-600 font-bold' : mutedCls}`}
+                                      className={`text-sm ${index === question.correctIndex ? 'ds-text-success font-bold' : mutedCls}`}
                                     >
                                       {index === question.correctIndex ? '✓ ' : '  '}
                                       {option}
@@ -476,14 +476,14 @@ export default function QuizManagerModal({
                               <div className="flex items-center gap-2 ml-4">
                                 <button
                                   onClick={() => handleToggleActive(question)}
-                                  className="p-2 bg-green-500 text-white rounded hover:bg-green-600"
+                                  className="p-2 ds-button-success rounded"
                                   title="Reactivate"
                                 >
                                   👁️‍🗨️
                                 </button>
                                 <button
                                   onClick={() => handlePermanentDelete(question._id)}
-                                  className="p-2 bg-red-600 text-white rounded hover:bg-red-700"
+                                  className="p-2 ds-button-danger rounded"
                                   title="Permanently Delete"
                                 >
                                   🗑️

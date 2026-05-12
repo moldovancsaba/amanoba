@@ -75,21 +75,21 @@ export default function EditorCourseDetailPage() {
     <div className="space-y-4">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <div className="text-xs text-gray-400">
+          <div className="text-xs text-brand-white/60">
             <Link className="hover:underline" href={`/${locale}/editor/courses`}>
               Courses
             </Link>{' '}
             / {courseId}
           </div>
           <h1 className="text-xl font-bold">{course?.name || courseId}</h1>
-          <div className="text-sm text-gray-300">
-            {(course?.language || '').toUpperCase()} • {course?.durationDays ?? '?'} days • {course?.isActive ? 'active' : 'draft'}
+          <div className="text-sm text-brand-white/80">
+            {(course?.language || '').toUpperCase()} • {course?.durationDays ?? '?'} lessons • {course?.isActive ? 'active' : 'draft'}
           </div>
         </div>
       </div>
 
-      {loading && <div className="text-sm text-gray-300">Loading…</div>}
-      {error && <div className="text-sm text-red-300">{error}</div>}
+      {loading && <div className="text-sm text-brand-white/80">Loading...</div>}
+      {error && <div className="text-sm ds-text-error">{error}</div>}
 
       {!loading && !error && (
         <div className="grid gap-2">
@@ -97,13 +97,13 @@ export default function EditorCourseDetailPage() {
             <Link
               key={l._id || l.lessonId}
               href={`/${locale}/editor/courses/${encodeURIComponent(courseId)}/lessons/${encodeURIComponent(l.lessonId)}`}
-              className="flex items-center justify-between bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 hover:bg-gray-750"
+              className="flex items-center justify-between panel-on-dark px-4 py-3 hover:bg-brand-secondary-700"
             >
               <div className="flex items-center gap-3">
-                <div className="text-xs text-gray-400 w-14">Day {String(l.dayNumber).padStart(2, '0')}</div>
+                <div className="text-xs text-brand-white/60 w-20">Lesson {String(l.dayNumber).padStart(2, '0')}</div>
                 <div className="font-medium">{l.title || l.lessonId}</div>
               </div>
-              <div className="text-xs text-gray-300">{l.isActive ? 'published' : 'draft'}</div>
+              <div className="text-xs text-brand-white/80">{l.isActive ? 'published' : 'draft'}</div>
             </Link>
           ))}
         </div>
@@ -111,4 +111,3 @@ export default function EditorCourseDetailPage() {
     </div>
   );
 }
-

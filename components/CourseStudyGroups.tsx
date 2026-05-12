@@ -200,7 +200,7 @@ export default function CourseStudyGroups({
                     type="button"
                     onClick={() => handleLeave(g._id)}
                     disabled={leaving === g._id}
-                    className="min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2 border-2 border-red-500/50 text-red-600 rounded-lg font-bold hover:bg-red-50 disabled:opacity-50 touch-manipulation"
+                    className="min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border-2 ds-status-error font-bold disabled:opacity-50 touch-manipulation"
                   >
                     <LogOut className="w-4 h-4" />
                     {leaving === g._id ? 'Leaving…' : leaveLabel}

@@ -140,14 +140,14 @@ export function ReferralCard() {
         </button>
         <button
           onClick={shareViaWhatsApp}
-          className="flex items-center justify-center gap-2 px-4 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors font-medium font-bold"
+          className="flex items-center justify-center gap-2 px-4 py-3 ds-button-success rounded-lg transition-colors font-medium font-bold"
         >
           <span>📱</span>
           WhatsApp
         </button>
         <button
           onClick={shareViaEmail}
-          className="flex items-center justify-center gap-2 px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors font-medium font-bold"
+          className="flex items-center justify-center gap-2 px-4 py-3 bg-brand-darkGrey hover:bg-brand-secondary-700 text-brand-white rounded-lg transition-colors font-medium font-bold"
         >
           <span>✉️</span>
           Email
@@ -212,7 +212,7 @@ export function ReferralCard() {
                 </div>
                 <div className="text-right">
                   {referral.status === 'completed' ? (
-                    <div className="text-green-600 text-sm font-medium">
+                    <div className="ds-text-success text-sm font-medium">
                       +{referral.rewardDetails?.pointsEarned || 0} {tCommon('points')}
                     </div>
                   ) : (

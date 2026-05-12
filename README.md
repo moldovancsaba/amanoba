@@ -1,7 +1,7 @@
 # Amanoba
 
-**Current Version**: 2.9.33  
-**Last Updated**: 2026-01-28  
+**Current Version**: 2.9.49
+**Last Updated**: 2026-05-12
 **Status**: Production Stable — ROADMAP & TASKLIST clean; RELEASE_NOTES current; SSO-only auth
 
 ## 🎓 Overview
@@ -23,7 +23,7 @@ Amanoba is transforming into a **unified flexible learning platform** that combi
   - Set price amount and currency per course
   - Stripe minimum amount validation
   - Real-time validation in admin UI
-- **First Course Available**: "AI 30 Nap" (AI 30 Days) - Complete 30-day AI learning course in Hungarian
+- **First Course Available**: "AI 30 Nap" (AI 30 Days) - Complete AI learning course in Hungarian
 - **Interactive Assessments**: Games (QUIZZZ, WHACKPOP, Madoku) repurposed as student assessment tools
 - **Email-First Learning**: Daily lessons sent to students' email with in-platform access
 - **Course Builder**: Admin interface to create and manage flexible courses with rich text editor
@@ -43,10 +43,10 @@ Amanoba is transforming into a **unified flexible learning platform** that combi
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 15.5.2 (App Router)
+- **Framework**: Next.js 15.5.18 (App Router)
 - **Database**: MongoDB Atlas with Mongoose 8.18.0
 - **Language**: TypeScript 5
-- **Styling**: Tailwind CSS 3.4.1 (with custom brand colors)
+- **Styling**: Tailwind CSS 3.4.11 with centralized design-system tokens
 - **Email**: Resend API for lesson delivery (daily automated emails)
 - **Rich Text Editor**: TipTap for course content creation
 - **i18n**: next-intl for multi-language support (Hungarian default, English)
@@ -172,7 +172,7 @@ Set `ADMIN_PASSWORD` in your environment configuration.
 
 Features:
 - **Course Management**: Create, edit, delete, and manage flexible courses with cascading deletes
-- **Lesson Builder**: Rich text editor for daily lesson content with email templates
+- **Lesson Builder**: Rich text editor for lesson content with email templates
 - **Quiz Management**: Create and manage course-specific quiz questions with two-step deletion
 - **Course Export/Import**: Export courses to JSON for backup/sharing, import with overwrite support
 - **Game Management**: Configure games and assessment settings
@@ -187,9 +187,9 @@ Features:
 ### AI 30 Nap (AI 30 Days)
 - **Course ID**: `AI_30_NAP`
 - **Language**: Hungarian (hu)
-- **Duration**: 30 days
+- **Duration**: 30 lessons
 - **Status**: Active and ready for enrollment
-- **Content**: Complete 30-day AI learning journey covering:
+- **Content**: Complete AI learning journey covering:
   - Days 1-5: Basics & mindset
   - Days 6-10: Daily work facilitation
   - Days 11-15: System building
@@ -197,11 +197,11 @@ Features:
   - Days 21-25: AI for revenue
   - Days 26-30: Closing & next level
 
-**Seed Scripts**: 
+**Seed Scripts**:
 - `npm run seed:ai-course` - Create the AI 30 Nap course
 - `npm run seed:course-creation` - Create the "Kurzus a kurzus készítésre" course (course creation guide)
 
-**Course Export/Import**: 
+**Course Export/Import**:
 - Export any course to JSON via admin interface (includes all lessons and quiz questions)
 - Import courses from JSON with overwrite support
 - Perfect for course backup, sharing, and migration
@@ -209,15 +209,18 @@ Features:
 ## 🔄 Versioning
 
 Amanoba follows semantic versioning (MAJOR.MINOR.PATCH):
-- **PATCH**: Before every `npm run dev` (auto-incremented)
-- **MINOR**: Before every commit to GitHub
-- **MAJOR**: On significant releases (manual)
+- **PATCH**: Backward-compatible fixes, documentation/version alignment, and low-risk improvements
+- **MINOR**: Backward-compatible product features
+- **MAJOR**: Breaking releases or major platform migrations
 
 Version reflected in:
 - `package.json`
-- All documentation
-- `SystemVersion` collection in MongoDB
+- `package-lock.json`
+- README, architecture, tech stack, handover, and release notes
+- `SystemVersion` collection in MongoDB when database migrations are involved
 - UI footer (if applicable)
+
+Use `npm run release:patch`, `npm run release:minor`, or `npm run release:major` for formal release bumps.
 
 ## 🤝 Merge Sources
 

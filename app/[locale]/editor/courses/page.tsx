@@ -56,33 +56,33 @@ export default function EditorCoursesPage() {
     <div className="space-y-4">
       <div>
         <h1 className="text-xl font-bold">My editor courses</h1>
-        <p className="text-sm text-gray-300">Courses you created or were assigned to.</p>
+        <p className="text-sm text-brand-white/80">Courses you created or were assigned to.</p>
       </div>
 
-      {loading && <div className="text-sm text-gray-300">Loading…</div>}
-      {error && <div className="text-sm text-red-300">{error}</div>}
+      {loading && <div className="text-sm text-brand-white/80">Loading...</div>}
+      {error && <div className="text-sm ds-text-error">{error}</div>}
 
       {!loading && !error && (
         <div className="grid gap-3">
           {sorted.length === 0 ? (
-            <div className="text-sm text-gray-300">No courses assigned.</div>
+            <div className="text-sm text-brand-white/80">No courses assigned.</div>
           ) : (
             sorted.map((c) => (
               <Link
                 key={c._id || c.courseId}
                 href={`/${locale}/editor/courses/${encodeURIComponent(c.courseId)}`}
-                className="block bg-gray-800 border border-gray-700 rounded-lg p-4 hover:bg-gray-750"
+                className="block panel-on-dark p-4 hover:bg-brand-secondary-700"
               >
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <div className="font-semibold">{c.name || c.courseId}</div>
-                    <div className="text-xs text-gray-400">{c.courseId}</div>
+                    <div className="text-xs text-brand-white/60">{c.courseId}</div>
                   </div>
-                  <div className="text-xs text-gray-300">
-                    {(c.language || '').toUpperCase()} • {c.durationDays ?? '?'} days • {c.isActive ? 'active' : 'draft'}
+                  <div className="text-xs text-brand-white/80">
+                    {(c.language || '').toUpperCase()} • {c.durationDays ?? '?'} lessons • {c.isActive ? 'active' : 'draft'}
                   </div>
                 </div>
-                {c.description ? <div className="text-sm text-gray-300 mt-2 line-clamp-2">{c.description}</div> : null}
+                {c.description ? <div className="text-sm text-brand-white/80 mt-2 line-clamp-2">{c.description}</div> : null}
               </Link>
             ))
           )}
@@ -91,4 +91,3 @@ export default function EditorCoursesPage() {
     </div>
   );
 }
-

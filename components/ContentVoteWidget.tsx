@@ -87,7 +87,7 @@ export default function ContentVoteWidget({
           disabled={!playerId || submitting}
           onClick={() => submitVote(1)}
           className={`p-1 rounded transition-colors ${
-            myVote === 1 ? 'text-green-600 bg-green-100' : 'hover:bg-brand-darkGrey/10'
+            myVote === 1 ? 'ds-status-success' : 'hover:bg-brand-darkGrey/10'
           } ${!playerId ? 'opacity-60 cursor-not-allowed' : ''}`}
         >
           <ThumbsUp className="w-4 h-4" />
@@ -98,7 +98,7 @@ export default function ContentVoteWidget({
           disabled={!playerId || submitting}
           onClick={() => submitVote(-1)}
           className={`p-1 rounded transition-colors ${
-            myVote === -1 ? 'text-amber-600 bg-amber-100' : 'hover:bg-brand-darkGrey/10'
+            myVote === -1 ? 'ds-status-warning' : 'hover:bg-brand-darkGrey/10'
           } ${!playerId ? 'opacity-60 cursor-not-allowed' : ''}`}
         >
           <ThumbsDown className="w-4 h-4" />

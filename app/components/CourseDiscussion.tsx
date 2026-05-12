@@ -173,7 +173,7 @@ export default function CourseDiscussion({
                   <button
                     type="button"
                     onClick={() => handleDelete(post._id)}
-                    className="p-2 text-brand-darkGrey hover:text-red-600 rounded touch-manipulation"
+                    className="p-2 text-brand-darkGrey hover:text-semantic-error rounded touch-manipulation"
                     title={strings.delete}
                     aria-label={strings.delete}
                   >

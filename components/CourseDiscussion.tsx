@@ -177,7 +177,7 @@ export default function CourseDiscussion({
                   <button
                     type="button"
                     onClick={() => handleDelete(post._id)}
-                    className="text-red-600 hover:text-red-700 p-1"
+                    className="ds-text-error p-1"
                     title="Delete"
                     aria-label="Delete post"
                   >

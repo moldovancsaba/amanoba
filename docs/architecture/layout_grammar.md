@@ -1,7 +1,7 @@
 # Amanoba Layout Grammar
 
-**Version**: 1.1  
-**Last Updated**: 2026-05-10  
+**Version**: 1.2
+**Last Updated**: 2026-05-12
 **Status**: ACTIVE — Single source of truth for structural and layout rules
 
 ---
@@ -41,9 +41,9 @@ This document defines the **layout grammar** of the Amanoba project: how content
 
 Designer courses in the system are expressed as **canonical course specs (CCS)**.
 
-**Location**: `docs/canonical/<COURSE_FAMILY>/`  
-**Files**:  
-- `<NAME>.canonical.json` — machine-readable CCS (schema below).  
+**Location**: `docs/canonical/<COURSE_FAMILY>/`
+**Files**:
+- `<NAME>.canonical.json` — machine-readable CCS (schema below).
 - `<NAME>_CCS.md` — narrative guide and usage.
 
 **Canonical JSON structure (grammar)**:
@@ -57,9 +57,9 @@ Designer courses in the system are expressed as **canonical course specs (CCS)**
 
 **Rule**: Localized lessons and quizzes must align with the CCS for that course family. Drift is either a localization defect or a CCS version change, never silent.
 
-**Existing CCS families**:  
-- `docs/canonical/PRODUCTIVITY_2026/`  
-- `docs/canonical/DONE_BETTER_2026/`  
+**Existing CCS families**:
+- `docs/canonical/PRODUCTIVITY_2026/`
+- `docs/canonical/DONE_BETTER_2026/`
 - `docs/canonical/SCRUMMASTER_LESZEK_2026/` (HU: seed via `scripts/seed-scrummaster-leszek-2026-hu.ts --apply --full-lessons`)
 
 ---
@@ -68,14 +68,14 @@ Designer courses in the system are expressed as **canonical course specs (CCS)**
 
 **Model**: `app/lib/models/lesson.ts` (Lesson schema).
 
-**Required fields**:  
+**Required fields**:
 - `lessonId`, `courseId`, `dayNumber` (positive lesson position; courses can contain 1 to any number of lessons), `language`, `title`, `content`, `emailSubject`, `emailBody`, `pointsReward`, `xpReward`, `isActive`, `displayOrder`.
 
 **Content structure (grammar for lesson content)**:
 
-- **Introduction** — context and why it matters.  
-- **Main content** — concepts and procedures (aligned to CCS).  
-- **Summary** — short recap.  
+- **Introduction** — context and why it matters.
+- **Main content** — concepts and procedures (aligned to CCS).
+- **Summary** — short recap.
 - **Action items** — concrete next steps.
 
 **Quality**: 20–30 min reading time; clear structure; specific and actionable; no fluff; same language as course (language integrity). Email fields (`emailSubject`, `emailBody`) must be in-language and free of leakage from other languages.
@@ -86,13 +86,13 @@ Designer courses in the system are expressed as **canonical course specs (CCS)**
 
 ## 5. Quiz layout (structure and quality)
 
-- **Per lesson**: Minimum **7** valid questions (more allowed).  
+- **Per lesson**: Minimum **7** valid questions (more allowed).
 - **Cognitive mix (hard rules)**:
-  - **0 RECALL** questions.  
-  - Minimum **5 APPLICATION** questions.  
-  - Minimum **2 CRITICAL_THINKING** questions (recommended).  
-- **Format**: 4 options per question (1 correct + 3 plausible distractors).  
-- **Metadata**: UUID v4, hashtags, `questionType` (APPLICATION | CRITICAL_THINKING), `difficulty`, `category`.  
+  - **0 RECALL** questions.
+  - Minimum **5 APPLICATION** questions.
+  - Minimum **2 CRITICAL_THINKING** questions (recommended).
+- **Format**: 4 options per question (1 correct + 3 plausible distractors).
+- **Metadata**: UUID v4, hashtags, `questionType` (APPLICATION | CRITICAL_THINKING), `difficulty`, `category`.
 - **Content**: Standalone, scenario-based, grounded in the lesson and CCS; no lesson-referential wording; no throwaway options; distractors must be educational.
 
 See `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/COURSE_BUILDING_RULES.md` and `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` for full quiz quality rules.
@@ -113,22 +113,24 @@ See `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/COURSE_BUIL
 
 **Color tokens**:
 
-- **Backgrounds**: Black (`#000000`), Dark grey (`#2D2D2D`), White (`#FFFFFF`).  
+- **Backgrounds**: Black (`#000000`), Dark grey (`#2D2D2D`), White (`#FFFFFF`).
 - **Accent / CTA**: Yellow/Gold `#FAB908` (Tailwind: `brand-accent`, `primary`, CSS: `--cta-bg`, `--color-primary-500`).
 
 **CTA yellow exclusivity**:
 
-- **Primary actions only**: Buttons and links that are the main action (e.g. "Start", "Submit", "Save") use CTA yellow.  
+- **Primary actions only**: Buttons and links that are the main action (e.g. "Start", "Submit", "Save") use CTA yellow.
 - **Non-CTA elements** (badges, labels, table of contents numbers, secondary text) must **not** use CTA yellow; use neutral/secondary palette (e.g. `brand-darkGrey`, grey scale).
 
 **Page layout pattern**:
 
-- **Shell**: Dark background (black/dark grey).  
-- **Content**: White or dark cards (`page-card-dark`, white cards with borders).  
-- **Primary actions**: Accent yellow; hover per design tokens.  
+- **Shell**: Dark background (black/dark grey).
+- **Content**: White or dark cards (`page-card-dark`, white cards with borders).
+- **Primary actions**: Accent yellow; hover per design tokens.
 - **Links**: Accent for primary links; grey for secondary.
 
 **Components**: Prefer Tailwind and design-system tokens. Avoid inline hex for brand/CTA colors; use `brand-accent`, `brand-black`, `brand-darkGrey`, `brand-white`, semantic token classes, or CSS variables from the token source files.
+
+**Hard-coded design rule**: touched UI code must not introduce raw colour literals or generic template palettes (`indigo-*`, `gray-*`, `red-*`, etc.) when a design-system token or shared utility exists. Use `semantic.*`, `brand.*`, `.ds-status-*`, `.ds-button-*`, `.ds-text-*`, or shared primitives instead.
 
 **Shared primitive rule**:
 
@@ -145,9 +147,9 @@ See `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/COURSE_BUIL
 
 ## 7. API and route layout
 
-- **App Router**: `app/[locale]/<segment>/...`, `app/api/<segment>/...`.  
-- **Locale**: First segment after app (e.g. `en`, `hu`). Use `LocaleLink` for in-app navigation to preserve locale.  
-- **Admin**: `app/[locale]/admin/...`, `app/api/admin/...`. Access controlled by RBAC (admin/editor).  
+- **App Router**: `app/[locale]/<segment>/...`, `app/api/<segment>/...`.
+- **Locale**: First segment after app (e.g. `en`, `hu`). Use `LocaleLink` for in-app navigation to preserve locale.
+- **Admin**: `app/[locale]/admin/...`, `app/api/admin/...`. Access controlled by RBAC (admin/editor).
 - **Ids in paths**: Use stable IDs (e.g. `courseId`, `playerId`, `slug`); avoid optional query params for primary resources where a path is clearer.
 
 ---
@@ -172,20 +174,20 @@ All other locale files remain in their native language (no British/US split). Na
 
 ## 9. Reuse and coding patterns
 
-- **Reuse via discriminator**: When the same feature is needed in 2+ places (e.g. up/down vote on courses, lessons, discussion posts), implement **one model**, **one API**, and **one UI component**; use a discriminator field (e.g. `targetType`, `targetId`) to select context. Do not duplicate schemas, routes, or components. See **docs/product/VOTING_AND_REUSE_PATTERN.md** and **docs/architecture/ARCHITECTURE.md** (Core Principles).  
+- **Reuse via discriminator**: When the same feature is needed in 2+ places (e.g. up/down vote on courses, lessons, discussion posts), implement **one model**, **one API**, and **one UI component**; use a discriminator field (e.g. `targetType`, `targetId`) to select context. Do not duplicate schemas, routes, or components. See **docs/product/VOTING_AND_REUSE_PATTERN.md** and **docs/architecture/ARCHITECTURE.md** (Core Principles).
 - **Extending a reused feature**: Add a new discriminator value (e.g. new `targetType`), allow-list it in the API, and render the same component with the new type; do not add new collections or routes for the same behaviour.
 
 ---
 
 ## 10. When to use this grammar
 
-- **Creating or editing courses/lessons/quizzes**: Follow CCS layout (§3), lesson layout (§4), quiz layout (§5), and language rules (§8).  
-- **Creating or editing UI/pages**: Follow project layout (§1), UI layout (§6), and naming.  
-- **Creating or editing docs**: Follow documentation layout (§2) and project layout (§1).  
-- **Writing scripts** (seed, audit, backfill): Use same DB name as app (`process.env.DB_NAME || 'amanoba'`), follow naming and doc output paths under `/docs` and `/scripts/reports` as established.  
+- **Creating or editing courses/lessons/quizzes**: Follow CCS layout (§3), lesson layout (§4), quiz layout (§5), and language rules (§8).
+- **Creating or editing UI/pages**: Follow project layout (§1), UI layout (§6), `docs/core/CODING_STANDARDS.md`, and naming.
+- **Creating or editing docs**: Follow documentation layout (§2) and project layout (§1).
+- **Writing scripts** (seed, audit, backfill): Use same DB name as app (`process.env.DB_NAME || 'amanoba'`), follow naming and doc output paths under `/docs` and `/scripts/reports` as established.
 - **Implementing the same behaviour in 2+ places**: Follow reuse via discriminator (§9); read **docs/product/VOTING_AND_REUSE_PATTERN.md**.
 
 ---
 
-**Maintained by**: Amanoba team  
-**Cross-references**: `COURSE_BUILDING_RULES.md`, `DESIGN_UPDATE.md`, `NAMING_GUIDE.md`, `QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, `VOTING_AND_REUSE_PATTERN.md`, `ARCHITECTURE.md`, `2026_course_quality_prompt.md`, canonical CCS under `docs/canonical/`.
+**Maintained by**: Amanoba team
+**Cross-references**: `COURSE_BUILDING_RULES.md`, `CODING_STANDARDS.md`, `DESIGN_UPDATE.md`, `NAMING_GUIDE.md`, `QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, `VOTING_AND_REUSE_PATTERN.md`, `ARCHITECTURE.md`, `2026_course_quality_prompt.md`, canonical CCS under `docs/canonical/`.

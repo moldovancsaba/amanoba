@@ -1,6 +1,6 @@
 # Design System Status
 
-**Last Updated**: 2026-05-10  
+**Last Updated**: 2026-05-12
 **Status**: Active foundation, incremental migration still required
 
 ---
@@ -11,15 +11,15 @@ The Amanoba design system is **not fully migrated** across the app. The central 
 
 As of this update, the active source of truth is:
 
-1. `app/design-system.css`  
+1. `app/design-system.css`
    CSS variables for brand, semantic, surface, border, text, motion, and external-brand colors.
-2. `tailwind.config.ts`  
+2. `tailwind.config.ts`
    Tailwind aliases that expose the CSS-token system to components via `brand.*`, `primary.*`, `semantic.*`, and `social.*`.
-3. `app/globals.css`  
+3. `app/globals.css`
    Shared shell/panel/page utility classes such as `.page-shell`, `.page-card`, `.ds-panel`, `.ds-panel-dark`, and `.ds-copy-muted`.
-4. `app/components/ui/button.tsx` and `app/components/ui/card.tsx`  
+4. `app/components/ui/button.tsx` and `app/components/ui/card.tsx`
    Shared UI primitives that must stay aligned with the token system.
-5. `app/lib/constants/color-tokens.ts` and `app/lib/constants/certificate-colors.ts`  
+5. `app/lib/constants/color-tokens.ts` and `app/lib/constants/certificate-colors.ts`
    Non-CSS token sources for emails, OG/certificate image rendering, charts, and similar server-rendered contexts.
 
 ---
@@ -35,6 +35,12 @@ As of this update, the active source of truth is:
 
 ## What is now fixed
 
+### Shared/editor cleanup
+
+- Shared learner-facing components now use semantic design-system utilities for success, warning, and error states instead of ad-hoc `green-*`, `yellow-*`, and `red-*` classes.
+- The editor portal shell and course/lesson pages now use Amanoba shell, panel, brand, and semantic tokens instead of generic `gray-*`, `indigo-*`, and `red-*` palette classes.
+- `tailwind.config.ts` now maps the secondary palette to design-system CSS variables instead of duplicating hard-coded secondary hex values.
+
 ### Shared foundations
 
 - `Button` now defaults to Amanoba brand styling instead of generic template colors.
@@ -46,6 +52,7 @@ As of this update, the active source of truth is:
 - Google sign-in brand colors are now centralized as CSS variables instead of raw hex values in the sign-in page.
 - Surface, text, and border aliases were added to `app/design-system.css` so shared UI primitives reference the same semantic layer.
 - Tailwind now exposes those token groups under `brand.surface`, `brand.text`, `brand.border`, `semantic`, and `social.google`.
+- `app/globals.css` now includes semantic utility classes for status blocks, state text, and success/warning/danger actions.
 
 ### Validation pipeline
 
@@ -86,5 +93,5 @@ Use `npm run ui:audit:foundation` and `npm run ui:audit:layout` to refresh the q
 
 1. Admin pages with heavy `indigo-*` / `gray-*` drift, especially achievements and players.
 2. Profile and certificate pages with large counts of token-drift findings.
-3. Shared components that still rely on generic Tailwind palette classes.
+3. Remaining legacy admin/game screens that still rely on generic Tailwind palette classes.
 4. Any documentation that still describes the design system as fully migrated.
