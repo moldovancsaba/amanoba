@@ -652,8 +652,7 @@ export async function GET(request: NextRequest) {
 
     // Create NextAuth session using credentials provider
     // Why: Use NextAuth session management for consistency
-    // SIMPLIFIED: Use player.role which was just updated from SSO
-    // Since we always trust SSO, player.role should match userInfo.role
+    // Use player.role after the SSO sync above; it should match userInfo.role.
     const finalRole = player.role || userInfo.role || 'user';
     
     if (process.env.NODE_ENV !== 'production') {

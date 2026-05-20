@@ -45,7 +45,7 @@ function getFromHeader(): string {
   return `${EMAIL_CONFIG.fromName} <${EMAIL_CONFIG.from}>`;
 }
 
-/** Send one email via the configured transport (Resend or SMTP). */
+/** Send one email via the configured transport selected by EMAIL_PROVIDER. */
 async function sendViaTransport(
   to: string,
   subject: string,

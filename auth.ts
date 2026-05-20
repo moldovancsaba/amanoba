@@ -45,8 +45,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           return true;
         }
         
-        // SSO is handled in /api/auth/sso/callback, not here
-        // This callback is only for legacy providers (none remaining)
+        // SSO is handled in /api/auth/sso/callback; no other sign-in providers create players here.
         return true;
       } catch (error) {
         logger.error({ error }, 'Error during sign in');
@@ -65,8 +64,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       // Why: Role may change in database, so we need to refresh it on every request
       const playerId = user?.id || token.id;
       
-      // SIMPLIFIED: For initial sign in, use role from user object (from SSO/credentials)
-      // Then always refresh from database to ensure consistency
+      // For initial sign-in, accept the SSO/credentials role before refreshing from the database.
       const u = user as AugmentedUser | undefined;
       if (user && user.id && u?.role) {
         token.id = user.id;
@@ -87,7 +85,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             token.id = playerId as string;
             // Always use database role - it's the source of truth after SSO update
             const dbRole = (player.role as 'user' | 'admin') || 'user';
-            token.role = dbRole; // Database role wins (was updated from SSO)
+            token.role = dbRole;
             token.authProvider = (player.authProvider as 'sso' | 'anonymous') || 'sso';
             token.ssoSub = player.ssoSub || null;
             token.locale = (player.locale && locales.includes(player.locale as Locale) ? (player.locale as Locale) : defaultLocale);

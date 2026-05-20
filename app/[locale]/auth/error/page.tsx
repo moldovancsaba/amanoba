@@ -2,7 +2,7 @@
  * Authentication Error Page
  * 
  * What: Displays authentication errors with user-friendly messages
- * Why: Handle OAuth failures and provide clear guidance to users
+ * Why: Handle SSO/auth failures and provide clear guidance to users
  */
 
 import Link from 'next/link';
@@ -27,11 +27,11 @@ const errorMessages: Record<string, { title: string; description: string }> = {
   },
   OAuthSignin: {
     title: 'OAuth Sign In Failed',
-    description: 'Error occurred while trying to connect with Facebook. Please try again.',
+    description: 'Error occurred while trying to start sign in. Please try again.',
   },
   OAuthCallback: {
     title: 'OAuth Callback Error',
-    description: 'Error occurred during the Facebook authentication process. Please try again.',
+    description: 'Error occurred during the sign-in callback. Please try again.',
   },
   OAuthCreateAccount: {
     title: 'Account Creation Failed',

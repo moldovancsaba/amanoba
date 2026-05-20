@@ -49,7 +49,7 @@ This is the **Brain Boost** every developer must read before touching Amanoba co
 - Payments: Stripe checkout is wired under `app/api/payments/*` and helper code in `app/lib/utils/stripe-minimums.ts`, tied to course pricing. Validate currencies (USD, EUR, HUF, GBP) before touching pricing logic.
 
 ## 7. Where to look fast
-- UI routes: `app/[locale]` (localization for `hu`, `en`).
+- UI routes: `app/[locale]` (17 primary UI locales from `app/lib/i18n/locales.ts`).
 - Business logic: `app/lib/` (models, courses, gamification, analytics).
 - Components: `components/` with gamification, games, charts, UI primitives.
 - Translations: `messages/*.json`.
