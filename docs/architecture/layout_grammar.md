@@ -1,7 +1,7 @@
 # Amanoba Layout Grammar
 
 **Version**: 1.2
-**Last Updated**: 2026-05-12
+**Last Updated**: 2026-05-20
 **Status**: ACTIVE — Single source of truth for structural and layout rules
 
 ---
@@ -156,7 +156,7 @@ See `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/COURSE_BUIL
 
 ## 8. Language and localization layout
 
-- **Supported locales (UI)**: `hu`, `en`, `ar`, `hi`, `id`, `pt`, `vi`, `tr`, `bg`, `pl`, `ru`, `sw` (12 languages). Single source of truth: **`app/lib/i18n/locales.ts`**. Translation files: **`messages/<locale>.json`**.
+- **Supported locales (UI)**: `hu`, `en`, `ar`, `hi`, `id`, `pt`, `vi`, `tr`, `bg`, `pl`, `ru`, `sw`, `zh`, `es`, `fr`, `bn`, `ur` (17 locales). Single source of truth: **`app/lib/i18n/locales.ts`**. Translation files: **`messages/<locale>.json`**.
 - **Default locale**: Configurable in **`i18n.ts`** (e.g. `hu`). Used as fallback when browser language is not in the supported list. **Locale detection**: Middleware uses browser `Accept-Language` and locale cookie (`localeDetection: true`).
 - **User locale preference**: Stored on the player (`player.locale`). Users set it in **Profile → Profile settings → Language**; used for session, emails, and course recommendations.
 - **Course language**: Each course has a single `language` (e.g. `hu`, `en`). All lesson content and email fields for that course must be in that language (language integrity).

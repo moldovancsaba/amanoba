@@ -1,5 +1,8 @@
 # Learning Streak MVP
 
+**Last Updated**: 2026-05-20
+**Status**: Active
+
 ## Context
 
 Amanoba issue `#750` calls for a streak system that supports daily learning habits rather than empty compulsive behavior.
@@ -10,7 +13,7 @@ The first streak implementation is a `daily_learning` streak.
 
 It advances when a learner completes at least one meaningful course-learning action on a calendar day:
 
-- complete a lesson day
+- complete a lesson
 - pass a lesson quiz
 
 It does not advance more than once per day, even if the learner completes multiple lessons or quizzes on that same day.
@@ -56,7 +59,7 @@ Track the streak as a habit intervention, not a vanity counter.
 
 Questions this MVP should answer:
 
-- do learners with an active learning streak complete more lesson days per week?
+- do learners with an active learning streak complete more lessons per week?
 - does streak continuity correlate with better course progression?
 - how often do learners preserve a streak via lesson completion vs quiz pass?
 

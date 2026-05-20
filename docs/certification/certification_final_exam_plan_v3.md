@@ -1,6 +1,8 @@
 # certification_final_exam_plan_v3.md
 Last updated: 2026-01-21
 
+**Status**: Historical planning note. Current certification reference is `docs/certification/CERTIFICATION_REFERENCE.md`; do not copy fixed 30-day pool assumptions into new work.
+
 This document is the implementation-ready delivery plan for the Amanoba Certification system upgrade:
 - Premium-gated certification entitlement (money or points, or included in premium)
 - Final Certification Exam (50 questions from the certification pool)

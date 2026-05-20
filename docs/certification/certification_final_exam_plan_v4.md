@@ -1,6 +1,8 @@
 # certification_final_exam_plan_v4.md
 Last updated: 2026-01-21
 
+**Status**: Historical planning note. Current certification reference is `docs/certification/CERTIFICATION_REFERENCE.md`; do not copy fixed 30-day pool assumptions into new work.
+
 ## Read-me first
 
 You asked me to read the shared ChatGPT conversation and produce a complete, implementation-ready plan.

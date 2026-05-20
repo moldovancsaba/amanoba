@@ -1,250 +1,106 @@
-# i18n Setup Complete
+# Amanoba i18n Reference
 
-**Completed**: 2025-01-14T13:00:00.000Z  
-**Status**: ✅ i18n infrastructure ready
+**Last Updated**: 2026-05-20
+**Status**: Active
 
----
-
-## ✅ Completed Tasks
-
-### 1. next-intl Installation & Configuration
-- ✅ Installed `next-intl` package
-- ✅ Created `i18n.ts` configuration file
-- ✅ Default locale: Hungarian (`hu`) — fallback when browser language is not supported
-- ✅ Supported locales: **`app/lib/i18n/locales.ts`** — `hu`, `en`, `ar`, `hi`, `id`, `pt`, `vi`, `tr`, `bg`, `pl`, `ru`, `sw` (12 languages)
-- ✅ Locale detection: browser `Accept-Language` and cookie (`localeDetection: true` in middleware)
-- ✅ User preference: Profile → Profile settings → Language (persisted as `player.locale`)
-- ✅ Updated `next.config.ts` with next-intl plugin
-
-### 2. Translation Files Created
-- ✅ `messages/<locale>.json` for each supported locale: `hu`, `en`, `ar`, `bg`, `hi`, `id`, `pl`, `pt`, `ru`, `tr`, `vi`, `sw`
-- ✅ Hungarian (`hu`), English (`en`), and Swahili (`sw`) are fully maintained; other locales share the same key structure. **Rule:** When the user selects a language, all UI must be in that language (no English placeholders for live locales).
-- ✅ Comprehensive translation keys for:
-  - Common UI elements
-  - Authentication
-  - Dashboard
-  - Courses
-  - Games
-  - Achievements
-  - Leaderboard
-  - Rewards
-  - Profile
-  - Settings
-  - Admin
-  - Errors
-  - Email templates
-
-### 3. Data Models Updated
-
-#### Course Model (`app/lib/models/course.ts`)
-- ✅ Added `language` field (default: 'hu')
-- ✅ Added `translations` Map for multi-language support
-- ✅ Added database indexes for language queries
-
-#### Lesson Model (`app/lib/models/lesson.ts`)
-- ✅ Added `language` field (default: 'hu')
-- ✅ Added `translations` Map for multi-language support
-- ✅ Added database indexes for language queries
-
-#### Player Model (`app/lib/models/player.ts`)
-- ✅ Updated `locale` default from 'en' to 'hu'
-- ✅ Added index for locale queries
-
-### 4. Middleware & Routing
-- ✅ **Shared routing**: `app/lib/i18n/routing.ts` uses `defineRouting` (locales, defaultLocale, localePrefix, localeDetection); same config used by middleware and navigation.
-- ✅ Middleware uses `createMiddleware(routing)` from next-intl (single source of truth).
-- ✅ **Double-locale redirect**: URLs like `/id/en` or `/en-GB/ru` redirect to the second locale (e.g. `/en`, `/ru`) to avoid 404s and wrong content.
-- ✅ Duplicate-locale redirect: `/ru/ru` → `/ru` (unchanged).
-- ✅ Language routing: `localePrefix: 'always'` — all routes have locale prefix (e.g. `/hu/...`, `/en/...`).
-- ✅ Locale detection: `localeDetection: true` — first visit uses browser `Accept-Language`; returning visitors use locale cookie.
-- ✅ Combined with existing auth middleware.
-
-### 5. Layout Structure
-- ✅ Created `app/[locale]/layout.tsx` for locale-based layout
-- ✅ Integrated NextIntlClientProvider
-- ✅ Updated HTML lang attribute based on locale
-- ✅ Maintained backward compatibility with root layout
-
-### 6. Language Switcher & Navigation
-- ✅ **Locale-aware navigation**: `app/lib/i18n/navigation.ts` exports `Link`, `usePathname`, `useRouter`, `redirect` from `createNavigation(routing)`. Use these instead of `next/navigation` when building locale-prefixed URLs so pathname is without locale (e.g. `/dashboard` not `/en/dashboard`).
-- ✅ `components/LanguageSwitcher.tsx` uses `usePathname`/`useRouter` from `@/app/lib/i18n/navigation` and `router.replace(pathname, { locale })` so switching language keeps the same page and never produces double-locale URLs.
-- ✅ Dropdown lists all supported locales; preserves current route when switching.
-
-### 7. Email Service Updated
-- ✅ Added locale parameter to `sendLessonEmail()`
-- ✅ Multi-language email content support
-- ✅ Automatic translation fallback
-- ✅ Uses player's locale preference
+This document is the current reference for Amanoba locale routing, translation files, and language expansion. Historical migration notes are no longer authoritative; the app already runs through the locale-prefixed App Router structure.
 
 ---
 
-## 📁 Files Created
+## Current Locale Set
 
-1. `i18n.ts` - i18n configuration
-2. `messages/hu.json` - Hungarian translations
-3. `messages/en.json` - English translations
-4. `app/[locale]/layout.tsx` - Locale-based layout
-5. `app/[locale]/page.tsx` - Locale-based root page
-6. `components/LanguageSwitcher.tsx` - Language switcher component
+The supported UI locale source of truth is [`app/lib/i18n/locales.ts`](../../app/lib/i18n/locales.ts).
 
-## 📝 Files Modified
+Active UI locales:
 
-1. `next.config.ts` - Added next-intl plugin
-2. `middleware.ts` - Integrated i18n routing
-3. `app/layout.tsx` - Updated for backward compatibility
-4. `app/page.tsx` - Updated for backward compatibility
-5. `app/lib/models/course.ts` - Added language support
-6. `app/lib/models/lesson.ts` - Added language support
-7. `app/lib/models/player.ts` - Updated default locale
-8. `app/lib/email/email-service.ts` - Added multi-language support
+- `hu` Hungarian
+- `en` English
+- `ar` Arabic
+- `hi` Hindi
+- `id` Indonesian
+- `pt` Portuguese
+- `vi` Vietnamese
+- `tr` Turkish
+- `bg` Bulgarian
+- `pl` Polish
+- `ru` Russian
+- `sw` Swahili
+- `zh` Chinese
+- `es` Spanish
+- `fr` French
+- `bn` Bengali
+- `ur` Urdu
 
----
+The repo also contains regional English message files (`messages/en-GB.json`, `messages/en-US.json`) for compatibility. They are translation resources, not currently listed as primary routable locales in `app/lib/i18n/locales.ts`.
 
-## 🚀 Usage
+## Routing
 
-### In Server Components
-```typescript
-import { getTranslations } from 'next-intl/server';
+- `i18n.ts` configures next-intl and the default fallback locale.
+- `app/lib/i18n/routing.ts` defines shared routing with `localePrefix: 'always'`.
+- `app/lib/i18n/navigation.ts` exports locale-aware `Link`, `usePathname`, `useRouter`, and `redirect`.
+- `middleware.ts` uses the shared next-intl routing config and keeps auth handling in the same request path.
+- Public routes are locale-prefixed, for example `/en/courses`, `/hu/dashboard`, and `/es/blog`.
 
-export default async function MyPage() {
-  const t = await getTranslations('common');
-  return <h1>{t('appName')}</h1>;
-}
+Use the shared navigation helpers when building locale-prefixed app links. They prevent double-locale paths such as `/id/en` and preserve the current path when switching languages.
+
+## Translation Files
+
+Primary translation files live in `messages/<locale>.json`. Every primary locale in `app/lib/i18n/locales.ts` should have a matching JSON file with the same namespace shape.
+
+User-facing namespaces include:
+
+- `common`
+- `auth`
+- `landing`
+- `dashboard`
+- `courses`
+- `games`
+- `challenges`
+- `quests`
+- `achievements`
+- `leaderboard`
+- `rewards`
+- `referral`
+- `profile`
+- `settings`
+- `admin`
+- `errors`
+- `email`
+- `onboarding`
+- `consent`
+
+Rule: when a locale is live, UI strings for that locale should be translated rather than left as English placeholders.
+
+## Data And Email Locales
+
+- Course and lesson data support language fields and translation maps in `app/lib/models/course.ts` and `app/lib/models/lesson.ts`.
+- Player preference is stored as `player.locale`.
+- Course listing and recommendation APIs validate user locale against the supported locale list before resolving localized course text.
+- Email templates resolve localized strings through `app/lib/email/email-localization.ts` and fall back safely to English when a locale-specific string is missing.
+- Course-language options are maintained in `app/lib/constants/course-languages.ts`.
+- Certificate strings are maintained in `app/lib/constants/certificate-strings.ts`.
+
+## Adding A Locale
+
+1. Add the locale code to `app/lib/i18n/locales.ts`.
+2. Add `messages/<locale>.json` with the full namespace shape and translated strings.
+3. Add the language label in `components/LanguageSwitcher.tsx` and profile language display maps.
+4. Add the locale to `app/lib/constants/course-languages.ts` if courses can be authored in that language.
+5. Add email and certificate strings where user-facing output exists.
+6. Update API locale validation arrays that intentionally mirror the locale list.
+7. Run:
+
+```sh
+npm run type-check
+npm run docs:links:check
 ```
 
-### In Client Components
-```typescript
-'use client';
-import { useTranslations } from 'next-intl';
+Use `npm run docs:refresh` and `npm run docs:check` when documentation indexes or generated docs are touched.
 
-export default function MyComponent() {
-  const t = useTranslations('common');
-  return <button>{t('save')}</button>;
-}
-```
+## Validation Checklist
 
-### Language Switcher
-```typescript
-import LanguageSwitcher from '@/components/LanguageSwitcher';
-
-export default function Header() {
-  return (
-    <header>
-      <LanguageSwitcher />
-    </header>
-  );
-}
-```
-
----
-
-## 📋 Next Steps (Migration Required)
-
-### Existing Pages Need Migration
-All existing pages need to be moved to the `[locale]` structure:
-
-**Before:**
-```
-app/
-  dashboard/
-    page.tsx
-  games/
-    page.tsx
-```
-
-**After:**
-```
-app/
-  [locale]/
-    dashboard/
-      page.tsx
-    games/
-      page.tsx
-```
-
-### Migration Steps
-1. Move all page directories to `app/[locale]/`
-2. Update all imports to use `useTranslations()` or `getTranslations()`
-3. Replace hardcoded strings with translation keys
-4. Test all routes with both languages
-5. Update API routes if they return user-facing messages
-
----
-
-## 🌍 Language Support
-
-### Supported Languages (12)
-- **Hungarian (hu)** — default fallback
-- **English (en)**
-- **Arabic (ar)**
-- **Hindi (hi)**
-- **Indonesian (id)**
-- **Portuguese (pt)**
-- **Vietnamese (vi)**
-- **Turkish (tr)**
-- **Bulgarian (bg)**
-- **Polish (pl)**
-- **Russian (ru)**
-- **Swahili (sw)** — Kiswahili
-
-Single source of truth: **`app/lib/i18n/locales.ts`**. Translation files: **`messages/<locale>.json`**. When the user selects a language, the entire UI (landing, dashboard, courses, admin, etc.) must be in that language; each message file should contain translated strings, not English placeholders.
-
-### Default locale and user preference
-- **Default by browser**: Middleware uses `Accept-Language` and locale cookie; unsupported languages fall back to `defaultLocale` in **`i18n.ts`**.
-- **User preference**: Profile → Profile settings → Language; stored as `player.locale`, used for session and emails.
-
-### Adding New Languages
-1. Add locale to `locales` array in **`app/lib/i18n/locales.ts`**
-2. Create **`messages/{locale}.json`** and translate all namespaces (common, auth, landing, dashboard, courses, games, etc.) into the target language — the UI must be fully in that language when selected
-3. Add language name to **`components/LanguageSwitcher.tsx`** and profile settings language dropdown (`languageNames`)
-4. Add locale to **`app/lib/constants/course-languages.ts`** (COURSE_LANGUAGE_OPTIONS), **`app/lib/email/email-localization.ts`** (unsubscribe + transactional strings), **`app/lib/constants/certificate-strings.ts`** if used for certificates, API **VALID_LOCALES** where applicable, and any course-language–keyed UI maps (course detail, day page, quiz, final exam, courses list)
-
----
-
-## 🔧 Configuration
-
-### Environment Variables
-No additional environment variables needed for i18n.
-
-### Default Behavior
-- Default locale (fallback): `hu` (Hungarian) when browser language is not supported
-- URL structure: `localePrefix: 'always'` — e.g. `/hu/dashboard`, `/en/dashboard`, `/ar/dashboard`, etc.
-- Locale detection: Browser `Accept-Language` and next-intl locale cookie
-- User preference: Profile → Profile settings → Language (persisted on player, used for session and emails)
-
----
-
-## ✅ Validation
-
-- ✅ All new files compile without errors
-- ✅ No linter errors
-- ✅ Translation files are valid JSON
-- ✅ Models support language fields
-- ✅ Email service supports multi-language
-
----
-
-## 📊 Statistics
-
-- **Supported Languages**: 12 (hu, en, ar, hi, id, pt, vi, tr, bg, pl, ru, sw)
-- **Translation Keys**: 100+ per language
-- **Models Updated**: 3 (Course, Lesson, Player)
-- **New Components**: 1 (LanguageSwitcher)
-- **New Files**: 6
-- **Modified Files**: 8
-
----
-
-## 🎯 Status
-
-**i18n Infrastructure**: ✅ COMPLETE  
-**Translation Files**: ✅ COMPLETE  
-**Data Models**: ✅ COMPLETE  
-**Middleware**: ✅ COMPLETE  
-**Email Service**: ✅ COMPLETE  
-**Page Migration**: ⏳ PENDING (Next step)
-
----
-
-**Maintained By**: Narimato  
-**Next Review**: After page migration
+- The locale appears in the language switcher.
+- `/[locale]` routes render without double-locale redirects.
+- `messages/<locale>.json` is valid JSON and has the expected namespaces.
+- Course list, course detail, dashboard, profile, admin, email, and certificate strings resolve without missing-key output.
+- Public blog/news and sitemap routes include the locale through the shared locale list.

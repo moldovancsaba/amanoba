@@ -1,6 +1,8 @@
 # certification_final_exam_plan_v5.md
 Last updated: 2026-01-21
 
+**Status**: Historical planning note. Current certification reference is `docs/certification/CERTIFICATION_REFERENCE.md`; do not copy fixed 30-day pool assumptions into new work.
+
 This is the developer delivery plan for the Amanoba Certification system: premium gating, final exam, certificate issuance, score display, verification, revocation, and unified configuration.
 
 ## 1. Scope and outcomes

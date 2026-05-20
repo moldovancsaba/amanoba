@@ -1,136 +1,81 @@
-# Amanoba Codex Brain Dump (Continuity Doc)
+# Amanoba Codex Brain Dump
 
-**Last Updated**: 2026-02-26  
-**Audience**: Codex / assistants working inside this repo  
+**Last Updated**: 2026-05-20
+**Audience**: Codex / assistants working inside this repo
 **Purpose**: Fast continuity transfer after context loss.
 
 ---
 
-## 0) Safety rules (do not violate)
+## Safety Rules
 
-- Do **not** store secrets in docs.
-- Keep this document project-focused and operational.
-- When uncertain, verify from files and run checks before claiming status.
+- Do not store secrets in docs.
+- Verify from files and commands before claiming production, deploy, or quality status.
 - Deployment path is GitHub-automated: commit and push to `origin/main`; do not run manual Vercel CLI deployment unless explicitly requested.
+- The work-tracking source of truth is the MVP Factory board in `moldovancsaba/mvp-factory-control`.
 
----
+## Restore Checklist
 
-## 1) Quick restore checklist (after context loss)
+Run in this order after context loss:
 
-Run in this order:
+1. `git fetch origin && git status -sb`
+2. Read `READMEDEV.md`
+3. Read `docs/HANDOVER.md`
+4. Read `docs/core/agent_working_loop_canonical_operating_document.md`
+5. Read `docs/status/PRODUCTION_STATUS.md`
+6. Open `docs/core/DOCS_INDEX.md`
+7. Open `docs/product/TASKLIST.md`
+8. Open the top of `docs/product/RELEASE_NOTES.md`
+9. If docs, architecture, lessons, quizzes, or layout are in scope, read `docs/architecture/layout_grammar.md`
 
-1. Read `docs/core/amanoba_codex_brain_dump.md` (this file)
-2. Read `docs/core/agent_working_loop_canonical_operating_document.md`
-3. Read `docs/handoff/HANDOFF_CONTEXT_WINDOW_2026-02-12.md`
-4. Read `docs/handoff/NEXT_WINDOW_PROMPT.md`
-5. Open `docs/core/DOCS_INDEX.md`
-6. Open `docs/product/TASKLIST.md`
-7. Open top of `docs/product/RELEASE_NOTES.md`
-8. Re-anchor local git state with `git status` and `git log -5 --oneline`
+Historical handoff snapshots in `docs/handoff/` are useful background only. Do not use them as current truth without checking the current handover, docs index, and code.
 
----
+## Current Documentation Topology
 
-## 2) Documentation topology (current)
+- `docs/README.md`: documentation entrypoint and caveats.
+- `docs/core/DOCS_INDEX.md`: canonical active-doc index.
+- `docs/HANDOVER.md`: current operational handover and recent delivery notes.
+- `docs/status/PRODUCTION_STATUS.md`: production health and latest route verification.
+- `docs/product/TASKLIST.md`: active tracker mirror for GitHub Project 12 work.
+- `docs/product/ROADMAP.md`: product direction, not execution tracking.
+- `docs/product/RELEASE_NOTES.md`: user-facing shipped behavior.
+- `docs/architecture/ARCHITECTURE.md` and `docs/architecture/layout_grammar.md`: architecture and UI/course grammar.
 
-- **Active platform docs**: `amanoba/docs` (normalized into domain folders)
-- **Historical docs**: `docs/_archive/**`
-- **Course authoring docs moved out**: `/Users/moldovancsaba/Projects/amanoba_courses/process_them`
+Course authoring docs live outside this repo under `/Users/moldovancsaba/Projects/amanoba_courses/process_them`. Cross-repo path portability is tracked as Project issue `#104`.
 
-Normalized active folders:
-- `docs/core`, `docs/product`, `docs/architecture`, `docs/features`, `docs/i18n`, `docs/sso`, `docs/certification`, `docs/deployment`, `docs/quality`, `docs/status`, `docs/handoff`, `docs/seo`
+## Current Product Baseline
 
-Entrypoints:
-- `docs/README.md`
-- `docs/core/DOCS_INDEX.md`
+- Current release line: `2.9.49`.
+- Courses are flexible length. A course can contain one lesson or any number of lessons; `dayNumber` is a positive lesson position.
+- Supported primary UI locales: `hu`, `en`, `ar`, `hi`, `id`, `pt`, `vi`, `tr`, `bg`, `pl`, `ru`, `sw`, `zh`, `es`, `fr`, `bn`, `ur`.
+- Auth is SSO-only for registered users through `sso.doneisbetter.com`, with anonymous access still supported.
+- Email delivery uses the shared `app/lib/email` transport layer and `EMAIL_PROVIDER` (`resend`, `smtp`, or `mailgun`).
+- Weekly learner-facing updates publish to `/[locale]/blog`; `/[locale]/news` remains a compatibility alias.
 
----
+## Active Work Tracking
 
-## 3) What was completed in this window (2026-02-12)
+Current documentation audit lane:
 
-### A) Course-document separation
-- Course creation/maintenance/canonical/quiz/lesson content docs were relocated to:
-  - `/Users/moldovancsaba/Projects/amanoba_courses/process_them`
+- `#371` Amanoba: Establish audit plan & SSOT inventory
+- `#373` Amanoba: Document-to-code inventory for audit
+- `#374` Amanoba: Audit readiness checklist & handover prep
 
-### B) Docs normalization
-- Flat `docs/` root was reorganized into domain folders.
-- New root entrypoint created: `docs/README.md`.
-- Canonical index rewritten for the new structure: `docs/core/DOCS_INDEX.md`.
+Known follow-ups stay on the board, not buried in docs:
 
-### C) Link integrity repair (active docs)
-- Broken references in active docs were fixed.
-- Active docs now validate with **zero broken markdown links**.
+- `#16` Multi-enrolment email scheduler.
+- `#225` Lesson quiz governance cleanup.
+- `#104` Cross-repo documentation federation.
+- `#65` Documentation refresh/audit backlog.
 
-### D) Automation for docs integrity
-- Added `scripts/docs/check-doc-links.mjs`.
-- Added npm script: `docs:links:check`.
-- `docs:check` now runs generation checks **and** link checks.
-- CI workflow now covers generated docs + links via `docs:check`.
+## Operational Commands
 
-### E) Archive-reference stabilization continuation
-- High-value historical docs under `docs/_archive/**` were normalized to current locations (including moved course docs under `/Users/moldovancsaba/Projects/amanoba_courses/process_them/...`).
-- Archive-inclusive link validation now passes:
-  - `DOCS_CHECK_INCLUDE_ARCHIVE=1 npm run docs:links:check`
+```sh
+npm run docs:refresh
+npm run docs:links:check
+npm run docs:check
+DOCS_CHECK_INCLUDE_ARCHIVE=1 npm run docs:links:check
+npm run type-check
+npm run ui:check:foundation
+npm run ui:check:layout
+```
 
-### F) Course import question-mode delivery + build pass
-- Course import now supports question handling mode on update:
-  - `add` (add missing only),
-  - `overwrite` (replace questions for imported lessons),
-  - `merge` (backward-compatible API default).
-- Admin course import UI now exposes `Questions: Add Only` and `Questions: Overwrite` selectors.
-- Build blockers found during delivery were fixed (`CookieConsentBanner` hooks order, achievement criteria typing, email locale map typing).
-- Verification pass completed:
-  - `npm run build`
-  - `npm run docs:check`
-
----
-
-## 4) Current known state / caveats
-
-- The working tree is intentionally large due doc migration and normalization.
-- Many deleted paths in `docs/` are expected because files were moved/re-homed.
-- Some active docs intentionally reference external local course docs under `/Users/moldovancsaba/Projects/amanoba_courses/process_them/...`.
-- Link checker behavior:
-  - Validates in-repo links strictly.
-  - Can include archive docs with `DOCS_CHECK_INCLUDE_ARCHIVE=1`.
-  - External filesystem links are non-fatal unless `DOCS_CHECK_EXTERNAL=1`.
-
----
-
-## 5) Immediate next actions (recommended)
-
-1. Decide long-term external-link strategy:
-- keep local absolute paths,
-- or publish shared docs in a dedicated repo and replace with web links.
-
-2. Optionally tighten link policy in CI:
-- set `DOCS_CHECK_EXTERNAL=1` only after external path strategy is stable.
-
-3. Decide whether to enforce archive link validation in CI (current CI scope is active docs only).
-
-4. If making a clean handover commit sequence, split into:
-- course-doc relocation,
-- docs structure normalization,
-- archive-reference normalization,
-- course import question-mode delivery + build stabilization,
-- link checker + CI,
-- handover docs updates.
-
----
-
-## 6) Operational command set
-
-- Regenerate docs metadata: `npm run docs:refresh`
-- Validate docs metadata + links: `npm run docs:check`
-- Links only: `npm run docs:links:check`
-- Links including archive: `DOCS_CHECK_INCLUDE_ARCHIVE=1 npm run docs:links:check`
-- Strict external filesystem link check: `DOCS_CHECK_EXTERNAL=1 npm run docs:links:check`
-
----
-
-## 7) Handover package files
-
-- `docs/handoff/HANDOFF_CONTEXT_WINDOW_2026-02-12.md`
-- `docs/handoff/NEXT_WINDOW_PROMPT.md`
-- `docs/product/ROADMAP.md`
-- `docs/product/TASKLIST.md`
-- `docs/product/RELEASE_NOTES.md`
+Use the smallest meaningful gate set for the change and record skipped or blocked checks in the final handoff.

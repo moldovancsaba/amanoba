@@ -1,11 +1,13 @@
 # PHASE 2 AUDIT - COURSES 2-8
 ## Quiz Quality Enhancement - Remaining Courses
 
-**Start Date**: 2026-01-24  
-**Status**: 🟡 IN PROGRESS  
-**Total Courses**: 7 (Courses 2-8)  
-**Total Lessons Per Course**: 30  
-**Total Languages**: ~10 per course (varies by course)  
+**Start Date**: 2026-01-24
+**Status**: Historical tracker; not current execution truth
+**Total Courses**: 7 (Courses 2-8)
+**Total Lessons Per Course**: 30
+**Total Languages**: ~10 per course (varies by course)
+
+> Current course and quiz governance is documented in `docs/product/TASKLIST.md`, `docs/architecture/ARCHITECTURE.md`, and the MVP Factory board. This tracker describes an older fixed-course audit slice.
 
 ---
 
@@ -27,7 +29,7 @@
 ## AUDIT PATTERN - APPLIED SYSTEMATICALLY
 
 **Same methodology as Phase 1**:
-1. All lessons follow 30-day course template
+1. All lessons followed the historical fixed-length course template used by this audit slice
 2. Q1-Q3: Foundational → KEEP
 3. Q4: Rewrite definition → purpose/application
 4. Q5: Application scenario → KEEP
@@ -39,9 +41,9 @@
 
 ## COURSE 2 AUDIT - IN PROGRESS
 
-**Estimated Lessons**: 30  
-**Estimated Languages**: 10  
-**Estimated Audit Units**: 300  
+**Estimated Lessons**: 30
+**Estimated Languages**: 10
+**Estimated Audit Units**: 300
 **Questions to Process**: 2,100
 
 **Status Update**:

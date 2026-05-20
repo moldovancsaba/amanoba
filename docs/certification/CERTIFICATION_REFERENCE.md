@@ -1,6 +1,6 @@
 # Certification — reference index
 
-**Last updated**: 2026-02-04  
+**Last updated**: 2026-05-20
 **Purpose**: Single entry for certificate/certification docs: current design vs dated plans.
 
 ---
@@ -13,6 +13,8 @@
 | **CERTIFICATE_CREATION_GUIDE.md** | How to create and issue certificates. |
 
 Implementation details (pass rules, admin UI, APIs) are in **ARCHITECTURE.md** and **RELEASE_NOTES.md**.
+
+Current course-length rule: certificates and final exams must work with flexible-length courses. Older planning docs that mention a fixed 30-day master pool are historical and should not be copied into new implementation work.
 
 ---
 

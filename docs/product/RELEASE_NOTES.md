@@ -1,13 +1,27 @@
 # Amanoba Release Notes
 
 **Current Version**: 2.9.49
-**Last Updated**: 2026-05-12
+**Last Updated**: 2026-05-20
 
 **Rule:** Each task exists in exactly one place.
 
 ---
 
-## [v2.9.49] — 2026-05-12 🧱 Flexible course length + design-system hygiene
+## [v2.9.49-docs] — 2026-05-20 📚 Documentation source-of-truth refresh
+
+**Status**: Delivered in repo
+**Type**: Documentation, Operations
+
+- **Canonical docs refreshed:** README, developer onboarding, architecture, tech stack, handover, production status, docs index, roadmap, tasklist, i18n, release notes, and audit mapping now describe the current May 2026 platform baseline.
+- **Stale assumptions removed:** Active docs now reflect flexible course lengths, 17 primary UI locales, SSO-only auth, provider-selectable email transport, production domains, and the live Blog/News publishing flow.
+- **Historical docs clarified:** February handoff snapshots, migration reports, and old planning variants are marked as background material rather than current implementation truth.
+- **Audit lane aligned:** Documentation work is tied to Project issues `#371`, `#373`, and `#374`, with remaining cross-repo and historical-archive cleanup called out explicitly.
+
+**Verification:** Docs refresh, link validation, generated docs check, and whitespace diff check are recorded in `docs/HANDOVER.md`.
+
+---
+
+## [v2.9.49] — 2026-05-12 🧱 Flexible course length + design-system hygiene + public blog/news
 
 **Status**: Delivered and verified in production
 **Type**: Feature, Documentation, Design System
@@ -17,61 +31,12 @@
 - **Version alignment:** `package.json`, `package-lock.json`, `README.md`, architecture docs, roadmap, tech stack, handover, and release notes are aligned on `2.9.49`.
 - **Coding standards:** Added active coding standards that require design-system tokens, shared primitives, no hard-coded visual palettes, and no stale implementation comments that contradict runtime behavior.
 - **Design-system cleanup:** Replaced generic palette classes in shared voting, discussion, study group, referral, quiz, theme toggle, quiz manager, and editor portal surfaces with brand/semantic design-system utilities.
+- **Public Blog and News:** Weekly learner-facing product updates now publish to `/[locale]/blog` with `/[locale]/news` kept as a compatibility alias. The May 11 weekly update is live as a blog/news post and included in the sitemap.
+- **Automation fix:** The `amanoba-news` automation now publishes structured post JSON through `npm run blog:publish -- --file <post.json>` instead of only returning draft copy. `npm run news:publish` remains available as a compatibility alias.
 
 **Verification:** Production route checks passed after `origin/main` deploy of `05621e7`; local validation for this cleanup is captured in `docs/HANDOVER.md`.
 
 **Rollback:** Revert the flexible course-length commits and this docs/design cleanup commit, then re-run `npm run type-check`, `npm run ui:check:foundation`, and `npm run ui:check:layout`.
-
----
-
-## [Unreleased] — 2026-05-12 📝 Blog publishing correction
-
-**Status**: Delivered in repo; deploys through the next push to `origin/main`
-**Type**: Feature, Automation, SEO
-
-- **Canonical blog surface:** Added `/[locale]/blog` and `/[locale]/blog/[slug]` for weekly Amanoba product posts.
-- **Backfilled current post:** The existing May 11 weekly update now renders as a blog post at `/en/blog/2026-05-11-smarter-review-saved-lessons-streaks` after deployment.
-- **News compatibility:** Kept `/[locale]/news` as an alias backed by the same content so existing links do not break.
-- **Automation fix:** Added `npm run blog:publish -- --file <post.json>` and updated the local `amanoba-news` automation prompt to publish into the repo rather than only returning draft copy.
-- **Navigation and sitemap:** Landing and dashboard links now point to `Blog`; sitemap includes both blog and news URLs for all enabled locales.
-
-**Rollback:** Remove the blog routes, revert navigation/sitemap/script changes, restore the old automation prompt, and keep or remove the `/news` alias according to the release decision.
-
-## [Unreleased] — 2026-05-11 📰 Public What's New posts
-
-**Status**: Delivered in repo; deploys through the next push to `origin/main`
-**Type**: Feature, Automation, Documentation
-
-- **Public news surface:** Added `/[locale]/news` and `/[locale]/news/[slug]` for learner-facing weekly product updates.
-- **First weekly post:** Published the May 11, 2026 `What's new` post covering Practice Hub, Saved Lessons, quiz explanations, learning streaks, friend streaks, and design polish.
-- **Navigation:** Added a public `What's new` menu entry on the landing page and a `What's New` shortcut on the learner dashboard.
-- **Automation handoff:** Added `npm run news:publish -- --file <post.json>` so the `amanoba-news` automation can upsert a weekly post into `content/news-posts.json`.
-- **Locale availability:** News pages generate for every enabled locale, using locale-specific copy when provided and English fallback otherwise.
-- **SEO:** News index and individual post URLs are included in the sitemap.
-
-**Rollback:** Revert the news routes, `content/news-posts.json`, `app/lib/news.ts`, `scripts/publish-amanoba-news.ts`, package script, navigation links, sitemap entries, and this release note.
-
----
-
-## [Unreleased] — 2026-03-10 📋 Audit consolidation (docs ↔ code + quality gates)
-
-**Status**: In progress (audit findings consolidated; gate evidence captured)
-**Type**: Audit, Documentation, Quality
-
-- **Doc/code discrepancy consolidation**:
-  - Version drift recorded: `README.md` (2.9.33) and `docs/architecture/ARCHITECTURE.md` (2.9.40) lag behind release tracking (2.9.48 baseline).
-  - Lesson-quiz governance transition documented: course-level policy is authoritative, while legacy `quizConfig` compatibility fields still appear in selected APIs/routes for backward compatibility.
-  - Cross-repo path portability risk documented for machine-local references to `/Users/moldovancsaba/Projects/amanoba_courses/process_them/...`.
-- **Audit evidence logged** in `docs/HANDOVER.md` and `docs/status/PRODUCTION_STATUS.md` for SSOT transparency.
-- **Quality gate run (2026-03-10):**
-  - `npm run lint` ✅
-  - `npm test` ❌ initially (`__tests__/smoke/courses.test.ts`: `/api/courses` returned 500, expected 200), then ✅ after smoke mock update (`populate` + `ContentVote` aggregate mock).
-  - `npm run type-check` ✅
-  - `npm run docs:check` ❌ (generated docs files out of date by policy; checker requires no diff in generated docs files unless committed)
-  - `DOCS_CHECK_INCLUDE_ARCHIVE=1 npm run docs:links:check` ✅ (177 files checked)
-  - `npm run build` ✅
-
-**Follow-up required before closing audit cards:** fix failing smoke test and resolve docs-generated-file drift so `docs:check` passes.
 
 ---
 
@@ -143,7 +108,7 @@
 
 ---
 
-## [Unreleased] — Course package (export/import/update); P2 enrolment; Quiz system (3 options, pass rules); P3 Public lesson view (GEO)
+## [Delivered legacy batch] — Course package (export/import/update); P2 enrolment; Quiz system (3 options, pass rules); P3 Public lesson view (GEO)
 
 ### P3 — Public lesson view pages (GEO)
 
@@ -399,7 +364,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ---
 
-## [Unreleased] — 2026-01-31 🛠️
+## [Delivered legacy batch] — 2026-01-31 🛠️
 
 **Status**: Messy content audit & grammar plan — Phase 1 delivery (/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/_archive/delivery/2026-01/2026-01-31_MESSY_CONTENT_AUDIT_AND_GRAMMAR_PLAN.md)
 **Type**: Content quality (grammar, understandability)

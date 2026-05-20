@@ -4,7 +4,7 @@
 
 **Date**: 2026-01-24  
 **Phase**: 1, Step 1.2  
-**Status**: COMPLETE  
+**Status**: Historical analysis; current architecture truth is `docs/architecture/ARCHITECTURE.md` and `docs/architecture/layout_grammar.md`.
 
 ---
 

@@ -1,7 +1,7 @@
 # Amanoba Coding Standards
 
 **Version**: 1.0
-**Last Updated**: 2026-05-12
+**Last Updated**: 2026-05-20
 **Status**: ACTIVE
 
 ---
@@ -36,6 +36,8 @@ This document defines the coding rules that apply when changing Amanoba applicat
 - Release-facing version numbers must stay aligned across `package.json`, `package-lock.json`, `README.md`, `docs/core/TECH_STACK.md`, `docs/architecture/ARCHITECTURE.md`, and `docs/product/RELEASE_NOTES.md`.
 - Use `npm run release:patch`, `npm run release:minor`, or `npm run release:major` for formal release bumps when the release script is appropriate. Manual `npm version --no-git-tag-version` is acceptable for controlled documentation/version alignment work.
 - `docs/product/RELEASE_NOTES.md` should describe shipped behaviour in user-facing language. Internal churn belongs in handover notes unless it changes behaviour or operations.
+- Treat `docs/core/DOCS_INDEX.md` and `docs/HANDOVER.md` as the current doc entrypoints. Old handoff snapshots, migration reports, and planning variants are historical unless a current doc explicitly promotes them.
+- Do not add hard-coded local machine paths to new canonical docs unless the workflow still depends on that path and the portability risk is recorded.
 
 ## 5. Validation
 

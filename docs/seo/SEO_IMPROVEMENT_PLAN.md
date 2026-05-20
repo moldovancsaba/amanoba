@@ -57,7 +57,7 @@
 ### 3.3 Structured data (JSON-LD) (high value for courses)
 
 - **What**: Emit **JSON-LD** in course detail pages:
-  - **Course**: name, description, provider (Amanoba), duration (e.g. 30 days), language, thumbnail, URL.
+  - **Course**: name, description, provider (Amanoba), duration based on the actual lesson sequence, language, thumbnail, URL.
   - Optionally **Organization** (and **WebSite**) in root or locale layout for brand.
 - **Where**: Course layout or course page component; inject `<script type="application/ld+json">` with the course object. Use schema.org/Course and, if needed, Organization/WebSite.
 - **Why**: Enables rich results (course cards, knowledge panel) and clearer semantics for search engines.

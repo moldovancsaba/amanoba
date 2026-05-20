@@ -1,5 +1,8 @@
 # News Posts MVP
 
+**Last Updated**: 2026-05-20
+**Status**: Active
+
 ## Context
 
 The `amanoba-news` automation produces a weekly release-note style summary of learner-facing Amanoba changes. The public destination is the Amanoba Blog; `/news` remains a compatibility alias for the same weekly update content.
@@ -33,25 +36,15 @@ The `en` translation is required and acts as the fallback. The publisher script 
 3. It runs:
 
 ```sh
-npm run news:publish -- --file path/to/post.json
-```
-
-   The canonical command is now:
-
-```sh
 npm run blog:publish -- --file path/to/post.json
 ```
+
+   `npm run news:publish -- --file path/to/post.json` remains a compatibility alias.
 
 4. The script upserts the post into `content/news-posts.json`, sorted newest first.
 5. The normal repo workflow commits and pushes to `origin/main`, which triggers the production deployment.
 
 Dry-run validation is available with:
-
-```sh
-npm run news:publish -- --file path/to/post.json --dry-run
-```
-
-Canonical dry-run validation:
 
 ```sh
 npm run blog:publish -- --file path/to/post.json --dry-run

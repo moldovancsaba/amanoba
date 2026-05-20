@@ -1,7 +1,7 @@
 # Amanoba
 
 **Current Version**: 2.9.49
-**Last Updated**: 2026-05-12
+**Last Updated**: 2026-05-20
 **Status**: Production Stable — ROADMAP & TASKLIST clean; RELEASE_NOTES current; SSO-only auth
 
 ## 🎓 Overview
@@ -47,7 +47,7 @@ Amanoba is transforming into a **unified flexible learning platform** that combi
 - **Database**: MongoDB Atlas with Mongoose 8.18.0
 - **Language**: TypeScript 5
 - **Styling**: Tailwind CSS 3.4.11 with centralized design-system tokens
-- **Email**: Resend API for lesson delivery (daily automated emails)
+- **Email**: Provider-selectable transport (`EMAIL_PROVIDER=resend|smtp|mailgun`) for lesson delivery and transactional emails
 - **Rich Text Editor**: TipTap for course content creation
 - **i18n**: next-intl for multi-language support (Hungarian default, English)
 - **Animation**: Framer Motion 10.18.0
@@ -106,7 +106,7 @@ See `.env.local.example` for required configuration including:
 
 ```
 app/
-├── [locale]/          # Locale-based pages (hu, en)
+├── [locale]/          # Locale-based pages (17 primary UI locales)
 │   ├── admin/         # Admin dashboard (i18n)
 │   ├── auth/          # Authentication pages (i18n)
 │   ├── dashboard/     # Student dashboard (i18n)
@@ -120,12 +120,12 @@ app/
 │   └── ui/            # Reusable UI primitives
 ├── lib/               # Utilities, models, and business logic
 │   ├── models/        # 27 Mongoose schemas (4 new course models)
-│   ├── email/         # Email service (Resend)
+│   ├── email/         # Email service and transport layer
 │   ├── courses/       # Course management (email scheduler)
 │   ├── gamification/  # Points, achievements, XP, streaks
 │   ├── madoku/        # Sudoku engine and AI
 │   └── analytics/     # Event logging and aggregations
-messages/              # Translation files (hu.json, en.json)
+messages/              # Translation files for primary locales plus English variants
 public/                # Static assets (logo, etc.)
 ```
 
@@ -153,11 +153,11 @@ Math duel on a Sudoku board with AI opponents (3 difficulty levels), ELO ranking
 
 ## 📖 Documentation
 
-- [ARCHITECTURE.md](docs/ARCHITECTURE.md) — System architecture and components
-- [TECH_STACK.md](docs/TECH_STACK.md) — Complete technology stack details
-- [ROADMAP.md](docs/ROADMAP.md) — Future vision and client benefits (no tasks)
-- [TASKLIST.md](docs/TASKLIST.md) — Actionable tasks (no release refs)
-- [RELEASE_NOTES.md](docs/RELEASE_NOTES.md) — Completed work and version changelog
+- [ARCHITECTURE.md](docs/architecture/ARCHITECTURE.md) — System architecture and components
+- [TECH_STACK.md](docs/core/TECH_STACK.md) — Complete technology stack details
+- [ROADMAP.md](docs/product/ROADMAP.md) — Future vision and client benefits (no tasks)
+- [TASKLIST.md](docs/product/TASKLIST.md) — Actionable work mirror and follow-ups
+- [RELEASE_NOTES.md](docs/product/RELEASE_NOTES.md) — Completed work and version changelog
 - [LEARNINGS.md](docs/LEARNINGS.md) — Implementation insights and what to avoid
 - [WARP.md](docs/WARP.md) — AI operational guidance
 - [NAMING_GUIDE.md](docs/NAMING_GUIDE.md) — Naming conventions

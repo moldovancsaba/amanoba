@@ -1,7 +1,7 @@
 # Production Status
 
-**Last Updated**: 2026-03-10  
-**Status**: Informational snapshot (not incident-specific)
+**Last Updated**: 2026-05-20
+**Status**: Production stable; GitHub push to `origin/main` deploys through Vercel.
 
 ---
 
@@ -10,6 +10,7 @@
 - Production deployment is automated via GitHub integration.
 - Shipping path is: commit -> push to `origin/main` -> automated Vercel production deploy.
 - Manual Vercel CLI deploy is exception-only and should be used only when explicitly requested.
+- Production aliases are `https://www.amanoba.com`, `https://amanoba.com`, `https://amanoba-narimato.vercel.app`, and `https://amanoba-git-main-narimato.vercel.app`.
 
 Reference:
 - `docs/deployment/DEPLOYMENT.md`
@@ -31,6 +32,27 @@ After each production push:
 
 ---
 
+## Last Recorded Production Verification
+
+Latest recorded verification in this repo: **2026-05-12 23:29 CEST** for commit `8703930` / Vercel deployment `dpl_CrFUS5VUZC3oyvZFanXfCSgDKf6P`.
+
+Verified routes:
+
+- `/en/news` — 200
+- `/en/news/2026-05-11-smarter-review-saved-lessons-streaks` — 200
+- `/en/courses` — 200
+- `/sitemap.xml` — 200
+- `/en/auth/signin` — 200
+- `/en/editor/courses` — 307 to `/en/auth/signin?callbackUrl=%2Fen%2Feditor%2Fcourses` for anonymous users
+
+Confirmed production content:
+
+- The weekly news/blog post is live.
+- Sitemap includes localized `/news` and `/blog` URLs for the weekly post.
+- Flexible-course sitemap output includes shortened beginner-course lesson ranges and full-course lesson ranges from live course data.
+
+---
+
 ## Historical Incident Reports
 
 Detailed legacy incident writeups were intentionally removed from this active status doc to reduce confusion.
@@ -38,21 +60,3 @@ Detailed legacy incident writeups were intentionally removed from this active st
 If historical debugging context is required, use:
 - `docs/_archive/**`
 - Git history for this file
-
----
-
-## Audit Verification (2026-03-10)
-
-Documentation/code audit verification commands and outcomes:
-
-1. `npm run lint` — **PASS**
-2. `npm test` — **FAIL** (`__tests__/smoke/courses.test.ts`: expected 200, received 500 for `/api/courses`)
-3. `npm run type-check` — **PASS**
-4. `npm run docs:check` — **FAIL** (generated docs files out of date: `docs/core/DOCS_CANONICAL_MAP.md`, `docs/core/DOCS_INVENTORY.md`, `docs/core/DOCS_TRIAGE.md`)
-5. `DOCS_CHECK_INCLUDE_ARCHIVE=1 npm run docs:links:check` — **PASS** (177 files checked)
-6. `npm run build` — **PASS**
-
-Follow-up rerun (same day):
-- `npm test` — **PASS** (smoke test mock chain updated)
-- `npm run docs:refresh` — **PASS**
-- `npm run docs:check` — **FAIL by policy** because generated docs files are modified in working tree (`DOCS_CANONICAL_MAP`, `DOCS_INVENTORY`, `DOCS_TRIAGE`) and checker requires zero diff unless those updates are committed.

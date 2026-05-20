@@ -38,19 +38,19 @@ This is the **Brain Boost** every developer must read before touching Amanoba co
 - `docs/product/TASKLIST.md`: reflects prioritized todo items (P1–P4). Move completed tasks to `docs/product/RELEASE_NOTES.md`.
 - `docs/status/PRODUCTION_STATUS.md`: records deployment process, verification policy, and baseline expectations.
 - Whenever you touch behavior/architecture:
-  - Update `docs/ARCHITECTURE.md` (core systems).
+  - Update `docs/architecture/ARCHITECTURE.md` (core systems).
   - Update `docs/PROJECT_MANAGEMENT.md` if you change board rules or cadence (create this doc if it does not exist yet).
   - Update `docs/HANDOVER.md` (required digest of what changed + verification).
 
 ## 6. Ops & environment reminders
 - `.env.local` secrets: always copy from `.env.local.example`; never check actual secrets into Git.
 - Primary auth: SSO-only via `sso.doneisbetter.com` (exposed in `auth.ts`, `auth.edge.ts`, `auth.config.ts`).
-- Email channel: daily lessons are sent with Resend (check `lib/email`), so treat `RESEND_API_KEY` and scheduling logic with care.
-- Payments: Stripe checkout is wired under `lib/payments`, tied to course pricing. Validate currencies (USD, EUR, HUF, GBP) before touching pricing logic.
+- Email channel: daily lessons use the shared email transport layer in `app/lib/email`; the active provider is selected with `EMAIL_PROVIDER` (`resend`, `smtp`, or `mailgun`). Treat provider keys and scheduling logic with care.
+- Payments: Stripe checkout is wired under `app/api/payments/*` and helper code in `app/lib/utils/stripe-minimums.ts`, tied to course pricing. Validate currencies (USD, EUR, HUF, GBP) before touching pricing logic.
 
 ## 7. Where to look fast
 - UI routes: `app/[locale]` (localization for `hu`, `en`).
-- Business logic: `lib/` (models, courses, gamification, analytics).
+- Business logic: `app/lib/` (models, courses, gamification, analytics).
 - Components: `components/` with gamification, games, charts, UI primitives.
 - Translations: `messages/*.json`.
 - Docs + metadata: `docs/product/*`.

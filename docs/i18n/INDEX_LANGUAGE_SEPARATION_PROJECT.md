@@ -2,7 +2,7 @@
 
 **Project**: Course Language Separation & 100% Localization  
 **Date**: 2026-01-24  
-**Status**: ✅ ARCHITECTURE FIX COMPLETE | ⏳ UI REFACTORING READY | 🔄 QUIZ ENHANCEMENT QUEUED
+**Status**: Historical project log. Current locale setup is documented in `docs/i18n/I18N_SETUP.md`.
 
 ---
 

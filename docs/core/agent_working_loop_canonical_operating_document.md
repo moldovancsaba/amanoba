@@ -3,7 +3,7 @@
 **Project**: Amanoba (unified flexible learning platform)
 **Roles**: Sultan = Product Owner; Agent = AI Developer
 **Scope**: This document is the **project-specific** rulebook for the Amanoba codebase. All paths, docs, and rules refer to this repository.
-**Last agent sync:** 2026-02-12 (docs normalization, link-check automation, context handover package).
+**Last agent sync:** 2026-05-20 (active documentation refresh, 17-locale alignment, production status cleanup).
 
 **Unified knowledge center:** A copy of the Amanoba agent operating document, updated for project/board management (MVP Factory Board, handoff, RULES, SETUP, SYNC), is stored in the [mvp-factory-control](https://github.com/moldovancsaba/mvp-factory-control) repo as [agent-operating-document-amanoba.md](https://github.com/moldovancsaba/mvp-factory-control/blob/main/docs/agent-operating-document-amanoba.md). Use that doc for project-related agentic rules and how Amanoba ties into the board; use this doc for full amanoba repo detail (layout grammar, course/quiz SSOT, auth, etc.).
 
@@ -334,7 +334,7 @@ TEAM:
 
 ### Supported Languages and locale
 
-- **Supported locales (UI and courses)**: `hu`, `en`, `ar`, `hi`, `id`, `pt`, `vi`, `tr`, `bg`, `pl`, `ru`, `sw` (12 languages). Defined in **`app/lib/i18n/locales.ts`**; translation files in **`messages/<locale>.json`**. When the user selects a language, the entire UI must be in that language (no English placeholders for live locales).
+- **Supported locales (UI and courses)**: `hu`, `en`, `ar`, `hi`, `id`, `pt`, `vi`, `tr`, `bg`, `pl`, `ru`, `sw`, `zh`, `es`, `fr`, `bn`, `ur` (17 locales). Defined in **`app/lib/i18n/locales.ts`**; translation files in **`messages/<locale>.json`**. When the user selects a language, the entire UI must be in that language (no English placeholders for live locales).
 - **Default locale**: Fallback when the browser language is not supported (see **`i18n.ts`** `defaultLocale`; e.g. `hu`). Not the only language: all supported locales are available.
 - **Default locale by browser**: Middleware uses **next-intl** with `localeDetection: true`, so the first visit (and when no locale cookie is set) uses the browser `Accept-Language` header to choose a supported locale; otherwise falls back to `defaultLocale`.
 - **User preference**: Users can set their preferred language in **Profile → Profile settings → Language**. The value is stored on the player (`player.locale`), used for session, emails, and recommendations, and the UI redirects to the chosen locale path.
@@ -394,5 +394,5 @@ TEAM:
 
 ---
 
-**Last Updated**: 2026-02-12
+**Last Updated**: 2026-05-20
 **Current Version**: v2.9.49 (see `docs/product/RELEASE_NOTES.md`). **Current Work**: See `docs/product/TASKLIST.md` for remaining action items; `docs/product/ROADMAP.md` for future vision and client benefits. Completed work → `docs/product/RELEASE_NOTES.md` only. For layout and structure, follow `docs/architecture/layout_grammar.md`.

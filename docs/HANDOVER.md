@@ -2,7 +2,7 @@
 
 This document is the single-stop operational snapshot for Amanoba. Keep it current whenever the system behavior, process, or board status changes. Append entries instead of rewriting history.
 
-**Last Updated**: 2026-05-12
+**Last Updated**: 2026-05-20
 **Current Product Version**: 2.9.49 (per `package.json` and `README.md`)
 **Status**: Production stable, SSO-only auth, daily lessons + gamified learning live.
 
@@ -15,15 +15,17 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
   2. During work: update card status for blockers/milestones, keep `docs/HANDOVER.md` + relevant docs updated.
   3. Finish: document validation evidence, move card to _Done_, and mention where the change is documented.
 
-## Current Priorities (Board snapshot — from `docs/product/TASKLIST.md` + GitHub issues)
-- **P2 (Multiple courses + course governance)**
-  - `#16`: `Email/scheduler: Respect multiple enrolments` — needs the scheduler to treat each course separately and avoid duplicate email sends.
-  - `#225`: `Lesson quiz governance #10` — finish doc alignment and migrations so quiz behavior is governed at the course level only; remaining checklist includes doc sync, seed cleanup, validator alignment, and backfills.
+## Current Priorities (Board snapshot — verify live status on Project 12)
+- **P0 documentation audit lane**
+  - `#371`: `Amanoba: Establish audit plan & SSOT inventory`
+  - `#373`: `Amanoba: Document-to-code inventory for audit`
+  - `#374`: `Amanoba: Audit readiness checklist & handover prep`
+- **P2 platform follow-ups**
+  - `#16`: `Email/scheduler: Respect multiple enrolments` — code is hardened, but board status should be verified and narrowed if remaining work is validation-only.
+  - `#225`: `Lesson quiz governance #10` — course-level runtime authority exists; remaining work is compatibility cleanup across import/export docs, seed scripts, validators, and backfills.
 - **Documentation ops / federation**
-  - `#104`: `Cross-repo documentation federation (amanoba + amanoba_courses)` — finalize shared reference strategy between the two repos.
-  - `#65`: `Move Amanoba release notes into Amanoba wiki by ISO UTC date` — reorganize release tracking per ISO date architecture.
-- **P3 / P4 exploratory work (waiting for capacity)**
-  - AI-powered personalization (#26, #27), live sessions (#22–#25), video lessons (#33–#35), community incubations (#28–#31), instructor dashboard (#6, #32), and mobile/offline (#20–#21, #7) remain backlog items awaiting decomposition.
+  - `#104`: `Cross-repo documentation federation (amanoba + amanoba_courses)` — finalize a portable link strategy for course-quality references.
+  - `#65`: `Move Amanoba release notes into Amanoba wiki by ISO UTC date` — keep behind current audit/doc alignment unless explicitly reprioritized.
 
 ## Documentation index (update when behavior changes)
 - `README.md` — quickstart + product overview (flexible courses, gamification, Stripe).
@@ -31,12 +33,12 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `docs/product/TASKLIST.md` — prioritized actionable items (P1–P4). Completed tasks move to `docs/product/RELEASE_NOTES.md`.
 - `docs/product/RELEASE_NOTES.md` — shipped work only (per release definition).
 - `docs/status/PRODUCTION_STATUS.md` — deployment cadence, verification steps, and baseline route checks.
-- `docs/ARCHITECTURE.md` / `docs/product/ROADMAP.md` — reference high-level architecture and future vision.
+- `docs/architecture/ARCHITECTURE.md` / `docs/product/ROADMAP.md` — reference high-level architecture and future vision.
 - `docs/product/ROADMAP_TASKLIST_SYSTEM_COMPARISON.md` — ensures roadmap vs tasklist alignment.
 
 ## Key runtime areas
-- `app/[locale]`: localized routes for hu/en, including admin, auth, dashboard, games, and course experiences.
-- `lib/`: business logic (models, gamification, course scheduling, email, analytics).
+- `app/[locale]`: localized routes for the 17 primary UI locales, including admin, auth, dashboard, games, blog/news, and course experiences.
+- `app/lib/`: business logic (models, gamification, course scheduling, email, analytics).
 - `components/`: UI fragments (gamification, games, charts, UI primitives).
 - `scripts/`: seeds, analytics audits, doc generators, and workflow helpers (seed courses, start workers, doc checks).
 - `messages/`: translation units used by `next-intl`.
@@ -67,6 +69,27 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 2. Drive lesson-quiz governance documentation + validators (#225).
 3. Sync documentation federation issue (#104) with the `amanoba_courses` repo and keep release notes grouped by ISO UTC date (#65).
 4. Keep `docs/HANDOVER.md` appended whenever these areas move.
+
+---
+
+## Documentation source-of-truth refresh (2026-05-20)
+
+### What changed
+- Refreshed active documentation around the current platform baseline: flexible course lengths, 17 primary UI locales, SSO-only auth, provider-selectable email transport, live production domains, and Blog/News publishing.
+- Rewrote `docs/i18n/I18N_SETUP.md` as a current reference instead of an old migration checklist.
+- Updated `docs/product/RELEASE_NOTES.md` so already-live Blog/News work is no longer listed as unreleased.
+- Marked older handoff, certification, i18n, audit, and next-phase planning docs as historical where they still contain fixed 30-day or old locale assumptions.
+- Rebuilt `docs/core/amanoba_codex_brain_dump.md`, `docs/core/DOCS_INDEX.md`, `docs/product/TASKLIST.md`, `docs/product/ROADMAP.md`, `docs/status/PRODUCTION_STATUS.md`, and `docs/handoff/AmanobaAuditDocMapping.md` around the current docs audit lane.
+
+### Notes / risk
+- Some historical logs still intentionally preserve old wording for auditability. Current implementation truth is the docs index, this handover, active architecture docs, and the code.
+- Cross-repo course documentation paths remain a known portability issue under `#104`.
+
+### Verification run
+- `npm run docs:refresh` ✅ pass; regenerated docs inventory/canonical map/triage.
+- `npm run docs:links:check` ✅ pass (95 active files checked).
+- `git diff --check` ✅ pass after Markdown whitespace normalization.
+- `npm run docs:check` ⚠️ expected pre-commit stop because regenerated docs files differ from `HEAD`; rerun after committing regenerated docs.
 
 ---
 

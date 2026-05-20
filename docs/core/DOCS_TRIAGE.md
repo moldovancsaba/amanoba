@@ -5,9 +5,9 @@
 
 # Docs Triage
 
-**Last Updated**: 2026-05-12
+**Last Updated**: 2026-05-20
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=4, KEEP(unclassified)=66
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=3, KEEP(unclassified)=59
 
 This file is the “what to do next” view derived from `docs/core/DOCS_CANONICAL_MAP.md`.
 
@@ -19,8 +19,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 
 ## ARCHIVE (grouped by target)
 ### docs/_archive/reference/
-- `docs/features/GEO_IMPROVEMENT_PLAN.md` — GEO Improvement Plan — Appearance in AI Chat Results (12.4 KB)
-- `docs/HANDOVER.md` — Amanoba — Developer Handover (59.9 KB)
+- `docs/features/GEO_IMPROVEMENT_PLAN.md` — GEO Improvement Plan — Appearance in AI Chat Results (12.5 KB)
 - `docs/quality/UI_FOUNDATION_AUDIT.md` — UI Foundation Audit (Hard Rules) (1.4 KB)
 - `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` — UI Layout Grammar Audit (23.0 KB)
 
@@ -35,32 +34,25 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/certification/certification_final_exam_plan_v4.md` — certification_final_exam_plan_v4.md
 - `docs/certification/certification_final_exam_plan_v5.md` — certification_final_exam_plan_v5.md
 - `docs/core/amanoba_system_outline.md` — Amanoba System Outline — Table of Contents
-- `docs/core/CODING_STANDARDS.md` — Amanoba Coding Standards
 - `docs/core/DOCS_CANONICAL_MAP.md` — Docs Canonicalization Map
 - `docs/core/DOCS_INVENTORY.md` — Docs Inventory
 - `docs/core/DOCS_TRIAGE.md` — Docs Triage
 - `docs/core/ENVIRONMENT_SETUP.md` — Environment Setup Guide
 - `docs/core/NAMING_GUIDE.md` — Amanoba Naming Guide
 - `docs/core/OLLAMA_TASKLIST_FOR_AGENT.md` — Ollama setup task list (for agent)
-- `docs/core/TECH_STACK.md` — Technology Stack
 - `docs/core/templates/FEATURE_TEMPLATE.md` — YYYY-MM-DD Feature Title
 - `docs/deployment/STRIPE_VERCEL_SETUP.md` — Stripe Setup Guide for Vercel
 - `docs/features/ASSESSMENT_GAME_ID_MIGRATION.md` — assessmentGameId Migration Plan
 - `docs/features/BUY_PREMIUM_FIX_DONE.md` — Buy premium fix — done
 - `docs/features/BUY_PREMIUM_FIX_STATUS.md` — Buy Premium Fix - Status Report
 - `docs/features/GOOGLE_ANALYTICS_ENRICHMENT.md` — Google Analytics Enrichment
-- `docs/features/LEARNING_STREAK_MVP.md` — Learning Streak MVP
-- `docs/features/NEWS_POSTS_MVP.md` — News Posts MVP
 - `docs/features/PUBLIC_PROFILE_SCHEMA.md` — Public Profile Schema
-- `docs/features/QUIZ_ANSWER_EXPLANATION_PILOT.md` — Quiz Answer Explanation Pilot
-- `docs/features/SAVED_LESSONS_MVP.md` — Saved Lessons MVP
 - `docs/handoff/feature_issues/FEATURE_DASHBOARD_MULTI_COURSE_ENROL_P2_3.md` — Feature issue (mvp-factory-control) — Dashboard / multi-course Enrol + prerequisites
 - `docs/handoff/HANDOFF_ARCHITECTURE_FIX_CRITICAL.md` — 📋 COMPREHENSIVE HANDOFF - ARCHITECTURAL GAP DISCOVERY & FIX PLAN
 - `docs/handoff/HANDOFF_DOCUMENT_COMPREHENSIVE.md` — 📋 QUIZ ENHANCEMENT PROJECT - COMPREHENSIVE STATUS & HANDOFF DOCUMENT
 - `docs/i18n/ADMIN_LANGUAGE_SETUP.md` — Admin Language Configuration
 - `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` — 📑 INDEX: Language Separation Project - Complete Documentation
 - `docs/i18n/LANGUAGE_DROPDOWN_PROBLEM_LOG.md` — Language dropdown / i18n problem — collected information
-- `docs/product/DESIGN_UPDATE.md` — Design System Status
 - `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` — Developer Feedback Analysis
 - `docs/product/NEXT_PHASES.md` — Next Phases: Detailed Implementation Plan
 - `docs/product/P3_KNOWN_ISSUES_BACKLOG.md` — P3 Known Issues — Backlog
@@ -85,7 +77,12 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/sso/SSO_REDIRECT_URIS.md` — SSO Redirect URIs Configuration
 - `docs/sso/SSO_SCOPE_FIX.md` — SSO Scope Error Fix
 - `docs/sso/SSO_TROUBLESHOOTING.md` — SSO Troubleshooting Guide
-- … +6 more
+- `docs/status/MIGRATION_COMPLETE.md` — Page Migration to [locale] Structure - Complete
+- `docs/status/MIGRATION_PHASE_1_COMPLETE.md` — DATABASE MIGRATION PHASE 1 - FINAL STATUS
+- `docs/status/PHASE_1_COMPLETE.md` — Phase 1 Complete: Foundation & Data Models
+- `docs/status/PHASE_1_EXECUTION_COMPLETE.md` — PHASE 1 EXECUTION COMPLETE
+- `docs/status/PHASE_2_3_COMPLETE.md` — Phase 2 & 3 Complete — Course Builder & Email Automation
+- `docs/status/PROJECT_COMPLETE.md` — 🎉 PROJECT COMPLETE - QUIZ QUALITY AUDIT & ENHANCEMENT
 
 ## Next suggested move
 - Review KEEP(unclassified) docs and either promote to canonical sections in `docs/core/DOCS_INDEX.md` or archive.

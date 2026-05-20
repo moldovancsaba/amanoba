@@ -1,6 +1,8 @@
 # certification_final_exam_plan.md
 Last updated: 2026-01-21
 
+**Status**: Historical planning note. Current certification reference is `docs/certification/CERTIFICATION_REFERENCE.md`; do not copy fixed 30-day pool assumptions into new work.
+
 ## 0) Objective
 
 Deliver a unified, premium-gated final exam and certificate flow for Amanoba courses.
@@ -321,4 +323,3 @@ Ensure Certificate includes:
 - Cooldowns and attempt limits
 - More certificate fields (time spent, attempt number, course version)
 - More verification page display controls and privacy policies
-

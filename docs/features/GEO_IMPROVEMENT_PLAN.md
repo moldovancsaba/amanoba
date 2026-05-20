@@ -1,8 +1,8 @@
 # GEO Improvement Plan — Appearance in AI Chat Results
 
-**Status**: Plan (open)  
-**Last updated**: 2026-02-06  
-**Focus**: Making Amanoba and its courses **discoverable and citable** when users ask AI assistants (ChatGPT, Perplexity, Google AI Overview, Claude, etc.) about learning platforms, 30-day courses, or specific topics.
+**Status**: Plan (open; partially implemented by sitemap and JSON-LD work)
+**Last updated**: 2026-05-20
+**Focus**: Making Amanoba and its courses **discoverable and citable** when users ask AI assistants (ChatGPT, Perplexity, Google AI Overview, Claude, etc.) about learning platforms, structured courses, or specific topics.
 
 **Cross-ref**: `layout_grammar.md` (§6 UI), `ARCHITECTURE.md`, course metadata in `app/[locale]/courses/[courseId]/layout.tsx`. For traditional search engines, see `docs/seo/SEO_IMPROVEMENT_PLAN.md` (optional).
 
@@ -10,7 +10,7 @@
 
 ## 1. What is GEO (Generative Engine Optimization)?
 
-- **GEO** = optimizing so your content is **retrieved, summarized, and cited** by AI chat products when users ask questions (e.g. “What are good 30-day learning courses?”, “Where can I learn generative AI?”).
+- **GEO** = optimizing so your content is **retrieved, summarized, and cited** by AI chat products when users ask questions (e.g. “What are good structured learning courses?”, “Where can I learn generative AI?”).
 - AI systems use the open web (and sometimes APIs) for **retrieval** and **attribution**. The better your content is **machine-readable**, **factual**, and **clearly about one thing**, the more likely it is to be surfaced and linked in an AI answer.
 - Many AI answers are backed by **search** (Bing, Google); others use **crawled/indexed** pages. So crawlability and clear structure help both.
 
@@ -32,7 +32,7 @@
 
 ## 3. Goals
 
-- Increase the chance that **Amanoba** is mentioned when users ask AI about “30-day courses”, “learning platforms”, “structured learning”, etc.
+- Increase the chance that **Amanoba** is mentioned when users ask AI about structured courses, learning platforms, flexible lesson sequences, and related topics.
 - Increase the chance that **specific courses** (e.g. generative AI, productivity) appear or are cited when relevant questions are asked.
 - Make it easy for AI systems to **cite** you with a correct URL and a short, accurate summary (title + description).
 - Stay **crawlable** and **machine-friendly** so current and future AI retrieval systems can discover and use your content.
@@ -72,7 +72,7 @@
 ### 4.4 Clear, factual “about” and “catalog” content — medium impact
 
 - **What**: Ensure key pages contain **short, factual statements** that an AI can extract and cite:
-  - **Landing** (e.g. `/[locale]`): One or two sentences: “Amanoba is a …” and “It offers 30-day structured courses with …”.
+  - **Landing** (e.g. `/[locale]`): One or two sentences: “Amanoba is a …” and “It offers structured courses with flexible lesson sequences …”.
   - **Courses list** (`/[locale]/courses`): A sentence like “Amanoba offers the following courses: …” and/or a clear list of course names + one-line descriptions; keep title/description meta aligned.
   - **Course detail**: Already has name + description; ensure description is **plain language** (no jargon-only) and answers “what will I learn?” or “what is this course?”.
 - **Where**: Copy in the relevant page components and in `generateMetadata` / static `metadata` (title, description).
@@ -90,7 +90,7 @@
 ### 4.6 Per-page metadata (title, description) — medium impact
 
 - **What**: Every page that you want to appear in AI (or search) results should have a **unique, descriptive** title and description:
-  - **Courses list**: e.g. “Courses | Amanoba — 30-day structured learning” and a one-sentence description of the catalog.
+  - **Courses list**: e.g. “Courses | Amanoba — structured learning” and a one-sentence description of the catalog.
   - **Landing**: Strong, brand + value-proposition title and description.
   - **Course detail**: Already in place; keep descriptions concise and factual (good for both humans and extraction).
 - **Why**: Title and description are often used as the “snippet” in citations; clarity and accuracy improve attribution.
@@ -144,10 +144,10 @@
 ## 7. Monitoring and iteration
 
 - **Search Console** (and Bing): Submit sitemap; confirm course URLs are indexed (indexed pages are candidates for AI retrieval that uses search indices).
-- **Manual checks**: Periodically ask ChatGPT, Perplexity, Claude, or Google AI “What 30-day learning platforms exist?” or “What courses does Amanoba offer?” and see if Amanoba or specific courses are mentioned and linked.
+- **Manual checks**: Periodically ask ChatGPT, Perplexity, Claude, or Google AI “What structured learning platforms exist?” or “What courses does Amanoba offer?” and see if Amanoba or specific courses are mentioned and linked.
 - **Referrer or UTM**: If any AI product sends referrers or supports campaign params, track “AI” or “chat” traffic to course and landing pages to measure GEO impact over time.
 
 ---
 
-**Maintained by**: Amanoba team  
+**Maintained by**: Amanoba team
 **References**: schema.org (Course, Organization, WebSite, ItemList), Next.js metadata/sitemap/robots, best practices for AI citation and retrieval (e.g. clear structure, factual content, stable URLs).

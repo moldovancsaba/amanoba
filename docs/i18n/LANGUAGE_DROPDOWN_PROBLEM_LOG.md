@@ -1,7 +1,7 @@
 # Language dropdown / i18n problem — collected information
 
-**Last updated:** 2026-02-03  
-**Status:** Root cause identified and fixed (see § Root cause below). Fix is on `main` and pushed to `origin`.  
+**Last updated:** 2026-05-20
+**Status:** Historical incident log. Root cause was identified and fixed; current i18n source of truth is `docs/i18n/I18N_SETUP.md`.
 **Follow-up (same day):** Server-rendered content stayed Hungarian because `getTranslations()` in server components (landing, signin) did not receive the URL locale — fixed by calling `getTranslations({ locale, namespace: '…' })` with `locale` from `params`. English options reduced from 3 to 1: removed `en-GB` and `en-US` from supported locales; middleware redirects `/en-GB` and `/en-US` to `/en`.
 
 ---
@@ -143,6 +143,6 @@
 
 ## 8. References
 
-- next-intl routing: https://next-intl-docs.vercel.app/docs/routing/configuration  
-- next-intl navigation: https://next-intl-docs.vercel.app/docs/routing/navigation  
+- next-intl routing: https://next-intl-docs.vercel.app/docs/routing/configuration
+- next-intl navigation: https://next-intl-docs.vercel.app/docs/routing/navigation
 - In-repo: `docs/i18n/I18N_SETUP.md`, `docs/product/RELEASE_NOTES.md` (v2.9.42, v2.9.43)

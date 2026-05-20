@@ -1,8 +1,8 @@
 # 📋 COMPREHENSIVE HANDOFF - ARCHITECTURAL GAP DISCOVERY & FIX PLAN
 ## Amanoba Platform - Course Structure Reconstruction
 
-**Date**: 2026-01-24  
-**Status**: 🔴 **ARCHITECTURE FIX IN PROGRESS** (Quiz work PAUSED)  
+**Date**: 2026-01-24
+**Status**: Historical handoff snapshot. Current architecture truth is `docs/architecture/ARCHITECTURE.md`, `docs/architecture/layout_grammar.md`, and `docs/HANDOVER.md`.
 **Priority**: CRITICAL - Must fix before continuing quiz enhancement
 
 ---
@@ -316,12 +316,12 @@ AFTER: Manage each language separately
 [ ] Review: app/lib/models/course.ts
     - Check if courseLanguage field exists
     - Check if language variants concept exists
-    
+
 [ ] Review: app/[locale]/courses/page.tsx
     - Check how courses are fetched
     - Check if language filtering exists
     - See course card structure
-    
+
 [ ] Review: app/[locale]/courses/[courseId]/page.tsx
     - Check how course language is determined
     - Check for language fallbacks
@@ -388,7 +388,7 @@ AFTER: Manage each language separately
 ```
 [ ] Create: scripts/migrate-courses-to-language-separation.ts
     Purpose: Reorganize database to language-specific courses
-    
+
     Logic:
     1. For each existing course:
        - Get all lessons grouped by language
@@ -396,13 +396,13 @@ AFTER: Manage each language separately
          - Create new course (baseCourseTopic + Language)
          - Assign all lessons in that language
          - Assign all quizzes for those lessons
-    
+
     2. Create separate course entities:
        - PRODUCTIVITY_2026_HU (all HU content)
        - PRODUCTIVITY_2026_EN (all EN content)
        - PRODUCTIVITY_2026_AR (all AR content)
        - etc.
-    
+
     3. Verify: No lesson can belong to multiple language courses
 ```
 
@@ -434,14 +434,14 @@ AFTER: Manage each language separately
     - Filter by multiple languages
     - Card display (language shown correctly)
     - Course navigation
-    
+
 [ ] Test course pages:
     - Load Arabic course → all Arabic
     - Load Hungarian course → all Hungarian
     - Load English course → all English
     - No mixed languages
     - No English fallbacks
-    
+
 [ ] Test admin:
     - Manage courses by language
     - Can't mix languages
@@ -455,7 +455,7 @@ AFTER: Manage each language separately
     - Language badges visible
     - Descriptions in correct language
     - No broken layouts
-    
+
 [ ] Content testing:
     - No English on Arabic pages
     - No Hungarian on English courses
@@ -569,7 +569,7 @@ Timeline: Same 4-6 weeks, but now organized by COURSES not by DAYS
 
 ---
 
-**Document Created**: 2026-01-24  
-**Status**: Ready to start Phase 1 (Analysis)  
-**Quiz Work**: PAUSED until architecture fix complete  
+**Document Created**: 2026-01-24
+**Status**: Ready to start Phase 1 (Analysis)
+**Quiz Work**: PAUSED until architecture fix complete
 **Next Action**: Audit current database structure

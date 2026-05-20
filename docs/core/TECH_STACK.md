@@ -1,7 +1,7 @@
 # Technology Stack
 
 **Version**: 2.9.49
-**Last Updated**: 2026-05-12
+**Last Updated**: 2026-05-20
 
 ---
 
@@ -65,7 +65,9 @@
 - **Mongoose**: 8.18.0 (ODM)
 
 ### Authentication
-- **Facebook SDK**: OAuth 2.0
+- **Primary auth**: SSO-only flow through `sso.doneisbetter.com`, implemented with NextAuth v5 and guarded by `auth.ts`, `auth.config.ts`, `auth.edge.ts`, and `middleware.ts`
+- **Google sign-in**: First-class sign-in option routed through the SSO provider
+- **Anonymous access**: Guest player flow for supported game/learning entry points
 - **next-auth**: 5.0.0-beta.31 (session management)
 - **@auth/mongodb-adapter**: 3.11.2
 
@@ -83,7 +85,9 @@
 - **pino-pretty**: 13.1.1
 
 ### Email Service
-- **Resend API**: Email delivery for daily lessons and notifications
+- **Email transport layer**: `app/lib/email/transports/*`
+- **Providers**: Resend, SMTP, or Mailgun, selected by `EMAIL_PROVIDER`
+- **Default provider**: Resend when `EMAIL_PROVIDER` is unset
 
 ### Push Notifications
 - **web-push**: 3.6.7
@@ -128,7 +132,7 @@
 
 ### DNS & Domain
 - **DNS**: Vercel DNS
-- **Domain**: — (set when production domain is final; requirement: see `docs/_archive/tasklists/DOCUMENTATION_AUDIT_JANUARY__2026-01-28.md` item 3)
+- **Production domains**: `https://www.amanoba.com` and `https://amanoba.com`
 
 ---
 

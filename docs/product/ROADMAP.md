@@ -3,7 +3,7 @@
 > **Source of truth is now the [Amanoba Project board](https://github.com/users/moldovancsaba/projects/12/views/1).** Roadmap items have been migrated to issues with **Status = `Roadmap (LATER)`** (Product = amanoba). This file is kept as reference only. Add new vision items as issues in [mvp-factory-control](https://github.com/moldovancsaba/mvp-factory-control), add to Project 12, and place them in `Roadmap (LATER)`. See [MIGRATION_ROADMAP_TASKLIST.md](https://github.com/moldovancsaba/mvp-factory-control/blob/main/docs/MIGRATION_ROADMAP_TASKLIST.md).
 
 **Version**: 2.9.49
-**Last Updated**: 2026-05-12
+**Last Updated**: 2026-05-20
 
 This document describes **what we want to build in the future** and **what benefits we want to give to clients**. It is not a task list. **Rules:** Do not list anything that is already delivered (see **RELEASE_NOTES.md**). Do not list anything that has been turned into tasks (see **TASKLIST.md**). Only future vision that is not yet broken down into tasks belongs here. **Only related items:** Only content that belongs in the ROADMAP may appear here — no delivered items, no task-list items, no unrelated content.
 
@@ -42,11 +42,13 @@ Items already broken down into tasks (multiple courses, live sessions, AI person
 
 - **Cross-repo documentation federation**: Unified docs discovery across `amanoba` and `amanoba_courses` without local-only path coupling
 - **Portable cross-repo references**: Standard link convention that works on any machine (published URL first, local filesystem path optional)
+- **Documentation quality baseline**: Active docs should stay aligned with code, production status, and Project 12 without requiring readers to inspect historical handoff files.
 
 **Client benefits:**
 
 - Teams can navigate product + course docs without broken handoff links
 - Documentation maintenance becomes less fragile across repos and environments
+- Contributors can onboard from current docs without stepping through obsolete phase reports
 
 ---
 
@@ -93,4 +95,4 @@ Items already broken down into tasks (multiple courses, live sessions, AI person
 
 **Maintained By**: Product / Engineering
 **Review**: When strategy or priorities change
-**Next Review**: 2026-02-19
+**Next Review**: 2026-06-20

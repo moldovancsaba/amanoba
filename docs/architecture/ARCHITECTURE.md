@@ -1,7 +1,7 @@
 # Amanoba Architecture
 
 **Version**: 2.9.49
-**Last Updated**: 2026-05-12
+**Last Updated**: 2026-05-20
 **Status**: Active — production course platform with SSO-only auth, gamified learning, content voting, certificate flows, and an active design-system migration
 
 ---
@@ -451,7 +451,7 @@ amanoba/
 - Four consent types: analytics_storage, ad_storage, ad_user_data, ad_personalization
 - Cookie consent banner with granular controls
 - Persistent consent storage in localStorage
-- Fully translated in all 12 languages
+- Translated through the supported primary locale set
 - Components: `GoogleAnalytics.tsx`, `CookieConsentBanner.tsx`, `ConsentProvider.tsx`
 
 ### 4. Security
@@ -520,7 +520,7 @@ amanoba/
 
 **Course Structure**
 - Flexible structured courses with 1 to any number of lessons
-- Multi-language support (12 languages)
+- Multi-language support for all primary UI locales
 - Points and XP configuration per course
 - Premium course gating
 - Course catalog with filtering and search
@@ -653,8 +653,8 @@ amanoba/
 - Validation and error handling for malformed imports
 
 **Email Integration**
-- Daily lesson emails sent at 8 AM (student timezone)
-- Email templates with variable substitution
+- Daily lesson emails use the shared email transport layer selected by `EMAIL_PROVIDER`
+- Localized email templates with variable substitution
 - Email preferences per student (frequency, time, timezone)
 - Unsubscribe functionality with token-based verification
 

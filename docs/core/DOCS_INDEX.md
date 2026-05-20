@@ -1,7 +1,7 @@
 # Documentation index
 
-**Last updated**: 2026-02-12  
-**Purpose**: Canonical entrypoint for active Amanoba documentation after normalization.
+**Last updated**: 2026-05-20
+**Purpose**: Canonical entrypoint for active Amanoba documentation. Historical phase reports and old handoff snapshots may remain in `docs/`, but the tables below identify current guidance.
 
 **Generated helpers**
 
@@ -21,10 +21,13 @@
 | **RELEASE_NOTES.md** | `docs/product/RELEASE_NOTES.md` | Completed and shipped changes. |
 | **ARCHITECTURE.md** | `docs/architecture/ARCHITECTURE.md` | System architecture and platform overview. |
 | **layout_grammar.md** | `docs/architecture/layout_grammar.md` | Layout, structure, and documentation conventions. |
+| **CODING_STANDARDS.md** | `docs/core/CODING_STANDARDS.md` | Coding standards, design-token rules, and version/doc alignment rules. |
+| **TECH_STACK.md** | `docs/core/TECH_STACK.md` | Current framework, infrastructure, provider, and dependency baseline. |
 | **CONTRIBUTING.md** | `docs/core/CONTRIBUTING.md` | Workflow and contributor standards. |
 | **LEARNINGS.md** | `docs/core/LEARNINGS.md` | Persistent implementation learnings and patterns. |
 | **agent_working_loop_canonical_operating_document.md** | `docs/core/agent_working_loop_canonical_operating_document.md` | Project operating rules for agents and contributors. |
 | **amanoba_codex_brain_dump.md** | `docs/core/amanoba_codex_brain_dump.md` | Continuity snapshot for fast recovery after context loss. |
+| **PRODUCTION_STATUS.md** | `docs/status/PRODUCTION_STATUS.md` | Current deployment truth, smoke-check policy, and latest recorded production verification. |
 
 **Feature / reference**
 
@@ -32,17 +35,22 @@
 |-----|------|---------|
 | **ENROLMENT_AND_PREREQUISITES.md** | `docs/features/ENROLMENT_AND_PREREQUISITES.md` | Multi-course enrolment model, API and UI behavior. |
 | **FRIEND_STREAKS_MVP.md** | `docs/features/FRIEND_STREAKS_MVP.md` | Invite-based pair accountability loop built on real learning actions. |
+| **LEARNING_STREAK_MVP.md** | `docs/features/LEARNING_STREAK_MVP.md` | Daily learning streak behavior tied to meaningful learning actions. |
+| **NEWS_POSTS_MVP.md** | `docs/features/NEWS_POSTS_MVP.md` | Blog/news publishing contract and automation handoff. |
 | **PRACTICE_HUB_MVP_CONTRACT.md** | `docs/features/PRACTICE_HUB_MVP_CONTRACT.md` | Practice Hub MVP review modes, prioritization rules, and current data limits. |
+| **QUIZ_ANSWER_EXPLANATION_PILOT.md** | `docs/features/QUIZ_ANSWER_EXPLANATION_PILOT.md` | Optional quiz answer explanation behavior. |
+| **SAVED_LESSONS_MVP.md** | `docs/features/SAVED_LESSONS_MVP.md` | Saved Lessons library scope and data contract. |
 | **I18N_SETUP.md** | `docs/i18n/I18N_SETUP.md` | Locale setup and language integrity requirements. |
 | **SSO_IMPLEMENTATION_DETAILS.md** | `docs/sso/SSO_IMPLEMENTATION_DETAILS.md` | SSO architecture and implementation details. |
 | **CERTIFICATION_REFERENCE.md** | `docs/certification/CERTIFICATION_REFERENCE.md` | Certification-related reference index. |
 | **DEPLOYMENT.md** | `docs/deployment/DEPLOYMENT.md` | Deployment and runtime operations baseline. |
-| **PRODUCTION_STATUS.md** | `docs/status/PRODUCTION_STATUS.md` | Current production status and deployment checks. |
+| **DESIGN_UPDATE.md** | `docs/product/DESIGN_UPDATE.md` | Current design-system status, rules, and migration backlog. |
 | **HANDOFF_MVP_FACTORY_CONTROL.md** | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Board handoff and issue workflow model. |
 | **MVP_FACTORY_PROJECT_SETUP.md** | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | One-time project scope setup for board automation. |
 | **AmanobaAuditDocMapping.md** | `docs/handoff/AmanobaAuditDocMapping.md` | Audit SSOT inventory: board workflow, doc-to-code mapping, and quality gates. |
-| **HANDOFF_CONTEXT_WINDOW_2026-02-12.md** | `docs/handoff/HANDOFF_CONTEXT_WINDOW_2026-02-12.md` | Current context-transfer snapshot and continuation state. |
-| **NEXT_WINDOW_PROMPT.md** | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Copy-paste prompt for the next context window. |
+| **HANDOVER.md** | `docs/HANDOVER.md` | Current operational handover and recent delivery notes. |
+| **HANDOFF_CONTEXT_WINDOW_2026-02-12.md** | `docs/handoff/HANDOFF_CONTEXT_WINDOW_2026-02-12.md` | Historical context-transfer snapshot; use only for February 2026 background. |
+| **NEXT_WINDOW_PROMPT.md** | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Historical prompt snapshot; use `docs/HANDOVER.md` for current continuation state. |
 | **QUALITY_VALIDATION_SYSTEM.md** | `docs/quality/QUALITY_VALIDATION_SYSTEM.md` | Quiz/content quality validation model. |
 | **SEO_IMPROVEMENT_PLAN.md** | `docs/seo/SEO_IMPROVEMENT_PLAN.md` | Search and discoverability improvement plan. |
 

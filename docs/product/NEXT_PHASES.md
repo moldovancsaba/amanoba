@@ -2,10 +2,13 @@
 
 **Created**: 2025-01-17T16:30:00.000Z  
 **Last Updated**: 2025-01-17T23:45:00.000Z  
+**Status**: Historical implementation plan; do not use as current product backlog.
 **Current Phase**: Phase 2 & 3 Complete ✅  
 **Next Phase**: Phase 4 - Assessment Integration
 
 ---
+
+> Current execution tracking lives in `docs/product/TASKLIST.md` and the MVP Factory board. This file predates flexible course lengths, the May 2026 docs refresh, and the current design-system rules.
 
 ## 🎯 Phase 2: Course Builder & Student Dashboard (Weeks 3-4) ✅ COMPLETE
 

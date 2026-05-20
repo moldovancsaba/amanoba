@@ -1,5 +1,8 @@
 # Practice Hub MVP Contract
 
+**Last Updated**: 2026-05-20
+**Status**: Active
+
 ## Context
 
 Amanoba issue `#781` defines the first bounded slice of the Practice Hub: which review modes exist in MVP, how the system decides what to show, and which current Amanoba models can support that behavior without inventing placeholder intelligence.
@@ -46,7 +49,7 @@ Resume the learner in the most immediate unfinished course flow.
 What appears:
 
 - In-progress course enrolments with an available next lesson
-- The next actionable lesson day for each active course
+- The next actionable lesson position for each active course
 
 Primary source signals:
 
@@ -118,7 +121,7 @@ Bring the learner back to previously completed lessons that have likely gone col
 
 What appears:
 
-- Completed lesson days from active or completed courses that have not been touched recently
+- Completed lesson positions from active or completed courses that have not been touched recently
 
 Primary source signals:
 
@@ -135,7 +138,7 @@ Primary code/data sources:
 
 Prioritization rule:
 
-1. Include only completed lesson days from courses where at least one day is complete.
+1. Include only completed lesson positions from courses where at least one lesson is complete.
 2. Use a simple staleness score based on how long it has been since the course was last accessed.
 3. Prefer courses with older `lastAccessedAt` first.
 4. Within the same course, prefer the earliest completed days first for MVP simplicity and explainability.
@@ -144,7 +147,7 @@ Learner explanation:
 "Revisit lessons you completed a while ago."
 
 Important MVP constraint:
-Staleness is only available at course-progress level today, not per lesson revisit timestamp. The first version therefore treats completed days inside a stale course as refresh candidates rather than pretending to know which exact lesson memory is weakest.
+Staleness is only available at course-progress level today, not per lesson revisit timestamp. The first version therefore treats completed lesson positions inside a stale course as refresh candidates rather than pretending to know which exact lesson memory is weakest.
 
 ### Explicit non-MVP modes
 
