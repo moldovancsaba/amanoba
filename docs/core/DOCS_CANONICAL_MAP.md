@@ -8,7 +8,7 @@
 **Last Updated**: 2026-05-20
 **Scope**: `docs/**/*.md` (excluding `docs/_archive/**`)
 
-**Counts**: KEEP=94, MERGE=0, ARCHIVE=3, DELETE=0
+**Counts**: KEEP=95, MERGE=0, ARCHIVE=3, DELETE=0
 
 This is a *proposed* map. Apply moves/deletes only after review.
 
@@ -26,14 +26,15 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/certification/certification_final_exam_plan_v4.md` | certification_final_exam_plan_v4.md | 14.2 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/certification/certification_final_exam_plan_v5.md` | certification_final_exam_plan_v5.md | 16.4 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/certification/CERTIFICATION_REFERENCE.md` | Certification — reference index | 1.4 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
-| KEEP | `docs/core/agent_working_loop_canonical_operating_document.md` | Amanoba — Agent Operating Document | 30.7 KB | — | Listed in DOCS_INDEX.md (core docs section). |
+| KEEP | `docs/core/agent_working_loop_canonical_operating_document.md` | Amanoba — Agent Operating Document | 30.6 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/core/amanoba_codex_brain_dump.md` | Amanoba Codex Brain Dump | 3.4 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/core/amanoba_system_outline.md` | Amanoba System Outline — Table of Contents | 24.2 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/CODING_STANDARDS.md` | Amanoba Coding Standards | 3.8 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/core/CONTRIBUTING.md` | Contributing to Amanoba | 13.5 KB | — | Listed in DOCS_INDEX.md (core docs section). |
-| KEEP | `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 14.7 KB | — | Unclassified; keep pending human review. |
-| KEEP | `docs/core/DOCS_INDEX.md` | Documentation index | 5.8 KB | — | Single entry point (canonical docs index). |
-| KEEP | `docs/core/DOCS_INVENTORY.md` | Docs Inventory | 8.8 KB | — | Unclassified; keep pending human review. |
+| KEEP | `docs/core/CROSS_REPO_DOCS.md` | Cross-Repo Documentation References | 1.7 KB | — | Listed in DOCS_INDEX.md (core docs section). |
+| KEEP | `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 14.8 KB | — | Unclassified; keep pending human review. |
+| KEEP | `docs/core/DOCS_INDEX.md` | Documentation index | 5.9 KB | — | Single entry point (canonical docs index). |
+| KEEP | `docs/core/DOCS_INVENTORY.md` | Docs Inventory | 8.9 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/DOCS_TRIAGE.md` | Docs Triage | 5.9 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/ENVIRONMENT_SETUP.md` | Environment Setup Guide | 3.6 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/LEARNINGS.md` | Amanoba Learnings | 76.8 KB | — | Listed in DOCS_INDEX.md (core docs section). |
@@ -58,7 +59,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/features/PUBLIC_PROFILE_SCHEMA.md` | Public Profile Schema | 2.1 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/features/QUIZ_ANSWER_EXPLANATION_PILOT.md` | Quiz Answer Explanation Pilot | 2.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/features/SAVED_LESSONS_MVP.md` | Saved Lessons MVP | 2.6 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
-| KEEP | `docs/handoff/AmanobaAuditDocMapping.md` | Amanoba Audit: SSOT Inventory | 6.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
+| KEEP | `docs/handoff/AmanobaAuditDocMapping.md` | Amanoba Audit: SSOT Inventory | 7.0 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/feature_issues/FEATURE_DASHBOARD_MULTI_COURSE_ENROL_P2_3.md` | Feature issue (mvp-factory-control) — Dashboard / multi-course Enrol + prerequisites | 2.7 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/handoff/HANDOFF_ARCHITECTURE_FIX_CRITICAL.md` | 📋 COMPREHENSIVE HANDOFF - ARCHITECTURAL GAP DISCOVERY & FIX PLAN | 17.4 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/handoff/HANDOFF_CONTEXT_WINDOW_2026-02-12.md` | Handover Snapshot — 2026-02-12 | 9.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
@@ -66,7 +67,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 4.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | MVP Factory Project — one-time setup (grant project scope) | 1.2 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Prompt for Next Context Window | 2.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
-| KEEP | `docs/HANDOVER.md` | Amanoba — Developer Handover | 63.3 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
+| KEEP | `docs/HANDOVER.md` | Amanoba — Developer Handover | 64.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/i18n/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB | — | Unclassified; keep pending human review. |
@@ -75,10 +76,10 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` | Developer Feedback Analysis | 7.2 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/product/NEXT_PHASES.md` | Next Phases: Detailed Implementation Plan | 13.6 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/product/P3_KNOWN_ISSUES_BACKLOG.md` | P3 Known Issues — Backlog | 2.0 KB | — | Unclassified; keep pending human review. |
-| KEEP | `docs/product/RELEASE_NOTES.md` | Amanoba Release Notes | 172.9 KB | — | Listed in DOCS_INDEX.md (core docs section). |
+| KEEP | `docs/product/RELEASE_NOTES.md` | Amanoba Release Notes | 173.4 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/product/ROADMAP_TASKLIST_SYSTEM_COMPARISON.md` | ROADMAP vs TASKLIST vs System Outline — Comparison | 5.7 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/product/ROADMAP.md` | Amanoba Roadmap — Future Vision & Client Benefits | 5.5 KB | — | Listed in DOCS_INDEX.md (core docs section). |
-| KEEP | `docs/product/TASKLIST.md` | Amanoba Task List | 5.0 KB | — | Listed in DOCS_INDEX.md (core docs section). |
+| KEEP | `docs/product/TASKLIST.md` | Amanoba Task List | 5.1 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/product/VOTING_AND_REUSE_PATTERN.md` | Unified Voting and Reuse Pattern | 3.9 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/quality/CODE_REVIEW_FINDINGS.md` | Code Review: Boolean Filter Logic Issues | 4.7 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/quality/PHASE_1_AUDIT_WORKSHEET.md` | PHASE 1 EXECUTION AUDIT WORKSHEET | 9.4 KB | — | Unclassified; keep pending human review. |
@@ -88,7 +89,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/quality/QUALITY_VALIDATION_SYSTEM.md` | 🔒 Quality Validation System for Quiz Questions | 3.6 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | ARCHIVE | `docs/quality/UI_FOUNDATION_AUDIT.md` | UI Foundation Audit (Hard Rules) | 1.4 KB | `docs/_archive/reference/` | Process/delivery doc; keep for context but treat as non-canonical. |
 | ARCHIVE | `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` | UI Layout Grammar Audit | 23.0 KB | `docs/_archive/reference/` | Process/delivery doc; keep for context but treat as non-canonical. |
-| KEEP | `docs/README.md` | Amanoba Docs | 2.7 KB | — | Unclassified; keep pending human review. |
+| KEEP | `docs/README.md` | Amanoba Docs | 2.9 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/seo/SEO_IMPROVEMENT_PLAN.md` | SEO Improvement Plan — Amanoba | 7.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/seo/SEO_SITEMAP_SUBMISSION.md` | Sitemap submission (GSC and Bing) | 4.1 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/sso/enable_sso.md` | SSO Integration Guide (Amanoba) | 4.4 KB | — | Unclassified; keep pending human review. |

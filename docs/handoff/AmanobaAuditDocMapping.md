@@ -52,7 +52,7 @@ This document maps active Amanoba documentation to the code, scripts, and produc
 
 | Area | Current discrepancy | Follow-up |
 |------|---------------------|-----------|
-| Cross-repo path portability | Some active course/quiz docs intentionally point at local `amanoba_courses/process_them` paths because the course-authoring repo is separate. | Project 12 issue `#104`: define published-link-first references with optional local paths. |
+| Cross-repo path portability | Active docs now have a portable `amanoba_courses:process_them/docs/...` convention in `docs/core/CROSS_REPO_DOCS.md`; historical docs may keep original machine-local paths for auditability. | Keep new active docs on the canonical notation and migrate older active references opportunistically. |
 | Historical docs in active folders | Some phase-complete and older handoff documents remain outside `_archive` for link stability. | Do not use them as current implementation guidance; promote/archive in a future docs hygiene pass. |
 | Certification planning docs | Several certification plan variants mention master 30-day pools because they are historical design notes. | Prefer `docs/certification/CERTIFICATION_REFERENCE.md` and runtime code for current truth; archive old variants when certification docs are next in scope. |
 | UI design drift | Hard-rule checks pass, but heuristic drift remains in older admin/game/profile/certificate surfaces. | Continue incremental design-token migration and keep `docs/product/DESIGN_UPDATE.md` updated. |

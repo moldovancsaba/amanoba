@@ -34,22 +34,26 @@ After each production push:
 
 ## Last Recorded Production Verification
 
-Latest recorded verification in this repo: **2026-05-12 23:29 CEST** for commit `8703930` / Vercel deployment `dpl_CrFUS5VUZC3oyvZFanXfCSgDKf6P`.
+Latest recorded verification in this repo: **2026-05-20 20:56 CEST** during the foundation hardening pass.
 
 Verified routes:
 
-- `/en/news` — 200
-- `/en/news/2026-05-11-smarter-review-saved-lessons-streaks` — 200
-- `/en/courses` — 200
+- `/` — 200, redirected to `/hu`
+- `/robots.txt` — 200
 - `/sitemap.xml` — 200
+- `/en/courses` — 200
+- `/en/blog` — 200
+- `/en/news` — 200
+- `/en/practice` — 200
+- `/en/saved` — 200
 - `/en/auth/signin` — 200
-- `/en/editor/courses` — 307 to `/en/auth/signin?callbackUrl=%2Fen%2Feditor%2Fcourses` for anonymous users
+- `/en/editor/courses` — 200 after anonymous redirect to `/en/auth/signin?callbackUrl=%2Fen%2Feditor%2Fcourses`
 
 Confirmed production content:
 
-- The weekly news/blog post is live.
-- Sitemap includes localized `/news` and `/blog` URLs for the weekly post.
-- Flexible-course sitemap output includes shortened beginner-course lesson ranges and full-course lesson ranges from live course data.
+- Public blog/news routes are reachable.
+- Protected editor route redirects anonymous users to localized sign-in.
+- Baseline course, practice, saved-lessons, sitemap, and robots routes are reachable.
 
 ---
 

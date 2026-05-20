@@ -40,7 +40,7 @@ Historical handoff snapshots in `docs/handoff/` are useful background only. Do n
 - `docs/product/RELEASE_NOTES.md`: user-facing shipped behavior.
 - `docs/architecture/ARCHITECTURE.md` and `docs/architecture/layout_grammar.md`: architecture and UI/course grammar.
 
-Course authoring docs live outside this repo under `/Users/moldovancsaba/Projects/amanoba_courses/process_them`. Cross-repo path portability is tracked as Project issue `#104`.
+Course authoring docs live outside this repo under `amanoba_courses:process_them/docs`. The portable cross-repo reference convention is defined in `docs/core/CROSS_REPO_DOCS.md`.
 
 ## Current Product Baseline
 

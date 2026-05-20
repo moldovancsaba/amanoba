@@ -49,6 +49,16 @@ interface Lesson {
   isCompleted: boolean;
 }
 
+interface QuizPolicy {
+  enabled: boolean;
+  required: boolean;
+  questionCount: number;
+  shownAnswerCount?: number;
+  maxWrongAllowed?: number;
+  successThreshold: number;
+  availableQuestionCount?: number;
+}
+
 interface Navigation {
   previous: { day: number; title: string } | null;
   next: { day: number; title: string } | null;
@@ -407,8 +417,7 @@ export default function DailyLessonPage({
   const [quizPassed, setQuizPassed] = useState(false);
   const [courseLanguage, setCourseLanguage] = useState<string>('en');
   const [totalDays, setTotalDays] = useState<number>(30);
-  const [defaultLessonQuizQuestionCount, setDefaultLessonQuizQuestionCount] = useState<number | undefined>(undefined);
-  const [quizMaxWrongAllowed, setQuizMaxWrongAllowed] = useState<number | undefined>(undefined);
+  const [quizPolicy, setQuizPolicy] = useState<QuizPolicy | null>(null);
   const [isSavedLesson, setIsSavedLesson] = useState(false);
   const [savingLesson, setSavingLesson] = useState(false);
   const searchParams = useSearchParams();
@@ -432,20 +441,7 @@ export default function DailyLessonPage({
         setLesson(data.lesson);
         setNavigation(data.navigation);
         if (data.progress?.totalDays != null) setTotalDays(data.progress.totalDays);
-        setDefaultLessonQuizQuestionCount(
-          typeof data.quizPolicy?.questionCount === 'number'
-            ? data.quizPolicy.questionCount
-            : (typeof data.defaultLessonQuizQuestionCount === 'number'
-              ? data.defaultLessonQuizQuestionCount
-              : undefined)
-        );
-        setQuizMaxWrongAllowed(
-          typeof data.quizPolicy?.maxWrongAllowed === 'number'
-            ? data.quizPolicy.maxWrongAllowed
-            : (typeof data.quizMaxWrongAllowed === 'number'
-              ? data.quizMaxWrongAllowed
-              : undefined)
-        );
+        setQuizPolicy(data.quizPolicy ?? null);
         // Refresh quiz passed flag from localStorage (set by quiz page)
         // Include player ID in key to make it user-specific
         const user = session?.user as { id?: string; playerId?: string } | undefined;
@@ -519,8 +515,9 @@ export default function DailyLessonPage({
   const handleComplete = async () => {
     if (!lesson || completing) return;
 
-    // Check if quiz is required and not passed
-    if (lesson.quizConfig?.enabled && lesson.quizConfig.required && !quizPassed) {
+    const quizEnabled = quizPolicy?.enabled ?? lesson.quizConfig?.enabled ?? false;
+    const quizRequired = quizPolicy?.required ?? lesson.quizConfig?.required ?? false;
+    if (quizEnabled && quizRequired && !quizPassed) {
       alert(getDayPageText('mustPassQuiz', courseLanguage));
       return;
     }
@@ -645,8 +642,21 @@ export default function DailyLessonPage({
     );
   }
 
-  const effectiveQuestionCount =
-    defaultLessonQuizQuestionCount ?? lesson.quizConfig?.questionCount ?? 5;
+  const effectiveQuizPolicy: QuizPolicy | null = quizPolicy ?? (
+    lesson.quizConfig
+      ? {
+          enabled: lesson.quizConfig.enabled,
+          required: lesson.quizConfig.required,
+          questionCount: lesson.quizConfig.questionCount,
+          successThreshold: lesson.quizConfig.successThreshold,
+          availableQuestionCount: lesson.quizConfig.poolSize,
+        }
+      : null
+  );
+  const isQuizEnabled = effectiveQuizPolicy?.enabled === true;
+  const isQuizRequired = effectiveQuizPolicy?.required === true;
+  const effectiveQuestionCount = effectiveQuizPolicy?.questionCount ?? 5;
+  const quizMaxWrongAllowed = effectiveQuizPolicy?.maxWrongAllowed;
   const hasMaxWrongRule =
     typeof quizMaxWrongAllowed === 'number' && quizMaxWrongAllowed >= 0;
   const courseLanguageBase = courseLanguage.toLowerCase().split('-')[0];
@@ -773,11 +783,11 @@ export default function DailyLessonPage({
                 {/* Center: Quiz and Complete buttons */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 flex-shrink-0 w-full md:w-auto">
                   {/* Show quiz button if quiz is enabled and lesson not completed */}
-                  {lesson.quizConfig?.enabled && !lesson.isCompleted && (
+                  {isQuizEnabled && !lesson.isCompleted && (
                     <LocaleLink
                       href={`/${courseLanguage}/courses/${courseId}/day/${dayNumber}/quiz`}
                       className={`min-h-[44px] min-w-[44px] flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold transition-colors text-base whitespace-nowrap touch-manipulation ${
-                        lesson.quizConfig.required && !quizPassed
+                        isQuizRequired && !quizPassed
                           ? 'bg-brand-accent text-brand-black hover:bg-brand-primary-400 px-7 py-3.5 w-full'
                           : 'bg-brand-white border-2 border-brand-accent text-brand-black hover:bg-brand-accent/80 w-full'
                       }`}
@@ -790,7 +800,7 @@ export default function DailyLessonPage({
                       - Lesson not completed AND
                       - (No quiz required OR quiz already passed) */}
                   {!lesson.isCompleted && 
-                   !(lesson.quizConfig?.enabled && lesson.quizConfig.required && !quizPassed) && (
+                   !(isQuizEnabled && isQuizRequired && !quizPassed) && (
                     <button
                       onClick={handleComplete}
                       disabled={completing}
@@ -823,7 +833,7 @@ export default function DailyLessonPage({
                   )}
                 </div>
               </div>
-              {lesson.quizConfig?.enabled && lesson.quizConfig.required && !quizPassed && (
+              {isQuizEnabled && isQuizRequired && !quizPassed && (
                 <p className="mt-4 text-sm text-brand-darkGrey text-center">
                   {quizRequiredMessage}
                 </p>

@@ -68,9 +68,9 @@ export interface ICourse extends Document {
   prerequisiteCourseIds?: mongoose.Types.ObjectId[];
   /** When prerequisites are set: 'hard' = block enrolment until met; 'soft' = warn but allow. Default 'hard'. */
   prerequisiteEnforcement?: 'hard' | 'soft';
-  /** Lesson quiz pass rule: max wrong answers allowed (0–10). If set, fail when wrongCount > this; else use successThreshold %. */
+  /** Legacy lesson quiz fallback: max wrong answers allowed (0-10). Runtime authority is lessonQuizPolicy.maxWrongAllowed. */
   quizMaxWrongAllowed?: number;
-  /** Default number of questions per lesson quiz. Used when a lesson does not set quizConfig.questionCount. 1–50. */
+  /** Legacy lesson quiz fallback: default question count (1-50). Runtime authority is lessonQuizPolicy.questionCount. */
   defaultLessonQuizQuestionCount?: number;
   /** Canonical lesson-quiz runtime policy (course-level authority). */
   lessonQuizPolicy?: {

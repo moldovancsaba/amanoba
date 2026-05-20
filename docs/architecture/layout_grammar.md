@@ -95,7 +95,7 @@ Designer courses in the system are expressed as **canonical course specs (CCS)**
 - **Metadata**: UUID v4, hashtags, `questionType` (APPLICATION | CRITICAL_THINKING), `difficulty`, `category`.
 - **Content**: Standalone, scenario-based, grounded in the lesson and CCS; no lesson-referential wording; no throwaway options; distractors must be educational.
 
-See `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/COURSE_BUILDING_RULES.md` and `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` for full quiz quality rules.
+See `amanoba_courses:process_them/docs/COURSE_BUILDING_RULES.md` and `amanoba_courses:process_them/docs/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md` for full quiz quality rules. The portable reference convention is defined in `docs/core/CROSS_REPO_DOCS.md`.
 
 ---
 

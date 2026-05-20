@@ -22,6 +22,7 @@
 | **ARCHITECTURE.md** | `docs/architecture/ARCHITECTURE.md` | System architecture and platform overview. |
 | **layout_grammar.md** | `docs/architecture/layout_grammar.md` | Layout, structure, and documentation conventions. |
 | **CODING_STANDARDS.md** | `docs/core/CODING_STANDARDS.md` | Coding standards, design-token rules, and version/doc alignment rules. |
+| **CROSS_REPO_DOCS.md** | `docs/core/CROSS_REPO_DOCS.md` | Portable reference contract for `amanoba` to `amanoba_courses` documentation links. |
 | **TECH_STACK.md** | `docs/core/TECH_STACK.md` | Current framework, infrastructure, provider, and dependency baseline. |
 | **CONTRIBUTING.md** | `docs/core/CONTRIBUTING.md` | Workflow and contributor standards. |
 | **LEARNINGS.md** | `docs/core/LEARNINGS.md` | Persistent implementation learnings and patterns. |
@@ -78,6 +79,6 @@
 
 Course creation and maintenance documentation was separated to:
 
-- `/Users/moldovancsaba/Projects/amanoba_courses/process_them`
+- `amanoba_courses:process_them/docs` (see `docs/core/CROSS_REPO_DOCS.md`)
 
 Use this repo's `docs/` for platform/system docs, not course-content authoring assets.

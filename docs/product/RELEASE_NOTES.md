@@ -12,12 +12,14 @@
 **Status**: Delivered in repo
 **Type**: Documentation, Operations
 
+- **Foundation hardening:** Verified the multi-enrolment lesson email scheduler, aligned learner lesson quiz gating with the resolved course-level `quizPolicy`, and documented portable cross-repo references for `amanoba_courses`.
+- **Production route smoke:** Rechecked baseline production routes for home, auth, courses, blog/news, Practice Hub, Saved Lessons, sitemap, robots, and protected editor redirect behavior.
 - **Canonical docs refreshed:** README, developer onboarding, architecture, tech stack, handover, production status, docs index, roadmap, tasklist, i18n, release notes, and audit mapping now describe the current May 2026 platform baseline.
 - **Stale assumptions removed:** Active docs now reflect flexible course lengths, 17 primary UI locales, SSO-only auth, provider-selectable email transport, production domains, and the live Blog/News publishing flow.
 - **Historical docs clarified:** February handoff snapshots, migration reports, and old planning variants are marked as background material rather than current implementation truth.
 - **Audit lane aligned:** Documentation work is tied to Project issues `#371`, `#373`, and `#374`, with remaining cross-repo and historical-archive cleanup called out explicitly.
 
-**Verification:** Docs refresh, link validation, generated docs check, and whitespace diff check are recorded in `docs/HANDOVER.md`.
+**Verification:** Full lint, tests, type-check, UI checks, production build, targeted production route smoke, and docs checks are recorded in `docs/HANDOVER.md`.
 
 ---
 

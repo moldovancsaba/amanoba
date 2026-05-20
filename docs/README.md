@@ -16,6 +16,7 @@ This documentation is organized into domain folders. Treat this file and `docs/c
 - `docs/status/PRODUCTION_STATUS.md` - current deployment truth and latest recorded production verification
 - `docs/features/NEWS_POSTS_MVP.md` - blog/news publishing contract for weekly updates
 - `docs/core/CODING_STANDARDS.md` - coding and design-token standards
+- `docs/core/CROSS_REPO_DOCS.md` - portable references to `amanoba_courses` documentation
 
 ## Structure
 
@@ -37,7 +38,9 @@ This documentation is organized into domain folders. Treat this file and `docs/c
 
 Course creation and maintenance documents were moved to:
 
-- `/Users/moldovancsaba/Projects/amanoba_courses/process_them`
+- `amanoba_courses:process_them/docs`
+
+See `docs/core/CROSS_REPO_DOCS.md` for the portable reference convention and the optional local checkout path.
 
 ## Validation
 

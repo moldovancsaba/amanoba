@@ -124,7 +124,7 @@ Documentation system:
 - Feature/handover documents are referenced from TASKLIST, ROADMAP, RELEASE_NOTES, LEARNINGS, and architecture docs as needed.
 - Feature documents are updated as work progresses
 
-**Layout grammar (mandatory for structure and layout):** When the task involves content structure, course/lesson/quiz layout, UI/page layout, or documentation structure, read and follow **`docs/architecture/layout_grammar.md`** — the single source of truth for project layout grammar (project and doc layout, CCS structure, lesson and quiz structure, UI/design layout, API and locale layout, language rules). Derived from the designer courses and course-quality references now maintained in `/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/`, plus the design system. For layout/structure conflicts, `docs/architecture/layout_grammar.md` wins; for course/quiz quality and pipelines, the SSOT set below still applies.
+**Layout grammar (mandatory for structure and layout):** When the task involves content structure, course/lesson/quiz layout, UI/page layout, or documentation structure, read and follow **`docs/architecture/layout_grammar.md`** — the single source of truth for project layout grammar (project and doc layout, CCS structure, lesson and quiz structure, UI/design layout, API and locale layout, language rules). Derived from the designer courses and course-quality references now maintained in `amanoba_courses:process_them/docs`, plus the design system. For layout/structure conflicts, `docs/architecture/layout_grammar.md` wins; for course/quiz quality and pipelines, the SSOT set below still applies. Use `docs/core/CROSS_REPO_DOCS.md` for the portable cross-repo reference convention.
 
 “If it’s not documented, it’s not done.”
 
@@ -144,11 +144,11 @@ Never assume. Never proceed on uncertainty.
 When the task involves **creating courses**, **refining lessons**, **generating quizzes**, **localization**, or **quality control**, treat these documents as mandatory to read and keep consistent:
 
 - **`docs/architecture/layout_grammar.md`** — Layout and structure grammar (course/lesson/quiz/UI/doc layout). Read first when touching content or course structure.
-- **`/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/2026_course_creator_prompts.md`** — Recursive prompts + state management for course creation.
-- **`/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/2026_course_quality_prompt.md`** — Single source of truth for course quality control (lessons + quizzes + language integrity gates).
-- **`/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md`** — Operational handover (rollback + commands + strict rules).
-- **`/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`** — Playbook (workflow + outputs).
-- **`/Users/moldovancsaba/Projects/amanoba_courses/process_them/docs/COURSE_BUILDING_RULES.md`** — Course creation rules (language prerequisites + standards).
+- **`amanoba_courses:process_them/docs/2026_course_creator_prompts.md`** — Recursive prompts + state management for course creation.
+- **`amanoba_courses:process_them/docs/2026_course_quality_prompt.md`** — Single source of truth for course quality control (lessons + quizzes + language integrity gates).
+- **`amanoba_courses:process_them/docs/reference/QUIZ_QUALITY_PIPELINE_HANDOVER.md`** — Operational handover (rollback + commands + strict rules).
+- **`amanoba_courses:process_them/docs/reference/QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`** — Playbook (workflow + outputs).
+- **`amanoba_courses:process_them/docs/COURSE_BUILDING_RULES.md`** — Course creation rules (language prerequisites + standards).
 
 Rule: If any other document conflicts with the SSOT set above, **update the other document** or clearly mark it as historical, so the system stays contradiction-free.
 

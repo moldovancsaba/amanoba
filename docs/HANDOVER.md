@@ -22,10 +22,10 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
   - `#750`, `#752`, `#770`, `#771`: learning streaks, friend streaks, saved lessons, and quiz answer explanations.
   - `#781`, `#782`, `#783`: Practice Hub contract, learner shell, telemetry/rewards.
 - **P2 platform follow-ups**
-  - `#16`: `Email/scheduler: Respect multiple enrolments` — Project 12 Backlog; code is hardened, but remaining work should be verified and narrowed if validation-only.
-  - `#225`: `Lesson quiz governance #10` — course-level runtime authority exists; remaining work is compatibility cleanup across import/export docs, seed scripts, validators, and backfills.
+  - `#16`: `Email/scheduler: Respect multiple enrolments` — verified in code/tests; close on Project 12 after board evidence is logged.
+  - `#225`: `Lesson quiz governance #10` — learner runtime and admin-facing documentation now use course-level policy as authority; remaining legacy fields are compatibility fallbacks.
 - **Documentation ops / federation**
-  - `#104`: `Cross-repo documentation federation (amanoba + amanoba_courses)` — finalize a portable link strategy for course-quality references.
+  - `#104`: `Cross-repo documentation federation (amanoba + amanoba_courses)` — portable `amanoba_courses:process_them/docs/...` convention is documented in `docs/core/CROSS_REPO_DOCS.md`.
   - `#65`: `Move Amanoba release notes into Amanoba wiki by ISO UTC date` — Project 12 Backlog.
 
 ## Documentation index (update when behavior changes)
@@ -53,9 +53,8 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - Keep release numbering consistent: 2.9.49 is the current active release; bump patch/minor/major via `scripts/versioning`.
 
 ## Known issues / risks
-- Scheduler does not yet honor multiple active enrolments (issue #16). Emails can still duplicate when a learner is in >1 course.
-- Lesson-level quiz governance leftovers still exist in seeds, docs, and validators (#225).
-- Cross-repo documentation references are fragile — ensure `docs/product/TASKLIST.md` links to canonical assets under `amanoba_courses` before releasing.
+- Legacy lesson quiz fields (`quizMaxWrongAllowed`, `defaultLessonQuizQuestionCount`, `lesson.quizConfig`) still exist for import/export and old payload compatibility; runtime authority is `course.lessonQuizPolicy`.
+- Historical docs may still contain absolute `amanoba_courses` paths for auditability. Active docs should use `amanoba_courses:process_them/docs/...` per `docs/core/CROSS_REPO_DOCS.md`.
 - Project 12 currently uses the standard Status field; richer Product/Agent/Type/Priority metadata remains on issue labels or older MVP Factory project views.
 
 ## Quick verification commands (run before marking work done)
@@ -66,12 +65,32 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run build` (ensures Next.js build without warnings).
 
 ## Next steps
-1. Verify whether scheduler + multiple enrolment email issue `#16` can be closed as validation-only, or split the remaining work.
-2. Drive lesson-quiz governance documentation + validators (#225).
-3. Sync documentation federation issue (#104) with the `amanoba_courses` repo and keep release notes grouped by ISO UTC date (#65).
+1. Run and record the full foundation gates after the May 20 hardening pass.
+2. Update Project 12 issue evidence for `#16`, `#225`, and `#104`.
+3. Keep release notes grouped by ISO UTC date for public-facing releases (#65).
 4. Keep `docs/HANDOVER.md` appended whenever these areas move.
 
 ---
+
+## Foundation hardening pass (2026-05-20)
+
+### What changed
+- Revalidated multi-enrolment daily lesson email behavior against the existing scheduler regression test: one learner enrolled in multiple active courses receives one email per course/day, and reruns dedupe by each progress row's `emailSentDays`.
+- Updated the learner lesson page so quiz gating, button state, and required-quiz messaging read the resolved `quizPolicy` returned by the day API before falling back to the legacy `lesson.quizConfig` compatibility projection.
+- Added a focused unit test for `resolveCourseQuizPolicy` proving that `course.lessonQuizPolicy` wins over legacy course-level fallbacks.
+- Documented the cross-repo docs contract in `docs/core/CROSS_REPO_DOCS.md` and updated active docs to prefer `amanoba_courses:process_them/docs/...` over machine-local absolute paths.
+
+### Verification
+- `npm test -- __tests__/unit/email-scheduler.test.ts __tests__/unit/course-quiz-policy.test.ts` ✅ pass
+- `npx eslint app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx app/lib/models/course.ts app/lib/course-quiz-policy.ts __tests__/unit/course-quiz-policy.test.ts __tests__/unit/email-scheduler.test.ts` ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm test` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run ui:check:layout` ✅ pass
+- `npm run build` ✅ pass
+- Production route smoke via `curl -L`: `/`, `/robots.txt`, `/sitemap.xml`, `/en/auth/signin`, `/en/blog`, `/en/news`, `/en/courses`, `/en/practice`, `/en/saved`, `/en/editor/courses` ✅ reachable; editor route redirects anonymous users to sign-in.
+- `npm run docs:check` is rerun after commit because the generated-doc checker requires refreshed docs files to be committed before it can pass.
 
 ## Project 12 board reconciliation (2026-05-20)
 
@@ -157,7 +176,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 ### Consolidated doc/code discrepancies
 - **Version drift resolved later**: active docs now align on 2.9.49 and Next.js 15.5.18; this March audit note is retained as historical context.
 - **Lesson quiz governance still in transition**: runtime authority is course-level (`lessonQuizPolicy` resolver), but compatibility surfaces remain in APIs/UI as `lesson.quizConfig` fields and import/export payload compatibility (`app/api/admin/courses/import/route.ts`, `app/api/admin/courses/[courseId]/export/route.ts`, learner day/quiz routes).
-- **Cross-repo portability risk**: active docs still include many machine-local references to `/Users/moldovancsaba/Projects/amanoba_courses/process_them/...` across `docs/core`, `docs/product`, `docs/handoff`, and archive docs.
+- **Cross-repo portability risk**: active docs should use `amanoba_courses:process_them/docs/...` per `docs/core/CROSS_REPO_DOCS.md`; historical docs may still preserve old machine-local paths for auditability.
 - **Scheduler reality vs risk note**: `app/lib/courses/email-scheduler.ts` already iterates per active enrolment and deduplicates by `emailSentDays`, so the risk text should be interpreted as broader multi-enrolment behavior validation, not absence of dedupe logic.
 
 ### Verification run (2026-03-10)
