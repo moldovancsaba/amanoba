@@ -16,16 +16,17 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
   3. Finish: document validation evidence, move card to _Done_, and mention where the change is documented.
 
 ## Current Priorities (Board snapshot — verify live status on Project 12)
-- **P0 documentation audit lane**
-  - `#371`: `Amanoba: Establish audit plan & SSOT inventory`
-  - `#373`: `Amanoba: Document-to-code inventory for audit`
-  - `#374`: `Amanoba: Audit readiness checklist & handover prep`
+- **No active assigned Amanoba issue is currently in `Todo (NEXT)` or `In Progress (NOW)`** as of the 2026-05-20 board reconciliation.
+- **Recently completed / closed**
+  - `#371`, `#373`, `#374`: documentation audit lane.
+  - `#750`, `#752`, `#770`, `#771`: learning streaks, friend streaks, saved lessons, and quiz answer explanations.
+  - `#781`, `#782`, `#783`: Practice Hub contract, learner shell, telemetry/rewards.
 - **P2 platform follow-ups**
-  - `#16`: `Email/scheduler: Respect multiple enrolments` — code is hardened, but board status should be verified and narrowed if remaining work is validation-only.
+  - `#16`: `Email/scheduler: Respect multiple enrolments` — Project 12 Backlog; code is hardened, but remaining work should be verified and narrowed if validation-only.
   - `#225`: `Lesson quiz governance #10` — course-level runtime authority exists; remaining work is compatibility cleanup across import/export docs, seed scripts, validators, and backfills.
 - **Documentation ops / federation**
   - `#104`: `Cross-repo documentation federation (amanoba + amanoba_courses)` — finalize a portable link strategy for course-quality references.
-  - `#65`: `Move Amanoba release notes into Amanoba wiki by ISO UTC date` — keep behind current audit/doc alignment unless explicitly reprioritized.
+  - `#65`: `Move Amanoba release notes into Amanoba wiki by ISO UTC date` — Project 12 Backlog.
 
 ## Documentation index (update when behavior changes)
 - `README.md` — quickstart + product overview (flexible courses, gamification, Stripe).
@@ -55,7 +56,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - Scheduler does not yet honor multiple active enrolments (issue #16). Emails can still duplicate when a learner is in >1 course.
 - Lesson-level quiz governance leftovers still exist in seeds, docs, and validators (#225).
 - Cross-repo documentation references are fragile — ensure `docs/product/TASKLIST.md` links to canonical assets under `amanoba_courses` before releasing.
-- Board fields for some linked issues may need manual verification (Product/Type/Priority/Status) via the GitHub Projects UI.
+- Project 12 currently uses the standard Status field; richer Product/Agent/Type/Priority metadata remains on issue labels or older MVP Factory project views.
 
 ## Quick verification commands (run before marking work done)
 - `npm run lint` (ESLint 9 + Next.js config).
@@ -65,10 +66,28 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run build` (ensures Next.js build without warnings).
 
 ## Next steps
-1. Finish the scheduler + multiple enrolment email logic (`#16`).
+1. Verify whether scheduler + multiple enrolment email issue `#16` can be closed as validation-only, or split the remaining work.
 2. Drive lesson-quiz governance documentation + validators (#225).
 3. Sync documentation federation issue (#104) with the `amanoba_courses` repo and keep release notes grouped by ISO UTC date (#65).
 4. Keep `docs/HANDOVER.md` appended whenever these areas move.
+
+---
+
+## Project 12 board reconciliation (2026-05-20)
+
+### What changed
+- Added the current repo-relevant Amanoba issues to Project 12, which was empty before this reconciliation.
+- Moved shipped issues to `Done` and closed them with evidence comments:
+  - `#371`, `#373`, `#374`
+  - `#750`, `#752`, `#770`, `#771`
+  - `#781`, `#782`, `#783`
+- Added active follow-ups to Project 12 `Backlog (SOONER)`:
+  - `#16`, `#65`, `#104`, `#225`, `#749`
+- Confirmed Project 12 only exposes the standard Status field; Product/Agent/Type/Priority are not Project 12 fields and remain represented through labels or older project views.
+
+### Verification run
+- `gh project item-list 12 --owner moldovancsaba --format json --limit 50` ✅ returned 15 items with expected `Done` / `Backlog (SOONER)` statuses.
+- `gh issue list --repo moldovancsaba/mvp-factory-control --state open --search "Amanoba" --limit 30` ✅ no longer returns the completed docs/streak/saved-lessons/Practice Hub issues.
 
 ---
 

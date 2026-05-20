@@ -3,7 +3,7 @@
 **Last Updated**: 2026-05-20
 **Board SSOT**: https://github.com/users/moldovancsaba/projects/12/views/1
 **Issues Repo**: `moldovancsaba/mvp-factory-control`
-**Current Audit Issues**: `#371`, `#373`, `#374`
+**Recent Audit Issues**: `#371`, `#373`, `#374` (Done / closed on 2026-05-20)
 
 ---
 
@@ -16,6 +16,7 @@ This document maps active Amanoba documentation to the code, scripts, and produc
 - **Live board**: Project 12, Amanoba board.
 - **Status model**: `IDEABANK (SOMEDAY)` -> `Roadmap (LATER)` -> `Backlog (SOONER)` -> `Todo (NEXT)` -> `In Progress (NOW)` -> `Review (ALMOST)` -> `Done` / `Declined (NEVER)`.
 - **Execution rule**: contributors should treat Project 12 as authoritative over local task files.
+- **Field model**: Project 12 currently exposes the standard Status field only; Product/Agent/Type/Priority remain issue-label or older-project metadata, not Project 12 fields.
 - **Issue history**: active work and audit evidence live in `moldovancsaba/mvp-factory-control`.
 
 ## Active Source-Of-Truth Documents

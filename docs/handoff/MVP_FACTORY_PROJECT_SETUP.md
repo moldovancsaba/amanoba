@@ -1,6 +1,6 @@
 # MVP Factory Project — one-time setup (grant project scope)
 
-To allow scripts and agents to **set project fields** (Status, Agent, Product, Type, Priority) on the [Amanoba Project board](https://github.com/users/moldovancsaba/projects/12/views/1) from this repo, the GitHub CLI token must include **project** scope.
+To allow scripts and agents to **set project fields** on the [Amanoba Project board](https://github.com/users/moldovancsaba/projects/12/views/1) from this repo, the GitHub CLI token must include **project** scope.
 
 ## One-time step
 
@@ -23,7 +23,7 @@ You should see `project` (or at least `read:project`) in **Token scopes**.
 
 ## What uses this
 
-- **scripts/mvp-factory-set-project-fields.sh** — sets Status, Agent, Product, Type, Priority on a project item (issue).
+- **scripts/mvp-factory-set-project-fields.sh** — adds an issue to the selected Project and sets available fields. On Project 12, this currently means Status; richer Product/Agent/Type/Priority metadata lives in labels or older project views.
 - Any future automation that adds issues to the project or updates card fields via `gh api graphql`.
 
 You only need to run the refresh once per machine (or when the token is rotated).

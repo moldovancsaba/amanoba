@@ -56,18 +56,16 @@ When an agent is asked to "Create a Feature issue in mvp-factory-control using t
 **Repo:** [moldovancsaba/mvp-factory-control](https://github.com/moldovancsaba/mvp-factory-control)  
 **Example issue in board:** open the issue card directly from the Project 12 board view.
 
-### Project fields (set on each card)
+### Project fields
 
-| Field     | Purpose                    | Example values                          |
-|----------|----------------------------|-----------------------------------------|
-| **Status** | Workflow state             | `IDEABANK (SOMEDAY)` → `Roadmap (LATER)` → `Backlog (SOONER)` → `Todo (NEXT)` → `In Progress (NOW)` → `Review (ALMOST)` → `Done` / `Declined (NEVER)` |
-| **Agent**  | Who does the work          | `Tribeca`, `Katja`, `Becca`, `Gwen`, `Chappie` |
-| **Product**| Which product/repo         | `amanoba`, (others as needed)           |
-| **Type**   | Kind of work               | `Feature`, (e.g. Bug, Refactor, Docs)    |
-| **Priority** | Urgency                  | `P0`, `P1`, `P2`, `P3`                  |
+Project 12 currently exposes the standard GitHub Projects **Status** field only:
+
+`IDEABANK (SOMEDAY)` → `Roadmap (LATER)` → `Backlog (SOONER)` → `Todo (NEXT)` → `In Progress (NOW)` → `Review (ALMOST)` → `Done` / `Declined (NEVER)`.
+
+Agent/Product/Type/Priority values are still useful context, but on the current Project 12 board they are represented through issue labels or older project views, not Project 12 fields.
 
 - **Work starts when:** Status is set to **Todo (NEXT)** or advanced to **In Progress (NOW)**.
-- **Managing from this repo:** Run **`./scripts/mvp-factory-set-project-fields.sh ISSUE_NUMBER`** to set Status, Agent, Product, Type, Priority from defaults. Override with `--status`, `--agent`, `--product`, `--type`, `--priority` or env vars `MVP_STATUS`, `MVP_AGENT`, `MVP_PRODUCT`, `MVP_TYPE`, `MVP_PRIORITY`. **One-time:** grant project scope: see **docs/handoff/MVP_FACTORY_PROJECT_SETUP.md** (`gh auth refresh -h github.com -s read:project,project`).
+- **Managing from this repo:** Run **`MVP_PROJECT_NUMBER=12 ./scripts/mvp-factory-set-project-fields.sh ISSUE_NUMBER --status "Backlog (SOONER)"`** or another Status value. The script skips fields that do not exist on the selected project. **One-time:** grant project scope: see **docs/handoff/MVP_FACTORY_PROJECT_SETUP.md** (`gh auth refresh -h github.com -s read:project,project`).
 
 ### Current task (P2 #3) on the board
 

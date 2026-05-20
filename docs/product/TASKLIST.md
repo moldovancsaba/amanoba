@@ -16,13 +16,22 @@ Use this file to understand the current high-level backlog shape from inside the
 
 ## Current Execution Lane
 
-These assigned audit issues are the active documentation lane as of 2026-05-20:
+No assigned Amanoba issue is in `Todo (NEXT)` or `In Progress (NOW)` as of the 2026-05-20 Project 12 reconciliation.
 
-| Issue | Title | Priority | Purpose |
-|-------|-------|----------|---------|
-| `#371` | Amanoba: Establish audit plan & SSOT inventory | P0 | Keep the audit plan and source-of-truth inventory current. |
-| `#373` | Amanoba: Document-to-code inventory for audit | P0 | Compare active docs against code and remove stale guidance. |
-| `#374` | Amanoba: Audit readiness checklist & handover prep | P0 | Package audit evidence, validation results, and handover notes. |
+Recently closed / Done on Project 12:
+
+| Issue | Title | Status |
+|-------|-------|--------|
+| `#371` | Amanoba: Establish audit plan & SSOT inventory | Done / closed |
+| `#373` | Amanoba: Document-to-code inventory for audit | Done / closed |
+| `#374` | Amanoba: Audit readiness checklist & handover prep | Done / closed |
+| `#750` | Amanoba ideabank: streak system for habit formation and daily return behavior | Done / closed |
+| `#752` | Amanoba ideabank: friend streaks and long-run peer accountability loops | Done / closed |
+| `#770` | Amanoba ideabank: learner bookmarks, saved content, and resume library | Done / closed |
+| `#771` | Amanoba ideabank: AI answer explanations and mistake-aware feedback | Done / closed |
+| `#781` | Amanoba practice hub MVP 1/3: define review modes, prioritization signals, and content contract | Done / closed |
+| `#782` | Amanoba practice hub MVP 2/3: learner UI shell, entry points, and review flows | Done / closed |
+| `#783` | Amanoba practice hub MVP 3/3: telemetry, rewards, and progress integration | Done / closed |
 
 ## Current Known Product / Platform Follow-Ups
 
@@ -33,6 +42,8 @@ These are the main repo-visible follow-ups that still matter after the May docum
 | Multi-enrolment email scheduler | Scheduler code has been hardened and unit-tested, but the board still tracks broader multi-enrolment email validation. | Verify Project 12 issue `#16`, update the issue if the remaining work is validation-only, then close or split as appropriate. |
 | Lesson quiz governance | Runtime authority is course-level policy, but compatibility payloads and seed/import/export cleanup remain. | Continue Project 12 issue `#225`: package/import docs, seed cleanup, validator alignment, and migration/backfill. |
 | Cross-repo documentation federation | Active docs still contain local paths to `amanoba_courses/process_them` for course-quality references. | Finish Project 12 issue `#104`: define portable published-link-first references with optional local path notes. |
+| Release notes wiki migration | Repo release notes remain canonical in `docs/product/RELEASE_NOTES.md`; the wiki migration request remains open. | Project 12 issue `#65` is in Backlog. |
+| Broader Practice Hub ideabank | MVP contract/UI/telemetry are shipped, but the broader listening/speaking/mistakes vision is not complete. | Keep Project 12 issue `#749` in Backlog until the next review-mode expansion is prioritized. |
 | Design-system migration | Hard-rule UI foundation checks pass; heuristic drift remains in older admin/game/profile/certificate surfaces. | Migrate touched surfaces incrementally and keep `docs/product/DESIGN_UPDATE.md` current. |
 | Certification templates/defaults | Certificate issuance, verification, entitlement, and template assignment exist; reusable admin-managed defaults/templates remain future work. | Keep as roadmap/backlog until Project 12 prioritizes it. |
 

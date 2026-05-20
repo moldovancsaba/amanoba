@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# Set MVP Factory Board project fields (Status, Agent, Product, Type, Priority) for an issue.
+# Set MVP Factory Board project fields for an issue.
 # Reads current state from the project first; only updates fields you explicitly pass (--flag or env).
-# Other fields are left unchanged (no overwrite). Requires: gh (GitHub CLI) with project scope, jq.
+# Other fields are left unchanged (no overwrite). Missing fields are skipped.
+# Requires: gh (GitHub CLI) with project scope, jq.
 # One-time: gh auth refresh -h github.com -s read:project,project
 # Usage: ./scripts/mvp-factory-set-project-fields.sh ISSUE_NUMBER [--status STATUS] [--agent AGENT] [--product PRODUCT] [--type TYPE] [--priority PRIORITY]
 # Env overrides (only for fields you pass): MVP_STATUS, MVP_AGENT, MVP_PRODUCT, MVP_TYPE, MVP_PRIORITY
@@ -11,7 +12,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DEFAULTS_FILE="$SCRIPT_DIR/mvp-factory-defaults.env"
 PROJECT_OWNER="${MVP_PROJECT_OWNER:-moldovancsaba}"
 REPO_NAME="${MVP_REPO:-mvp-factory-control}"
-PROJECT_NUM="${MVP_PROJECT_NUMBER:-1}"
+PROJECT_NUM="${MVP_PROJECT_NUMBER:-12}"
 
 # Overrides: only set when user passes --flag (or env for that field)
 OVERRIDE_STATUS=""
@@ -185,11 +186,15 @@ set_single_select() {
   echo "Set $field_name = $option_name"
 }
 
-# 6) Set each field to resolved value (override > current > default). Skip if unchanged.
+# 6) Set each field to resolved value (override > current > default). Skip if unchanged or unavailable.
 set_if_changed() {
   local field_name="$1"
   local resolved_value="$2"
   local current_value
+  if [ -z "$(get_field_id "$field_name")" ]; then
+    echo "Skip $field_name (field not present on project $PROJECT_NUM)"
+    return 0
+  fi
   current_value=$(get_current_value "$field_name")
   if [ "$resolved_value" = "$current_value" ]; then
     echo "Keep $field_name = $resolved_value (unchanged)"
