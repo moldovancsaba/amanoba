@@ -108,13 +108,14 @@ export const authConfig = {
         token.id = user.id;
         token.role = (user as any).role || 'user';
         
-        // DEBUG: Log role being added to JWT
-        console.log('[JWT Callback] Adding role to token:', {
-          userId: user.id,
-          userName: user.name,
-          role: token.role,
-          userRole: (user as any).role
-        });
+        if (process.env.NODE_ENV !== 'production') {
+          console.log('[JWT Callback] Adding role to token:', {
+            userId: user.id,
+            userName: user.name,
+            role: token.role,
+            userRole: (user as any).role
+          });
+        }
       }
       
       return token;
@@ -131,12 +132,13 @@ export const authConfig = {
         (session.user as any).role = token.role || 'user';
         (session.user as any).authProvider = token.authProvider || 'sso';
         
-        // DEBUG: Log role in session
-        console.log('[Session Callback] Role in session:', {
-          tokenRole: token.role,
-          sessionRole: (session.user as any).role,
-          userId: token.id
-        });
+        if (process.env.NODE_ENV !== 'production') {
+          console.log('[Session Callback] Role in session:', {
+            tokenRole: token.role,
+            sessionRole: (session.user as any).role,
+            userId: token.id
+          });
+        }
       }
       return session;
     },

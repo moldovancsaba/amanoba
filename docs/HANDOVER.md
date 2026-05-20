@@ -72,6 +72,20 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ---
 
+## Code-comment consistency sweep (2026-05-20)
+
+### What changed
+- Removed remaining stale debug-style auth comments/log labels from live SSO and NextAuth code.
+- Gated role/session callback console logging to non-production in `auth.config.ts`.
+- Reworded the background worker comment so the missing challenge worker is described as planned work, not a stale phase TODO.
+
+### Verification run
+- Targeted stale-term scan for `DEBUG:`, stale locale counts, Facebook auth copy, Resend-only comments, and old architecture paths ✅ clean in live source scope.
+- `git diff --check` ✅ pass.
+- `npx eslint --no-warn-ignored auth.config.ts app/api/auth/sso/callback/route.ts scripts/start-workers.ts` ✅ pass.
+
+---
+
 ## Documentation source-of-truth refresh (2026-05-20)
 
 ### What changed

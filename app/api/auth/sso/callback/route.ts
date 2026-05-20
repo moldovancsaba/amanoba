@@ -198,7 +198,7 @@ export async function GET(request: NextRequest) {
         role: claims.role,
         roles: claims.roles,
         allClaims: Object.keys(claims)
-      }, 'DEBUG: ID token claims received from SSO');
+      }, 'SSO ID token claims received');
     }
 
     // Verify nonce (if present in both cookie and token claims)
@@ -254,7 +254,7 @@ export async function GET(request: NextRequest) {
         email: userInfo.email,
         role: userInfo.role,
         roleSource: 'extracted_from_claims'
-      }, 'DEBUG: Extracted user info from claims');
+      }, 'SSO user info extracted from claims');
     }
 
     try {
@@ -663,7 +663,7 @@ export async function GET(request: NextRequest) {
         roleFromSSO: userInfo.role,
         finalRole,
         roleSource: 'database_updated_from_sso'
-      }, 'DEBUG: About to call signIn with role (SSO is source of truth)');
+      }, 'Creating NextAuth session from synced SSO role');
     }
     
     let signInResult;
@@ -673,7 +673,7 @@ export async function GET(request: NextRequest) {
         playerId: (player._id as { toString(): string }).toString(),
         displayName: player.displayName,
         isAnonymous: 'false',
-        role: player.role || userInfo.role || 'user', // Use player.role (from DB, updated from SSO)
+        role: player.role || userInfo.role || 'user',
       });
     } catch (signInError) {
       const errorMessage = signInError instanceof Error ? signInError.message : String(signInError);
@@ -695,7 +695,7 @@ export async function GET(request: NextRequest) {
         signInSuccess: !signInResult?.error,
         rolePassed: player.role,
         signInError: signInResult?.error
-      }, 'DEBUG: signIn completed');
+      }, 'NextAuth signIn completed after SSO callback');
     }
 
     if (!signInResult || signInResult.error) {

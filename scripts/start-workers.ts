@@ -11,7 +11,7 @@
  * Workers:
  * - Achievement Worker: Processes achievement unlock checks
  * - Leaderboard Worker: Processes leaderboard recalculations
- * - Challenge Worker: (TODO Phase 7) Processes challenge progress updates
+ * - Challenge Worker: planned worker for challenge progress updates
  */
 
 import logger from '../app/lib/logger';
