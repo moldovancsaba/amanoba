@@ -9,6 +9,29 @@
  */
 
 import { useState, useEffect, useCallback } from 'react';
+import {
+  ActionIcon,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Checkbox,
+  Divider,
+  Group,
+  LoadingOverlay,
+  Modal,
+  Radio,
+  Select,
+  SimpleGrid,
+  Stack,
+  Text,
+  Textarea,
+  TextInput,
+  Title,
+} from '@mantine/core';
+import { modals } from '@mantine/modals';
+import { notifications } from '@mantine/notifications';
+import { IconCircleCheck, IconEdit, IconEye, IconEyeCheck, IconPlus, IconTrash } from '@tabler/icons-react';
 
 export type QuizQuestionItem = {
   _id: string;
@@ -61,11 +84,11 @@ export default function QuizManagerModal({
       if (data.success) {
         setQuestions(data.questions || []);
       } else {
-        alert(data.error || 'Failed to load quiz questions');
+        notifications.show({ color: 'red', title: 'Could not load questions', message: data.error || 'Failed to load quiz questions' });
       }
     } catch (error) {
       console.error('Failed to fetch questions:', error);
-      alert('Failed to load quiz questions');
+      notifications.show({ color: 'red', title: 'Could not load questions', message: 'Failed to load quiz questions' });
     } finally {
       setLoading(false);
     }
@@ -79,21 +102,21 @@ export default function QuizManagerModal({
     try {
       const optionsToSend = questionForm.options.map((o) => o.trim()).filter(Boolean);
       if (optionsToSend.length < 4) {
-        alert('At least 4 options must be filled');
+        notifications.show({ color: 'red', title: 'Question needs more options', message: 'At least 4 options must be filled.' });
         return;
       }
       if (new Set(optionsToSend).size !== optionsToSend.length) {
-        alert('All options must be unique');
+        notifications.show({ color: 'red', title: 'Duplicate options', message: 'All options must be unique.' });
         return;
       }
       const correctValue = questionForm.options[questionForm.correctIndex]?.trim();
       if (!correctValue) {
-        alert('Please select the correct answer (one of the filled options)');
+        notifications.show({ color: 'red', title: 'Correct answer missing', message: 'Please select the correct answer from the filled options.' });
         return;
       }
       const correctIndexToSend = optionsToSend.indexOf(correctValue);
       if (correctIndexToSend === -1) {
-        alert('Correct answer must be one of the filled options');
+        notifications.show({ color: 'red', title: 'Correct answer invalid', message: 'Correct answer must be one of the filled options.' });
         return;
       }
       const url = editingQuestion ? `${baseUrl}/quiz/${editingQuestion._id}` : `${baseUrl}/quiz`;
@@ -117,12 +140,17 @@ export default function QuizManagerModal({
         setShowQuestionForm(false);
         setEditingQuestion(null);
         setQuestionForm(DEFAULT_FORM);
+        notifications.show({
+          color: 'green',
+          title: editingQuestion ? 'Question updated' : 'Question created',
+          message: 'The lesson quiz questions are up to date.',
+        });
       } else {
-        alert(data.error || 'Failed to save question');
+        notifications.show({ color: 'red', title: 'Could not save question', message: data.error || 'Failed to save question' });
       }
     } catch (error) {
       console.error('Failed to save question:', error);
-      alert('Failed to save question');
+      notifications.show({ color: 'red', title: 'Could not save question', message: 'Failed to save question' });
     }
   };
 
@@ -143,29 +171,51 @@ export default function QuizManagerModal({
   };
 
   const handleDeactivate = async (questionId: string) => {
-    if (!confirm('Are you sure you want to deactivate this question? It can be reactivated later.')) return;
-    try {
-      const response = await fetch(`${baseUrl}/quiz/${questionId}`, { method: 'DELETE' });
-      const data = await response.json();
-      if (data.success) await fetchQuestions();
-      else alert(data.error || 'Failed to deactivate question');
-    } catch (error) {
-      console.error('Failed to deactivate question:', error);
-      alert('Failed to deactivate question');
-    }
+    modals.openConfirmModal({
+      title: 'Deactivate question',
+      children: <Text size="sm">This removes the question from the active learner quiz. It can be reactivated later.</Text>,
+      labels: { confirm: 'Deactivate', cancel: 'Cancel' },
+      confirmProps: { color: 'orange' },
+      onConfirm: async () => {
+        try {
+          const response = await fetch(`${baseUrl}/quiz/${questionId}`, { method: 'DELETE' });
+          const data = await response.json();
+          if (data.success) {
+            await fetchQuestions();
+            notifications.show({ color: 'green', title: 'Question deactivated', message: 'The question is now inactive.' });
+          } else {
+            notifications.show({ color: 'red', title: 'Could not deactivate question', message: data.error || 'Failed to deactivate question' });
+          }
+        } catch (error) {
+          console.error('Failed to deactivate question:', error);
+          notifications.show({ color: 'red', title: 'Could not deactivate question', message: 'Failed to deactivate question' });
+        }
+      },
+    });
   };
 
   const handlePermanentDelete = async (questionId: string) => {
-    if (!confirm('Are you sure you want to PERMANENTLY delete this question? This action cannot be undone!')) return;
-    try {
-      const response = await fetch(`${baseUrl}/quiz/${questionId}/permanent`, { method: 'DELETE' });
-      const data = await response.json();
-      if (data.success) await fetchQuestions();
-      else alert(data.error || 'Failed to permanently delete question');
-    } catch (error) {
-      console.error('Failed to permanently delete question:', error);
-      alert('Failed to permanently delete question');
-    }
+    modals.openConfirmModal({
+      title: 'Permanently delete question',
+      children: <Text size="sm">This action cannot be undone. The question will be deleted from the lesson quiz.</Text>,
+      labels: { confirm: 'Delete permanently', cancel: 'Cancel' },
+      confirmProps: { color: 'red' },
+      onConfirm: async () => {
+        try {
+          const response = await fetch(`${baseUrl}/quiz/${questionId}/permanent`, { method: 'DELETE' });
+          const data = await response.json();
+          if (data.success) {
+            await fetchQuestions();
+            notifications.show({ color: 'green', title: 'Question deleted', message: 'The question was permanently deleted.' });
+          } else {
+            notifications.show({ color: 'red', title: 'Could not delete question', message: data.error || 'Failed to permanently delete question' });
+          }
+        } catch (error) {
+          console.error('Failed to permanently delete question:', error);
+          notifications.show({ color: 'red', title: 'Could not delete question', message: 'Failed to permanently delete question' });
+        }
+      },
+    });
   };
 
   const handleToggleActive = async (question: QuizQuestionItem) => {
@@ -176,94 +226,158 @@ export default function QuizManagerModal({
         body: JSON.stringify({ isActive: !question.isActive }),
       });
       const data = await response.json();
-      if (data.success) await fetchQuestions();
-      else alert(data.error || 'Failed to update question');
+      if (data.success) {
+        await fetchQuestions();
+        notifications.show({
+          color: 'green',
+          title: question.isActive ? 'Question deactivated' : 'Question reactivated',
+          message: 'The question status was updated.',
+        });
+      } else {
+        notifications.show({ color: 'red', title: 'Could not update question', message: data.error || 'Failed to update question' });
+      }
     } catch (error) {
       console.error('Failed to toggle question:', error);
-      alert('Failed to update question');
+      notifications.show({ color: 'red', title: 'Could not update question', message: 'Failed to update question' });
     }
   };
 
   const isDark = variant === 'dark';
-  const panelCls = isDark ? 'panel-on-dark border-2 border-brand-accent/30' : 'bg-brand-white border-2 border-brand-accent';
-  const inputCls = isDark ? 'input-on-dark' : 'bg-brand-white border-2 border-brand-darkGrey rounded-lg focus:outline-none focus:border-brand-accent';
-  const textCls = isDark ? 'text-brand-white' : 'text-brand-black';
-  const mutedCls = isDark ? 'text-brand-white/80' : 'text-brand-darkGrey';
-  const btnPrimary = isDark
-    ? 'bg-brand-accent text-brand-black hover:bg-brand-primary-400'
-    : 'bg-brand-accent text-brand-black hover:bg-brand-primary-400';
-  const btnSecondary = isDark ? 'bg-brand-darkGrey hover:bg-brand-secondary-700 text-brand-white' : 'bg-brand-darkGrey text-brand-white hover:bg-brand-secondary-700';
+  const activeQuestions = questions.filter((q) => q.isActive);
+  const inactiveQuestions = questions.filter((q) => !q.isActive);
+  const surfaceBg = isDark ? 'dark.8' : 'white';
+  const mutedColor = isDark ? 'gray.4' : 'dimmed';
+
+  const questionCard = (question: QuizQuestionItem, active: boolean) => (
+    <Card key={question._id} withBorder radius="md" bg={isDark ? (active ? 'dark.7' : 'dark.8') : undefined} opacity={active ? 1 : 0.76}>
+      <Group align="flex-start" justify="space-between" wrap="nowrap">
+        <Stack gap="xs" flex={1}>
+          <Group gap="xs" align="center">
+            <Title order={4} size="md" c={isDark ? 'white' : 'dark'}>
+              {question.question}
+            </Title>
+            {!active ? <Badge color="gray">Inactive</Badge> : null}
+          </Group>
+          <Stack gap={4}>
+            {question.options.map((option, index) => (
+              <Group key={index} gap="xs" wrap="nowrap">
+                {index === question.correctIndex ? <IconCircleCheck size={16} color="var(--mantine-color-green-6)" /> : <Box w={16} />}
+                <Text size="sm" fw={index === question.correctIndex ? 700 : 400} c={index === question.correctIndex ? 'green' : mutedColor}>
+                  {option}
+                </Text>
+              </Group>
+            ))}
+          </Stack>
+          <Group gap="xs">
+            <Badge variant="light">{question.difficulty}</Badge>
+            <Badge variant="outline" color="gray">
+              {question.category}
+            </Badge>
+          </Group>
+          {question.explanation ? (
+            <Text size="sm" c={mutedColor}>
+              Explanation: {question.explanation}
+            </Text>
+          ) : null}
+        </Stack>
+        <Group gap="xs" wrap="nowrap">
+          {active ? (
+            <>
+              <ActionIcon variant="filled" color="amanobaYellow" aria-label="Edit question" title="Edit question" onClick={() => handleEdit(question)}>
+                <IconEdit size={16} />
+              </ActionIcon>
+              <ActionIcon variant="filled" color="orange" aria-label="Deactivate question" title="Deactivate question" onClick={() => handleDeactivate(question._id)}>
+                <IconEye size={16} />
+              </ActionIcon>
+            </>
+          ) : (
+            <>
+              <ActionIcon variant="filled" color="green" aria-label="Reactivate question" title="Reactivate question" onClick={() => handleToggleActive(question)}>
+                <IconEyeCheck size={16} />
+              </ActionIcon>
+              <ActionIcon variant="filled" color="red" aria-label="Permanently delete question" title="Permanently delete question" onClick={() => handlePermanentDelete(question._id)}>
+                <IconTrash size={16} />
+              </ActionIcon>
+            </>
+          )}
+        </Group>
+      </Group>
+    </Card>
+  );
 
   return (
-    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-      <div className={`rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto ${panelCls}`}>
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h2 className={`text-2xl font-bold ${textCls}`}>Manage Quiz Questions</h2>
-            <p className={`text-sm ${mutedCls}`}>Lesson: {lessonId}</p>
-          </div>
-          <button onClick={onClose} className={`${mutedCls} hover:opacity-100 text-2xl font-bold`} aria-label="Close">
-            ✕
-          </button>
-        </div>
-
-        {loading ? (
-          <div className="text-center py-12">
-            <div className={mutedCls}>Loading questions...</div>
-          </div>
-        ) : showQuestionForm ? (
-          <div className="space-y-4">
-            <h3 className={`text-lg font-bold ${textCls}`}>{editingQuestion ? 'Edit' : 'Create'} Question</h3>
-            <div>
-              <label className={`block text-sm font-medium ${textCls} mb-2`}>Question *</label>
-              <textarea
-                value={questionForm.question}
-                onChange={(e) => setQuestionForm({ ...questionForm, question: e.target.value })}
-                className={`w-full px-4 py-2 rounded-lg ${inputCls} ${textCls}`}
-                rows={3}
-                required
-              />
-            </div>
-            <div>
-              <label className={`block text-sm font-medium ${textCls} mb-2`}>Answer explanation</label>
-              <textarea
-                value={questionForm.explanation}
-                onChange={(e) => setQuestionForm({ ...questionForm, explanation: e.target.value })}
-                className={`w-full px-4 py-2 rounded-lg ${inputCls} ${textCls}`}
-                rows={4}
-                placeholder="Optional: explain why the correct answer is right or what concept the learner should review."
-              />
-              <p className={`text-xs ${mutedCls} mt-1`}>
-                Shown to learners after an incorrect answer. Keep it short, specific, and tied to the lesson concept.
-              </p>
-            </div>
-            <div>
-              <label className={`block text-sm font-medium ${textCls} mb-2`}>Options * (minimum 4)</label>
+    <Modal
+      opened
+      onClose={onClose}
+      title={
+        <Stack gap={2}>
+          <Title order={2} size="h3">
+            Manage Quiz Questions
+          </Title>
+          <Text size="sm" c="dimmed">
+            Lesson: {lessonId}
+          </Text>
+        </Stack>
+      }
+      size="xl"
+      centered
+      radius="md"
+      overlayProps={{ backgroundOpacity: 0.7, blur: 2 }}
+      styles={{ content: { background: `var(--mantine-color-${surfaceBg.replace('.', '-')})` } }}
+    >
+      <Box pos="relative">
+        <LoadingOverlay visible={loading} overlayProps={{ radius: 'md', blur: 2 }} />
+        {showQuestionForm ? (
+          <Stack gap="md">
+            <Title order={3} size="h4">
+              {editingQuestion ? 'Edit' : 'Create'} Question
+            </Title>
+            <Textarea
+              label="Question"
+              required
+              autosize
+              minRows={3}
+              value={questionForm.question}
+              onChange={(event) => setQuestionForm({ ...questionForm, question: event.currentTarget.value })}
+            />
+            <Textarea
+              label="Answer explanation"
+              description="Shown to learners after an incorrect answer. Keep it short, specific, and tied to the lesson concept."
+              autosize
+              minRows={4}
+              placeholder="Optional: explain why the correct answer is right or what concept the learner should review."
+              value={questionForm.explanation}
+              onChange={(event) => setQuestionForm({ ...questionForm, explanation: event.currentTarget.value })}
+            />
+            <Stack gap="xs">
+              <Text fw={600} size="sm">
+                Options * (minimum 4)
+              </Text>
               {questionForm.options.map((option, index) => (
-                <div key={index} className="mb-2 flex items-center gap-2">
-                  <input
-                    type="radio"
+                <Group key={index} align="center" wrap="nowrap">
+                  <Radio
                     name="correctIndex"
                     checked={questionForm.correctIndex === index}
                     onChange={() => setQuestionForm({ ...questionForm, correctIndex: index })}
-                    className="w-4 h-4 text-brand-accent"
+                    aria-label={`Mark option ${index + 1} as correct`}
                   />
-                  <input
-                    type="text"
+                  <TextInput
+                    flex={1}
                     value={option}
-                    onChange={(e) => {
+                    onChange={(event) => {
                       const newOptions = [...questionForm.options];
-                      newOptions[index] = e.target.value;
+                      newOptions[index] = event.currentTarget.value;
                       setQuestionForm({ ...questionForm, options: newOptions });
                     }}
                     placeholder={`Option ${index + 1}`}
-                    className={`flex-1 px-4 py-2 rounded-lg ${inputCls} ${textCls}`}
                   />
-                  {questionForm.options.length > 4 && (
-                    <button
+                  {questionForm.options.length > 4 ? (
+                    <Button
                       type="button"
+                      variant="subtle"
+                      color="red"
                       onClick={() => {
-                        const newOptions = questionForm.options.filter((_, i) => i !== index);
+                        const newOptions = questionForm.options.filter((_, optionIndex) => optionIndex !== index);
                         const newCorrect =
                           questionForm.correctIndex >= newOptions.length
                             ? newOptions.length - 1
@@ -272,234 +386,119 @@ export default function QuizManagerModal({
                               : questionForm.correctIndex;
                         setQuestionForm({ ...questionForm, options: newOptions, correctIndex: newCorrect });
                       }}
-                      className={`text-xs ${mutedCls} hover:underline`}
                     >
                       Remove
-                    </button>
-                  )}
-                </div>
+                    </Button>
+                  ) : null}
+                </Group>
               ))}
-              <button
-                type="button"
-                onClick={() => setQuestionForm({ ...questionForm, options: [...questionForm.options, ''] })}
-                className={`mt-1 text-sm text-brand-accent hover:underline`}
-              >
-                + Add option
-              </button>
-              <p className={`text-xs ${mutedCls} mt-1`}>Select the radio button next to the correct answer</p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className={`block text-sm font-medium ${textCls} mb-2`}>Difficulty</label>
-                <select
-                  value={questionForm.difficulty}
-                  onChange={(e) => setQuestionForm({ ...questionForm, difficulty: e.target.value as Difficulty })}
-                  className={`w-full px-4 py-2 rounded-lg ${inputCls} ${textCls}`}
+              <Group justify="space-between">
+                <Button
+                  type="button"
+                  variant="subtle"
+                  leftSection={<IconPlus size={16} />}
+                  onClick={() => setQuestionForm({ ...questionForm, options: [...questionForm.options, ''] })}
                 >
-                  <option value="EASY">Easy</option>
-                  <option value="MEDIUM">Medium</option>
-                  <option value="HARD">Hard</option>
-                  <option value="EXPERT">Expert</option>
-                </select>
-              </div>
-              <div>
-                <label className={`block text-sm font-medium ${textCls} mb-2`}>Category</label>
-                <select
-                  value={questionForm.category}
-                  onChange={(e) => setQuestionForm({ ...questionForm, category: e.target.value })}
-                  className={`w-full px-4 py-2 rounded-lg ${inputCls} ${textCls}`}
-                >
-                  <option value="General Knowledge">General Knowledge</option>
-                  <option value="Science">Science</option>
-                  <option value="History">History</option>
-                  <option value="Geography">Geography</option>
-                  <option value="Math">Math</option>
-                  <option value="Technology">Technology</option>
-                  <option value="Arts & Literature">Arts & Literature</option>
-                  <option value="Sports">Sports</option>
-                </select>
-              </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                checked={questionForm.isActive}
-                onChange={(e) => setQuestionForm({ ...questionForm, isActive: e.target.checked })}
-                className="w-4 h-4 text-brand-accent rounded"
+                  Add option
+                </Button>
+                <Text size="xs" c="dimmed">
+                  Select the radio button next to the correct answer.
+                </Text>
+              </Group>
+            </Stack>
+            <SimpleGrid cols={{ base: 1, sm: 2 }}>
+              <Select
+                label="Difficulty"
+                data={[
+                  { value: 'EASY', label: 'Easy' },
+                  { value: 'MEDIUM', label: 'Medium' },
+                  { value: 'HARD', label: 'Hard' },
+                  { value: 'EXPERT', label: 'Expert' },
+                ]}
+                value={questionForm.difficulty}
+                allowDeselect={false}
+                onChange={(value) => setQuestionForm({ ...questionForm, difficulty: (value || 'MEDIUM') as Difficulty })}
               />
-              <label className={`text-sm font-medium ${textCls}`}>Active</label>
-            </div>
-            <div className="flex items-center justify-end gap-4 pt-4 border-t border-brand-darkGrey/20">
-              <button
+              <Select
+                label="Category"
+                data={['General Knowledge', 'Science', 'History', 'Geography', 'Math', 'Technology', 'Arts & Literature', 'Sports']}
+                value={questionForm.category}
+                allowDeselect={false}
+                onChange={(value) => setQuestionForm({ ...questionForm, category: value || 'General Knowledge' })}
+              />
+            </SimpleGrid>
+            <Checkbox
+              label="Active"
+              checked={questionForm.isActive}
+              onChange={(event) => setQuestionForm({ ...questionForm, isActive: event.currentTarget.checked })}
+            />
+            <Divider />
+            <Group justify="flex-end">
+              <Button
                 type="button"
+                variant="default"
                 onClick={() => {
                   setShowQuestionForm(false);
                   setEditingQuestion(null);
                   setQuestionForm(DEFAULT_FORM);
                 }}
-                className={`px-6 py-2 rounded-lg font-bold ${btnSecondary}`}
               >
                 Cancel
-              </button>
-              <button type="button" onClick={handleSaveQuestion} className={`px-6 py-2 rounded-lg font-bold ${btnPrimary}`}>
+              </Button>
+              <Button type="button" onClick={handleSaveQuestion}>
                 {editingQuestion ? 'Update' : 'Create'} Question
-              </button>
-            </div>
-          </div>
+              </Button>
+            </Group>
+          </Stack>
         ) : (
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <p className={`text-sm ${mutedCls}`}>
+          <Stack gap="md">
+            <Group justify="space-between">
+              <Text size="sm" c={mutedColor}>
                 {questions.length} question{questions.length !== 1 ? 's' : ''} total
-              </p>
-              <button
+              </Text>
+              <Button
+                leftSection={<IconPlus size={16} />}
                 onClick={() => {
                   setEditingQuestion(null);
                   setQuestionForm(DEFAULT_FORM);
                   setShowQuestionForm(true);
                 }}
-                className={`px-4 py-2 rounded-lg font-bold ${btnPrimary}`}
               >
-                + Add Question
-              </button>
-            </div>
+                Add Question
+              </Button>
+            </Group>
             {questions.length === 0 ? (
-              <div className={`text-center py-12 border-2 border-dashed rounded-lg ${isDark ? 'border-brand-accent/30' : 'border-brand-darkGrey/30'}`}>
-                <p className={`mb-4 ${mutedCls}`}>No questions yet</p>
-                <button onClick={() => setShowQuestionForm(true)} className={`px-4 py-2 rounded-lg font-bold ${btnPrimary}`}>
-                  Create First Question
-                </button>
-              </div>
+              <Card withBorder radius="md" p="xl" bg={isDark ? 'dark.7' : undefined}>
+                <Stack align="center" gap="md">
+                  <Text c={mutedColor}>No questions yet</Text>
+                  <Button leftSection={<IconPlus size={16} />} onClick={() => setShowQuestionForm(true)}>
+                    Create First Question
+                  </Button>
+                </Stack>
+              </Card>
             ) : (
-              <div className="space-y-6">
-                {questions.filter((q) => q.isActive).length > 0 && (
-                  <div>
-                    <h3 className={`text-lg font-bold ${textCls} mb-3`}>
-                      Active Questions ({questions.filter((q) => q.isActive).length})
-                    </h3>
-                    <div className="space-y-3">
-                      {questions
-                        .filter((q) => q.isActive)
-                        .map((question) => (
-                          <div
-                            key={question._id}
-                            className={`p-4 border-2 rounded-lg ${isDark ? 'border-brand-accent panel-on-dark' : 'border-brand-accent bg-brand-white'}`}
-                          >
-                            <div className="flex items-start justify-between">
-                              <div className="flex-1">
-                                <h4 className={`font-bold ${textCls} mb-2`}>{question.question}</h4>
-                                <div className="space-y-1">
-                                  {question.options.map((option, index) => (
-                                    <div
-                                      key={index}
-                                      className={`text-sm ${index === question.correctIndex ? 'ds-text-success font-bold' : mutedCls}`}
-                                    >
-                                      {index === question.correctIndex ? '✓ ' : '  '}
-                                      {option}
-                                    </div>
-                                  ))}
-                                </div>
-                                <div className={`flex items-center gap-4 mt-2 text-xs ${mutedCls}`}>
-                                  <span>Difficulty: {question.difficulty}</span>
-                                  <span>Category: {question.category}</span>
-                                </div>
-                                {question.explanation ? (
-                                  <p className={`mt-3 text-sm ${mutedCls}`}>
-                                    Explanation: {question.explanation}
-                                  </p>
-                                ) : null}
-                              </div>
-                              <div className="flex items-center gap-2 ml-4">
-                                <button
-                                  onClick={() => handleEdit(question)}
-                                  className={`p-2 rounded ${btnPrimary}`}
-                                  title="Edit"
-                                >
-                                  ✏️
-                                </button>
-                                <button
-                                  onClick={() => handleDeactivate(question._id)}
-                                  className="p-2 ds-button-warning rounded"
-                                  title="Deactivate"
-                                >
-                                  👁️
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                    </div>
-                  </div>
-                )}
-                {questions.filter((q) => !q.isActive).length > 0 && (
-                  <div>
-                    <h3 className={`text-lg font-bold ${textCls} mb-3`}>
-                      Inactive Questions ({questions.filter((q) => !q.isActive).length})
-                    </h3>
-                    <div className="space-y-3">
-                      {questions
-                        .filter((q) => !q.isActive)
-                        .map((question) => (
-                          <div
-                            key={question._id}
-                            className={`p-4 border-2 rounded-lg opacity-75 ${isDark ? 'border-brand-accent/30 bg-brand-black/30' : 'border-brand-darkGrey/30 bg-brand-darkGrey/10'}`}
-                          >
-                            <div className="flex items-start justify-between">
-                              <div className="flex-1">
-                                <div className="flex items-center gap-2 mb-2">
-                                  <h4 className={`font-bold ${textCls}`}>{question.question}</h4>
-                                  <span className={`text-xs px-2 py-1 rounded ${isDark ? 'bg-brand-black/50 text-brand-white/90' : 'bg-brand-darkGrey text-brand-white'}`}>
-                                    Inactive
-                                  </span>
-                                </div>
-                                <div className="space-y-1">
-                                  {question.options.map((option, index) => (
-                                    <div
-                                      key={index}
-                                      className={`text-sm ${index === question.correctIndex ? 'ds-text-success font-bold' : mutedCls}`}
-                                    >
-                                      {index === question.correctIndex ? '✓ ' : '  '}
-                                      {option}
-                                    </div>
-                                  ))}
-                                </div>
-                                <div className={`flex items-center gap-4 mt-2 text-xs ${mutedCls}`}>
-                                  <span>Difficulty: {question.difficulty}</span>
-                                  <span>Category: {question.category}</span>
-                                </div>
-                                {question.explanation ? (
-                                  <p className={`mt-3 text-sm ${mutedCls}`}>
-                                    Explanation: {question.explanation}
-                                  </p>
-                                ) : null}
-                              </div>
-                              <div className="flex items-center gap-2 ml-4">
-                                <button
-                                  onClick={() => handleToggleActive(question)}
-                                  className="p-2 ds-button-success rounded"
-                                  title="Reactivate"
-                                >
-                                  👁️‍🗨️
-                                </button>
-                                <button
-                                  onClick={() => handlePermanentDelete(question._id)}
-                                  className="p-2 ds-button-danger rounded"
-                                  title="Permanently Delete"
-                                >
-                                  🗑️
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                    </div>
-                  </div>
-                )}
-              </div>
+              <Stack gap="xl">
+                {activeQuestions.length > 0 ? (
+                  <Stack gap="sm">
+                    <Title order={3} size="h4">
+                      Active Questions ({activeQuestions.length})
+                    </Title>
+                    {activeQuestions.map((question) => questionCard(question, true))}
+                  </Stack>
+                ) : null}
+                {inactiveQuestions.length > 0 ? (
+                  <Stack gap="sm">
+                    <Title order={3} size="h4">
+                      Inactive Questions ({inactiveQuestions.length})
+                    </Title>
+                    {inactiveQuestions.map((question) => questionCard(question, false))}
+                  </Stack>
+                ) : null}
+              </Stack>
             )}
-          </div>
+          </Stack>
         )}
-      </div>
-    </div>
+      </Box>
+    </Modal>
   );
 }
