@@ -12,21 +12,53 @@ import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import {
-  ArrowLeft,
-  Save,
-  Plus,
-  Edit,
-  Eye,
-  Calendar,
-  Download,
-  Upload,
-  AlertTriangle,
-  RefreshCw,
-  Loader2,
-} from 'lucide-react';
+  ActionIcon,
+  Alert,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Checkbox,
+  Container,
+  FileButton,
+  Group,
+  Loader,
+  Modal,
+  NumberInput,
+  Paper,
+  Select,
+  SimpleGrid,
+  Stack,
+  Stepper,
+  Text,
+  Textarea,
+  TextInput,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import { modals } from '@mantine/modals';
+import { notifications } from '@mantine/notifications';
 import Image from 'next/image';
-import { Alert, Badge, Card, Group, SimpleGrid, Stack, Stepper, Text, Title } from '@mantine/core';
-import { IconBook, IconCertificate, IconChecklist, IconSettings } from '@tabler/icons-react';
+import {
+  IconAlertTriangle,
+  IconArrowLeft,
+  IconBook,
+  IconCalendar,
+  IconCertificate,
+  IconChecklist,
+  IconDeviceFloppy,
+  IconDownload,
+  IconEdit,
+  IconEye,
+  IconFileUpload,
+  IconListCheck,
+  IconPlus,
+  IconRefresh,
+  IconSettings,
+  IconTrash,
+  IconUpload,
+  IconX,
+} from '@tabler/icons-react';
 import MarkdownEditor from '@/app/components/ui/markdown-editor';
 import { getStripeMinimum, getFormattedMinimum, meetsStripeMinimum } from '@/app/lib/utils/stripe-minimums';
 import { COURSE_LANGUAGE_OPTIONS } from '@/app/lib/constants/course-languages';
@@ -317,11 +349,14 @@ export default function CourseEditorPage({
         if (data.success && data.course) {
           setCourse(data.course);
         }
-        alert('Course saved successfully');
+        notifications.show({ color: 'green', title: 'Course saved', message: 'The course settings are up to date.' });
+      } else {
+        const data = await response.json().catch(() => ({}));
+        notifications.show({ color: 'red', title: 'Could not save course', message: data.error || data.message || 'Failed to save course' });
       }
     } catch (error) {
       console.error('Failed to save course:', error);
-      alert('Failed to save course');
+      notifications.show({ color: 'red', title: 'Could not save course', message: 'Failed to save course' });
     }
   };
 
@@ -338,9 +373,14 @@ export default function CourseEditorPage({
       if (response.ok) {
         const data = await response.json();
         setCourse(data.course);
+        notifications.show({ color: 'green', title: data.course?.isActive ? 'Course published' : 'Course set to draft', message: 'Course visibility was updated.' });
+      } else {
+        const data = await response.json().catch(() => ({}));
+        notifications.show({ color: 'red', title: 'Could not update course status', message: data.error || data.message || 'Failed to update course status' });
       }
     } catch (error) {
       console.error('Failed to toggle course status:', error);
+      notifications.show({ color: 'red', title: 'Could not update course status', message: 'Failed to update course status' });
     }
   };
 
@@ -354,19 +394,19 @@ export default function CourseEditorPage({
 
   const handleExportCourse = async () => {
     if (!courseId) {
-      alert('Course ID is missing');
+      notifications.show({ color: 'red', title: 'Export unavailable', message: 'Course ID is missing.' });
       return;
     }
     try {
       const response = await fetch(`/api/admin/courses/${courseId}/export`);
       if (!response.ok) {
         const err = await response.json().catch(() => ({}));
-        alert(err.details ? `${err.error}: ${err.details}` : err.error || 'Failed to export');
+        notifications.show({ color: 'red', title: 'Export failed', message: err.details ? `${err.error}: ${err.details}` : err.error || 'Failed to export' });
         return;
       }
       const data = await response.json();
       if (!data.course?.courseId) {
-        alert('Invalid export data received');
+        notifications.show({ color: 'red', title: 'Export failed', message: 'Invalid export data received.' });
         return;
       }
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
@@ -378,17 +418,17 @@ export default function CourseEditorPage({
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
+      notifications.show({ color: 'green', title: 'Course exported', message: 'The course package download has started.' });
     } catch (error) {
       console.error('Failed to export course:', error);
-      alert(`Failed to export: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      notifications.show({ color: 'red', title: 'Export failed', message: error instanceof Error ? error.message : 'Unknown error' });
     }
   };
 
   const [importing, setImporting] = useState(false);
   const [importQuestionMode, setImportQuestionMode] = useState<'add' | 'overwrite'>('add');
 
-  const handleImportCourse = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
+  const handleImportCourse = async (file: File | null) => {
     if (!file) return;
 
     const questionModeText =
@@ -396,151 +436,151 @@ export default function CourseEditorPage({
         ? 'Overwrite questions: existing questions in imported lessons will be replaced by the package.'
         : 'Add questions: existing questions stay; only missing questions are added.';
 
-    if (!confirm(`Import package into this course?\n\n${questionModeText}\n\nCourse content/config will still be merged and learner stats are preserved.`)) {
-      event.target.value = '';
-      return;
-    }
+    modals.openConfirmModal({
+      title: 'Import course package',
+      children: (
+        <Stack gap="xs">
+          <Text size="sm">{questionModeText}</Text>
+          <Text size="sm" c="dimmed">Course content and configuration will be merged. Learner stats are preserved.</Text>
+        </Stack>
+      ),
+      labels: { confirm: 'Import package', cancel: 'Cancel' },
+      confirmProps: { color: 'amanobaYellow' },
+      onConfirm: async () => {
+        setImporting(true);
+        try {
+          const text = await file.text();
+          const courseData = JSON.parse(text);
+          const response = await fetch('/api/admin/courses/import', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              courseData,
+              overwrite: true,
+              questionImportMode: importQuestionMode,
+            }),
+          });
 
-    setImporting(true);
-    try {
-      const text = await file.text();
-      const courseData = JSON.parse(text);
-      const response = await fetch('/api/admin/courses/import', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          courseData,
-          overwrite: true,
-          questionImportMode: importQuestionMode,
-        }),
-      });
+          const data = await response.json();
 
-      const data = await response.json();
-
-      if (data.success) {
-        const questionsDeleted = Number(data.stats?.questionsDeleted ?? 0);
-        const questionsSummary =
-          importQuestionMode === 'overwrite'
-            ? `Questions: ${data.stats.questionsCreated} created, ${data.stats.questionsUpdated} updated, ${questionsDeleted} deleted`
-            : `Questions: ${data.stats.questionsCreated} created, ${data.stats.questionsUpdated} updated`;
-        alert(`Course ${data.message}\n\nLessons: ${data.stats.lessonsCreated} created, ${data.stats.lessonsUpdated} updated\n${questionsSummary}`);
-        if (data.course?.courseId && data.course.courseId !== courseId) {
-          router.push(`/${locale}/admin/courses/${data.course.courseId}`);
-        } else {
-          window.location.reload();
+          if (data.success) {
+            const questionsDeleted = Number(data.stats?.questionsDeleted ?? 0);
+            const questionsSummary =
+              importQuestionMode === 'overwrite'
+                ? `Questions: ${data.stats.questionsCreated} created, ${data.stats.questionsUpdated} updated, ${questionsDeleted} deleted`
+                : `Questions: ${data.stats.questionsCreated} created, ${data.stats.questionsUpdated} updated`;
+            notifications.show({
+              color: 'green',
+              title: 'Course imported',
+              message: `Lessons: ${data.stats.lessonsCreated} created, ${data.stats.lessonsUpdated} updated. ${questionsSummary}.`,
+            });
+            if (data.course?.courseId && data.course.courseId !== courseId) {
+              router.push(`/${locale}/admin/courses/${data.course.courseId}`);
+            } else {
+              window.location.reload();
+            }
+          } else {
+            notifications.show({ color: 'red', title: 'Import failed', message: [data.error || 'Failed to import', data.details].filter(Boolean).join(' ') });
+          }
+        } catch (error) {
+          console.error('Failed to import:', error);
+          notifications.show({ color: 'red', title: 'Import failed', message: 'Failed to import. Use a .json package.' });
+        } finally {
+          setImporting(false);
         }
-      } else {
-        alert([data.error || 'Failed to import', data.details].filter(Boolean).join('\n\n'));
-      }
-    } catch (error) {
-      console.error('Failed to import:', error);
-      alert('Failed to import. Use a .json package.');
-    } finally {
-      setImporting(false);
-      event.target.value = '';
-    }
+      },
+    });
   };
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-white text-xl">Loading course...</div>
-      </div>
+      <Container size="lg" py="xl">
+        <Group justify="center" mih="60vh">
+          <Loader color="amanobaYellow" />
+          <Text c="white">Loading course...</Text>
+        </Group>
+      </Container>
     );
   }
 
   if (!course) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-white text-xl">Course not found</div>
-      </div>
+      <Container size="lg" py="xl">
+        <Paper withBorder radius="md" p="xl" bg="dark.8">
+          <Stack align="center">
+            <ThemeIcon size={56} radius="xl" color="red">
+              <IconX size={30} />
+            </ThemeIcon>
+            <Title order={1} size="h3" c="white">Course not found</Title>
+            <Button component={Link} href={`/${locale}/admin/courses`} leftSection={<IconArrowLeft size={16} />}>
+              Back to courses
+            </Button>
+          </Stack>
+        </Paper>
+      </Container>
     );
   }
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Link
-            href={`/${locale}/admin/courses`}
-            className="p-2 bg-brand-darkGrey text-brand-white rounded-lg hover:bg-brand-secondary-700 transition-colors"
-          >
-            <ArrowLeft className="w-5 h-5" />
-          </Link>
-          <div>
-            <h1 className="text-3xl font-bold text-white">{course.name}</h1>
-            <p className="text-brand-white/80">Course Editor - Manage flexible lessons</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-3">
-          <select
-            value={importQuestionMode}
-            onChange={(event) => setImportQuestionMode(event.target.value as 'add' | 'overwrite')}
-            disabled={importing}
-            className="px-3 py-2 rounded-lg border border-brand-white/20 bg-brand-darkGrey text-brand-white text-sm font-semibold focus:outline-none focus:border-brand-accent disabled:opacity-60"
+    <Container size="xl" py="xl">
+      <Stack gap="lg">
+      <Group justify="space-between" align="flex-start">
+        <Group align="flex-start">
+          <ActionIcon component={Link} href={`/${locale}/admin/courses`} variant="default" size="lg" aria-label="Back to courses">
+            <IconArrowLeft size={20} />
+          </ActionIcon>
+          <Stack gap={4}>
+            <Title order={1} size="h2" c="white">{course.name}</Title>
+            <Text c="gray.4">Course Editor - Manage flexible lessons</Text>
+          </Stack>
+        </Group>
+        <Group justify="flex-end">
+          <Select
             aria-label="Question import mode"
-          >
-            <option value="add">Questions: Add Only</option>
-            <option value="overwrite">Questions: Overwrite</option>
-          </select>
-          <button
-            onClick={handleExportCourse}
-            className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700 transition-colors"
-          >
-            <Download className="w-5 h-5" />
+            value={importQuestionMode}
+            onChange={(value) => setImportQuestionMode((value || 'add') as 'add' | 'overwrite')}
+            disabled={importing}
+            allowDeselect={false}
+            data={[
+              { value: 'add', label: 'Questions: Add Only' },
+              { value: 'overwrite', label: 'Questions: Overwrite' },
+            ]}
+          />
+          <Button variant="default" leftSection={<IconDownload size={16} />} onClick={handleExportCourse}>
             Export
-          </button>
-          <label className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${importing ? 'bg-green-700/70 text-white/90 cursor-wait pointer-events-none' : 'bg-green-600 text-white hover:bg-green-700 cursor-pointer'}`}>
-            {importing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Upload className="w-5 h-5" />}
-            {importing ? 'Importing…' : 'Import'}
-            <input
-              type="file"
-              accept=".json"
-              onChange={handleImportCourse}
-              className="hidden"
-              disabled={importing}
-            />
-          </label>
-          <button
-            onClick={() => {
-              const previewUrl = `/${locale}/courses/${course.courseId}`;
-              window.open(previewUrl, '_blank');
-            }}
-            className="flex items-center gap-2 bg-brand-darkGrey text-brand-white px-4 py-2 rounded-lg font-bold hover:bg-brand-secondary-700 transition-colors"
+          </Button>
+          <FileButton onChange={handleImportCourse} accept=".json">
+            {(props) => (
+              <Button {...props} loading={importing} leftSection={<IconFileUpload size={16} />}>
+                Import
+              </Button>
+            )}
+          </FileButton>
+          <Button
+            variant="default"
+            leftSection={<IconEye size={16} />}
+            onClick={() => window.open(`/${locale}/courses/${course.courseId}`, '_blank')}
           >
-            <Eye className="w-5 h-5" />
             Preview
-          </button>
-          <button
-            onClick={handleToggleActive}
-            className={`px-4 py-2 rounded-lg font-bold transition-colors ${
-              course.isActive
-                ? 'bg-green-500 text-white hover:bg-green-600'
-                : 'bg-brand-darkGrey text-brand-white hover:bg-brand-secondary-700'
-            }`}
-          >
+          </Button>
+          <Button color={course.isActive ? 'green' : 'gray'} onClick={handleToggleActive}>
             {course.isActive ? 'Published' : 'Draft'}
-          </button>
-          <button
-            onClick={handleSaveCourse}
-            className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
-          >
-            <Save className="w-5 h-5" />
+          </Button>
+          <Button leftSection={<IconDeviceFloppy size={16} />} onClick={handleSaveCourse}>
             Save Course
-          </button>
-        </div>
-      </div>
+          </Button>
+        </Group>
+      </Group>
 
       <Card padding="lg">
         <Stack gap="md">
           <Group justify="space-between" align="flex-start">
-            <div>
+            <Stack gap={4}>
               <Title order={2} size="h3">Course builder workflow</Title>
               <Text c="dimmed">
                 Build the course in learner order: basics, lessons, quiz policy, certification, then publish checks.
               </Text>
-            </div>
+            </Stack>
             <Badge color={course.isActive ? 'green' : 'gray'} variant="light">
               {course.isActive ? 'Published' : 'Draft'}
             </Badge>
@@ -572,146 +612,102 @@ export default function CourseEditorPage({
         </Stack>
       </Card>
 
-      {/* Course Info */}
-      <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
-        <h2 className="text-xl font-bold text-brand-black mb-4">Course Information</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-brand-black mb-2">Course Name</label>
-            <input
-              type="text"
-              value={course.name}
-              onChange={(e) => setCourse({ ...course, name: e.target.value })}
-              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-brand-black mb-2">Language</label>
-            <select
+      <Card padding="lg">
+        <Stack gap="md">
+          <Title order={2} size="h3">Course Information</Title>
+          <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">
+            <TextInput label="Course Name" value={course.name} onChange={(event) => setCourse({ ...course, name: event.currentTarget.value })} />
+            <Select
+              label="Language"
               value={course.language}
-              onChange={(e) => setCourse({ ...course, language: e.target.value })}
-              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-            >
-              {resolvedLanguageOptions.map((option) => (
-                <option key={option.code} value={option.code}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-brand-black mb-2">Planned Lesson Count</label>
-            <input
-              type="number"
+              onChange={(value) => setCourse({ ...course, language: value || course.language })}
+              data={resolvedLanguageOptions.map((option) => ({ value: option.code, label: option.label }))}
+              allowDeselect={false}
+            />
+            <NumberInput
+              label="Planned Lesson Count"
+              description="Used as a fallback for empty courses. Active lessons define the learner-facing course length."
               min={1}
               step={1}
               value={course.durationDays}
-              onChange={(e) => setCourse({ ...course, durationDays: Math.max(1, Math.floor(Number(e.target.value) || 1)) })}
-              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+              onChange={(value) => setCourse({ ...course, durationDays: Math.max(1, Math.floor(Number(value) || 1)) })}
             />
-            <p className="text-xs text-brand-darkGrey mt-1">
-              Used as a fallback for empty courses. Active lessons define the learner-facing course length.
-            </p>
-          </div>
-          <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-brand-black mb-2">Course Family (CCS ID)</label>
-            <input
-              type="text"
+            <TextInput
+              label="Course Family (CCS ID)"
+              description="Courses with the same CCS ID are treated as language variants in Admin > Courses > By course family (CCS)."
               value={course.ccsId || ''}
-              onChange={(e) => setCourse({ ...course, ccsId: e.target.value })}
+              onChange={(event) => setCourse({ ...course, ccsId: event.currentTarget.value })}
               placeholder="e.g., PRODUCTIVITY_2026"
-              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
             />
-            <p className="text-xs text-brand-darkGrey mt-1">
-              Courses with the same CCS ID are treated as language variants in Admin → Courses → “By course family (CCS)”.
-            </p>
-          </div>
-          <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-brand-black mb-2">Description</label>
-            <textarea
-              value={course.description}
-              onChange={(e) => setCourse({ ...course, description: e.target.value })}
-              rows={3}
-              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-            />
-          </div>
-          <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-brand-black mb-2">Course Thumbnail</label>
-            <div className="space-y-3">
-              {course.thumbnail && (
-                <div className="relative w-full h-48 bg-brand-darkGrey rounded-lg overflow-hidden border-2 border-brand-accent">
-                  <Image
-                    src={course.thumbnail}
-                    alt="Course thumbnail"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 24rem"
-                  />
-                  <button
-                    onClick={() => setCourse({ ...course, thumbnail: null as unknown as string | undefined })}
-                    className="absolute top-2 right-2 bg-red-500 text-white px-3 py-1 rounded-lg text-sm font-bold hover:bg-red-600"
-                  >
-                    Remove
-                  </button>
-                </div>
-              )}
-              <label className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors cursor-pointer w-fit">
-                <Upload className="w-5 h-5" />
-                {course.thumbnail ? 'Change Thumbnail' : 'Upload Thumbnail'}
-                <input
-                  type="file"
-                  accept="image/jpeg,image/jpg,image/png,image/webp,image/gif"
-                  onChange={async (e) => {
-                    const file = e.target.files?.[0];
-                    if (!file) return;
-
-                    try {
-                      const formData = new FormData();
-                      formData.append('image', file);
-
-                      const response = await fetch('/api/admin/upload-image', {
-                        method: 'POST',
-                        body: formData,
-                      });
-
-                      const data = await response.json();
-
-                      if (data.success) {
-                        setCourse({ ...course, thumbnail: data.url });
-                      } else {
-                        alert(data.error || 'Failed to upload image');
-                      }
-                    } catch (error) {
-                      console.error('Failed to upload image:', error);
-                      alert('Failed to upload image. Please try again.');
-                    } finally {
-                      // Reset file input
-                      e.target.value = '';
-                    }
-                  }}
-                  className="hidden"
+          </SimpleGrid>
+          <Textarea label="Description" autosize minRows={3} value={course.description} onChange={(event) => setCourse({ ...course, description: event.currentTarget.value })} />
+          <Stack gap="xs">
+            <Text fw={600} size="sm">Course Thumbnail</Text>
+            {course.thumbnail ? (
+              <Paper withBorder radius="md" pos="relative" h={220} style={{ overflow: 'hidden' }}>
+                <Image
+                  src={course.thumbnail}
+                  alt="Course thumbnail"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 768px) 100vw, 24rem"
                 />
-              </label>
-              <p className="text-xs text-brand-darkGrey">
-                Upload a course thumbnail image (JPEG, PNG, WebP, or GIF, max 10MB). This will be displayed on course cards.
-              </p>
-            </div>
-          </div>
+                <ActionIcon
+                  aria-label="Remove thumbnail"
+                  color="red"
+                  variant="filled"
+                  pos="absolute"
+                  top={8}
+                  right={8}
+                  onClick={() => setCourse({ ...course, thumbnail: undefined })}
+                >
+                  <IconTrash size={16} />
+                </ActionIcon>
+              </Paper>
+            ) : null}
+            <FileButton
+              accept="image/jpeg,image/jpg,image/png,image/webp,image/gif"
+              onChange={async (file) => {
+                if (!file) return;
+                try {
+                  const formData = new FormData();
+                  formData.append('image', file);
+                  const response = await fetch('/api/admin/upload-image', { method: 'POST', body: formData });
+                  const data = await response.json();
+                  if (data.success) {
+                    setCourse({ ...course, thumbnail: data.url });
+                    notifications.show({ color: 'green', title: 'Thumbnail uploaded', message: 'The course thumbnail was updated.' });
+                  } else {
+                    notifications.show({ color: 'red', title: 'Upload failed', message: data.error || 'Failed to upload image' });
+                  }
+                } catch (error) {
+                  console.error('Failed to upload image:', error);
+                  notifications.show({ color: 'red', title: 'Upload failed', message: 'Failed to upload image. Please try again.' });
+                }
+              }}
+            >
+              {(props) => (
+                <Button {...props} leftSection={<IconUpload size={16} />} w="fit-content">
+                  {course.thumbnail ? 'Change Thumbnail' : 'Upload Thumbnail'}
+                </Button>
+              )}
+            </FileButton>
+            <Text size="xs" c="dimmed">Upload a course thumbnail image (JPEG, PNG, WebP, or GIF, max 10MB).</Text>
+          </Stack>
           {isAdmin && (
-            <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-brand-black mb-2">Assigned editors</label>
-              <p className="text-xs text-brand-darkGrey mb-2">
-                Editors can edit this course and see it in their admin course list. Only admins can change this list.
-              </p>
-              <div className="space-y-2">
+            <Paper withBorder radius="md" p="md">
+              <Stack gap="sm">
+                <Stack gap={2}>
+                  <Text fw={600}>Assigned editors</Text>
+                  <Text size="xs" c="dimmed">Editors can edit this course and see it in their admin course list. Only admins can change this list.</Text>
+                </Stack>
                 {(course.assignedEditors ?? []).map((id) => (
-                  <div
-                    key={id}
-                    className="flex items-center justify-between gap-2 py-2 px-3 bg-brand-darkGrey/10 rounded-lg"
-                  >
-                    <span className="text-brand-black font-medium">{editorNames[id] ?? id}</span>
-                    <button
+                  <Group key={id} justify="space-between">
+                    <Text fw={600}>{editorNames[id] ?? id}</Text>
+                    <Button
                       type="button"
+                      color="red"
+                      variant="subtle"
                       onClick={async () => {
                         const next = (course.assignedEditors ?? []).filter((e) => e !== id);
                         try {
@@ -723,32 +719,37 @@ export default function CourseEditorPage({
                           if (r.ok) {
                             const data = await r.json();
                             setCourse(data.course);
+                            notifications.show({ color: 'green', title: 'Editor removed', message: 'Course editor access was updated.' });
                           } else {
                             const err = await r.json();
-                            alert(err.message || err.error || 'Failed to remove editor');
+                            notifications.show({ color: 'red', title: 'Could not remove editor', message: err.message || err.error || 'Failed to remove editor' });
                           }
                         } catch (e) {
                           console.error(e);
-                          alert('Failed to remove editor');
+                          notifications.show({ color: 'red', title: 'Could not remove editor', message: 'Failed to remove editor' });
                         }
                       }}
-                      className="text-red-600 hover:text-red-700 font-medium text-sm"
                     >
                       Remove
-                    </button>
-                  </div>
+                    </Button>
+                  </Group>
                 ))}
-                <div className="flex flex-wrap gap-2 items-center">
-                  <input
-                    type="text"
+                <Group align="flex-end">
+                  <TextInput
                     placeholder="Search by email or name..."
+                    label="Find editor"
                     value={editorSearch}
-                    onChange={(e) => setEditorSearch(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), setEditorSearching(true))}
-                    className="input-on-dark px-3 py-2 w-64"
+                    onChange={(event) => setEditorSearch(event.currentTarget.value)}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter') {
+                        event.preventDefault();
+                        setEditorSearching(true);
+                      }
+                    }}
                   />
-                  <button
+                  <Button
                     type="button"
+                    loading={editorSearching}
                     onClick={() => {
                       setEditorSearching(true);
                       if (!editorSearch.trim()) {
@@ -768,22 +769,23 @@ export default function CourseEditorPage({
                         });
                     }}
                     disabled={editorSearching}
-                    className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 disabled:opacity-50"
                   >
-                    {editorSearching ? 'Searching...' : 'Search'}
-                  </button>
-                </div>
+                    Search
+                  </Button>
+                </Group>
                 {editorSearchResults.length > 0 && (
-                  <ul className="mt-2 border border-brand-accent/30 rounded-lg divide-y divide-brand-accent/30 max-h-48 overflow-y-auto">
+                  <Stack gap="xs">
                     {editorSearchResults
                       .filter((p) => !(course.assignedEditors ?? []).includes(String(p._id)))
                       .map((p) => (
-                        <li key={String(p._id)} className="flex items-center justify-between px-3 py-2 hover:bg-brand-darkGrey/10">
-                          <span className="text-brand-black">
+                        <Paper key={String(p._id)} withBorder radius="sm" p="xs">
+                          <Group justify="space-between">
+                          <Text>
                             {p.displayName || p.email || String(p._id)}
-                          </span>
-                          <button
+                          </Text>
+                          <Button
                             type="button"
+                            variant="subtle"
                             onClick={async () => {
                               const current = course.assignedEditors ?? [];
                               const id = String(p._id);
@@ -800,281 +802,176 @@ export default function CourseEditorPage({
                                   setCourse(data.course);
                                   setEditorSearchResults([]);
                                   setEditorSearch('');
+                                  notifications.show({ color: 'green', title: 'Editor added', message: 'Course editor access was updated.' });
                                 } else {
                                   const err = await r.json();
-                                  alert(err.message || err.error || 'Failed to add editor');
+                                  notifications.show({ color: 'red', title: 'Could not add editor', message: err.message || err.error || 'Failed to add editor' });
                                 }
                               } catch (e) {
                                 console.error(e);
-                                alert('Failed to add editor');
+                                notifications.show({ color: 'red', title: 'Could not add editor', message: 'Failed to add editor' });
                               }
                             }}
-                            className="text-brand-accent hover:underline font-medium text-sm"
                           >
                             Add
-                          </button>
-                        </li>
+                          </Button>
+                          </Group>
+                        </Paper>
                       ))}
-                  </ul>
+                  </Stack>
                 )}
-              </div>
-            </div>
+              </Stack>
+            </Paper>
           )}
-          <div>
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={course.requiresPremium}
-                onChange={(e) => setCourse({ ...course, requiresPremium: e.target.checked })}
-                className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
-              />
-              <span className="text-sm font-medium text-brand-black">Requires Premium</span>
-            </label>
-          </div>
+          <Checkbox
+            label="Requires Premium"
+            checked={course.requiresPremium}
+            onChange={(event) => setCourse({ ...course, requiresPremium: event.currentTarget.checked })}
+          />
           {course.requiresPremium && (
-            <>
-              <div>
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Price (in smallest unit)
-                </label>
-                <input
-                  type="number"
-                  min={getStripeMinimum(course.price?.currency || 'usd')}
-                  step="1"
-                  value={course.price?.amount || 2999}
-                  onChange={(e) => {
-                    const newAmount = parseInt(e.target.value) || 0;
+            <SimpleGrid cols={{ base: 1, md: 2 }}>
+              <NumberInput
+                  label="Price (in smallest unit)"
+                  description={(() => {
                     const currentCurrency = course.price?.currency || 'usd';
-                    setCourse({
-                      ...course,
-                      price: {
-                        amount: newAmount,
-                        currency: currentCurrency,
-                      },
-                    });
+                    const currentAmount = course.price?.amount || 0;
+                    const isValid = currentAmount > 0 && meetsStripeMinimum(currentAmount, currentCurrency);
+                    return !isValid && currentAmount > 0
+                      ? `Amount too low. Minimum for ${currentCurrency.toUpperCase()} is ${getFormattedMinimum(currentCurrency)}`
+                      : `Enter amount in smallest unit. Minimum: ${getFormattedMinimum(currentCurrency)}`;
+                  })()}
+                  min={getStripeMinimum(course.price?.currency || 'usd')}
+                  step={1}
+                  value={course.price?.amount || 2999}
+                  error={Boolean(course.price?.amount && course.price?.currency && !meetsStripeMinimum(course.price.amount, course.price.currency))}
+                  onChange={(value) => {
+                    const newAmount = Number(value) || 0;
+                    const currentCurrency = course.price?.currency || 'usd';
+                    setCourse({ ...course, price: { amount: newAmount, currency: currentCurrency } });
                   }}
-                  className={`w-full px-4 py-2 bg-brand-white border-2 rounded-lg text-brand-black focus:outline-none focus:border-brand-accent ${
-                    course.price?.amount && course.price?.currency && !meetsStripeMinimum(course.price.amount, course.price.currency)
-                      ? 'border-red-500'
-                      : 'border-brand-darkGrey'
-                  }`}
                   placeholder="2999"
-                />
-                {(() => {
-                  const currentCurrency = course.price?.currency || 'usd';
-                  const currentAmount = course.price?.amount || 0;
-                  const isValid = currentAmount > 0 && meetsStripeMinimum(currentAmount, currentCurrency);
-                  
-                  return !isValid && currentAmount > 0 ? (
-                    <p className="text-xs text-red-600 mt-1 font-semibold">
-                      ⚠️ Amount too low! Minimum for {currentCurrency.toUpperCase()} is {getFormattedMinimum(currentCurrency)}
-                    </p>
-                  ) : (
-                    <p className="text-xs text-brand-darkGrey mt-1">
-                      Enter amount in smallest unit (e.g., 2999 cents = $29.99). Minimum: {getFormattedMinimum(currentCurrency)}
-                    </p>
-                  );
-                })()}
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Currency
-                </label>
-                <select
+              />
+              <Select
+                  label="Currency"
+                  description={`Minimum: ${getFormattedMinimum(course.price?.currency || 'usd')}`}
                   value={course.price?.currency || 'usd'}
-                  onChange={(e) => {
-                    const newCurrency = e.target.value;
+                  allowDeselect={false}
+                  data={[
+                    { value: 'usd', label: 'USD ($) - Min: $0.50' },
+                    { value: 'eur', label: 'EUR (€) - Min: €0.50' },
+                    { value: 'huf', label: 'HUF (Ft) - Min: 175 Ft' },
+                    { value: 'gbp', label: 'GBP (£) - Min: £0.30' },
+                  ]}
+                  onChange={(value) => {
+                    const newCurrency = value || 'usd';
                     const currentAmount = course.price?.amount || 2999;
                     const minimum = getStripeMinimum(newCurrency);
-                    // If current amount is below new currency's minimum, set to minimum
                     const newAmount = currentAmount < minimum ? minimum : currentAmount;
-                    // Update both currency and amount atomically
-                    const updatedPrice = {
-                      amount: newAmount,
-                      currency: newCurrency,
-                    };
-                    setCourse({
-                      ...course,
-                      price: updatedPrice,
-                    });
+                    setCourse({ ...course, price: { amount: newAmount, currency: newCurrency } });
                   }}
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-                >
-                  <option value="usd">USD ($) - Min: $0.50</option>
-                  <option value="eur">EUR (€) - Min: €0.50</option>
-                  <option value="huf">HUF (Ft) - Min: 175 Ft</option>
-                  <option value="gbp">GBP (£) - Min: £0.30</option>
-                </select>
-                <p className="text-xs text-brand-darkGrey mt-1">
-                  Minimum: {getFormattedMinimum(course.price?.currency || 'usd')}
-                </p>
-              </div>
-            </>
+              />
+            </SimpleGrid>
           )}
-        </div>
-      </div>
+        </Stack>
+      </Card>
 
-      {/* Lesson quizzes */}
-      <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-darkGrey">
-        <h2 className="text-xl font-bold text-brand-black mb-4">Lesson quizzes</h2>
-        <p className="text-sm text-brand-darkGrey mb-4">
-          Course-level single source of truth for lesson quiz runtime behavior. Lesson editor no longer controls pass rule, required gate, or question count.
-        </p>
-        <div>
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
+      <Card padding="lg">
+        <Stack gap="md">
+          <Title order={2} size="h3">Lesson quizzes</Title>
+          <Text c="dimmed" size="sm">
+            Course-level single source of truth for lesson quiz runtime behavior. Lesson editor no longer controls pass rule, required gate, or question count.
+          </Text>
+          <Checkbox
+              label="Enable lesson quizzes for this course"
               checked={course.lessonQuizPolicy?.enabled !== false}
-              onChange={(e) => setCourse({
+              onChange={(event) => setCourse({
                 ...course,
                 lessonQuizPolicy: {
                   ...course.lessonQuizPolicy,
-                  enabled: e.target.checked,
+                  enabled: event.currentTarget.checked,
                 },
               })}
-              className="w-5 h-5 text-brand-accent rounded focus:ring-brand-accent"
-            />
-            <span className="text-sm font-medium text-brand-black">Enable lesson quizzes for this course</span>
-          </label>
-        </div>
-        <div className="mt-4">
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
+          />
+          <Checkbox
+              label="Require lesson quiz pass before lesson completion"
               checked={course.lessonQuizPolicy?.required !== false}
-              onChange={(e) => setCourse({
+              onChange={(event) => setCourse({
                 ...course,
                 lessonQuizPolicy: {
                   ...course.lessonQuizPolicy,
-                  required: e.target.checked,
+                  required: event.currentTarget.checked,
                 },
               })}
-              className="w-5 h-5 text-brand-accent rounded focus:ring-brand-accent"
+          />
+          <SimpleGrid cols={{ base: 1, md: 4 }}>
+            <NumberInput
+              label="Max wrong answers allowed"
+              description="Leave empty to use success threshold."
+              min={0}
+              max={10}
+              step={1}
+              value={course.lessonQuizPolicy?.maxWrongAllowed ?? course.quizMaxWrongAllowed ?? ''}
+              onChange={(value) => {
+                const v = value === '' ? undefined : Math.min(10, Math.max(0, Number(value) || 0));
+                setCourse({ ...course, quizMaxWrongAllowed: v, lessonQuizPolicy: { ...course.lessonQuizPolicy, maxWrongAllowed: v } });
+              }}
+              placeholder="e.g. 1"
             />
-            <span className="text-sm font-medium text-brand-black">Require lesson quiz pass before lesson completion</span>
-          </label>
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-brand-black mb-2">
-            Max wrong answers allowed
-          </label>
-          <input
-            type="number"
-            min="0"
-            max="10"
-            step="1"
-            value={course.lessonQuizPolicy?.maxWrongAllowed ?? course.quizMaxWrongAllowed ?? ''}
-            onChange={(e) => {
-              const v = e.target.value === '' ? undefined : Math.min(10, Math.max(0, parseInt(e.target.value, 10) || 0));
-              setCourse({
-                ...course,
-                quizMaxWrongAllowed: v,
-                lessonQuizPolicy: {
-                  ...course.lessonQuizPolicy,
-                  maxWrongAllowed: v,
-                },
-              });
-            }}
-            className="w-full max-w-[120px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-            placeholder="e.g. 1"
-          />
-          <p className="text-xs text-brand-darkGrey mt-1">
-            If set (0–10), lesson quiz fails when wrong answers exceed this. Leave empty to use the course success threshold % below.
-          </p>
-        </div>
-        <div className="mt-4">
-          <label className="block text-sm font-medium text-brand-black mb-2">
-            Number of questions per lesson quiz
-          </label>
-          <input
-            type="number"
-            min="1"
-            max="50"
-            step="1"
-            value={course.lessonQuizPolicy?.questionCount ?? course.defaultLessonQuizQuestionCount ?? ''}
-            onChange={(e) => {
-              const v = e.target.value === '' ? undefined : Math.min(50, Math.max(1, parseInt(e.target.value, 10) || 1));
-              setCourse({
-                ...course,
-                defaultLessonQuizQuestionCount: v,
-                lessonQuizPolicy: {
-                  ...course.lessonQuizPolicy,
-                  questionCount: v,
-                },
-              });
-            }}
-            className="w-full max-w-[120px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-            placeholder="e.g. 5"
-          />
-          <p className="text-xs text-brand-darkGrey mt-1">
-            Runtime uses this course-level value directly (lesson-level questionCount is ignored).
-          </p>
-        </div>
-        <div className="mt-4">
-          <label className="block text-sm font-medium text-brand-black mb-2">
-            Shown answer options per question
-          </label>
-          <select
-            value={course.lessonQuizPolicy?.shownAnswerCount ?? 3}
-            onChange={(e) => {
-              const v = Math.min(4, Math.max(2, parseInt(e.target.value, 10) || 3));
-              setCourse({
-                ...course,
-                lessonQuizPolicy: {
-                  ...course.lessonQuizPolicy,
-                  shownAnswerCount: v,
-                },
-              });
-            }}
-            className="w-full max-w-[140px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-          >
-            <option value={2}>2 options</option>
-            <option value={3}>3 options</option>
-            <option value={4}>4 options</option>
-          </select>
-        </div>
-        <div className="mt-4">
-          <label className="block text-sm font-medium text-brand-black mb-2">
-            Success threshold (%) fallback
-          </label>
-          <input
-            type="number"
-            min="0"
-            max="100"
-            step="1"
-            value={course.lessonQuizPolicy?.successThreshold ?? 70}
-            onChange={(e) => {
-              const v = Math.min(100, Math.max(0, parseInt(e.target.value, 10) || 0));
-              setCourse({
-                ...course,
-                lessonQuizPolicy: {
-                  ...course.lessonQuizPolicy,
-                  successThreshold: v,
-                },
-              });
-            }}
-            className="w-full max-w-[120px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-          />
-          <p className="text-xs text-brand-darkGrey mt-1">
-            Used when &quot;Max wrong answers allowed&quot; is empty.
-          </p>
-        </div>
-      </div>
+            <NumberInput
+              label="Questions per lesson quiz"
+              description="Runtime uses this course-level value."
+              min={1}
+              max={50}
+              step={1}
+              value={course.lessonQuizPolicy?.questionCount ?? course.defaultLessonQuizQuestionCount ?? ''}
+              onChange={(value) => {
+                const v = value === '' ? undefined : Math.min(50, Math.max(1, Number(value) || 1));
+                setCourse({ ...course, defaultLessonQuizQuestionCount: v, lessonQuizPolicy: { ...course.lessonQuizPolicy, questionCount: v } });
+              }}
+              placeholder="e.g. 5"
+            />
+            <Select
+              label="Shown answer options"
+              value={String(course.lessonQuizPolicy?.shownAnswerCount ?? 3)}
+              allowDeselect={false}
+              data={[
+                { value: '2', label: '2 options' },
+                { value: '3', label: '3 options' },
+                { value: '4', label: '4 options' },
+              ]}
+              onChange={(value) => {
+                const v = Math.min(4, Math.max(2, Number(value) || 3));
+                setCourse({ ...course, lessonQuizPolicy: { ...course.lessonQuizPolicy, shownAnswerCount: v } });
+              }}
+            />
+            <NumberInput
+              label="Success threshold (%)"
+              description="Used when max wrong is empty."
+              min={0}
+              max={100}
+              step={1}
+              value={course.lessonQuizPolicy?.successThreshold ?? 70}
+              onChange={(value) => {
+                const v = Math.min(100, Math.max(0, Number(value) || 0));
+                setCourse({ ...course, lessonQuizPolicy: { ...course.lessonQuizPolicy, successThreshold: v } });
+              }}
+            />
+          </SimpleGrid>
+        </Stack>
+      </Card>
 
-      {/* Certification Settings */}
-      <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
-        <h2 className="text-xl font-bold text-brand-black mb-4">Certification Settings</h2>
-        <div className="space-y-4">
-          <div>
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
+      <Card padding="lg">
+        <Stack gap="md">
+          <Title order={2} size="h3">Certification Settings</Title>
+          <Checkbox
+                label="Enable Certification"
+                description="Allow students to earn certificates for completing this course."
                 checked={course.certification?.enabled || false}
-                onChange={(e) => setCourse({
+                onChange={(event) => setCourse({
                   ...course,
                   certification: {
                     ...course.certification,
-                    enabled: e.target.checked,
+                    enabled: event.currentTarget.checked,
                     passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
                     requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
                     requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
@@ -1084,41 +981,32 @@ export default function CourseEditorPage({
                     credentialTitleId: course.certification?.credentialTitleId ?? '',
                   },
                 })}
-                className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
-              />
-              <span className="text-sm font-medium text-brand-black">Enable Certification</span>
-            </label>
-            <p className="text-xs text-brand-darkGrey mt-1 ml-7">
-              Allow students to earn certificates for completing this course
-            </p>
-          </div>
+          />
 
           {course.certification?.enabled && (
             <>
-              {/* Pass rules — dynamic pass threshold and conditions */}
-              <div className="border border-brand-darkGrey/30 rounded-lg p-4 space-y-4">
-                <h3 className="text-sm font-bold text-brand-black">Pass rules</h3>
-                <p className="text-xs text-brand-darkGrey">
+              <Paper withBorder radius="md" p="md">
+                <Stack gap="md">
+                  <Title order={3} size="h4">Pass rules</Title>
+                  <Text size="xs" c="dimmed">
                   Current rule: Pass final exam ≥ {course.certification?.passThresholdPercent ?? 50}%;
                   {course.certification?.requireAllLessonsCompleted !== false ? ' All lessons completed required;' : ' Lessons not required;'}
                   {course.certification?.requireAllQuizzesPassed !== false ? ' All daily quizzes passed required.' : ' Daily quizzes not required.'}
-                </p>
-                <div>
-                  <label className="block text-sm font-medium text-brand-black mb-2">
-                    Pass threshold (%)
-                  </label>
-                  <input
-                    type="number"
-                    min="0"
-                    max="100"
-                    step="1"
+                  </Text>
+                  <SimpleGrid cols={{ base: 1, md: 2 }}>
+                  <NumberInput
+                    label="Pass threshold (%)"
+                    description="Minimum final exam score to be eligible for certificate."
+                    min={0}
+                    max={100}
+                    step={1}
                     value={course.certification?.passThresholdPercent ?? 50}
-                    onChange={(e) => setCourse({
+                    onChange={(value) => setCourse({
                       ...course,
                       certification: {
                         ...course.certification,
                         enabled: true,
-                        passThresholdPercent: Math.min(100, Math.max(0, parseInt(e.target.value) || 50)),
+                        passThresholdPercent: Math.min(100, Math.max(0, Number(value) || 50)),
                         requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
                         requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
                         pricePoints: course.certification?.pricePoints ?? 0,
@@ -1127,27 +1015,21 @@ export default function CourseEditorPage({
                         credentialTitleId: course.certification?.credentialTitleId ?? '',
                       },
                     })}
-                    className="w-full max-w-[120px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
                   />
-                  <p className="text-xs text-brand-darkGrey mt-1">Minimum final exam score (0–100) to be eligible for certificate. Default 50.</p>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-brand-black mb-2">
-                    Max error % (immediate fail)
-                  </label>
-                  <input
-                    type="number"
-                    min="0"
-                    max="100"
-                    step="1"
+                  <NumberInput
+                    label="Max error % (immediate fail)"
+                    description="Leave empty to allow completing the exam."
+                    min={0}
+                    max={100}
+                    step={1}
                     value={course.certification?.maxErrorPercent ?? ''}
-                    onChange={(e) => setCourse({
+                    onChange={(value) => setCourse({
                       ...course,
                       certification: {
                         ...course.certification,
                         enabled: true,
                         passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
-                        maxErrorPercent: e.target.value === '' ? undefined : Math.min(100, Math.max(0, parseInt(e.target.value, 10) ?? 0)),
+                        maxErrorPercent: value === '' ? undefined : Math.min(100, Math.max(0, Number(value) || 0)),
                         requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
                         requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
                         pricePoints: course.certification?.pricePoints ?? 0,
@@ -1156,23 +1038,19 @@ export default function CourseEditorPage({
                         credentialTitleId: course.certification?.credentialTitleId ?? '',
                       },
                     })}
-                    className="w-full max-w-[120px] px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
                     placeholder="e.g. 10"
                   />
-                  <p className="text-xs text-brand-darkGrey mt-1">If set, fail the final exam as soon as current error rate exceeds this % (e.g. 10 = fail when wrong/answered &gt; 10%). Leave empty to allow completing the exam.</p>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="checkbox"
+                  </SimpleGrid>
+                  <Checkbox
+                      label="Require all lessons completed"
                       checked={course.certification?.requireAllLessonsCompleted !== false}
-                      onChange={(e) => setCourse({
+                      onChange={(event) => setCourse({
                         ...course,
                         certification: {
                           ...course.certification,
                           enabled: true,
                           passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
-                          requireAllLessonsCompleted: e.target.checked,
+                          requireAllLessonsCompleted: event.currentTarget.checked,
                           requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
                           pricePoints: course.certification?.pricePoints ?? 0,
                           premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
@@ -1180,45 +1058,36 @@ export default function CourseEditorPage({
                           credentialTitleId: course.certification?.credentialTitleId ?? '',
                         },
                       })}
-                      className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
-                    />
-                    <span className="text-sm font-medium text-brand-black">Require all lessons completed</span>
-                  </label>
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="checkbox"
+                  />
+                  <Checkbox
+                      label="Require all daily quizzes passed"
                       checked={course.certification?.requireAllQuizzesPassed !== false}
-                      onChange={(e) => setCourse({
+                      onChange={(event) => setCourse({
                         ...course,
                         certification: {
                           ...course.certification,
                           enabled: true,
                           passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
                           requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
-                          requireAllQuizzesPassed: e.target.checked,
+                          requireAllQuizzesPassed: event.currentTarget.checked,
                           pricePoints: course.certification?.pricePoints ?? 0,
                           premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
                           templateId: course.certification?.templateId ?? 'default_v1',
                           credentialTitleId: course.certification?.credentialTitleId ?? '',
                         },
                       })}
-                      className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
-                    />
-                    <span className="text-sm font-medium text-brand-black">Require all daily quizzes passed</span>
-                  </label>
-                </div>
-              </div>
+                  />
+                </Stack>
+              </Paper>
 
-              <div>
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Price (Points)
-                </label>
-                <input
-                  type="number"
-                  min="0"
-                  step="1"
+              <SimpleGrid cols={{ base: 1, md: 2 }}>
+                <NumberInput
+                  label="Price (Points)"
+                  description="Points required to unlock certification exam (0 = free)."
+                  min={0}
+                  step={1}
                   value={course.certification?.pricePoints || 0}
-                  onChange={(e) => setCourse({
+                  onChange={(value) => setCourse({
                     ...course,
                     certification: {
                       ...course.certification,
@@ -1226,26 +1095,39 @@ export default function CourseEditorPage({
                       passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
                       requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
                       requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
-                      pricePoints: parseInt(e.target.value) || 0,
+                      pricePoints: Number(value) || 0,
                       premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
                       templateId: course.certification?.templateId ?? 'default_v1',
                       credentialTitleId: course.certification?.credentialTitleId ?? '',
                     },
                   })}
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
                   placeholder="0"
                 />
-                <p className="text-xs text-brand-darkGrey mt-1">
-                  Points required to unlock certification exam (0 = free)
-                </p>
-              </div>
-
-              <div>
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={course.certification?.premiumIncludesCertification || false}
-                    onChange={(e) => setCourse({
+                <TextInput
+                  label="Template ID"
+                  description="Certificate design template."
+                  value={course.certification?.templateId || 'default_v1'}
+                  onChange={(event) => setCourse({
+                    ...course,
+                    certification: {
+                      ...course.certification,
+                      enabled: true,
+                      passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
+                      requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
+                      requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
+                      pricePoints: course.certification?.pricePoints ?? 0,
+                      premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
+                      templateId: event.currentTarget.value,
+                      credentialTitleId: course.certification?.credentialTitleId ?? '',
+                    },
+                  })}
+                  placeholder="default_v1"
+                />
+                <TextInput
+                  label="Credential Title ID"
+                  description="Credential identifier shown on certificate."
+                  value={course.certification?.credentialTitleId || ''}
+                  onChange={(event) => setCourse({
                       ...course,
                       certification: {
                         ...course.certification,
@@ -1254,28 +1136,19 @@ export default function CourseEditorPage({
                         requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
                         requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
                         pricePoints: course.certification?.pricePoints ?? 0,
-                        premiumIncludesCertification: e.target.checked,
+                      premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
                         templateId: course.certification?.templateId ?? 'default_v1',
-                        credentialTitleId: course.certification?.credentialTitleId ?? '',
+                      credentialTitleId: event.currentTarget.value,
                       },
                     })}
-                    className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
-                  />
-                  <span className="text-sm font-medium text-brand-black">Premium Includes Certification</span>
-                </label>
-                <p className="text-xs text-brand-darkGrey mt-1 ml-7">
-                  Automatically grant certification access to premium course purchasers
-                </p>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Template ID (Optional)
-                </label>
-                <input
-                  type="text"
-                  value={course.certification?.templateId || 'default_v1'}
-                  onChange={(e) => setCourse({
+                  placeholder="e.g., AAE, CERT"
+                />
+              </SimpleGrid>
+              <Checkbox
+                  label="Premium Includes Certification"
+                  description="Automatically grant certification access to premium course purchasers."
+                  checked={course.certification?.premiumIncludesCertification || false}
+                  onChange={(event) => setCourse({
                     ...course,
                     certification: {
                       ...course.certification,
@@ -1284,467 +1157,403 @@ export default function CourseEditorPage({
                       requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
                       requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
                       pricePoints: course.certification?.pricePoints ?? 0,
-                      premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
-                      templateId: e.target.value,
+                      premiumIncludesCertification: event.currentTarget.checked,
+                      templateId: course.certification?.templateId ?? 'default_v1',
                       credentialTitleId: course.certification?.credentialTitleId ?? '',
                     },
                   })}
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-                  placeholder="default_v1"
-                />
-                <p className="text-xs text-brand-darkGrey mt-1">
-                  Certificate design template (default: default_v1)
-                </p>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Credential Title ID (Optional)
-                </label>
-                <input
-                  type="text"
-                  value={course.certification?.credentialTitleId || ''}
-                  onChange={(e) => setCourse({
-                    ...course,
-                    certification: {
-                      ...course.certification,
-                      enabled: true,
-                      passThresholdPercent: course.certification?.passThresholdPercent ?? 50,
-                      requireAllLessonsCompleted: course.certification?.requireAllLessonsCompleted ?? true,
-                      requireAllQuizzesPassed: course.certification?.requireAllQuizzesPassed ?? true,
-                      pricePoints: course.certification?.pricePoints ?? 0,
-                      premiumIncludesCertification: course.certification?.premiumIncludesCertification ?? false,
-                      templateId: course.certification?.templateId ?? 'default_v1',
-                      credentialTitleId: e.target.value,
-                    },
-                  })}
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-                  placeholder="e.g., AAE, CERT"
-                />
-                <p className="text-xs text-brand-darkGrey mt-1">
-                  Credential identifier shown on certificate (e.g., &quot;AAE&quot; for Amanoba-Accredited Expert)
-                </p>
-              </div>
+              />
             </>
           )}
-        </div>
-      </div>
+        </Stack>
+      </Card>
 
-      {/* Course Feature Toggles */}
-      <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent mt-6">
-        <h2 className="text-xl font-bold text-brand-black mb-4">Course Feature Toggles</h2>
-        <div className="space-y-4">
-          <div>
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={course?.discussionEnabled ?? false}
-                onChange={(e) => _updateCourseFeature('discussionEnabled', e.target.checked)}
-                className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
-              />
-              <span className="text-sm font-medium text-brand-black">Course discussion</span>
-            </label>
-            <p className="text-xs text-brand-darkGrey mt-1 ml-7">
-              Show or hide the discussion forum on this course page.
-            </p>
-          </div>
+      <Card padding="lg">
+        <Stack gap="md">
+          <Title order={2} size="h3">Course Feature Toggles</Title>
+          <Checkbox
+            label="Course discussion"
+            description="Show or hide the discussion forum on this course page."
+            checked={course.discussionEnabled ?? false}
+            onChange={(event) => _updateCourseFeature('discussionEnabled', event.currentTarget.checked)}
+          />
+          <Checkbox
+            label="Course leaderboard"
+            description="Toggle the leaderboard block that shows top students for this course."
+            checked={course.leaderboardEnabled ?? false}
+            onChange={(event) => _updateCourseFeature('leaderboardEnabled', event.currentTarget.checked)}
+          />
+          <Checkbox
+            label="Study groups"
+            description="Enable or disable the study group widget for this course."
+            checked={course.studyGroupsEnabled ?? false}
+            onChange={(event) => _updateCourseFeature('studyGroupsEnabled', event.currentTarget.checked)}
+          />
+        </Stack>
+      </Card>
 
-          <div>
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={course?.leaderboardEnabled ?? false}
-                onChange={(e) => _updateCourseFeature('leaderboardEnabled', e.target.checked)}
-                className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
-              />
-              <span className="text-sm font-medium text-brand-black">Course leaderboard</span>
-            </label>
-            <p className="text-xs text-brand-darkGrey mt-1 ml-7">
-              Toggle the leaderboard block that shows top students for this course.
-            </p>
-          </div>
+      {!course.parentCourseId && (
+        <Card padding="lg">
+          <Stack gap="md">
+            <Group justify="space-between" align="flex-start">
+              <Stack gap={4}>
+                <Title order={2} size="h3">Shorts</Title>
+                <Text c="dimmed" size="sm">
+                  Create short-course variants from selected lessons. Variant type is based on lesson count; new shorts start as draft.
+                </Text>
+              </Stack>
+              <Button
+                type="button"
+                variant={showShortsCreate ? 'default' : 'filled'}
+                leftSection={showShortsCreate ? <IconX size={16} /> : <IconPlus size={16} />}
+                onClick={() => setShowShortsCreate(!showShortsCreate)}
+              >
+                {showShortsCreate ? 'Cancel' : 'Create short'}
+              </Button>
+            </Group>
 
-          <div>
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={course?.studyGroupsEnabled ?? false}
-                onChange={(e) => _updateCourseFeature('studyGroupsEnabled', e.target.checked)}
-                className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
-              />
-              <span className="text-sm font-medium text-brand-black">Study groups</span>
-            </label>
-            <p className="text-xs text-brand-darkGrey mt-1 ml-7">
-              Enable or disable the study group widget for this course.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Shorts — create/manage short variants from this parent (only when not a child) */}
-      {course && !course.parentCourseId && (
-        <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
-          <h2 className="text-xl font-bold text-brand-black mb-4">Shorts</h2>
-          <p className="text-sm text-brand-darkGrey mb-4">
-            Create short-course variants from this course. Select lessons; type is chosen by count (1–3 Essentials, 4–7 Beginner, 8–12 Foundations, 13–20 Core Skills, 21+ Full Program). New shorts start as draft; publish when ready.
-          </p>
-          {/* Existing shorts */}
-          {shorts.length > 0 && (
-            <div className="mb-6">
-              <p className="text-sm font-medium text-brand-black mb-2">Existing shorts</p>
-              <ul className="space-y-2">
-                {shorts.map((s) => (
-                  <li
-                    key={s.courseId}
-                    className="flex items-center justify-between py-2 px-3 bg-brand-darkGrey/10 rounded-lg"
-                  >
-                    <div>
-                      <span className="font-medium text-brand-black">{s.name || s.courseId}</span>
-                      <span className="text-sm text-brand-darkGrey ml-2">
-                        {s.isDraft ? '(Draft)' : '(Published)'}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Link
-                        href={`/${locale}/admin/courses/${s.courseId}`}
-                        className="text-sm bg-brand-accent text-brand-black px-2 py-1 rounded font-bold hover:bg-brand-primary-400"
-                      >
-                        Edit
-                      </Link>
-                      {s.isDraft && (
-                        <button
-                          type="button"
-                          onClick={async () => {
-                            try {
-                              const r = await fetch(`/api/admin/courses/${s.courseId}`, {
-                                method: 'PATCH',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({ isDraft: false }),
-                              });
-                              if (r.ok) {
-                                const list = await fetch(
-                                  `/api/admin/courses?parentCourseId=${encodeURIComponent(course.courseId)}`
-                                ).then((x) => x.json());
+            {shorts.length > 0 && (
+              <Stack gap="xs">
+                <Text fw={600} size="sm">Existing shorts</Text>
+                {shorts.map((short) => (
+                  <Paper key={short.courseId} withBorder radius="md" p="sm">
+                    <Group justify="space-between" align="center">
+                      <Stack gap={2}>
+                        <Text fw={600}>{short.name || short.courseId}</Text>
+                        <Group gap="xs">
+                          <Badge color={short.isDraft ? 'yellow' : 'green'} variant="light">
+                            {short.isDraft ? 'Draft' : 'Published'}
+                          </Badge>
+                          {short.courseVariant && <Badge variant="outline">{short.courseVariant}</Badge>}
+                        </Group>
+                      </Stack>
+                      <Group gap="xs">
+                        <Button component={Link} href={`/${locale}/admin/courses/${short.courseId}`} variant="default" size="xs" leftSection={<IconEdit size={14} />}>
+                          Edit
+                        </Button>
+                        {short.isDraft && (
+                          <Button
+                            type="button"
+                            size="xs"
+                            color="green"
+                            onClick={async () => {
+                              try {
+                                const response = await fetch(`/api/admin/courses/${short.courseId}`, {
+                                  method: 'PATCH',
+                                  headers: { 'Content-Type': 'application/json' },
+                                  body: JSON.stringify({ isDraft: false }),
+                                });
+                                if (!response.ok) {
+                                  const error = await response.json().catch(() => ({}));
+                                  notifications.show({ color: 'red', title: 'Publish failed', message: error.message || error.error || 'Could not publish short.' });
+                                  return;
+                                }
+                                const list = await fetch(`/api/admin/courses?parentCourseId=${encodeURIComponent(course.courseId)}`).then((x) => x.json());
                                 if (list.success) setShorts(list.courses || []);
+                                notifications.show({ color: 'green', title: 'Short published', message: 'The short course is now visible.' });
+                              } catch (error) {
+                                console.error('Publish failed', error);
+                                notifications.show({ color: 'red', title: 'Publish failed', message: 'Could not publish short.' });
                               }
-                            } catch (e) {
-                              console.error('Publish failed', e);
-                            }
-                          }}
-                          className="text-sm bg-green-600 text-white px-2 py-1 rounded font-bold hover:bg-green-700"
-                        >
-                          Publish
-                        </button>
-                      )}
-                    </div>
-                  </li>
+                            }}
+                          >
+                            Publish
+                          </Button>
+                        )}
+                      </Group>
+                    </Group>
+                  </Paper>
                 ))}
-              </ul>
-            </div>
-          )}
-          {/* Create short — when active, checkboxes appear on the Lesson Builder cards below */}
-          <div>
-            <button
-              type="button"
-              onClick={() => setShowShortsCreate(!showShortsCreate)}
-              className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400"
-            >
-              <Plus className="w-5 h-5" />
-              {showShortsCreate ? 'Cancel' : 'Create short'}
-            </button>
-            {showShortsCreate && lessons.length > 0 && (
-              <div className="mt-4 p-4 bg-brand-darkGrey/10 rounded-lg space-y-4">
-                <p className="text-sm text-brand-black font-medium">
-                  Tick the lessons you want in the short on the <strong>Lesson Builder</strong> cards below (order = Day 1..N). Then set cert question count and click Save short.
-                </p>
-                <div className="flex flex-wrap items-center gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-brand-black mb-1">Cert question count</label>
-                    <input
-                      type="number"
+              </Stack>
+            )}
+
+            {showShortsCreate && (
+              <Paper withBorder radius="md" p="md">
+                <Stack gap="md">
+                  <Text size="sm">
+                    Select lessons on the Lesson Builder cards below, then set the certificate question count and save the short.
+                  </Text>
+                  <Group align="flex-end">
+                    <NumberInput
+                      label="Cert question count"
                       min={1}
                       max={50}
+                      step={1}
                       value={shortCertCount}
-                      onChange={(e) => setShortCertCount(parseInt(e.target.value, 10) || 25)}
-                      className="w-24 px-2 py-1 border-2 border-brand-darkGrey rounded"
+                      onChange={(value) => setShortCertCount(Math.min(50, Math.max(1, Number(value) || 25)))}
                     />
-                  </div>
-                  <button
-                    type="button"
-                    disabled={shortSelectedIds.length === 0 || shortCreating}
-                    onClick={async () => {
-                      if (!course?.courseId || shortSelectedIds.length === 0) return;
-                      const orderedIds = lessons
-                        .filter((l) => shortSelectedIds.includes(l._id))
-                        .sort((a, b) => a.dayNumber - b.dayNumber)
-                        .map((l) => l._id);
-                      setShortCreating(true);
-                      try {
-                        const r = await fetch('/api/admin/courses/fork', {
-                          method: 'POST',
-                          headers: { 'Content-Type': 'application/json' },
-                          body: JSON.stringify({
-                            parentCourseId: course.courseId,
-                            selectedLessonIds: orderedIds,
-                            certQuestionCount: shortCertCount,
-                          }),
-                        });
-                        const d = await r.json();
-                        if (d.success) {
-                          setShorts((prev) => [...prev, { courseId: d.course.courseId, name: d.course.name, courseVariant: d.course.courseVariant, isDraft: d.course.isDraft ?? true }]);
-                          setShowShortsCreate(false);
-                          setShortSelectedIds([]);
-                        } else {
-                          alert(d.error || 'Failed to create short');
+                    <Button
+                      type="button"
+                      loading={shortCreating}
+                      disabled={shortSelectedIds.length === 0}
+                      leftSection={<IconDeviceFloppy size={16} />}
+                      onClick={async () => {
+                        if (!course.courseId || shortSelectedIds.length === 0) return;
+                        const orderedIds = lessons
+                          .filter((lesson) => shortSelectedIds.includes(lesson._id))
+                          .sort((a, b) => a.dayNumber - b.dayNumber)
+                          .map((lesson) => lesson._id);
+                        setShortCreating(true);
+                        try {
+                          const response = await fetch('/api/admin/courses/fork', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                              parentCourseId: course.courseId,
+                              selectedLessonIds: orderedIds,
+                              certQuestionCount: shortCertCount,
+                            }),
+                          });
+                          const data = await response.json();
+                          if (data.success) {
+                            setShorts((prev) => [
+                              ...prev,
+                              {
+                                courseId: data.course.courseId,
+                                name: data.course.name,
+                                courseVariant: data.course.courseVariant,
+                                isDraft: data.course.isDraft ?? true,
+                              },
+                            ]);
+                            setShowShortsCreate(false);
+                            setShortSelectedIds([]);
+                            notifications.show({ color: 'green', title: 'Short created', message: 'The new short course was saved as a draft.' });
+                          } else {
+                            notifications.show({ color: 'red', title: 'Short creation failed', message: data.error || 'Failed to create short.' });
+                          }
+                        } catch (error) {
+                          console.error(error);
+                          notifications.show({ color: 'red', title: 'Short creation failed', message: 'Failed to create short.' });
+                        } finally {
+                          setShortCreating(false);
                         }
-                      } catch (e) {
-                        console.error(e);
-                        alert('Failed to create short');
-                      } finally {
-                        setShortCreating(false);
-                      }
-                    }}
-                    className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 disabled:opacity-50"
-                  >
-                    {shortCreating ? 'Creating…' : 'Save short'}
-                  </button>
-                </div>
-              </div>
+                      }}
+                    >
+                      Save short
+                    </Button>
+                  </Group>
+                </Stack>
+              </Paper>
             )}
-          </div>
-        </div>
+          </Stack>
+        </Card>
       )}
 
-      {/* Lesson Builder (read-only for short/child courses) */}
-      <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold text-brand-black">
-            {course.parentCourseId ? 'Short course — lessons from parent (read-only)' : 'Lesson Builder'}
-          </h2>
-          {!course.parentCourseId && (
-            <button
-              onClick={() => {
-                setEditingLesson(nextEditableLessonDay);
-                setShowLessonForm(true);
-              }}
-              className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
-            >
-              <Plus className="w-5 h-5" />
-              Add Lesson
-            </button>
-          )}
-        </div>
-        {course.parentCourseId && (
-          <>
-            {/* Sync status and actions for child courses */}
-            <div className="mb-4 p-4 rounded-lg border-2 border-brand-accent/50 bg-brand-accent/5">
-              <p className="text-sm font-medium text-brand-black mb-2">Sync with parent</p>
-              {syncStatusData ? (
-                <>
-                  <div className="flex flex-wrap items-center gap-3 mb-2">
-                    <span
-                      className={`inline-flex items-center gap-1.5 px-2 py-1 rounded text-sm font-medium ${
-                        syncStatusData.computedStatus === 'synced'
-                          ? 'bg-green-100 text-green-800'
-                          : 'bg-amber-100 text-amber-800'
-                      }`}
-                    >
-                      {syncStatusData.computedStatus === 'synced' ? (
-                        <>Synced</>
-                      ) : (
-                        <>
-                          <AlertTriangle className="w-4 h-4" />
-                          Out of sync
-                        </>
-                      )}
-                    </span>
-                    {syncStatusData.lastSyncedAt && (
-                      <span className="text-sm text-brand-darkGrey">
-                        Last synced: {new Date(syncStatusData.lastSyncedAt).toLocaleString()}
-                      </span>
-                    )}
-                  </div>
-                  {syncStatusData.missingLessonIds.length > 0 && (
-                    <p className="text-sm text-amber-700 mb-2">
-                      {syncStatusData.missingLessonIds.length} lesson(s) in this short no longer exist on the parent. Re-sync to remove them.
-                    </p>
-                  )}
-                  <div className="flex flex-wrap gap-2">
-                    <button
-                      type="button"
-                      disabled={syncActionLoading}
-                      onClick={async () => {
-                        if (!course?.courseId) return;
-                        setSyncActionLoading(true);
-                        try {
-                          const r = await fetch(`/api/admin/courses/${course.courseId}/sync`, { method: 'POST' });
-                          const d = await r.json();
-                          if (d.success) {
-                            setCourse((prev) =>
-                              prev
-                                ? {
-                                    ...prev,
-                                    syncStatus: 'synced',
-                                    lastSyncedAt: d.course?.lastSyncedAt ?? prev.lastSyncedAt,
-                                    selectedLessonIds: d.course?.selectedLessonIds ?? prev.selectedLessonIds,
-                                  }
-                                : null
-                            );
-                            setSyncStatusData((prev) =>
-                              prev
-                                ? {
-                                    ...prev,
-                                    computedStatus: 'synced',
-                                    missingLessonIds: [],
-                                    lastSyncedAt: d.course?.lastSyncedAt ?? prev.lastSyncedAt,
-                                  }
-                                : null
-                            );
-                            if ((d.removedLessonIds?.length ?? 0) > 0) {
-                              alert(`Re-synced. ${d.removedLessonIds.length} invalid lesson reference(s) were removed.`);
-                            }
-                            fetchLessons(course.courseId);
-                          } else {
-                            alert(d.message || d.error || 'Re-sync failed');
-                          }
-                        } finally {
-                          setSyncActionLoading(false);
-                        }
-                      }}
-                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-brand-accent text-brand-black font-medium hover:bg-brand-primary-400 disabled:opacity-50"
-                    >
-                      <RefreshCw className={`w-4 h-4 ${syncActionLoading ? 'animate-spin' : ''}`} />
-                      Re-sync from parent
-                    </button>
-                    <button
-                      type="button"
-                      disabled={syncActionLoading}
-                      onClick={async () => {
-                        if (!course?.courseId) return;
-                        setSyncActionLoading(true);
-                        try {
-                          const r = await fetch(`/api/admin/courses/${course.courseId}/unsync`, { method: 'POST' });
-                          const d = await r.json();
-                          if (d.success) {
-                            setCourse((prev) =>
-                              prev ? { ...prev, syncStatus: 'out_of_sync' } : null
-                            );
-                            setSyncStatusData((prev) =>
-                              prev ? { ...prev, computedStatus: 'out_of_sync' } : null
-                            );
-                          } else {
-                            alert(d.message || d.error || 'Mark unsync failed');
-                          }
-                        } finally {
-                          setSyncActionLoading(false);
-                        }
-                      }}
-                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded border-2 border-brand-darkGrey/50 text-brand-black font-medium hover:bg-brand-darkGrey/10 disabled:opacity-50"
-                    >
-                      Mark out of sync
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <p className="text-sm text-brand-darkGrey">Loading sync status…</p>
-              )}
-            </div>
-            <p className="text-sm text-brand-darkGrey mb-4">
-              This is a short course. Lesson and quiz content are managed in the parent course. Only preview is available here.
-            </p>
-          </>
-        )}
-        {/* Lessons Grid — when Create short is on, lesson cards get a "Include in short" checkbox */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {Array.from({ length: lessonGridLength }, (_, i) => i + 1).map((day) => {
-            const lesson = lessons.find((l) => l.dayNumber === day);
-            const inShortSelection = !course.parentCourseId && showShortsCreate && lesson;
-            return (
-              <div
-                key={day}
-                className={`p-4 rounded-lg border-2 ${
-                  lesson
-                    ? 'bg-brand-accent/10 border-brand-accent'
-                    : 'bg-brand-darkGrey/10 border-brand-darkGrey/30'
-                } ${inShortSelection && shortSelectedIds.includes(lesson._id) ? 'ring-2 ring-brand-accent ring-offset-2' : ''}`}
+      <Card padding="lg">
+        <Stack gap="md">
+          <Group justify="space-between" align="flex-start">
+            <Stack gap={4}>
+              <Title order={2} size="h3">
+                {course.parentCourseId ? 'Short course lessons' : 'Lesson Builder'}
+              </Title>
+              <Text c="dimmed" size="sm">
+                {course.parentCourseId
+                  ? 'Lesson and quiz content are managed in the parent course. Only preview is available here.'
+                  : 'Create and edit the ordered lesson sequence learners will follow.'}
+              </Text>
+            </Stack>
+            {!course.parentCourseId && (
+              <Button
+                type="button"
+                leftSection={<IconPlus size={16} />}
+                onClick={() => {
+                  setEditingLesson(nextEditableLessonDay);
+                  setShowLessonForm(true);
+                }}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    {inShortSelection && (
-                      <label className="flex items-center gap-1.5 cursor-pointer" onClick={(e) => e.stopPropagation()}>
-                        <input
-                          type="checkbox"
-                          checked={shortSelectedIds.includes(lesson._id)}
-                          onChange={(e) => {
-                            if (e.target.checked) {
-                              setShortSelectedIds((prev) => [...prev, lesson._id]);
-                            } else {
-                              setShortSelectedIds((prev) => prev.filter((id) => id !== lesson._id));
-                            }
-                          }}
-                          className="w-4 h-4 text-brand-accent rounded"
-                        />
-                        <span className="text-xs font-medium text-brand-black">Short</span>
-                      </label>
+                Add Lesson
+              </Button>
+            )}
+          </Group>
+
+          {course.parentCourseId && (
+            <Paper withBorder radius="md" p="md">
+              <Stack gap="sm">
+                <Group justify="space-between" align="center">
+                  <Stack gap={2}>
+                    <Text fw={600}>Sync with parent</Text>
+                    {syncStatusData?.lastSyncedAt && (
+                      <Text size="xs" c="dimmed">Last synced: {new Date(syncStatusData.lastSyncedAt).toLocaleString()}</Text>
                     )}
-                    <Calendar className="w-4 h-4 text-brand-accent" />
-                    <span className="font-bold text-brand-black">Day {day}</span>
-                  </div>
-                  {lesson && (
-                    <span className="text-xs bg-green-500 text-white px-2 py-1 rounded">
-                      ✓
-                    </span>
-                  )}
-                </div>
-                {lesson ? (
-                  <>
-                    <h3 className="font-bold text-brand-black mb-1">{lesson.title}</h3>
-                    <p className="text-sm text-brand-darkGrey mb-3 line-clamp-2">
-                      {lesson.content.substring(0, 100)}...
-                    </p>
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => {
-                          const previewUrl = `/${locale}/courses/${course.courseId}/day/${day}`;
-                          window.open(previewUrl, '_blank');
-                        }}
-                        className="flex items-center justify-center gap-1 bg-brand-darkGrey text-brand-white px-2 py-1 rounded text-sm font-bold hover:bg-brand-secondary-700"
-                        title="Preview lesson"
-                      >
-                        <Eye className="w-3 h-3" />
-                      </button>
-                      {!course.parentCourseId && (
-                        <button
+                  </Stack>
+                  <Badge
+                    color={syncStatusData?.computedStatus === 'synced' ? 'green' : 'yellow'}
+                    leftSection={syncStatusData?.computedStatus === 'synced' ? undefined : <IconAlertTriangle size={12} />}
+                  >
+                    {syncStatusData?.computedStatus === 'synced' ? 'Synced' : 'Out of sync'}
+                  </Badge>
+                </Group>
+                {syncStatusData?.missingLessonIds.length ? (
+                  <Alert color="yellow" icon={<IconAlertTriangle size={16} />} title="Missing parent lessons">
+                    {syncStatusData.missingLessonIds.length} lesson reference(s) no longer exist on the parent. Re-sync to remove them.
+                  </Alert>
+                ) : null}
+                <Group>
+                  <Button
+                    type="button"
+                    loading={syncActionLoading}
+                    leftSection={<IconRefresh size={16} />}
+                    onClick={async () => {
+                      setSyncActionLoading(true);
+                      try {
+                        const response = await fetch(`/api/admin/courses/${course.courseId}/sync`, { method: 'POST' });
+                        const data = await response.json();
+                        if (data.success) {
+                          setCourse((prev) =>
+                            prev
+                              ? {
+                                  ...prev,
+                                  syncStatus: 'synced',
+                                  lastSyncedAt: data.course?.lastSyncedAt ?? prev.lastSyncedAt,
+                                  selectedLessonIds: data.course?.selectedLessonIds ?? prev.selectedLessonIds,
+                                }
+                              : null
+                          );
+                          setSyncStatusData((prev) =>
+                            prev
+                              ? {
+                                  ...prev,
+                                  computedStatus: 'synced',
+                                  missingLessonIds: [],
+                                  lastSyncedAt: data.course?.lastSyncedAt ?? prev.lastSyncedAt,
+                                }
+                              : null
+                          );
+                          fetchLessons(course.courseId);
+                          notifications.show({
+                            color: 'green',
+                            title: 'Short re-synced',
+                            message: (data.removedLessonIds?.length ?? 0) > 0
+                              ? `${data.removedLessonIds.length} invalid lesson reference(s) were removed.`
+                              : 'The short course now matches the parent selection.',
+                          });
+                        } else {
+                          notifications.show({ color: 'red', title: 'Re-sync failed', message: data.message || data.error || 'Re-sync failed.' });
+                        }
+                      } catch (error) {
+                        console.error(error);
+                        notifications.show({ color: 'red', title: 'Re-sync failed', message: 'Re-sync failed.' });
+                      } finally {
+                        setSyncActionLoading(false);
+                      }
+                    }}
+                  >
+                    Re-sync from parent
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="default"
+                    loading={syncActionLoading}
+                    onClick={async () => {
+                      setSyncActionLoading(true);
+                      try {
+                        const response = await fetch(`/api/admin/courses/${course.courseId}/unsync`, { method: 'POST' });
+                        const data = await response.json();
+                        if (data.success) {
+                          setCourse((prev) => (prev ? { ...prev, syncStatus: 'out_of_sync' } : null));
+                          setSyncStatusData((prev) => (prev ? { ...prev, computedStatus: 'out_of_sync' } : null));
+                          notifications.show({ color: 'yellow', title: 'Marked out of sync', message: 'The short course is flagged for review.' });
+                        } else {
+                          notifications.show({ color: 'red', title: 'Update failed', message: data.message || data.error || 'Mark unsync failed.' });
+                        }
+                      } catch (error) {
+                        console.error(error);
+                        notifications.show({ color: 'red', title: 'Update failed', message: 'Mark unsync failed.' });
+                      } finally {
+                        setSyncActionLoading(false);
+                      }
+                    }}
+                  >
+                    Mark out of sync
+                  </Button>
+                </Group>
+              </Stack>
+            </Paper>
+          )}
+
+          <SimpleGrid cols={{ base: 1, md: 2, lg: 3 }} spacing="md">
+            {Array.from({ length: lessonGridLength }, (_, index) => index + 1).map((day) => {
+              const lesson = lessons.find((item) => item.dayNumber === day);
+              const inShortSelection = Boolean(!course.parentCourseId && showShortsCreate && lesson);
+              const isSelectedForShort = Boolean(lesson && shortSelectedIds.includes(lesson._id));
+
+              return (
+                <Card key={day} withBorder padding="md" bg={lesson ? 'dark.7' : 'dark.8'}>
+                  <Stack gap="sm" h="100%">
+                    <Group justify="space-between" align="center">
+                      <Group gap="xs">
+                        {inShortSelection && lesson && (
+                          <Checkbox
+                            aria-label={`Include day ${day} in short`}
+                            checked={isSelectedForShort}
+                            onChange={(event) => {
+                              if (event.currentTarget.checked) {
+                                setShortSelectedIds((prev) => [...prev, lesson._id]);
+                              } else {
+                                setShortSelectedIds((prev) => prev.filter((id) => id !== lesson._id));
+                              }
+                            }}
+                          />
+                        )}
+                        <ThemeIcon variant="light" color={lesson ? 'amanobaYellow' : 'gray'} size="sm">
+                          <IconCalendar size={14} />
+                        </ThemeIcon>
+                        <Text fw={700}>Day {day}</Text>
+                      </Group>
+                      {lesson ? <Badge color="green" variant="light">Ready</Badge> : <Badge color="gray" variant="light">Empty</Badge>}
+                    </Group>
+
+                    {lesson ? (
+                      <>
+                        <Stack gap={4} style={{ flex: 1 }}>
+                          <Text fw={700} lineClamp={1}>{lesson.title}</Text>
+                          <Text size="sm" c="dimmed" lineClamp={2}>{lesson.content}</Text>
+                        </Stack>
+                        <Group gap="xs" grow>
+                          <Button
+                            type="button"
+                            variant="default"
+                            leftSection={<IconEye size={14} />}
+                            onClick={() => window.open(`/${locale}/courses/${course.courseId}/day/${day}`, '_blank')}
+                          >
+                            Preview
+                          </Button>
+                          {!course.parentCourseId && (
+                            <Button
+                              type="button"
+                              leftSection={<IconEdit size={14} />}
+                              onClick={() => {
+                                setEditingLesson(day);
+                                setShowLessonForm(true);
+                              }}
+                            >
+                              Edit
+                            </Button>
+                          )}
+                        </Group>
+                      </>
+                    ) : (
+                      !course.parentCourseId && (
+                        <Button
+                          type="button"
+                          variant="subtle"
+                          leftSection={<IconPlus size={14} />}
                           onClick={() => {
                             setEditingLesson(day);
                             setShowLessonForm(true);
                           }}
-                          className="flex-1 flex items-center justify-center gap-1 bg-brand-accent text-brand-black px-2 py-1 rounded text-sm font-bold hover:bg-brand-primary-400"
                         >
-                          <Edit className="w-3 h-3" />
-                          Edit
-                        </button>
-                      )}
-                    </div>
-                  </>
-                ) : (
-                  !course.parentCourseId && (
-                    <button
-                      onClick={() => {
-                        setEditingLesson(day);
-                        setShowLessonForm(true);
-                      }}
-                      className="w-full text-brand-darkGrey hover:text-brand-accent text-sm font-medium"
-                    >
-                      + Add Lesson
-                    </button>
-                  )
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </div>
+                          Add Lesson
+                        </Button>
+                      )
+                    )}
+                  </Stack>
+                </Card>
+              );
+            })}
+          </SimpleGrid>
+        </Stack>
+      </Card>
 
       {/* Lesson Form Modal (not used for child courses) */}
       {showLessonForm && courseId && course && !course.parentCourseId && (
@@ -1766,7 +1575,8 @@ export default function CourseEditorPage({
           }}
         />
       )}
-    </div>
+      </Stack>
+    </Container>
   );
 }
 
@@ -1779,15 +1589,15 @@ function LessonFormModal({
   games,
   onClose,
   onSave,
-	}: {
-	  courseId: string;
-	  course: Course;
-	  dayNumber: number;
-	  lesson: LessonWithQuizConfig | null;
-	  games: Game[];
-	  onClose: () => void;
-	  onSave: () => void;
-	}) {
+}: {
+  courseId: string;
+  course: Course;
+  dayNumber: number;
+  lesson: LessonWithQuizConfig | null;
+  games: Game[];
+  onClose: () => void;
+  onSave: () => void;
+}) {
   const [formData, setFormData] = useState({
     lessonId: lesson?.lessonId || `DAY_${dayNumber.toString().padStart(2, '0')}`,
     title: lesson?.title || '',
@@ -1825,189 +1635,130 @@ function LessonFormModal({
       const data = await response.json();
 
       if (data.success) {
+        notifications.show({
+          color: 'green',
+          title: lesson ? 'Lesson updated' : 'Lesson created',
+          message: `Day ${dayNumber} was saved.`,
+        });
         onSave();
       } else {
-        alert(data.error || 'Failed to save lesson');
+        notifications.show({ color: 'red', title: 'Could not save lesson', message: data.error || 'Failed to save lesson' });
       }
     } catch (error) {
       console.error('Failed to save lesson:', error);
-      alert('Failed to save lesson');
+      notifications.show({ color: 'red', title: 'Could not save lesson', message: 'Failed to save lesson' });
     } finally {
       setSaving(false);
     }
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-brand-white rounded-xl p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto border-2 border-brand-accent">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold text-brand-black">
-            {lesson ? 'Edit' : 'Create'} Lesson - Day {dayNumber}
-          </h2>
-          <button
-            onClick={onClose}
-            className="text-brand-darkGrey hover:text-brand-black"
-          >
-            ✕
-          </button>
-        </div>
-
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-brand-black mb-2">
-              Lesson ID
-            </label>
-            <input
-              type="text"
-              required
-              value={formData.lessonId}
-              onChange={(e) => setFormData({ ...formData, lessonId: e.target.value })}
-              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-brand-black mb-2">
-              Title *
-            </label>
-            <input
-              type="text"
-              required
-              value={formData.title}
-              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-brand-black mb-2">
-              Content * (Markdown)
-            </label>
+    <Modal
+      opened
+      onClose={onClose}
+      size="xl"
+      title={`${lesson ? 'Edit' : 'Create'} Lesson - Day ${dayNumber}`}
+      centered
+      overlayProps={{ opacity: 0.55, blur: 3 }}
+    >
+      <Box component="form" onSubmit={handleSubmit}>
+        <Stack gap="md">
+          <TextInput
+            label="Lesson ID"
+            required
+            value={formData.lessonId}
+            onChange={(event) => setFormData({ ...formData, lessonId: event.currentTarget.value })}
+          />
+          <TextInput
+            label="Title"
+            required
+            value={formData.title}
+            onChange={(event) => setFormData({ ...formData, title: event.currentTarget.value })}
+          />
+          <Stack gap="xs">
+            <Text fw={600} size="sm">Content (Markdown)</Text>
             <MarkdownEditor
               content={formData.content}
               onChange={(content) => setFormData({ ...formData, content })}
               placeholder="Write your lesson in **Markdown**: headings, lists, **bold**, *italic*, [links](url)"
             />
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-brand-black mb-2">
-                Email Subject
-              </label>
-              <input
-                type="text"
-                value={formData.emailSubject}
-                onChange={(e) => setFormData({ ...formData, emailSubject: e.target.value })}
-                className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-brand-black mb-2">
-                Assessment Game (Optional)
-              </label>
-              <select
-                value={formData.assessmentGameId}
-                onChange={(e) => setFormData({ ...formData, assessmentGameId: e.target.value })}
-                className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-              >
-                <option value="">None (Use Quiz Instead)</option>
-                {games.map((game) => (
-                  <option key={game._id} value={game._id}>
-                    {game.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          {/* Lesson Quiz Section */}
-          <div className="border-2 border-brand-accent rounded-lg p-4 bg-brand-darkGrey/10">
-            <div className="mb-4">
-              <div>
-                <h3 className="text-lg font-bold text-brand-black">Lesson Quiz Questions</h3>
-                <p className="text-sm text-brand-darkGrey">
+          </Stack>
+          <SimpleGrid cols={{ base: 1, md: 2 }}>
+            <TextInput
+              label="Email Subject"
+              value={formData.emailSubject}
+              onChange={(event) => setFormData({ ...formData, emailSubject: event.currentTarget.value })}
+            />
+            <Select
+              label="Assessment Game"
+              value={formData.assessmentGameId}
+              onChange={(value) => setFormData({ ...formData, assessmentGameId: value || '' })}
+              data={[
+                { value: '', label: 'None (Use Quiz Instead)' },
+                ...games.map((game) => ({ value: game._id, label: game.name })),
+              ]}
+              allowDeselect={false}
+            />
+          </SimpleGrid>
+          <Paper withBorder radius="md" p="md">
+            <Stack gap="sm">
+              <Stack gap={4}>
+                <Title order={3} size="h4">Lesson Quiz Questions</Title>
+                <Text size="sm" c="dimmed">
                   Quiz behavior is configured at course level. Here you manage only the question content for this lesson.
-                </p>
-                <p className="text-xs text-brand-darkGrey mt-2">
+                </Text>
+                <Text size="xs" c="dimmed">
                   Course policy: {course.lessonQuizPolicy?.enabled !== false ? 'enabled' : 'disabled'}; required: {course.lessonQuizPolicy?.required !== false ? 'yes' : 'no'}; questions: {course.lessonQuizPolicy?.questionCount ?? course.defaultLessonQuizQuestionCount ?? 5}; shown answers: {course.lessonQuizPolicy?.shownAnswerCount ?? 3}; max wrong: {course.lessonQuizPolicy?.maxWrongAllowed ?? course.quizMaxWrongAllowed ?? 'n/a'}; threshold: {course.lessonQuizPolicy?.successThreshold ?? 70}%.
-                </p>
-              </div>
-            </div>
-
-            {lesson ? (
-              <div className="pt-4 border-t border-brand-darkGrey/20">
-                <button
+                </Text>
+              </Stack>
+              {lesson ? (
+                <Button
                   type="button"
+                  leftSection={<IconListCheck size={16} />}
                   onClick={() => setShowQuizManager(true)}
-                  className="w-full px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors flex items-center justify-center gap-2"
                 >
-                  <span>📝</span>
                   Manage Quiz Questions
-                </button>
-              </div>
-            ) : (
-              <p className="text-xs text-brand-darkGrey">
-                Save the lesson first, then use &quot;Manage Quiz Questions&quot;.
-              </p>
-            )}
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-brand-black mb-2">
-                Points Reward
-              </label>
-              <input
-                type="number"
-                value={formData.pointsReward}
-                onChange={(e) => setFormData({ ...formData, pointsReward: parseInt(e.target.value) || 0 })}
-                className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-brand-black mb-2">
-                XP Reward
-              </label>
-              <input
-                type="number"
-                value={formData.xpReward}
-                onChange={(e) => setFormData({ ...formData, xpReward: parseInt(e.target.value) || 0 })}
-                className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-              />
-            </div>
-          </div>
-
-          <div className="flex items-center justify-end gap-4 pt-4 border-t border-brand-darkGrey/20">
-            <button
-              type="button"
-              onClick={onClose}
-              className="px-6 py-2 bg-brand-darkGrey text-brand-white rounded-lg font-bold hover:bg-brand-secondary-700 transition-colors"
-            >
+                </Button>
+              ) : (
+                <Text size="xs" c="dimmed">Save the lesson first, then use &quot;Manage Quiz Questions&quot;.</Text>
+              )}
+            </Stack>
+          </Paper>
+          <SimpleGrid cols={{ base: 1, md: 2 }}>
+            <NumberInput
+              label="Points Reward"
+              min={0}
+              step={1}
+              value={formData.pointsReward}
+              onChange={(value) => setFormData({ ...formData, pointsReward: Number(value) || 0 })}
+            />
+            <NumberInput
+              label="XP Reward"
+              min={0}
+              step={1}
+              value={formData.xpReward}
+              onChange={(value) => setFormData({ ...formData, xpReward: Number(value) || 0 })}
+            />
+          </SimpleGrid>
+          <Group justify="flex-end">
+            <Button type="button" variant="default" onClick={onClose}>
               Cancel
-            </button>
-            <button
-              type="submit"
-              disabled={saving}
-              className="px-6 py-2 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50"
-            >
-              {saving ? 'Saving...' : lesson ? 'Update Lesson' : 'Create Lesson'}
-            </button>
-          </div>
-        </form>
+            </Button>
+            <Button type="submit" loading={saving} leftSection={<IconDeviceFloppy size={16} />}>
+              {lesson ? 'Update Lesson' : 'Create Lesson'}
+            </Button>
+          </Group>
+        </Stack>
+      </Box>
 
-        {/* Quiz Manager Modal (shared component; admins and editors with course access) */}
-        {showQuizManager && lesson && (
-          <QuizManagerModal
-            courseId={courseId}
-            lessonId={lesson.lessonId}
-            onClose={() => setShowQuizManager(false)}
-            variant="light"
-          />
-        )}
-      </div>
-    </div>
+      {showQuizManager && lesson && (
+        <QuizManagerModal
+          courseId={courseId}
+          lessonId={lesson.lessonId}
+          onClose={() => setShowQuizManager(false)}
+          variant="light"
+        />
+      )}
+    </Modal>
   );
 }
