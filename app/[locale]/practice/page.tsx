@@ -13,14 +13,31 @@ import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import Logo from '@/components/Logo';
 import { LocaleLink } from '@/components/LocaleLink';
-import Icon, {
-  MdAutoStories,
-  MdGpsFixed,
-  MdMenuBook,
-  MdPsychology,
-  MdQuiz,
-  MdRocketLaunch,
-} from '@/components/Icon';
+import {
+  Alert,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Container,
+  Group,
+  Loader,
+  Paper,
+  SimpleGrid,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import {
+  IconAlertTriangle,
+  IconBook,
+  IconBrain,
+  IconClipboardText,
+  IconCompass,
+  IconRocket,
+  IconTargetArrow,
+} from '@tabler/icons-react';
 import { type PracticeContext, parsePracticeContext } from '@/app/lib/practice-hub';
 
 type PracticeModeId = 'continue-next' | 'quiz-recovery' | 'stale-refresh';
@@ -71,11 +88,11 @@ type PracticeHubResponse = {
 function modeIcon(modeId: PracticeModeId) {
   switch (modeId) {
     case 'continue-next':
-      return MdRocketLaunch;
+      return IconRocket;
     case 'quiz-recovery':
-      return MdQuiz;
+      return IconClipboardText;
     case 'stale-refresh':
-      return MdAutoStories;
+      return IconBook;
   }
 }
 
@@ -167,264 +184,298 @@ export default function PracticeHubPage() {
   if (!session) {
     const signInHref = `/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}/practice`)}`;
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center px-4">
-        <div className="bg-brand-white rounded-2xl shadow-2xl p-8 max-w-lg w-full text-center border-2 border-brand-accent">
-          <Icon icon={MdPsychology} size={48} className="text-brand-accent mx-auto mb-4" />
-          <h1 className="text-2xl font-bold text-brand-black mb-3">
-            Practice Hub
-          </h1>
-          <p className="text-brand-darkGrey mb-6">
+      <Box bg="ink.9" mih="100vh" px="md" py="xl">
+        <Container size="xs">
+          <Card padding="xl" withBorder>
+            <Stack gap="md" align="center" ta="center">
+              <ThemeIcon color="amanoba" variant="light" size={64} radius="xl">
+                <IconBrain size={34} />
+              </ThemeIcon>
+              <Title order={1} size="h2">Practice Hub</Title>
+              <Text c="dimmed">
             Sign in to continue lessons, recover quizzes, and revisit stale learning sessions.
-          </p>
-          <LocaleLink
+              </Text>
+              <Button
+                component={LocaleLink}
             href={signInHref}
-            className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+                color="amanoba"
           >
             {tAuth('signIn')}
-          </LocaleLink>
-        </div>
-      </div>
+              </Button>
+            </Stack>
+          </Card>
+        </Container>
+      </Box>
     );
   }
 
   return (
-    <div className="min-h-screen bg-brand-black">
-      <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-30 mobile-sticky-header">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-3">
-              <Logo size="sm" showText={false} linkTo="/dashboard" className="flex-shrink-0" />
-              <div>
-                <h1 className="text-2xl sm:text-3xl font-bold text-brand-white flex items-center gap-2">
-                  <Icon icon={MdPsychology} size={28} className="text-brand-accent" />
+    <Box bg="ink.9" mih="100vh">
+      <Paper component="header" bg="ink.8" radius={0} withBorder>
+        <Container size="xl" py={{ base: 'md', sm: 'lg' }}>
+          <Group justify="space-between" align="flex-start" gap="md">
+            <Group gap="md" wrap="nowrap" style={{ minWidth: 0 }}>
+              <Logo size="sm" showText={false} linkTo="/dashboard" />
+              <Stack gap={4}>
+                <Group gap="xs">
+                  <ThemeIcon color="amanoba" variant="light" radius="xl">
+                    <IconBrain size={20} />
+                  </ThemeIcon>
+                  <Title order={1} size="h2" c="white">
                   Practice Hub
-                </h1>
-                <p className="text-brand-white/80 mt-1 text-sm sm:text-base">
+                  </Title>
+                </Group>
+                <Text c="gray.3" size="sm">
                   Recover unfinished learning, reopen unresolved quizzes, and refresh lessons that have gone cold.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-              <LocaleLink
+                </Text>
+              </Stack>
+            </Group>
+            <Group gap="sm">
+              <Button
+                component={LocaleLink}
                 href="/my-courses"
-                className="bg-brand-darkGrey text-brand-white px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-secondary-700 transition-colors font-bold text-center border-2 border-brand-accent"
+                variant="outline"
+                color="gray"
               >
                 {tDashboard('myCourses')}
-              </LocaleLink>
-              <LocaleLink
+              </Button>
+              <Button
+                component={LocaleLink}
                 href="/dashboard"
-                className="bg-brand-accent text-brand-black px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-primary-400 transition-colors font-bold text-center"
+                color="amanoba"
               >
                 {tDashboard('backToDashboard')}
-              </LocaleLink>
-            </div>
-          </div>
-        </div>
-      </header>
+              </Button>
+            </Group>
+          </Group>
+        </Container>
+      </Paper>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <Container component="main" size="xl" py={{ base: 'lg', sm: 'xl' }}>
         {loading ? (
-          <div className="bg-brand-white rounded-2xl border-2 border-brand-accent p-10 text-center shadow-xl">
-            <div className="text-brand-darkGrey text-lg">
-              Loading Practice Hub...
-            </div>
-          </div>
+          <Card padding="xl" withBorder>
+            <Group justify="center" gap="sm">
+              <Loader size="sm" color="amanoba" />
+              <Text fw={700}>Loading Practice Hub...</Text>
+            </Group>
+          </Card>
         ) : error || !practiceHub ? (
-          <div className="bg-brand-white rounded-2xl border-2 border-brand-accent p-10 text-center shadow-xl">
-            <div className="text-brand-black text-2xl font-bold mb-3">
-              Unable to load Practice Hub
-            </div>
-            <p className="text-brand-darkGrey mb-6">
+          <Card padding="xl" withBorder>
+            <Stack gap="md" align="center" ta="center">
+              <Alert color="red" icon={<IconAlertTriangle size={18} />} w="100%">
+                Unable to load Practice Hub
+              </Alert>
+              <Text c="dimmed">
               The review surface could not be loaded right now.
-            </p>
-            <button
+              </Text>
+              <Button
               onClick={() => void fetchPracticeHub()}
-              className="bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+                color="amanoba"
             >
               {tDashboard('retry')}
-            </button>
-          </div>
+              </Button>
+            </Stack>
+          </Card>
         ) : (
-          <>
-            <section className="bg-brand-white rounded-2xl shadow-xl p-6 sm:p-8 mb-8 border-2 border-brand-accent">
-              <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-6">
-                <div>
-                  <h2 className="text-2xl font-bold text-brand-black mb-3">
+          <Stack gap="xl">
+            <Card padding="xl" withBorder>
+              <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="lg">
+                <Stack gap="md">
+                  <Title order={2} size="h3">
                     Your next best review action
-                  </h2>
-                  <p className="text-brand-darkGrey mb-5">
+                  </Title>
+                  <Text c="dimmed">
                     The Practice Hub only shows explainable actions powered by your real course and quiz progress.
-                  </p>
+                  </Text>
 
                   {practiceHub.summary.nextRecommendation ? (
-                    <div className="rounded-2xl border-2 border-brand-darkGrey/15 bg-brand-darkGrey/5 p-5">
-                      <div className="flex items-start justify-between gap-4 mb-4">
-                        <div>
-                          <div className="text-sm font-semibold text-brand-accent mb-1">
+                    <Card bg="gray.0" padding="lg" withBorder>
+                      <Stack gap="md">
+                        <Group justify="space-between" align="flex-start" gap="md">
+                          <Stack gap={4}>
+                            <Text size="sm" fw={700} c="amanoba.7">
                             {practiceHub.summary.nextRecommendation.courseName}
-                          </div>
-                          <h3 className="text-xl font-bold text-brand-black">
+                            </Text>
+                            <Title order={3} size="h4">
                             {practiceHub.summary.nextRecommendation.title}
-                          </h3>
-                        </div>
-                        <div className="bg-brand-accent text-brand-black px-3 py-1 rounded-full text-xs font-bold">
+                            </Title>
+                          </Stack>
+                          <Badge color="amanoba" variant="filled">
                           {practiceHub.summary.nextRecommendation.mode}
-                        </div>
-                      </div>
-                      <p className="text-brand-darkGrey mb-4">
+                          </Badge>
+                        </Group>
+                        <Text c="dimmed">
                         {practiceHub.summary.nextRecommendation.reasonLabel}
-                      </p>
-                      <LocaleLink
+                        </Text>
+                        <Button
+                          component={LocaleLink}
                         href={practiceHub.summary.nextRecommendation.actionHref}
-                        className="inline-flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+                          color="amanoba"
+                          leftSection={<IconTargetArrow size={18} />}
                       >
-                        <Icon icon={MdGpsFixed} size={18} />
                         {practiceHub.summary.nextRecommendation.actionLabel}
-                      </LocaleLink>
-                    </div>
+                        </Button>
+                      </Stack>
+                    </Card>
                   ) : (
-                    <div className="rounded-2xl border-2 border-dashed border-brand-darkGrey/20 bg-brand-darkGrey/5 p-5">
-                      <h3 className="text-xl font-bold text-brand-black mb-2">
+                    <Card bg="gray.0" padding="lg" withBorder>
+                      <Stack gap="md">
+                        <Title order={3} size="h4">
                         No practice pressure right now
-                      </h3>
-                      <p className="text-brand-darkGrey mb-4">
+                        </Title>
+                        <Text c="dimmed">
                         You do not have any active review actions yet. Start or continue a course to build your next practice queue.
-                      </p>
-                      <LocaleLink
+                        </Text>
+                        <Button
+                          component={LocaleLink}
                         href="/courses"
-                        className="inline-flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-5 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+                          color="amanoba"
+                          leftSection={<IconBook size={18} />}
                       >
-                        <Icon icon={MdMenuBook} size={18} />
                         {tDashboard('browseCourses')}
-                      </LocaleLink>
-                    </div>
+                        </Button>
+                      </Stack>
+                    </Card>
                   )}
-                </div>
+                </Stack>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
-                  <div className="bg-brand-black rounded-2xl p-5 border-2 border-brand-accent">
-                    <div className="text-brand-white/70 text-sm mb-2">
-                      Actionable sessions
-                    </div>
-                    <div className="text-3xl font-bold text-brand-accent">
+                <SimpleGrid cols={{ base: 1, sm: 3, lg: 1 }} spacing="md">
+                  <Card bg="ink.9" padding="lg" withBorder>
+                    <Text c="gray.3" size="sm">Actionable sessions</Text>
+                    <Text c="amanoba.5" size="2rem" fw={800}>
                       {practiceHub.summary.availableRecommendationCount}
-                    </div>
-                  </div>
-                  <div className="bg-brand-black rounded-2xl p-5 border-2 border-brand-accent">
-                    <div className="text-brand-white/70 text-sm mb-2">
-                      Active review modes
-                    </div>
-                    <div className="text-3xl font-bold text-brand-accent">
+                    </Text>
+                  </Card>
+                  <Card bg="ink.9" padding="lg" withBorder>
+                    <Text c="gray.3" size="sm">Active review modes</Text>
+                    <Text c="amanoba.5" size="2rem" fw={800}>
                       {practiceHub.summary.availableModeCount}
-                    </div>
-                  </div>
-                  <div className="bg-brand-black rounded-2xl p-5 border-2 border-brand-accent">
-                    <div className="text-brand-white/70 text-sm mb-2">
-                      Unavailable by design
-                    </div>
-                    <div className="text-lg font-bold text-brand-white">
+                    </Text>
+                  </Card>
+                  <Card bg="ink.9" padding="lg" withBorder>
+                    <Text c="gray.3" size="sm">Unavailable by design</Text>
+                    <Text c="white" size="lg" fw={800}>
                       {practiceHub.unavailableModes.length}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+                    </Text>
+                  </Card>
+                </SimpleGrid>
+              </SimpleGrid>
+            </Card>
 
-            <section className="grid grid-cols-1 xl:grid-cols-[2.1fr_0.9fr] gap-8">
-              <div className="space-y-6">
+            <SimpleGrid cols={{ base: 1, xl: 2 }} spacing="xl">
+              <Stack gap="lg">
                 {practiceHub.modes.map((mode) => (
-                  <div key={mode.id} className="bg-brand-white rounded-2xl shadow-xl p-6 border-2 border-brand-accent">
-                    <div className="flex items-start justify-between gap-4 mb-5">
-                      <div>
-                        <h2 className="text-xl font-bold text-brand-black flex items-center gap-2">
-                          <Icon icon={modeIcon(mode.id)} size={22} className="text-brand-accent" />
+                  <Card key={mode.id} padding="lg" withBorder>
+                    <Stack gap="md">
+                      <Group justify="space-between" align="flex-start" gap="md">
+                        <Stack gap={4}>
+                          <Group gap="xs">
+                            <ThemeIcon color="amanoba" variant="light" radius="xl">
+                              {(() => {
+                                const ModeIcon = modeIcon(mode.id);
+                                return <ModeIcon size={18} />;
+                              })()}
+                            </ThemeIcon>
+                            <Title order={2} size="h3">
                           {mode.title}
-                        </h2>
-                        <p className="text-brand-darkGrey mt-1">{mode.description}</p>
-                      </div>
-                      <span className={`px-3 py-1 rounded-full text-xs font-bold ${mode.status === 'available' ? 'bg-brand-accent text-brand-black' : 'bg-brand-darkGrey/10 text-brand-darkGrey'}`}>
+                            </Title>
+                          </Group>
+                          <Text c="dimmed">{mode.description}</Text>
+                        </Stack>
+                        <Badge color={mode.status === 'available' ? 'amanoba' : 'gray'} variant={mode.status === 'available' ? 'filled' : 'light'}>
                         {mode.status === 'available'
                           ? 'Ready'
                           : 'Empty'}
-                      </span>
-                    </div>
+                        </Badge>
+                      </Group>
 
                     {mode.items.length > 0 ? (
-                      <div className="space-y-4">
+                        <Stack gap="md">
                         {mode.items.map((item) => (
-                          <div key={`${item.mode}-${item.courseId}-${item.lessonDay}`} className="rounded-2xl border-2 border-brand-darkGrey/15 bg-brand-darkGrey/5 p-5">
-                            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                              <div>
-                                <div className="text-sm font-semibold text-brand-accent mb-1">
+                            <Card key={`${item.mode}-${item.courseId}-${item.lessonDay}`} bg="gray.0" padding="md" withBorder>
+                              <Group justify="space-between" align="flex-start" gap="md">
+                                <Stack gap={4} style={{ flex: 1 }}>
+                                  <Text size="sm" fw={700} c="amanoba.7">
                                   {item.courseName}
-                                </div>
-                                <h3 className="text-lg font-bold text-brand-black">
+                                  </Text>
+                                  <Title order={3} size="h4">
                                   {item.title}
-                                </h3>
-                                <div className="text-sm text-brand-darkGrey mt-2">
+                                  </Title>
+                                  <Text size="sm" c="dimmed">
                                   {item.reasonLabel}
-                                </div>
-                                <div className="text-xs text-brand-darkGrey mt-2">
+                                  </Text>
+                                  <Text size="xs" c="dimmed">
                                   {tCourses('dayNumber', { day: item.lessonDay })}
-                                </div>
-                              </div>
-                              <button
-                                type="button"
+                                  </Text>
+                                </Stack>
+                                <Button
                                 onClick={() => void handleRecommendationOpen(item)}
-                                disabled={launchingKey === `${item.mode}-${item.courseId}-${item.lessonDay}`}
-                                className="inline-flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors self-start disabled:opacity-60 disabled:cursor-not-allowed"
+                                  loading={launchingKey === `${item.mode}-${item.courseId}-${item.lessonDay}`}
+                                  color="amanoba"
+                                  leftSection={<IconTargetArrow size={18} />}
                               >
-                                <Icon icon={MdGpsFixed} size={18} />
                                 {launchingKey === `${item.mode}-${item.courseId}-${item.lessonDay}` ? 'Opening...' : item.actionLabel}
-                              </button>
-                            </div>
-                          </div>
+                                </Button>
+                              </Group>
+                            </Card>
                         ))}
-                      </div>
+                        </Stack>
                     ) : (
-                      <div className="rounded-2xl border-2 border-dashed border-brand-darkGrey/20 bg-brand-darkGrey/5 p-5">
-                        <h3 className="text-lg font-bold text-brand-black mb-2">
+                        <Card bg="gray.0" padding="md" withBorder>
+                          <Stack gap="xs">
+                            <Title order={3} size="h4">
                           {mode.emptyStateTitle}
-                        </h3>
-                        <p className="text-brand-darkGrey">
+                            </Title>
+                            <Text c="dimmed">
                           {mode.emptyStateDescription}
-                        </p>
-                      </div>
+                            </Text>
+                          </Stack>
+                        </Card>
                     )}
-                  </div>
+                    </Stack>
+                  </Card>
                 ))}
-              </div>
+              </Stack>
 
-              <aside className="space-y-6">
-                <div className="bg-brand-white rounded-2xl shadow-xl p-6 border-2 border-brand-accent">
-                  <h2 className="text-xl font-bold text-brand-black mb-4">
+              <Stack gap="lg">
+                <Card padding="lg" withBorder>
+                  <Stack gap="md">
+                    <Title order={2} size="h3">
                     Unavailable for this MVP
-                  </h2>
-                  <div className="space-y-4">
+                    </Title>
+                    <Stack gap="sm">
                     {practiceHub.unavailableModes.map((mode) => (
-                      <div key={mode.id} className="rounded-2xl border-2 border-dashed border-brand-darkGrey/20 bg-brand-darkGrey/5 p-4">
-                        <div className="text-sm font-semibold text-brand-black mb-2">{mode.title}</div>
-                        <p className="text-sm text-brand-darkGrey">{mode.reason}</p>
-                      </div>
+                        <Card key={mode.id} bg="gray.0" padding="md" withBorder>
+                          <Text size="sm" fw={700}>{mode.title}</Text>
+                          <Text size="sm" c="dimmed">{mode.reason}</Text>
+                        </Card>
                     ))}
-                  </div>
-                </div>
+                    </Stack>
+                  </Stack>
+                </Card>
 
-                <div className="bg-brand-white rounded-2xl shadow-xl p-6 border-2 border-brand-accent">
-                  <h2 className="text-xl font-bold text-brand-black mb-3">
+                <Card padding="lg" withBorder>
+                  <Stack gap="md">
+                    <Group gap="xs">
+                      <ThemeIcon color="amanoba" variant="light" radius="xl">
+                        <IconCompass size={18} />
+                      </ThemeIcon>
+                      <Title order={2} size="h3">
                     How this hub decides
-                  </h2>
-                  <ul className="space-y-3 text-sm text-brand-darkGrey">
-                    <li>Continue Next uses your next unfinished lesson day.</li>
-                    <li>Quiz Recovery only surfaces completed lesson days with unresolved quiz completion markers.</li>
-                    <li>Stale Refresh only appears after a course has been untouched long enough to justify a revisit.</li>
-                  </ul>
-                </div>
-              </aside>
-            </section>
-          </>
+                      </Title>
+                    </Group>
+                    <Stack gap="xs">
+                      <Text size="sm" c="dimmed">Continue Next uses your next unfinished lesson day.</Text>
+                      <Text size="sm" c="dimmed">Quiz Recovery only surfaces completed lesson days with unresolved quiz completion markers.</Text>
+                      <Text size="sm" c="dimmed">Stale Refresh only appears after a course has been untouched long enough to justify a revisit.</Text>
+                    </Stack>
+                  </Stack>
+                </Card>
+              </Stack>
+            </SimpleGrid>
+          </Stack>
         )}
-      </main>
-    </div>
+      </Container>
+    </Box>
   );
 }
