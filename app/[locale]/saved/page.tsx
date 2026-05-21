@@ -2,7 +2,23 @@
 
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
-import { BookmarkCheck, Clock3, Library, Loader2 } from 'lucide-react';
+import {
+  Alert,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Container,
+  Group,
+  Loader,
+  Paper,
+  SimpleGrid,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import { IconArrowLeft, IconBookmark, IconClock, IconLibrary } from '@tabler/icons-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
 
@@ -66,110 +82,129 @@ export default function SavedLessonsPage() {
   }, [session?.user, status]);
 
   return (
-    <div className="min-h-screen bg-brand-black">
-      <header className="border-b-2 border-brand-accent bg-brand-darkGrey">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-          <div className="flex items-center gap-4">
-            <Logo size="sm" showText={false} linkTo={session?.user ? '/dashboard' : '/'} className="flex-shrink-0" />
-            <div>
-              <h1 className="text-2xl font-bold text-brand-white">Saved Lessons</h1>
-              <p className="text-sm text-brand-white/75">A focused library for lessons you want to revisit or resume.</p>
-            </div>
-          </div>
-          <LocaleLink
+    <Box bg="ink.9" mih="100vh">
+      <Paper component="header" bg="ink.8" radius={0} withBorder>
+        <Container size="lg" py={{ base: 'md', sm: 'lg' }}>
+          <Group justify="space-between" gap="md">
+            <Group gap="md" wrap="nowrap" style={{ minWidth: 0 }}>
+              <Logo size="sm" showText={false} linkTo={session?.user ? '/dashboard' : '/'} />
+              <Stack gap={2}>
+                <Title order={1} size="h2" c="white">Saved Lessons</Title>
+                <Text size="sm" c="gray.3">A focused library for lessons you want to revisit or resume.</Text>
+              </Stack>
+            </Group>
+            <Button
+              component={LocaleLink}
             href="/dashboard"
-            className="rounded-lg border-2 border-brand-accent px-4 py-2 font-bold text-brand-white transition-colors hover:bg-brand-accent hover:text-brand-black"
+              variant="outline"
+              color="gray"
+              leftSection={<IconArrowLeft size={18} />}
           >
             Back to Dashboard
-          </LocaleLink>
-        </div>
-      </header>
+            </Button>
+          </Group>
+        </Container>
+      </Paper>
 
-      <main className="mx-auto max-w-5xl px-6 py-10">
+      <Container component="main" size="lg" py={{ base: 'lg', sm: 'xl' }}>
         {loading ? (
-          <div className="flex items-center justify-center py-24 text-brand-white">
-            <Loader2 className="mr-3 h-6 w-6 animate-spin" />
-            Loading saved lessons...
-          </div>
+          <Card padding="xl" withBorder>
+            <Group justify="center" gap="sm">
+              <Loader color="amanoba" size="sm" />
+              <Text fw={700}>Loading saved lessons...</Text>
+            </Group>
+          </Card>
         ) : error ? (
-          <div className="rounded-2xl border-2 border-brand-accent bg-brand-white p-8 text-center">
-            <p className="mb-4 text-brand-black">{error}</p>
-            <LocaleLink
+          <Card padding="xl" withBorder>
+            <Stack gap="md" align="center">
+              <Alert color="red" w="100%">{error}</Alert>
+              <Button
+                component={LocaleLink}
               href="/dashboard"
-              className="inline-flex rounded-lg bg-brand-accent px-5 py-2 font-bold text-brand-black transition-colors hover:bg-brand-primary-400"
+                color="amanoba"
             >
               Return to dashboard
-            </LocaleLink>
-          </div>
+              </Button>
+            </Stack>
+          </Card>
         ) : savedLessons.length === 0 ? (
-          <div className="rounded-2xl border-2 border-brand-accent bg-brand-white p-10 text-center">
-            <Library className="mx-auto mb-4 h-10 w-10 text-brand-accent" />
-            <h2 className="mb-2 text-2xl font-bold text-brand-black">No saved lessons yet</h2>
-            <p className="mb-6 text-brand-darkGrey">
+          <Card padding="xl" withBorder>
+            <Stack gap="md" align="center" ta="center">
+              <ThemeIcon color="amanoba" variant="light" size={64} radius="xl">
+                <IconLibrary size={34} />
+              </ThemeIcon>
+              <Title order={2} size="h3">No saved lessons yet</Title>
+              <Text c="dimmed">
               Save lesson days when you want to come back to them intentionally.
-            </p>
-            <LocaleLink
+              </Text>
+              <Button
+                component={LocaleLink}
               href="/my-courses"
-              className="inline-flex rounded-lg bg-brand-accent px-5 py-2 font-bold text-brand-black transition-colors hover:bg-brand-primary-400"
+                color="amanoba"
             >
               Browse my courses
-            </LocaleLink>
-          </div>
+              </Button>
+            </Stack>
+          </Card>
         ) : (
-          <div className="grid grid-cols-1 gap-5">
+          <Stack gap="md">
             {savedLessons.map((item) => (
-              <div
+              <Card
                 key={`${item.course.courseId}-${item.lesson.dayNumber}`}
-                className="rounded-2xl border-2 border-brand-accent bg-brand-white p-6 shadow-lg"
+                padding="lg"
+                withBorder
               >
-                <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
-                  <div className="min-w-0 flex-1">
-                    <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-brand-accent">
-                      <BookmarkCheck className="h-4 w-4" />
+                <SimpleGrid cols={{ base: 1, md: 2 }} spacing="lg">
+                  <Stack gap="sm">
+                    <Badge color="amanoba" variant="light" leftSection={<IconBookmark size={14} />}>
                       Saved for review
-                    </div>
-                    <h2 className="text-2xl font-bold text-brand-black">{item.course.name}</h2>
-                    <p className="mt-1 text-brand-darkGrey">
+                    </Badge>
+                    <Title order={2} size="h3">{item.course.name}</Title>
+                    <Text c="dimmed">
                       Day {item.lesson.dayNumber}: {item.lesson.title}
-                    </p>
-                    <p className="mt-3 line-clamp-2 text-sm text-brand-darkGrey">
+                    </Text>
+                    <Text c="dimmed" size="sm" lineClamp={2}>
                       {item.course.description}
-                    </p>
-                    <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-brand-darkGrey">
-                      <span>{item.progress.completedDays} days completed</span>
-                      <span>Current course day: {item.progress.currentDay}</span>
-                      <span className="inline-flex items-center gap-1">
-                        <Clock3 className="h-4 w-4" />
+                    </Text>
+                    <Group gap="md">
+                      <Text size="sm" c="dimmed">{item.progress.completedDays} days completed</Text>
+                      <Text size="sm" c="dimmed">Current course day: {item.progress.currentDay}</Text>
+                      <Badge color="gray" variant="light" leftSection={<IconClock size={14} />}>
                         Saved {new Date(item.savedAt).toLocaleDateString('hu-HU')}
-                      </span>
-                    </div>
-                  </div>
+                      </Badge>
+                    </Group>
+                  </Stack>
 
-                  <div className="flex w-full flex-col gap-3 md:w-56">
-                    <LocaleLink
+                  <Stack gap="sm" justify="center">
+                    <Button
+                      component={LocaleLink}
                       href={item.progress.savedLessonHref}
-                      className="inline-flex min-h-[44px] items-center justify-center rounded-lg bg-brand-accent px-5 py-3 text-center font-bold text-brand-black transition-colors hover:bg-brand-primary-400"
+                      color="amanoba"
+                      fullWidth
                     >
                       Open saved lesson
-                    </LocaleLink>
-                    <LocaleLink
+                    </Button>
+                    <Button
+                      component={LocaleLink}
                       href={item.progress.resumeHref}
-                      className="inline-flex min-h-[44px] items-center justify-center rounded-lg border-2 border-brand-accent px-5 py-3 text-center font-bold text-brand-black transition-colors hover:bg-brand-accent/15"
+                      variant="outline"
+                      color="gray"
+                      fullWidth
                     >
                       Resume course
-                    </LocaleLink>
+                    </Button>
                     {item.progress.isSavedLessonCompleted ? (
-                      <p className="text-center text-xs font-semibold text-brand-darkGrey">
+                      <Text ta="center" size="xs" c="dimmed" fw={600}>
                         This saved lesson is already completed. Keep it for review or jump back into the course.
-                      </p>
+                      </Text>
                     ) : null}
-                  </div>
-                </div>
-              </div>
+                  </Stack>
+                </SimpleGrid>
+              </Card>
             ))}
-          </div>
+          </Stack>
         )}
-      </main>
-    </div>
+      </Container>
+    </Box>
   );
 }
