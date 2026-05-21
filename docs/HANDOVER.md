@@ -990,3 +990,23 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 ### Notes
 - The admin course editor is no longer the largest known Mantine-only gap.
 - Remaining broad legacy UI is now concentrated in secondary profile/account/admin-list/game/challenge/reward surfaces and should be handled as surface-specific migration work.
+
+## Admin/profile Mantine conversion continuation (2026-05-22)
+
+### What changed
+- Converted `app/[locale]/profile/[playerId]/page.tsx` and `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx` to Mantine primitives and Tabler icons.
+- Converted `app/[locale]/admin/courses/page.tsx`, `app/[locale]/admin/page.tsx`, `app/[locale]/admin/payments/page.tsx`, `app/[locale]/admin/settings/page.tsx`, and `app/[locale]/admin/certificates/page.tsx` to Mantine primitives.
+- Replaced remaining browser alerts in the converted settings/certificate/payment/profile slices with Mantine notifications or Mantine-controlled feedback.
+- Removed stale dashboard placeholder health meters and replaced them with operational values already returned by the admin stats/system-info APIs.
+
+### Verification
+- Focused `npx eslint` passed on each migrated page.
+- Repeated slice checks passed after each conversion:
+  - `npm run type-check`
+  - `npm run ui:check:mantine`
+  - `npm run ui:check:foundation`
+  - `npm run ui:check:layout`
+  - `git diff --check`
+
+### Notes
+- Amanoba is still not fully Mantine-only. Remaining high-priority product UI backlog includes `app/[locale]/courses/[courseId]/page.tsx`, `app/[locale]/admin/questions/page.tsx`, achievement editor pages, analytics/surveys/players/games/rewards admin lists, and game/challenge/reward surfaces.
