@@ -10,10 +10,26 @@
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
-import { ArrowLeft, Save } from 'lucide-react';
-import Link from 'next/link';
-import { Alert, Card, SimpleGrid, Stack, Stepper, Text, Title } from '@mantine/core';
-import { IconBook, IconCertificate, IconChecklist, IconSettings } from '@tabler/icons-react';
+import {
+  Alert,
+  Box,
+  Button,
+  Card,
+  Checkbox,
+  Code,
+  Group,
+  NumberInput,
+  Select,
+  SimpleGrid,
+  Stack,
+  Stepper,
+  Text,
+  Textarea,
+  TextInput,
+  Title,
+} from '@mantine/core';
+import { notifications } from '@mantine/notifications';
+import { IconArrowLeft, IconBook, IconCertificate, IconChecklist, IconDeviceFloppy, IconSettings } from '@tabler/icons-react';
 import { getStripeMinimum, getFormattedMinimum, meetsStripeMinimum } from '@/app/lib/utils/stripe-minimums';
 import { COURSE_LANGUAGE_OPTIONS } from '@/app/lib/constants/course-languages';
 
@@ -89,40 +105,49 @@ export default function NewCoursePage() {
         // Redirect to course editor to add lessons
         router.push(`/${locale}/admin/courses/${data.course.courseId}`);
       } else {
-        alert(data.error || 'Failed to create course');
+        notifications.show({
+          color: 'red',
+          title: 'Failed to create course',
+          message: data.error || 'Failed to create course',
+        });
       }
     } catch (error) {
       console.error('Failed to create course:', error);
-      alert('Failed to create course');
+      notifications.show({
+        color: 'red',
+        title: 'Failed to create course',
+        message: 'Failed to create course',
+      });
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center gap-4">
-        <Link
+    <Stack gap="lg">
+      <Group gap="md">
+        <Button
+          component="a"
           href={`/${locale}/admin/courses`}
-          className="p-2 bg-brand-darkGrey text-brand-white rounded-lg hover:bg-brand-secondary-700 transition-colors"
+          variant="default"
+          leftSection={<IconArrowLeft size={18} />}
         >
-          <ArrowLeft className="w-5 h-5" />
-        </Link>
-        <div>
-          <h1 className="text-3xl font-bold text-white">Create New Course</h1>
-          <p className="text-gray-400">Set up basic course information</p>
-        </div>
-      </div>
+          Back
+        </Button>
+        <Stack gap={2}>
+          <Title order={1} c="white">Create New Course</Title>
+          <Text c="gray.4">Set up basic course information</Text>
+        </Stack>
+      </Group>
 
       <Card padding="lg">
         <Stack gap="md">
-          <div>
+          <Stack gap={4}>
             <Title order={2} size="h3">Course creation path</Title>
             <Text c="dimmed">
               Create the course shell first, then add lessons, set the course-level quiz policy, configure certificates, and publish only after the checklist is clean.
             </Text>
-          </div>
+          </Stack>
           <Stepper active={0} allowNextStepsSelect={false}>
             <Stepper.Step icon={<IconSettings size={18} />} label="Basics" description="This page" />
             <Stepper.Step icon={<IconBook size={18} />} label="Lessons" description="1 to unlimited" />
@@ -143,188 +168,119 @@ export default function NewCoursePage() {
         </Stack>
       </Card>
 
-      {/* Form */}
-      <form onSubmit={handleSubmit} className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">
-        <div className="space-y-6">
-          {/* Basic Info */}
-          <div>
-            <h2 className="text-xl font-bold text-brand-black mb-4">Basic Information</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Course ID *
-                </label>
-                <input
-                  type="text"
+      <Card padding="lg" withBorder>
+        <Box component="form" onSubmit={handleSubmit}>
+          <Stack gap="xl">
+            <Stack gap="md">
+              <Title order={2} size="h3">Basic Information</Title>
+              <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">
+                <TextInput
+                  label="Course ID"
+                  withAsterisk
                   required
                   value={formData.courseId}
-                  onChange={(e) => setFormData({ ...formData, courseId: e.target.value })}
+                  onChange={(e) => setFormData({ ...formData, courseId: e.currentTarget.value })}
                   placeholder="e.g., ENTREPRENEURSHIP_101"
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                  description="Unique identifier (uppercase, underscores)"
                 />
-                <p className="text-xs text-brand-darkGrey mt-1">Unique identifier (uppercase, underscores)</p>
                 {suggestedCourseId && (
-                  <div className="mt-2 flex items-center gap-2">
-                    <span className="text-xs text-brand-darkGrey">Suggested:</span>
-                    <code className="text-xs bg-brand-darkGrey/10 px-2 py-1 rounded text-brand-black">{suggestedCourseId}</code>
-                    <button
+                  <Group gap="xs" align="center">
+                    <Text size="xs" c="dimmed">Suggested:</Text>
+                    <Code>{suggestedCourseId}</Code>
+                    <Button
                       type="button"
                       onClick={() => setFormData({ ...formData, courseId: suggestedCourseId })}
-                      className="text-xs font-bold bg-brand-accent text-brand-black px-2 py-1 rounded hover:bg-brand-primary-400 transition-colors"
+                      size="xs"
+                      color="amanoba"
                     >
                       Use
-                    </button>
-                  </div>
+                    </Button>
+                  </Group>
                 )}
-              </div>
 
-              <div>
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Language *
-                </label>
-                <select
+                <Select
+                  label="Language"
+                  withAsterisk
                   value={formData.language}
-                  onChange={(e) => setFormData({ ...formData, language: e.target.value })}
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-                >
-                  {COURSE_LANGUAGE_OPTIONS.map((option) => (
-                    <option key={option.code} value={option.code}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
+                  onChange={(value) => setFormData({ ...formData, language: value || 'hu' })}
+                  data={COURSE_LANGUAGE_OPTIONS.map((option) => ({ value: option.code, label: option.label }))}
+                />
 
-              <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Course Family (CCS ID)
-                </label>
-                <input
-                  type="text"
+                <TextInput
+                  label="Course Family (CCS ID)"
                   value={formData.ccsId}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
-                      ccsId: e.target.value,
+                      ccsId: e.currentTarget.value,
                     })
                   }
                   placeholder="e.g., PRODUCTIVITY_2026"
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                  description="Optional. Link language variants to one course family."
                 />
-                <p className="text-xs text-brand-darkGrey mt-1">
-                  Optional. Use this to link language variants to a course family (e.g. PRODUCTIVITY_2026_HU, PRODUCTIVITY_2026_EN share ccsId=PRODUCTIVITY_2026).
-                </p>
-              </div>
 
-              <div>
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Planned Lesson Count
-                </label>
-                <input
-                  type="number"
+                <NumberInput
+                  label="Planned Lesson Count"
                   min={1}
                   step={1}
                   value={formData.durationDays}
-                  onChange={(e) => setFormData({ ...formData, durationDays: Math.max(1, Math.floor(Number(e.target.value) || 1)) })}
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                  onChange={(value) => setFormData({ ...formData, durationDays: Math.max(1, Math.floor(Number(value) || 1)) })}
+                  description="Start with 1 or any planned length. The course can grow as you add lessons."
                 />
-                <p className="text-xs text-brand-darkGrey mt-1">
-                  Start with 1 or any planned length. The course can grow as you add lessons.
-                </p>
-              </div>
 
-              <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Course Name *
-                </label>
-                <input
-                  type="text"
+                <TextInput
+                  label="Course Name"
+                  withAsterisk
                   required
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) => setFormData({ ...formData, name: e.currentTarget.value })}
                   placeholder="e.g., Entrepreneurship 101"
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
                 />
-              </div>
 
-              <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Description *
-                </label>
-                <textarea
+                <Textarea
+                  label="Description"
+                  withAsterisk
                   required
                   value={formData.description}
-                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  onChange={(e) => setFormData({ ...formData, description: e.currentTarget.value })}
                   placeholder="Course description..."
                   rows={4}
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
                 />
-              </div>
 
-              <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Thumbnail URL
-                </label>
-                <input
+                <TextInput
+                  label="Thumbnail URL"
                   type="url"
                   value={formData.thumbnail}
-                  onChange={(e) => setFormData({ ...formData, thumbnail: e.target.value })}
+                  onChange={(e) => setFormData({ ...formData, thumbnail: e.currentTarget.value })}
                   placeholder="https://example.com/image.jpg"
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
                 />
-              </div>
+              </SimpleGrid>
 
-              <div>
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={formData.requiresPremium}
-                    onChange={(e) => setFormData({ ...formData, requiresPremium: e.target.checked })}
-                    className="w-5 h-5 text-brand-accent border-brand-darkGrey rounded focus:ring-brand-accent"
-                  />
-                  <span className="text-sm font-medium text-brand-black">Requires Premium</span>
-                </label>
-              </div>
+              <Checkbox
+                checked={formData.requiresPremium}
+                onChange={(e) => setFormData({ ...formData, requiresPremium: e.currentTarget.checked })}
+                label="Requires Premium"
+              />
+
               {formData.requiresPremium && (
-                <>
-                  <div>
-                    <label className="block text-sm font-medium text-brand-black mb-2">
-                      Price (in smallest unit)
-                    </label>
-                    <input
-                      type="number"
+                <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">
+                  <NumberInput
+                      label="Price (in smallest unit)"
                       min={getStripeMinimum(formData.priceCurrency)}
-                      step="1"
+                    step={1}
                       value={formData.priceAmount}
-                      onChange={(e) => setFormData({ ...formData, priceAmount: parseInt(e.target.value) || 0 })}
-                      className={`w-full px-4 py-2 bg-brand-white border-2 rounded-lg text-brand-black focus:outline-none focus:border-brand-accent ${
-                        !meetsStripeMinimum(formData.priceAmount, formData.priceCurrency)
-                          ? 'border-red-500'
-                          : 'border-brand-darkGrey'
-                      }`}
+                    onChange={(value) => setFormData({ ...formData, priceAmount: Number(value) || 0 })}
                       placeholder="2999"
+                    error={!meetsStripeMinimum(formData.priceAmount, formData.priceCurrency) ? `Minimum for ${formData.priceCurrency.toUpperCase()} is ${getFormattedMinimum(formData.priceCurrency)}` : undefined}
+                    description={meetsStripeMinimum(formData.priceAmount, formData.priceCurrency) ? `Minimum: ${getFormattedMinimum(formData.priceCurrency)}` : undefined}
                     />
-                    {!meetsStripeMinimum(formData.priceAmount, formData.priceCurrency) ? (
-                      <p className="text-xs text-red-600 mt-1 font-semibold">
-                        ⚠️ Amount too low! Minimum for {formData.priceCurrency.toUpperCase()} is {getFormattedMinimum(formData.priceCurrency)}
-                      </p>
-                    ) : (
-                      <p className="text-xs text-brand-darkGrey mt-1">
-                        Enter amount in smallest unit (e.g., 2999 cents = $29.99). Minimum: {getFormattedMinimum(formData.priceCurrency)}
-                      </p>
-                    )}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-brand-black mb-2">
-                      Currency
-                    </label>
-                    <select
+                  <Select
+                    label="Currency"
                       value={formData.priceCurrency}
-                      onChange={(e) => {
-                        const newCurrency = e.target.value;
+                    onChange={(value) => {
+                        const newCurrency = value || 'usd';
                         const currentAmount = formData.priceAmount;
                         const minimum = getStripeMinimum(newCurrency);
-                        // If current amount is below new currency's minimum, set to minimum
                         const newAmount = currentAmount < minimum ? minimum : currentAmount;
                         setFormData({ 
                           ...formData, 
@@ -332,107 +288,60 @@ export default function NewCoursePage() {
                           priceAmount: newAmount,
                         });
                       }}
-                      className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
-                    >
-                      <option value="usd">USD ($) - Min: $0.50</option>
-                      <option value="eur">EUR (€) - Min: €0.50</option>
-                      <option value="huf">HUF (Ft) - Min: 175 Ft</option>
-                      <option value="gbp">GBP (£) - Min: £0.30</option>
-                    </select>
-                    <p className="text-xs text-brand-darkGrey mt-1">
-                      Minimum: {getFormattedMinimum(formData.priceCurrency)}
-                    </p>
-                  </div>
-                </>
+                    data={[
+                      { value: 'usd', label: 'USD ($) - Min: $0.50' },
+                      { value: 'eur', label: 'EUR (€) - Min: €0.50' },
+                      { value: 'huf', label: 'HUF (Ft) - Min: 175 Ft' },
+                      { value: 'gbp', label: 'GBP (£) - Min: £0.30' },
+                    ]}
+                    description={`Minimum: ${getFormattedMinimum(formData.priceCurrency)}`}
+                  />
+                </SimpleGrid>
               )}
-            </div>
-          </div>
+            </Stack>
 
-          {/* Points Configuration */}
-          <div>
-            <h2 className="text-xl font-bold text-brand-black mb-4">Points & XP Configuration</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Completion Points
-                </label>
-                <input
-                  type="number"
+            <Stack gap="md">
+              <Title order={2} size="h3">Points & XP Configuration</Title>
+              <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">
+                <NumberInput
+                  label="Completion Points"
                   value={formData.completionPoints}
-                  onChange={(e) => setFormData({ ...formData, completionPoints: parseInt(e.target.value) || 0 })}
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                  onChange={(value) => setFormData({ ...formData, completionPoints: Number(value) || 0 })}
                 />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Points per Lesson
-                </label>
-                <input
-                  type="number"
+                <NumberInput
+                  label="Points per Lesson"
                   value={formData.lessonPoints}
-                  onChange={(e) => setFormData({ ...formData, lessonPoints: parseInt(e.target.value) || 0 })}
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                  onChange={(value) => setFormData({ ...formData, lessonPoints: Number(value) || 0 })}
                 />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Perfect Course Bonus
-                </label>
-                <input
-                  type="number"
+                <NumberInput
+                  label="Perfect Course Bonus"
                   value={formData.perfectCourseBonus}
-                  onChange={(e) => setFormData({ ...formData, perfectCourseBonus: parseInt(e.target.value) || 0 })}
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                  onChange={(value) => setFormData({ ...formData, perfectCourseBonus: Number(value) || 0 })}
                 />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  Completion XP
-                </label>
-                <input
-                  type="number"
+                <NumberInput
+                  label="Completion XP"
                   value={formData.completionXP}
-                  onChange={(e) => setFormData({ ...formData, completionXP: parseInt(e.target.value) || 0 })}
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                  onChange={(value) => setFormData({ ...formData, completionXP: Number(value) || 0 })}
                 />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-brand-black mb-2">
-                  XP per Lesson
-                </label>
-                <input
-                  type="number"
+                <NumberInput
+                  label="XP per Lesson"
                   value={formData.lessonXP}
-                  onChange={(e) => setFormData({ ...formData, lessonXP: parseInt(e.target.value) || 0 })}
-                  className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black focus:outline-none focus:border-brand-accent"
+                  onChange={(value) => setFormData({ ...formData, lessonXP: Number(value) || 0 })}
                 />
-              </div>
-            </div>
-          </div>
+              </SimpleGrid>
+            </Stack>
 
-          {/* Actions */}
-          <div className="flex items-center justify-end gap-4 pt-4 border-t border-brand-darkGrey/20">
-            <Link
-              href={`/${locale}/admin/courses`}
-              className="px-6 py-2 bg-brand-darkGrey text-brand-white rounded-lg font-bold hover:bg-brand-secondary-700 transition-colors"
-            >
-              Cancel
-            </Link>
-            <button
-              type="submit"
-              disabled={loading}
-              className="flex items-center gap-2 px-6 py-2 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50"
-            >
-              <Save className="w-5 h-5" />
-              {loading ? 'Creating...' : 'Create Course'}
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
+            <Group justify="flex-end">
+              <Button component="a" href={`/${locale}/admin/courses`} variant="default">
+                Cancel
+              </Button>
+              <Button type="submit" loading={loading} color="amanoba" leftSection={<IconDeviceFloppy size={18} />}>
+                {loading ? 'Creating...' : 'Create Course'}
+              </Button>
+            </Group>
+          </Stack>
+        </Box>
+      </Card>
+    </Stack>
   );
 }
