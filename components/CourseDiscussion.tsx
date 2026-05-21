@@ -9,7 +9,25 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
-import { MessageCircle, Send, Trash2 } from 'lucide-react';
+import {
+  ActionIcon,
+  Alert,
+  Button,
+  Card,
+  Divider,
+  Group,
+  Paper,
+  Skeleton,
+  Stack,
+  Text,
+  Textarea,
+  ThemeIcon,
+  Title,
+  Tooltip,
+} from '@mantine/core';
+import { modals } from '@mantine/modals';
+import { notifications } from '@mantine/notifications';
+import { IconMessageCircle, IconSend, IconTrash } from '@tabler/icons-react';
 import ContentVoteWidget from '@/components/ContentVoteWidget';
 
 interface Post {
@@ -95,150 +113,203 @@ export default function CourseDiscussion({
         }
         await fetchPosts();
       } else {
-        alert(data.error || 'Failed to post');
+        notifications.show({
+          color: 'red',
+          title: 'Post failed',
+          message: data.error || 'Failed to post',
+        });
       }
     } catch (e) {
       console.error(e);
-      alert('Failed to post');
+      notifications.show({
+        color: 'red',
+        title: 'Post failed',
+        message: 'Failed to post',
+      });
     } finally {
       setSubmitting(false);
     }
   };
 
   const handleDelete = async (postId: string) => {
-    if (!session?.user || !confirm('Delete this post?')) return;
+    if (!session?.user) return;
     try {
       const res = await fetch(`/api/courses/${encodeURIComponent(courseId)}/discussion/${postId}`, { method: 'DELETE' });
       const data = await res.json();
       if (data.success) await fetchPosts();
-      else alert(data.error || 'Failed to delete');
+      else {
+        notifications.show({
+          color: 'red',
+          title: 'Delete failed',
+          message: data.error || 'Failed to delete',
+        });
+      }
     } catch (e) {
       console.error(e);
+      notifications.show({
+        color: 'red',
+        title: 'Delete failed',
+        message: 'Failed to delete',
+      });
     }
+  };
+
+  const confirmDelete = (postId: string) => {
+    modals.openConfirmModal({
+      title: 'Delete post',
+      children: <Text size="sm">Delete this post?</Text>,
+      labels: { confirm: 'Delete', cancel: 'Cancel' },
+      confirmProps: { color: 'red' },
+      onConfirm: () => void handleDelete(postId),
+    });
   };
 
   const isAdmin = (session?.user as { role?: string } | undefined)?.role === 'admin';
   const playerId = (session?.user as { id?: string; playerId?: string } | undefined)?.playerId || (session?.user as { id?: string } | undefined)?.id;
 
   return (
-    <div className="bg-brand-white rounded-2xl p-6 sm:p-8 border-2 border-brand-accent shadow-lg">
-      <h2 className="text-xl sm:text-2xl font-bold text-brand-black mb-4 flex items-center gap-2">
-        <MessageCircle className="w-6 h-6 text-brand-accent" />
-        {title}
-      </h2>
+    <Card padding="xl" radius="md" withBorder>
+      <Stack gap="lg">
+        <Group gap="sm">
+          <ThemeIcon color="amanoba" variant="light" radius="md">
+            <IconMessageCircle size={20} />
+          </ThemeIcon>
+          <Title order={2} size="h3">{title}</Title>
+        </Group>
 
-      {session?.user && (
-        <div className="mb-6">
-          <textarea
-            value={newBody}
-            onChange={(e) => setNewBody(e.target.value)}
-            placeholder={placeholder}
-            rows={3}
-            className="w-full px-4 py-3 border-2 border-brand-darkGrey/20 rounded-lg text-brand-black placeholder-brand-darkGrey/50 focus:outline-none focus:border-brand-accent resize-none"
-          />
-          <button
-            onClick={() => handleSubmit()}
-            disabled={!newBody.trim() || submitting}
-            className="mt-2 min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
-          >
-            <Send className="w-4 h-4" />
-            Post
-          </button>
-        </div>
-      )}
-      {!session?.user && (
-        <p className="text-brand-darkGrey text-sm mb-4">{signInToPost}</p>
-      )}
+        {session?.user && (
+          <Stack gap="sm">
+            <Textarea
+              value={newBody}
+              onChange={(e) => setNewBody(e.target.value)}
+              label={placeholder}
+              rows={3}
+              autosize
+              minRows={3}
+              maxRows={8}
+            />
+            <Button
+              onClick={() => handleSubmit()}
+              disabled={!newBody.trim() || submitting}
+              loading={submitting && !replyingTo}
+              color="amanoba"
+              leftSection={<IconSend size={16} />}
+            >
+              Post
+            </Button>
+          </Stack>
+        )}
 
-      {loading ? (
-        <p className="text-brand-darkGrey">{loadingText}</p>
-      ) : posts.length === 0 ? (
-        <p className="text-brand-darkGrey">{emptyMessage}</p>
-      ) : (
-        <ul className="space-y-4">
-          {posts.map((post) => (
-            <li key={post._id} className="border border-brand-darkGrey/15 rounded-lg p-4 bg-brand-darkGrey/5">
-              <div className="flex items-start justify-between gap-2">
-                <div className="flex-1 min-w-0">
-                  <p className="font-medium text-brand-black text-sm">{post.authorDisplayName}</p>
-                  <p className="text-brand-darkGrey text-xs mt-0.5">
-                    {new Date(post.createdAt).toLocaleDateString(undefined, { dateStyle: 'short', timeStyle: 'short' })}
-                  </p>
-                  <p className="mt-2 text-brand-black whitespace-pre-wrap break-words">{post.body}</p>
-                  <ContentVoteWidget
-                    targetType="discussion_post"
-                    targetId={post._id}
-                    playerId={playerId ?? null}
-                    label=""
-                    className="mt-2"
-                  />
-                </div>
-                {(playerId && (String(post.authorId) === String(playerId)) || isAdmin) && (
-                  <button
-                    type="button"
-                    onClick={() => handleDelete(post._id)}
-                    className="ds-text-error p-1"
-                    title="Delete"
-                    aria-label="Delete post"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
-                )}
-              </div>
-              {session?.user && (
-                <>
-                  {replyingTo === post._id ? (
-                    <div className="mt-4 pl-4 border-l-2 border-brand-accent/30">
-                      <textarea
-                        value={replyBody[post._id] ?? ''}
-                        onChange={(e) => setReplyBody((prev) => ({ ...prev, [post._id]: e.target.value }))}
-                        placeholder={placeholder}
-                        rows={2}
-                        className="w-full px-3 py-2 border border-brand-darkGrey/20 rounded-lg text-brand-black placeholder-brand-darkGrey/50 focus:outline-none focus:border-brand-accent text-sm resize-none"
+        {!session?.user && (
+          <Alert color="gray" radius="md">{signInToPost}</Alert>
+        )}
+
+        {loading ? (
+          <Stack gap="sm">
+            <Skeleton height={92} radius="md" />
+            <Skeleton height={92} radius="md" />
+            <Text c="dimmed" size="sm">{loadingText}</Text>
+          </Stack>
+        ) : posts.length === 0 ? (
+          <Text c="dimmed">{emptyMessage}</Text>
+        ) : (
+          <Stack gap="md">
+            {posts.map((post) => (
+              <Paper key={post._id} p="md" radius="md" withBorder bg="gray.0">
+                <Stack gap="sm">
+                  <Group align="flex-start" justify="space-between" gap="sm" wrap="nowrap">
+                    <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
+                      <Text fw={600} size="sm">{post.authorDisplayName}</Text>
+                      <Text c="dimmed" size="xs">
+                        {new Date(post.createdAt).toLocaleDateString(undefined, { dateStyle: 'short', timeStyle: 'short' })}
+                      </Text>
+                      <Text style={{ whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>{post.body}</Text>
+                      <ContentVoteWidget
+                        targetType="discussion_post"
+                        targetId={post._id}
+                        playerId={playerId ?? null}
+                        label=""
+                        mt="xs"
                       />
-                      <div className="flex gap-2 mt-2">
-                        <button
-                          onClick={() => handleSubmit(post._id)}
-                          disabled={!(replyBody[post._id] ?? '').trim() || submitting}
-                          className="px-3 py-1.5 bg-brand-accent text-brand-black rounded-lg font-bold text-sm hover:bg-brand-primary-400 disabled:opacity-50"
+                    </Stack>
+                    {(playerId && (String(post.authorId) === String(playerId)) || isAdmin) && (
+                      <Tooltip label="Delete">
+                        <ActionIcon
+                          color="red"
+                          variant="subtle"
+                          onClick={() => confirmDelete(post._id)}
+                          aria-label="Delete post"
+                        >
+                          <IconTrash size={16} />
+                        </ActionIcon>
+                      </Tooltip>
+                    )}
+                  </Group>
+                  {session?.user && (
+                    <>
+                      {replyingTo === post._id ? (
+                        <Paper p="sm" radius="md" withBorder>
+                          <Stack gap="sm">
+                            <Textarea
+                              value={replyBody[post._id] ?? ''}
+                              onChange={(e) => setReplyBody((prev) => ({ ...prev, [post._id]: e.target.value }))}
+                              label={placeholder}
+                              rows={2}
+                              autosize
+                              minRows={2}
+                              maxRows={6}
+                            />
+                            <Group gap="xs">
+                              <Button
+                                onClick={() => handleSubmit(post._id)}
+                                disabled={!(replyBody[post._id] ?? '').trim() || submitting}
+                                loading={submitting && replyingTo === post._id}
+                                color="amanoba"
+                                size="xs"
+                              >
+                                {replyLabel}
+                              </Button>
+                              <Button
+                                onClick={() => { setReplyingTo(null); setReplyBody((prev) => ({ ...prev, [post._id]: '' })); }}
+                                variant="default"
+                                size="xs"
+                              >
+                                Cancel
+                              </Button>
+                            </Group>
+                          </Stack>
+                        </Paper>
+                      ) : (
+                        <Button
+                          onClick={() => setReplyingTo(post._id)}
+                          variant="subtle"
+                          color="amanoba"
+                          size="xs"
                         >
                           {replyLabel}
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => { setReplyingTo(null); setReplyBody((prev) => ({ ...prev, [post._id]: '' })); }}
-                          className="px-3 py-1.5 border border-brand-darkGrey/30 rounded-lg text-brand-darkGrey text-sm"
-                        >
-                          Cancel
-                        </button>
-                      </div>
-                    </div>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => setReplyingTo(post._id)}
-                      className="mt-2 text-sm text-brand-accent hover:underline"
-                    >
-                      {replyLabel}
-                    </button>
+                        </Button>
+                      )}
+                    </>
                   )}
-                </>
-              )}
-              {Array.isArray(post.replies) && post.replies.length > 0 && (
-                <ul className="mt-4 space-y-3 pl-4 border-l-2 border-brand-darkGrey/20">
-                  {post.replies.map((r) => (
-                    <li key={r._id} className="text-sm">
-                      <p className="font-medium text-brand-black">{r.authorDisplayName}</p>
-                      <p className="text-brand-darkGrey text-xs">{new Date(r.createdAt).toLocaleDateString(undefined, { dateStyle: 'short', timeStyle: 'short' })}</p>
-                      <p className="mt-1 text-brand-black whitespace-pre-wrap break-words">{r.body}</p>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+
+                  {Array.isArray(post.replies) && post.replies.length > 0 && (
+                    <Stack gap="sm">
+                      <Divider />
+                      {post.replies.map((r) => (
+                        <Paper key={r._id} p="sm" radius="md" bg="white" withBorder>
+                          <Text fw={600} size="sm">{r.authorDisplayName}</Text>
+                          <Text c="dimmed" size="xs">{new Date(r.createdAt).toLocaleDateString(undefined, { dateStyle: 'short', timeStyle: 'short' })}</Text>
+                          <Text size="sm" mt={4} style={{ whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>{r.body}</Text>
+                        </Paper>
+                      ))}
+                    </Stack>
+                  )}
+                </Stack>
+              </Paper>
+            ))}
+          </Stack>
+        )}
+      </Stack>
+    </Card>
   );
 }

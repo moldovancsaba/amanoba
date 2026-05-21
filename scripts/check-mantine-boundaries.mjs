@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 
 const trackedFiles = execFileSync('git', ['ls-files'], { encoding: 'utf8' })
   .split('\n')
   .filter(Boolean)
   .filter((file) => /^(app|components)\//.test(file))
-  .filter((file) => /\.(tsx?|jsx?)$/.test(file));
+  .filter((file) => /\.(tsx?|jsx?)$/.test(file))
+  .filter((file) => existsSync(file));
 
 const allowedLegacyHelpers = new Set([
   'app/components/ui/button.tsx',

@@ -9,7 +9,24 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
-import { Users, Plus, LogIn, LogOut } from 'lucide-react';
+import {
+  Alert,
+  Badge,
+  Button,
+  Card,
+  Collapse,
+  Group,
+  Paper,
+  Skeleton,
+  Stack,
+  Text,
+  TextInput,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import { modals } from '@mantine/modals';
+import { notifications } from '@mantine/notifications';
+import { IconLogin2, IconLogout2, IconPlus, IconUsers } from '@tabler/icons-react';
 
 interface StudyGroupItem {
   _id: string;
@@ -88,11 +105,19 @@ export default function CourseStudyGroups({
         setShowCreate(false);
         await fetchGroups();
       } else {
-        alert(data.error || 'Failed to create group');
+        notifications.show({
+          color: 'red',
+          title: 'Create failed',
+          message: data.error || 'Failed to create group',
+        });
       }
     } catch (e) {
       console.error(e);
-      alert('Failed to create group');
+      notifications.show({
+        color: 'red',
+        title: 'Create failed',
+        message: 'Failed to create group',
+      });
     } finally {
       setSubmitting(false);
     }
@@ -107,120 +132,165 @@ export default function CourseStudyGroups({
       if (data.success) {
         await fetchGroups();
       } else {
-        alert(data.error || 'Failed to join');
+        notifications.show({
+          color: 'red',
+          title: 'Join failed',
+          message: data.error || 'Failed to join',
+        });
       }
     } catch (e) {
       console.error(e);
+      notifications.show({
+        color: 'red',
+        title: 'Join failed',
+        message: 'Failed to join',
+      });
     } finally {
       setJoining(null);
     }
   };
 
   const handleLeave = async (groupId: string) => {
-    if (!session?.user || !confirm('Leave this study group?')) return;
+    if (!session?.user) return;
     setLeaving(groupId);
     try {
       const res = await fetch(`/api/courses/${encodeURIComponent(courseId)}/study-groups/${groupId}/leave`, { method: 'POST' });
       const data = await res.json();
       if (data.success) {
         await fetchGroups();
+      } else {
+        notifications.show({
+          color: 'red',
+          title: 'Leave failed',
+          message: data.error || 'Failed to leave',
+        });
       }
     } catch (e) {
       console.error(e);
+      notifications.show({
+        color: 'red',
+        title: 'Leave failed',
+        message: 'Failed to leave',
+      });
     } finally {
       setLeaving(null);
     }
   };
 
+  const confirmLeave = (groupId: string, groupName: string) => {
+    modals.openConfirmModal({
+      title: 'Leave study group',
+      children: <Text size="sm">Leave {groupName}?</Text>,
+      labels: { confirm: leaveLabel, cancel: 'Cancel' },
+      confirmProps: { color: 'red' },
+      onConfirm: () => void handleLeave(groupId),
+    });
+  };
+
   return (
-    <div className="bg-brand-white rounded-2xl p-6 sm:p-8 border-2 border-brand-accent shadow-lg">
-      <h2 className="text-xl sm:text-2xl font-bold text-brand-black mb-4 flex items-center gap-2">
-        <Users className="w-6 h-6 text-brand-accent" />
-        {title}
-      </h2>
+    <Card padding="xl" radius="md" withBorder>
+      <Stack gap="lg">
+        <Group gap="sm">
+          <ThemeIcon color="amanoba" variant="light" radius="md">
+            <IconUsers size={20} />
+          </ThemeIcon>
+          <Title order={2} size="h3">{title}</Title>
+        </Group>
 
-      {session?.user && (
-        <div className="mb-6">
-          {!showCreate ? (
-            <button
-              type="button"
-              onClick={() => setShowCreate(true)}
-              className="min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 touch-manipulation"
-            >
-              <Plus className="w-4 h-4" />
-              {createLabel}
-            </button>
-          ) : (
-            <div className="flex flex-wrap items-center gap-2">
-              <input
-                type="text"
-                value={newName}
-                onChange={(e) => setNewName(e.target.value)}
-                placeholder={createPlaceholder}
-                maxLength={120}
-                className="px-4 py-2 border-2 border-brand-darkGrey/20 rounded-lg text-brand-black placeholder-brand-darkGrey/50 focus:outline-none focus:border-brand-accent flex-1 min-w-[160px]"
-              />
-              <button
-                onClick={handleCreate}
-                disabled={!newName.trim() || submitting}
-                className="min-h-[44px] px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 disabled:opacity-50 touch-manipulation"
+        {session?.user && (
+          <Stack gap="sm">
+            {!showCreate ? (
+              <Button
+                onClick={() => setShowCreate(true)}
+                color="amanoba"
+                leftSection={<IconPlus size={16} />}
               >
-                {submitting ? 'Creating…' : 'Create'}
-              </button>
-              <button
-                type="button"
-                onClick={() => { setShowCreate(false); setNewName(''); }}
-                className="px-4 py-2 border border-brand-darkGrey/30 rounded-lg text-brand-darkGrey"
-              >
-                Cancel
-              </button>
-            </div>
-          )}
-        </div>
-      )}
-      {!session?.user && <p className="text-brand-darkGrey text-sm mb-4">{signInToJoin}</p>}
+                {createLabel}
+              </Button>
+            ) : null}
+            <Collapse in={showCreate}>
+              <Stack gap="sm">
+                <TextInput
+                  value={newName}
+                  onChange={(e) => setNewName(e.target.value)}
+                  label={createPlaceholder}
+                  maxLength={120}
+                />
+                <Group gap="xs">
+                  <Button
+                    onClick={handleCreate}
+                    disabled={!newName.trim() || submitting}
+                    loading={submitting}
+                    color="amanoba"
+                  >
+                    {submitting ? 'Creating…' : 'Create'}
+                  </Button>
+                  <Button
+                    onClick={() => { setShowCreate(false); setNewName(''); }}
+                    variant="default"
+                  >
+                    Cancel
+                  </Button>
+                </Group>
+              </Stack>
+            </Collapse>
+          </Stack>
+        )}
 
-      {loading ? (
-        <p className="text-brand-darkGrey">{loadingText}</p>
-      ) : groups.length === 0 ? (
-        <p className="text-brand-darkGrey">{emptyMessage}</p>
-      ) : (
-        <ul className="space-y-3">
-          {groups.map((g) => (
-            <li key={g._id} className="flex flex-wrap items-center justify-between gap-3 p-4 bg-brand-darkGrey/5 rounded-lg border border-brand-darkGrey/15">
-              <div>
-                <p className="font-bold text-brand-black">{g.name}</p>
-                <p className="text-sm text-brand-darkGrey">
-                  {g.memberCount} {membersLabel} · by {g.createdByDisplayName}
-                </p>
-              </div>
-              {session?.user && (
-                (g.isMember === true) ? (
-                  <button
-                    type="button"
-                    onClick={() => handleLeave(g._id)}
-                    disabled={leaving === g._id}
-                    className="min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border-2 ds-status-error font-bold disabled:opacity-50 touch-manipulation"
-                  >
-                    <LogOut className="w-4 h-4" />
-                    {leaving === g._id ? 'Leaving…' : leaveLabel}
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => handleJoin(g._id)}
-                    disabled={joining === g._id}
-                    className="min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 disabled:opacity-50 touch-manipulation"
-                  >
-                    <LogIn className="w-4 h-4" />
-                    {joining === g._id ? 'Joining…' : joinLabel}
-                  </button>
-                )
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+        {!session?.user && <Alert color="gray" radius="md">{signInToJoin}</Alert>}
+
+        {loading ? (
+          <Stack gap="sm">
+            <Skeleton height={72} radius="md" />
+            <Skeleton height={72} radius="md" />
+            <Text c="dimmed" size="sm">{loadingText}</Text>
+          </Stack>
+        ) : groups.length === 0 ? (
+          <Text c="dimmed">{emptyMessage}</Text>
+        ) : (
+          <Stack gap="sm">
+            {groups.map((g) => (
+              <Paper key={g._id} p="md" radius="md" withBorder bg="gray.0">
+                <Group justify="space-between" align="center" gap="md">
+                  <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
+                    <Group gap="xs">
+                      <Text fw={700}>{g.name}</Text>
+                      {g.isMember ? <Badge color="green" variant="light">Joined</Badge> : null}
+                    </Group>
+                    <Text size="sm" c="dimmed">
+                      {g.memberCount} {membersLabel} · by {g.createdByDisplayName}
+                    </Text>
+                  </Stack>
+                  {session?.user && (
+                    (g.isMember === true) ? (
+                      <Button
+                        onClick={() => confirmLeave(g._id, g.name)}
+                        disabled={leaving === g._id}
+                        loading={leaving === g._id}
+                        variant="outline"
+                        color="red"
+                        leftSection={<IconLogout2 size={16} />}
+                      >
+                        {leaving === g._id ? 'Leaving…' : leaveLabel}
+                      </Button>
+                    ) : (
+                      <Button
+                        onClick={() => handleJoin(g._id)}
+                        disabled={joining === g._id}
+                        loading={joining === g._id}
+                        color="amanoba"
+                        leftSection={<IconLogin2 size={16} />}
+                      >
+                        {joining === g._id ? 'Joining…' : joinLabel}
+                      </Button>
+                    )
+                  )}
+                </Group>
+              </Paper>
+            ))}
+          </Stack>
+        )}
+      </Stack>
+    </Card>
   );
 }

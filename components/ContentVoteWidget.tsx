@@ -8,7 +8,8 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { ThumbsUp, ThumbsDown } from 'lucide-react';
+import { ActionIcon, Badge, Group, Text, Tooltip, type MantineSpacing } from '@mantine/core';
+import { IconThumbDown, IconThumbUp } from '@tabler/icons-react';
 
 type VoteTargetType = 'course' | 'lesson' | 'question' | 'discussion_post';
 
@@ -17,7 +18,7 @@ interface ContentVoteWidgetProps {
   targetId: string;
   playerId: string | null;
   label?: string;
-  className?: string;
+  mt?: MantineSpacing;
 }
 
 export default function ContentVoteWidget({
@@ -25,7 +26,7 @@ export default function ContentVoteWidget({
   targetId,
   playerId,
   label = 'Was this helpful?',
-  className = '',
+  mt,
 }: ContentVoteWidgetProps) {
   const [aggregate, setAggregate] = useState<{ sum: number; up: number; down: number; count: number } | null>(null);
   const [myVote, setMyVote] = useState<number | null>(null);
@@ -78,37 +79,41 @@ export default function ContentVoteWidget({
   if (loading && aggregate == null) return null;
 
   return (
-    <div className={`flex flex-wrap items-center gap-2 text-sm text-brand-darkGrey ${className}`}>
-      {label && <span>{label}</span>}
-      <div className="flex items-center gap-1">
-        <button
-          type="button"
-          aria-label="Vote up"
-          disabled={!playerId || submitting}
-          onClick={() => submitVote(1)}
-          className={`p-1 rounded transition-colors ${
-            myVote === 1 ? 'ds-status-success' : 'hover:bg-brand-darkGrey/10'
-          } ${!playerId ? 'opacity-60 cursor-not-allowed' : ''}`}
-        >
-          <ThumbsUp className="w-4 h-4" />
-        </button>
-        <button
-          type="button"
-          aria-label="Vote down"
-          disabled={!playerId || submitting}
-          onClick={() => submitVote(-1)}
-          className={`p-1 rounded transition-colors ${
-            myVote === -1 ? 'ds-status-warning' : 'hover:bg-brand-darkGrey/10'
-          } ${!playerId ? 'opacity-60 cursor-not-allowed' : ''}`}
-        >
-          <ThumbsDown className="w-4 h-4" />
-        </button>
-      </div>
+    <Group gap="xs" mt={mt} wrap="wrap">
+      {label ? <Text size="sm" c="dimmed">{label}</Text> : null}
+      <Group gap={4}>
+        <Tooltip label={playerId ? 'Vote up' : 'Sign in to vote'}>
+          <ActionIcon
+            aria-label="Vote up"
+            disabled={!playerId || submitting}
+            onClick={() => submitVote(1)}
+            variant={myVote === 1 ? 'filled' : 'subtle'}
+            color={myVote === 1 ? 'green' : 'gray'}
+            loading={submitting && myVote !== -1}
+            size="sm"
+          >
+            <IconThumbUp size={16} />
+          </ActionIcon>
+        </Tooltip>
+        <Tooltip label={playerId ? 'Vote down' : 'Sign in to vote'}>
+          <ActionIcon
+            aria-label="Vote down"
+            disabled={!playerId || submitting}
+            onClick={() => submitVote(-1)}
+            variant={myVote === -1 ? 'filled' : 'subtle'}
+            color={myVote === -1 ? 'yellow' : 'gray'}
+            loading={submitting && myVote !== 1}
+            size="sm"
+          >
+            <IconThumbDown size={16} />
+          </ActionIcon>
+        </Tooltip>
+      </Group>
       {aggregate != null && aggregate.count > 0 && (
-        <span className="text-brand-darkGrey/80">
+        <Badge color="gray" variant="light">
           {aggregate.up} ↑ / {aggregate.down} ↓
-        </span>
+        </Badge>
       )}
-    </div>
+    </Group>
   );
 }

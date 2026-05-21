@@ -945,7 +945,7 @@ export default function DailyLessonPage({
                 targetId={lesson._id}
                 playerId={(session?.user as { id?: string; playerId?: string } | undefined)?.playerId ?? (session?.user as { id?: string } | undefined)?.id ?? null}
                 label="Was this lesson helpful?"
-                className="mt-6 pt-6 border-t border-brand-darkGrey/20"
+                mt="xl"
               />
             </div>
 

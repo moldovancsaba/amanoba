@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 
 type Finding = {
   file: string;
@@ -28,6 +28,7 @@ function listTrackedFiles(): string[] {
     .split('\n')
     .map((line) => line.trim())
     .filter(Boolean)
+    .filter((file) => existsSync(file))
     .filter((file) => file.endsWith('.ts') || file.endsWith('.tsx'));
 }
 

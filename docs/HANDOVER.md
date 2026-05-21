@@ -105,6 +105,23 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:check:layout` ✅ pass
 - `git diff --check` ✅ pass
 
+### Follow-up course community component refactor (2026-05-21)
+
+#### What changed
+- Converted the active course voting, discussion, and study-group components from legacy Tailwind markup and lucide icons to Mantine primitives and Tabler icons.
+- Replaced browser alert/confirm feedback in those active components with Mantine notifications and confirm modals.
+- Removed stale duplicate `app/components/CourseDiscussion.tsx` and `app/components/CourseStudyGroups.tsx` files; active routes use `components/CourseDiscussion.tsx` and `components/CourseStudyGroups.tsx`.
+- Hardened UI audit scripts so they skip files staged for deletion but still present in `git ls-files` before commit.
+- Updated `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECTS/AMANOBA_MANTINE_REFACTOR.md` so the shared SSOT records Amanoba as in-progress, Phase 0/1 as complete, active guardrails, and the remaining high-priority migration gaps.
+
+#### Verification
+- `npx eslint components/ContentVoteWidget.tsx components/CourseDiscussion.tsx components/CourseStudyGroups.tsx scripts/check-mantine-boundaries.mjs scripts/audit-ui-foundation.ts scripts/audit-layout-grammar-ui.ts app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx` ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run ui:check:layout` ✅ pass
+- `git diff --check` ✅ pass
+
 ### What changed
 - Rebuilt the public course catalog surface with Mantine primitives for search, language filtering, course cards, skeleton loading, empty/error states, enrol/continue actions, and course enrol telemetry.
 - Added learner recovery states for protected lesson and quiz routes so anonymous learners see sign-in/back/retry actions instead of raw `Unauthorized` or generic not-found dead ends.
