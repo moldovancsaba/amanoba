@@ -16,25 +16,43 @@ import { LocaleLink } from '@/components/LocaleLink';
 import { ReferralCard } from '@/components/ReferralCard';
 import Logo from '@/components/Logo';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
-import Icon, { 
-  MdMenuBook, 
-  MdAutoStories, 
-  MdSportsEsports, 
-  MdBarChart, 
-  MdEmojiEvents, 
-  MdGpsFixed, 
-  MdMap, 
-  MdEmojiEvents as MdMedal, 
-  MdCardGiftcard, 
-  MdPerson, 
-  MdStar, 
-  MdTrendingUp, 
-  MdLocalFireDepartment,
-  MdDiamond,
-  MdPsychology,
-  MdFlag,
-  MdAutoAwesome
-} from '@/components/Icon';
+import {
+  Alert,
+  Avatar,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Container,
+  Group,
+  Loader,
+  Paper,
+  Progress,
+  SimpleGrid,
+  Stack,
+  Text,
+  TextInput,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import {
+  IconAward,
+  IconBook,
+  IconBookmark,
+  IconChartBar,
+  IconDiamond,
+  IconFlame,
+  IconGift,
+  IconMap,
+  IconRefresh,
+  IconRocket,
+  IconShieldCheck,
+  IconLogout,
+  IconSparkles,
+  IconTargetArrow,
+  IconTrophy,
+  IconUser,
+} from '@tabler/icons-react';
 
 interface PlayerData {
   player: {
@@ -432,43 +450,51 @@ export default function Dashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center">
-        <div className="text-brand-white text-2xl font-bold animate-pulse">
-          {t('loading')}
-        </div>
-      </div>
+      <Box bg="ink.9" mih="100vh" py="xl">
+        <Container size="sm">
+          <Card padding="xl" withBorder>
+            <Group justify="center" gap="sm">
+              <Loader color="amanoba" size="sm" />
+              <Text fw={700}>{t('loading')}</Text>
+            </Group>
+          </Card>
+        </Container>
+      </Box>
     );
   }
 
   if (error || !playerData) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center p-4">
-        <div className="bg-brand-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center border-2 border-brand-accent">
-          <div className="text-6xl mb-4">😕</div>
-          <h2 className="text-2xl font-bold text-brand-black mb-4">
-            {t('unableToLoad')}
-          </h2>
-          <p className="text-brand-darkGrey mb-6">{error}</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button
+      <Box bg="ink.9" mih="100vh" py="xl">
+        <Container size="sm">
+          <Card padding="xl" withBorder>
+            <Stack gap="md" align="center" ta="center">
+              <Alert color="red" w="100%">{t('unableToLoad')}</Alert>
+              <Text c="dimmed">{error}</Text>
+              <Group gap="sm">
+                <Button
               onClick={() => {
                 setError(null);
                 setLoading(true);
                 fetchPlayerData();
               }}
-              className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-xl font-bold hover:bg-brand-primary-400 transition-all"
+                  color="amanoba"
+                  leftSection={<IconRefresh size={18} />}
             >
               {t('retry')}
-            </button>
-            <button
+                </Button>
+                <Button
               onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
-              className="inline-block bg-brand-darkGrey text-brand-white px-6 py-3 rounded-xl font-bold hover:bg-brand-secondary-700 transition-colors"
+                  variant="default"
+                  leftSection={<IconLogout size={18} />}
             >
               {tAuth('signOut')}
-            </button>
-          </div>
-        </div>
-      </div>
+                </Button>
+              </Group>
+            </Stack>
+          </Card>
+        </Container>
+      </Box>
     );
   }
 
@@ -484,621 +510,376 @@ export default function Dashboard() {
     if (out === key || out === `courses.${key}`) return fallback;
     return out;
   };
+  const quickActions = [
+    { show: true, href: '/blog', label: 'Blog', icon: IconSparkles, variant: 'outline' as const },
+    { show: featureFlags?.courses, href: '/courses', label: t('courses'), icon: IconBook, variant: 'filled' as const },
+    { show: featureFlags?.myCourses, href: '/my-courses', label: t('myCourses'), icon: IconRocket, variant: 'filled' as const },
+    { show: featureFlags?.myCourses, href: '/practice', label: 'Practice Hub', icon: IconTargetArrow, variant: 'default' as const },
+    { show: featureFlags?.myCourses, href: '/saved', label: 'Saved Lessons', icon: IconBookmark, variant: 'outline' as const },
+    { show: featureFlags?.games, href: '/games', label: tGames('title'), icon: IconShieldCheck, variant: 'default' as const },
+    { show: featureFlags?.stats, href: '/stats', label: t('statistics'), icon: IconChartBar, variant: 'default' as const },
+    { show: featureFlags?.leaderboards, href: '/leaderboards', label: tLeaderboard('title'), icon: IconTrophy, variant: 'filled' as const },
+    { show: featureFlags?.challenges, href: '/challenges', label: tChallenges('title'), icon: IconTargetArrow, variant: 'default' as const },
+    { show: featureFlags?.quests, href: '/quests', label: tQuests('title'), icon: IconMap, variant: 'filled' as const },
+    { show: featureFlags?.achievements, href: '/achievements', label: tAchievements('title'), icon: IconAward, variant: 'default' as const },
+    { show: featureFlags?.rewards, href: '/rewards', label: tRewards('title'), icon: IconGift, variant: 'filled' as const },
+  ];
 
   return (
-    <div className="min-h-screen bg-brand-black">
-      {/* Header */}
-      <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-40 mobile-sticky-header">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
-            <div className="flex items-center gap-3">
+    <Box bg="ink.9" mih="100vh">
+      <Paper component="header" bg="ink.8" radius={0} withBorder>
+        <Container size="xl" py={{ base: 'md', sm: 'lg' }}>
+          <Group justify="space-between" align="flex-start" gap="md">
+            <Group gap="md" wrap="nowrap" style={{ minWidth: 0 }}>
               <Logo size="md" showText={false} linkTo="/dashboard" />
-              <div>
-                <h1 className="text-2xl sm:text-3xl font-bold text-brand-white leading-tight">
-                  {t('title')}
-                </h1>
-                <p className="text-brand-white/80 mt-1 text-sm sm:text-base">{t('yourLearningJourney')}</p>
-              </div>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
-              <button
+              <Stack gap={4}>
+                <Title order={1} size="h2" c="white">{t('title')}</Title>
+                <Text c="gray.3" size="sm">{t('yourLearningJourney')}</Text>
+              </Stack>
+            </Group>
+            <Group gap="sm">
+              <Button
                 onClick={() => {
                   setLoading(true);
                   fetchPlayerData();
                 }}
-                className="bg-brand-accent text-brand-black px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-primary-400 transition-colors font-bold text-center mobile-full-width"
+                color="amanoba"
+                leftSection={<IconRefresh size={18} />}
               >
-                🔄 {t('refresh')}
-              </button>
-              <LocaleLink
-                href="/courses"
-                className="bg-brand-accent text-brand-black px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-primary-400 transition-colors font-bold text-center mobile-full-width"
-              >
-                📚 {t('browseCourses')}
-              </LocaleLink>
-              {currentPlayerId && (
-                <LocaleLink
-                  href={`/profile/${currentPlayerId}`}
-                  className="bg-brand-darkGrey text-brand-white px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-secondary-700 transition-colors font-bold text-center mobile-full-width border-2 border-brand-accent"
-                >
-                  👤 {t('myProfile')}
-                </LocaleLink>
-              )}
-              {session?.user && adminAccess?.isAdmin === true && (
-                <LocaleLink
-                  href="/admin"
-                  className="bg-brand-primary-600 text-brand-white px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-primary-700 transition-colors font-bold text-center mobile-full-width"
-                >
-                  ⚙️ Admin
-                </LocaleLink>
-              )}
-              {session?.user && adminAccess?.isEditorOnly === true && (
-                <LocaleLink
-                  href="/editor/courses"
-                  className="bg-brand-primary-600 text-brand-white px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-primary-700 transition-colors font-bold text-center mobile-full-width"
-                >
-                  ✍️ Editor
-                </LocaleLink>
-              )}
-              <button
+                {t('refresh')}
+              </Button>
+              <Button component={LocaleLink} href="/courses" color="amanoba" leftSection={<IconBook size={18} />}>
+                {t('browseCourses')}
+              </Button>
+              {currentPlayerId ? (
+                <Button component={LocaleLink} href={`/profile/${currentPlayerId}`} variant="outline" color="gray" leftSection={<IconUser size={18} />}>
+                  {t('myProfile')}
+                </Button>
+              ) : null}
+              {session?.user && adminAccess?.isAdmin === true ? (
+                <Button component={LocaleLink} href="/admin" variant="default">Admin</Button>
+              ) : null}
+              {session?.user && adminAccess?.isEditorOnly === true ? (
+                <Button component={LocaleLink} href="/editor/courses" variant="default">Editor</Button>
+              ) : null}
+              <Button
                 onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
-                className="bg-brand-darkGrey text-brand-white px-4 py-3 sm:py-2 rounded-lg hover:bg-brand-secondary-700 transition-colors font-medium text-center mobile-full-width"
+                variant="default"
+                leftSection={<IconLogout size={18} />}
               >
-                🚪 {tAuth('signOut')}
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
+                {tAuth('signOut')}
+              </Button>
+            </Group>
+          </Group>
+        </Container>
+      </Paper>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-        {/* Quick Actions - Learning First */}
-        <div className="bg-brand-white rounded-xl shadow-lg p-6 mb-8 border-2 border-brand-accent">
-          <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
-            <Icon icon={MdMenuBook} size={20} className="inline-block mr-2" />
-            {t('startLearning')}
-          </h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-10 gap-3 dashboard-grid">
-            <LocaleLink
-              href="/blog"
-              className="block bg-brand-white border-2 border-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-accent/15 transition-all text-sm flex items-center justify-center gap-2"
-            >
-              <Icon icon={MdAutoAwesome} size={18} />
-              Blog
-            </LocaleLink>
-            {featureFlags?.courses && (
-              <LocaleLink
-                href="/courses"
-                className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm transform hover:scale-105 flex items-center justify-center gap-2"
-              >
-                <Icon icon={MdMenuBook} size={18} />
-                {t('courses')}
-              </LocaleLink>
-            )}
-            {featureFlags?.myCourses && (
-              <LocaleLink
-                href="/my-courses"
-                className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm transform hover:scale-105 flex items-center justify-center gap-2"
-              >
-                <Icon icon={MdAutoStories} size={18} />
-                {t('myCourses')}
-              </LocaleLink>
-            )}
-            {featureFlags?.myCourses && (
-              <LocaleLink
-                href="/practice"
-                className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
-              >
-                <Icon icon={MdPsychology} size={18} />
-                Practice Hub
-              </LocaleLink>
-            )}
-            {featureFlags?.myCourses && (
-              <LocaleLink
-                href="/saved"
-                className="block bg-brand-white border-2 border-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-accent/15 transition-all text-sm flex items-center justify-center gap-2"
-              >
-                <Icon icon={MdFlag} size={18} />
-                Saved Lessons
-              </LocaleLink>
-            )}
-            {featureFlags?.games && (
-              <LocaleLink
-                href="/games"
-                className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
-              >
-                <Icon icon={MdSportsEsports} size={18} />
-                {tGames('title')}
-              </LocaleLink>
-            )}
-            {featureFlags?.stats && (
-              <LocaleLink
-                href="/stats"
-                className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
-              >
-                <Icon icon={MdBarChart} size={18} />
-                {t('statistics')}
-              </LocaleLink>
-            )}
-            {featureFlags?.leaderboards && (
-              <LocaleLink
-                href="/leaderboards"
-                className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm flex items-center justify-center gap-2"
-              >
-                <Icon icon={MdEmojiEvents} size={18} />
-                {tLeaderboard('title')}
-              </LocaleLink>
-            )}
-            {featureFlags?.challenges && (
-              <LocaleLink
-                href="/challenges"
-                className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
-              >
-                <Icon icon={MdGpsFixed} size={18} />
-                {tChallenges('title')}
-              </LocaleLink>
-            )}
-            {featureFlags?.quests && (
-              <LocaleLink
-                href="/quests"
-                className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm flex items-center justify-center gap-2"
-              >
-                <Icon icon={MdMap} size={18} />
-                {tQuests('title')}
-              </LocaleLink>
-            )}
-            {featureFlags?.achievements && (
-              <LocaleLink
-                href="/achievements"
-                className="block bg-brand-darkGrey text-brand-white px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-secondary-700 transition-all text-sm flex items-center justify-center gap-2"
-              >
-                <Icon icon={MdMedal} size={18} />
-                {tAchievements('title')}
-              </LocaleLink>
-            )}
-            {featureFlags?.rewards && (
-              <LocaleLink
-                href="/rewards"
-                className="block bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-all text-sm flex items-center justify-center gap-2"
-              >
-                <Icon icon={MdCardGiftcard} size={18} />
-                {tRewards('title')}
-              </LocaleLink>
-            )}
-          </div>
-        </div>
-
-        {/* Course Recommendations */}
-        {featureFlags?.courses && recommendations.length > 0 && (
-          <div className="bg-brand-white rounded-xl shadow-lg p-6 mb-8 border-2 border-brand-accent">
-            <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
-              <Icon icon={MdMenuBook} size={20} className="text-brand-accent" />
-              {t('recommendedCourses')}
-            </h3>
-            {loadingRecommendations ? (
-              <div className="text-center py-8 text-brand-darkGrey">
-                {t('loading')}...
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 dashboard-grid-3">
-                {recommendations.map((course) => (
-                  <LocaleLink
-                    key={course.courseId}
-                    href={`/${course.language ?? locale}/courses/${course.courseId}`}
-                    className="block bg-brand-darkGrey/5 rounded-lg p-4 border-2 border-brand-darkGrey/20 hover:border-brand-accent transition-all hover:shadow-lg"
-                  >
-                    {course.thumbnail && (
-                      <div className="relative w-full h-32 bg-brand-darkGrey rounded-lg mb-3 overflow-hidden">
-                        <Image
-                          src={course.thumbnail}
-                          alt={course.name ?? 'Course'}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 100vw, 20rem"
-                        />
-                      </div>
-                    )}
-                    <h4 className="font-bold text-brand-black text-lg mb-2 line-clamp-2">
-                      {course.name}
-                    </h4>
-                    <p className="text-sm text-brand-darkGrey line-clamp-2 mb-3">
-                      {course.description}
-                    </p>
-                    <div className="flex items-center justify-between text-xs text-brand-darkGrey">
-                      <span>{course.durationDays} {tCourses('days') || 'days'}</span>
-                      {course.requiresPremium && (
-                        <span className="bg-brand-accent text-brand-black px-2 py-1 rounded font-bold">
-                          {tCommon('premium')}
-                        </span>
-                      )}
-                    </div>
-                  </LocaleLink>
-                ))}
-              </div>
-            )}
-            <div className="mt-4 text-center">
-              <LocaleLink
-                href="/courses"
-                className="inline-block bg-brand-accent text-brand-black px-6 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
-              >
-                {t('viewAllCourses')} →
-              </LocaleLink>
-            </div>
-          </div>
-        )}
-
-        {/* My Courses Today */}
-        {featureFlags?.myCourses && (
-          <div className="bg-brand-white rounded-xl shadow-lg p-6 mb-8 border-2 border-brand-accent">
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <h3 className="text-xl font-bold text-brand-black flex items-center gap-2">
-                  <Icon icon={MdAutoStories} size={20} className="text-brand-accent" />
-                  {t('myCourses')}
-                </h3>
-                <p className="text-sm text-brand-darkGrey">{t('trackLearningProgress')}</p>
-              </div>
-              <LocaleLink
-                href="/my-courses"
-                className="text-sm font-semibold text-brand-accent hover:text-brand-primary-500"
-              >
-                {t('viewAllCourses')} →
-              </LocaleLink>
-            </div>
-
-            {loadingMyCourses ? (
-              <div className="text-center py-8 text-brand-darkGrey">
-                {t('loading')}...
-              </div>
-            ) : activeCourses.length === 0 ? (
-              <div className="text-center py-8 text-brand-darkGrey">
-                <p className="mb-4">{t('noCoursesEnrolled')}</p>
-                <LocaleLink
-                  href="/courses"
-                  className="inline-block bg-brand-accent text-brand-black px-6 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
-                >
-                  {t('browseCourses')}
-                </LocaleLink>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {activeCourses.map((item) => (
-                  <div
-                    key={item.course.courseId}
-                    className="bg-brand-darkGrey/5 rounded-lg p-4 border-2 border-brand-darkGrey/20"
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <h4 className="font-bold text-brand-black text-lg">{item.course.name}</h4>
-                        <div className="text-xs text-brand-darkGrey mt-1">
-                          {courseLabel('dayOf', `Day ${item.progress.currentDay} of ${item.progress.totalDays}`, {
-                            currentDay: item.progress.currentDay,
-                            totalDays: item.progress.totalDays,
-                          })}
-                        </div>
-                      </div>
-                      <span className="text-sm font-bold text-brand-accent">
-                        {item.progress.progressPercentage}%
-                      </span>
-                    </div>
-
-                    <div className="mt-3 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
-                      <div
-                        className="bg-brand-accent h-full transition-all"
-                        style={{ width: `${item.progress.progressPercentage}%` }}
-                      />
-                    </div>
-
-                    <div className="mt-3 flex items-center justify-between text-xs text-brand-darkGrey">
-                      <span>
-                        {courseLabel('daysCompleted', `${item.progress.completedDays} days completed`, {
-                          count: item.progress.completedDays,
-                        })}
-                      </span>
-                      <LocaleLink
-                        href={getCourseDayHref(item.course, item.progress)}
-                        className="text-brand-accent font-semibold"
-                      >
-                        {courseLabel('nextLesson', 'Next Lesson')}
-                      </LocaleLink>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Player Header Card */}
-        <div className="bg-brand-white rounded-2xl shadow-xl p-6 mb-8 border-2 border-brand-accent">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="w-20 h-20 bg-brand-accent rounded-full flex items-center justify-center">
-                <Icon icon={MdPerson} size={48} className="text-brand-black" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-brand-black">
-                  {player.displayName || 'Player'}
-                </h2>
-                {progression?.currentTitle && (
-                  <div className="text-brand-accent font-medium">
-                    {progression.currentTitle}
-                  </div>
-                )}
-                <div className="text-brand-darkGrey text-sm">
-                  {t('memberSince')} {new Date(player.createdAt).toLocaleDateString('hu-HU')}
-                </div>
-              </div>
-            </div>
-            {player.isPremium && (
-              <div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold flex items-center gap-2">
-                <Icon icon={MdStar} size={24} />
-                <span>{tCommon('premium')}</span>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Main Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 dashboard-grid-2">
-          {/* Learning Level Card */}
-          <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
-            <Icon icon={MdMenuBook} size={48} className="text-brand-accent mb-2" />
-            <div className="text-3xl font-bold text-brand-black">
-              {progression?.level || 1}
-            </div>
-            <div className="text-brand-darkGrey">{t('learningLevel')}</div>
-            {progression && (
-              <>
-                <div className="mt-4 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
-                  <div
-                    className="bg-brand-accent h-full transition-all"
-                    style={{ width: `${xpProgress}%` }}
-                  />
-                </div>
-                <div className="text-xs text-brand-darkGrey mt-1">
-                  {progression.currentXP} / {progression.xpToNextLevel} {t('learningPoints')}
-                </div>
-              </>
-            )}
-          </div>
-
-          {/* Points Card */}
-          <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
-            <Icon icon={MdDiamond} size={48} className="text-brand-accent mb-2" />
-            <div className="text-3xl font-bold text-brand-black">
-              {wallet?.currentBalance.toLocaleString() || 0}
-            </div>
-            <div className="text-brand-darkGrey">{t('points')}</div>
-            {wallet && (
-              <div className="text-xs text-brand-darkGrey mt-4">
-                {t('earned')}: {wallet.lifetimeEarned.toLocaleString()} • 
-                {t('spent')}: {wallet.lifetimeSpent.toLocaleString()}
-              </div>
-            )}
-          </div>
-
-          {/* Achievements Card */}
-          <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
-            <Icon icon={MdEmojiEvents} size={48} className="text-brand-accent mb-2" />
-            <div className="text-3xl font-bold text-brand-black">
-              {achievementStats.unlocked}/{achievementStats.total}
-            </div>
-            <div className="text-brand-darkGrey">{t('achievements')}</div>
-            <div className="mt-4 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
-              <div
-                className="bg-brand-accent h-full transition-all"
-                style={{ width: `${achievementStats.percentage}%` }}
-              />
-            </div>
-            <div className="text-xs text-brand-darkGrey mt-1">
-              {achievementStats.percentage}% {t('complete')}
-            </div>
-          </div>
-
-          {/* Course Progress Card */}
-          <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
-            <Icon icon={MdTrendingUp} size={48} className="text-brand-accent mb-2" />
-            <div className="text-3xl font-bold text-brand-black">
-              {courseStats?.quizzesCompleted || 0}
-            </div>
-            <div className="text-brand-darkGrey">{t('assessmentsCompleted')}</div>
-            {courseStats && (
-              <div className="text-xs text-brand-darkGrey mt-4">
-                {courseStats.lessonsCompleted} {t('lessonsCompleted')} • {courseStats.coursesEnrolled} {t('coursesEnrolled')}
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Streaks and Referrals Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 dashboard-grid-2">
-          {/* Streaks Card */}
-          <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-accent">
-            <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
-              <Icon icon={MdLocalFireDepartment} size={24} className="text-brand-accent" />
-              {t('streaks')}
-            </h3>
-            <div className="space-y-4">
-              {streaks && streaks.length > 0 ? (
-                streaks.map((streak, index) => {
-                  const labelMap: Record<string, string> = {
-                    daily_login: t('dailyLoginStreak'),
-                    daily_learning: 'Learning Streak',
-                    win: t('winStreak'),
-                  };
-                  const streakLabel = labelMap[streak.type] ?? streak.type.replace('_', ' ');
-
+      <Container component="main" size="xl" py={{ base: 'lg', sm: 'xl' }}>
+        <Stack gap="xl">
+          <Card padding="lg" withBorder>
+            <Stack gap="md">
+              <Group gap="xs">
+                <ThemeIcon color="amanoba" variant="light" radius="xl">
+                  <IconBook size={18} />
+                </ThemeIcon>
+                <Title order={2} size="h3">{t('startLearning')}</Title>
+              </Group>
+              <SimpleGrid cols={{ base: 2, sm: 3, md: 4, lg: 6 }} spacing="sm">
+                {quickActions.filter((action) => action.show).map((action) => {
+                  const ActionIcon = action.icon;
                   return (
-                    <div key={index} className="flex justify-between items-center">
-                      <div>
-                        <div className="font-medium text-brand-black">
-                          {streakLabel}
-                        </div>
-                        <div className="text-sm text-brand-darkGrey">
-                          Legjobb: {streak.bestCount}
-                        </div>
-                      </div>
-                      <div className="text-2xl font-bold text-brand-accent">
-                        {streak.count}
-                      </div>
-                    </div>
+                    <Button
+                      key={action.href}
+                      component={LocaleLink}
+                      href={action.href}
+                      variant={action.variant === 'filled' ? 'filled' : action.variant}
+                      color={action.variant === 'filled' ? 'amanoba' : 'gray'}
+                      leftSection={<ActionIcon size={18} />}
+                      fullWidth
+                    >
+                      {action.label}
+                    </Button>
                   );
-                })
+                })}
+              </SimpleGrid>
+            </Stack>
+          </Card>
+
+          {featureFlags?.courses && recommendations.length > 0 ? (
+            <Card padding="lg" withBorder>
+              <Stack gap="md">
+                <Group justify="space-between">
+                  <Title order={2} size="h3">{t('recommendedCourses')}</Title>
+                  <Button component={LocaleLink} href="/courses" variant="subtle" color="amanoba">
+                    {t('viewAllCourses')}
+                  </Button>
+                </Group>
+                {loadingRecommendations ? (
+                  <Group justify="center" py="lg"><Loader color="amanoba" size="sm" /></Group>
+                ) : (
+                  <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md">
+                    {recommendations.map((course) => (
+                      <Card key={course.courseId} component={LocaleLink} href={`/${course.language ?? locale}/courses/${course.courseId}`} padding="md" bg="gray.0" withBorder>
+                        <Stack gap="sm">
+                          {course.thumbnail ? (
+                            <Box pos="relative" h={128} bg="ink.8" style={{ overflow: 'hidden', borderRadius: 8 }}>
+                              <Image
+                                src={course.thumbnail}
+                                alt={course.name ?? 'Course'}
+                                fill
+                                style={{ objectFit: 'cover' }}
+                                sizes="(max-width: 768px) 100vw, 20rem"
+                              />
+                            </Box>
+                          ) : null}
+                          <Title order={3} size="h4" lineClamp={2}>{course.name}</Title>
+                          <Text size="sm" c="dimmed" lineClamp={2}>{course.description}</Text>
+                          <Group justify="space-between">
+                            <Text size="xs" c="dimmed">{course.durationDays} {tCourses('days') || 'days'}</Text>
+                            {course.requiresPremium ? <Badge color="amanoba">{tCommon('premium')}</Badge> : null}
+                          </Group>
+                        </Stack>
+                      </Card>
+                    ))}
+                  </SimpleGrid>
+                )}
+              </Stack>
+            </Card>
+          ) : null}
+
+          {featureFlags?.myCourses ? (
+            <Card padding="lg" withBorder>
+              <Stack gap="md">
+                <Group justify="space-between" align="flex-start">
+                  <Stack gap={2}>
+                    <Title order={2} size="h3">{t('myCourses')}</Title>
+                    <Text size="sm" c="dimmed">{t('trackLearningProgress')}</Text>
+                  </Stack>
+                  <Button component={LocaleLink} href="/my-courses" variant="subtle" color="amanoba">
+                    {t('viewAllCourses')}
+                  </Button>
+                </Group>
+                {loadingMyCourses ? (
+                  <Group justify="center" py="lg"><Loader color="amanoba" size="sm" /></Group>
+                ) : activeCourses.length === 0 ? (
+                  <Stack align="center" py="lg" gap="md">
+                    <Text c="dimmed">{t('noCoursesEnrolled')}</Text>
+                    <Button component={LocaleLink} href="/courses" color="amanoba">{t('browseCourses')}</Button>
+                  </Stack>
+                ) : (
+                  <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">
+                    {activeCourses.map((item) => (
+                      <Card key={item.course.courseId} padding="md" bg="gray.0" withBorder>
+                        <Stack gap="sm">
+                          <Group justify="space-between" align="flex-start">
+                            <Stack gap={2}>
+                              <Title order={3} size="h4">{item.course.name}</Title>
+                              <Text size="xs" c="dimmed">
+                                {courseLabel('dayOf', `Day ${item.progress.currentDay} of ${item.progress.totalDays}`, {
+                                  currentDay: item.progress.currentDay,
+                                  totalDays: item.progress.totalDays,
+                                })}
+                              </Text>
+                            </Stack>
+                            <Badge color="amanoba">{item.progress.progressPercentage}%</Badge>
+                          </Group>
+                          <Progress value={item.progress.progressPercentage} color="amanoba" radius="xl" />
+                          <Group justify="space-between">
+                            <Text size="xs" c="dimmed">
+                              {courseLabel('daysCompleted', `${item.progress.completedDays} days completed`, {
+                                count: item.progress.completedDays,
+                              })}
+                            </Text>
+                            <Button component={LocaleLink} href={getCourseDayHref(item.course, item.progress)} size="xs" variant="subtle" color="amanoba">
+                              {courseLabel('nextLesson', 'Next Lesson')}
+                            </Button>
+                          </Group>
+                        </Stack>
+                      </Card>
+                    ))}
+                  </SimpleGrid>
+                )}
+              </Stack>
+            </Card>
+          ) : null}
+
+          <Card padding="lg" withBorder>
+            <Group justify="space-between" align="center">
+              <Group gap="md">
+                <Avatar color="amanoba" variant="filled" size={72} radius="xl">
+                  <IconUser size={38} />
+                </Avatar>
+                <Stack gap={2}>
+                  <Title order={2} size="h3">{player.displayName || 'Player'}</Title>
+                  {progression?.currentTitle ? <Text c="amanoba.7" fw={700}>{progression.currentTitle}</Text> : null}
+                  <Text size="sm" c="dimmed">{t('memberSince')} {new Date(player.createdAt).toLocaleDateString('hu-HU')}</Text>
+                </Stack>
+              </Group>
+              {player.isPremium ? <Badge color="amanoba" size="lg" leftSection={<IconSparkles size={14} />}>{tCommon('premium')}</Badge> : null}
+            </Group>
+          </Card>
+
+          <SimpleGrid cols={{ base: 1, md: 2, lg: 4 }} spacing="md">
+            {[
+              { icon: IconBook, value: progression?.level || 1, label: t('learningLevel'), detail: `${progression.currentXP} / ${progression.xpToNextLevel} ${t('learningPoints')}`, progress: xpProgress },
+              { icon: IconDiamond, value: wallet?.currentBalance.toLocaleString() || 0, label: t('points'), detail: `${t('earned')}: ${wallet.lifetimeEarned.toLocaleString()} • ${t('spent')}: ${wallet.lifetimeSpent.toLocaleString()}` },
+              { icon: IconTrophy, value: `${achievementStats.unlocked}/${achievementStats.total}`, label: t('achievements'), detail: `${achievementStats.percentage}% ${t('complete')}`, progress: achievementStats.percentage },
+              { icon: IconChartBar, value: courseStats?.quizzesCompleted || 0, label: t('assessmentsCompleted'), detail: courseStats ? `${courseStats.lessonsCompleted} ${t('lessonsCompleted')} • ${courseStats.coursesEnrolled} ${t('coursesEnrolled')}` : '' },
+            ].map((stat) => {
+              const StatIcon = stat.icon;
+              return (
+                <Card key={stat.label} padding="lg" withBorder>
+                  <Stack gap="sm">
+                    <ThemeIcon color="amanoba" variant="light" size={48} radius="xl">
+                      <StatIcon size={28} />
+                    </ThemeIcon>
+                    <Text size="2rem" fw={800}>{stat.value}</Text>
+                    <Text c="dimmed">{stat.label}</Text>
+                    {typeof stat.progress === 'number' ? <Progress value={stat.progress} color="amanoba" radius="xl" /> : null}
+                    <Text size="xs" c="dimmed">{stat.detail}</Text>
+                  </Stack>
+                </Card>
+              );
+            })}
+          </SimpleGrid>
+
+          <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="md">
+            <Card padding="lg" withBorder>
+              <Stack gap="md">
+                <Group gap="xs">
+                  <ThemeIcon color="amanoba" variant="light" radius="xl"><IconFlame size={20} /></ThemeIcon>
+                  <Title order={2} size="h3">{t('streaks')}</Title>
+                </Group>
+                {streaks && streaks.length > 0 ? (
+                  <Stack gap="sm">
+                    {streaks.map((streak, index) => {
+                      const labelMap: Record<string, string> = {
+                        daily_login: t('dailyLoginStreak'),
+                        daily_learning: 'Learning Streak',
+                        win: t('winStreak'),
+                      };
+                      const streakLabel = labelMap[streak.type] ?? streak.type.replace('_', ' ');
+                      return (
+                        <Group key={index} justify="space-between">
+                          <Stack gap={0}>
+                            <Text fw={700}>{streakLabel}</Text>
+                            <Text size="sm" c="dimmed">Legjobb: {streak.bestCount}</Text>
+                          </Stack>
+                          <Text c="amanoba.7" size="xl" fw={800}>{streak.count}</Text>
+                        </Group>
+                      );
+                    })}
+                  </Stack>
+                ) : (
+                  <Stack align="center" gap="md">
+                    <Text c="dimmed">{t('noActiveStreaks')}</Text>
+                    <Button component={LocaleLink} href="/courses" color="amanoba" leftSection={<IconBook size={16} />}>
+                      {t('enrollInCourse')}
+                    </Button>
+                  </Stack>
+                )}
+              </Stack>
+            </Card>
+            <ReferralCard />
+          </SimpleGrid>
+
+          <Card padding="lg" withBorder>
+            <Stack gap="md">
+              <Group justify="space-between" align="flex-start">
+                <Stack gap={2}>
+                  <Group gap="xs">
+                    <ThemeIcon color="amanoba" variant="light" radius="xl"><IconFlame size={20} /></ThemeIcon>
+                    <Title order={2} size="h3">Friend Streaks</Title>
+                  </Group>
+                  <Text size="sm" c="dimmed">Pair up with one learner at a time and keep a shared learning rhythm.</Text>
+                </Stack>
+                <Button onClick={() => void fetchFriendStreaks()} variant="subtle" color="amanoba" leftSection={<IconRefresh size={18} />}>Refresh</Button>
+              </Group>
+
+              {friendStreakMessage ? <Alert color="amanoba">{friendStreakMessage}</Alert> : null}
+
+              <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="md">
+                <Card bg="gray.0" padding="md" withBorder>
+                  <Stack gap="md">
+                    <Title order={3} size="h4">Create Invite</Title>
+                    {pendingFriendInvite ? (
+                      <Stack gap="sm">
+                        <Text size="sm" c="dimmed">Share this code with your learning partner.</Text>
+                        <Paper bg="ink.9" p="md" withBorder>
+                          <Text c="amanoba.5" size="xl" fw={800} style={{ letterSpacing: '0.25em' }}>
+                            {pendingFriendInvite.inviteCode}
+                          </Text>
+                        </Paper>
+                        <Group gap="sm">
+                          <Button onClick={() => void navigator.clipboard?.writeText(pendingFriendInvite.inviteCode || '')} color="amanoba">Copy Code</Button>
+                          <Button onClick={() => void handleRemoveFriendStreak(pendingFriendInvite.id)} loading={friendStreakBusy} variant="outline" color="gray">Cancel Invite</Button>
+                        </Group>
+                      </Stack>
+                    ) : (
+                      <Button onClick={() => void handleCreateFriendInvite()} loading={friendStreakBusy} color="amanoba">
+                        Create Invite Code
+                      </Button>
+                    )}
+                  </Stack>
+                </Card>
+
+                <Card bg="gray.0" padding="md" withBorder>
+                  <Stack gap="md">
+                    <Title order={3} size="h4">Join Invite</Title>
+                    <Group align="flex-end" gap="sm">
+                      <TextInput
+                        value={friendInviteCode}
+                        onChange={(event) => setFriendInviteCode(event.currentTarget.value.toUpperCase())}
+                        placeholder="Paste invite code"
+                        style={{ flex: 1 }}
+                      />
+                      <Button onClick={() => void handleJoinFriendInvite()} loading={friendStreakBusy} variant="default">
+                        Join
+                      </Button>
+                    </Group>
+                    <Text size="sm" c="dimmed">A shared day only counts when both partners complete a learning action on the same day.</Text>
+                  </Stack>
+                </Card>
+              </SimpleGrid>
+
+              {loadingFriendStreaks ? (
+                <Group justify="center" py="md"><Loader color="amanoba" size="sm" /></Group>
+              ) : activeFriendStreaks.length === 0 ? (
+                <Alert color="gray">No active friend streaks yet.</Alert>
               ) : (
-                <div className="text-brand-darkGrey text-center py-4">
-                  <p className="mb-3">{t('noActiveStreaks')}</p>
-                  <LocaleLink
-                    href="/courses"
-                    className="inline-block bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-sm"
-                  >
-                    <Icon icon={MdMenuBook} size={16} className="inline-block mr-1" />
-                    {t('enrollInCourse')}
-                  </LocaleLink>
-                </div>
+                <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">
+                  {activeFriendStreaks.map((item) => (
+                    <Card key={item.id} bg="gray.0" padding="md" withBorder>
+                      <Stack gap="md">
+                        <Group justify="space-between" align="flex-start">
+                          <Stack gap={0}>
+                            <Text size="sm" c="dimmed">Partner</Text>
+                            <Text size="lg" fw={700}>{item.partner.displayName}</Text>
+                          </Stack>
+                          <Button onClick={() => void handleRemoveFriendStreak(item.id)} loading={friendStreakBusy} variant="subtle" color="gray">Remove</Button>
+                        </Group>
+                        <Group justify="space-between" align="flex-end">
+                          <Stack gap={0}>
+                            <Text size="sm" c="dimmed">Shared streak</Text>
+                            <Text c="amanoba.7" size="2rem" fw={800}>{item.currentSharedStreak}</Text>
+                          </Stack>
+                          <Stack gap={0} align="flex-end">
+                            <Text size="sm" c="dimmed">{item.statusLabel}</Text>
+                            <Text size="sm" c="dimmed">Best: {item.bestSharedStreak}</Text>
+                          </Stack>
+                        </Group>
+                        {item.lastSharedActivity ? (
+                          <Text size="xs" c="dimmed">Last shared day: {new Date(item.lastSharedActivity).toLocaleDateString('hu-HU')}</Text>
+                        ) : null}
+                      </Stack>
+                    </Card>
+                  ))}
+                </SimpleGrid>
               )}
-            </div>
-          </div>
-
-          {/* Referral Card */}
-          <ReferralCard />
-        </div>
-
-        <div className="bg-brand-white rounded-xl shadow-lg p-6 mb-8 border-2 border-brand-accent">
-          <div className="flex items-center justify-between gap-4 mb-4">
-            <div>
-              <h3 className="text-xl font-bold text-brand-black flex items-center gap-2">
-                <Icon icon={MdLocalFireDepartment} size={24} className="text-brand-accent" />
-                Friend Streaks
-              </h3>
-              <p className="text-sm text-brand-darkGrey">
-                Pair up with one learner at a time and keep a shared learning rhythm.
-              </p>
-            </div>
-            <button
-              onClick={() => void fetchFriendStreaks()}
-              className="text-sm font-semibold text-brand-accent hover:text-brand-primary-500"
-            >
-              Refresh
-            </button>
-          </div>
-
-          {friendStreakMessage && (
-            <div className="mb-4 rounded-lg border border-brand-accent/40 bg-brand-accent/10 px-4 py-3 text-sm text-brand-black">
-              {friendStreakMessage}
-            </div>
-          )}
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
-            <div className="rounded-lg border-2 border-brand-darkGrey/15 bg-brand-darkGrey/5 p-4">
-              <h4 className="font-bold text-brand-black mb-2">Create Invite</h4>
-              {pendingFriendInvite ? (
-                <div className="space-y-3">
-                  <div className="text-sm text-brand-darkGrey">
-                    Share this code with your learning partner.
-                  </div>
-                  <div className="rounded-lg bg-brand-black px-4 py-3 text-xl font-bold tracking-[0.25em] text-brand-accent">
-                    {pendingFriendInvite.inviteCode}
-                  </div>
-                  <div className="flex gap-3">
-                    <button
-                      onClick={() => void navigator.clipboard?.writeText(pendingFriendInvite.inviteCode || '')}
-                      className="rounded-lg bg-brand-accent px-4 py-2 font-bold text-brand-black hover:bg-brand-primary-400 transition-colors"
-                    >
-                      Copy Code
-                    </button>
-                    <button
-                      onClick={() => void handleRemoveFriendStreak(pendingFriendInvite.id)}
-                      disabled={friendStreakBusy}
-                      className="rounded-lg border-2 border-brand-darkGrey/20 px-4 py-2 font-bold text-brand-black hover:bg-brand-darkGrey/5 transition-colors disabled:opacity-60"
-                    >
-                      Cancel Invite
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <button
-                  onClick={() => void handleCreateFriendInvite()}
-                  disabled={friendStreakBusy}
-                  className="rounded-lg bg-brand-accent px-4 py-3 font-bold text-brand-black hover:bg-brand-primary-400 transition-colors disabled:opacity-60"
-                >
-                  Create Invite Code
-                </button>
-              )}
-            </div>
-
-            <div className="rounded-lg border-2 border-brand-darkGrey/15 bg-brand-darkGrey/5 p-4">
-              <h4 className="font-bold text-brand-black mb-2">Join Invite</h4>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  value={friendInviteCode}
-                  onChange={(event) => setFriendInviteCode(event.target.value.toUpperCase())}
-                  placeholder="Paste invite code"
-                  className="flex-1 rounded-lg border-2 border-brand-darkGrey/20 px-4 py-3 text-brand-black outline-none focus:border-brand-accent"
-                />
-                <button
-                  onClick={() => void handleJoinFriendInvite()}
-                  disabled={friendStreakBusy}
-                  className="rounded-lg bg-brand-darkGrey px-4 py-3 font-bold text-brand-white hover:bg-brand-secondary-700 transition-colors disabled:opacity-60"
-                >
-                  Join
-                </button>
-              </div>
-              <p className="mt-3 text-sm text-brand-darkGrey">
-                A shared day only counts when both partners complete a learning action on the same day.
-              </p>
-            </div>
-          </div>
-
-          {loadingFriendStreaks ? (
-            <div className="py-6 text-center text-brand-darkGrey">{t('loading')}...</div>
-          ) : activeFriendStreaks.length === 0 ? (
-            <div className="rounded-lg border-2 border-dashed border-brand-darkGrey/20 px-4 py-8 text-center text-brand-darkGrey">
-              No active friend streaks yet.
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {activeFriendStreaks.map((item) => (
-                <div
-                  key={item.id}
-                  className="rounded-lg border-2 border-brand-darkGrey/15 bg-brand-darkGrey/5 p-4"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <div className="text-sm text-brand-darkGrey">Partner</div>
-                      <div className="text-lg font-bold text-brand-black">{item.partner.displayName}</div>
-                    </div>
-                    <button
-                      onClick={() => void handleRemoveFriendStreak(item.id)}
-                      disabled={friendStreakBusy}
-                      className="text-sm font-semibold text-brand-darkGrey hover:text-brand-black disabled:opacity-60"
-                    >
-                      Remove
-                    </button>
-                  </div>
-
-                  <div className="mt-4 flex items-end justify-between">
-                    <div>
-                      <div className="text-sm text-brand-darkGrey">Shared streak</div>
-                      <div className="text-3xl font-bold text-brand-accent">{item.currentSharedStreak}</div>
-                    </div>
-                    <div className="text-right text-sm text-brand-darkGrey">
-                      <div>{item.statusLabel}</div>
-                      <div>Best: {item.bestSharedStreak}</div>
-                    </div>
-                  </div>
-
-                  {item.lastSharedActivity && (
-                    <div className="mt-3 text-xs text-brand-darkGrey">
-                      Last shared day: {new Date(item.lastSharedActivity).toLocaleDateString('hu-HU')}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </main>
-    </div>
+            </Stack>
+          </Card>
+        </Stack>
+      </Container>
+    </Box>
   );
 }

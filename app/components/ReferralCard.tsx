@@ -10,6 +10,22 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
+import {
+  Avatar,
+  Badge,
+  Button,
+  Card,
+  Code,
+  Group,
+  Loader,
+  Paper,
+  SimpleGrid,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import { IconBrandWhatsapp, IconGift, IconLink, IconMail, IconShare3, IconTargetArrow } from '@tabler/icons-react';
 
 interface ReferralData {
   referralCode: string;
@@ -93,12 +109,11 @@ export function ReferralCard() {
 
   if (loading) {
     return (
-      <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-darkGrey/25">
-        <div className="animate-pulse">
-          <div className="h-6 bg-brand-darkGrey/20 rounded w-1/3 mb-4"></div>
-          <div className="h-20 bg-brand-darkGrey/20 rounded"></div>
-        </div>
-      </div>
+      <Card padding="lg" withBorder>
+        <Group justify="center" py="lg">
+          <Loader color="amanoba" size="sm" />
+        </Group>
+      </Card>
     );
   }
 
@@ -107,52 +122,55 @@ export function ReferralCard() {
   }
 
   return (
-    <div className="bg-brand-white rounded-xl shadow-lg p-6 border-2 border-brand-darkGrey/25">
-      <h3 className="text-xl font-bold text-brand-black mb-4 flex items-center gap-2">
-        <span>🎁</span>
-        {t('inviteFriends')}
-      </h3>
+    <Card padding="lg" withBorder>
+      <Stack gap="md">
+        <Group gap="xs">
+          <ThemeIcon color="amanoba" variant="light" radius="xl">
+            <IconGift size={20} />
+          </ThemeIcon>
+          <Title order={2} size="h3">{t('inviteFriends')}</Title>
+        </Group>
 
-      {/* Referral Code Display */}
-      <div className="bg-brand-darkGrey/10 rounded-lg p-4 mb-4">
-        <p className="text-sm text-brand-darkGrey mb-2">{t('yourReferralCode')}</p>
-        <div className="flex items-center gap-2">
-          <code className="flex-1 text-2xl font-bold text-brand-black tracking-wider">
+        <Paper bg="gray.0" p="md" withBorder>
+          <Stack gap="sm">
+            <Text size="sm" c="dimmed">{t('yourReferralCode')}</Text>
+            <Group gap="sm" align="center">
+              <Code fz="xl" fw={800} style={{ letterSpacing: '0.08em', flex: 1 }}>
             {referralData.referralCode}
-          </code>
-          <button
+              </Code>
+              <Button
             onClick={() => copyToClipboard(referralData.referralCode)}
-            className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg hover:bg-brand-primary-400 transition-colors text-sm font-medium font-bold"
+                color="amanoba"
           >
             {copied ? '✓ ' + tCommon('copied') : t('copy')}
-          </button>
-        </div>
-      </div>
+              </Button>
+            </Group>
+          </Stack>
+        </Paper>
 
-      {/* Share Buttons */}
-      <div className="grid grid-cols-2 gap-3 mb-4">
-        <button
+        <SimpleGrid cols={2} spacing="sm">
+          <Button
           onClick={() => copyToClipboard(referralData.shareUrl)}
-          className="flex items-center justify-center gap-2 px-4 py-3 bg-brand-darkGrey hover:bg-brand-secondary-700 rounded-lg transition-colors font-medium text-brand-white font-bold"
+            variant="default"
+            leftSection={<IconLink size={18} />}
         >
-          <span>🔗</span>
           {t('copyLink')}
-        </button>
-        <button
+          </Button>
+          <Button
           onClick={shareViaWhatsApp}
-          className="flex items-center justify-center gap-2 px-4 py-3 ds-button-success rounded-lg transition-colors font-medium font-bold"
+            color="green"
+            leftSection={<IconBrandWhatsapp size={18} />}
         >
-          <span>📱</span>
           WhatsApp
-        </button>
-        <button
+          </Button>
+          <Button
           onClick={shareViaEmail}
-          className="flex items-center justify-center gap-2 px-4 py-3 bg-brand-darkGrey hover:bg-brand-secondary-700 text-brand-white rounded-lg transition-colors font-medium font-bold"
+            variant="default"
+            leftSection={<IconMail size={18} />}
         >
-          <span>✉️</span>
           Email
-        </button>
-        <button
+          </Button>
+          <Button
           onClick={() => {
             if (navigator.share) {
               navigator.share({
@@ -162,82 +180,82 @@ export function ReferralCard() {
               });
             }
           }}
-          className="flex items-center justify-center gap-2 px-4 py-3 bg-brand-accent hover:bg-brand-primary-400 text-brand-black rounded-lg transition-colors font-medium font-bold"
+            color="amanoba"
+            leftSection={<IconShare3 size={18} />}
         >
-          <span>📤</span>
           {t('share')}
-        </button>
-      </div>
+          </Button>
+        </SimpleGrid>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-2 gap-4 mb-4">
-        <div className="bg-brand-darkGrey/10 rounded-lg p-3 text-center">
-          <div className="text-2xl font-bold text-brand-black">
+        <SimpleGrid cols={2} spacing="sm">
+          <Paper bg="gray.0" p="md" withBorder>
+            <Text ta="center" size="xl" fw={800}>
             {referralData.stats.totalReferrals}
-          </div>
-          <div className="text-xs text-brand-darkGrey">{t('friendsInvited')}</div>
-        </div>
-        <div className="bg-brand-darkGrey/10 rounded-lg p-3 text-center">
-          <div className="text-2xl font-bold text-brand-black">
+            </Text>
+            <Text ta="center" size="xs" c="dimmed">{t('friendsInvited')}</Text>
+          </Paper>
+          <Paper bg="gray.0" p="md" withBorder>
+            <Text ta="center" size="xl" fw={800}>
             {referralData.stats.totalPointsEarned}
-          </div>
-          <div className="text-xs text-brand-darkGrey">{t('pointsEarned')}</div>
-        </div>
-      </div>
+            </Text>
+            <Text ta="center" size="xs" c="dimmed">{t('pointsEarned')}</Text>
+          </Paper>
+        </SimpleGrid>
 
-      {/* Referred Friends List */}
       {referralData.referrals.length > 0 && (
-        <div>
-          <h4 className="text-sm font-semibold text-brand-black mb-2">
+          <Stack gap="sm">
+            <Text size="sm" fw={700}>
             {t('referredFriends')} ({referralData.referrals.length})
-          </h4>
-          <div className="space-y-2 max-h-48 overflow-y-auto">
+            </Text>
+            <Stack gap="xs" mah={192} style={{ overflowY: 'auto' }}>
             {referralData.referrals.map((referral) => (
-              <div
-                key={referral.id}
-                className="flex items-center justify-between p-3 bg-brand-darkGrey/10 rounded-lg"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-brand-darkGrey/15 rounded-full flex items-center justify-center text-brand-black font-bold">
-                    {referral.referredPlayer.displayName.charAt(0)}
-                  </div>
-                  <div>
-                    <div className="font-medium text-brand-black text-sm">
+                <Paper key={referral.id} bg="gray.0" p="sm" withBorder>
+                  <Group justify="space-between" gap="sm">
+                    <Group gap="sm">
+                      <Avatar color="gray" radius="xl">
+                        {referral.referredPlayer.displayName.charAt(0)}
+                      </Avatar>
+                      <Stack gap={0}>
+                        <Text size="sm" fw={700}>
                       {referral.referredPlayer.displayName}
-                    </div>
-                    <div className="text-xs text-brand-darkGrey">
+                        </Text>
+                        <Text size="xs" c="dimmed">
                       {new Date(referral.referredPlayer.joinedAt).toLocaleDateString('hu-HU')}
-                    </div>
-                  </div>
-                </div>
-                <div className="text-right">
+                        </Text>
+                      </Stack>
+                    </Group>
                   {referral.status === 'completed' ? (
-                    <div className="ds-text-success text-sm font-medium">
+                      <Badge color="green">
                       +{referral.rewardDetails?.pointsEarned || 0} {tCommon('points')}
-                    </div>
+                      </Badge>
                   ) : (
-                    <div className="text-brand-darkGrey text-xs">
+                      <Badge color="gray" variant="light">
                       {t('pending')}
-                    </div>
+                      </Badge>
                   )}
-                </div>
-              </div>
+                  </Group>
+                </Paper>
             ))}
-          </div>
-        </div>
+            </Stack>
+          </Stack>
       )}
 
-      {/* How it Works */}
       {referralData.referrals.length === 0 && (
-        <div className="bg-brand-darkGrey/10 rounded-lg p-4 text-sm text-brand-black">
-          <p className="font-semibold mb-2">🎯 {t('howItWorks')}</p>
-          <ol className="list-decimal list-inside space-y-1 text-xs">
-            <li>{t('step1')}</li>
-            <li>{t('step2')}</li>
-            <li>{t('step3')}</li>
-          </ol>
-        </div>
+          <Paper bg="gray.0" p="md" withBorder>
+            <Stack gap="xs">
+              <Group gap="xs">
+                <ThemeIcon color="amanoba" variant="light" radius="xl" size="sm">
+                  <IconTargetArrow size={16} />
+                </ThemeIcon>
+                <Text fw={700}>{t('howItWorks')}</Text>
+              </Group>
+              <Text size="xs" c="dimmed">{t('step1')}</Text>
+              <Text size="xs" c="dimmed">{t('step2')}</Text>
+              <Text size="xs" c="dimmed">{t('step3')}</Text>
+            </Stack>
+          </Paper>
       )}
-    </div>
+      </Stack>
+    </Card>
   );
 }
