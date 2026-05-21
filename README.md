@@ -47,12 +47,13 @@ Amanoba is transforming into a **unified flexible learning platform** that combi
 - **Database**: MongoDB Atlas with Mongoose 8.18.0
 - **Language**: TypeScript 5
 - **Design/UI/UX SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
-- **Styling**: Tailwind CSS 3.4.11 with local token utilities as the current legacy adapter pending Mantine migration
+- **UI Runtime**: Mantine 8.3.18 root runtime installed; product UI is migrating from the legacy Tailwind/Radix adapter
+- **Styling**: Tailwind CSS 3.4.11 with local token utilities as the current legacy adapter pending full Mantine migration
 - **Email**: Provider-selectable transport (`EMAIL_PROVIDER=resend|smtp|mailgun`) for lesson delivery and transactional emails
 - **Rich Text Editor**: TipTap for course content creation
 - **i18n**: next-intl for multi-language support (Hungarian default, English)
 - **Animation**: Framer Motion 10.18.0
-- **UI Components**: Radix UI primitives in the current adapter; target system is the shared Mantine contract
+- **UI Components**: Mantine runtime plus Radix UI primitives in the current adapter; target system is the shared Mantine contract
 - **Charts**: Recharts 3.2.1
 - **State Management**: TanStack React Query
 - **Validation**: Zod (XSS protection)

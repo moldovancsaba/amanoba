@@ -62,11 +62,17 @@
     "ui:audit:layout": "node --import tsx scripts/audit-layout-grammar-ui.ts --write",
     "ui:check:layout": "node --import tsx scripts/audit-layout-grammar-ui.ts --check",
     "ui:audit:foundation": "node --import tsx scripts/audit-ui-foundation.ts --write",
-    "ui:check:foundation": "node --import tsx scripts/audit-ui-foundation.ts --check"
+    "ui:check:foundation": "node --import tsx scripts/audit-ui-foundation.ts --check",
+    "ui:check:mantine": "node scripts/check-mantine-boundaries.mjs"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.2",
     "@hookform/resolvers": "^3.9.0",
+    "@mantine/core": "^8.3.18",
+    "@mantine/form": "^8.3.18",
+    "@mantine/hooks": "^8.3.18",
+    "@mantine/modals": "^8.3.18",
+    "@mantine/notifications": "^8.3.18",
     "@next/env": "^15.5.18",
     "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-label": "^2.1.0",
@@ -78,6 +84,7 @@
     "@radix-ui/react-toast": "^1.2.1",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@stripe/stripe-js": "^8.6.1",
+    "@tabler/icons-react": "^3.44.0",
     "@tanstack/react-query": "^5.56.2",
     "@tiptap/extension-link": "^3.15.3",
     "@tiptap/extension-placeholder": "^3.15.3",

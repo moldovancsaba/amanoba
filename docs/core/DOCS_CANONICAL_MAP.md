@@ -40,7 +40,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/core/LEARNINGS.md` | Amanoba Learnings | 76.8 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/core/NAMING_GUIDE.md` | Amanoba Naming Guide | 10.8 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/OLLAMA_TASKLIST_FOR_AGENT.md` | Ollama setup task list (for agent) | 5.7 KB | — | Unclassified; keep pending human review. |
-| KEEP | `docs/core/TECH_STACK.md` | Technology Stack | 4.1 KB | — | Listed in DOCS_INDEX.md (core docs section). |
+| KEEP | `docs/core/TECH_STACK.md` | Technology Stack | 4.4 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/core/templates/FEATURE_TEMPLATE.md` | YYYY-MM-DD Feature Title | 247 B | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/WARP.DEV_AI_CONVERSATION.md` | Amanoba Development Planning Log | 17.1 KB | — | Reference notes (kept but not canonical). |
 | KEEP | `docs/core/WARP.md` | Amanoba – AI Assistant Guide (WARP.md) | 12.5 KB | — | Reference notes (kept but not canonical). |
@@ -68,12 +68,12 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 4.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | MVP Factory Project — one-time setup (grant project scope) | 1.2 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Prompt for Next Context Window | 2.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
-| KEEP | `docs/HANDOVER.md` | Amanoba — Developer Handover | 67.6 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
+| KEEP | `docs/HANDOVER.md` | Amanoba — Developer Handover | 68.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/i18n/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/i18n/LANGUAGE_DROPDOWN_PROBLEM_LOG.md` | Language dropdown / i18n problem — collected information | 13.1 KB | — | Unclassified; keep pending human review. |
-| KEEP | `docs/product/DESIGN_UPDATE.md` | Design System Adapter Status | 4.4 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
+| KEEP | `docs/product/DESIGN_UPDATE.md` | Design System Adapter Status | 5.4 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` | Developer Feedback Analysis | 7.2 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/product/NEXT_PHASES.md` | Next Phases: Detailed Implementation Plan | 13.6 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/product/P3_KNOWN_ISSUES_BACKLOG.md` | P3 Known Issues — Backlog | 2.0 KB | — | Unclassified; keep pending human review. |

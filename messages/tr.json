@@ -67,7 +67,7 @@
     "or": "veya",
     "termsOfService": "Hizmet koşulları",
     "privacyPolicy": "Gizlilik politikası",
-    "byContinuing": "Devam ederek {{appName}}'nin",
+    "byContinuing": "Devam ederek {appName}'nin",
     "and": "ve",
     "noActiveStreaks": "Henüz aktif seri yok. Öğrenmeye başlamak için bir kursa kaydolun!",
     "enrollInCourse": "Kursa kaydolun"

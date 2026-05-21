@@ -67,7 +67,7 @@
     "or": "या",
     "termsOfService": "सेवा की शर्तें",
     "privacyPolicy": "गोपनीयता नीति",
-    "byContinuing": "जारी रखकर आप {{appName}} की",
+    "byContinuing": "जारी रखकर आप {appName} की",
     "and": "और",
     "noActiveStreaks": "अभी तक कोई सक्रिय सीरीज़ नहीं। सीखना शुरू करने के लिए किसी पाठ्यक्रम में नामांकन करें!",
     "enrollInCourse": "पाठ्यक्रम में नामांकन करें"

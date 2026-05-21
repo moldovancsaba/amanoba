@@ -6,8 +6,10 @@
  */
 
 import type { Metadata, Viewport } from "next";
+import { ColorSchemeScript } from "@mantine/core";
 import { Inter, Noto_Sans, Playfair_Display, Afacad } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { MantineRuntimeProvider } from "@/app/components/providers/MantineRuntimeProvider";
 import { ConsentProvider } from "@/app/components/providers/ConsentProvider";
 import SessionProvider from "@/components/session-provider";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -19,6 +21,8 @@ import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
 import { APP_URL, THEME_COLOR } from '@/app/lib/constants/app-url';
 import OrganizationWebSiteJsonLd from '@/app/components/OrganizationWebSiteJsonLd';
+import "@mantine/core/styles.css";
+import "@mantine/notifications/styles.css";
 import "../globals.css";
 import "../mobile-styles.css";
 
@@ -131,6 +135,9 @@ export default async function LocaleLayout({
       className={`${notoSans.variable} ${inter.variable} ${playfair.variable} ${afacad.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <ColorSchemeScript defaultColorScheme="auto" />
+      </head>
       <body
         dir={direction}
         className="antialiased bg-brand-white dark:bg-brand-black text-brand-black dark:text-brand-white"
@@ -146,13 +153,15 @@ export default async function LocaleLayout({
                 enableSystem
                 disableTransitionOnChange
               >
-                {/* Main content wrapper */}
-                <div className="min-h-screen flex flex-col">
-                  {children}
-                </div>
-                {/* Cookie Consent Banner */}
-                <CookieConsentBanner />
-                <ServiceWorkerRegister />
+                <MantineRuntimeProvider>
+                  {/* Main content wrapper */}
+                  <div className="min-h-screen flex flex-col">
+                    {children}
+                  </div>
+                  {/* Cookie Consent Banner */}
+                  <CookieConsentBanner />
+                  <ServiceWorkerRegister />
+                </MantineRuntimeProvider>
               </ThemeProvider>
             </SessionProvider>
           </ConsentProvider>

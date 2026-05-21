@@ -14,7 +14,13 @@
 
 ### Styling & Design
 - **Design/UI/UX SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
-- **Target UI foundation**: Mantine-only shared contract; Amanoba is migrating from the current adapter below.
+- **Target UI foundation**: Mantine-only shared contract; Amanoba now has the root Mantine runtime installed and is migrating remaining product UI from the current adapter below.
+- **@mantine/core**: 8.3.18
+- **@mantine/hooks**: 8.3.18
+- **@mantine/form**: 8.3.18
+- **@mantine/notifications**: 8.3.18
+- **@mantine/modals**: 8.3.18
+- **@tabler/icons-react**: 3.44.0
 - **Tailwind CSS**: 3.4.11
 - **PostCSS**: 8.5.14
 - **Autoprefixer**: 10.4.20
@@ -24,7 +30,7 @@
 - **clsx**: 2.1.1
 
 ### UI Components
-- **Current adapter**: Radix UI primitives plus local shared primitives.
+- **Current runtime**: Mantine root runtime plus legacy Radix UI primitives and local shared primitives during migration.
 - **Target adapter**: Mantine primitives and thin project wrappers aligned to `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENT_CONTRACTS.md`.
 - **@radix-ui/react-dialog**: 1.1.2
 - **@radix-ui/react-label**: 2.1.0

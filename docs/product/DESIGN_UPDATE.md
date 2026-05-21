@@ -1,7 +1,7 @@
 # Design System Adapter Status
 
 **Last Updated**: 2026-05-21
-**Status**: Shared SSOT adopted; Amanoba implementation adapter still migrating
+**Status**: Shared SSOT adopted; Mantine root runtime installed; legacy adapter still migrating
 
 ---
 
@@ -40,16 +40,35 @@ Use that plan for migration sequencing, legacy inventory, enforcement rules, fir
 
 **Aligned SSOT version/date**: `1.2.3`, 2026-05-21
 **Status**: Migrating
-**Current UI foundation**: Tailwind CSS + Radix primitives + local CSS/token utilities
+**Current UI foundation**: Mantine root runtime plus legacy Tailwind CSS + Radix primitives + local CSS/token utilities
 **Target UI foundation**: Mantine-only contract from the shared SSOT
 
 Local adapter files:
 
+- `app/components/providers/MantineRuntimeProvider.tsx` — current Mantine root runtime provider.
+- `app/lib/ui/mantine-theme.ts` — current Amanoba Mantine theme and first component-default layer.
 - `app/design-system.css` — legacy CSS-variable adapter for brand, semantic, surface, border, text, motion, and external-brand colors.
 - `tailwind.config.ts` — legacy Tailwind aliases exposing local tokens to components through `brand.*`, `primary.*`, `semantic.*`, and `social.*`.
 - `app/globals.css` — shared shell/panel/page utility classes such as `.page-shell`, `.page-card`, `.ds-panel`, `.ds-panel-dark`, and `.ds-copy-muted`.
 - `app/components/ui/button.tsx` and `app/components/ui/card.tsx` — current shared primitives that must follow the shared component contracts until replaced by Mantine wrappers.
 - `app/lib/constants/color-tokens.ts` and `app/lib/constants/certificate-colors.ts` — non-CSS token sources for emails, OG/certificate image rendering, charts, and similar server-rendered contexts.
+
+## Phase 1 Runtime Status
+
+Implemented:
+
+- Mantine package baseline: `@mantine/core`, `@mantine/hooks`, `@mantine/form`, `@mantine/notifications`, `@mantine/modals`, and `@tabler/icons-react`.
+- Root runtime wiring in `app/[locale]/layout.tsx`.
+- Central `MantineProvider`, `ModalsProvider`, and `Notifications` setup.
+- Initial Amanoba theme in `app/lib/ui/mantine-theme.ts`.
+- Initial guardrail command: `npm run ui:check:mantine`.
+
+Still pending:
+
+- migration of existing Tailwind/Radix surfaces to Mantine primitives
+- replacement of current shared `Button` and `Card` primitives
+- deletion of Radix/Tailwind/sonner/vaul dependencies after product UI no longer uses them
+- updated hard checks that reject all non-Mantine product primitives after the migration baseline is low enough
 
 ## Hard Rules During Migration
 
@@ -63,6 +82,7 @@ Local adapter files:
 ## Known Migration Debt
 
 - The app is not Mantine-only yet.
+- The app now has a Mantine root runtime, but most product UI still renders through the legacy adapter.
 - Radix primitives and Tailwind utility classes remain the active runtime implementation.
 - Heuristic UI drift remains in older admin, game, profile, and certificate surfaces.
 - Some historical release notes and archive documents still describe older local design-system states for audit history.
@@ -78,8 +98,8 @@ Use `npm run ui:audit:foundation` and `npm run ui:audit:layout` to refresh gener
 
 ## Next Migration Targets
 
-1. Complete Phase 0 from `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECTS/AMANOBA_MANTINE_REFACTOR.md`: freeze new legacy product UI primitives, define the direct-vs-wrapper policy, and approve Phase 1 scope.
-2. Implement Phase 1 root Mantine runtime: dependencies, provider, theme, notifications, modals, and initial guardrail.
-3. Replace core primitives first: buttons, action icons, text inputs, selects, alerts, modals, cards, and tables.
-4. Migrate learner-critical flows before secondary surfaces.
+1. Complete the Phase 1 proof surface: migrate one small shared primitive or learner-facing surface to Mantine.
+2. Replace core primitives first: buttons, action icons, text inputs, selects, alerts, modals, cards, and tables.
+3. Migrate learner-critical flows before secondary surfaces.
+4. Tighten `npm run ui:check:mantine` as legacy imports disappear.
 5. Retire local Tailwind/Radix design authority after parity is reached.

@@ -802,3 +802,21 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ### Notes
 - Amanoba is not Mantine-only yet. The active runtime still uses the legacy Tailwind/Radix adapter while the migration plan now points to the shared Mantine contract.
+
+## Mantine root runtime implementation (2026-05-21)
+
+### What changed
+- Installed the Mantine Phase 1 package baseline: `@mantine/core`, `@mantine/hooks`, `@mantine/form`, `@mantine/notifications`, `@mantine/modals`, and `@tabler/icons-react`.
+- Added the initial Amanoba Mantine theme in `app/lib/ui/mantine-theme.ts`.
+- Added the root Mantine runtime provider in `app/components/providers/MantineRuntimeProvider.tsx`, including `MantineProvider`, `ModalsProvider`, and `Notifications`.
+- Wired the Mantine runtime into `app/[locale]/layout.tsx` under the existing theme/session/consent providers.
+- Added `npm run ui:check:mantine` via `scripts/check-mantine-boundaries.mjs` to block new Radix, `sonner`, and `vaul` product UI imports and contain legacy Tailwind helper imports.
+- Fixed malformed ICU interpolation in `messages/*` `common.byContinuing` strings (`{{appName}}` -> `{appName}`) after the local sign-in smoke check exposed a runtime translation error.
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `curl -L --max-time 20 -s http://localhost:3000/en/auth/signin` ✅ returned HTML after the ICU fix
+
+### Notes
+- This is the root-runtime slice, not the full UI conversion. Existing screens still need migration from Tailwind/Radix/local CSS to Mantine primitives or thin Mantine wrappers.

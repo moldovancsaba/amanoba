@@ -67,7 +67,7 @@
     "or": "Or",
     "termsOfService": "Terms of Service",
     "privacyPolicy": "Privacy Policy",
-    "byContinuing": "By continuing, you agree to {{appName}}'s",
+    "byContinuing": "By continuing, you agree to {appName}'s",
     "and": "and",
     "noActiveStreaks": "No active streaks yet. Enrol in a course to start learning!",
     "enrollInCourse": "Enrol in a course"
