@@ -16,6 +16,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
+import { Button, Stack, Text } from '@mantine/core';
+import { notifications } from '@mantine/notifications';
+import { IconLoader2, IconUser } from '@tabler/icons-react';
 
 export function AnonymousLoginButton() {
   const [loading, setLoading] = useState(false);
@@ -66,39 +69,31 @@ export function AnonymousLoginButton() {
     } catch (error) {
       console.error('Anonymous login failed:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      alert(`Failed to create anonymous session: ${errorMessage}`);
+      notifications.show({
+        color: 'red',
+        title: 'Failed to create anonymous session',
+        message: errorMessage,
+      });
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <>
-      <button
+    <Stack gap="xs">
+      <Button
         onClick={handleAnonymousLogin}
-        disabled={loading}
-        className="w-full bg-brand-darkGrey hover:bg-brand-secondary-700 text-brand-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center gap-3 shadow hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+        loading={loading}
+        variant="default"
+        size="lg"
+        fullWidth
+        leftSection={loading ? <IconLoader2 size={20} /> : <IconUser size={20} />}
       >
-        {loading ? (
-          <>
-            <svg className="animate-spin h-6 w-6" fill="none" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-            </svg>
-            {t('creatingAccount')}
-          </>
-        ) : (
-          <>
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-            {t('continueWithoutRegistration')}
-          </>
-        )}
-      </button>
-      <p className="mt-2 text-center text-xs text-brand-darkGrey">
+        {loading ? t('creatingAccount') : t('continueWithoutRegistration')}
+      </Button>
+      <Text ta="center" size="xs" c="dimmed">
         {t('tryGamesInstantly')}
-      </p>
-    </>
+      </Text>
+    </Stack>
   );
 }
