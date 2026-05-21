@@ -18,17 +18,19 @@ Read in this order:
 1. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/README.md`
 2. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/FOUNDATION.md`
 3. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/MANTINE_PLATFORM.md`
-4. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENT_CONTRACTS.md`
-5. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/NAVIGATION_RESPONSIVE.md`
-6. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/UX_PATTERNS.md`
-7. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/GOVERNANCE.md`
-8. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECT_ADOPTION.md`
+4. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/MANTINE_RUNTIME.md`
+5. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENT_CONTRACTS.md`
+6. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/NAVIGATION_RESPONSIVE.md`
+7. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/UX_PATTERNS.md`
+8. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/GOVERNANCE.md`
+9. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECT_ADOPTION.md`
+10. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/IMPLEMENTATION_READINESS.md`
 
 The shared SSOT is managed as its own Git repository. Amanoba should reference its version/date when major UI migration work is done.
 
 ## Local Adapter
 
-**Aligned SSOT version/date**: `1.1.0`, 2026-05-21
+**Aligned SSOT version/date**: `1.2.3`, 2026-05-21
 **Status**: Migrating
 **Current UI foundation**: Tailwind CSS + Radix primitives + local CSS/token utilities
 **Target UI foundation**: Mantine-only contract from the shared SSOT

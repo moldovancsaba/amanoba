@@ -169,7 +169,7 @@ The shared folder governs design, UI, UX, component contracts, and design-system
 | Language | TypeScript | 5.3.3 |
 | Database | MongoDB Atlas | 6.18.0 |
 | ODM | Mongoose | 8.18.0 |
-| Design/UI/UX SSOT | `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` | 1.1.0 |
+| Design/UI/UX SSOT | `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` | 1.2.3 |
 | Styling adapter | Tailwind CSS | 3.4.11 |
 | Current UI components | Radix UI | Various |
 | Animation | Framer Motion | 10.18.0 |
