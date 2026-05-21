@@ -970,3 +970,23 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ### Notes
 - The full admin course editor page still has legacy Tailwind/lucide/native form markup and should be handled as a dedicated large conversion slice. Its shared quiz manager modal and Markdown editor dependency are now Mantine-only.
+
+## Admin course editor Mantine conversion (2026-05-21)
+
+### What changed
+- Converted `app/[locale]/admin/courses/[courseId]/page.tsx` to Mantine and Tabler primitives.
+- Replaced the remaining legacy Tailwind/native controls in that editor for course metadata, editor assignment, premium pricing, lesson quiz policy, certification, feature toggles, short-course creation, parent sync controls, lesson cards, import/export, thumbnail upload, and the lesson form modal.
+- Replaced browser `alert`/`confirm` usage in the editor with Mantine notifications and confirmation modals.
+
+### Verification
+- focused `npx eslint app/[locale]/admin/courses/[courseId]/page.tsx` ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run ui:check:layout` ✅ pass
+- `git diff --check` ✅ pass
+
+### Notes
+- The admin course editor is no longer the largest known Mantine-only gap.
+- Remaining broad legacy UI is now concentrated in secondary profile/account/admin-list/game/challenge/reward surfaces and should be handled as surface-specific migration work.

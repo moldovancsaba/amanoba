@@ -61,10 +61,11 @@ Current in-flight branch:
 - Current continuation also converted the enrolled lesson runtime page wrapper/actions to Mantine primitives, including lesson completion, quiz gating, saved lessons, assessment launch feedback, voting, and locked-lesson recovery.
 - Latest continuation converted learner-critical course UX surfaces to Mantine primitives: lesson quiz runtime, final exam, saved lessons, Practice Hub, dashboard/referral card, sign-in/anonymous login, and public certificate verification.
 - Latest continuation converted authoring surfaces to Mantine primitives: new course admin form, quiz manager modal, editor lesson page, and Markdown lesson editor.
+- Current continuation converted the full admin course editor to Mantine primitives, including course metadata, editor assignment, premium/certification settings, feature toggles, short-course creation, parent sync controls, lesson cards, import/export, thumbnail upload, and the lesson form modal.
 - Legacy local UI adapters `app/components/ui/button.tsx`, `app/components/ui/card.tsx`, `app/components/ui/rich-text-editor.tsx`, and `app/lib/utils/cn.ts` were retired; `class-variance-authority`, `clsx`, and `tailwind-merge` were removed from app dependencies.
 - UI audit scripts now ignore tracked files that are staged for deletion so Mantine/foundation/layout checks stay usable during cleanup commits.
 - The shared design-system repo was updated in `PROJECTS/AMANOBA_MANTINE_REFACTOR.md` to record Amanoba as in-progress, Phase 0/1 complete, current course-surface progress, and remaining high-priority gaps.
-- The full admin course editor page remains the largest known Mantine-only gap and should be tackled as a dedicated conversion slice.
+- The largest remaining Mantine-only gaps are now secondary learner/profile/certificate pages, admin list/settings pages, and game/challenge/reward chrome.
 - `content/news-posts.json` may be dirty from the release/news automation lane; do not include or overwrite it unless the current task explicitly concerns news publishing.
 
 Recently closed foundation/docs lane:
