@@ -669,7 +669,12 @@
     "revenueThisMonth": "इस महीने की आय",
     "growthRate": "विकास दर",
     "player": "उपयोगकर्ता",
-    "noDataFound": "कोई डेटा नहीं"
+    "noDataFound": "कोई डेटा नहीं",
+    "thisMonth": "This month",
+    "manageCourses": "Manage Courses",
+    "noRecentActivity": "No recent activity",
+    "operationalSignals": "Operational Signals",
+    "activeSessions": "Active Sessions"
   },
   "errors": {
     "notFound": "नहीं मिला",

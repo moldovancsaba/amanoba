@@ -669,7 +669,12 @@
     "revenueThisMonth": "Pendapatan bulan ini",
     "growthRate": "Tingkat pertumbuhan",
     "player": "Pengguna",
-    "noDataFound": "Tidak ada data"
+    "noDataFound": "Tidak ada data",
+    "thisMonth": "This month",
+    "manageCourses": "Manage Courses",
+    "noRecentActivity": "No recent activity",
+    "operationalSignals": "Operational Signals",
+    "activeSessions": "Active Sessions"
   },
   "errors": {
     "notFound": "Tidak ditemukan",

@@ -669,7 +669,12 @@
     "revenueThisMonth": "الإيرادات هذا الشهر",
     "growthRate": "معدل النمو",
     "player": "المستخدم",
-    "noDataFound": "لا توجد بيانات"
+    "noDataFound": "لا توجد بيانات",
+    "thisMonth": "This month",
+    "manageCourses": "Manage Courses",
+    "noRecentActivity": "No recent activity",
+    "operationalSignals": "Operational Signals",
+    "activeSessions": "Active Sessions"
   },
   "errors": {
     "notFound": "غير موجود",

@@ -669,7 +669,12 @@
     "revenueThisMonth": "Przychody w tym miesiącu",
     "growthRate": "Tempo wzrostu",
     "player": "Użytkownik",
-    "noDataFound": "Brak danych"
+    "noDataFound": "Brak danych",
+    "thisMonth": "This month",
+    "manageCourses": "Manage Courses",
+    "noRecentActivity": "No recent activity",
+    "operationalSignals": "Operational Signals",
+    "activeSessions": "Active Sessions"
   },
   "errors": {
     "notFound": "Nie znaleziono",

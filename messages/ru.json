@@ -710,7 +710,12 @@
     "revenueThisMonth": "Доход за месяц",
     "growthRate": "Рост",
     "player": "Пользователь",
-    "noDataFound": "Нет данных"
+    "noDataFound": "Нет данных",
+    "thisMonth": "This month",
+    "manageCourses": "Manage Courses",
+    "noRecentActivity": "No recent activity",
+    "operationalSignals": "Operational Signals",
+    "activeSessions": "Active Sessions"
   },
   "consent": {
     "title": "Согласие на использование cookie",

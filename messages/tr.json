@@ -669,7 +669,12 @@
     "revenueThisMonth": "Bu ay gelir",
     "growthRate": "Büyüme oranı",
     "player": "Kullanıcı",
-    "noDataFound": "Veri yok"
+    "noDataFound": "Veri yok",
+    "thisMonth": "This month",
+    "manageCourses": "Manage Courses",
+    "noRecentActivity": "No recent activity",
+    "operationalSignals": "Operational Signals",
+    "activeSessions": "Active Sessions"
   },
   "errors": {
     "notFound": "Bulunamadı",

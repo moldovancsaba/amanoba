@@ -675,7 +675,12 @@
     "revenueThisMonth": "Revenue This Month",
     "growthRate": "Growth Rate",
     "player": "User",
-    "noDataFound": "No data"
+    "noDataFound": "No data",
+    "thisMonth": "This month",
+    "manageCourses": "Manage Courses",
+    "noRecentActivity": "No recent activity",
+    "operationalSignals": "Operational Signals",
+    "activeSessions": "Active Sessions"
   },
   "errors": {
     "notFound": "Not Found",

@@ -669,7 +669,12 @@
     "revenueThisMonth": "Doanh thu tháng này",
     "growthRate": "Tỷ lệ tăng trưởng",
     "player": "Người dùng",
-    "noDataFound": "Không có dữ liệu"
+    "noDataFound": "Không có dữ liệu",
+    "thisMonth": "This month",
+    "manageCourses": "Manage Courses",
+    "noRecentActivity": "No recent activity",
+    "operationalSignals": "Operational Signals",
+    "activeSessions": "Active Sessions"
   },
   "errors": {
     "notFound": "Không tìm thấy",

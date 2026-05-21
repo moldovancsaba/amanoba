@@ -669,7 +669,12 @@
     "revenueThisMonth": "Приходи за този месец",
     "growthRate": "Темп на растеж",
     "player": "Потребител",
-    "noDataFound": "Няма данни"
+    "noDataFound": "Няма данни",
+    "thisMonth": "This month",
+    "manageCourses": "Manage Courses",
+    "noRecentActivity": "No recent activity",
+    "operationalSignals": "Operational Signals",
+    "activeSessions": "Active Sessions"
   },
   "errors": {
     "notFound": "Не е намерено",

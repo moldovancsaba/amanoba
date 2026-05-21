@@ -675,7 +675,12 @@
     "revenueThisMonth": "Havi bevétel",
     "growthRate": "Növekedési arány",
     "player": "Felhasználó",
-    "noDataFound": "Nincs adat"
+    "noDataFound": "Nincs adat",
+    "thisMonth": "This month",
+    "manageCourses": "Manage Courses",
+    "noRecentActivity": "No recent activity",
+    "operationalSignals": "Operational Signals",
+    "activeSessions": "Active Sessions"
   },
   "errors": {
     "notFound": "Nem található",
