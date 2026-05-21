@@ -121,8 +121,8 @@ function formatMarkdown(params: {
   sections.push(`**Generated at**: ${generatedAtISO}`, '');
   sections.push(
     [
-      'This report enforces **hard UI foundation rules** derived from `docs/architecture/layout_grammar.md` (UI layout).',
-      'Goal: a rock-solid, maintainable UI foundation by preventing **raw color literals** (hex/rgb/hsl) from leaking into UI/output code, except in explicit token or asset sources.',
+      'This report enforces **hard UI foundation rules** derived from `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` and the Amanoba adapter rules in `docs/architecture/layout_grammar.md`.',
+      'Goal: a rock-solid, maintainable UI foundation by preventing **raw color literals** (hex/rgb/hsl) from leaking into UI/output code, except in explicit token, adapter, or asset sources.',
       '',
       'This is intentionally stricter than `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` (which is heuristic and counts “likely drift”).',
     ].join('\n'),
@@ -185,7 +185,7 @@ function main() {
       severity: 'blocker',
       include: (file) => !tokenSourceFiles.has(file) && !assetRestrictedFiles.has(file),
       regex: /#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\b|rgba?\(|hsla?\(/g,
-      note: 'Move colors to token sources (`app/design-system.css`, Tailwind brand palette, or a dedicated constants file) and reference those tokens.',
+      note: 'Move colors to approved token/adapter sources (`app/design-system.css`, Tailwind aliases while the adapter exists, or a dedicated constants file) and reference those tokens.',
     },
     {
       id: 'blocker:non-approved-asset-hex',

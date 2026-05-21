@@ -1,97 +1,75 @@
-# Design System Status
+# Design System Adapter Status
 
-**Last Updated**: 2026-05-12
-**Status**: Active foundation, incremental migration still required
-
----
-
-## Current truth
-
-The Amanoba design system is **not fully migrated** across the app. The central foundation exists, but UI drift accumulated in shared primitives and page-level Tailwind classes.
-
-As of this update, the active source of truth is:
-
-1. `app/design-system.css`
-   CSS variables for brand, semantic, surface, border, text, motion, and external-brand colors.
-2. `tailwind.config.ts`
-   Tailwind aliases that expose the CSS-token system to components via `brand.*`, `primary.*`, `semantic.*`, and `social.*`.
-3. `app/globals.css`
-   Shared shell/panel/page utility classes such as `.page-shell`, `.page-card`, `.ds-panel`, `.ds-panel-dark`, and `.ds-copy-muted`.
-4. `app/components/ui/button.tsx` and `app/components/ui/card.tsx`
-   Shared UI primitives that must stay aligned with the token system.
-5. `app/lib/constants/color-tokens.ts` and `app/lib/constants/certificate-colors.ts`
-   Non-CSS token sources for emails, OG/certificate image rendering, charts, and similar server-rendered contexts.
+**Last Updated**: 2026-05-21
+**Status**: Shared SSOT adopted; Amanoba implementation adapter still migrating
 
 ---
 
-## What was broken
+## Current Truth
 
-- Shared UI primitives still used generic template colors (`indigo-*`, `gray-*`) instead of Amanoba brand tokens.
-- Some app pages used raw hard-coded UI colors directly in JSX.
-- Audit scripts wrote to obsolete doc paths (`docs/UI_*`) while the real quality docs live in `docs/quality/`.
-- Older docs claimed the design system was "complete", which no longer matched the codebase.
+`/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` is the single source of truth for Amanoba design, UI, UX, component contracts, and design-system governance.
 
----
+Amanoba's in-repo files describe the current implementation adapter only. They do not override the shared SSOT.
 
-## What is now fixed
+## Shared SSOT
 
-### Shared/editor cleanup
+Read in this order:
 
-- Shared learner-facing components now use semantic design-system utilities for success, warning, and error states instead of ad-hoc `green-*`, `yellow-*`, and `red-*` classes.
-- The editor portal shell and course/lesson pages now use Amanoba shell, panel, brand, and semantic tokens instead of generic `gray-*`, `indigo-*`, and `red-*` palette classes.
-- `tailwind.config.ts` now maps the secondary palette to design-system CSS variables instead of duplicating hard-coded secondary hex values.
+1. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/README.md`
+2. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/FOUNDATION.md`
+3. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/MANTINE_PLATFORM.md`
+4. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENT_CONTRACTS.md`
+5. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/NAVIGATION_RESPONSIVE.md`
+6. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/UX_PATTERNS.md`
+7. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/GOVERNANCE.md`
+8. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECT_ADOPTION.md`
 
-### Shared foundations
+The shared SSOT is managed as its own Git repository. Amanoba should reference its version/date when major UI migration work is done.
 
-- `Button` now defaults to Amanoba brand styling instead of generic template colors.
-- `Card` now supports brand-aligned variants (`default`, `dark`, `subtle`) instead of a generic white/gray shell.
-- New shared surface/text utility classes were added in `app/globals.css` for dark-shell layouts and token-driven panels.
+## Local Adapter
 
-### Token coverage
+**Aligned SSOT version/date**: `1.1.0`, 2026-05-21
+**Status**: Migrating
+**Current UI foundation**: Tailwind CSS + Radix primitives + local CSS/token utilities
+**Target UI foundation**: Mantine-only contract from the shared SSOT
 
-- Google sign-in brand colors are now centralized as CSS variables instead of raw hex values in the sign-in page.
-- Surface, text, and border aliases were added to `app/design-system.css` so shared UI primitives reference the same semantic layer.
-- Tailwind now exposes those token groups under `brand.surface`, `brand.text`, `brand.border`, `semantic`, and `social.google`.
-- `app/globals.css` now includes semantic utility classes for status blocks, state text, and success/warning/danger actions.
+Local adapter files:
 
-### Validation pipeline
+- `app/design-system.css` — legacy CSS-variable adapter for brand, semantic, surface, border, text, motion, and external-brand colors.
+- `tailwind.config.ts` — legacy Tailwind aliases exposing local tokens to components through `brand.*`, `primary.*`, `semantic.*`, and `social.*`.
+- `app/globals.css` — shared shell/panel/page utility classes such as `.page-shell`, `.page-card`, `.ds-panel`, `.ds-panel-dark`, and `.ds-copy-muted`.
+- `app/components/ui/button.tsx` and `app/components/ui/card.tsx` — current shared primitives that must follow the shared component contracts until replaced by Mantine wrappers.
+- `app/lib/constants/color-tokens.ts` and `app/lib/constants/certificate-colors.ts` — non-CSS token sources for emails, OG/certificate image rendering, charts, and similar server-rendered contexts.
 
-- `ui:check:foundation` now points to the canonical quality-doc path under `docs/quality/`.
-- The hard-rule audit is clean for the current codebase after the sign-in raw-color fix.
+## Hard Rules During Migration
 
----
+- Do not add new design rules to Amanoba docs when they belong in `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`.
+- Do not add new raw color literals in tracked UI code outside approved token sources.
+- Do not add new generic template palettes in touched UI code.
+- Do not expand Tailwind/Radix-specific abstractions as if they are the long-term system.
+- Keep CTA yellow reserved for primary actions until the Mantine theme migration replaces the local adapter with shared-theme semantics.
+- New or refactored reusable primitives must be planned against `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENT_CONTRACTS.md`.
 
-## Migration policy
+## Known Migration Debt
 
-### Hard rules
+- The app is not Mantine-only yet.
+- Radix primitives and Tailwind utility classes remain the active runtime implementation.
+- Heuristic UI drift remains in older admin, game, profile, and certificate surfaces.
+- Some historical release notes and archive documents still describe older local design-system states for audit history.
 
-- No raw color literals in tracked UI code outside approved token sources.
-- CTA yellow is reserved for primary actions only.
-- Shared primitives must use the design-system token layer, not ad-hoc Tailwind palettes.
-- Non-CSS rendering contexts must pull colors from `app/lib/constants/color-tokens.ts` or related token files.
-
-### Soft rules
-
-- Existing page-level Tailwind drift can be migrated incrementally.
-- When touching a page, prefer replacing repeated visual patterns with token-driven primitives instead of rewriting entire screens.
-- Games may keep distinct visual personality, but their reusable chrome should still sit on the shared token foundation.
-
----
-
-## Validation commands
+## Validation Commands
 
 - `npm run ui:check:foundation`
 - `npm run ui:check:layout`
 - `npm run lint`
 - `npm run build`
 
-Use `npm run ui:audit:foundation` and `npm run ui:audit:layout` to refresh the quality docs after UI refactors.
+Use `npm run ui:audit:foundation` and `npm run ui:audit:layout` to refresh generated quality docs after UI refactors.
 
----
+## Next Migration Targets
 
-## Next migration targets
-
-1. Admin pages with heavy `indigo-*` / `gray-*` drift, especially achievements and players.
-2. Profile and certificate pages with large counts of token-drift findings.
-3. Remaining legacy admin/game screens that still rely on generic Tailwind palette classes.
-4. Any documentation that still describes the design system as fully migrated.
+1. Define the Amanoba Mantine theme and wrapper map against the shared SSOT.
+2. Replace core primitives first: buttons, action icons, text inputs, selects, alerts, modals, cards, and tables.
+3. Migrate learner-critical flows before secondary surfaces.
+4. Migrate admin/editor high-change screens with explicit loading, empty, error, disabled, and permission states.
+5. Retire local Tailwind/Radix design authority after parity is reached.

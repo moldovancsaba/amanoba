@@ -1,6 +1,6 @@
 # Documentation index
 
-**Last updated**: 2026-05-20
+**Last updated**: 2026-05-21
 **Purpose**: Canonical entrypoint for active Amanoba documentation. Historical phase reports and old handoff snapshots may remain in `docs/`, but the tables below identify current guidance.
 
 **Generated helpers**
@@ -22,6 +22,7 @@
 | **ARCHITECTURE.md** | `docs/architecture/ARCHITECTURE.md` | System architecture and platform overview. |
 | **layout_grammar.md** | `docs/architecture/layout_grammar.md` | Layout, structure, and documentation conventions. |
 | **CODING_STANDARDS.md** | `docs/core/CODING_STANDARDS.md` | Coding standards, design-token rules, and version/doc alignment rules. |
+| **GENERAL_DESIGN_SYSTEM** | `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` | Cross-project design, UI, UX, component contract, and governance SSOT. |
 | **CROSS_REPO_DOCS.md** | `docs/core/CROSS_REPO_DOCS.md` | Portable reference contract for `amanoba` to `amanoba_courses` documentation links. |
 | **TECH_STACK.md** | `docs/core/TECH_STACK.md` | Current framework, infrastructure, provider, and dependency baseline. |
 | **CONTRIBUTING.md** | `docs/core/CONTRIBUTING.md` | Workflow and contributor standards. |
@@ -46,7 +47,7 @@
 | **SSO_IMPLEMENTATION_DETAILS.md** | `docs/sso/SSO_IMPLEMENTATION_DETAILS.md` | SSO architecture and implementation details. |
 | **CERTIFICATION_REFERENCE.md** | `docs/certification/CERTIFICATION_REFERENCE.md` | Certification-related reference index. |
 | **DEPLOYMENT.md** | `docs/deployment/DEPLOYMENT.md` | Deployment and runtime operations baseline. |
-| **DESIGN_UPDATE.md** | `docs/product/DESIGN_UPDATE.md` | Current design-system status, rules, and migration backlog. |
+| **DESIGN_UPDATE.md** | `docs/product/DESIGN_UPDATE.md` | Amanoba adapter status, local exceptions, and migration backlog under the shared design-system SSOT. |
 | **HANDOFF_MVP_FACTORY_CONTROL.md** | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Board handoff and issue workflow model. |
 | **MVP_FACTORY_PROJECT_SETUP.md** | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | One-time project scope setup for board automation. |
 | **AmanobaAuditDocMapping.md** | `docs/handoff/AmanobaAuditDocMapping.md` | Audit SSOT inventory: board workflow, doc-to-code mapping, and quality gates. |

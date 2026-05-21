@@ -124,7 +124,7 @@ Documentation system:
 - Feature/handover documents are referenced from TASKLIST, ROADMAP, RELEASE_NOTES, LEARNINGS, and architecture docs as needed.
 - Feature documents are updated as work progresses
 
-**Layout grammar (mandatory for structure and layout):** When the task involves content structure, course/lesson/quiz layout, UI/page layout, or documentation structure, read and follow **`docs/architecture/layout_grammar.md`** — the single source of truth for project layout grammar (project and doc layout, CCS structure, lesson and quiz structure, UI/design layout, API and locale layout, language rules). Derived from the designer courses and course-quality references now maintained in `amanoba_courses:process_them/docs`, plus the design system. For layout/structure conflicts, `docs/architecture/layout_grammar.md` wins; for course/quiz quality and pipelines, the SSOT set below still applies. Use `docs/core/CROSS_REPO_DOCS.md` for the portable cross-repo reference convention.
+**Layout grammar (mandatory for structure and layout):** When the task involves content structure, course/lesson/quiz layout, UI/page layout, or documentation structure, read and follow **`docs/architecture/layout_grammar.md`** — the single source of truth for project layout grammar (project and doc layout, CCS structure, lesson and quiz structure, UI adapter layout, API and locale layout, language rules). For design, UI, UX, and component contracts, read **`/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`** first; Amanoba's local UI files are an adapter, not the design authority. For course/quiz quality and pipelines, the SSOT set below still applies. Use `docs/core/CROSS_REPO_DOCS.md` for the portable cross-repo reference convention.
 
 “If it’s not documented, it’s not done.”
 
@@ -177,7 +177,7 @@ All dependencies must:
 
 	•	Be security-audited (0 vulnerabilities)
 	•	Have no post-install warnings
-	•	Fit the approved architecture (Next.js App Router, Vercel, MongoDB, Tailwind, Mongoose, Socket.io)
+	•	Fit the approved architecture (Next.js App Router, Vercel, MongoDB, current Tailwind adapter, target Mantine design-system contract, Mongoose, Socket.io)
 
 If in doubt, do not install — ask first.
 

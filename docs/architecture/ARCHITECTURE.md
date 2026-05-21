@@ -1,14 +1,14 @@
 # Amanoba Architecture
 
 **Version**: 2.9.49
-**Last Updated**: 2026-05-20
-**Status**: Active — production course platform with SSO-only auth, gamified learning, content voting, certificate flows, and an active design-system migration
+**Last Updated**: 2026-05-21
+**Status**: Active — production course platform with SSO-only auth, gamified learning, content voting, certificate flows, and a shared design-system SSOT with local adapter migration
 
 ---
 
 ## System Overview
 
-Amanoba is a unified flexible learning platform built on Next.js 15.5.18 (App Router) that combines multi-game infrastructure with a course, quiz, and certification platform. The architecture follows a monolithic serverless design optimized for Vercel deployment with MongoDB Atlas for persistence and a centralized design-token system for UI consistency.
+Amanoba is a unified flexible learning platform built on Next.js 15.5.18 (App Router) that combines multi-game infrastructure with a course, quiz, and certification platform. The architecture follows a monolithic serverless design optimized for Vercel deployment with MongoDB Atlas for persistence and the shared `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` SSOT for design, UI, UX, and component contracts.
 
 ### Core Principles
 
@@ -18,7 +18,7 @@ Amanoba is a unified flexible learning platform built on Next.js 15.5.18 (App Ro
 4. **Type-Safe**: Full TypeScript coverage with strict mode enabled
 5. **Security-First**: Rate limiting, input validation, XSS protection, and anti-cheat on all endpoints
 6. **Reuse via discriminator**: Same feature in 2+ places = one model, one API, one component; discriminator (e.g. `targetType`) selects context. See **docs/product/VOTING_AND_REUSE_PATTERN.md** (unified voting and how to reuse features).
-7. **Design-system first**: UI code should use the token and shared utility layer described in `docs/core/CODING_STANDARDS.md` and `docs/architecture/layout_grammar.md`; do not reintroduce hard-coded template palettes in touched surfaces.
+7. **Shared design-system first**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` is the design/UI/UX SSOT. Amanoba's local Tailwind/Radix files are the current adapter and migration surface only; do not reintroduce hard-coded template palettes in touched surfaces.
 
 ### Lesson quiz governance
 
@@ -33,15 +33,16 @@ Amanoba is a unified flexible learning platform built on Next.js 15.5.18 (App Ro
 ### Frontend
 - **Framework**: Next.js 15.5.18 (App Router)
 - **Language**: TypeScript 5
-- **Styling**: Tailwind CSS 3.4.11 with centralized tokens in `app/design-system.css`, Tailwind aliases in `tailwind.config.ts`, shared utilities in `app/globals.css`, and shared primitives in `app/components/ui/*`
-- **UI Components**: Radix UI primitives
+- **Design/UI/UX SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
+- **Styling**: Tailwind CSS 3.4.11 with centralized local adapter tokens in `app/design-system.css`, Tailwind aliases in `tailwind.config.ts`, shared utilities in `app/globals.css`, and shared primitives in `app/components/ui/*`
+- **UI Components**: Radix UI primitives in the current adapter; target foundation is the shared Mantine contract
 - **Animation**: Framer Motion 10.18.0
 - **State Management**: TanStack React Query 5.56.2
 - **Forms**: React Hook Form 7.53.0 with Zod validation
 - **Charts**: Recharts 3.2.1
 - **Icons**: Lucide React 0.462.0
 - **Utilities**: clsx, tailwind-merge, class-variance-authority
-- **CTA Rule**: CTA yellow (`#FAB908`) is exclusive to primary actions via tokens `--cta-bg`, `--cta-bg-hover`, `--cta-text`, `--cta-shadow`; non-CTA elements must use neutral/secondary palette.
+- **CTA Rule**: CTA yellow (`#FAB908`) remains exclusive to primary actions in the current adapter via tokens `--cta-bg`, `--cta-bg-hover`, `--cta-text`, `--cta-shadow`; non-CTA elements must use neutral/secondary palette until the Mantine theme migration replaces this local rule with shared-theme semantics.
 
 ### Backend
 - **Runtime**: Node.js >= 20.0.0

@@ -194,7 +194,7 @@ function formatMarkdown(params: {
   sections.push(mdTable(topFilesRows, ['File', 'Group', 'Findings']), '');
   sections.push('## Rules checked (what counts as a “defect”)', '');
   sections.push(
-    'These rules are derived from `docs/architecture/layout_grammar.md` (§ UI layout) + the design tokens in `app/design-system.css` and Tailwind brand colors (`tailwind.config.ts`).',
+    'These rules are derived from `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` plus the Amanoba adapter rules in `docs/architecture/layout_grammar.md` (§ UI layout). `app/design-system.css` and `tailwind.config.ts` are adapter sources, not design authority.',
     '',
   );
   sections.push(mdTable(patternRulesRows, ['Rule', 'Severity', 'Scope', 'Notes']), '');
@@ -203,13 +203,13 @@ function formatMarkdown(params: {
   sections.push(mdTable(sampleRows, ['Where', 'Pattern', 'Matches']), '');
   sections.push('## Actionable next steps (recommended)', '');
   sections.push(
-    '1. **Admin UI first:** Replace `indigo-*` / `gray-*` button + panel styling in `app/[locale]/admin/**` with the page primitives in `app/globals.css` (`.page-shell`, `.page-card(-dark)`, `.page-button-primary`, `.page-button-secondary`, `.input-on-dark`).',
+    '1. **Admin UI first:** Replace `indigo-*` / `gray-*` button + panel styling in `app/[locale]/admin/**` with shared adapter primitives now, then map those surfaces to Mantine wrappers during the shared-SSOT migration.',
   );
   sections.push(
     '2. **Shared components next:** Fix `components/LanguageSwitcher.tsx` and any other shared component that uses default Tailwind palettes (these leak inconsistent styling across the app).',
   );
   sections.push(
-    '3. **Decide policy for games:** Either (A) treat games as allowed to use non-brand palettes, or (B) migrate them to brand tokens incrementally and update this audit script to include/exclude them.',
+    '3. **Decide policy for games:** Document any game-canvas exceptions against `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/GOVERNANCE.md`, then migrate reusable chrome to the shared adapter.',
   );
   sections.push(
     '4. **Add guardrails:** Turn the “blocker/major” rules into a `--check` CI step once we’ve reduced the current findings to an acceptable baseline.',
@@ -233,7 +233,7 @@ function main() {
       severity: 'blocker',
       include: (file) => file.endsWith('.tsx'),
       regex: /\b(?:bg|text|border|ring|from|to)-\[#(?:[0-9a-fA-F]{3}){1,2}\]/g,
-      note: 'Use design tokens / brand palette. Exception: explicit external brand colors (e.g. social share) should be centralized.',
+      note: 'Use approved shared-theme or adapter tokens. Exception: explicit external brand colors (e.g. social share) should be centralized.',
     },
     {
       id: 'blocker:inline-color-literals-in-style',
@@ -241,7 +241,7 @@ function main() {
       severity: 'blocker',
       include: (file) => file.endsWith('.tsx'),
       regex: /\bstyle=\{\{[\s\S]{0,500}?(#(?:[0-9a-fA-F]{3}){1,2}\b|rgba?\(|hsla?\()/g,
-      note: 'Avoid hardcoded colors in inline styles; use design tokens / Tailwind brand palette. (Heuristic scan: may include some false positives.)',
+      note: 'Avoid hardcoded colors in inline styles; use shared-theme or adapter tokens. (Heuristic scan: may include some false positives.)',
     },
     {
       id: 'major:tailwind-indigo-blue',
@@ -257,7 +257,7 @@ function main() {
       severity: 'major',
       include: (file) => !file.startsWith('app/components/games/'),
       regex: /\b(?:bg|text|border|ring|from|to)-(?:gray|slate|zinc|neutral|stone)-\d{2,3}\b/g,
-      note: 'Prefer brand tokens (brand-darkGrey, brand-white, brand-black) and design-system CSS variables.',
+      note: 'Prefer shared-theme semantics; while migrating, use adapter tokens (brand-darkGrey, brand-white, brand-black) and approved CSS variables.',
     },
     {
       id: 'major:tailwind-yellow-palette',

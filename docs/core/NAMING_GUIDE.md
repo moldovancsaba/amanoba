@@ -265,7 +265,9 @@ GET /api/analytics?startDate=2025-01-01&endDate=2025-01-31&granularity=day
 
 ### Tailwind Classes
 
-**Component Classes**: Use Tailwind utilities, avoid custom classes unless necessary
+**Design authority**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` governs design, UI, UX, and component contracts. Tailwind class naming applies only to Amanoba's current legacy adapter while migration continues.
+
+**Component Classes**: Use the current adapter utilities where needed, avoid custom classes unless necessary, and do not introduce names that create a second design system.
 
 **Custom Classes**: kebab-case with semantic naming
 ```css
@@ -279,7 +281,7 @@ GET /api/analytics?startDate=2025-01-01&endDate=2025-01-31&granularity=day
 
 ### CSS Variables (Brand Theming)
 
-**CSS Variables**: kebab-case with `--brand-` prefix
+**CSS Variables**: kebab-case. Existing brand variables may use the `--brand-` prefix; new variables must be justified as adapter implementation details and must not redefine the shared SSOT.
 ```css
 :root {
   --brand-primary: #6366f1;

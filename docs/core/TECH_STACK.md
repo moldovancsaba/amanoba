@@ -1,7 +1,7 @@
 # Technology Stack
 
 **Version**: 2.9.49
-**Last Updated**: 2026-05-20
+**Last Updated**: 2026-05-21
 
 ---
 
@@ -13,6 +13,8 @@
 - **TypeScript**: 5.5.3
 
 ### Styling & Design
+- **Design/UI/UX SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
+- **Target UI foundation**: Mantine-only shared contract; Amanoba is migrating from the current adapter below.
 - **Tailwind CSS**: 3.4.11
 - **PostCSS**: 8.5.14
 - **Autoprefixer**: 10.4.20
@@ -22,6 +24,8 @@
 - **clsx**: 2.1.1
 
 ### UI Components
+- **Current adapter**: Radix UI primitives plus local shared primitives.
+- **Target adapter**: Mantine primitives and thin project wrappers aligned to `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENT_CONTRACTS.md`.
 - **@radix-ui/react-dialog**: 1.1.2
 - **@radix-ui/react-label**: 2.1.0
 - **@radix-ui/react-progress**: 1.1.7

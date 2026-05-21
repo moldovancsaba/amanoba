@@ -30,7 +30,7 @@ This document provides essential context for AI assistants working on the Amanob
 ├── app/                        # Next.js App Router
 │   ├── layout.tsx             # Root layout with fonts, metadata
 │   ├── page.tsx               # Homepage
-│   ├── globals.css            # Global styles with gamification animations
+│   ├── globals.css            # Current legacy UI adapter utilities
 │   ├── api/                   # API routes (to be created)
 │   ├── lib/                   # Core utilities and models
 │   │   ├── mongodb.ts         # MongoDB connection singleton
@@ -55,7 +55,7 @@ This document provides essential context for AI assistants working on the Amanob
 ├── package.json              # Dependencies and scripts (v1.0.0)
 ├── next.config.ts            # Next.js configuration
 ├── tsconfig.json             # TypeScript strict configuration
-├── tailwind.config.ts        # Tailwind with Amanoba branding
+├── tailwind.config.ts        # Current legacy Tailwind adapter aliases
 ├── .env.local.example        # Environment variable template
 └── .env.local                # Actual credentials (not in git)
 ```
@@ -135,12 +135,21 @@ This document provides essential context for AI assistants working on the Amanob
 
 ---
 
-## 🎨 Branding
+## 🎨 Design System
 
-**Colors**:
-- Primary: Indigo (#6366f1)
-- Secondary: Pink (#ec4899)
-- Accent: Purple (#a855f7)
+**SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
+
+The shared folder governs design, UI, UX, component contracts, and design-system governance. Amanoba's local Tailwind/Radix files are the current implementation adapter and migration surface only.
+
+**Current adapter**:
+- Tailwind CSS token aliases
+- Radix primitives
+- `app/design-system.css`
+- `app/globals.css`
+- `app/components/ui/*`
+
+**Target foundation**:
+- Mantine-only shared contract with thin project wrappers
 
 **Typography**:
 - Primary: Noto Sans
@@ -160,8 +169,9 @@ This document provides essential context for AI assistants working on the Amanob
 | Language | TypeScript | 5.3.3 |
 | Database | MongoDB Atlas | 6.18.0 |
 | ODM | Mongoose | 8.18.0 |
-| Styling | Tailwind CSS | 3.4.11 |
-| UI Components | Radix UI | Various |
+| Design/UI/UX SSOT | `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` | 1.1.0 |
+| Styling adapter | Tailwind CSS | 3.4.11 |
+| Current UI components | Radix UI | Various |
 | Animation | Framer Motion | 10.18.0 |
 | Data Fetching | TanStack Query | 5.56.2 |
 | Validation | Zod | 4.1.11 |

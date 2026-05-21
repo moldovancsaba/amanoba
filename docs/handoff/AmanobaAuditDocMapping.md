@@ -28,13 +28,13 @@ This document maps active Amanoba documentation to the code, scripts, and produc
 | `docs/HANDOVER.md` | Current operational snapshot and recent delivery notes. | Project 12 issues, `app/lib/*`, deployment verification. | Keep current; append entries instead of rewriting historical delivery notes. |
 | `docs/status/PRODUCTION_STATUS.md` | Production deployment truth and latest recorded smoke checks. | Vercel deployment, `/`, `/robots.txt`, `/sitemap.xml`, `/en/auth/signin`, feature routes. | Updated to May 2026 verification; March failed checks removed from active status. |
 | `docs/architecture/ARCHITECTURE.md` | System overview, stack, routes, models, security. | Entire `app/`, `app/api`, `app/lib`, `middleware.ts`, `auth.*`. | Mostly current; continue updating when routes/models change. |
-| `docs/architecture/layout_grammar.md` | Layout, course, quiz, i18n, UI, and doc grammar. | `app/lib/i18n/locales.ts`, design-system files, course/quiz models. | Updated to 17 locales. |
+| `docs/architecture/layout_grammar.md` | Layout, course, quiz, i18n, UI adapter, and doc grammar. | `app/lib/i18n/locales.ts`, `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`, local adapter files, course/quiz models. | Updated to reference shared design/UI/UX SSOT. |
 | `docs/core/TECH_STACK.md` | Current framework, provider, infra, and dependency baseline. | `package.json`, `app/lib/email/transports`, auth files, Vercel. | Updated for SSO-only auth, email providers, production domains. |
 | `docs/core/DOCS_INDEX.md` | Canonical docs entrypoint. | Active docs under `docs/`. | Updated so old February context docs are historical, not current. |
 | `docs/product/TASKLIST.md` | Reference mirror of current work shape. | Project 12 issues. | Rewritten as a compact mirror; live tasks remain on Project 12. |
 | `docs/product/ROADMAP.md` | Future vision only. | Project 12 roadmap items. | Updated review date and current documentation-quality vision. |
 | `docs/product/RELEASE_NOTES.md` | Shipped changes. | Git history, deployed releases. | Keep for shipped work only; do not store open tasks here. |
-| `docs/product/DESIGN_UPDATE.md` | Design-system status and migration backlog. | `app/design-system.css`, `tailwind.config.ts`, `app/globals.css`, UI checks. | Current as of May 12; remaining drift is admin/game/profile/certificate migration. |
+| `docs/product/DESIGN_UPDATE.md` | Amanoba adapter status, shared-SSOT alignment, exceptions, and migration backlog. | `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`, `app/design-system.css`, `tailwind.config.ts`, `app/globals.css`, UI checks. | Current as of May 21; shared SSOT adopted and local Tailwind/Radix adapter still migrating. |
 
 ## Feature Docs To Keep Current
 
@@ -55,7 +55,7 @@ This document maps active Amanoba documentation to the code, scripts, and produc
 | Cross-repo path portability | Active docs now have a portable `amanoba_courses:process_them/docs/...` convention in `docs/core/CROSS_REPO_DOCS.md`; historical docs may keep original machine-local paths for auditability. | Keep new active docs on the canonical notation and migrate older active references opportunistically. |
 | Historical docs in active folders | Some phase-complete and older handoff documents remain outside `_archive` for link stability. | Do not use them as current implementation guidance; promote/archive in a future docs hygiene pass. |
 | Certification planning docs | Several certification plan variants mention master 30-day pools because they are historical design notes. | Prefer `docs/certification/CERTIFICATION_REFERENCE.md` and runtime code for current truth; archive old variants when certification docs are next in scope. |
-| UI design drift | Hard-rule checks pass, but heuristic drift remains in older admin/game/profile/certificate surfaces. | Continue incremental design-token migration and keep `docs/product/DESIGN_UPDATE.md` updated. |
+| UI design drift | Hard-rule checks pass, but heuristic drift remains in older admin/game/profile/certificate surfaces and the app is not Mantine-only yet. | Continue migration toward `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`; keep `docs/product/DESIGN_UPDATE.md` updated. |
 
 ## Quality Gates For Audit Work
 

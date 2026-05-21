@@ -25,7 +25,7 @@ This is the **Brain Boost** every developer must read before touching Amanoba co
 - Production verification: follow `docs/status/PRODUCTION_STATUS.md` after deploying (baseline routes, feature area touched, release note entry).
 - Release automation: `docs/product/RELEASE_NOTES.md` only when work is officially shipped (per the PO’s definition of “shipped”).
 - No placeholder text, no “TBD”. Docs must match actual code state before closing an issue.
-- Coding/design standards: follow `docs/core/CODING_STANDARDS.md` before adding UI classes, comments, course-length assumptions, or release/version edits.
+- Coding/design standards: follow `docs/core/CODING_STANDARDS.md` before adding UI classes, comments, course-length assumptions, or release/version edits. For design, UI, and UX decisions, `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` is the SSOT; Amanoba docs only describe the local adapter and migration state.
 
 ## 4. Key workflows
 - **Development**: `npm install`, `npm run dev` (Next.js App Router + TypeScript 5).

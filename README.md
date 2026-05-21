@@ -2,7 +2,7 @@
 
 **Current Version**: 2.9.49
 **Last Updated**: 2026-05-20
-**Status**: Production Stable — ROADMAP & TASKLIST clean; RELEASE_NOTES current; SSO-only auth
+**Status**: Production Stable — ROADMAP & TASKLIST clean; RELEASE_NOTES current; SSO-only auth; shared design-system SSOT adopted
 
 ## 🎓 Overview
 
@@ -46,12 +46,13 @@ Amanoba is transforming into a **unified flexible learning platform** that combi
 - **Framework**: Next.js 15.5.18 (App Router)
 - **Database**: MongoDB Atlas with Mongoose 8.18.0
 - **Language**: TypeScript 5
-- **Styling**: Tailwind CSS 3.4.11 with centralized design-system tokens
+- **Design/UI/UX SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
+- **Styling**: Tailwind CSS 3.4.11 with local token utilities as the current legacy adapter pending Mantine migration
 - **Email**: Provider-selectable transport (`EMAIL_PROVIDER=resend|smtp|mailgun`) for lesson delivery and transactional emails
 - **Rich Text Editor**: TipTap for course content creation
 - **i18n**: next-intl for multi-language support (Hungarian default, English)
 - **Animation**: Framer Motion 10.18.0
-- **UI Components**: Radix UI primitives
+- **UI Components**: Radix UI primitives in the current adapter; target system is the shared Mantine contract
 - **Charts**: Recharts 3.2.1
 - **State Management**: TanStack React Query
 - **Validation**: Zod (XSS protection)

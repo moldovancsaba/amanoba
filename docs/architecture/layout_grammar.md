@@ -1,7 +1,7 @@
 # Amanoba Layout Grammar
 
 **Version**: 1.2
-**Last Updated**: 2026-05-20
+**Last Updated**: 2026-05-21
 **Status**: ACTIVE — Single source of truth for structural and layout rules
 
 ---
@@ -101,15 +101,19 @@ See `amanoba_courses:process_them/docs/COURSE_BUILDING_RULES.md` and `amanoba_co
 
 ## 6. UI and design layout
 
-**Design system**: `app/design-system.css`, `app/globals.css`, `tailwind.config.ts`, `app/components/ui/button.tsx`, `app/components/ui/card.tsx`.
+**Design/UI/UX SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`.
+
+Amanoba's local files are the current implementation adapter and migration surface. They must follow the shared SSOT; they do not redefine design, component, or UX rules.
 
 **Authority order**:
 
-1. `app/design-system.css` — CSS variable source of truth for brand, semantic, surface, text, border, and external-brand colors.
-2. `tailwind.config.ts` — Tailwind aliases for those tokens (`brand.*`, `primary.*`, `semantic.*`, `social.*`).
-3. `app/globals.css` — shared shell/page/panel utility classes.
-4. Shared primitives in `app/components/ui/*`.
-5. Non-CSS token files for server-rendered contexts: `app/lib/constants/color-tokens.ts`, `app/lib/constants/certificate-colors.ts`, `app/lib/constants/app-url.ts`.
+1. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` — cross-project design, UI, UX, component contract, and governance SSOT.
+2. `docs/product/DESIGN_UPDATE.md` — Amanoba adapter status, local exceptions, and migration backlog.
+3. `app/design-system.css` — current legacy CSS-variable adapter for brand, semantic, surface, text, border, and external-brand colors.
+4. `tailwind.config.ts` — current legacy Tailwind aliases for those tokens (`brand.*`, `primary.*`, `semantic.*`, `social.*`).
+5. `app/globals.css` — current legacy shared shell/page/panel utility classes.
+6. Shared primitives in `app/components/ui/*`.
+7. Non-CSS token files for server-rendered contexts: `app/lib/constants/color-tokens.ts`, `app/lib/constants/certificate-colors.ts`, `app/lib/constants/app-url.ts`.
 
 **Color tokens**:
 
@@ -128,7 +132,7 @@ See `amanoba_courses:process_them/docs/COURSE_BUILDING_RULES.md` and `amanoba_co
 - **Primary actions**: Accent yellow; hover per design tokens.
 - **Links**: Accent for primary links; grey for secondary.
 
-**Components**: Prefer Tailwind and design-system tokens. Avoid inline hex for brand/CTA colors; use `brand-accent`, `brand-black`, `brand-darkGrey`, `brand-white`, semantic token classes, or CSS variables from the token source files.
+**Components**: Prefer the shared SSOT contracts. In the current legacy adapter, avoid inline hex for brand/CTA colors; use `brand-accent`, `brand-black`, `brand-darkGrey`, `brand-white`, semantic token classes, or CSS variables from the token source files.
 
 **Hard-coded design rule**: touched UI code must not introduce raw colour literals or generic template palettes (`indigo-*`, `gray-*`, `red-*`, etc.) when a design-system token or shared utility exists. Use `semantic.*`, `brand.*`, `.ds-status-*`, `.ds-button-*`, `.ds-text-*`, or shared primitives instead.
 
@@ -136,6 +140,7 @@ See `amanoba_courses:process_them/docs/COURSE_BUILDING_RULES.md` and `amanoba_co
 
 - If a visual pattern is reused, it must go through shared primitives or shared utility classes before page-level duplication grows.
 - `Button` and `Card` variants must remain design-system aligned; page code should not reintroduce generic template palettes into those primitives.
+- New shared primitive planning should align to the Mantine wrapper contracts in `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENT_CONTRACTS.md`.
 
 **Guardrails (recommended)**:
 
@@ -190,4 +195,4 @@ All other locale files remain in their native language (no British/US split). Na
 ---
 
 **Maintained by**: Amanoba team
-**Cross-references**: `COURSE_BUILDING_RULES.md`, `CODING_STANDARDS.md`, `DESIGN_UPDATE.md`, `NAMING_GUIDE.md`, `QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, `VOTING_AND_REUSE_PATTERN.md`, `ARCHITECTURE.md`, `2026_course_quality_prompt.md`, canonical CCS under `docs/canonical/`.
+**Cross-references**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`, `COURSE_BUILDING_RULES.md`, `CODING_STANDARDS.md`, `DESIGN_UPDATE.md`, `NAMING_GUIDE.md`, `QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, `VOTING_AND_REUSE_PATTERN.md`, `ARCHITECTURE.md`, `2026_course_quality_prompt.md`, canonical CCS under `docs/canonical/`.

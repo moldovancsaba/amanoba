@@ -263,7 +263,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 ## Design system + docs refactor update (2026-05-10)
 
 ### What changed
-- Repaired the shared UI foundation so the centralized design system is the active authority again:
+- Repaired what was then the local UI foundation; current design/UI/UX authority is now `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`, and the files below are legacy adapter surfaces:
   - Added surface/text/border and Google-brand token aliases in [`/Users/moldovancsaba/Projects/amanoba/app/design-system.css`](/Users/moldovancsaba/Projects/amanoba/app/design-system.css)
   - Added shared shell/panel/text utility classes in [`/Users/moldovancsaba/Projects/amanoba/app/globals.css`](/Users/moldovancsaba/Projects/amanoba/app/globals.css)
   - Reworked [`/Users/moldovancsaba/Projects/amanoba/app/components/ui/button.tsx`](/Users/moldovancsaba/Projects/amanoba/app/components/ui/button.tsx) and [`/Users/moldovancsaba/Projects/amanoba/app/components/ui/card.tsx`](/Users/moldovancsaba/Projects/amanoba/app/components/ui/card.tsx) to use brand-aligned variants instead of generic template colors
@@ -787,3 +787,17 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npx eslint --no-warn-ignored app/lib/course-helpers.ts app/lib/models/course.ts app/lib/models/lesson.ts app/lib/models/course-progress.ts app/lib/models/assessment-result.ts app/api/courses/[courseId]/day/[dayNumber]/route.ts app/api/admin/courses/route.ts app/api/admin/courses/[courseId]/route.ts app/api/admin/courses/[courseId]/lessons/route.ts app/api/admin/courses/[courseId]/lessons/[lessonId]/route.ts app/api/my-courses/route.ts app/api/practice-hub/route.ts app/lib/public-lesson.ts app/[locale]/admin/courses/[courseId]/page.tsx app/[locale]/admin/courses/new/page.tsx app/[locale]/admin/courses/page.tsx app/[locale]/courses/[courseId]/layout.tsx app/[locale]/layout.tsx app/components/CourseJsonLd.tsx app/components/OrganizationWebSiteJsonLd.tsx __tests__/unit/course-helpers.test.ts` ✅ pass
 - `npx eslint --no-warn-ignored app/sitemap.ts app/lib/email/email-service.ts app/lib/course-helpers.ts app/lib/public-lesson.ts` ✅ pass
 - `npm run type-check` ✅ pass
+
+## Shared design-system SSOT refactor (2026-05-21)
+
+### What changed
+- Established `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` version `1.1.0` as its own Git-managed shared design-system repository for cross-project design, UI, UX, component contracts, governance, and adoption rules.
+- Added strict shared contracts for foundations, components, UX patterns, governance, contribution rules, changelog, versioning, and project adoption.
+- Updated Amanoba documentation so local Tailwind/Radix/CSS files are described as the current implementation adapter, not the design authority.
+- Updated UI audit scripts so generated quality reports reference the shared SSOT plus Amanoba adapter rules.
+
+### Verification
+- Pending in this session: shared repo commit, Amanoba docs refresh, docs link checks, and git commit/push.
+
+### Notes
+- Amanoba is not Mantine-only yet. The active runtime still uses the legacy Tailwind/Radix adapter while the migration plan now points to the shared Mantine contract.

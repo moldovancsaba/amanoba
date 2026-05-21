@@ -403,11 +403,12 @@ Requires explicit instruction. Includes:
 
 ### Design System
 
-- **Colors**: Use Tailwind theme colors (indigo/pink/purple)
-- **Typography**: Noto Sans (primary), Inter (secondary)
-- **Spacing**: Use Tailwind spacing scale (4px base unit)
-- **Components**: Radix UI primitives for accessibility
-- **Animations**: Use predefined classes (`.animate-points`, `.animate-achievement`, etc.)
+- **SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` governs design, UI, UX, component contracts, and design-system governance.
+- **Current adapter**: Amanoba still uses Tailwind/Radix/local token utilities while migrating.
+- **Target foundation**: Mantine-only shared contract with thin project wrappers.
+- **Colors and spacing**: Use current adapter tokens only while the migration is active; do not add new raw values or generic template palettes.
+- **Components**: New reusable component planning must follow `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENT_CONTRACTS.md`.
+- **Animations**: Use predefined classes (`.animate-points`, `.animate-achievement`, etc.) only where they fit the shared motion rules.
 
 ### Accessibility
 
@@ -419,7 +420,7 @@ Requires explicit instruction. Includes:
 ### Responsive Design
 
 - **Mobile First**: Design for small screens, enhance for larger
-- **Breakpoints**: Use Tailwind defaults (sm, md, lg, xl, 2xl)
+- **Breakpoints**: Use the current adapter breakpoints while migrating; new responsive rules must follow `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/FOUNDATION.md`.
 - **Touch Targets**: Minimum 44x44px for interactive elements
 
 ---

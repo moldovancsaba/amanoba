@@ -6,12 +6,13 @@ This documentation is organized into domain folders. Treat this file and `docs/c
 
 - `docs/core/DOCS_INDEX.md` - high-level index and reading order
 - `docs/architecture/layout_grammar.md` - structural and UI grammar source of truth
+- `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` - cross-project design, UI, and UX SSOT
 - `docs/core/ENVIRONMENT_SETUP.md` - canonical environment variable and setup guide
 - `docs/deployment/DEPLOYMENT.md` - canonical deployment runbook (push to `origin/main` -> auto deploy)
 - `docs/product/ROADMAP.md` - long-term vision
 - `docs/product/TASKLIST.md` - actionable work
 - `docs/product/RELEASE_NOTES.md` - shipped changes
-- `docs/product/DESIGN_UPDATE.md` - current design-system status and migration policy
+- `docs/product/DESIGN_UPDATE.md` - Amanoba design-system adapter status and migration policy
 - `docs/HANDOVER.md` - current operational snapshot and recent verification history
 - `docs/status/PRODUCTION_STATUS.md` - current deployment truth and latest recorded production verification
 - `docs/features/NEWS_POSTS_MVP.md` - blog/news publishing contract for weekly updates
