@@ -9,7 +9,7 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import MemoryGame from '@/components/games/MemoryGame';
-import { Card } from '@/components/ui/card';
+import { Card } from '@mantine/core';
 
 export default function MemoryGamePage() {
   const { data: session, status } = useSession();
@@ -39,7 +39,7 @@ export default function MemoryGamePage() {
   return (
     <div className="ds-shell ds-shell-gradient">
       <div className="page-container py-8">
-      <Card className="p-6 md:p-8">
+      <Card withBorder className="p-6 md:p-8">
         <MemoryGame playerId={playerId} isPremium={isPremium} />
       </Card>
       </div>

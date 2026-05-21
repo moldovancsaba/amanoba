@@ -62,11 +62,12 @@ Implemented:
 - Central `MantineProvider`, `ModalsProvider`, and `Notifications` setup.
 - Initial Amanoba theme in `app/lib/ui/mantine-theme.ts`.
 - Initial guardrail command: `npm run ui:check:mantine`.
+- First proof surface: Memory Match now uses Mantine `Button` and `Card` directly instead of the legacy shared UI primitives.
 
 Still pending:
 
 - migration of existing Tailwind/Radix surfaces to Mantine primitives
-- replacement of current shared `Button` and `Card` primitives
+- replacement of current shared `Button` helper used by sign-in; legacy `Card` imports are now blocked by `npm run ui:check:mantine`
 - deletion of Radix/Tailwind/sonner/vaul dependencies after product UI no longer uses them
 - updated hard checks that reject all non-Mantine product primitives after the migration baseline is low enough
 
@@ -98,7 +99,7 @@ Use `npm run ui:audit:foundation` and `npm run ui:audit:layout` to refresh gener
 
 ## Next Migration Targets
 
-1. Complete the Phase 1 proof surface: migrate one small shared primitive or learner-facing surface to Mantine.
+1. Remove the remaining sign-in dependency on the legacy `buttonVariants` helper.
 2. Replace core primitives first: buttons, action icons, text inputs, selects, alerts, modals, cards, and tables.
 3. Migrate learner-critical flows before secondary surfaces.
 4. Tighten `npm run ui:check:mantine` as legacy imports disappear.

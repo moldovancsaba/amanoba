@@ -15,6 +15,10 @@ const allowedLegacyHelpers = new Set([
   'app/lib/utils/cn.ts',
 ]);
 
+const allowedLegacyButtonConsumers = new Set([
+  'app/[locale]/auth/signin/page.tsx',
+]);
+
 const hardBlockedImports = [
   {
     id: 'radix',
@@ -30,6 +34,21 @@ const hardBlockedImports = [
     id: 'vaul',
     pattern: /from\s+['"]vaul['"]/,
     message: 'Vaul is frozen for product UI; use Mantine Drawer.',
+  },
+];
+
+const legacyPrimitiveImports = [
+  {
+    id: 'legacy-card',
+    pattern: /from\s+['"]@\/components\/ui\/card['"]/,
+    allow: () => false,
+    message: 'Legacy shared Card is frozen; use Mantine Card or a thin Mantine wrapper.',
+  },
+  {
+    id: 'legacy-button',
+    pattern: /from\s+['"]@\/components\/ui\/button['"]/,
+    allow: (file) => allowedLegacyButtonConsumers.has(file),
+    message: 'Legacy shared Button is frozen; use Mantine Button or a thin Mantine wrapper.',
   },
 ];
 
@@ -53,6 +72,12 @@ for (const file of trackedFiles) {
 
   for (const rule of hardBlockedImports) {
     if (rule.pattern.test(source)) {
+      findings.push({ file, rule });
+    }
+  }
+
+  for (const rule of legacyPrimitiveImports) {
+    if (rule.pattern.test(source) && !rule.allow(file)) {
       findings.push({ file, rule });
     }
   }

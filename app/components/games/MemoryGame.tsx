@@ -15,8 +15,7 @@
 
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { Button, Card } from '@mantine/core';
 import {
   Play,
   Pause,
@@ -274,7 +273,8 @@ export default function MemoryGame({
               {(['EASY', 'MEDIUM', 'HARD', 'EXPERT'] as MemoryDifficulty[]).map(diff => (
                 <Button
                   key={diff}
-                  variant={difficulty === diff ? 'default' : 'secondary'}
+                  variant={difficulty === diff ? 'filled' : 'light'}
+                  color={difficulty === diff ? 'amanoba' : 'ink'}
                   size="sm"
                   onClick={() => setDifficulty(diff)}
                   disabled={diff === 'EXPERT' && !isPremium}
@@ -307,7 +307,7 @@ export default function MemoryGame({
     <div className="space-y-6 pb-8">
       {/* Game Stats Header */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card variant="subtle" className="p-4">
+        <Card withBorder className="p-4">
           <div className="flex items-center space-x-2">
             <Clock className="h-5 w-5 ds-icon-info" />
             <div>
@@ -317,7 +317,7 @@ export default function MemoryGame({
           </div>
         </Card>
         
-        <Card variant="subtle" className="p-4">
+        <Card withBorder className="p-4">
           <div className="flex items-center space-x-2">
             <Zap className="h-5 w-5 ds-icon-warning" />
             <div>
@@ -327,7 +327,7 @@ export default function MemoryGame({
           </div>
         </Card>
         
-        <Card variant="subtle" className="p-4">
+        <Card withBorder className="p-4">
           <div className="flex items-center space-x-2">
             <Target className="h-5 w-5 ds-icon-success" />
             <div>
@@ -337,7 +337,7 @@ export default function MemoryGame({
           </div>
         </Card>
         
-        <Card variant="subtle" className="p-4">
+        <Card withBorder className="p-4">
           <div className="flex items-center space-x-2">
             <Trophy className="h-5 w-5 ds-icon-accent" />
             <div>
@@ -353,6 +353,7 @@ export default function MemoryGame({
         <Button
           onClick={handleTogglePause}
           variant="outline"
+          color="amanoba"
           disabled={gameState.isComplete}
         >
           {gameState.isPaused ? (
@@ -368,7 +369,7 @@ export default function MemoryGame({
           )}
         </Button>
         
-        <Button onClick={handleRestart} variant="outline">
+        <Button onClick={handleRestart} variant="outline" color="amanoba">
           <RotateCcw className="mr-2 h-4 w-4" />
           Restart
         </Button>
@@ -414,7 +415,7 @@ export default function MemoryGame({
       {/* Game Complete Overlay */}
       {gameState.isComplete && (
         <div className="fixed inset-0 ds-overlay flex items-center justify-center z-50 p-4">
-          <Card className="p-8 max-w-md w-full space-y-6 animate-in zoom-in duration-300">
+          <Card withBorder className="p-8 max-w-md w-full space-y-6 animate-in zoom-in duration-300">
             <div className="text-center space-y-2">
               <Trophy className="h-16 w-16 ds-icon-accent mx-auto" />
               <h2 className="text-3xl font-bold">
@@ -477,10 +478,10 @@ export default function MemoryGame({
             </div>
             
             <div className="space-y-2">
-              <Button onClick={handleRestart} className="w-full">
+              <Button onClick={handleRestart} fullWidth>
                 Play Again
               </Button>
-              <Button onClick={() => router.push('/dashboard')} variant="outline" className="w-full">
+              <Button onClick={() => router.push('/dashboard')} variant="outline" color="amanoba" fullWidth>
                 Back to Dashboard
               </Button>
             </div>

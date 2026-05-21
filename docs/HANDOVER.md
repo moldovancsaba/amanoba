@@ -820,3 +820,17 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ### Notes
 - This is the root-runtime slice, not the full UI conversion. Existing screens still need migration from Tailwind/Radix/local CSS to Mantine primitives or thin Mantine wrappers.
+
+## Memory Match Mantine proof surface (2026-05-21)
+
+### What changed
+- Migrated the Memory Match game surface from the legacy shared `Button` and `Card` primitives to Mantine `Button` and `Card`.
+- Updated the Memory game page shell card to use Mantine `Card`.
+- Tightened `npm run ui:check:mantine` so new product UI cannot import the legacy shared `Card`, and only the current sign-in page can temporarily import the legacy button helper.
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+
+### Notes
+- The only remaining direct import from `@/components/ui/button` is `app/[locale]/auth/signin/page.tsx` for `buttonVariants`; that is now the next obvious primitive cleanup.
