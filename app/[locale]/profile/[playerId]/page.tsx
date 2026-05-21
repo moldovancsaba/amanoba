@@ -1,33 +1,61 @@
 /**
  * User Profile Page
- * 
+ *
  * Comprehensive public profile displaying user stats, achievements,
- * recent activity, and progression. Features tabbed navigation and
- * responsive design.
+ * recent activity, certificates, payments, and owner settings.
  */
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { useSession } from 'next-auth/react';
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
-import PlayerAvatar from '@/components/PlayerAvatar';
 import {
-  Trophy,
-  TrendingUp,
-  Clock,
-  CreditCard,
-  Award,
-  Settings,
-  Upload,
-  Save,
-  Link as LinkIcon,
-  Check,
-} from 'lucide-react';
+  Alert,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Center,
+  Container,
+  FileButton,
+  Group,
+  Loader,
+  Paper,
+  Progress,
+  Select,
+  SimpleGrid,
+  Skeleton,
+  Stack,
+  Tabs,
+  Text,
+  TextInput,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import { notifications } from '@mantine/notifications';
+import {
+  IconAlertTriangle,
+  IconAward,
+  IconCalendar,
+  IconCheck,
+  IconClock,
+  IconCoin,
+  IconCreditCard,
+  IconDeviceFloppy,
+  IconFlame,
+  IconLink,
+  IconSettings,
+  IconTarget,
+  IconTrendingUp,
+  IconTrophy,
+  IconUpload,
+} from '@tabler/icons-react';
+import PlayerAvatar from '@/components/PlayerAvatar';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
 
-/** Locale plus legacy en-GB/en-US for display when session or API returns them */
+/** Locale plus legacy en-GB/en-US for display when session or API returns them. */
 type LanguageNameKey = Locale | 'en-GB' | 'en-US';
 
 const languageNames: Record<LanguageNameKey, string> = {
@@ -52,10 +80,8 @@ const languageNames: Record<LanguageNameKey, string> = {
   ur: 'اردو',
 };
 
-// Force dynamic rendering
 export const dynamic = 'force-dynamic';
 
-// Types for profile API response
 interface ProfilePlayer {
   id?: string;
   displayName?: string;
@@ -65,6 +91,7 @@ interface ProfilePlayer {
   profileVisibility?: string;
   locale?: string;
 }
+
 interface ProfileProgression {
   level?: number;
   title?: string;
@@ -72,6 +99,7 @@ interface ProfileProgression {
   xpToNextLevel?: number;
   nextTitle?: string;
 }
+
 interface ProfileStatistics {
   totalGamesPlayed?: number;
   winRate?: number;
@@ -79,21 +107,25 @@ interface ProfileStatistics {
   perfectGames?: number;
   averageSessionTime?: number;
 }
+
 interface ProfileAchievements {
   unlocked?: number;
   total?: number;
   progress?: number;
   featured?: Array<{ id?: string; name?: string; tier?: string; description?: string; icon?: unknown; unlockedAt?: string }>;
 }
+
 interface ProfileStreaks {
   win?: { current?: number; longest?: number };
   daily?: { current?: number; longest?: number };
 }
+
 interface ProfileWallet {
   currentBalance: number;
   lifetimeEarned: number;
   lifetimeSpent: number;
 }
+
 interface ProfileActivity {
   gameIcon?: unknown;
   gameName?: string;
@@ -104,6 +136,7 @@ interface ProfileActivity {
   playedAt?: string;
   duration?: number;
 }
+
 interface ProfileData {
   player?: ProfilePlayer;
   progression?: ProfileProgression;
@@ -113,12 +146,14 @@ interface ProfileData {
   wallet?: ProfileWallet;
   recentActivity?: ProfileActivity[];
 }
+
 interface CertificateItem {
   courseId: string;
   courseTitle?: string;
   verificationSlug?: string | null;
   score?: number | null;
 }
+
 interface PaymentTx {
   id?: string;
   currency?: string;
@@ -133,6 +168,8 @@ interface PaymentTx {
   stripePaymentIntentId?: string;
 }
 
+type ProfileTab = 'overview' | 'achievements' | 'activity' | 'payments' | 'settings';
+
 export default function ProfilePage({ params }: { params: Promise<{ playerId: string }> }) {
   const { data: session } = useSession();
   const locale = useLocale();
@@ -143,7 +180,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
   const [profileData, setProfileData] = useState<ProfileData | null>(null);
   const [apiError, setApiError] = useState<string | null>(null);
   const [apiLoading, setApiLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState<'overview' | 'achievements' | 'activity' | 'payments' | 'settings'>('overview');
+  const [activeTab, setActiveTab] = useState<ProfileTab>('overview');
   const [paymentData, setPaymentData] = useState<PaymentTx[] | null>(null);
   const [paymentLoading, setPaymentLoading] = useState(false);
   const [certificatesData, setCertificatesData] = useState<CertificateItem[]>([]);
@@ -153,7 +190,6 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
   const [photoUploadLoading, setPhotoUploadLoading] = useState(false);
   const [certificateLinkCopiedId, setCertificateLinkCopiedId] = useState<string | null>(null);
 
-  // Unwrap async params - following pattern from CourseDetailPage
   useEffect(() => {
     const loadParams = async () => {
       try {
@@ -161,10 +197,9 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
         setPlayerId(resolvedParams.playerId);
       } catch (error) {
         console.error('Failed to unwrap params:', error);
-        // Fallback: extract playerId from URL
         if (typeof window !== 'undefined') {
           const pathParts = window.location.pathname.split('/');
-          const profileIndex = pathParts.findIndex(part => part === 'profile');
+          const profileIndex = pathParts.findIndex((part) => part === 'profile');
           if (profileIndex !== -1 && pathParts[profileIndex + 1]) {
             setPlayerId(pathParts[profileIndex + 1]);
           }
@@ -176,7 +211,6 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
     loadParams();
   }, [params]);
 
-  // Step 1: Add API call - fetch profile data when playerId is available
   useEffect(() => {
     if (!playerId) return;
 
@@ -187,8 +221,9 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
         const res = await fetch(`/api/profile/${playerId}`);
         const data = await res.json();
         if (data.success) {
-          setProfileData((data.profile ?? null) as ProfileData | null);
-          setEditDisplayName((data.profile as ProfileData | undefined)?.player?.displayName ?? '');
+          const nextProfile = (data.profile ?? null) as ProfileData | null;
+          setProfileData(nextProfile);
+          setEditDisplayName(nextProfile?.player?.displayName ?? '');
         } else {
           setApiError(data.error || 'Failed to load profile');
         }
@@ -203,12 +238,10 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
     fetchProfile();
   }, [playerId]);
 
-  // Check if viewing own profile - MUST be defined BEFORE useEffect that uses it
   const user = session?.user as { id?: string; playerId?: string } | undefined;
   const currentUserId = user?.playerId || user?.id;
   const isOwnProfile = currentUserId === playerId;
 
-  // Step 8: Fetch payment history (only for own profile)
   useEffect(() => {
     if (!isOwnProfile || !session) return;
 
@@ -217,9 +250,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
       try {
         const res = await fetch('/api/payments/history');
         const data = await res.json();
-        if (data.success) {
-          setPaymentData((data.transactions || []) as PaymentTx[]);
-        }
+        if (data.success) setPaymentData((data.transactions || []) as PaymentTx[]);
       } catch (error) {
         console.error('Failed to fetch payment history:', error);
       } finally {
@@ -230,19 +261,16 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
     fetchPayments();
   }, [isOwnProfile, session]);
 
-  // Fetch certificates (for all profiles)
   useEffect(() => {
     if (!playerId) return;
 
     const fetchCertificates = async () => {
       setCertificatesLoading(true);
       try {
-        // Get enrolled courses
         const coursesRes = await fetch(`/api/profile/${playerId}/courses`);
         const coursesData = await coursesRes.json();
-        
+
         if (coursesData.success && coursesData.courses.length > 0) {
-          // For each course, check certificate status
           const certificatePromises = coursesData.courses.map(async (course: { courseId: string; title?: string }) => {
             try {
               const statusRes = await fetch(`/api/profile/${playerId}/certificate-status?courseId=${encodeURIComponent(course.courseId)}`);
@@ -262,7 +290,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
             }
           });
 
-          const certificates = (await Promise.all(certificatePromises)).filter((c): c is CertificateItem => c !== null);
+          const certificates = (await Promise.all(certificatePromises)).filter((certificate): certificate is CertificateItem => certificate !== null);
           setCertificatesData(certificates);
         }
       } catch (error) {
@@ -275,43 +303,155 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
     fetchCertificates();
   }, [playerId]);
 
+  const refreshProfile = async () => {
+    if (!playerId) return;
+    const profileRes = await fetch(`/api/profile/${playerId}`);
+    const profileJson = await profileRes.json();
+    if (profileJson.success) {
+      const nextProfile = (profileJson.profile ?? null) as ProfileData | null;
+      setProfileData(nextProfile);
+      setEditDisplayName(nextProfile?.player?.displayName ?? '');
+    }
+  };
+
+  const handleProfilePhotoUpload = async (file: File | null) => {
+    if (!file) return;
+    setPhotoUploadLoading(true);
+    try {
+      const formData = new FormData();
+      formData.append('image', file);
+      const res = await fetch('/api/profile/photo', { method: 'POST', body: formData });
+      const data = await res.json();
+      if (data.success) {
+        await refreshProfile();
+        notifications.show({ color: 'green', title: 'Photo updated', message: 'Your profile photo was saved.' });
+      } else {
+        notifications.show({ color: 'red', title: 'Upload failed', message: data.error || 'Failed to upload photo.' });
+      }
+    } catch (err) {
+      console.error(err);
+      notifications.show({ color: 'red', title: 'Upload failed', message: 'Failed to upload photo.' });
+    } finally {
+      setPhotoUploadLoading(false);
+    }
+  };
+
+  const handleSaveDisplayName = async () => {
+    setProfileSaveLoading(true);
+    try {
+      const res = await fetch('/api/profile', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ displayName: editDisplayName.trim() }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        await refreshProfile();
+        notifications.show({ color: 'green', title: 'Profile saved', message: 'Your display name was updated.' });
+      } else {
+        notifications.show({ color: 'red', title: 'Save failed', message: data.error || 'Failed to save profile.' });
+      }
+    } catch (err) {
+      console.error(err);
+      notifications.show({ color: 'red', title: 'Save failed', message: 'Failed to save profile.' });
+    } finally {
+      setProfileSaveLoading(false);
+    }
+  };
+
+  const handleUpdatePreference = async (body: Record<string, string>, successMessage: string) => {
+    try {
+      const res = await fetch('/api/profile', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      const data = await res.json();
+      if (data.success) {
+        await refreshProfile();
+        notifications.show({ color: 'green', title: 'Profile saved', message: successMessage });
+        return true;
+      }
+      notifications.show({ color: 'red', title: 'Save failed', message: data.error || 'Failed to save profile.' });
+    } catch (err) {
+      console.error(err);
+      notifications.show({ color: 'red', title: 'Save failed', message: 'Failed to save profile.' });
+    }
+    return false;
+  };
+
+  const profileTabs = [
+    { value: 'overview', label: 'Overview', icon: IconTrendingUp },
+    { value: 'achievements', label: 'Achievements', icon: IconTrophy },
+    { value: 'activity', label: 'Activity', icon: IconClock },
+    ...(isOwnProfile ? [{ value: 'payments', label: 'Payments', icon: IconCreditCard }] : []),
+    ...(isOwnProfile ? [{ value: 'settings', label: 'Profile settings', icon: IconSettings }] : []),
+  ] as const;
+
   if (loading) {
     return (
-      <div className="page-shell flex items-center justify-center">
-        <div className="text-brand-white text-xl">Loading profile...</div>
-      </div>
+      <Container size="lg" py="xl">
+        <Center mih="60vh">
+          <Group>
+            <Loader color="amanobaYellow" />
+            <Text c="white">Loading profile...</Text>
+          </Group>
+        </Center>
+      </Container>
     );
   }
 
   if (!playerId) {
     return (
-      <div className="page-shell flex items-center justify-center">
-        <div className="text-brand-white text-xl">Profile not found</div>
-      </div>
+      <Container size="lg" py="xl">
+        <Center mih="60vh">
+          <Alert color="red" icon={<IconAlertTriangle size={18} />} title="Profile not found">
+            The requested profile could not be resolved.
+          </Alert>
+        </Center>
+      </Container>
     );
   }
 
+  const progression = profileData?.progression;
+  const xpProgress = progression
+    ? Math.min(100, Math.max(0, ((progression.currentXP ?? 0) / (progression.xpToNextLevel || 1)) * 100))
+    : 0;
+  const achievementProgress = profileData?.achievements?.progress ?? 0;
+  const selectedLanguage = (profileData?.player?.locale && locales.includes(profileData.player.locale as Locale)
+    ? profileData.player.locale
+    : locale) as Locale;
+
   return (
-    <div className="page-shell p-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="page-card-dark rounded-2xl p-8">
-          <h1 className="text-4xl font-bold text-white mb-4">Profile Page</h1>
-          <p className="text-brand-white text-lg mb-4">Player ID: {playerId}</p>
-          
-          {/* Step 1: Display API call status */}
-          {apiLoading && (
-            <div className="text-brand-white mb-4">Fetching profile data...</div>
-          )}
-          
-          {apiError && (
-            <div className="text-red-400 mb-4">Error: {apiError}</div>
-          )}
-          
-          {profileData && (
-            <div className="mt-4">
-              {/* Step 3: Add Profile Header */}
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
-                {/* Avatar */}
+    <Container size="xl" py="xl">
+      <Stack gap="lg">
+        <Group justify="space-between" align="flex-start">
+          <Stack gap={4}>
+            <Title order={1} c="white">Profile</Title>
+            <Text c="gray.4">Player ID: {playerId}</Text>
+          </Stack>
+          {isOwnProfile && <Badge variant="light" color="amanobaYellow">Your profile</Badge>}
+        </Group>
+
+        {apiLoading && (
+          <Card padding="lg">
+            <Group>
+              <Loader size="sm" color="amanobaYellow" />
+              <Text>Fetching profile data...</Text>
+            </Group>
+          </Card>
+        )}
+
+        {apiError && (
+          <Alert color="red" icon={<IconAlertTriangle size={18} />} title="Could not load profile">
+            {apiError}
+          </Alert>
+        )}
+
+        {profileData && (
+          <>
+            <Card padding="lg">
+              <Group align="flex-start" gap="lg" wrap="nowrap">
                 <PlayerAvatar
                   playerId={profileData.player?.id ?? ''}
                   displayName={profileData.player?.displayName ?? 'Unknown'}
@@ -321,893 +461,450 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                   size="xl"
                   clickable={false}
                 />
-
-                {/* Info */}
-                <div className="flex-1 text-center md:text-left">
-                  <div className="flex items-center gap-3 justify-center md:justify-start mb-2">
-                    <h2 className="text-4xl font-bold text-white">
-                      {profileData.player?.displayName || 'Unknown Player'}
-                    </h2>
-                    {profileData.player?.isPremium && (
-                      <span className="px-3 py-1 bg-brand-darkGrey text-brand-white rounded-full text-sm font-bold">
-                        PREMIUM
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-2xl text-brand-white font-semibold mb-4">
-                    {profileData.progression?.title || 'Rookie'}
-                  </p>
-
-                  {/* Stats Row */}
-                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                    <div className="bg-brand-black/20 rounded-lg p-3">
-                      <div className="text-gray-400 text-sm">Level</div>
-                      <div className="text-white text-2xl font-bold">
-                        {profileData.progression?.level || 1}
-                      </div>
-                    </div>
-                    <div className="bg-brand-black/20 rounded-lg p-3">
-                      <div className="text-gray-400 text-sm">Games Played</div>
-                      <div className="text-white text-2xl font-bold">
-                        {profileData.statistics?.totalGamesPlayed || 0}
-                      </div>
-                    </div>
-                    <div className="bg-brand-black/20 rounded-lg p-3">
-                      <div className="text-gray-400 text-sm">Win Rate</div>
-                      <div className="text-white text-2xl font-bold">
-                        {profileData.statistics?.winRate || 0}%
-                      </div>
-                    </div>
-                    <div className="bg-brand-black/20 rounded-lg p-3">
-                      <div className="text-gray-400 text-sm">Achievements</div>
-                      <div className="text-white text-2xl font-bold">
-                        {profileData.achievements?.unlocked || 0}/{profileData.achievements?.total || 0}
-                      </div>
-                    </div>
-                    <div className="bg-brand-black/20 rounded-lg p-3 relative">
-                      <div className="text-gray-400 text-sm">Certificates</div>
-                      <div className="text-white text-2xl font-bold">
-                        {certificatesData.length}
-                      </div>
-                      {certificatesData.length > 0 && (
-                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-brand-accent rounded-full flex items-center justify-center">
-                          <Award className="w-3 h-3 text-brand-black" />
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* XP Progress */}
-                  {profileData.progression && (
-                    <div className="mt-4">
-                      <div className="flex justify-between text-sm text-gray-300 mb-2">
-                        <span>Level {profileData.progression.level}</span>
-                        <span>
-                          {profileData.progression.currentXP} / {profileData.progression.xpToNextLevel} XP
-                        </span>
-                      </div>
-                      <div className="h-3 bg-brand-black/40 rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-brand-darkGrey transition-all duration-500"
-                          style={{
-                            width: `${((profileData.progression.currentXP ?? 0) / (profileData.progression.xpToNextLevel || 1)) * 100}%`,
-                          }}
-                        />
-                      </div>
-                      {profileData.progression.nextTitle && (
-                        <p className="text-gray-400 text-sm mt-2">
-                          Next title: {profileData.progression.nextTitle}
-                        </p>
-                      )}
-                    </div>
+                <Stack gap="md" flex={1}>
+                  <Group gap="sm" align="center">
+                    <Title order={2}>{profileData.player?.displayName || 'Unknown Player'}</Title>
+                    {profileData.player?.isPremium && <Badge color="amanobaYellow">Premium</Badge>}
+                  </Group>
+                  <Text size="xl" fw={700}>{profileData.progression?.title || 'Rookie'}</Text>
+                  <SimpleGrid cols={{ base: 2, md: 5 }}>
+                    {[
+                      ['Level', profileData.progression?.level || 1],
+                      ['Games Played', profileData.statistics?.totalGamesPlayed || 0],
+                      ['Win Rate', `${profileData.statistics?.winRate || 0}%`],
+                      ['Achievements', `${profileData.achievements?.unlocked || 0}/${profileData.achievements?.total || 0}`],
+                      ['Certificates', certificatesData.length],
+                    ].map(([label, value]) => (
+                      <Paper key={label} withBorder radius="md" p="sm">
+                        <Text size="xs" c="dimmed">{label}</Text>
+                        <Text size="xl" fw={800}>{value}</Text>
+                      </Paper>
+                    ))}
+                  </SimpleGrid>
+                  {progression && (
+                    <Stack gap={4}>
+                      <Group justify="space-between">
+                        <Text size="sm">Level {progression.level}</Text>
+                        <Text size="sm" c="dimmed">{progression.currentXP} / {progression.xpToNextLevel} XP</Text>
+                      </Group>
+                      <Progress value={xpProgress} color="amanobaYellow" />
+                      {progression.nextTitle && <Text size="sm" c="dimmed">Next title: {progression.nextTitle}</Text>}
+                    </Stack>
                   )}
-                </div>
-              </div>
-              
-              {/* Step 4: Add Tabs */}
-              <div className="flex gap-2 mb-6 mt-8">
-                {[
-                  { id: 'overview', label: 'Overview', icon: TrendingUp },
-                  { id: 'achievements', label: 'Achievements', icon: Trophy },
-                  { id: 'activity', label: 'Activity', icon: Clock },
-                  ...(isOwnProfile ? [{ id: 'payments', label: 'Payments', icon: CreditCard }] : []),
-                  ...(isOwnProfile ? [{ id: 'settings', label: 'Profile settings', icon: Settings }] : []),
-                ].map((tab) => {
+                </Stack>
+              </Group>
+            </Card>
+
+            <Tabs value={activeTab} onChange={(value) => setActiveTab((value || 'overview') as ProfileTab)}>
+              <Tabs.List>
+                {profileTabs.map((tab) => {
                   const Icon = tab.icon;
                   return (
-                    <button
-                      key={tab.id}
-                      onClick={() => setActiveTab(tab.id as typeof activeTab)}
-                      className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
-                        activeTab === tab.id
-                          ? 'bg-brand-darkGrey text-brand-white'
-                          : 'bg-brand-darkGrey text-brand-white/70 hover:bg-brand-black/20'
-                      }`}
-                    >
-                      <Icon className="w-5 h-5" />
+                    <Tabs.Tab key={tab.value} value={tab.value} leftSection={<Icon size={16} />}>
                       {tab.label}
-                    </button>
+                    </Tabs.Tab>
                   );
                 })}
-              </div>
+              </Tabs.List>
 
-              {/* Tab Content */}
-              <div className="space-y-6">
-                {activeTab === 'overview' && (
-                  <div className="space-y-6">
-                    {/* Step 5: Add Overview Tab Content */}
-                    {/* Streaks */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="page-card-dark p-6">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-2xl">🔥</span>
-                          </div>
-                          <div>
-                            <h3 className="text-xl font-bold text-white">Win Streak</h3>
-                            <p className="text-gray-400 text-sm">Current winning streak</p>
-                          </div>
-                        </div>
-                        <div className="grid grid-cols-2 gap-4">
-                          <div>
-                            <div className="text-gray-400 text-sm">Current</div>
-                            <div className="text-3xl font-bold text-orange-400">
-                              {profileData.streaks?.win?.current || 0}
-                            </div>
-                          </div>
-                          <div>
-                            <div className="text-gray-400 text-sm">Best</div>
-                            <div className="text-3xl font-bold text-orange-400">
-                              {profileData.streaks?.win?.longest || 0}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+              <Tabs.Panel value="overview" pt="lg">
+                <Stack gap="lg">
+                  <SimpleGrid cols={{ base: 1, md: 2 }}>
+                    <MetricCard icon={<IconFlame size={22} />} title="Win Streak" subtitle="Current winning streak" current={profileData.streaks?.win?.current || 0} best={profileData.streaks?.win?.longest || 0} />
+                    <MetricCard icon={<IconCalendar size={22} />} title="Daily Streak" subtitle="Consecutive login days" current={profileData.streaks?.daily?.current || 0} best={profileData.streaks?.daily?.longest || 0} />
+                  </SimpleGrid>
+                  <SimpleGrid cols={{ base: 1, md: 2 }}>
+                    {profileData.wallet && (
+                      <Card withBorder padding="lg">
+                        <Stack gap="md">
+                          <Group>
+                            <ThemeIcon color="amanobaYellow" variant="light"><IconCoin size={20} /></ThemeIcon>
+                            <Title order={3} size="h4">Points Wallet</Title>
+                          </Group>
+                          <KeyValue label="Current Balance" value={profileData.wallet.currentBalance.toLocaleString()} />
+                          <KeyValue label="Lifetime Earned" value={profileData.wallet.lifetimeEarned.toLocaleString()} />
+                          <KeyValue label="Lifetime Spent" value={profileData.wallet.lifetimeSpent.toLocaleString()} />
+                        </Stack>
+                      </Card>
+                    )}
+                    <Card withBorder padding="lg">
+                      <Stack gap="md">
+                        <Group>
+                          <ThemeIcon color="blue" variant="light"><IconTarget size={20} /></ThemeIcon>
+                          <Title order={3} size="h4">Performance</Title>
+                        </Group>
+                        <KeyValue label="Highest Score" value={profileData.statistics?.highestScore?.toLocaleString() || '0'} />
+                        <KeyValue label="Perfect Games" value={String(profileData.statistics?.perfectGames || 0)} />
+                        <KeyValue label="Avg Session" value={profileData.statistics?.averageSessionTime ? `${Math.round(profileData.statistics.averageSessionTime / 60)}m` : '0m'} />
+                      </Stack>
+                    </Card>
+                  </SimpleGrid>
+                  <CertificatesCard
+                    certificates={certificatesData}
+                    loading={certificatesLoading}
+                    locale={locale}
+                    playerId={playerId}
+                    copiedId={certificateLinkCopiedId}
+                    onCopy={(cert) => {
+                      if (!cert.verificationSlug) return;
+                      const url = `${window.location.origin}/${locale}/certificate/${cert.verificationSlug}`;
+                      navigator.clipboard.writeText(url).then(() => {
+                        setCertificateLinkCopiedId(cert.courseId);
+                        setTimeout(() => setCertificateLinkCopiedId(null), 2000);
+                        notifications.show({ color: 'green', title: 'Link copied', message: 'Certificate verification link copied.' });
+                      });
+                    }}
+                  />
+                </Stack>
+              </Tabs.Panel>
 
-                      <div className="page-card-dark p-6">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-2xl">📅</span>
-                          </div>
-                          <div>
-                            <h3 className="text-xl font-bold text-white">Daily Streak</h3>
-                            <p className="text-gray-400 text-sm">Consecutive login days</p>
-                          </div>
-                        </div>
-                        <div className="grid grid-cols-2 gap-4">
-                          <div>
-                            <div className="text-gray-400 text-sm">Current</div>
-                            <div className="text-3xl font-bold text-green-400">
-                              {profileData.streaks?.daily?.current || 0}
-                            </div>
-                          </div>
-                          <div>
-                            <div className="text-gray-400 text-sm">Best</div>
-                            <div className="text-3xl font-bold text-green-400">
-                              {profileData.streaks?.daily?.longest || 0}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Wallet & Performance */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {profileData.wallet && (
-                        <div className="page-card-dark p-6">
-                          <div className="flex items-center gap-3 mb-4">
-                            <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
-                              <span className="text-white text-2xl">💰</span>
-                            </div>
-                            <h3 className="text-xl font-bold text-white">Points Wallet</h3>
-                          </div>
-                          <div className="space-y-3">
-                            <div className="flex justify-between">
-                              <span className="text-gray-400">Current Balance</span>
-                              <span className="text-white font-bold">
-                                {profileData.wallet.currentBalance.toLocaleString()}
-                              </span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-400">Lifetime Earned</span>
-                              <span className="text-green-400 font-bold">
-                                {profileData.wallet.lifetimeEarned.toLocaleString()}
-                              </span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-400">Lifetime Spent</span>
-                              <span className="text-red-400 font-bold">
-                                {profileData.wallet.lifetimeSpent.toLocaleString()}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
-                      <div className="page-card-dark p-6">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-2xl">🎯</span>
-                          </div>
-                          <h3 className="text-xl font-bold text-white">Performance</h3>
-                        </div>
-                        <div className="space-y-3">
-                          <div className="flex justify-between">
-                            <span className="text-gray-400">Highest Score</span>
-                            <span className="text-white font-bold">
-                              {profileData.statistics?.highestScore?.toLocaleString() || '0'}
-                            </span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-400">Perfect Games</span>
-                            <span className="text-white font-bold">
-                              {profileData.statistics?.perfectGames || 0}
-                            </span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-400">Avg Session</span>
-                            <span className="text-white font-bold">
-                              {profileData.statistics?.averageSessionTime
-                                ? `${Math.round(profileData.statistics.averageSessionTime / 60)}m`
-                                : '0m'}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === 'achievements' && (
-                  <div className="page-card-dark p-6">
-                    <h3 className="text-2xl font-bold text-white mb-4">Achievements</h3>
-                    <p className="text-gray-400">Achievements content will be added in Step 6.</p>
-                  </div>
-                )}
-
-                {activeTab === 'activity' && (
-                  <div className="page-card-dark p-6">
-                    <h3 className="text-2xl font-bold text-white mb-4">Activity</h3>
-                    <p className="text-gray-400">Activity content will be added in Step 7.</p>
-                  </div>
-                )}
-
-                {activeTab === 'payments' && isOwnProfile && (
-                  <div className="page-card-dark p-6">
-                    <h3 className="text-2xl font-bold text-white mb-4">Payments</h3>
-                    <p className="text-gray-400">Payments content will be added in Step 8.</p>
-                  </div>
-                )}
-
-                {activeTab === 'settings' && isOwnProfile && (
-                  <div className="page-card-dark p-6 space-y-6">
-                    <h3 className="text-xl font-bold text-white mb-4">Profile customization</h3>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Profile photo</label>
-                      <div className="flex items-center gap-4">
-                        <PlayerAvatar
-                          playerId={profileData.player?.id ?? ''}
-                          displayName={profileData.player?.displayName ?? 'Unknown'}
-                          profilePicture={profileData.player?.profilePicture ?? undefined}
-                          level={profileData.progression?.level ?? 1}
-                          isPremium={profileData.player?.isPremium ?? false}
-                          size="xl"
-                          clickable={false}
-                        />
-                        <label className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 cursor-pointer disabled:opacity-50">
-                          <Upload className="w-5 h-5" />
-                          {photoUploadLoading ? 'Uploading...' : 'Change photo'}
-                          <input
-                            type="file"
-                            accept="image/jpeg,image/jpg,image/png,image/webp,image/gif"
-                            className="hidden"
-                            disabled={photoUploadLoading}
-                            onChange={async (e) => {
-                              const file = e.target.files?.[0];
-                              if (!file) return;
-                              setPhotoUploadLoading(true);
-                              try {
-                                const formData = new FormData();
-                                formData.append('image', file);
-                                const res = await fetch('/api/profile/photo', { method: 'POST', body: formData });
-                                const data = await res.json();
-                                if (data.success && playerId) {
-                                  const profileRes = await fetch(`/api/profile/${playerId}`);
-                                  const profileJson = await profileRes.json();
-                                  if (profileJson.success) setProfileData((profileJson.profile ?? null) as ProfileData | null);
-                                } else {
-                                  alert(data.error || 'Failed to upload photo');
-                                }
-                              } catch (err) {
-                                console.error(err);
-                                alert('Failed to upload photo');
-                              } finally {
-                                setPhotoUploadLoading(false);
-                                e.target.value = '';
-                              }
-                            }}
-                          />
-                        </label>
-                      </div>
-                      <p className="text-xs text-gray-400 mt-1">JPEG, PNG, WebP or GIF, max 5MB</p>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Display name (nickname)</label>
-                      <div className="flex gap-2">
-                        <input
-                          type="text"
-                          value={editDisplayName}
-                          onChange={(e) => setEditDisplayName(e.target.value)}
-                          maxLength={50}
-                          className="flex-1 px-4 py-2 bg-brand-black/40 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand-accent"
-                          placeholder="Your display name"
-                        />
-                        <button
-                          type="button"
-                          disabled={profileSaveLoading || editDisplayName.trim() === (profileData.player?.displayName ?? '')}
-                          onClick={async () => {
-                            setProfileSaveLoading(true);
-                            try {
-                              const res = await fetch('/api/profile', {
-                                method: 'PATCH',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({ displayName: editDisplayName.trim() }),
-                              });
-                              const data = await res.json();
-                              if (data.success && playerId) {
-                                const profileRes = await fetch(`/api/profile/${playerId}`);
-                                const profileJson = await profileRes.json();
-                                if (profileJson.success) {
-                                  setProfileData((profileJson.profile ?? null) as ProfileData | null);
-                                  setEditDisplayName((profileJson.profile as ProfileData)?.player?.displayName ?? '');
-                                }
-                              } else {
-                                alert(data.error || 'Failed to save');
-                              }
-                            } catch (err) {
-                              console.error(err);
-                              alert('Failed to save');
-                            } finally {
-                              setProfileSaveLoading(false);
-                            }
-                          }}
-                          className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 disabled:opacity-50"
-                        >
-                          <Save className="w-4 h-4" />
-                          {profileSaveLoading ? 'Saving...' : 'Save'}
-                        </button>
-                      </div>
-                      <p className="text-xs text-gray-400 mt-1">Shown on profile, leaderboards, certificates. Max 50 characters.</p>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Profile visibility</label>
-                      <select
-                        value={profileData.player?.profileVisibility ?? 'private'}
-                        onChange={async (e) => {
-                          const val = e.target.value as 'public' | 'private';
-                          setProfileSaveLoading(true);
-                          try {
-                            const res = await fetch('/api/profile', {
-                              method: 'PATCH',
-                              headers: { 'Content-Type': 'application/json' },
-                              body: JSON.stringify({ profileVisibility: val }),
-                            });
-                            const data = await res.json();
-                            if (data.success && playerId) {
-                              const profileRes = await fetch(`/api/profile/${playerId}`);
-                              const profileJson = await profileRes.json();
-                              if (profileJson.success) setProfileData((profileJson.profile ?? null) as ProfileData | null);
-                            } else {
-                              alert(data.error || 'Failed to save');
-                            }
-                          } catch (err) {
-                            console.error(err);
-                            alert('Failed to save');
-                          } finally {
-                            setProfileSaveLoading(false);
-                          }
-                        }}
-                        className="px-4 py-2 bg-brand-black/40 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-brand-accent"
-                      >
-                        <option value="private">Private — only you can see your profile</option>
-                        <option value="public">Public — others can see your profile</option>
-                      </select>
-                      <p className="text-xs text-gray-400 mt-1">When private, others see &quot;Profile not available&quot;.</p>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Language</label>
-                      <select
-                        value={(profileData.player?.locale && locales.includes(profileData.player.locale as Locale) ? profileData.player.locale : locale) as Locale}
-                        onChange={async (e) => {
-                          const newLocale = e.target.value as Locale;
-                          if (!locales.includes(newLocale)) return;
-                          setProfileSaveLoading(true);
-                          try {
-                            const res = await fetch('/api/profile', {
-                              method: 'PATCH',
-                              headers: { 'Content-Type': 'application/json' },
-                              body: JSON.stringify({ locale: newLocale }),
-                            });
-                            const data = await res.json();
-                            if (data.success && playerId) {
-                              const profileRes = await fetch(`/api/profile/${playerId}`);
-                              const profileJson = await profileRes.json();
-                              if (profileJson.success) setProfileData((profileJson.profile ?? null) as ProfileData | null);
-                              // Navigate to same path with new locale so UI language updates
-                              const pathWithoutLocale = pathname.replace(new RegExp(`^/${locale}(/|$)`), '$1') || '/';
-                              router.push(`/${newLocale}${pathWithoutLocale}`);
-                            } else {
-                              alert(data.error || 'Failed to save language');
-                            }
-                          } catch (err) {
-                            console.error(err);
-                            alert('Failed to save language');
-                          } finally {
-                            setProfileSaveLoading(false);
-                          }
-                        }}
-                        className="px-4 py-2 bg-brand-black/40 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-brand-accent"
-                      >
-                        {locales.map((loc) => (
-                          <option key={loc} value={loc}>
-                            {languageNames[loc]}
-                          </option>
-                        ))}
-                      </select>
-                      <p className="text-xs text-gray-400 mt-1">Interface language. Also used for emails and course recommendations.</p>
-                    </div>
-                  </div>
-                )}
-              </div>
-              
-              {/* Step 4: Add Tabs */}
-              <div className="flex gap-2 mb-6 mt-8">
-                {[
-                  { id: 'overview', label: 'Overview', icon: TrendingUp },
-                  { id: 'achievements', label: 'Achievements', icon: Trophy },
-                  { id: 'activity', label: 'Activity', icon: Clock },
-                  ...(isOwnProfile ? [{ id: 'payments', label: 'Payments', icon: CreditCard }] : []),
-                  ...(isOwnProfile ? [{ id: 'settings', label: 'Profile settings', icon: Settings }] : []),
-                ].map((tab) => {
-                  const Icon = tab.icon;
-                  return (
-                    <button
-                      key={tab.id}
-                      onClick={() => setActiveTab(tab.id as typeof activeTab)}
-                      className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
-                        activeTab === tab.id
-                          ? 'bg-brand-darkGrey text-brand-white'
-                          : 'bg-brand-darkGrey text-brand-white/70 hover:bg-brand-black/20'
-                      }`}
-                    >
-                      <Icon className="w-5 h-5" />
-                      {tab.label}
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Tab Content */}
-              <div className="space-y-6">
-                {activeTab === 'overview' && (
-                  <div className="space-y-6">
-                    {/* Step 5: Add Overview Tab Content */}
-                    {/* Streaks */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="page-card-dark p-6">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-2xl">🔥</span>
-                          </div>
-                          <div>
-                            <h3 className="text-xl font-bold text-white">Win Streak</h3>
-                            <p className="text-gray-400 text-sm">Current winning streak</p>
-                          </div>
-                        </div>
-                        <div className="grid grid-cols-2 gap-4">
-                          <div>
-                            <div className="text-gray-400 text-sm">Current</div>
-                            <div className="text-3xl font-bold text-orange-400">
-                              {profileData.streaks?.win?.current || 0}
-                            </div>
-                          </div>
-                          <div>
-                            <div className="text-gray-400 text-sm">Best</div>
-                            <div className="text-3xl font-bold text-orange-400">
-                              {profileData.streaks?.win?.longest || 0}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="page-card-dark p-6">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-2xl">📅</span>
-                          </div>
-                          <div>
-                            <h3 className="text-xl font-bold text-white">Daily Streak</h3>
-                            <p className="text-gray-400 text-sm">Consecutive login days</p>
-                          </div>
-                        </div>
-                        <div className="grid grid-cols-2 gap-4">
-                          <div>
-                            <div className="text-gray-400 text-sm">Current</div>
-                            <div className="text-3xl font-bold text-green-400">
-                              {profileData.streaks?.daily?.current || 0}
-                            </div>
-                          </div>
-                          <div>
-                            <div className="text-gray-400 text-sm">Best</div>
-                            <div className="text-3xl font-bold text-green-400">
-                              {profileData.streaks?.daily?.longest || 0}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Wallet & Performance */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {profileData.wallet && (
-                        <div className="page-card-dark p-6">
-                          <div className="flex items-center gap-3 mb-4">
-                            <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center">
-                              <span className="text-white text-2xl">💰</span>
-                            </div>
-                            <h3 className="text-xl font-bold text-white">Points Wallet</h3>
-                          </div>
-                          <div className="space-y-3">
-                            <div className="flex justify-between">
-                              <span className="text-gray-400">Current Balance</span>
-                              <span className="text-white font-bold">
-                                {profileData.wallet.currentBalance.toLocaleString()}
-                              </span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-400">Lifetime Earned</span>
-                              <span className="text-green-400 font-bold">
-                                {profileData.wallet.lifetimeEarned.toLocaleString()}
-                              </span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-gray-400">Lifetime Spent</span>
-                              <span className="text-red-400 font-bold">
-                                {profileData.wallet.lifetimeSpent.toLocaleString()}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
-                      <div className="page-card-dark p-6">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white text-2xl">🎯</span>
-                          </div>
-                          <h3 className="text-xl font-bold text-white">Performance</h3>
-                        </div>
-                        <div className="space-y-3">
-                          <div className="flex justify-between">
-                            <span className="text-gray-400">Highest Score</span>
-                            <span className="text-white font-bold">
-                              {profileData.statistics?.highestScore?.toLocaleString() || '0'}
-                            </span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-400">Perfect Games</span>
-                            <span className="text-white font-bold">
-                              {profileData.statistics?.perfectGames || 0}
-                            </span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-400">Avg Session</span>
-                            <span className="text-white font-bold">
-                              {profileData.statistics?.averageSessionTime
-                                ? `${Math.round(profileData.statistics.averageSessionTime / 60)}m`
-                                : '0m'}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Certificates Section */}
-                    <div className="page-card-dark p-6 mt-6">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center">
-                          <Award className="w-6 h-6 text-white" />
-                        </div>
-                        <h3 className="text-xl font-bold text-white">Certificates</h3>
-                      </div>
-                      {certificatesLoading ? (
-                        <div className="space-y-3">
-                          {[1, 2, 3].map((i) => (
-                            <div key={i} className="bg-brand-black/20 rounded-lg p-4 animate-pulse">
-                              <div className="flex items-center justify-between">
-                                <div className="flex-1">
-                                  <div className="h-5 bg-brand-darkGrey/50 rounded w-3/4 mb-2"></div>
-                                  <div className="h-4 bg-brand-darkGrey/50 rounded w-1/2"></div>
-                                </div>
-                                <div className="h-4 bg-brand-darkGrey/50 rounded w-24"></div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      ) : certificatesData.length > 0 ? (
-                        <div className="space-y-3">
-                          {certificatesData.map((cert) => {
-                            const handleCopyLink = (e: React.MouseEvent) => {
-                              e.preventDefault();
-                              e.stopPropagation();
-                              if (!cert.verificationSlug) return;
-                              const url = `${window.location.origin}/${locale}/certificate/${cert.verificationSlug}`;
-                              navigator.clipboard.writeText(url).then(() => {
-                                setCertificateLinkCopiedId(cert.courseId);
-                                setTimeout(() => setCertificateLinkCopiedId(null), 2000);
-                              });
-                            };
-                            return (
-                              <div
-                                key={cert.courseId}
-                                className="block bg-brand-black/20 rounded-lg p-4 hover:bg-brand-black/30 transition-colors"
-                              >
-                                <div className="flex items-center justify-between gap-3 flex-wrap">
-                                  <a
-                                    href={`/${locale}/profile/${playerId}/certificate/${cert.courseId}`}
-                                    className="flex-1 min-w-0"
-                                  >
-                                    <h4 className="text-white font-bold">{cert.courseTitle}</h4>
-                                    {cert.score !== null && (
-                                      <p className="text-gray-400 text-sm">Score: {cert.score}%</p>
-                                    )}
-                                  </a>
-                                  <div className="flex items-center gap-2 shrink-0">
-                                    {cert.verificationSlug && (
-                                      <button
-                                        type="button"
-                                        onClick={handleCopyLink}
-                                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-darkGrey/80 text-gray-300 hover:bg-brand-darkGrey text-sm font-medium border border-brand-accent/30"
-                                      >
-                                        {certificateLinkCopiedId === cert.courseId ? (
-                                          <>
-                                            <Check className="w-4 h-4 text-green-400" />
-                                            Copied
-                                          </>
-                                        ) : (
-                                          <>
-                                            <LinkIcon className="w-4 h-4 text-brand-accent" />
-                                            Copy link
-                                          </>
-                                        )}
-                                      </button>
-                                    )}
-                                    <a
-                                      href={`/${locale}/profile/${playerId}/certificate/${cert.courseId}`}
-                                      className="text-brand-accent font-medium whitespace-nowrap"
-                                    >
-                                      View Certificate →
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      ) : (
-                        <div className="text-center py-4">
-                          <p className="text-gray-400">No certificates yet</p>
-                          <p className="text-gray-500 text-sm mt-2">
-                            Complete courses and pass final exams to earn certificates
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === 'achievements' && (
-                  <div className="page-card-dark p-6">
-                    <div className="mb-6">
-                      <div className="flex justify-between items-center mb-2">
-                        <h3 className="text-2xl font-bold text-white">Achievement Progress</h3>
-                        <span className="text-indigo-300 text-lg font-semibold">
-                          {profileData.achievements?.progress || 0}% Complete
-                        </span>
-                      </div>
-                      <div className="h-3 bg-brand-black/40 rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-brand-darkGrey"
-                          style={{ width: `${profileData.achievements?.progress || 0}%` }}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <Tabs.Panel value="achievements" pt="lg">
+                <Card padding="lg">
+                  <Stack gap="lg">
+                    <Group justify="space-between">
+                      <Title order={2} size="h3">Achievement Progress</Title>
+                      <Badge variant="light">{achievementProgress}% Complete</Badge>
+                    </Group>
+                    <Progress value={achievementProgress} color="amanobaYellow" />
+                    <SimpleGrid cols={{ base: 1, md: 2, lg: 3 }}>
                       {profileData.achievements?.featured && profileData.achievements.featured.length > 0 ? (
                         profileData.achievements.featured.map((achievement) => (
-                          <div key={achievement.id ?? ''} className="bg-brand-black/20 rounded-lg p-4">
-                            <div className="flex items-start gap-3">
-                              <div className="w-12 h-12 bg-brand-darkGrey/40 rounded-lg flex items-center justify-center text-2xl text-white">
-                                {achievement.icon != null ? String(achievement.icon) : '🏆'}
-                              </div>
-                              <div className="flex-1">
-                                <div className="flex items-center gap-2 mb-1">
-                                  <h4 className="text-white font-bold">{achievement.name}</h4>
-                                  <span className={`text-xs px-2 py-0.5 rounded ${
-                                    achievement.tier === 'legendary' ? 'bg-amber-600 text-white' :
-                                    achievement.tier === 'epic' ? 'bg-purple-500 text-white' :
-                                    achievement.tier === 'rare' ? 'bg-blue-500 text-white' :
-                                    'bg-gray-500 text-white'
-                                  }`}>
+                          <Card key={achievement.id ?? achievement.name ?? ''} withBorder padding="md">
+                            <Group align="flex-start">
+                              <ThemeIcon size={44} radius="md" color="amanobaYellow" variant="light">
+                                <Text>{achievement.icon != null ? String(achievement.icon) : '🏆'}</Text>
+                              </ThemeIcon>
+                              <Stack gap={4} flex={1}>
+                                <Group gap="xs">
+                                  <Text fw={700}>{achievement.name}</Text>
+                                  <Badge size="xs" color={achievement.tier === 'legendary' ? 'yellow' : achievement.tier === 'epic' ? 'grape' : achievement.tier === 'rare' ? 'blue' : 'gray'}>
                                     {(achievement.tier ?? 'common').toUpperCase()}
-                                  </span>
-                                </div>
-                                <p className="text-gray-400 text-sm mb-2">{achievement.description}</p>
-                                <p className="text-gray-500 text-xs">
-                                  Unlocked {achievement.unlockedAt ? new Date(achievement.unlockedAt).toLocaleDateString() : '—'}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
+                                  </Badge>
+                                </Group>
+                                <Text size="sm" c="dimmed">{achievement.description}</Text>
+                                <Text size="xs" c="dimmed">Unlocked {achievement.unlockedAt ? new Date(achievement.unlockedAt).toLocaleDateString() : '-'}</Text>
+                              </Stack>
+                            </Group>
+                          </Card>
                         ))
                       ) : (
-                        <div className="col-span-full text-center py-8">
-                          <p className="text-gray-400">No achievements unlocked yet.</p>
-                        </div>
+                        <Paper withBorder radius="md" p="xl">
+                          <Text c="dimmed">No achievements unlocked yet.</Text>
+                        </Paper>
                       )}
-                    </div>
-                  </div>
-                )}
+                    </SimpleGrid>
+                  </Stack>
+                </Card>
+              </Tabs.Panel>
 
-                {activeTab === 'activity' && (
-                  <div className="page-card-dark p-6">
-                    <h3 className="text-2xl font-bold text-white mb-6">Recent Activity</h3>
-                    <div className="space-y-3">
-                      {profileData.recentActivity && profileData.recentActivity.length > 0 ? (
-                        profileData.recentActivity.map((activity, index) => (
-                          <div key={index} className="bg-brand-black/20 rounded-lg p-4 flex items-center justify-between">
-                            <div className="flex items-center gap-4">
-                              <div className="text-3xl">{activity.gameIcon != null ? String(activity.gameIcon) : '🎮'}</div>
-                              <div>
-                                <h4 className="text-white font-semibold">{activity.gameName}</h4>
-                                <p className="text-gray-400 text-sm">
-                                  {activity.outcome === 'win' ? '🏆 Victory' :
-                                   activity.outcome === 'loss' ? '❌ Defeat' : '🤝 Draw'}
-                                  {' · '}Score: {activity.score ?? 0}
-                                  {' · '}+{activity.pointsEarned ?? 0} points
-                                </p>
-                              </div>
-                            </div>
-                            <div className="text-right">
-                              <p className="text-gray-400 text-sm">
-                                {new Date(activity.playedAt ?? activity.createdAt ?? 0).toLocaleDateString()}
-                              </p>
-                              <p className="text-gray-500 text-xs">
-                                {Math.round((activity.duration ?? 0) / 60)}m {(activity.duration ?? 0) % 60}s
-                              </p>
-                            </div>
-                          </div>
-                        ))
-                      ) : (
-                        <div className="text-center py-12">
-                          <p className="text-gray-400">No recent activity.</p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === 'payments' && isOwnProfile && (
-                  <div className="page-card-dark p-6">
-                    <h3 className="text-2xl font-bold text-white mb-6">Payment History</h3>
-                    {paymentLoading ? (
-                      <div className="text-center py-8 text-gray-400">Loading payment history...</div>
-                    ) : paymentData && paymentData.length > 0 ? (
-                      <div className="space-y-3">
-                        {paymentData.map((tx, txIndex) => {
-                          const currency = (tx.currency ?? 'USD').toUpperCase();
-                          const amount = (tx.amount ?? 0) / 100;
-                          const formattedAmount = new Intl.NumberFormat('en-US', {
-                            style: 'currency',
-                            currency,
-                          }).format(amount);
-
-                          const statusColors: Record<string, string> = {
-                            succeeded: 'text-green-400',
-                            pending: 'text-yellow-400',
-                            failed: 'text-red-400',
-                            refunded: 'text-gray-400',
-                          };
-                          const status = tx.status ?? '';
-
-                          return (
-                            <div key={tx.id ?? txIndex} className="bg-brand-black/20 rounded-lg p-4">
-                              <div className="flex items-start justify-between mb-3">
-                                <div>
-                                  <h4 className="text-white font-semibold mb-1">
-                                    {tx.courseName || 'Premium Access'}
-                                  </h4>
-                                  <p className="text-gray-400 text-sm">
-                                    {tx.createdAt ? new Date(tx.createdAt).toLocaleDateString('en-US', {
-                                      year: 'numeric',
-                                      month: 'long',
-                                      day: 'numeric',
-                                      hour: '2-digit',
-                                      minute: '2-digit',
-                                    }) : '—'}
-                                  </p>
-                                </div>
-                                <div className="text-right">
-                                  <div className="text-white font-bold text-lg">{formattedAmount}</div>
-                                  <div className={`text-sm ${statusColors[status] || 'text-gray-400'}`}>
-                                    {status ? status.charAt(0).toUpperCase() + status.slice(1) : '—'}
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="grid grid-cols-2 gap-4 pt-3 border-t border-brand-black/40">
-                                {tx.premiumGranted && tx.premiumExpiresAt && (
-                                  <div>
-                                    <p className="text-gray-400 text-xs mb-1">Premium Expires</p>
-                                    <p className="text-white text-sm">
-                                      {new Date(tx.premiumExpiresAt).toLocaleDateString('en-US', {
-                                        year: 'numeric',
-                                        month: 'long',
-                                        day: 'numeric',
-                                      })}
-                                    </p>
-                                  </div>
-                                )}
-                                {tx.paymentMethod && (
-                                  <div>
-                                    <p className="text-gray-400 text-xs mb-1">Payment Method</p>
-                                    <p className="text-white text-sm">
-                                      {tx.paymentMethod.brand ? (
-                                        <>
-                                          {tx.paymentMethod.brand.charAt(0).toUpperCase() + tx.paymentMethod.brand.slice(1)}
-                                          {' •••• '}
-                                          {tx.paymentMethod.last4}
-                                        </>
-                                      ) : (
-                                        'Card'
-                                      )}
-                                    </p>
-                                  </div>
-                                )}
-                              </div>
-                              {tx.stripeCheckoutSessionId && (
-                                <p className="text-gray-500 text-xs mt-3">
-                                  Transaction ID: {tx.stripePaymentIntentId}
-                                </p>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
+              <Tabs.Panel value="activity" pt="lg">
+                <Card padding="lg">
+                  <Stack gap="md">
+                    <Title order={2} size="h3">Recent Activity</Title>
+                    {profileData.recentActivity && profileData.recentActivity.length > 0 ? (
+                      profileData.recentActivity.map((activity, index) => (
+                        <Paper key={`${activity.createdAt ?? activity.playedAt ?? index}`} withBorder radius="md" p="md">
+                          <Group justify="space-between" align="center">
+                            <Group>
+                              <ThemeIcon size={44} color="amanobaYellow" variant="light">
+                                <Text>{activity.gameIcon != null ? String(activity.gameIcon) : '🎮'}</Text>
+                              </ThemeIcon>
+                              <Stack gap={2}>
+                                <Text fw={700}>{activity.gameName}</Text>
+                                <Text size="sm" c="dimmed">
+                                  {activity.outcome === 'win' ? 'Victory' : activity.outcome === 'loss' ? 'Defeat' : 'Draw'} · Score: {activity.score ?? 0} · +{activity.pointsEarned ?? 0} points
+                                </Text>
+                              </Stack>
+                            </Group>
+                            <Stack gap={2} align="flex-end">
+                              <Text size="sm" c="dimmed">{new Date(activity.playedAt ?? activity.createdAt ?? 0).toLocaleDateString()}</Text>
+                              <Text size="xs" c="dimmed">{Math.round((activity.duration ?? 0) / 60)}m {(activity.duration ?? 0) % 60}s</Text>
+                            </Stack>
+                          </Group>
+                        </Paper>
+                      ))
                     ) : (
-                      <div className="text-center py-12">
-                        <CreditCard className="w-16 h-16 text-gray-500 mx-auto mb-4" />
-                        <p className="text-gray-400 text-lg">No payment history</p>
-                        <p className="text-gray-500 text-sm mt-2">
-                          Your payment transactions will appear here
-                        </p>
-                      </div>
+                      <Text c="dimmed">No recent activity.</Text>
                     )}
-                  </div>
-                )}
-              </div>
-              
-              {/* Debug: Show API response (can be removed later) */}
-              <details className="text-gray-400 text-sm mt-4">
-                <summary className="cursor-pointer text-brand-white">View API Response (for debugging)</summary>
-                <pre className="mt-2 p-4 bg-brand-black/40 rounded overflow-auto max-h-96">
-                  {JSON.stringify(profileData, null, 2)}
-                </pre>
-              </details>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
+                  </Stack>
+                </Card>
+              </Tabs.Panel>
+
+              {isOwnProfile && (
+                <Tabs.Panel value="payments" pt="lg">
+                  <Card padding="lg">
+                    <Stack gap="md">
+                      <Title order={2} size="h3">Payment History</Title>
+                      {paymentLoading ? (
+                        <Stack>{[1, 2, 3].map((item) => <Skeleton key={item} height={76} radius="md" />)}</Stack>
+                      ) : paymentData && paymentData.length > 0 ? (
+                        paymentData.map((tx, txIndex) => <PaymentRow key={tx.id ?? txIndex} tx={tx} />)
+                      ) : (
+                        <Center py="xl">
+                          <Stack align="center">
+                            <ThemeIcon size={60} color="gray" variant="light"><IconCreditCard size={32} /></ThemeIcon>
+                            <Text fw={700}>No payment history</Text>
+                            <Text c="dimmed" size="sm">Your payment transactions will appear here.</Text>
+                          </Stack>
+                        </Center>
+                      )}
+                    </Stack>
+                  </Card>
+                </Tabs.Panel>
+              )}
+
+              {isOwnProfile && (
+                <Tabs.Panel value="settings" pt="lg">
+                  <Card padding="lg">
+                    <Stack gap="lg">
+                      <Title order={2} size="h3">Profile customization</Title>
+                      <Paper withBorder radius="md" p="md">
+                        <Group align="center">
+                          <PlayerAvatar
+                            playerId={profileData.player?.id ?? ''}
+                            displayName={profileData.player?.displayName ?? 'Unknown'}
+                            profilePicture={profileData.player?.profilePicture ?? undefined}
+                            level={profileData.progression?.level ?? 1}
+                            isPremium={profileData.player?.isPremium ?? false}
+                            size="xl"
+                            clickable={false}
+                          />
+                          <Stack gap={4}>
+                            <FileButton onChange={handleProfilePhotoUpload} accept="image/jpeg,image/jpg,image/png,image/webp,image/gif">
+                              {(props) => (
+                                <Button {...props} loading={photoUploadLoading} leftSection={<IconUpload size={16} />}>
+                                  Change photo
+                                </Button>
+                              )}
+                            </FileButton>
+                            <Text size="xs" c="dimmed">JPEG, PNG, WebP or GIF, max 5MB.</Text>
+                          </Stack>
+                        </Group>
+                      </Paper>
+                      <Group align="flex-end">
+                        <TextInput
+                          label="Display name (nickname)"
+                          description="Shown on profile, leaderboards, certificates. Max 50 characters."
+                          value={editDisplayName}
+                          onChange={(event) => setEditDisplayName(event.currentTarget.value)}
+                          maxLength={50}
+                          placeholder="Your display name"
+                          flex={1}
+                        />
+                        <Button
+                          type="button"
+                          loading={profileSaveLoading}
+                          disabled={editDisplayName.trim() === (profileData.player?.displayName ?? '')}
+                          leftSection={<IconDeviceFloppy size={16} />}
+                          onClick={handleSaveDisplayName}
+                        >
+                          Save
+                        </Button>
+                      </Group>
+                      <SimpleGrid cols={{ base: 1, md: 2 }}>
+                        <Select
+                          label="Profile visibility"
+                          description="When private, others see profile not available."
+                          value={profileData.player?.profileVisibility ?? 'private'}
+                          allowDeselect={false}
+                          data={[
+                            { value: 'private', label: 'Private' },
+                            { value: 'public', label: 'Public' },
+                            { value: 'friends', label: 'Friends only' },
+                          ]}
+                          onChange={async (value) => {
+                            if (!value) return;
+                            await handleUpdatePreference({ profileVisibility: value }, 'Profile visibility was updated.');
+                          }}
+                        />
+                        <Select
+                          label="Language"
+                          description="Interface language. Also used for emails and course recommendations."
+                          value={selectedLanguage}
+                          allowDeselect={false}
+                          data={locales.map((loc) => ({ value: loc, label: languageNames[loc] ?? loc }))}
+                          onChange={async (value) => {
+                            const newLocale = value as Locale | null;
+                            if (!newLocale || !locales.includes(newLocale)) return;
+                            const saved = await handleUpdatePreference({ locale: newLocale }, 'Language preference was updated.');
+                            if (saved) {
+                              const pathWithoutLocale = pathname.replace(new RegExp(`^/${locale}(/|$)`), '$1') || '/';
+                              router.push(`/${newLocale}${pathWithoutLocale}`);
+                            }
+                          }}
+                        />
+                      </SimpleGrid>
+                    </Stack>
+                  </Card>
+                </Tabs.Panel>
+              )}
+            </Tabs>
+          </>
+        )}
+      </Stack>
+    </Container>
+  );
+}
+
+function MetricCard({
+  icon,
+  title,
+  subtitle,
+  current,
+  best,
+}: {
+  icon: ReactNode;
+  title: string;
+  subtitle: string;
+  current: number;
+  best: number;
+}) {
+  return (
+    <Card withBorder padding="lg">
+      <Stack gap="md">
+        <Group>
+          <ThemeIcon color="amanobaYellow" variant="light">{icon}</ThemeIcon>
+          <Stack gap={0}>
+            <Title order={3} size="h4">{title}</Title>
+            <Text size="sm" c="dimmed">{subtitle}</Text>
+          </Stack>
+        </Group>
+        <SimpleGrid cols={2}>
+          <Stack gap={0}>
+            <Text size="sm" c="dimmed">Current</Text>
+            <Text size="xl" fw={800}>{current}</Text>
+          </Stack>
+          <Stack gap={0}>
+            <Text size="sm" c="dimmed">Best</Text>
+            <Text size="xl" fw={800}>{best}</Text>
+          </Stack>
+        </SimpleGrid>
+      </Stack>
+    </Card>
+  );
+}
+
+function KeyValue({ label, value }: { label: string; value: string }) {
+  return (
+    <Group justify="space-between">
+      <Text c="dimmed">{label}</Text>
+      <Text fw={700}>{value}</Text>
+    </Group>
+  );
+}
+
+function CertificatesCard({
+  certificates,
+  loading,
+  locale,
+  playerId,
+  copiedId,
+  onCopy,
+}: {
+  certificates: CertificateItem[];
+  loading: boolean;
+  locale: string;
+  playerId: string;
+  copiedId: string | null;
+  onCopy: (certificate: CertificateItem) => void;
+}) {
+  return (
+    <Card withBorder padding="lg">
+      <Stack gap="md">
+        <Group>
+          <ThemeIcon color="amanobaYellow" variant="light"><IconAward size={20} /></ThemeIcon>
+          <Title order={3} size="h4">Certificates</Title>
+        </Group>
+        {loading ? (
+          <Stack>{[1, 2, 3].map((item) => <Skeleton key={item} height={72} radius="md" />)}</Stack>
+        ) : certificates.length > 0 ? (
+          certificates.map((cert) => (
+            <Paper key={cert.courseId} withBorder radius="md" p="md">
+              <Group justify="space-between" align="center">
+                <Box component="a" href={`/${locale}/profile/${playerId}/certificate/${cert.courseId}`} flex={1}>
+                  <Text fw={700}>{cert.courseTitle}</Text>
+                  {cert.score !== null && <Text size="sm" c="dimmed">Score: {cert.score}%</Text>}
+                </Box>
+                <Group gap="xs">
+                  {cert.verificationSlug && (
+                    <Button
+                      type="button"
+                      variant="default"
+                      size="xs"
+                      leftSection={copiedId === cert.courseId ? <IconCheck size={14} /> : <IconLink size={14} />}
+                      onClick={() => onCopy(cert)}
+                    >
+                      {copiedId === cert.courseId ? 'Copied' : 'Copy link'}
+                    </Button>
+                  )}
+                  <Button component="a" href={`/${locale}/profile/${playerId}/certificate/${cert.courseId}`} size="xs">
+                    View Certificate
+                  </Button>
+                </Group>
+              </Group>
+            </Paper>
+          ))
+        ) : (
+          <Stack align="center" py="md">
+            <Text c="dimmed">No certificates yet</Text>
+            <Text size="sm" c="dimmed">Complete courses and pass final exams to earn certificates.</Text>
+          </Stack>
+        )}
+      </Stack>
+    </Card>
+  );
+}
+
+function PaymentRow({ tx }: { tx: PaymentTx }) {
+  const currency = (tx.currency ?? 'USD').toUpperCase();
+  const amount = (tx.amount ?? 0) / 100;
+  const formattedAmount = new Intl.NumberFormat('en-US', { style: 'currency', currency }).format(amount);
+  const status = tx.status ?? '';
+  const statusColor = status === 'succeeded' ? 'green' : status === 'pending' ? 'yellow' : status === 'failed' ? 'red' : 'gray';
+
+  return (
+    <Paper withBorder radius="md" p="md">
+      <Stack gap="sm">
+        <Group justify="space-between" align="flex-start">
+          <Stack gap={2}>
+            <Text fw={700}>{tx.courseName || 'Premium Access'}</Text>
+            <Text size="sm" c="dimmed">
+              {tx.createdAt ? new Date(tx.createdAt).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+              }) : '-'}
+            </Text>
+          </Stack>
+          <Stack gap={2} align="flex-end">
+            <Text fw={800}>{formattedAmount}</Text>
+            <Badge color={statusColor}>{status ? status.charAt(0).toUpperCase() + status.slice(1) : '-'}</Badge>
+          </Stack>
+        </Group>
+        {(tx.premiumGranted && tx.premiumExpiresAt) || tx.paymentMethod ? (
+          <SimpleGrid cols={{ base: 1, md: 2 }}>
+            {tx.premiumGranted && tx.premiumExpiresAt && (
+              <Stack gap={2}>
+                <Text size="xs" c="dimmed">Premium Expires</Text>
+                <Text size="sm">{new Date(tx.premiumExpiresAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</Text>
+              </Stack>
+            )}
+            {tx.paymentMethod && (
+              <Stack gap={2}>
+                <Text size="xs" c="dimmed">Payment Method</Text>
+                <Text size="sm">
+                  {tx.paymentMethod.brand
+                    ? `${tx.paymentMethod.brand.charAt(0).toUpperCase() + tx.paymentMethod.brand.slice(1)} **** ${tx.paymentMethod.last4}`
+                    : 'Card'}
+                </Text>
+              </Stack>
+            )}
+          </SimpleGrid>
+        ) : null}
+        {tx.stripeCheckoutSessionId && <Text size="xs" c="dimmed">Transaction ID: {tx.stripePaymentIntentId}</Text>}
+      </Stack>
+    </Paper>
   );
 }
