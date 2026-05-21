@@ -4,6 +4,9 @@ import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
+import { Alert, Anchor, Badge, Box, Button, Group, Loader, Paper, Stack, Text, Textarea, TextInput, Title } from '@mantine/core';
+import { notifications } from '@mantine/notifications';
+import { IconArrowLeft, IconDeviceFloppy, IconListCheck } from '@tabler/icons-react';
 import MarkdownEditor from '@/components/ui/markdown-editor';
 import QuizManagerModal from '@/components/QuizManagerModal';
 
@@ -92,101 +95,111 @@ export default function EditorLessonPage() {
         throw new Error(d?.error || d?.message || 'Failed to save lesson');
       }
       setLesson(d.lesson);
+      notifications.show({ color: 'green', title: 'Lesson saved', message: 'The lesson content is up to date.' });
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : 'Failed to save lesson');
+      notifications.show({ color: 'red', title: 'Could not save lesson', message: e instanceof Error ? e.message : 'Failed to save lesson' });
     } finally {
       setSaving(false);
     }
   }
 
   return (
-    <div className="space-y-4">
-      <div className="text-xs text-brand-white/60">
-        <Link className="hover:underline" href={`/${locale}/editor/courses`}>
+    <Stack gap="md">
+      <Group gap="xs">
+        <Anchor component={Link} size="xs" c="gray.4" href={`/${locale}/editor/courses`}>
           Courses
-        </Link>{' '}
-        /{' '}
-        <Link className="hover:underline" href={`/${locale}/editor/courses/${encodeURIComponent(courseId)}`}>
+        </Anchor>
+        <Text size="xs" c="gray.5">/</Text>
+        <Anchor component={Link} size="xs" c="gray.4" href={`/${locale}/editor/courses/${encodeURIComponent(courseId)}`}>
           {courseId}
-        </Link>{' '}
-        / {lessonId}
-      </div>
+        </Anchor>
+        <Text size="xs" c="gray.5">/ {lessonId}</Text>
+      </Group>
 
-      {loading && <div className="text-sm text-brand-white/80">Loading...</div>}
-      {error && <div className="text-sm ds-text-error">{error}</div>}
+      {loading && (
+        <Group>
+          <Loader color="amanobaYellow" size="sm" />
+          <Text size="sm" c="gray.3">Loading...</Text>
+        </Group>
+      )}
+      {error && <Alert color="red">{error}</Alert>}
 
       {!loading && lesson && (
         <>
-          <div className="flex items-center justify-between gap-4">
-            <div>
-              <h1 className="text-xl font-bold">
+          <Group justify="space-between" align="flex-start">
+            <Stack gap={4}>
+              <Title order={1} size="h3" c="white">
                 Day {String(lesson.dayNumber).padStart(2, '0')}: {title || lessonId}
-              </h1>
-              <div className="text-sm text-brand-white/80">{lesson.isActive ? 'published' : 'draft'}</div>
-            </div>
+              </Title>
+              <Badge color={lesson.isActive ? 'green' : 'gray'}>{lesson.isActive ? 'Published' : 'Draft'}</Badge>
+            </Stack>
 
-            <div className="flex items-center gap-2">
-              <button
+            <Group>
+              <Button
+                variant="default"
+                leftSection={<IconArrowLeft size={16} />}
                 onClick={() => router.back()}
-                className="text-xs px-3 py-2 rounded bg-brand-darkGrey hover:bg-brand-secondary-700 text-brand-white"
               >
                 Back
-              </button>
-              <button
+              </Button>
+              <Button
                 disabled={!dirty || saving}
+                loading={saving}
                 onClick={save}
-                className={`text-xs px-3 py-2 rounded ${!dirty || saving ? 'bg-brand-darkGrey text-brand-white/60' : 'bg-brand-accent hover:bg-brand-primary-400 text-brand-black'}`}
+                leftSection={<IconDeviceFloppy size={16} />}
               >
-                {saving ? 'Saving…' : dirty ? 'Save' : 'Saved'}
-              </button>
-            </div>
-          </div>
+                {dirty ? 'Save' : 'Saved'}
+              </Button>
+            </Group>
+          </Group>
 
-          <div className="grid gap-4">
-            <div className="panel-on-dark p-4">
-              <label className="block text-xs text-brand-white/80 mb-2">Lesson title</label>
-              <input
+          <Stack gap="md">
+            <Paper withBorder radius="md" p="md" bg="dark.8">
+              <TextInput
+                label="Lesson title"
                 value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                className="input-on-dark w-full px-3 py-2 text-sm"
+                onChange={(event) => setTitle(event.currentTarget.value)}
               />
-            </div>
+            </Paper>
 
-            <div className="panel-on-dark p-4">
-              <label className="block text-xs text-brand-white/80 mb-2">Lesson content (Markdown)</label>
-              <MarkdownEditor content={content} onChange={setContent} placeholder="Write lesson content in Markdown…" className="border-brand-accent/30" />
-            </div>
+            <Paper withBorder radius="md" p="md" bg="dark.8">
+              <Stack gap="xs">
+                <Text size="sm" fw={600} c="gray.2">Lesson content (Markdown)</Text>
+                <MarkdownEditor content={content} onChange={setContent} placeholder="Write lesson content in Markdown..." />
+              </Stack>
+            </Paper>
 
-            <div className="panel-on-dark p-4 pt-4 border-t border-brand-accent/30">
-              <button
+            <Paper withBorder radius="md" p="md" bg="dark.8">
+              <Button
                 type="button"
                 onClick={() => setShowQuizManager(true)}
-                className="w-full px-4 py-2 bg-brand-accent hover:bg-brand-primary-400 text-brand-black rounded-lg font-bold transition-colors flex items-center justify-center gap-2"
+                fullWidth
+                leftSection={<IconListCheck size={16} />}
               >
-                <span>📝</span>
                 Manage Quiz Questions
-              </button>
-            </div>
+              </Button>
+            </Paper>
 
-            <div className="panel-on-dark p-4">
-              <label className="block text-xs text-brand-white/80 mb-2">Email subject</label>
-              <input
+            <Paper withBorder radius="md" p="md" bg="dark.8">
+              <TextInput
+                label="Email subject"
                 value={emailSubject}
-                onChange={(e) => setEmailSubject(e.target.value)}
-                className="input-on-dark w-full px-3 py-2 text-sm"
+                onChange={(event) => setEmailSubject(event.currentTarget.value)}
               />
-            </div>
+            </Paper>
 
-            <div className="panel-on-dark p-4">
-              <label className="block text-xs text-brand-white/80 mb-2">Email body (Markdown)</label>
-              <textarea
+            <Paper withBorder radius="md" p="md" bg="dark.8">
+              <Textarea
+                label="Email body (Markdown)"
                 value={emailBody}
-                onChange={(e) => setEmailBody(e.target.value)}
-                rows={8}
-                className="input-on-dark w-full px-3 py-2 text-sm font-mono"
+                onChange={(event) => setEmailBody(event.currentTarget.value)}
+                autosize
+                minRows={8}
+                styles={{ input: { fontFamily: 'var(--mantine-font-family-monospace)' } }}
               />
-            </div>
-          </div>
+            </Paper>
+          </Stack>
 
           {showQuizManager && (
             <QuizManagerModal
@@ -198,6 +211,11 @@ export default function EditorLessonPage() {
           )}
         </>
       )}
-    </div>
+      {!loading && !lesson && !error ? (
+        <Box>
+          <Text c="gray.4">Lesson not found.</Text>
+        </Box>
+      ) : null}
+    </Stack>
   );
 }

@@ -10,15 +10,7 @@ const trackedFiles = execFileSync('git', ['ls-files'], { encoding: 'utf8' })
   .filter((file) => /\.(tsx?|jsx?)$/.test(file))
   .filter((file) => existsSync(file));
 
-const allowedLegacyHelpers = new Set([
-  'app/components/ui/button.tsx',
-  'app/components/ui/card.tsx',
-  'app/lib/utils/cn.ts',
-]);
-
-const allowedLegacyButtonConsumers = new Set([
-  'app/[locale]/auth/signin/page.tsx',
-]);
+const allowedLegacyHelpers = new Set([]);
 
 const hardBlockedImports = [
   {
@@ -48,7 +40,7 @@ const legacyPrimitiveImports = [
   {
     id: 'legacy-button',
     pattern: /from\s+['"]@\/components\/ui\/button['"]/,
-    allow: (file) => allowedLegacyButtonConsumers.has(file),
+    allow: () => false,
     message: 'Legacy shared Button is frozen; use Mantine Button or a thin Mantine wrapper.',
   },
 ];

@@ -8,6 +8,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { Box, Paper, SegmentedControl, Stack, Textarea } from '@mantine/core';
 import { contentToHtml } from '@/app/lib/lesson-content';
 
 const LOOKS_LIKE_HTML = /<\/?[a-z][\s\S]*>/i;
@@ -27,7 +28,6 @@ interface MarkdownEditorProps {
   content: string;
   onChange: (content: string) => void;
   placeholder?: string;
-  className?: string;
   minHeight?: string;
 }
 
@@ -35,7 +35,6 @@ export default function MarkdownEditor({
   content,
   onChange,
   placeholder = 'Write your content in **Markdown** (headings, lists, **bold**, *italic*, [links](url))…',
-  className = '',
   minHeight = '300px',
 }: MarkdownEditorProps) {
   const [activeTab, setActiveTab] = useState<'edit' | 'preview'>('edit');
@@ -53,43 +52,37 @@ export default function MarkdownEditor({
   const previewHtml = contentToHtml(content);
 
   return (
-    <div className={`border-2 border-brand-darkGrey rounded-lg bg-brand-white overflow-hidden ${className}`}>
-      <div className="flex gap-2 p-2 border-b border-brand-darkGrey/20 bg-brand-darkGrey/5">
-        <button
-          type="button"
-          onClick={() => setActiveTab('edit')}
-          className={`px-3 py-1.5 rounded font-medium text-sm transition-colors ${
-            activeTab === 'edit' ? 'bg-brand-accent text-brand-black' : 'text-brand-black hover:bg-brand-darkGrey/20'
-          }`}
-        >
-          Edit
-        </button>
-        <button
-          type="button"
-          onClick={() => setActiveTab('preview')}
-          className={`px-3 py-1.5 rounded font-medium text-sm transition-colors ${
-            activeTab === 'preview' ? 'bg-brand-accent text-brand-black' : 'text-brand-black hover:bg-brand-darkGrey/20'
-          }`}
-        >
-          Preview
-        </button>
-      </div>
-      <div style={{ minHeight }} className="relative">
+    <Paper withBorder radius="md" bg="white" style={{ overflow: 'hidden' }}>
+      <Stack gap={0}>
+        <Box p="xs" bg="gray.0">
+          <SegmentedControl
+            value={activeTab}
+            onChange={(value) => setActiveTab(value as 'edit' | 'preview')}
+            data={[
+              { value: 'edit', label: 'Edit' },
+              { value: 'preview', label: 'Preview' },
+            ]}
+          />
+        </Box>
         {activeTab === 'edit' ? (
-          <textarea
+          <Textarea
             value={content}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={(event) => onChange(event.currentTarget.value)}
             placeholder={placeholder}
-            className="w-full min-h-full p-4 bg-brand-white text-brand-black placeholder:text-brand-darkGrey/50 focus:outline-none resize-y font-mono text-sm"
             spellCheck="true"
+            autosize
+            minRows={10}
+            styles={{ input: { border: 0, borderRadius: 0, minHeight, fontFamily: 'var(--mantine-font-family-monospace)' } }}
           />
         ) : (
-          <div
-            className="prose prose-base max-w-none p-4 text-brand-black lesson-prose"
+          <Box
+            p="md"
+            c="dark.9"
+            style={{ minHeight }}
             dangerouslySetInnerHTML={{ __html: previewHtml }}
           />
         )}
-      </div>
-    </div>
+      </Stack>
+    </Paper>
   );
 }
