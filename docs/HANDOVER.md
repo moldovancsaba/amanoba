@@ -792,6 +792,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ### What changed
 - Established `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` version `1.2.3` as its own Git-managed shared design-system repository for cross-project design, UI, UX, Mantine-only runtime contracts, component contracts, governance, and adoption rules.
+- Added the Amanoba-specific Mantine-only migration plan at `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECTS/AMANOBA_MANTINE_REFACTOR.md`.
 - Added strict shared contracts for foundations, components, UX patterns, governance, contribution rules, changelog, versioning, and project adoption.
 - Updated Amanoba documentation so local Tailwind/Radix/CSS files are described as the current implementation adapter, not the design authority.
 - Updated UI audit scripts so generated quality reports reference the shared SSOT plus Amanoba adapter rules.

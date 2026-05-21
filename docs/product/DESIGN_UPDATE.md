@@ -28,6 +28,14 @@ Read in this order:
 
 The shared SSOT is managed as its own Git repository. Amanoba should reference its version/date when major UI migration work is done.
 
+## Project Migration Plan
+
+The Amanoba-specific Mantine-only migration plan lives at:
+
+- `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECTS/AMANOBA_MANTINE_REFACTOR.md`
+
+Use that plan for migration sequencing, legacy inventory, enforcement rules, first implementation PR shape, and done criteria.
+
 ## Local Adapter
 
 **Aligned SSOT version/date**: `1.2.3`, 2026-05-21
@@ -70,8 +78,8 @@ Use `npm run ui:audit:foundation` and `npm run ui:audit:layout` to refresh gener
 
 ## Next Migration Targets
 
-1. Define the Amanoba Mantine theme and wrapper map against the shared SSOT.
-2. Replace core primitives first: buttons, action icons, text inputs, selects, alerts, modals, cards, and tables.
-3. Migrate learner-critical flows before secondary surfaces.
-4. Migrate admin/editor high-change screens with explicit loading, empty, error, disabled, and permission states.
+1. Complete Phase 0 from `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECTS/AMANOBA_MANTINE_REFACTOR.md`: freeze new legacy product UI primitives, define the direct-vs-wrapper policy, and approve Phase 1 scope.
+2. Implement Phase 1 root Mantine runtime: dependencies, provider, theme, notifications, modals, and initial guardrail.
+3. Replace core primitives first: buttons, action icons, text inputs, selects, alerts, modals, cards, and tables.
+4. Migrate learner-critical flows before secondary surfaces.
 5. Retire local Tailwind/Radix design authority after parity is reached.
