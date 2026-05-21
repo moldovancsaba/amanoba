@@ -58,7 +58,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/features/PRACTICE_HUB_MVP_CONTRACT.md` | Practice Hub MVP Contract | 11.4 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/features/PUBLIC_PROFILE_SCHEMA.md` | Public Profile Schema | 2.1 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/features/QUIZ_ANSWER_EXPLANATION_PILOT.md` | Quiz Answer Explanation Pilot | 2.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
-| KEEP | `docs/features/RELEASE_NOTES_WIKI.md` | Release Notes Wiki | 2.1 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
+| KEEP | `docs/features/RELEASE_NOTES_WIKI.md` | Release Notes Wiki | 1.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/features/SAVED_LESSONS_MVP.md` | Saved Lessons MVP | 2.6 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/AmanobaAuditDocMapping.md` | Amanoba Audit: SSOT Inventory | 7.0 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/feature_issues/FEATURE_DASHBOARD_MULTI_COURSE_ENROL_P2_3.md` | Feature issue (mvp-factory-control) — Dashboard / multi-course Enrol + prerequisites | 2.7 KB | — | Unclassified; keep pending human review. |
@@ -77,10 +77,10 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` | Developer Feedback Analysis | 7.2 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/product/NEXT_PHASES.md` | Next Phases: Detailed Implementation Plan | 13.6 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/product/P3_KNOWN_ISSUES_BACKLOG.md` | P3 Known Issues — Backlog | 2.0 KB | — | Unclassified; keep pending human review. |
-| KEEP | `docs/product/RELEASE_NOTES.md` | Amanoba Release Notes | 173.9 KB | — | Listed in DOCS_INDEX.md (core docs section). |
+| KEEP | `docs/product/RELEASE_NOTES.md` | Amanoba Release Notes | 173.8 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/product/ROADMAP_TASKLIST_SYSTEM_COMPARISON.md` | ROADMAP vs TASKLIST vs System Outline — Comparison | 5.7 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/product/ROADMAP.md` | Amanoba Roadmap — Future Vision & Client Benefits | 5.5 KB | — | Listed in DOCS_INDEX.md (core docs section). |
-| KEEP | `docs/product/TASKLIST.md` | Amanoba Task List | 4.5 KB | — | Listed in DOCS_INDEX.md (core docs section). |
+| KEEP | `docs/product/TASKLIST.md` | Amanoba Task List | 4.3 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/product/VOTING_AND_REUSE_PATTERN.md` | Unified Voting and Reuse Pattern | 3.9 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/quality/CODE_REVIEW_FINDINGS.md` | Code Review: Boolean Filter Logic Issues | 4.7 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/quality/PHASE_1_AUDIT_WORKSHEET.md` | PHASE 1 EXECUTION AUDIT WORKSHEET | 9.4 KB | — | Unclassified; keep pending human review. |

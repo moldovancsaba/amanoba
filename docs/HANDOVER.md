@@ -25,8 +25,8 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
   - `#16`: `Email/scheduler: Respect multiple enrolments` — verified in code/tests and moved to Project 12 `Done`.
   - `#225`: `Lesson quiz governance #10` — learner runtime now consumes course-level `quizPolicy`; legacy fields remain compatibility fallbacks.
   - `#104`: `Cross-repo documentation federation (amanoba + amanoba_courses)` — portable `amanoba_courses:process_them/docs/...` convention is documented in `docs/core/CROSS_REPO_DOCS.md`.
-- **In Progress**
-  - `#65`: `Move Amanoba release notes into Amanoba wiki by ISO UTC date` — exporter/workflow implemented; actual wiki push is blocked because GitHub returns `Repository not found` for `amanoba.wiki.git`.
+- **Release-note publishing closed on 2026-05-21**
+  - `#65`: `Move Amanoba release notes into Amanoba wiki by ISO UTC date` — wiki archive is published and the exporter workflow is documented.
 - **Remaining Backlog**
   - `#749`: `Amanoba ideabank: targeted practice hub for mistakes, listening, speaking, and review modes` — Project 12 Backlog.
 
@@ -79,13 +79,14 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 ### What changed
 - Added `scripts/docs/export-release-notes-wiki.ts` and `npm run release-notes:wiki:export` to generate GitHub wiki pages from the repo release-note mirror.
 - Documented the canonical wiki page format and publish workflow in `docs/features/RELEASE_NOTES_WIKI.md`.
-- Updated `docs/product/RELEASE_NOTES.md` to point toward the intended Amanoba GitHub wiki archive while preserving the repo file as the local mirror until the wiki git repository accepts pushes.
+- Updated `docs/product/RELEASE_NOTES.md` to point to the Amanoba GitHub wiki as the canonical release-note archive while preserving the repo file as a local mirror and migration seed.
 
 ### Verification
 - `npm run release-notes:wiki:export -- --out=tmp/release-notes-wiki` ✅ generated 24 dated wiki pages plus one undated legacy page.
 - `npx eslint scripts/docs/export-release-notes-wiki.ts` ✅ pass
 - `npm run type-check` ✅ pass
-- Wiki publish blocker: `git push https://github.com/moldovancsaba/amanoba.wiki.git main` ❌ returns `Repository not found`, even after `gh auth setup-git` and `gh api repos/moldovancsaba/amanoba --method PATCH -f has_wiki=true` confirms `has_wiki: true`.
+- Wiki publish ✅ pushed `6870c70` to `https://github.com/moldovancsaba/amanoba.wiki.git` on `master`.
+- Public wiki checks ✅ `https://github.com/moldovancsaba/amanoba/wiki` and `https://github.com/moldovancsaba/amanoba/wiki/Release-Notes-2026-05-20T00-00-00.000Z` return 200.
 
 ## Foundation hardening pass (2026-05-20)
 

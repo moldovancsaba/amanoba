@@ -2,9 +2,7 @@
 
 **Last updated**: 2026-05-21
 
-The Amanoba GitHub wiki is the intended canonical release-note archive. It is organized as one page per release date using ISO UTC timestamps with milliseconds.
-
-As of 2026-05-21, `https://github.com/moldovancsaba/amanoba.wiki.git` still returns `Repository not found` even though the repository API reports `has_wiki: true`. The exporter and publish workflow below are ready; the remaining publish step requires GitHub to initialize or expose the wiki git repository.
+The Amanoba GitHub wiki is the canonical release-note archive. It is organized as one page per release date using ISO UTC timestamps with milliseconds.
 
 ## Canonical page format
 
@@ -36,19 +34,20 @@ The exporter writes:
 ## Publish workflow
 
 ```sh
-tmpdir="$(mktemp -d)"
-npm run release-notes:wiki:export -- --out="$tmpdir"
-git -C "$tmpdir" init
-git -C "$tmpdir" remote add origin https://github.com/moldovancsaba/amanoba.wiki.git
-git -C "$tmpdir" add .
-git -C "$tmpdir" commit -m "Publish Amanoba release notes wiki"
-git -C "$tmpdir" push -u origin main
+rm -rf tmp/amanoba-wiki-publish tmp/release-notes-wiki-pages
+git clone https://github.com/moldovancsaba/amanoba.wiki.git tmp/amanoba-wiki-publish
+npm run release-notes:wiki:export -- --out=tmp/release-notes-wiki-pages
+rsync -a --delete --exclude .git tmp/release-notes-wiki-pages/ tmp/amanoba-wiki-publish/
+git -C tmp/amanoba-wiki-publish status -sb
+git -C tmp/amanoba-wiki-publish add .
+git -C tmp/amanoba-wiki-publish commit -m "Publish Amanoba release notes wiki"
+git -C tmp/amanoba-wiki-publish push origin master
 ```
 
-For an existing wiki checkout, regenerate into that checkout, review the diff, commit, and push.
+The GitHub wiki remote currently uses `master`, which is normal for GitHub wiki repositories.
 
 ## Source-of-truth rule
 
-- Use the wiki for canonical published release notes once the wiki git repository accepts pushes.
+- Use the wiki for canonical published release notes.
 - Keep the repo mirror aligned when release notes are referenced by docs checks, handover, or code-review context.
 - New release-note wiki pages must use the ISO UTC timestamp format above.
