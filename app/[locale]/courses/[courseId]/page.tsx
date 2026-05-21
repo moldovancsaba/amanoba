@@ -14,27 +14,39 @@ import { useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
 import {
   Affix,
+  Alert,
+  Badge,
+  Box,
   Button,
   Card,
+  Center,
+  Container,
+  Divider,
+  Grid,
   Group,
+  Paper,
+  Progress,
+  SimpleGrid,
+  Skeleton,
   Stack,
   Text,
   ThemeIcon,
+  Title,
   Transition,
 } from '@mantine/core';
 import {
-  ArrowLeft,
-  Calendar,
-  Award,
-  BookOpen,
-  Star,
-  CheckCircle,
-  Play,
-  CreditCard,
-  Trophy,
-} from 'lucide-react';
-import {
+  IconAlertTriangle,
+  IconArrowLeft,
+  IconAward,
+  IconBook,
+  IconCalendar,
   IconCertificate,
+  IconCheck,
+  IconCreditCard,
+  IconListDetails,
+  IconPlayerPlay,
+  IconStar,
+  IconTrophy,
 } from '@tabler/icons-react';
 import Image from 'next/image';
 import Logo from '@/components/Logo';
@@ -1089,138 +1101,261 @@ export default function CourseDetailPage({
     }
   };
 
+  const renderEnrollmentAction = (size: 'sm' | 'md' = 'md', fullWidth = true) => {
+    if (!course) return null;
+
+    if (enrollment?.enrolled) {
+      return (
+        <Button
+          component={LocaleLink}
+          href={continueCourseHref ?? `/${course.language}/courses/${courseId}/day/1`}
+          color="amanoba"
+          size={size}
+          fullWidth={fullWidth}
+          leftSection={<IconPlayerPlay size={18} />}
+        >
+          {getCourseDetailTexts().continuelLearning}
+        </Button>
+      );
+    }
+
+    if (!session) {
+      return (
+        <Button
+          component={LocaleLink}
+          href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${course.language}/courses/${courseId}`)}`}
+          color="amanoba"
+          size={size}
+          fullWidth={fullWidth}
+        >
+          {getCourseDetailText('signInToEnroll')}
+        </Button>
+      );
+    }
+
+    if (course.requiresPremium && !isPremium) {
+      return (
+        <Button
+          onClick={handlePurchase}
+          loading={purchasing}
+          color="amanoba"
+          size={size}
+          fullWidth={fullWidth}
+          leftSection={<IconCreditCard size={18} />}
+        >
+          {getCourseDetailText('purchasePremium')}
+        </Button>
+      );
+    }
+
+    return (
+      <Button
+        onClick={handleEnroll}
+        loading={enrolling}
+        disabled={prereqBlocked}
+        color="amanoba"
+        size={size}
+        fullWidth={fullWidth}
+      >
+        {enrolling ? getCourseDetailText('enrolling') : getCourseDetailText('enrollNow')}
+      </Button>
+    );
+  };
+
   if (loading) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={course?.language === 'ar' ? 'rtl' : 'ltr'}>
-        <div className="text-brand-white text-xl">{getCourseDetailText('loadingCourse')}</div>
-      </div>
+      <Box bg="ink.9" mih="100vh" py="xl" dir={course?.language === 'ar' ? 'rtl' : 'ltr'}>
+        <Container size="lg">
+          <Stack gap="lg">
+            <Skeleton height={76} radius="md" />
+            <Grid gutter="lg">
+              <Grid.Col span={{ base: 12, md: 8 }}>
+                <Stack gap="lg">
+                  <Skeleton height={340} radius="md" />
+                  <Skeleton height={180} radius="md" />
+                  <Skeleton height={220} radius="md" />
+                </Stack>
+              </Grid.Col>
+              <Grid.Col span={{ base: 12, md: 4 }}>
+                <Skeleton height={360} radius="md" />
+              </Grid.Col>
+            </Grid>
+            <Text c="gray.3" ta="center">{getCourseDetailText('loadingCourse')}</Text>
+          </Stack>
+        </Container>
+      </Box>
     );
   }
 
   if (!course) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-brand-white mb-4">{getCourseDetailText('courseNotFound')}</h2>
-          <LocaleLink
-            href="/courses"
-            className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400"
-          >
-            {getCourseDetailTexts().backToCourses}
-          </LocaleLink>
-        </div>
-      </div>
+      <Box bg="ink.9" mih="100vh" py="xl" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+        <Container size="sm">
+          <Center mih="70vh">
+            <Alert
+              color="amanoba"
+              icon={<IconAlertTriangle size={18} />}
+              title={getCourseDetailText('courseNotFound')}
+              radius="md"
+            >
+              <Button
+                component={LocaleLink}
+                href="/courses"
+                mt="md"
+                color="amanoba"
+                leftSection={<IconArrowLeft size={18} />}
+              >
+                {getCourseDetailTexts().backToCourses}
+              </Button>
+            </Alert>
+          </Center>
+        </Container>
+      </Box>
     );
   }
 
-  return (
-    <div className="min-h-screen bg-brand-black" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-      {/* Header */}
-      <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 py-5 sm:py-7">
-          <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-            <Logo size="sm" showText={false} linkTo={session ? "/dashboard" : "/"} className="flex-shrink-0" />
-            <LocaleLink
-              href="/courses"
-              className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              {getCourseDetailTexts().backToCourses}
-            </LocaleLink>
-          </div>
-          <h1 className="text-2xl sm:text-4xl font-bold text-brand-white leading-tight">{course.name}</h1>
-        </div>
-      </header>
+  const playerId = (session?.user as { id?: string; playerId?: string } | undefined)?.playerId
+    ?? (session?.user as { id?: string } | undefined)?.id
+    ?? null;
+  const progressValue = enrollment?.progress
+    ? Math.min(100, Math.round((enrollment.progress.completedDays / Math.max(course.durationDays, 1)) * 100))
+    : 0;
+  const featureItems = [
+    {
+      icon: <IconCheck size={20} />,
+      title: `${course.durationDays} ${getCourseDetailTexts().dailyLessons}`,
+      description: getCourseDetailTexts().structuredLearning,
+    },
+    {
+      icon: <IconAward size={20} />,
+      title: `${course.pointsConfig.completionPoints} ${getCourseDetailTexts().points}`,
+      description: getCourseDetailTexts().pointsEarned,
+    },
+    {
+      icon: <IconBook size={20} />,
+      title: getCourseDetailTexts().emailDelivery,
+      description: getCourseDetailTexts().dailyLessonsSent,
+    },
+    {
+      icon: <IconPlayerPlay size={20} />,
+      title: getCourseDetailTexts().interactiveAssessments,
+      description: getCourseDetailTexts().testKnowledge,
+    },
+  ];
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 py-8 sm:py-10 pb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-8">
+  return (
+    <Box bg="ink.9" mih="100vh" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+      <Paper component="header" bg="ink.8" radius={0} withBorder pos="sticky" top={0} style={{ zIndex: 30 }}>
+        <Container size="xl" py={{ base: 'md', sm: 'lg' }}>
+          <Stack gap="sm">
+            <Group gap="md" wrap="nowrap">
+              <Logo size="sm" showText={false} linkTo={session ? "/dashboard" : "/"} />
+              <Button
+                component={LocaleLink}
+                href="/courses"
+                variant="subtle"
+                color="gray"
+                leftSection={<IconArrowLeft size={18} />}
+              >
+                {getCourseDetailTexts().backToCourses}
+              </Button>
+            </Group>
+            <Group gap="xs">
+              {course.metadata?.category ? <Badge color="gray" variant="light">{course.metadata.category}</Badge> : null}
+              {course.metadata?.difficulty ? <Badge color="gray" variant="light">{course.metadata.difficulty}</Badge> : null}
+              {course.requiresPremium ? <Badge color="amanoba" variant="light">{getCourseDetailText('premiumCourse')}</Badge> : null}
+            </Group>
+            <Title order={1} c="white" size="h2">{course.name}</Title>
+          </Stack>
+        </Container>
+      </Paper>
+
+      <Container component="main" size="xl" py={{ base: 'lg', sm: 'xl' }} pb={112}>
+        <Grid gutter={{ base: 'lg', lg: 'xl' }}>
+          <Grid.Col span={{ base: 12, lg: 8 }}>
+            <Stack gap="lg">
             {course.thumbnail && !thumbnailError ? (
-              <div className="relative w-full rounded-2xl overflow-hidden aspect-video">
+              <Box pos="relative" w="100%" style={{ aspectRatio: '16 / 9', overflow: 'hidden', borderRadius: 'var(--mantine-radius-md)' }}>
                 <Image
                   src={course.thumbnail}
                   alt={course.name}
                   fill
-                  className="object-cover"
+                  style={{ objectFit: 'cover' }}
                   sizes="(max-width: 1024px) 100vw, 66vw"
                   onError={() => setThumbnailError(true)}
                 />
-              </div>
+              </Box>
             ) : (
-              <div className="w-full rounded-2xl overflow-hidden bg-gradient-to-br from-brand-accent to-brand-primary-400 flex items-center justify-center" style={{ aspectRatio: '16/9' }}>
-                <BookOpen className="w-20 h-20 text-brand-white opacity-50" />
-              </div>
+              <Paper bg="ink.8" radius="md" withBorder style={{ aspectRatio: '16 / 9' }}>
+                <Center h="100%">
+                  <ThemeIcon color="amanoba" variant="light" size={72} radius="md">
+                    <IconBook size={40} />
+                  </ThemeIcon>
+                </Center>
+              </Paper>
             )}
 
-            <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
-              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4">{getCourseDetailTexts().aboutThisCourse}</h2>
-              <p className="text-brand-darkGrey leading-relaxed text-base sm:text-xl">{course.description}</p>
+            <Card padding="xl" radius="md" withBorder>
+              <Stack gap="md">
+                <Title order={2} size="h3">{getCourseDetailTexts().aboutThisCourse}</Title>
+                <Text c="dimmed" size="lg">{course.description}</Text>
+                <Divider />
               <ContentVoteWidget
                 targetType="course"
                 targetId={courseId}
-                playerId={(session?.user as { id?: string; playerId?: string } | undefined)?.playerId ?? (session?.user as { id?: string } | undefined)?.id ?? null}
+                  playerId={playerId}
                 label="Was this course helpful?"
-                className="mt-4 pt-4 border-t border-brand-darkGrey/20"
               />
-            </div>
+              </Stack>
+            </Card>
 
-            <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
-              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-5">{getCourseDetailTexts().whatYoullLearn}</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold text-brand-black text-lg">{course.durationDays} {getCourseDetailTexts().dailyLessons}</h3>
-                    <p className="text-base text-brand-darkGrey">{getCourseDetailTexts().structuredLearning}</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Award className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold text-brand-black text-lg">{course.pointsConfig.completionPoints} {getCourseDetailTexts().points}</h3>
-                    <p className="text-base text-brand-darkGrey">{getCourseDetailTexts().pointsEarned}</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <BookOpen className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold text-brand-black text-lg">{getCourseDetailTexts().emailDelivery}</h3>
-                    <p className="text-base text-brand-darkGrey">{getCourseDetailTexts().dailyLessonsSent}</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Play className="w-6 h-6 text-brand-accent flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold text-brand-black text-lg">{getCourseDetailTexts().interactiveAssessments}</h3>
-                    <p className="text-base text-brand-darkGrey">{getCourseDetailTexts().testKnowledge}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Card padding="xl" radius="md" withBorder>
+              <Stack gap="lg">
+                <Title order={2} size="h3">{getCourseDetailTexts().whatYoullLearn}</Title>
+                <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">
+                  {featureItems.map((item) => (
+                    <Group key={item.title} align="flex-start" gap="sm" wrap="nowrap">
+                      <ThemeIcon color="amanoba" variant="light" radius="md">
+                        {item.icon}
+                      </ThemeIcon>
+                      <Stack gap={2}>
+                        <Text fw={700}>{item.title}</Text>
+                        <Text size="sm" c="dimmed">{item.description}</Text>
+                      </Stack>
+                    </Group>
+                  ))}
+                </SimpleGrid>
+              </Stack>
+            </Card>
 
             {(course?.leaderboardEnabled ?? true) && (
-              <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
-                <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-4 flex items-center gap-2">
-                  <Trophy className="w-8 h-8 text-amber-500" />
-                  {getCourseDetailText('courseLeaderboard') || 'Course leaderboard'}
-                </h2>
+              <Card padding="xl" radius="md" withBorder>
+                <Stack gap="md">
+                  <Group gap="sm">
+                    <ThemeIcon color="amanoba" variant="light" radius="md">
+                      <IconTrophy size={20} />
+                    </ThemeIcon>
+                    <Title order={2} size="h3">{getCourseDetailText('courseLeaderboard') || 'Course leaderboard'}</Title>
+                  </Group>
                   {leaderboardLoading ? (
-                    <div className="text-brand-darkGrey text-center py-6">{getCourseDetailText('loading')}</div>
+                    <Text c="dimmed" ta="center" py="md">{getCourseDetailText('loading')}</Text>
                   ) : leaderboardEntries.length === 0 ? (
-                    <p className="text-brand-darkGrey">{getCourseDetailText('noLeaderboardYet') || 'No rankings yet. Complete lessons to earn points and appear here.'}</p>
+                    <Text c="dimmed">{getCourseDetailText('noLeaderboardYet') || 'No rankings yet. Complete lessons to earn points and appear here.'}</Text>
                   ) : (
-                    <ul className="space-y-2">
+                    <Stack gap="xs">
                       {leaderboardEntries.map((entry) => (
-                        <li key={entry.rank} className="flex items-center gap-4 p-3 rounded-lg bg-brand-darkGrey/5 border border-brand-darkGrey/15">
-                          <span className="w-8 font-bold text-brand-black">{entry.rank}</span>
-                          <span className="flex-1 truncate text-brand-black font-medium">{entry.player?.displayName ?? '—'}</span>
-                          <span className="font-semibold text-brand-accent">{entry.score} {getCourseDetailText('points') || 'pts'}</span>
-                        </li>
+                        <Paper key={entry.rank} p="sm" radius="md" withBorder bg="gray.0">
+                          <Group gap="md" wrap="nowrap">
+                            <Text w={32} fw={800}>{entry.rank}</Text>
+                            <Text flex={1} fw={600} truncate>{entry.player?.displayName ?? '—'}</Text>
+                            <Badge color="amanoba" variant="light">{entry.score} {getCourseDetailText('points') || 'pts'}</Badge>
+                          </Group>
+                        </Paper>
                       ))}
-                    </ul>
+                    </Stack>
                   )}
-                </div>
+                </Stack>
+              </Card>
             )}
 
             {/* Discussion — disabled until infinite-reload after posting is fixed */}
@@ -1252,194 +1387,128 @@ export default function CourseDetailPage({
               />
             )}
 
-            {/* Table of Contents */}
-            <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
-              <h2 className="text-2xl sm:text-3xl font-bold text-brand-black mb-6">{getCourseDetailTexts().tableOfContents}</h2>
+            <Card padding="xl" radius="md" withBorder>
+              <Stack gap="lg">
+              <Group gap="sm">
+                <ThemeIcon color="amanoba" variant="light" radius="md">
+                  <IconListDetails size={20} />
+                </ThemeIcon>
+                <Title order={2} size="h3">{getCourseDetailTexts().tableOfContents}</Title>
+              </Group>
               {loadingLessons && tocLessons.length === 0 ? (
-                <div className="text-brand-darkGrey text-center py-8">{getCourseDetailText('loading')}</div>
+                <Stack gap="xs">
+                  <Skeleton height={70} radius="md" />
+                  <Skeleton height={70} radius="md" />
+                  <Skeleton height={70} radius="md" />
+                </Stack>
               ) : tocLessons.length === 0 ? (
-                <div className="text-brand-darkGrey text-center py-8">{getCourseDetailText('noLessonsAvailable')}</div>
+                <Text c="dimmed" ta="center" py="md">{getCourseDetailText('noLessonsAvailable')}</Text>
               ) : (
-                <div className="space-y-3">
+                <Stack gap="xs">
                   {tocLessons.map((lesson) => (
-                    <div
-                      key={lesson.lessonId}
-                      className="flex items-center gap-4 p-4 bg-brand-darkGrey/5 rounded-lg border border-brand-darkGrey/15"
-                    >
-                      <div className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center font-bold text-brand-darkGrey text-lg bg-gradient-to-br from-white to-brand-darkGrey/10 border border-brand-darkGrey/20">
+                    <Paper key={lesson.lessonId} p="md" radius="md" withBorder bg="gray.0">
+                      <Group gap="md" wrap="nowrap" align="center">
+                      <ThemeIcon color="gray" variant="light" size={48} radius="md">
                         {lesson.dayNumber}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-bold text-brand-black text-lg truncate mb-1">{lesson.title}</h3>
-                        <div className="flex items-center gap-4 text-sm text-brand-darkGrey">
-                          <span>{getCourseDetailText('day')} {lesson.dayNumber}</span>
+                      </ThemeIcon>
+                      <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
+                        <Text fw={700} size="lg" truncate>{lesson.title}</Text>
+                        <Group gap="xs">
+                          <Text size="sm" c="dimmed">{getCourseDetailText('day')} {lesson.dayNumber}</Text>
                           {lesson.estimatedMinutes && (
-                            <span>• {lesson.estimatedMinutes} {getCourseDetailText('minutes')}</span>
+                            <Text size="sm" c="dimmed">• {lesson.estimatedMinutes} {getCourseDetailText('minutes')}</Text>
                           )}
-                        </div>
-                      </div>
-                    </div>
+                        </Group>
+                      </Stack>
+                      </Group>
+                    </Paper>
                   ))}
-                </div>
+                </Stack>
               )}
-            </div>
-          </div>
+              </Stack>
+            </Card>
+            </Stack>
+          </Grid.Col>
 
-          {/* Sidebar */}
-          <div className="space-y-6">
-            <div className="bg-brand-white rounded-2xl p-7 border-2 border-brand-accent sticky top-6 shadow-lg hidden md:block">
-              <div className="space-y-4">
-                <div>
-                  <div className="flex items-center gap-2 text-brand-darkGrey text-sm mb-1">
-                    <Calendar className="w-4 h-4" />
-                    {getCourseDetailTexts().duration}
-                  </div>
-                  <div className="text-2xl font-bold text-brand-black">{course.durationDays} {getCourseDetailTexts().days}</div>
-                </div>
+          <Grid.Col span={{ base: 12, lg: 4 }}>
+            <Stack gap="md" pos="sticky" top={110} visibleFrom="md">
+              <Card padding="lg" radius="md" withBorder>
+                <Stack gap="md">
+                  <SimpleGrid cols={2} spacing="sm">
+                    <Paper p="md" radius="md" withBorder bg="gray.0">
+                      <Group gap="xs" mb={4}>
+                        <IconCalendar size={16} />
+                        <Text size="sm" c="dimmed">{getCourseDetailTexts().duration}</Text>
+                      </Group>
+                      <Text fw={800} size="xl">{course.durationDays} {getCourseDetailTexts().days}</Text>
+                    </Paper>
+                    <Paper p="md" radius="md" withBorder bg="gray.0">
+                      <Group gap="xs" mb={4}>
+                        <IconAward size={16} />
+                        <Text size="sm" c="dimmed">{getCourseDetailTexts().pointsReward}</Text>
+                      </Group>
+                      <Text fw={800} size="xl">{course.pointsConfig.completionPoints}</Text>
+                      <Text size="sm" c="dimmed">{getCourseDetailTexts().points}</Text>
+                    </Paper>
+                  </SimpleGrid>
 
-                <div>
-                  <div className="flex items-center gap-2 text-brand-darkGrey text-sm mb-1">
-                    <Award className="w-4 h-4" />
-                    {getCourseDetailTexts().pointsReward}
-                  </div>
-                  <div className="text-2xl font-bold text-brand-black">
-                    {course.pointsConfig.completionPoints} {getCourseDetailTexts().points}
-                  </div>
-                </div>
+                  {course.requiresPremium ? (
+                    <Alert color="amanoba" icon={<IconStar size={18} />} title={getCourseDetailText('premiumCourse')} radius="md">
+                      {course.price ? (
+                        <Group gap="xs">
+                          <IconCreditCard size={16} />
+                          <Text fw={700}>{formatCurrency(course.price.amount, course.price.currency)}</Text>
+                        </Group>
+                      ) : null}
+                    </Alert>
+                  ) : null}
 
-                {course.requiresPremium && (
-                  <div className="bg-brand-darkGrey/5 border border-brand-darkGrey/25 rounded-lg p-3">
-                    <div className="flex items-center gap-2 text-brand-darkGrey font-bold text-base mb-2">
-                      <Star className="w-5 h-5 text-brand-darkGrey" />
-                      {getCourseDetailText('premiumCourse')}
-                    </div>
-                    {course.price && (
-                      <div className="flex items-center gap-2 text-brand-black font-bold text-lg">
-                        <CreditCard className="w-4 h-4" />
-                        {formatCurrency(course.price.amount, course.price.currency)}
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {(course.prerequisiteCourses && course.prerequisiteCourses.length > 0) || unmetPrereqs.length > 0 ? (
-                  <div className={`rounded-lg border p-3 ${prereqBlocked ? 'border-amber-500/60 bg-amber-50' : 'border-brand-darkGrey/25 bg-brand-darkGrey/5'}`}>
-                    <div className="text-sm font-semibold text-brand-darkGrey">
-                      {prereqBlocked ? 'Prerequisites required' : 'Prerequisites'}
-                    </div>
-                    <div className="mt-1 text-xs text-brand-darkGrey">
-                      {(unmetPrereqs.length > 0 ? unmetPrereqs : course.prerequisiteCourses || []).map((prereq) => prereq.name ?? prereq.courseId).join(', ')}
-                    </div>
-                    {prereqBlocked && (
-                      <div className="mt-2 text-xs text-amber-700">
-                        Complete the prerequisites before enrolling.
-                      </div>
-                    )}
-                  </div>
-                ) : null}
-
-                {enrollment?.enrolled ? (
-                  <div className="space-y-3">
-                    <div className="bg-green-500/20 border border-green-500 rounded-lg p-3">
-                      <div className="flex items-center gap-2 text-green-700 font-bold mb-2">
-                        <CheckCircle className="w-5 h-5" />
-                        {getCourseDetailTexts().enrolled}
-                      </div>
-                  {enrollment.progress && (
-                    <div className="text-sm text-brand-darkGrey">
-                      <div>
-                        {getCourseDetailText('dayOf', {
-                          currentDay: enrollment.progress.currentDay,
-                          totalDays: course.durationDays,
-                        })}
-                      </div>
-                      <div className="mt-1 text-xs">
-                        {getCourseDetailText('daysCompleted', {
-                          count: enrollment.progress.completedDays,
-                        })}
-                      </div>
-                          <div className="mt-2 bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
-                            <div
-                              className="bg-brand-accent h-full transition-all"
-                              style={{ width: `${(enrollment.progress.completedDays / course.durationDays) * 100}%` }}
-                            />
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                    <LocaleLink
-                      href={continueCourseHref ?? `/${course.language}/courses/${courseId}/day/1`}
-                      className="block w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base"
+                  {(course.prerequisiteCourses && course.prerequisiteCourses.length > 0) || unmetPrereqs.length > 0 ? (
+                    <Alert
+                      color={prereqBlocked ? 'yellow' : 'gray'}
+                      icon={<IconAlertTriangle size={18} />}
+                      title={prereqBlocked ? 'Prerequisites required' : 'Prerequisites'}
+                      radius="md"
                     >
-                      {getCourseDetailTexts().continuelLearning}
-                    </LocaleLink>
-                  </div>
-                ) : !session ? (
-                  <LocaleLink
-                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${course.language}/courses/${courseId}`)}`}
-                    className="block w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-base"
-                  >
-                    {getCourseDetailText('signInToEnroll')}
-                  </LocaleLink>
-                ) : course.requiresPremium && !isPremium ? (
-                  <div className="space-y-3">
-                    <div className="bg-brand-accent/20 border border-brand-accent rounded-lg p-3">
-                      <div className="text-sm text-brand-darkGrey mb-3">
-                        {getCourseDetailText('premiumRequired')}
-                      </div>
-                    </div>
-                    <button
-                      onClick={handlePurchase}
-                      disabled={purchasing}
-                      className="w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-base"
-                    >
-                      {purchasing ? (
-                        <>
-                          <span className="animate-spin">⏳</span>
-                          {getCourseDetailText('purchasing')}
-                        </>
-                      ) : (
-                        <>
-                          <CreditCard className="w-5 h-5" />
-                          {getCourseDetailText('purchasePremium')}
-                        </>
-                      )}
-                    </button>
-                  </div>
-                ) : course.requiresPremium && isPremium ? (
-                  <div className="space-y-3">
-                    <div className="bg-green-500/20 border border-green-500 rounded-lg p-3">
-                      <div className="flex items-center gap-2 text-green-700 font-bold mb-2">
-                        <Star className="w-5 h-5" />
-                        {getCourseDetailText('alreadyPremium')}
-                      </div>
-                    </div>
-                    <button
-                      onClick={handleEnroll}
-                      disabled={enrolling || prereqBlocked}
-                      className="w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base"
-                    >
-                      {enrolling ? getCourseDetailText('enrolling') : getCourseDetailText('enrollNow')}
-                    </button>
-                  </div>
-                ) : (
-                  <button
-                    onClick={handleEnroll}
-                    disabled={enrolling || prereqBlocked}
-                    className="w-full bg-brand-accent text-brand-black px-5 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base"
-                  >
-                    {enrolling ? getCourseDetailText('enrolling') : getCourseDetailText('enrollNow')}
-                  </button>
-                )}
-              </div>
-            </div>
-          </div>
+                      <Text size="sm">
+                        {(unmetPrereqs.length > 0 ? unmetPrereqs : course.prerequisiteCourses || []).map((prereq) => prereq.name ?? prereq.courseId).join(', ')}
+                      </Text>
+                      {prereqBlocked ? <Text size="sm" mt={4}>Complete the prerequisites before enrolling.</Text> : null}
+                    </Alert>
+                  ) : null}
 
-          {/* Certification block */}
-          <div className="mt-6">
-            {renderCertificationBlock()}
-          </div>
-        </div>
+                  {enrollment?.enrolled ? (
+                    <Alert color="green" icon={<IconCheck size={18} />} title={getCourseDetailTexts().enrolled} radius="md">
+                      {enrollment.progress ? (
+                        <Stack gap="xs">
+                          <Text size="sm">
+                            {getCourseDetailText('dayOf', {
+                              currentDay: enrollment.progress.currentDay,
+                              totalDays: course.durationDays,
+                            })}
+                          </Text>
+                          <Text size="xs" c="dimmed">
+                            {getCourseDetailText('daysCompleted', {
+                              count: enrollment.progress.completedDays,
+                            })}
+                          </Text>
+                          <Progress value={progressValue} color="amanoba" radius="xl" />
+                        </Stack>
+                      ) : null}
+                    </Alert>
+                  ) : course.requiresPremium && isPremium ? (
+                    <Alert color="green" icon={<IconStar size={18} />} title={getCourseDetailText('alreadyPremium')} radius="md" />
+                  ) : course.requiresPremium && !isPremium && session ? (
+                    <Alert color="amanoba" title={getCourseDetailText('premiumRequired')} radius="md" />
+                  ) : null}
+
+                  {renderEnrollmentAction('md')}
+                </Stack>
+              </Card>
+              {renderCertificationBlock()}
+            </Stack>
+          </Grid.Col>
+        </Grid>
 
         {/* Mobile CTA bar */}
         {course && (
@@ -1467,51 +1536,14 @@ export default function CourseDetailPage({
                 )}
                     </Stack>
 
-                {enrollment?.enrolled ? (
-                      <Button
-                        component={LocaleLink}
-                    href={continueCourseHref ?? `/${course.language}/courses/${courseId}/day/1`}
-                        color="amanoba"
-                        size="sm"
-                  >
-                    {getCourseDetailTexts().continuelLearning}
-                      </Button>
-                ) : !session ? (
-                      <Button
-                        component={LocaleLink}
-                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${course.language}/courses/${courseId}`)}`}
-                        color="amanoba"
-                        size="sm"
-                  >
-                    {getCourseDetailText('signInToEnroll')}
-                      </Button>
-                ) : course.requiresPremium && !isPremium ? (
-                      <Button
-                    onClick={handlePurchase}
-                        loading={purchasing}
-                        color="amanoba"
-                        size="sm"
-                  >
-                        {getCourseDetailText('purchasePremium')}
-                      </Button>
-                ) : (
-                      <Button
-                    onClick={handleEnroll}
-                        loading={enrolling}
-                        disabled={prereqBlocked}
-                        color="amanoba"
-                        size="sm"
-                  >
-                        {getCourseDetailText('enrollNow')}
-                      </Button>
-                )}
+                    {renderEnrollmentAction('sm', false)}
                   </Group>
                 </Card>
               )}
             </Transition>
           </Affix>
         )}
-      </main>
-    </div>
+      </Container>
+    </Box>
   );
 }

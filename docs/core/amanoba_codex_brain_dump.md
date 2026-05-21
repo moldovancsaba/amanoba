@@ -1,6 +1,6 @@
 # Amanoba Codex Brain Dump
 
-**Last Updated**: 2026-05-20
+**Last Updated**: 2026-05-21
 **Audience**: Codex / assistants working inside this repo
 **Purpose**: Fast continuity transfer after context loss.
 
@@ -52,6 +52,12 @@ Course authoring docs live outside this repo under `amanoba_courses:process_them
 - Weekly learner-facing updates publish to `/[locale]/blog`; `/[locale]/news` remains a compatibility alias.
 
 ## Active Work Tracking
+
+Current in-flight branch:
+
+- `sentinel-squad/course-ux-mantine-hardening` is continuing the Course UX commercial hardening lane from Project 12 issue `#822`.
+- Latest continuation converted the public course detail page wrapper to Mantine primitives while preserving course enrollment, purchase, voting, discussion, study groups, certification, and TOC behavior.
+- `content/news-posts.json` may be dirty from the release/news automation lane; do not include or overwrite it unless the current task explicitly concerns news publishing.
 
 Recently closed foundation/docs lane:
 

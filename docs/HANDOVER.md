@@ -90,6 +90,21 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ## Course UX Mantine hardening pass (2026-05-21)
 
+### Follow-up course detail refactor (2026-05-21)
+
+#### What changed
+- Converted the public course detail page wrapper from legacy Tailwind page markup to Mantine primitives for the sticky header, loading/not-found states, hero media, overview, learner value cards, leaderboard, curriculum list, desktop enrollment sidebar, prerequisite notices, premium state, progress indicator, certification callout placement, and mobile CTA.
+- Preserved existing enrollment, purchase, entitlement, voting, discussion, study-group, lesson table-of-contents, and analytics behavior.
+- Left nested discussion, study-group, vote, and logo components under their own component ownership; this pass removes page-level legacy layout from the course detail route.
+
+#### Verification
+- `npx eslint app/[locale]/courses/[courseId]/page.tsx` ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run ui:check:layout` ✅ pass
+- `git diff --check` ✅ pass
+
 ### What changed
 - Rebuilt the public course catalog surface with Mantine primitives for search, language filtering, course cards, skeleton loading, empty/error states, enrol/continue actions, and course enrol telemetry.
 - Added learner recovery states for protected lesson and quiz routes so anonymous learners see sign-in/back/retry actions instead of raw `Unauthorized` or generic not-found dead ends.
