@@ -1,26 +1,47 @@
 /**
  * Admin Settings Page
- * 
- * What: Platform configuration and settings
- * Why: Allows admins to configure system-wide settings
+ *
+ * What: Platform configuration and settings.
+ * Why: Allows admins to configure system-wide settings.
  */
 
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import {
-  Save,
-  Settings,
-  Database,
-  Mail,
-  Shield,
-  Globe,
-  Image as ImageIcon,
-  Upload,
-  Award,
-} from 'lucide-react';
-import Image from 'next/image';
+  Alert,
+  Anchor,
+  Badge,
+  Button,
+  Card,
+  Checkbox,
+  FileButton,
+  Group,
+  Image,
+  Loader,
+  NumberInput,
+  PasswordInput,
+  Select,
+  SimpleGrid,
+  Stack,
+  Text,
+  TextInput,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import { notifications } from '@mantine/notifications';
+import {
+  IconAward,
+  IconCheck,
+  IconDatabase,
+  IconGlobe,
+  IconImageInPicture,
+  IconMail,
+  IconSettings,
+  IconShield,
+  IconUpload,
+} from '@tabler/icons-react';
 
 interface CertPriceMoney {
   amount?: number;
@@ -58,10 +79,10 @@ const ADMIN_LANGUAGE_OPTIONS = [
   { code: 'en', labelKey: 'english' },
 ];
 
+const currencyOptions = ['USD', 'EUR', 'HUF'].map((currency) => ({ value: currency, label: currency }));
+
 export default function AdminSettingsPage() {
-  const _locale = useLocale();
   const t = useTranslations('admin');
-  const _tCommon = useTranslations('common');
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [defaultThumbnail, setDefaultThumbnail] = useState<string | null>(null);
@@ -69,8 +90,6 @@ export default function AdminSettingsPage() {
   const [mailSettings, setMailSettings] = useState<MailSettings | null>(null);
   const [mailSettingsLoading, setMailSettingsLoading] = useState(true);
   const [mailSettingsError, setMailSettingsError] = useState<string | null>(null);
-  
-  // Certification settings state
   const [certSettings, setCertSettings] = useState<CertSettings | null>(null);
   const [certSettingsLoading, setCertSettingsLoading] = useState(true);
   const [certSaving, setCertSaving] = useState(false);
@@ -79,20 +98,21 @@ export default function AdminSettingsPage() {
   const [i18nError, setI18nError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchDefaultThumbnail();
-    fetchCertificationSettings();
-    fetchMailSettings();
-    fetchI18nSettings();
+    void fetchDefaultThumbnail();
+    void fetchCertificationSettings();
+    void fetchMailSettings();
+    void fetchI18nSettings();
   }, []);
+
+  const notifySuccess = (message: string) => notifications.show({ color: 'green', title: 'Saved', message });
+  const notifyError = (message: string) => notifications.show({ color: 'red', title: 'Error', message });
 
   const fetchCertificationSettings = async () => {
     try {
       setCertSettingsLoading(true);
       const response = await fetch('/api/admin/certification/settings');
       const data = await response.json();
-      if (data.success && data.settings) {
-        setCertSettings(data.settings as CertSettings);
-      }
+      if (data.success && data.settings) setCertSettings(data.settings as CertSettings);
     } catch (error) {
       console.error('Failed to fetch certification settings:', error);
     } finally {
@@ -122,13 +142,13 @@ export default function AdminSettingsPage() {
       const data = await response.json();
       if (data.success) {
         setCertSettings(data.settings as CertSettings);
-        alert('Certification settings saved successfully!');
+        notifySuccess('Certification settings saved successfully.');
       } else {
-        alert(data.error || 'Failed to save certification settings');
+        notifyError(data.error || 'Failed to save certification settings.');
       }
     } catch (error) {
       console.error('Failed to save certification settings:', error);
-      alert('Failed to save certification settings. Please try again.');
+      notifyError('Failed to save certification settings. Please try again.');
     } finally {
       setCertSaving(false);
     }
@@ -138,16 +158,13 @@ export default function AdminSettingsPage() {
     try {
       const response = await fetch('/api/admin/settings/default-thumbnail');
       const data = await response.json();
-      if (data.success && data.thumbnail) {
-        setDefaultThumbnail(data.thumbnail);
-      }
+      if (data.success && data.thumbnail) setDefaultThumbnail(data.thumbnail);
     } catch (error) {
       console.error('Failed to fetch default thumbnail:', error);
     }
   };
 
-  const handleUploadDefaultThumbnail = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
+  const handleUploadDefaultThumbnail = async (file: File | null) => {
     if (!file) return;
 
     try {
@@ -159,33 +176,46 @@ export default function AdminSettingsPage() {
         method: 'POST',
         body: formData,
       });
-
       const data = await response.json();
 
-      if (data.success) {
-        // Save to settings
-        const saveResponse = await fetch('/api/admin/settings/default-thumbnail', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ thumbnail: data.url }),
-        });
+      if (!data.success) {
+        notifyError(data.error || 'Failed to upload image.');
+        return;
+      }
 
-        const saveData = await saveResponse.json();
-        if (saveData.success) {
-          setDefaultThumbnail(data.url);
-          alert('Default course thumbnail saved successfully!');
-        } else {
-          alert('Failed to save default thumbnail');
-        }
+      const saveResponse = await fetch('/api/admin/settings/default-thumbnail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ thumbnail: data.url }),
+      });
+      const saveData = await saveResponse.json();
+      if (saveData.success) {
+        setDefaultThumbnail(data.url);
+        notifySuccess('Default course thumbnail saved successfully.');
       } else {
-        alert(data.error || 'Failed to upload image');
+        notifyError('Failed to save default thumbnail.');
       }
     } catch (error) {
       console.error('Failed to upload thumbnail:', error);
-      alert('Failed to upload image. Please try again.');
+      notifyError('Failed to upload image. Please try again.');
     } finally {
       setUploadingThumbnail(false);
-      e.target.value = '';
+    }
+  };
+
+  const handleRemoveDefaultThumbnail = async () => {
+    try {
+      const response = await fetch('/api/admin/settings/default-thumbnail', { method: 'DELETE' });
+      const data = await response.json();
+      if (data.success) {
+        setDefaultThumbnail(null);
+        notifySuccess('Default thumbnail removed.');
+      } else {
+        notifyError('Failed to remove default thumbnail.');
+      }
+    } catch (error) {
+      console.error('Failed to remove thumbnail:', error);
+      notifyError('Failed to remove default thumbnail.');
     }
   };
 
@@ -231,23 +261,16 @@ export default function AdminSettingsPage() {
   const updateSupportedLanguage = (code: string, checked: boolean) => {
     if (!i18nSettings) return;
     const current = new Set(i18nSettings.supportedLanguages);
-    if (checked) {
-      current.add(code);
-    } else {
-      current.delete(code);
-    }
+    if (checked) current.add(code);
+    else current.delete(code);
+
     const nextSupported = Array.from(current);
-    if (nextSupported.length === 0) {
-      return;
-    }
-    let nextDefault = i18nSettings.defaultLanguage;
-    if (!nextSupported.includes(nextDefault)) {
-      nextDefault = nextSupported[0];
-    }
-    setI18nSettings({
-      supportedLanguages: nextSupported,
-      defaultLanguage: nextDefault,
-    });
+    if (nextSupported.length === 0) return;
+    const nextDefault = nextSupported.includes(i18nSettings.defaultLanguage)
+      ? i18nSettings.defaultLanguage
+      : nextSupported[0];
+
+    setI18nSettings({ supportedLanguages: nextSupported, defaultLanguage: nextDefault });
   };
 
   const getLanguageLabel = (code: string) => {
@@ -269,539 +292,294 @@ export default function AdminSettingsPage() {
       });
       const data = await response.json();
       if (!response.ok || !data.success) {
-        alert(data.error || 'Failed to save language settings');
+        notifyError(data.error || 'Failed to save language settings.');
         return;
       }
       setI18nSettings(data.settings as I18nSettings);
-      setSaving(false);
       setSaved(true);
       setTimeout(() => setSaved(false), 3000);
     } catch (error) {
       console.error('Failed to save i18n settings:', error);
-      alert('Failed to save language settings. Please try again.');
+      notifyError('Failed to save language settings. Please try again.');
     } finally {
       setSaving(false);
     }
   };
 
+  const languageOptions = (i18nSettings?.supportedLanguages || ADMIN_LANGUAGE_OPTIONS.map((item) => item.code))
+    .map((code) => ({ value: code, label: `${getLanguageLabel(code)} (${code})` }));
+
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div>
-        <h1 className="text-3xl font-bold text-brand-white mb-2">{t('settingsTitle')}</h1>
-        <p className="text-brand-white/70">{t('settingsDescription')}</p>
-      </div>
+    <Stack gap="lg">
+      <Stack gap={4}>
+        <Title order={1} c="white">{t('settingsTitle')}</Title>
+        <Text c="gray.4">{t('settingsDescription')}</Text>
+      </Stack>
 
-      {/* Settings Sections */}
-      <div className="space-y-6">
-        {/* General Settings */}
-        <div className="panel-on-dark p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <Settings className="w-6 h-6 text-brand-accent" />
-            <h2 className="text-xl font-bold text-brand-white">{t('generalSettings')}</h2>
-          </div>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                {t('platformName')}
-              </label>
-              <input
-                type="text"
-                defaultValue="Amanoba"
-                className="w-full px-4 py-2 input-on-dark"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                {t('defaultLanguage')}
-              </label>
-              <select
-                className="w-full px-4 py-2 input-on-dark"
-                value={i18nSettings?.defaultLanguage || 'en'}
-                onChange={(event) => {
-                  if (!i18nSettings) return;
-                  setI18nSettings({
-                    ...i18nSettings,
-                    defaultLanguage: event.target.value,
-                  });
-                }}
-                disabled={i18nLoading || !i18nSettings}
-              >
-                {(i18nSettings?.supportedLanguages || ADMIN_LANGUAGE_OPTIONS.map((item) => item.code)).map((code) => (
-                  <option key={code} value={code}>
-                    {getLanguageLabel(code)} ({code})
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
+      <SettingsCard icon={<IconSettings size={22} />} title={t('generalSettings')}>
+        <SimpleGrid cols={{ base: 1, md: 2 }}>
+          <TextInput label={t('platformName')} defaultValue="Amanoba" />
+          <Select
+            label={t('defaultLanguage')}
+            data={languageOptions}
+            value={i18nSettings?.defaultLanguage || 'en'}
+            onChange={(value) => {
+              if (!i18nSettings || !value) return;
+              setI18nSettings({ ...i18nSettings, defaultLanguage: value });
+            }}
+            disabled={i18nLoading || !i18nSettings}
+            allowDeselect={false}
+          />
+        </SimpleGrid>
+      </SettingsCard>
 
-        {/* Database Settings */}
-        <div className="panel-on-dark p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <Database className="w-6 h-6 text-brand-accent" />
-            <h2 className="text-xl font-bold text-brand-white">{t('database')}</h2>
-          </div>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                {t('connectionStatus')}
-              </label>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-brand-white">{t('connected')}</span>
-              </div>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                {t('databaseName')}
-              </label>
-              <input
-                type="text"
-                defaultValue="amanoba"
-                disabled
-                className="w-full px-4 py-2 input-on-dark text-brand-white/60 cursor-not-allowed opacity-70"
-              />
-            </div>
-          </div>
-        </div>
+      <SettingsCard icon={<IconDatabase size={22} />} title={t('database')}>
+        <SimpleGrid cols={{ base: 1, md: 2 }}>
+          <Stack gap={6}>
+            <Text size="sm" fw={600}>{t('connectionStatus')}</Text>
+            <Group gap="xs">
+              <Badge color="green" leftSection={<IconCheck size={12} />}>{t('connected')}</Badge>
+            </Group>
+          </Stack>
+          <TextInput label={t('databaseName')} value="amanoba" readOnly disabled />
+        </SimpleGrid>
+      </SettingsCard>
 
-        {/* Email Settings */}
-        <div className="panel-on-dark p-6">
-          <div className="flex items-center justify-between gap-3 mb-4">
-            <div className="flex items-center gap-3">
-              <Mail className="w-6 h-6 text-brand-accent" />
-              <h2 className="text-xl font-bold text-brand-white">{t('emailConfiguration')}</h2>
-            </div>
-            {mailSettingsLoading && (
-              <span className="text-sm text-brand-white/70">{t('loading')}</span>
+      <SettingsCard
+        icon={<IconMail size={22} />}
+        title={t('emailConfiguration')}
+        aside={mailSettingsLoading ? <Loader size="sm" color="amanobaYellow" /> : undefined}
+      >
+        {mailSettingsLoading ? (
+          <Text c="dimmed">{t('loading')}</Text>
+        ) : mailSettings ? (
+          <Stack gap="md">
+            <SimpleGrid cols={{ base: 1, md: 2 }}>
+              <TextInput label={t('emailProvider')} value={mailSettings.emailProvider} readOnly />
+              <TextInput label={t('fromEmail')} value={mailSettings.emailFrom || ''} readOnly />
+              <TextInput label={t('fromName')} value={mailSettings.emailFromName || ''} readOnly />
+              <TextInput label={t('replyTo')} value={mailSettings.emailReplyTo || ''} readOnly />
+            </SimpleGrid>
+            {mailSettings.smtpHost && (
+              <SimpleGrid cols={{ base: 1, md: 3 }}>
+                <TextInput label={t('smtpHost')} value={mailSettings.smtpHost} readOnly />
+                <TextInput label={t('smtpPort')} value={mailSettings.smtpPort || ''} readOnly />
+                <TextInput label={t('smtpSecure')} value={mailSettings.smtpSecure || ''} readOnly />
+              </SimpleGrid>
             )}
-          </div>
-          <div className="space-y-4">
-            {mailSettingsLoading ? (
-              <p className="text-sm text-brand-white/70">{t('loading')}</p>
-            ) : mailSettings ? (
-              <>
-                <div>
-                  <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                    {t('emailProvider')}
-                  </label>
-                  <input
-                    type="text"
-                    value={mailSettings.emailProvider}
-                    readOnly
-                    className="w-full px-4 py-2 input-on-dark"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                    {t('fromEmail')}
-                  </label>
-                  <input
-                    type="text"
-                    value={mailSettings.emailFrom || ''}
-                    readOnly
-                    className="w-full px-4 py-2 input-on-dark"
-                  />
-                </div>
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div>
-                    <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                      {t('fromName')}
-                    </label>
-                    <input
-                      type="text"
-                      value={mailSettings.emailFromName || ''}
-                      readOnly
-                      className="w-full px-4 py-2 input-on-dark"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                      {t('replyTo')}
-                    </label>
-                    <input
-                      type="text"
-                      value={mailSettings.emailReplyTo || ''}
-                      readOnly
-                      className="w-full px-4 py-2 input-on-dark"
-                    />
-                  </div>
-                </div>
-                {mailSettings.smtpHost && (
-                  <div className="grid gap-4 md:grid-cols-3">
-                    <div>
-                      <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                        {t('smtpHost')}
-                      </label>
-                      <input
-                        type="text"
-                        value={mailSettings.smtpHost}
-                        readOnly
-                        className="w-full px-4 py-2 input-on-dark"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                        {t('smtpPort')}
-                      </label>
-                      <input
-                        type="text"
-                        value={mailSettings.smtpPort || ''}
-                        readOnly
-                        className="w-full px-4 py-2 input-on-dark"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                        {t('smtpSecure')}
-                      </label>
-                      <input
-                        type="text"
-                        value={mailSettings.smtpSecure || ''}
-                        readOnly
-                        className="w-full px-4 py-2 input-on-dark"
-                      />
-                    </div>
-                  </div>
-                )}
-                {mailSettings.mailgunDomain && (
-                  <div>
-                    <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                      {t('mailgunDomain')}
-                    </label>
-                    <input
-                      type="text"
-                      value={mailSettings.mailgunDomain}
-                      readOnly
-                      className="w-full px-4 py-2 input-on-dark"
-                    />
-                  </div>
-                )}
-              </>
-            ) : (
-              <p className="text-sm text-red-400">
-                {mailSettingsError || t('emailSettingsError')}
-              </p>
+            {mailSettings.mailgunDomain && (
+              <TextInput label={t('mailgunDomain')} value={mailSettings.mailgunDomain} readOnly />
             )}
-            <p className="text-sm text-brand-white/70">
-              {t('emailProviderNote')}{' '}
-              <a
-                href="https://github.com/moldovancsaba/amanoba/blob/main/docs/ENVIRONMENT_SETUP.md"
-                target="_blank"
-                rel="noreferrer"
-                className="text-brand-accent underline"
-              >
-                {t('emailProviderDocs')}
-              </a>
-            </p>
-          </div>
-        </div>
-
-        {/* Security Settings */}
-        <div className="panel-on-dark p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <Shield className="w-6 h-6 text-brand-accent" />
-            <h2 className="text-xl font-bold text-brand-white">{t('security')}</h2>
-          </div>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                {t('adminPassword')}
-              </label>
-              <input
-                type="password"
-                placeholder="••••••••"
-                className="w-full px-4 py-2 input-on-dark"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                {t('sessionTimeout')}
-              </label>
-              <input
-                type="number"
-                defaultValue="30"
-                className="w-full px-4 py-2 input-on-dark"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Internationalization */}
-        <div className="panel-on-dark p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <Globe className="w-6 h-6 text-brand-accent" />
-            <h2 className="text-xl font-bold text-brand-white">{t('internationalization')}</h2>
-          </div>
-          {i18nLoading ? (
-            <p className="text-sm text-brand-white/70">{t('loading')}</p>
-          ) : i18nSettings ? (
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                  {t('supportedLanguages')}
-                </label>
-                <div className="flex flex-wrap items-center gap-4">
-                  {Array.from(new Set([
-                    ...ADMIN_LANGUAGE_OPTIONS.map((option) => option.code),
-                    ...i18nSettings.supportedLanguages,
-                  ])).map((code) => {
-                    const checked = i18nSettings.supportedLanguages.includes(code);
-                    const isOnlyOne = checked && i18nSettings.supportedLanguages.length === 1;
-                    return (
-                      <label key={code} className="flex items-center gap-2">
-                        <input
-                          type="checkbox"
-                          checked={checked}
-                          disabled={isOnlyOne}
-                          onChange={(event) => updateSupportedLanguage(code, event.target.checked)}
-                          className="rounded"
-                        />
-                        <span className="text-brand-white">
-                          {getLanguageLabel(code)} ({code})
-                        </span>
-                      </label>
-                    );
-                  })}
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                  {t('defaultLocale')}
-                </label>
-                <select
-                  className="w-full px-4 py-2 input-on-dark"
-                  value={i18nSettings.defaultLanguage}
-                  onChange={(event) => {
-                    setI18nSettings({
-                      ...i18nSettings,
-                      defaultLanguage: event.target.value,
-                    });
-                  }}
-                >
-                  {i18nSettings.supportedLanguages.map((code) => {
-                    return (
-                      <option key={code} value={code}>
-                        {getLanguageLabel(code)} ({code})
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
-            </div>
-          ) : (
-            <p className="text-sm text-red-400">
-              {i18nError || 'Failed to load language settings'}
-            </p>
-          )}
-        </div>
-
-        {/* Certification Settings */}
-        <div className="panel-on-dark p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <Award className="w-6 h-6 text-brand-accent" />
-            <h2 className="text-xl font-bold text-brand-white">Certification Settings</h2>
-          </div>
-          {certSettingsLoading ? (
-            <div className="text-center py-8 text-brand-white/70">Loading certification settings...</div>
-          ) : certSettings ? (
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                  Default Price (Money)
-                </label>
-                <div className="grid grid-cols-2 gap-4">
-                  <input
-                    type="number"
-                    value={certSettings.priceMoney?.amount || 0}
-                    onChange={(e) => setCertSettings({
-                      ...certSettings,
-                      priceMoney: {
-                        ...certSettings.priceMoney,
-                        amount: parseFloat(e.target.value) || 0,
-                        currency: certSettings.priceMoney?.currency || 'USD',
-                      },
-                    })}
-                    className="w-full px-4 py-2 input-on-dark"
-                    placeholder="0"
-                  />
-                  <select
-                    value={certSettings.priceMoney?.currency || 'USD'}
-                    onChange={(e) => setCertSettings({
-                      ...certSettings,
-                      priceMoney: {
-                        ...certSettings.priceMoney,
-                        amount: certSettings.priceMoney?.amount || 0,
-                        currency: e.target.value,
-                      },
-                    })}
-                    className="w-full px-4 py-2 input-on-dark"
-                  >
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                    <option value="HUF">HUF</option>
-                  </select>
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                  Default Price (Points)
-                </label>
-                <input
-                  type="number"
-                  value={certSettings.pricePoints || 0}
-                  onChange={(e) => setCertSettings({
-                    ...certSettings,
-                    pricePoints: parseInt(e.target.value) || 0,
-                  })}
-                  className="w-full px-4 py-2 input-on-dark"
-                  placeholder="0"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                  Template ID
-                </label>
-                <input
-                  type="text"
-                  value={certSettings.templateId || 'default_v1'}
-                  onChange={(e) => setCertSettings({
-                    ...certSettings,
-                    templateId: e.target.value,
-                  })}
-                  className="w-full px-4 py-2 input-on-dark"
-                  placeholder="default_v1"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                  Credential ID
-                </label>
-                <input
-                  type="text"
-                  value={certSettings.credentialId || 'CERT'}
-                  onChange={(e) => setCertSettings({
-                    ...certSettings,
-                    credentialId: e.target.value,
-                  })}
-                  className="w-full px-4 py-2 input-on-dark"
-                  placeholder="CERT"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                  Completion Phrase ID
-                </label>
-                <input
-                  type="text"
-                  value={certSettings.completionPhraseId || 'completion_final_exam'}
-                  onChange={(e) => setCertSettings({
-                    ...certSettings,
-                    completionPhraseId: e.target.value,
-                  })}
-                  className="w-full px-4 py-2 input-on-dark"
-                  placeholder="completion_final_exam"
-                />
-              </div>
-              <div className="pt-4 border-t border-brand-accent/20">
-                <button
-                  onClick={handleSaveCertSettings}
-                  disabled={certSaving}
-                  className="page-button-primary flex items-center gap-2 px-6 py-3 disabled:opacity-50"
-                >
-                  <Save className="w-5 h-5" />
-                  {certSaving ? 'Saving...' : 'Save Certification Settings'}
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="text-center py-8 text-brand-white/70">Failed to load certification settings</div>
-          )}
-        </div>
-
-        {/* Course Settings */}
-        <div className="panel-on-dark p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <ImageIcon className="w-6 h-6 text-brand-accent" />
-            <h2 className="text-xl font-bold text-brand-white">Course Settings</h2>
-          </div>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-brand-white/80 mb-2">
-                Default Course Thumbnail
-              </label>
-              <div className="space-y-3">
-                {defaultThumbnail && (
-                  <div className="relative w-full h-48 bg-brand-black/40 rounded-lg overflow-hidden border-2 border-brand-accent">
-                    <Image
-                      src={defaultThumbnail}
-                      alt="Default course thumbnail"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 24rem"
-                    />
-                    <button
-                      onClick={async () => {
-                        try {
-                          const response = await fetch('/api/admin/settings/default-thumbnail', {
-                            method: 'DELETE',
-                          });
-                          const data = await response.json();
-                          if (data.success) {
-                            setDefaultThumbnail(null);
-                            alert('Default thumbnail removed');
-                          } else {
-                            alert('Failed to remove default thumbnail');
-                          }
-                        } catch (error) {
-                          console.error('Failed to remove thumbnail:', error);
-                          alert('Failed to remove default thumbnail');
-                        }
-                      }}
-                      className="absolute top-2 right-2 bg-red-500 text-brand-white px-3 py-1 rounded-lg text-sm font-bold hover:bg-red-600"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                )}
-                <label className="page-button-primary flex items-center gap-2 cursor-pointer w-fit disabled:opacity-50" style={{ pointerEvents: uploadingThumbnail ? 'none' : 'auto' }}>
-                  <Upload className="w-5 h-5" />
-                  {uploadingThumbnail ? 'Uploading...' : defaultThumbnail ? 'Change Default Thumbnail' : 'Upload Default Thumbnail'}
-                  <input
-                    type="file"
-                    accept="image/jpeg,image/jpg,image/png,image/webp,image/gif"
-                    onChange={handleUploadDefaultThumbnail}
-                    disabled={uploadingThumbnail}
-                    className="hidden"
-                  />
-                </label>
-                <p className="text-xs text-brand-white/60">
-                  This thumbnail will be used for courses that don&apos;t have their own thumbnail image. (JPEG, PNG, WebP, or GIF, max 10MB)
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Save Button */}
-      <div className="flex items-center justify-end gap-4 pt-4">
-        {saved && (
-          <div className="flex items-center gap-2 text-green-500">
-            <span className="font-medium">{t('settingsSaved')}</span>
-          </div>
+          </Stack>
+        ) : (
+          <Alert color="red">{mailSettingsError || t('emailSettingsError')}</Alert>
         )}
-        <button
+        <Text size="sm" c="dimmed">
+          {t('emailProviderNote')}{' '}
+          <Anchor
+            href="https://github.com/moldovancsaba/amanoba/blob/main/docs/ENVIRONMENT_SETUP.md"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t('emailProviderDocs')}
+          </Anchor>
+        </Text>
+      </SettingsCard>
+
+      <SettingsCard icon={<IconShield size={22} />} title={t('security')}>
+        <SimpleGrid cols={{ base: 1, md: 2 }}>
+          <PasswordInput label={t('adminPassword')} placeholder="********" />
+          <NumberInput label={t('sessionTimeout')} defaultValue={30} min={1} max={1440} />
+        </SimpleGrid>
+      </SettingsCard>
+
+      <SettingsCard icon={<IconGlobe size={22} />} title={t('internationalization')}>
+        {i18nLoading ? (
+          <Text c="dimmed">{t('loading')}</Text>
+        ) : i18nSettings ? (
+          <Stack gap="md">
+            <Stack gap="xs">
+              <Text size="sm" fw={600}>{t('supportedLanguages')}</Text>
+              <Group>
+                {Array.from(new Set([
+                  ...ADMIN_LANGUAGE_OPTIONS.map((option) => option.code),
+                  ...i18nSettings.supportedLanguages,
+                ])).map((code) => {
+                  const checked = i18nSettings.supportedLanguages.includes(code);
+                  const isOnlyOne = checked && i18nSettings.supportedLanguages.length === 1;
+                  return (
+                    <Checkbox
+                      key={code}
+                      checked={checked}
+                      disabled={isOnlyOne}
+                      onChange={(event) => updateSupportedLanguage(code, event.currentTarget.checked)}
+                      label={`${getLanguageLabel(code)} (${code})`}
+                    />
+                  );
+                })}
+              </Group>
+            </Stack>
+            <Select
+              label={t('defaultLocale')}
+              data={i18nSettings.supportedLanguages.map((code) => ({ value: code, label: `${getLanguageLabel(code)} (${code})` }))}
+              value={i18nSettings.defaultLanguage}
+              onChange={(value) => {
+                if (!value) return;
+                setI18nSettings({ ...i18nSettings, defaultLanguage: value });
+              }}
+              allowDeselect={false}
+            />
+          </Stack>
+        ) : (
+          <Alert color="red">{i18nError || 'Failed to load language settings'}</Alert>
+        )}
+      </SettingsCard>
+
+      <SettingsCard icon={<IconAward size={22} />} title="Certification Settings">
+        {certSettingsLoading ? (
+          <Group justify="center" py="xl">
+            <Loader color="amanobaYellow" />
+            <Text c="dimmed">Loading certification settings...</Text>
+          </Group>
+        ) : certSettings ? (
+          <Stack gap="md">
+            <SimpleGrid cols={{ base: 1, md: 2 }}>
+              <NumberInput
+                label="Default Price (Money)"
+                value={certSettings.priceMoney?.amount || 0}
+                min={0}
+                onChange={(value) => setCertSettings({
+                  ...certSettings,
+                  priceMoney: {
+                    ...certSettings.priceMoney,
+                    amount: typeof value === 'number' ? value : Number(value) || 0,
+                    currency: certSettings.priceMoney?.currency || 'USD',
+                  },
+                })}
+              />
+              <Select
+                label="Currency"
+                data={currencyOptions}
+                value={certSettings.priceMoney?.currency || 'USD'}
+                onChange={(value) => setCertSettings({
+                  ...certSettings,
+                  priceMoney: {
+                    ...certSettings.priceMoney,
+                    amount: certSettings.priceMoney?.amount || 0,
+                    currency: value || 'USD',
+                  },
+                })}
+                allowDeselect={false}
+              />
+            </SimpleGrid>
+            <NumberInput
+              label="Default Price (Points)"
+              value={certSettings.pricePoints || 0}
+              min={0}
+              onChange={(value) => setCertSettings({
+                ...certSettings,
+                pricePoints: typeof value === 'number' ? value : Number(value) || 0,
+              })}
+            />
+            <SimpleGrid cols={{ base: 1, md: 3 }}>
+              <TextInput
+                label="Template ID"
+                value={certSettings.templateId || 'default_v1'}
+                onChange={(event) => setCertSettings({ ...certSettings, templateId: event.currentTarget.value })}
+              />
+              <TextInput
+                label="Credential ID"
+                value={certSettings.credentialId || 'CERT'}
+                onChange={(event) => setCertSettings({ ...certSettings, credentialId: event.currentTarget.value })}
+              />
+              <TextInput
+                label="Completion Phrase ID"
+                value={certSettings.completionPhraseId || 'completion_final_exam'}
+                onChange={(event) => setCertSettings({ ...certSettings, completionPhraseId: event.currentTarget.value })}
+              />
+            </SimpleGrid>
+            <Group justify="flex-end">
+              <Button leftSection={<IconCheck size={18} />} onClick={handleSaveCertSettings} loading={certSaving}>
+                Save Certification Settings
+              </Button>
+            </Group>
+          </Stack>
+        ) : (
+          <Alert color="red">Failed to load certification settings</Alert>
+        )}
+      </SettingsCard>
+
+      <SettingsCard icon={<IconImageInPicture size={22} />} title="Course Settings">
+        <Stack gap="md">
+          <Text size="sm" fw={600}>Default Course Thumbnail</Text>
+          {defaultThumbnail && (
+            <Card padding={0} withBorder>
+              <Image src={defaultThumbnail} alt="Default course thumbnail" h={240} fit="cover" />
+              <Group justify="flex-end" p="sm">
+                <Button color="red" variant="light" onClick={() => void handleRemoveDefaultThumbnail()}>
+                  Remove
+                </Button>
+              </Group>
+            </Card>
+          )}
+          <Group>
+            <FileButton
+              onChange={(file) => void handleUploadDefaultThumbnail(file)}
+              accept="image/jpeg,image/jpg,image/png,image/webp,image/gif"
+            >
+              {(props) => (
+                <Button {...props} leftSection={<IconUpload size={18} />} loading={uploadingThumbnail}>
+                  {defaultThumbnail ? 'Change Default Thumbnail' : 'Upload Default Thumbnail'}
+                </Button>
+              )}
+            </FileButton>
+          </Group>
+          <Text size="xs" c="dimmed">
+            This thumbnail will be used for courses that do not have their own thumbnail image. JPEG, PNG, WebP, or GIF, max 10MB.
+          </Text>
+        </Stack>
+      </SettingsCard>
+
+      <Group justify="flex-end">
+        {saved && (
+          <Badge color="green" leftSection={<IconCheck size={12} />}>{t('settingsSaved')}</Badge>
+        )}
+        <Button
+          leftSection={<IconCheck size={18} />}
           onClick={handleSave}
-          disabled={saving || i18nLoading || !i18nSettings}
-          className="page-button-primary flex items-center gap-2 px-6 py-3 disabled:opacity-50"
+          loading={saving}
+          disabled={i18nLoading || !i18nSettings}
         >
-          <Save className="w-5 h-5" />
           {saving ? t('saving') : t('saveSettings')}
-        </button>
-      </div>
-    </div>
+        </Button>
+      </Group>
+    </Stack>
+  );
+}
+
+function SettingsCard({
+  icon,
+  title,
+  aside,
+  children,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  aside?: React.ReactNode;
+  children: React.ReactNode;
+}) {
+  return (
+    <Card padding="lg">
+      <Stack gap="md">
+        <Group justify="space-between">
+          <Group>
+            <ThemeIcon color="amanobaYellow" variant="light">{icon}</ThemeIcon>
+            <Title order={2} size="h3">{title}</Title>
+          </Group>
+          {aside}
+        </Group>
+        {children}
+      </Stack>
+    </Card>
   );
 }
