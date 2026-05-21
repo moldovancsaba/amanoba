@@ -1,38 +1,63 @@
 /**
  * Admin Courses Page
- * 
+ *
  * What: Course management interface for admins
- * Why: Allows admins to view, create, edit, and manage courses
+ * Why: Allows admins to view, create, edit, import, and manage courses
  */
 
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, type FormEvent } from 'react';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
-import { useDebounce } from '@/app/lib/hooks/useDebounce';
-import {
-  Plus,
-  Search,
-  Filter,
-  BookOpen,
-  Edit,
-  Trash2,
-  Eye,
-  EyeOff,
-  Calendar,
-  Award,
-  Star,
-  ArrowUpDown,
-  ChevronDown,
-  ChevronRight,
-  FolderOpen,
-  FileText,
-  Upload,
-  Loader2,
-} from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import {
+  ActionIcon,
+  Alert,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Center,
+  Container,
+  FileButton,
+  Group,
+  Loader,
+  Paper,
+  Select,
+  SimpleGrid,
+  Stack,
+  Text,
+  Textarea,
+  TextInput,
+  ThemeIcon,
+  Title,
+  Tooltip,
+} from '@mantine/core';
+import { modals } from '@mantine/modals';
+import { notifications } from '@mantine/notifications';
+import {
+  IconAlertTriangle,
+  IconArrowsSort,
+  IconAward,
+  IconBook,
+  IconCalendar,
+  IconChevronDown,
+  IconChevronRight,
+  IconEdit,
+  IconEye,
+  IconEyeOff,
+  IconFileText,
+  IconFolder,
+  IconFilter,
+  IconPlus,
+  IconSearch,
+  IconStar,
+  IconTrash,
+  IconUpload,
+} from '@tabler/icons-react';
+import { useDebounce } from '@/app/lib/hooks/useDebounce';
 
 interface Course {
   _id: string;
@@ -70,19 +95,33 @@ interface CCSItem {
 }
 
 type ViewMode = 'ccs' | 'flat';
+type StatusFilter = 'all' | 'active' | 'inactive';
+type SortBy =
+  | 'created_desc'
+  | 'created_asc'
+  | 'updated_desc'
+  | 'updated_asc'
+  | 'enrolled_desc'
+  | 'enrolled_asc'
+  | 'liked_desc'
+  | 'liked_asc'
+  | 'alpha_asc'
+  | 'alpha_desc';
 
 function CreateCourseFamilyForm({ onCreated }: { onCreated: () => void }) {
   const [ccsId, setCcsId] = useState('');
   const [name, setName] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [err, setErr] = useState<string | null>(null);
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     const id = ccsId.trim().toUpperCase().replace(/\s+/g, '_');
     if (!id || !/^[A-Z0-9_]+$/.test(id)) {
-      setErr('Use only letters, numbers, underscores (e.g. PRODUCTIVITY_2026)');
+      setErr('Use only letters, numbers, underscores (e.g. PRODUCTIVITY_2026).');
       return;
     }
+
     setErr(null);
     setSubmitting(true);
     try {
@@ -93,45 +132,41 @@ function CreateCourseFamilyForm({ onCreated }: { onCreated: () => void }) {
       });
       const data = await res.json();
       if (!res.ok) {
-        setErr(data.error || 'Create failed');
+        setErr(data.error || 'Create failed.');
         return;
       }
       setCcsId('');
       setName('');
+      notifications.show({ color: 'green', title: 'Course family created', message: `${id} is ready for language variants.` });
       onCreated();
     } catch {
-      setErr('Request failed');
+      setErr('Request failed.');
     } finally {
       setSubmitting(false);
     }
   };
+
   return (
-    <form onSubmit={handleSubmit} className="inline-flex flex-wrap items-center gap-2">
-      <input
-        type="text"
-        placeholder="CCS id (e.g. PRODUCTIVITY_2026)"
-        value={ccsId}
-        onChange={(e) => setCcsId(e.target.value)}
-        className="px-3 py-2 bg-brand-black border border-brand-accent/30 rounded-lg text-brand-white placeholder-brand-white/50 text-sm focus:outline-none focus:border-brand-accent min-w-[180px]"
-        aria-label="Course family id"
-      />
-      <input
-        type="text"
-        placeholder="Name (optional)"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        className="px-3 py-2 bg-brand-black border border-brand-accent/30 rounded-lg text-brand-white placeholder-brand-white/50 text-sm focus:outline-none focus:border-brand-accent min-w-[140px]"
-        aria-label="Course family name"
-      />
-      <button
-        type="submit"
-        disabled={submitting}
-        className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold text-sm hover:bg-brand-primary-400 transition-colors disabled:opacity-50"
-      >
-        {submitting ? '…' : 'Create course family'}
-      </button>
-      {err && <span className="text-brand-accent/90 text-sm w-full mt-1">{err}</span>}
-    </form>
+    <Box component="form" onSubmit={handleSubmit}>
+      <Group align="flex-end">
+        <TextInput
+          label="Course family ID"
+          placeholder="PRODUCTIVITY_2026"
+          value={ccsId}
+          onChange={(event) => setCcsId(event.currentTarget.value)}
+        />
+        <TextInput
+          label="Name"
+          placeholder="Optional"
+          value={name}
+          onChange={(event) => setName(event.currentTarget.value)}
+        />
+        <Button type="submit" loading={submitting} leftSection={<IconPlus size={16} />}>
+          Create course family
+        </Button>
+      </Group>
+      {err && <Text mt="xs" size="sm" c="red">{err}</Text>}
+    </Box>
   );
 }
 
@@ -149,63 +184,13 @@ export default function AdminCoursesPage() {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('');
   const debouncedSearch = useDebounce(search, 500);
-  const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'inactive'>('all');
-  const [sortBy, setSortBy] = useState<
-    | 'created_desc'
-    | 'created_asc'
-    | 'updated_desc'
-    | 'updated_asc'
-    | 'enrolled_desc'
-    | 'enrolled_asc'
-    | 'liked_desc'
-    | 'liked_asc'
-    | 'alpha_asc'
-    | 'alpha_desc'
-  >('created_desc');
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
+  const [sortBy, setSortBy] = useState<SortBy>('created_desc');
   const [deletingCourseId, setDeletingCourseId] = useState<string | null>(null);
   const [ccsError, setCcsError] = useState<string | null>(null);
   const [editingCcsId, setEditingCcsId] = useState<string | null>(null);
   const [editForm, setEditForm] = useState<{ name: string; idea: string; outline: string }>({ name: '', idea: '', outline: '' });
   const [deletingCcsId, setDeletingCcsId] = useState<string | null>(null);
-
-  const handleImportCourse = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-    const questionModeText =
-      importQuestionMode === 'overwrite'
-        ? 'Overwrite questions in imported lessons when updating an existing course.'
-        : 'Add only missing questions when updating an existing course.';
-    if (!confirm(`Import package to create a new course or update an existing one (by courseId)?\n\n${questionModeText}`)) {
-      event.target.value = '';
-      return;
-    }
-    setImporting(true);
-    try {
-      const text = await file.text();
-      const courseData = JSON.parse(text);
-      const response = await fetch('/api/admin/courses/import', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          courseData,
-          overwrite: true,
-          questionImportMode: importQuestionMode,
-        }),
-      });
-      const data = await response.json();
-      if (data.success && data.course?.courseId) {
-        router.push(`/${locale}/admin/courses/${data.course.courseId}`);
-        return;
-      }
-      alert([data.error || 'Import failed', data.details].filter(Boolean).join('\n\n'));
-    } catch (e) {
-      console.error('Import failed', e);
-      alert('Import failed. Use a .json package.');
-    } finally {
-      setImporting(false);
-      event.target.value = '';
-    }
-  };
 
   const fetchCCS = useCallback(async () => {
     try {
@@ -225,18 +210,18 @@ export default function AdminCoursesPage() {
       if (data.ccs?.length) {
         setCcsList(data.ccs);
         const map: Record<string, Course[]> = {};
-        for (const c of data.ccs) {
-          const r = await fetch(`/api/admin/ccs/${encodeURIComponent(c.ccsId)}`);
-          const d = await r.json();
-          if (d.success) map[c.ccsId] = d.courses || [];
+        for (const ccs of data.ccs) {
+          const courseResponse = await fetch(`/api/admin/ccs/${encodeURIComponent(ccs.ccsId)}`);
+          const courseData = await courseResponse.json();
+          if (courseData.success) map[ccs.ccsId] = courseData.courses || [];
         }
         setCcsCourses(map);
       } else {
         setCcsList([]);
         setCcsCourses({});
       }
-    } catch (e) {
-      console.error('Failed to fetch CCS', e);
+    } catch (error) {
+      console.error('Failed to fetch CCS', error);
       setCcsError('Could not load course families. Check the console.');
       setCcsList([]);
       setCcsCourses({});
@@ -250,22 +235,13 @@ export default function AdminCoursesPage() {
     try {
       setLoading(true);
       const params = new URLSearchParams();
-      if (statusFilter !== 'all') {
-        params.append('status', statusFilter);
-      }
-      if (debouncedSearch) {
-        params.append('search', debouncedSearch);
-      }
-      if (sortBy) {
-        params.append('sort', sortBy);
-      }
+      if (statusFilter !== 'all') params.append('status', statusFilter);
+      if (debouncedSearch) params.append('search', debouncedSearch);
+      if (sortBy) params.append('sort', sortBy);
 
       const response = await fetch(`/api/admin/courses?${params.toString()}`);
       const data = await response.json();
-
-      if (data.success) {
-        setCourses(data.courses || []);
-      }
+      if (data.success) setCourses(data.courses || []);
     } catch (error) {
       console.error('Failed to fetch courses:', error);
     } finally {
@@ -283,6 +259,55 @@ export default function AdminCoursesPage() {
     }
   }, [viewMode, fetchCCS, fetchCourses]);
 
+  const refreshCurrentView = () => {
+    if (viewMode === 'ccs') void fetchCCS();
+    else void fetchCourses();
+  };
+
+  const handleImportCourse = async (file: File | null) => {
+    if (!file) return;
+    const questionModeText =
+      importQuestionMode === 'overwrite'
+        ? 'Imported lessons will replace existing questions for matching lessons.'
+        : 'Only missing questions will be added for matching lessons.';
+
+    modals.openConfirmModal({
+      title: 'Import course package',
+      children: (
+        <Stack gap="xs">
+          <Text size="sm">Import package to create a new course or update an existing one by `courseId`.</Text>
+          <Text size="sm" c="dimmed">{questionModeText}</Text>
+        </Stack>
+      ),
+      labels: { confirm: 'Import package', cancel: 'Cancel' },
+      confirmProps: { color: 'amanobaYellow' },
+      onConfirm: async () => {
+        setImporting(true);
+        try {
+          const text = await file.text();
+          const courseData = JSON.parse(text);
+          const response = await fetch('/api/admin/courses/import', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ courseData, overwrite: true, questionImportMode: importQuestionMode }),
+          });
+          const data = await response.json();
+          if (data.success && data.course?.courseId) {
+            notifications.show({ color: 'green', title: 'Course imported', message: 'Opening the imported course.' });
+            router.push(`/${locale}/admin/courses/${data.course.courseId}`);
+            return;
+          }
+          notifications.show({ color: 'red', title: 'Import failed', message: [data.error || 'Import failed', data.details].filter(Boolean).join(' ') });
+        } catch (error) {
+          console.error('Import failed', error);
+          notifications.show({ color: 'red', title: 'Import failed', message: 'Use a valid .json course package.' });
+        } finally {
+          setImporting(false);
+        }
+      },
+    });
+  };
+
   const toggleCourseStatus = async (courseId: string, currentStatus: boolean) => {
     try {
       const response = await fetch(`/api/admin/courses/${courseId}`, {
@@ -292,36 +317,47 @@ export default function AdminCoursesPage() {
       });
 
       if (response.ok) {
-        fetchCourses(); // Refresh list
+        notifications.show({ color: 'green', title: 'Course status updated', message: `Course is now ${currentStatus ? 'draft' : 'active'}.` });
+        refreshCurrentView();
+      } else {
+        const data = await response.json().catch(() => ({}));
+        notifications.show({ color: 'red', title: 'Status update failed', message: data.error || 'Failed to update course.' });
       }
     } catch (error) {
       console.error('Failed to toggle course status:', error);
+      notifications.show({ color: 'red', title: 'Status update failed', message: 'Failed to update course.' });
     }
   };
 
   const handleDeleteCourse = async (courseId: string, courseName: string) => {
-    if (!confirm(`Are you sure you want to delete "${courseName}"?\n\nThis will permanently delete:\n- All lessons\n- All student progress\n- All quiz questions\n- All assessment results\n\nThis action cannot be undone.`)) {
-      return;
-    }
-
-    try {
-      setDeletingCourseId(courseId);
-      const response = await fetch(`/api/admin/courses/${courseId}`, {
-        method: 'DELETE',
-      });
-
-      if (response.ok) {
-        fetchCourses(); // Refresh list
-      } else {
-        const data = await response.json();
-        alert(data.error || 'Failed to delete course');
-      }
-    } catch (error) {
-      console.error('Failed to delete course:', error);
-      alert('Failed to delete course');
-    } finally {
-      setDeletingCourseId(null);
-    }
+    modals.openConfirmModal({
+      title: `Delete ${courseName}?`,
+      children: (
+        <Text size="sm">
+          This permanently deletes lessons, student progress, quiz questions, and assessment results for this course.
+        </Text>
+      ),
+      labels: { confirm: 'Delete course', cancel: 'Cancel' },
+      confirmProps: { color: 'red' },
+      onConfirm: async () => {
+        try {
+          setDeletingCourseId(courseId);
+          const response = await fetch(`/api/admin/courses/${courseId}`, { method: 'DELETE' });
+          if (response.ok) {
+            notifications.show({ color: 'green', title: 'Course deleted', message: `${courseName} was removed.` });
+            refreshCurrentView();
+          } else {
+            const data = await response.json();
+            notifications.show({ color: 'red', title: 'Delete failed', message: data.error || 'Failed to delete course.' });
+          }
+        } catch (error) {
+          console.error('Failed to delete course:', error);
+          notifications.show({ color: 'red', title: 'Delete failed', message: 'Failed to delete course.' });
+        } finally {
+          setDeletingCourseId(null);
+        }
+      },
+    });
   };
 
   const toggleCcs = (id: string) => {
@@ -335,11 +371,7 @@ export default function AdminCoursesPage() {
 
   const startEditCcs = (ccs: CCSItem) => {
     setEditingCcsId(ccs.ccsId);
-    setEditForm({
-      name: ccs.name || ccs.ccsId,
-      idea: ccs.idea || '',
-      outline: ccs.outline || '',
-    });
+    setEditForm({ name: ccs.name || ccs.ccsId, idea: ccs.idea || '', outline: ccs.outline || '' });
   };
 
   const saveEditCcs = async () => {
@@ -348,447 +380,512 @@ export default function AdminCoursesPage() {
       const res = await fetch(`/api/admin/ccs/${encodeURIComponent(editingCcsId)}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: editForm.name.trim(), idea: editForm.idea.trim() || undefined, outline: editForm.outline.trim() || undefined }),
+        body: JSON.stringify({
+          name: editForm.name.trim(),
+          idea: editForm.idea.trim() || undefined,
+          outline: editForm.outline.trim() || undefined,
+        }),
       });
       const data = await res.json();
       if (!res.ok) {
-        alert(data.error || 'Update failed');
+        notifications.show({ color: 'red', title: 'Update failed', message: data.error || 'Course family update failed.' });
         return;
       }
       setEditingCcsId(null);
+      notifications.show({ color: 'green', title: 'Course family updated', message: `${editingCcsId} was saved.` });
       fetchCCS();
-    } catch (e) {
-      console.error(e);
-      alert('Update failed');
+    } catch (error) {
+      console.error(error);
+      notifications.show({ color: 'red', title: 'Update failed', message: 'Course family update failed.' });
     }
   };
 
   const deleteCcs = async (ccsId: string, variantCount: number) => {
     if (variantCount > 0) {
-      alert(`Cannot delete: ${variantCount} course(s) are linked. Unlink or remove them first.`);
+      notifications.show({ color: 'yellow', title: 'Course family has variants', message: `${variantCount} course(s) are still linked. Unlink or remove them first.` });
       return;
     }
-    if (!confirm('Delete this course family? This cannot be undone.')) return;
-    setDeletingCcsId(ccsId);
-    try {
-      const res = await fetch(`/api/admin/ccs/${encodeURIComponent(ccsId)}`, { method: 'DELETE' });
-      const data = await res.json();
-      if (!res.ok) {
-        alert(data.error || 'Delete failed');
-        return;
-      }
-      setEditingCcsId(null);
-      fetchCCS();
-    } catch (e) {
-      console.error(e);
-      alert('Delete failed');
-    } finally {
-      setDeletingCcsId(null);
-    }
+
+    modals.openConfirmModal({
+      title: 'Delete course family?',
+      children: <Text size="sm">This removes the course family record and cannot be undone.</Text>,
+      labels: { confirm: 'Delete family', cancel: 'Cancel' },
+      confirmProps: { color: 'red' },
+      onConfirm: async () => {
+        setDeletingCcsId(ccsId);
+        try {
+          const res = await fetch(`/api/admin/ccs/${encodeURIComponent(ccsId)}`, { method: 'DELETE' });
+          const data = await res.json();
+          if (!res.ok) {
+            notifications.show({ color: 'red', title: 'Delete failed', message: data.error || 'Delete failed.' });
+            return;
+          }
+          setEditingCcsId(null);
+          notifications.show({ color: 'green', title: 'Course family deleted', message: `${ccsId} was removed.` });
+          fetchCCS();
+        } catch (error) {
+          console.error(error);
+          notifications.show({ color: 'red', title: 'Delete failed', message: 'Delete failed.' });
+        } finally {
+          setDeletingCcsId(null);
+        }
+      },
+    });
   };
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Course Management</h1>
-          <p className="text-brand-white/80">Create and manage flexible learning courses</p>
-        </div>
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-          <select
-            value={importQuestionMode}
-            onChange={(event) => setImportQuestionMode(event.target.value as 'add' | 'overwrite')}
-            disabled={importing}
-            className="px-3 py-2 rounded-lg border border-brand-white/20 bg-brand-darkGrey text-brand-white text-sm font-semibold focus:outline-none focus:border-brand-accent disabled:opacity-60"
-            aria-label="Question import mode"
-          >
-            <option value="add">Questions: Add Only</option>
-            <option value="overwrite">Questions: Overwrite</option>
-          </select>
-          <label className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${importing ? 'bg-green-700/70 text-white/90 cursor-wait pointer-events-none' : 'bg-green-600 text-white hover:bg-green-700 cursor-pointer'}`}>
-            {importing ? <Loader2 className="w-5 h-5 animate-spin" /> : <Upload className="w-5 h-5" />}
-            {importing ? 'Importing…' : 'Import'}
-            <input
-              type="file"
-              accept=".json"
-              className="hidden"
+    <Container size="xl" py="xl">
+      <Stack gap="lg">
+        <Group justify="space-between" align="flex-start">
+          <Stack gap={4}>
+            <Title order={1} c="white">Course Management</Title>
+            <Text c="gray.4">Create and manage flexible learning courses.</Text>
+          </Stack>
+          <Group justify="flex-end">
+            <Select
+              aria-label="Question import mode"
+              value={importQuestionMode}
+              onChange={(value) => setImportQuestionMode((value || 'add') as 'add' | 'overwrite')}
               disabled={importing}
-              onChange={handleImportCourse}
+              allowDeselect={false}
+              data={[
+                { value: 'add', label: 'Questions: Add Only' },
+                { value: 'overwrite', label: 'Questions: Overwrite' },
+              ]}
             />
-          </label>
-          {importing && (
-            <span className="text-sm text-brand-white/80">Importing package… You’ll be redirected when done.</span>
-          )}
-          <Link
-            href={`/${locale}/admin/courses/new`}
-            className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
+            <FileButton onChange={handleImportCourse} accept=".json">
+              {(props) => (
+                <Button {...props} loading={importing} leftSection={<IconUpload size={16} />}>
+                  Import
+                </Button>
+              )}
+            </FileButton>
+            <Button component={Link} href={`/${locale}/admin/courses/new`} leftSection={<IconPlus size={16} />}>
+              Create Course
+            </Button>
+          </Group>
+        </Group>
+
+        <Group>
+          <Button
+            type="button"
+            variant={viewMode === 'ccs' ? 'filled' : 'default'}
+            leftSection={<IconFolder size={16} />}
+            onClick={() => setViewMode('ccs')}
           >
-            <Plus className="w-5 h-5" />
-            Create Course
-          </Link>
-        </div>
-      </div>
+            By course family (CCS)
+          </Button>
+          <Button
+            type="button"
+            variant={viewMode === 'flat' ? 'filled' : 'default'}
+            leftSection={<IconBook size={16} />}
+            onClick={() => setViewMode('flat')}
+          >
+            All courses
+          </Button>
+        </Group>
 
-      {/* View mode: CCS-first vs flat */}
-      <div className="flex items-center gap-2">
-        <button
-          type="button"
-          onClick={() => setViewMode('ccs')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${
-            viewMode === 'ccs'
-              ? 'bg-brand-accent text-brand-black'
-              : 'bg-brand-darkGrey text-brand-white hover:bg-brand-secondary-700'
-          }`}
-        >
-          <FolderOpen className="w-4 h-4" />
-          By course family (CCS)
-        </button>
-        <button
-          type="button"
-          onClick={() => setViewMode('flat')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${
-            viewMode === 'flat'
-              ? 'bg-brand-accent text-brand-black'
-              : 'bg-brand-darkGrey text-brand-white hover:bg-brand-secondary-700'
-          }`}
-        >
-          <BookOpen className="w-4 h-4" />
-          All courses
-        </button>
-      </div>
-
-      {/* Filters (flat view) */}
-      {viewMode === 'flat' && (
-        <div className="bg-brand-darkGrey rounded-xl p-4 border-2 border-brand-accent">
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-brand-white/50" />
-              <input
-                type="text"
+        {viewMode === 'flat' && (
+          <Card padding="md">
+            <SimpleGrid cols={{ base: 1, md: 3 }}>
+              <TextInput
+                label="Search"
                 placeholder="Search courses..."
+                leftSection={<IconSearch size={16} />}
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-brand-black border border-brand-accent/30 rounded-lg text-brand-white placeholder-brand-white/50 focus:outline-none focus:border-brand-accent"
+                onChange={(event) => setSearch(event.currentTarget.value)}
               />
-            </div>
-            <div className="flex items-center gap-2">
-              <Filter className="w-5 h-5 text-brand-white/50" />
-              <select
+              <Select
+                label="Status"
+                leftSection={<IconFilter size={16} />}
                 value={statusFilter}
-                onChange={(e) => setStatusFilter(e.target.value as 'all' | 'active' | 'inactive')}
-                className="px-4 py-2 bg-brand-black border border-brand-accent/30 rounded-lg text-brand-white focus:outline-none focus:border-brand-accent"
-              >
-                <option value="all">All Courses</option>
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-              </select>
-            </div>
-            <div className="flex items-center gap-2">
-              <ArrowUpDown className="w-5 h-5 text-brand-white/50" />
-              <select
+                allowDeselect={false}
+                data={[
+                  { value: 'all', label: 'All Courses' },
+                  { value: 'active', label: 'Active' },
+                  { value: 'inactive', label: 'Inactive' },
+                ]}
+                onChange={(value) => setStatusFilter((value || 'all') as StatusFilter)}
+              />
+              <Select
+                label="Sort"
+                leftSection={<IconArrowsSort size={16} />}
                 value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-                className="px-4 py-2 bg-brand-black border border-brand-accent/30 rounded-lg text-brand-white focus:outline-none focus:border-brand-accent"
-              >
-                <option value="created_desc">Newest created</option>
-                <option value="created_asc">Oldest created</option>
-                <option value="updated_desc">Newest updated</option>
-                <option value="updated_asc">Oldest updated</option>
-                <option value="enrolled_desc">Most enrolled</option>
-                <option value="enrolled_asc">Least enrolled</option>
-                <option value="liked_desc">Most liked</option>
-                <option value="liked_asc">Least liked</option>
-                <option value="alpha_asc">A → Z</option>
-                <option value="alpha_desc">Z → A</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      )}
+                allowDeselect={false}
+                data={[
+                  { value: 'created_desc', label: 'Newest created' },
+                  { value: 'created_asc', label: 'Oldest created' },
+                  { value: 'updated_desc', label: 'Newest updated' },
+                  { value: 'updated_asc', label: 'Oldest updated' },
+                  { value: 'enrolled_desc', label: 'Most enrolled' },
+                  { value: 'enrolled_asc', label: 'Least enrolled' },
+                  { value: 'liked_desc', label: 'Most liked' },
+                  { value: 'liked_asc', label: 'Least liked' },
+                  { value: 'alpha_asc', label: 'A to Z' },
+                  { value: 'alpha_desc', label: 'Z to A' },
+                ]}
+                onChange={(value) => setSortBy((value || 'created_desc') as SortBy)}
+              />
+            </SimpleGrid>
+          </Card>
+        )}
 
-      {/* CCS-first list */}
-      {viewMode === 'ccs' && (
-        <div className="relative">
-          {loading && !initialLoading && (
-            <div className="absolute inset-0 bg-brand-darkGrey/80 flex items-center justify-center z-10 rounded-xl">
-              <div className="text-brand-white text-sm">Loading...</div>
-            </div>
-          )}
-          {initialLoading ? (
-            <div className="text-center py-12 text-brand-white">Loading course families...</div>
-          ) : ccsList.length === 0 ? (
-            <div className="bg-brand-darkGrey rounded-xl p-12 text-center border-2 border-brand-accent">
-              <FolderOpen className="w-16 h-16 text-brand-white/30 mx-auto mb-4" />
-              {ccsError ? (
-                <p className="text-brand-accent/90 mb-4 font-medium">{ccsError}</p>
-              ) : (
-                <h3 className="text-xl font-bold text-brand-white mb-2">No course families (CCS) yet</h3>
-              )}
-              <p className="text-brand-white/70 mb-4">Switch to &quot;All courses&quot; or create a course family below. Course families group language variants (e.g. PRODUCTIVITY_2026_HU, PRODUCTIVITY_2026_EN).</p>
-              <div className="flex flex-wrap items-center justify-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => setViewMode('flat')}
-                  className="inline-flex items-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
-                >
-                  <BookOpen className="w-5 h-5" />
-                  View all courses
-                </button>
-                <CreateCourseFamilyForm onCreated={fetchCCS} />
-              </div>
-            </div>
-          ) : (
-            <div className="space-y-2">
-              {ccsList.map((ccs) => {
-                const variants = ccsCourses[ccs.ccsId] || [];
-                const isExpanded = expandedCcs.has(ccs.ccsId);
-                return (
-                  <div
-                    key={ccs.ccsId}
-                    className="bg-brand-white rounded-xl border-2 border-brand-accent overflow-hidden"
-                  >
-                    <button
-                      type="button"
-                      onClick={() => toggleCcs(ccs.ccsId)}
-                      className="w-full flex items-center justify-between p-4 text-left hover:bg-brand-accent/10 transition-colors"
-                    >
-                      <div className="flex items-center gap-2">
-                        {isExpanded ? (
-                          <ChevronDown className="w-5 h-5 text-brand-black" />
-                        ) : (
-                          <ChevronRight className="w-5 h-5 text-brand-black" />
-                        )}
-                        <FileText className="w-5 h-5 text-brand-accent" />
-                        <span className="font-bold text-brand-black">{ccs.name || ccs.ccsId}</span>
-                        <span className="text-sm text-brand-darkGrey">({ccs.ccsId})</span>
-                      </div>
-                      <span className="text-sm text-brand-darkGrey">
-                        {variants.length} language variant{variants.length !== 1 ? 's' : ''}
-                      </span>
-                    </button>
-                    {isExpanded && (
-                      <div className="border-t border-brand-accent/30 bg-brand-white/95 p-4" onClick={(e) => e.stopPropagation()}>
-                        <div className="flex flex-wrap items-center gap-2 mb-3">
-                          <button
-                            type="button"
-                            onClick={() => startEditCcs(ccs)}
-                            className="inline-flex items-center gap-1 bg-brand-darkGrey text-brand-white px-3 py-1.5 rounded-lg text-sm font-bold hover:bg-brand-secondary-700"
-                          >
-                            <Edit className="w-4 h-4" />
-                            Edit
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => deleteCcs(ccs.ccsId, variants.length)}
-                            disabled={!!deletingCcsId}
-                            className="inline-flex items-center gap-1 bg-red-600/80 text-white px-3 py-1.5 rounded-lg text-sm font-bold hover:bg-red-600 disabled:opacity-50"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                            Delete
-                          </button>
-                        </div>
-                        {editingCcsId === ccs.ccsId && (
-                          <div className="mb-4 p-4 page-card space-y-4">
-                            <label className="block text-sm font-bold text-brand-black">Name</label>
-                            <input
-                              type="text"
-                              value={editForm.name}
-                              onChange={(e) => setEditForm((f) => ({ ...f, name: e.target.value }))}
-                              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black placeholder:text-brand-darkGrey/70 focus:outline-none focus:border-brand-accent"
-                              placeholder="Display name"
-                            />
-                            <label className="block text-sm font-bold text-brand-black">Idea (optional)</label>
-                            <textarea
-                              value={editForm.idea}
-                              onChange={(e) => setEditForm((f) => ({ ...f, idea: e.target.value }))}
-                              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black placeholder:text-brand-darkGrey/70 focus:outline-none focus:border-brand-accent min-h-[60px]"
-                              placeholder="Course idea / markdown"
-                            />
-                            <label className="block text-sm font-bold text-brand-black">Outline (optional)</label>
-                            <textarea
-                              value={editForm.outline}
-                              onChange={(e) => setEditForm((f) => ({ ...f, outline: e.target.value }))}
-                              className="w-full px-4 py-2 bg-brand-white border-2 border-brand-darkGrey rounded-lg text-brand-black placeholder:text-brand-darkGrey/70 focus:outline-none focus:border-brand-accent min-h-[80px]"
-                              placeholder="Course outline / markdown"
-                            />
-                            <div className="flex gap-2">
-                              <button type="button" onClick={saveEditCcs} className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold text-sm hover:bg-brand-primary-400">Save</button>
-                              <button type="button" onClick={() => setEditingCcsId(null)} className="px-4 py-2 bg-brand-darkGrey text-brand-white rounded-lg font-bold text-sm hover:bg-brand-secondary-700">Cancel</button>
-                            </div>
-                          </div>
-                        )}
-                        <p className="text-sm text-brand-black mb-2">Language variants — click to edit course</p>
-                        <div className="mb-3">
-                          <Link
-                            href={`/${locale}/admin/courses/new?ccsId=${encodeURIComponent(ccs.ccsId)}`}
-                            className="inline-flex items-center gap-2 bg-brand-accent text-brand-black px-3 py-2 rounded-lg font-bold hover:bg-brand-primary-400 text-sm"
-                          >
-                            <Plus className="w-4 h-4" />
-                            Create language variant
-                          </Link>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          {variants.length === 0 ? (
-                            <span className="text-brand-darkGrey text-sm">No courses linked to this CCS yet (set course.ccsId when creating/editing).</span>
-                          ) : (
-                            variants.map((c) => (
-                              <Link
-                                key={c.courseId}
-                                href={`/${locale}/admin/courses/${c.courseId}`}
-                                className="inline-flex items-center gap-2 bg-brand-accent text-brand-black px-3 py-2 rounded-lg font-bold hover:bg-brand-primary-400 text-sm"
-                              >
-                                <Edit className="w-4 h-4" />
-                                {c.name || c.courseId} ({c.language})
-                              </Link>
-                            ))
-                          )}
-                        </div>
-                        {ccs.relatedDocuments && ccs.relatedDocuments.length > 0 && (
-                          <div className="mt-3 pt-3 border-t border-brand-darkGrey/20">
-                            <p className="text-sm text-brand-darkGrey mb-1">Related documents</p>
-                            <ul className="text-sm text-brand-black list-disc list-inside">
-                              {ccs.relatedDocuments.map((doc, i) => (
-                                <li key={i}>
-                                  {doc.title || doc.type}
-                                  {doc.url && (
-                                    <a href={doc.url} target="_blank" rel="noopener noreferrer" className="ml-1 text-brand-accent hover:underline">
-                                      Link
-                                    </a>
-                                  )}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Flat courses list */}
-      {viewMode === 'flat' && (
-      <div className="relative">
         {loading && !initialLoading && (
-          <div className="absolute inset-0 bg-brand-darkGrey/80 flex items-center justify-center z-10 rounded-xl">
-            <div className="text-brand-white text-sm">Searching...</div>
-          </div>
+          <Alert color="gray" icon={<Loader size={16} />}>Refreshing courses...</Alert>
         )}
-        {initialLoading ? (
-          <div className="text-center py-12">
-            <div className="text-brand-white text-lg">Loading courses...</div>
-          </div>
-        ) : courses.length === 0 ? (
-        <div className="bg-brand-darkGrey rounded-xl p-12 text-center border-2 border-brand-accent">
-          <BookOpen className="w-16 h-16 text-brand-white/30 mx-auto mb-4" />
-          <h3 className="text-xl font-bold text-brand-white mb-2">No courses found</h3>
-          <p className="text-brand-white/70 mb-6">Get started by creating your first course</p>
-          <Link
-            href={`/${locale}/admin/courses/new`}
-            className="inline-flex items-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
-          >
-            <Plus className="w-5 h-5" />
-            Create First Course
-          </Link>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {courses.map((course) => (
-            <div
-              key={course._id}
-              className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent hover:shadow-lg transition-all"
+
+        {viewMode === 'ccs' ? (
+          <CourseFamiliesView
+            locale={locale}
+            loading={initialLoading}
+            ccsList={ccsList}
+            ccsCourses={ccsCourses}
+            ccsError={ccsError}
+            expandedCcs={expandedCcs}
+            editingCcsId={editingCcsId}
+            editForm={editForm}
+            deletingCcsId={deletingCcsId}
+            onToggle={toggleCcs}
+            onSwitchFlat={() => setViewMode('flat')}
+            onCreated={fetchCCS}
+            onStartEdit={startEditCcs}
+            onEditChange={setEditForm}
+            onSaveEdit={saveEditCcs}
+            onCancelEdit={() => setEditingCcsId(null)}
+            onDelete={deleteCcs}
+          />
+        ) : (
+          <FlatCoursesView
+            locale={locale}
+            loading={initialLoading}
+            courses={courses}
+            deletingCourseId={deletingCourseId}
+            onToggleStatus={toggleCourseStatus}
+            onDelete={handleDeleteCourse}
+          />
+        )}
+      </Stack>
+    </Container>
+  );
+}
+
+function CourseFamiliesView({
+  locale,
+  loading,
+  ccsList,
+  ccsCourses,
+  ccsError,
+  expandedCcs,
+  editingCcsId,
+  editForm,
+  deletingCcsId,
+  onToggle,
+  onSwitchFlat,
+  onCreated,
+  onStartEdit,
+  onEditChange,
+  onSaveEdit,
+  onCancelEdit,
+  onDelete,
+}: {
+  locale: string;
+  loading: boolean;
+  ccsList: CCSItem[];
+  ccsCourses: Record<string, Course[]>;
+  ccsError: string | null;
+  expandedCcs: Set<string>;
+  editingCcsId: string | null;
+  editForm: { name: string; idea: string; outline: string };
+  deletingCcsId: string | null;
+  onToggle: (ccsId: string) => void;
+  onSwitchFlat: () => void;
+  onCreated: () => void;
+  onStartEdit: (ccs: CCSItem) => void;
+  onEditChange: (value: { name: string; idea: string; outline: string }) => void;
+  onSaveEdit: () => void;
+  onCancelEdit: () => void;
+  onDelete: (ccsId: string, variantCount: number) => void;
+}) {
+  if (loading) {
+    return (
+      <Center py="xl">
+        <Group>
+          <Loader color="amanobaYellow" />
+          <Text c="white">Loading course families...</Text>
+        </Group>
+      </Center>
+    );
+  }
+
+  if (ccsList.length === 0) {
+    return (
+      <Card padding="xl">
+        <Stack align="center" gap="md">
+          <ThemeIcon size={64} color="amanobaYellow" variant="light"><IconFolder size={34} /></ThemeIcon>
+          {ccsError ? (
+            <Alert color="yellow" icon={<IconAlertTriangle size={16} />}>{ccsError}</Alert>
+          ) : (
+            <>
+              <Title order={2} size="h3">No course families yet</Title>
+              <Text c="dimmed" ta="center">
+                Course families group language variants, for example PRODUCTIVITY_2026_HU and PRODUCTIVITY_2026_EN.
+              </Text>
+            </>
+          )}
+          <Group justify="center">
+            <Button type="button" variant="default" leftSection={<IconBook size={16} />} onClick={onSwitchFlat}>
+              View all courses
+            </Button>
+            <CreateCourseFamilyForm onCreated={onCreated} />
+          </Group>
+        </Stack>
+      </Card>
+    );
+  }
+
+  return (
+    <Stack gap="sm">
+      <Card padding="md">
+        <CreateCourseFamilyForm onCreated={onCreated} />
+      </Card>
+      {ccsList.map((ccs) => {
+        const variants = ccsCourses[ccs.ccsId] || [];
+        const isExpanded = expandedCcs.has(ccs.ccsId);
+        return (
+          <Card key={ccs.ccsId} padding={0}>
+            <Button
+              type="button"
+              variant="subtle"
+              fullWidth
+              justify="space-between"
+              rightSection={<Badge variant="light">{variants.length} variant{variants.length === 1 ? '' : 's'}</Badge>}
+              leftSection={isExpanded ? <IconChevronDown size={18} /> : <IconChevronRight size={18} />}
+              onClick={() => onToggle(ccs.ccsId)}
             >
-              {/* Course Thumbnail */}
-              {course.thumbnail && (
-                <div className="relative w-full h-40 bg-brand-darkGrey rounded-lg mb-4 overflow-hidden">
-                  <Image
-                    src={course.thumbnail}
-                    alt={course.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 20rem"
-                  />
-                </div>
-              )}
-              
-              {/* Course Header */}
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
-                    <h3 className="text-xl font-bold text-brand-black">{course.name}</h3>
-                    {course.isActive ? (
-                      <span className="bg-green-500 text-white text-xs px-2 py-1 rounded">Active</span>
-                    ) : (
-                      <span className="bg-brand-darkGrey text-brand-white text-xs px-2 py-1 rounded">Draft</span>
-                    )}
-                  </div>
-                  <p className="text-brand-darkGrey text-sm line-clamp-2">{course.description}</p>
-                </div>
-              </div>
+              <Group gap="xs">
+                <IconFileText size={18} />
+                <Text fw={700}>{ccs.name || ccs.ccsId}</Text>
+                <Text size="sm" c="dimmed">({ccs.ccsId})</Text>
+              </Group>
+            </Button>
+            {isExpanded && (
+              <Stack gap="md" p="md">
+                <Group gap="xs">
+                  <Button type="button" size="xs" variant="default" leftSection={<IconEdit size={14} />} onClick={() => onStartEdit(ccs)}>
+                    Edit
+                  </Button>
+                  <Button
+                    type="button"
+                    size="xs"
+                    color="red"
+                    variant="subtle"
+                    loading={deletingCcsId === ccs.ccsId}
+                    leftSection={<IconTrash size={14} />}
+                    onClick={() => onDelete(ccs.ccsId, variants.length)}
+                  >
+                    Delete
+                  </Button>
+                </Group>
 
-              {/* Course Info */}
-              <div className="space-y-2 mb-4">
-                <div className="flex items-center gap-2 text-sm text-brand-darkGrey">
-                  <Calendar className="w-4 h-4" />
-                  <span>{course.durationDays} days</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-brand-darkGrey">
-                  <Award className="w-4 h-4" />
-                  <span>{course.pointsConfig.completionPoints} points</span>
-                </div>
-                {course.requiresPremium && (
-                  <div className="text-xs text-brand-accent font-bold flex items-center gap-1">
-                    <Star className="w-3.5 h-3.5" />
-                    Premium
-                  </div>
+                {editingCcsId === ccs.ccsId && (
+                  <Paper withBorder radius="md" p="md">
+                    <Stack gap="md">
+                      <TextInput
+                        label="Name"
+                        value={editForm.name}
+                        onChange={(event) => onEditChange({ ...editForm, name: event.currentTarget.value })}
+                        placeholder="Display name"
+                      />
+                      <Textarea
+                        label="Idea"
+                        value={editForm.idea}
+                        onChange={(event) => onEditChange({ ...editForm, idea: event.currentTarget.value })}
+                        placeholder="Course idea / markdown"
+                        autosize
+                        minRows={2}
+                      />
+                      <Textarea
+                        label="Outline"
+                        value={editForm.outline}
+                        onChange={(event) => onEditChange({ ...editForm, outline: event.currentTarget.value })}
+                        placeholder="Course outline / markdown"
+                        autosize
+                        minRows={3}
+                      />
+                      <Group>
+                        <Button type="button" onClick={onSaveEdit}>Save</Button>
+                        <Button type="button" variant="default" onClick={onCancelEdit}>Cancel</Button>
+                      </Group>
+                    </Stack>
+                  </Paper>
                 )}
-              </div>
 
-              {/* Actions */}
-              <div className="flex items-center gap-2 pt-4 border-t border-brand-darkGrey/20">
-                <Link
-                  href={`/${locale}/admin/courses/${course.courseId}`}
-                  className="flex-1 flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-3 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-sm"
-                >
-                  <Edit className="w-4 h-4" />
-                  Edit
-                </Link>
-                <button
-                  onClick={() => toggleCourseStatus(course.courseId, course.isActive)}
-                  className="p-2 bg-brand-darkGrey text-brand-white rounded-lg hover:bg-brand-secondary-700 transition-colors"
-                  title={course.isActive ? 'Deactivate' : 'Activate'}
-                  disabled={deletingCourseId === course.courseId}
-                >
-                  {course.isActive ? (
-                    <EyeOff className="w-4 h-4" />
+                <Group justify="space-between" align="center">
+                  <Text size="sm" c="dimmed">Language variants</Text>
+                  <Button
+                    component={Link}
+                    href={`/${locale}/admin/courses/new?ccsId=${encodeURIComponent(ccs.ccsId)}`}
+                    size="xs"
+                    leftSection={<IconPlus size={14} />}
+                  >
+                    Create language variant
+                  </Button>
+                </Group>
+                <Group gap="xs">
+                  {variants.length === 0 ? (
+                    <Text size="sm" c="dimmed">No courses linked to this CCS yet.</Text>
                   ) : (
-                    <Eye className="w-4 h-4" />
+                    variants.map((course) => (
+                      <Button
+                        key={course.courseId}
+                        component={Link}
+                        href={`/${locale}/admin/courses/${course.courseId}`}
+                        variant="default"
+                        size="xs"
+                        leftSection={<IconEdit size={14} />}
+                      >
+                        {course.name || course.courseId} ({course.language})
+                      </Button>
+                    ))
                   )}
-                </button>
-                <button
-                  onClick={() => handleDeleteCourse(course.courseId, course.name)}
-                  className="p-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  title="Delete course"
+                </Group>
+                {ccs.relatedDocuments && ccs.relatedDocuments.length > 0 && (
+                  <Stack gap="xs">
+                    <Text size="sm" c="dimmed">Related documents</Text>
+                    {ccs.relatedDocuments.map((doc, index) => (
+                      <Button
+                        key={`${doc.type}-${index}`}
+                        component="a"
+                        href={doc.url || '#'}
+                        target={doc.url ? '_blank' : undefined}
+                        rel={doc.url ? 'noopener noreferrer' : undefined}
+                        variant="subtle"
+                        size="xs"
+                        leftSection={<IconFileText size={14} />}
+                        disabled={!doc.url}
+                      >
+                        {doc.title || doc.type}
+                      </Button>
+                    ))}
+                  </Stack>
+                )}
+              </Stack>
+            )}
+          </Card>
+        );
+      })}
+    </Stack>
+  );
+}
+
+function FlatCoursesView({
+  locale,
+  loading,
+  courses,
+  deletingCourseId,
+  onToggleStatus,
+  onDelete,
+}: {
+  locale: string;
+  loading: boolean;
+  courses: Course[];
+  deletingCourseId: string | null;
+  onToggleStatus: (courseId: string, currentStatus: boolean) => void;
+  onDelete: (courseId: string, courseName: string) => void;
+}) {
+  if (loading) {
+    return (
+      <Center py="xl">
+        <Group>
+          <Loader color="amanobaYellow" />
+          <Text c="white">Loading courses...</Text>
+        </Group>
+      </Center>
+    );
+  }
+
+  if (courses.length === 0) {
+    return (
+      <Card padding="xl">
+        <Stack align="center" gap="md">
+          <ThemeIcon size={64} color="amanobaYellow" variant="light"><IconBook size={34} /></ThemeIcon>
+          <Title order={2} size="h3">No courses found</Title>
+          <Text c="dimmed">Get started by creating your first course.</Text>
+          <Button component={Link} href={`/${locale}/admin/courses/new`} leftSection={<IconPlus size={16} />}>
+            Create First Course
+          </Button>
+        </Stack>
+      </Card>
+    );
+  }
+
+  return (
+    <SimpleGrid cols={{ base: 1, md: 2, lg: 3 }}>
+      {courses.map((course) => (
+        <Card key={course._id} padding="lg">
+          <Stack gap="md" h="100%">
+            {course.thumbnail && (
+              <Paper withBorder radius="md" pos="relative" h={160} style={{ overflow: 'hidden' }}>
+                <Image
+                  src={course.thumbnail}
+                  alt={course.name}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 768px) 100vw, 20rem"
+                />
+              </Paper>
+            )}
+            <Stack gap="xs" style={{ flex: 1 }}>
+              <Group justify="space-between" align="flex-start">
+                <Title order={3} size="h4">{course.name}</Title>
+                <Badge color={course.isActive ? 'green' : 'gray'}>{course.isActive ? 'Active' : 'Draft'}</Badge>
+              </Group>
+              <Text size="sm" c="dimmed" lineClamp={2}>{course.description}</Text>
+            </Stack>
+            <Stack gap="xs">
+              <Group gap="xs">
+                <IconCalendar size={16} />
+                <Text size="sm">{course.durationDays} days</Text>
+              </Group>
+              <Group gap="xs">
+                <IconAward size={16} />
+                <Text size="sm">{course.pointsConfig.completionPoints} points</Text>
+              </Group>
+              {course.requiresPremium && (
+                <Badge variant="light" color="amanobaYellow" leftSection={<IconStar size={12} />}>Premium</Badge>
+              )}
+            </Stack>
+            <Group gap="xs" justify="space-between">
+              <Button component={Link} href={`/${locale}/admin/courses/${course.courseId}`} leftSection={<IconEdit size={14} />} flex={1}>
+                Edit
+              </Button>
+              <Tooltip label={course.isActive ? 'Deactivate' : 'Activate'}>
+                <ActionIcon
+                  variant="default"
+                  size="lg"
+                  aria-label={course.isActive ? 'Deactivate course' : 'Activate course'}
                   disabled={deletingCourseId === course.courseId}
+                  onClick={() => onToggleStatus(course.courseId, course.isActive)}
                 >
-                  {deletingCourseId === course.courseId ? (
-                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  ) : (
-                    <Trash2 className="w-4 h-4" />
-                  )}
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-        )}
-      </div>
-      )}
-    </div>
+                  {course.isActive ? <IconEyeOff size={18} /> : <IconEye size={18} />}
+                </ActionIcon>
+              </Tooltip>
+              <Tooltip label="Delete course">
+                <ActionIcon
+                  color="red"
+                  variant="filled"
+                  size="lg"
+                  aria-label="Delete course"
+                  loading={deletingCourseId === course.courseId}
+                  onClick={() => onDelete(course.courseId, course.name)}
+                >
+                  <IconTrash size={18} />
+                </ActionIcon>
+              </Tooltip>
+            </Group>
+          </Stack>
+        </Card>
+      ))}
+    </SimpleGrid>
   );
 }
