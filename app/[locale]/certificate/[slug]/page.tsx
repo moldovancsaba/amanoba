@@ -13,7 +13,9 @@ import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { CheckCircle, XCircle, ExternalLink, Lock, Unlock, Award } from 'lucide-react';
+import { Badge, Box, Button, Card, Container, Divider, Group, Loader, Paper, SimpleGrid, Stack, Text, ThemeIcon, Title } from '@mantine/core';
+import { notifications } from '@mantine/notifications';
+import { IconAward, IconCertificate, IconExternalLink, IconLock, IconRosetteDiscountCheck, IconX, IconLockOpen } from '@tabler/icons-react';
 import { LocaleLink } from '@/components/LocaleLink';
 
 // Force dynamic rendering
@@ -121,11 +123,11 @@ export default function CertificateVerificationPage({
       if (data.success && data.certificate) {
         setCertificate(data.certificate);
       } else {
-        alert(data.error || 'Failed to update privacy settings');
+        notifications.show({ color: 'red', title: 'Privacy update failed', message: data.error || 'Failed to update privacy settings' });
       }
     } catch (error) {
       console.error('Failed to update privacy:', error);
-      alert('Failed to update privacy settings');
+      notifications.show({ color: 'red', title: 'Privacy update failed', message: 'Failed to update privacy settings' });
     } finally {
       setUpdatingPrivacy(false);
     }
@@ -133,30 +135,37 @@ export default function CertificateVerificationPage({
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-brand-black via-brand-dark to-brand-black flex items-center justify-center p-4">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-accent mx-auto mb-4"></div>
-          <p className="text-gray-400">Verifying certificate...</p>
-        </div>
-      </div>
+      <Box bg="dark.9" mih="100vh">
+        <Container size="sm" py="xl" mih="100vh" style={{ display: 'grid', placeItems: 'center' }}>
+          <Stack align="center">
+            <Loader color="amanobaYellow" />
+            <Text c="gray.4">Verifying certificate...</Text>
+          </Stack>
+        </Container>
+      </Box>
     );
   }
 
   if (error || !certificate) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-brand-black via-brand-dark to-brand-black flex items-center justify-center p-4">
-        <div className="page-card-dark p-8 max-w-md text-center">
-          <XCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-          <h1 className="text-2xl font-bold text-white mb-4">Verification Failed</h1>
-          <p className="text-gray-400 mb-6">{error || 'Certificate not found or invalid'}</p>
-          <button
-            onClick={() => router.push(`/${locale}`)}
-            className="bg-brand-accent text-brand-black px-6 py-2 rounded-lg font-bold hover:opacity-90"
-          >
+      <Box bg="dark.9" mih="100vh">
+        <Container size="sm" py="xl" mih="100vh" style={{ display: 'grid', placeItems: 'center' }}>
+          <Paper withBorder radius="md" p="xl" ta="center" bg="dark.8">
+            <ThemeIcon size={64} radius="xl" color="red" mx="auto" mb="md">
+              <IconX size={34} />
+            </ThemeIcon>
+            <Title order={1} size="h3" c="white" mb="sm">
+              Verification Failed
+            </Title>
+            <Text c="gray.4" mb="lg">
+              {error || 'Certificate not found or invalid'}
+            </Text>
+            <Button onClick={() => router.push(`/${locale}`)}>
             Go Home
-          </button>
-        </div>
-      </div>
+            </Button>
+          </Paper>
+        </Container>
+      </Box>
     );
   }
 
@@ -167,163 +176,139 @@ export default function CertificateVerificationPage({
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-brand-black via-brand-dark to-brand-black p-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Certificate Verification</h1>
-          <p className="text-gray-400">Verify the authenticity of this certificate</p>
-        </div>
+    <Box bg="dark.9" mih="100vh">
+      <Container size="lg" py="xl">
+        <Stack align="center" gap="xs" mb="xl">
+          <ThemeIcon size={56} radius="xl" color="amanobaYellow">
+            <IconCertificate size={30} />
+          </ThemeIcon>
+          <Title order={1} c="white" ta="center">
+            Certificate Verification
+          </Title>
+          <Text c="gray.4" ta="center">
+            Verify the authenticity of this certificate
+          </Text>
+        </Stack>
 
-        {/* Certificate Card */}
-        <div className="page-card-dark p-8 mb-6">
+        <Paper withBorder radius="md" p="xl" bg="dark.8" mb="lg">
           {certificate.isRevoked ? (
-            <div className="text-center">
-              <XCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-white mb-2">Certificate Revoked</h2>
-              <p className="text-gray-400 mb-4">
-                This certificate has been revoked and is no longer valid.
-              </p>
+            <Stack align="center" ta="center">
+              <ThemeIcon size={64} radius="xl" color="red">
+                <IconX size={34} />
+              </ThemeIcon>
+              <Title order={2} size="h3" c="white">
+                Certificate Revoked
+              </Title>
+              <Text c="gray.4">This certificate has been revoked and is no longer valid.</Text>
               {certificate.revokedReason && (
-                <p className="text-gray-500 text-sm mb-4">
+                <Text c="gray.5" size="sm">
                   Reason: {certificate.revokedReason}
-                </p>
+                </Text>
               )}
               {certificate.revokedAtISO && (
-                <p className="text-gray-500 text-sm">
+                <Text c="gray.5" size="sm">
                   Revoked on: {new Date(certificate.revokedAtISO).toLocaleDateString()}
-                </p>
+                </Text>
               )}
-            </div>
+            </Stack>
           ) : (
             <>
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center">
-                    <Award className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h2 className="text-2xl font-bold text-white">Certificate Verified</h2>
-                    <p className="text-gray-400">This certificate is authentic</p>
-                  </div>
-                </div>
-                <CheckCircle className="w-12 h-12 text-green-500" />
-              </div>
+              <Group justify="space-between" align="center" mb="xl">
+                <Group>
+                  <ThemeIcon size={64} radius="xl" color="amanobaYellow">
+                    <IconAward size={34} />
+                  </ThemeIcon>
+                  <Stack gap={2}>
+                    <Title order={2} size="h3" c="white">
+                      Certificate Verified
+                    </Title>
+                    <Text c="gray.4">This certificate is authentic</Text>
+                  </Stack>
+                </Group>
+                <ThemeIcon size={52} radius="xl" color="green">
+                  <IconRosetteDiscountCheck size={30} />
+                </ThemeIcon>
+              </Group>
 
-              {/* Certificate Details */}
-              <div className="space-y-4 mb-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-gray-400 text-sm mb-1">Recipient</p>
-                    <p className="text-white font-semibold text-lg">{certificate.recipientName}</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm mb-1">Course</p>
-                    <p className="text-white font-semibold text-lg">{certificate.courseTitle}</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm mb-1">Certificate ID</p>
-                    <p className="text-white font-mono text-sm">{certificate.certificateId}</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm mb-1">Issued Date</p>
-                    <p className="text-white">{issuedDate}</p>
-                  </div>
+              <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md" mb="xl">
+                <Card withBorder radius="md" bg="dark.7">
+                  <Text c="gray.4" size="sm">Recipient</Text>
+                  <Text c="white" fw={700} size="lg">{certificate.recipientName}</Text>
+                </Card>
+                <Card withBorder radius="md" bg="dark.7">
+                  <Text c="gray.4" size="sm">Course</Text>
+                  <Text c="white" fw={700} size="lg">{certificate.courseTitle}</Text>
+                </Card>
+                <Card withBorder radius="md" bg="dark.7">
+                  <Text c="gray.4" size="sm">Certificate ID</Text>
+                  <Text c="white" ff="monospace" size="sm">{certificate.certificateId}</Text>
+                </Card>
+                <Card withBorder radius="md" bg="dark.7">
+                  <Text c="gray.4" size="sm">Issued Date</Text>
+                  <Text c="white">{issuedDate}</Text>
+                </Card>
                   {certificate.finalExamScorePercentInteger !== undefined && (
-                    <div>
-                      <p className="text-gray-400 text-sm mb-1">Final Exam Score</p>
-                      <p className="text-white font-semibold">
-                        {certificate.finalExamScorePercentInteger}%
-                      </p>
-                    </div>
+                  <Card withBorder radius="md" bg="dark.7">
+                    <Text c="gray.4" size="sm">Final Exam Score</Text>
+                    <Text c="white" fw={700}>{certificate.finalExamScorePercentInteger}%</Text>
+                  </Card>
                   )}
-                  <div>
-                    <p className="text-gray-400 text-sm mb-1">Status</p>
-                    <div className="flex items-center gap-2">
-                      {certificate.isPublic ? (
-                        <span className="flex items-center gap-1 px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-medium">
-                          <Unlock className="w-3 h-3" />
-                          Public
-                        </span>
-                      ) : (
-                        <span className="flex items-center gap-1 px-3 py-1 bg-gray-500/20 text-gray-400 rounded-full text-xs font-medium">
-                          <Lock className="w-3 h-3" />
-                          Private
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <Card withBorder radius="md" bg="dark.7">
+                  <Text c="gray.4" size="sm">Status</Text>
+                  <Badge color={certificate.isPublic ? 'green' : 'gray'} leftSection={certificate.isPublic ? <IconLockOpen size={12} /> : <IconLock size={12} />}>
+                    {certificate.isPublic ? 'Public' : 'Private'}
+                  </Badge>
+                </Card>
+              </SimpleGrid>
 
-              {/* Owner Controls */}
               {isOwner && (
-                <div className="border-t border-gray-700 pt-6 mt-6">
-                  <h3 className="text-lg font-bold text-white mb-4">Privacy Settings</h3>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-white font-medium mb-1">
+                <>
+                  <Divider mb="lg" />
+                  <Group justify="space-between" align="center" mb="lg">
+                    <Stack gap={2}>
+                      <Title order={3} size="h4" c="white">
+                        Privacy Settings
+                      </Title>
+                      <Text c="white" fw={600}>
                         {certificate.isPublic ? 'Public' : 'Private'}
-                      </p>
-                      <p className="text-gray-400 text-sm">
+                      </Text>
+                      <Text c="gray.4" size="sm">
                         {certificate.isPublic
                           ? 'Anyone with the link can view this certificate'
                           : 'Only you can view this certificate'}
-                      </p>
-                    </div>
-                    <button
+                      </Text>
+                    </Stack>
+                    <Button
                       onClick={handleTogglePrivacy}
                       disabled={updatingPrivacy}
-                      className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${
-                        certificate.isPublic
-                          ? 'bg-gray-700 text-white hover:bg-gray-600'
-                          : 'bg-indigo-600 text-white hover:bg-indigo-700'
-                      } disabled:opacity-50`}
+                      loading={updatingPrivacy}
+                      variant={certificate.isPublic ? 'default' : 'filled'}
+                      leftSection={certificate.isPublic ? <IconLock size={16} /> : <IconLockOpen size={16} />}
                     >
-                      {updatingPrivacy ? (
-                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      ) : certificate.isPublic ? (
-                        <>
-                          <Lock className="w-4 h-4" />
-                          Make Private
-                        </>
-                      ) : (
-                        <>
-                          <Unlock className="w-4 h-4" />
-                          Make Public
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </div>
+                      {certificate.isPublic ? 'Make Private' : 'Make Public'}
+                    </Button>
+                  </Group>
+                </>
               )}
 
-              {/* View Full Certificate (Owner Only) */}
               {isOwner && certificate.playerId && (
-                <div className="mt-6 pt-6 border-t border-gray-700">
-                  <LocaleLink
-                    href={`/profile/${certificate.playerId}/certificate/${certificate.courseId}`}
-                    className="inline-flex items-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
-                  >
-                    <ExternalLink className="w-5 h-5" />
+                <>
+                  <Divider mb="lg" />
+                  <Button component={LocaleLink} href={`/profile/${certificate.playerId}/certificate/${certificate.courseId}`} leftSection={<IconExternalLink size={16} />}>
                     View Full Certificate
-                  </LocaleLink>
-                </div>
+                  </Button>
+                </>
               )}
             </>
           )}
-        </div>
+        </Paper>
 
-        {/* Footer */}
-        <div className="text-center">
-          <button
-            onClick={() => router.push(`/${locale}`)}
-            className="text-gray-400 hover:text-white transition-colors"
-          >
-            ← Back to Home
-          </button>
-        </div>
-      </div>
-    </div>
+        <Group justify="center">
+          <Button variant="subtle" color="gray" onClick={() => router.push(`/${locale}`)}>
+            Back to Home
+          </Button>
+        </Group>
+      </Container>
+    </Box>
   );
 }
