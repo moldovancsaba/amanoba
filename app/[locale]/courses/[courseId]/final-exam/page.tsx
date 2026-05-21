@@ -10,7 +10,32 @@ import { useEffect, useState, useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { useSession } from 'next-auth/react';
-import { Loader2, ShieldCheck, AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
+import {
+  Alert,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Container,
+  Group,
+  Loader,
+  Paper,
+  Progress,
+  SimpleGrid,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import {
+  IconAlertTriangle,
+  IconArrowLeft,
+  IconCircleCheck,
+  IconRefresh,
+  IconRosetteDiscountCheck,
+  IconShieldCheck,
+  IconX,
+} from '@tabler/icons-react';
 
 interface EntitlementResp {
   certificationEnabled: boolean;
@@ -427,17 +452,38 @@ export default function FinalExamPage() {
 
   if (status === 'loading' || loadingEnt) {
     return (
-      <div className="flex items-center justify-center h-80 text-white" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
-        <Loader2 className="w-5 h-5 animate-spin mr-2" /> {getFinalExamText('loadingCourse', courseLanguage)}
-      </div>
+      <Box bg="ink.9" mih="100vh" py="xl" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
+        <Container size="sm">
+          <Card padding="xl" withBorder>
+            <Group gap="sm">
+              <Loader size="sm" color="amanoba" />
+              <Text fw={700}>{getFinalExamText('loadingCourse', courseLanguage)}</Text>
+            </Group>
+          </Card>
+        </Container>
+      </Box>
     );
   }
 
   if (!session) {
     return (
-      <div className="p-6 text-white" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
-        <p>{getFinalExamText('signInToEnroll', courseLanguage)}</p>
-      </div>
+      <Box bg="ink.9" mih="100vh" py="xl" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
+        <Container size="sm">
+          <Card padding="xl" withBorder>
+            <Stack gap="md">
+              <Alert color="yellow" icon={<IconShieldCheck size={18} />}>
+                {getFinalExamText('signInToEnroll', courseLanguage)}
+              </Alert>
+              <Button
+                color="amanoba"
+                onClick={() => router.push(`/${courseLanguage}/auth/signin?callbackUrl=${encodeURIComponent(`/${courseLanguage}/courses/${courseId}/final-exam`)}`)}
+              >
+                Sign in
+              </Button>
+            </Stack>
+          </Card>
+        </Container>
+      </Box>
     );
   }
 
@@ -445,145 +491,193 @@ export default function FinalExamPage() {
   const unavailable = !ent?.certificationEnabled || !ent?.certificationAvailable;
   const entitlementRequired = ent?.entitlementRequired ?? true;
   const canStart = !unavailable && (!entitlementRequired || Boolean(ent?.entitlementOwned));
+  const questionProgress = question
+    ? Math.min(100, ((question.index + 1) / Math.max(question.total, 1)) * 100)
+    : 0;
 
   return (
-    <div className="max-w-3xl mx-auto p-6 text-white space-y-6" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
-      <div className="flex items-center gap-3">
-        <ShieldCheck className="w-6 h-6 text-amber-400" />
-        <h1 className="text-2xl font-bold">{getFinalExamText('finalExamTitle', courseLanguage)}</h1>
-      </div>
+    <Box bg="ink.9" mih="100vh" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
+      <Paper component="header" bg="ink.8" radius={0} withBorder>
+        <Container size="md" py={{ base: 'md', sm: 'lg' }}>
+          <Group justify="space-between" gap="md">
+            <Group gap="sm">
+              <ThemeIcon color="amanoba" variant="light" radius="xl">
+                <IconShieldCheck size={20} />
+              </ThemeIcon>
+              <Title order={1} size="h2" c="white">
+                {getFinalExamText('finalExamTitle', courseLanguage)}
+              </Title>
+            </Group>
+            <Button
+              variant="subtle"
+              color="gray"
+              leftSection={<IconArrowLeft size={18} />}
+              onClick={() => router.push(`/${courseLanguage}/courses/${courseId}`)}
+            >
+              {getFinalExamText('backToCourse', courseLanguage)}
+            </Button>
+          </Group>
+        </Container>
+      </Paper>
+
+      <Container component="main" size="md" py={{ base: 'lg', sm: 'xl' }}>
+        <Stack gap="lg">
 
       {error && (
-        <div className="flex items-center gap-2 bg-red-500/10 text-red-200 px-4 py-3 rounded">
-          <AlertTriangle className="w-4 h-4" />
-          <span>{error}</span>
-        </div>
+            <Alert color="red" icon={<IconAlertTriangle size={18} />} radius="md">
+              {error}
+            </Alert>
       )}
 
       {unavailable && (
-        <div className="bg-gray-800 border border-gray-700 rounded p-4">
-          <p className="text-lg font-semibold">{getFinalExamText('certificationUnavailable', courseLanguage)}</p>
-          <p className="text-gray-300 mt-1">
+            <Card bg="ink.8" padding="xl" withBorder>
+              <Stack gap="md">
+                <Title order={2} size="h3" c="white">{getFinalExamText('certificationUnavailable', courseLanguage)}</Title>
+                <Text c="gray.3">
             {getFinalExamText('certificationPoolMessage', courseLanguage, { poolCount: ent?.poolCount ?? 0 })}
-          </p>
-          <button
-            className="mt-3 text-sm text-indigo-300 underline"
+                </Text>
+                <Button
+                  variant="outline"
+                  color="gray"
+                  leftSection={<IconArrowLeft size={18} />}
             onClick={() => router.push(`/${courseLanguage}/courses/${courseId}`)}
           >
             {getFinalExamText('backToCourse', courseLanguage)}
-          </button>
-        </div>
+                </Button>
+              </Stack>
+            </Card>
       )}
 
       {!unavailable && entitlementRequired && !ent?.entitlementOwned && (
-        <div className="bg-gray-800 border border-gray-700 rounded p-4 space-y-3">
-          <p className="font-semibold">{getFinalExamText('certificationAccess', courseLanguage)}</p>
-          <p className="text-gray-300">
+            <Card bg="ink.8" padding="xl" withBorder>
+              <Stack gap="md">
+                <Title order={2} size="h3" c="white">{getFinalExamText('certificationAccess', courseLanguage)}</Title>
+                <Text c="gray.3">
             {getFinalExamText('certificationPriceLine', courseLanguage, {
               price: ent?.priceMoney ? `${ent.priceMoney.amount} ${ent.priceMoney.currency}` : 'Not set',
               points: String(ent?.pricePoints ?? 'N/A'),
             })}
-          </p>
-          <div className="flex gap-2">
+                </Text>
+                <Group gap="sm">
             {ent?.pricePoints ? (
-              <button
-                disabled={submitting}
+                    <Button
+                      loading={submitting}
                 onClick={redeemPoints}
-                className="px-4 py-2 rounded bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50"
+                      color="amanoba"
+                      leftSection={<IconRosetteDiscountCheck size={18} />}
               >
                 {getFinalExamText('redeemPoints', courseLanguage)}
-              </button>
+                    </Button>
             ) : null}
-            <button
+                  <Button
               disabled
-              className="px-4 py-2 rounded bg-gray-700 text-gray-400 cursor-not-allowed"
+                    variant="default"
             >
               Pay (disabled in MVP)
-            </button>
-          </div>
-        </div>
+                  </Button>
+                </Group>
+              </Stack>
+            </Card>
       )}
 
       {canStart && !question && !result && (
-        <div className="space-y-3">
-          <p>{getFinalExamText('examDescription', courseLanguage)}</p>
-          <button
-            disabled={submitting}
+            <Card padding="xl" withBorder>
+              <Stack gap="md">
+                <Text c="dimmed">{getFinalExamText('examDescription', courseLanguage)}</Text>
+                <Button
+                  loading={submitting}
             onClick={startExam}
-            className="px-5 py-2 rounded bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50"
+                  color="amanoba"
+                  leftSection={<IconShieldCheck size={18} />}
           >
             {getFinalExamText('startExam', courseLanguage)}
-          </button>
-        </div>
+                </Button>
+              </Stack>
+            </Card>
       )}
 
       {question && (
-        <div className="bg-gray-800 border border-gray-700 rounded p-4 space-y-4">
-          <div className="flex justify-between text-sm text-gray-300">
-            <span>
-              {getFinalExamText('question', courseLanguage)} {question.index + 1} / {question.total}
-            </span>
-            <button onClick={discard} className="text-red-300 hover:text-red-200">
-              {getFinalExamText('discardAttempt', courseLanguage)}
-            </button>
-          </div>
-          <p className="text-lg font-semibold">{question.question}</p>
-          <div className="space-y-2">
+            <Card bg="ink.8" padding="xl" withBorder>
+              <Stack gap="lg">
+                <Stack gap="xs">
+                  <Group justify="space-between" gap="md">
+                    <Badge color="amanoba" variant="light">
+                      {getFinalExamText('question', courseLanguage)} {question.index + 1} / {question.total}
+                    </Badge>
+                    <Button variant="subtle" color="red" onClick={discard}>
+                      {getFinalExamText('discardAttempt', courseLanguage)}
+                    </Button>
+                  </Group>
+                  <Progress value={questionProgress} color="amanoba" radius="xl" />
+                </Stack>
+                <Text c="white" size="lg" fw={700} lh={1.5}>{question.question}</Text>
+                <Stack gap="sm">
             {question.options.map((opt, idx) => (
-              <button
+                    <Button
                 key={idx}
-                disabled={submitting}
+                      loading={submitting}
                 onClick={() => answer(idx)}
-                className={`w-full ${courseLanguage === 'ar' ? 'text-right' : 'text-left'} px-4 py-3 rounded bg-gray-700 hover:bg-gray-600 disabled:opacity-50`}
+                      variant="default"
+                      justify="flex-start"
+                      fullWidth
+                      mih={52}
+                      styles={{
+                        label: {
+                          whiteSpace: 'normal',
+                          textAlign: courseLanguage === 'ar' ? 'right' : 'left',
+                          width: '100%',
+                          lineHeight: 1.45,
+                        },
+                      }}
               >
                 {opt}
-              </button>
+                    </Button>
             ))}
-          </div>
-        </div>
+                </Stack>
+              </Stack>
+            </Card>
       )}
 
       {result && (
-        <div className={`rounded-2xl border-2 p-6 sm:p-8 shadow-lg max-w-md mx-auto ${
-          result.passed
-            ? 'bg-green-500/10 border-green-500 text-green-900 dark:text-green-100'
-            : 'bg-red-500/10 border-red-500 text-red-900 dark:text-red-100'
-        }`}>
-          <div className="flex flex-col items-center text-center space-y-4">
-            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/80">
+            <Card padding="xl" withBorder maw={520} mx="auto">
+              <Stack gap="md" align="center">
+                <ThemeIcon color={result.passed ? 'green' : 'red'} variant="light" size={72} radius="xl">
               {result.passed ? (
-                <CheckCircle className="w-10 h-10 text-green-600" />
+                    <IconCircleCheck size={40} />
               ) : (
-                <XCircle className="w-10 h-10 text-red-600" />
+                    <IconX size={40} />
               )}
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold">
+                </ThemeIcon>
+                <Title order={2} ta="center">
               {result.passed ? getFinalExamText('passed', courseLanguage) : getFinalExamText('notPassed', courseLanguage)}
-            </h2>
-            <p className="text-5xl sm:text-6xl font-bold tabular-nums">
+                </Title>
+                <Text size="3rem" fw={800} lh={1}>
               {result.score}%
-            </p>
-            <p className="text-sm opacity-90">{getFinalExamText('score', courseLanguage)}</p>
-            <div className="flex flex-col sm:flex-row gap-3 w-full pt-2">
-              <button
+                </Text>
+                <Text c="dimmed">{getFinalExamText('score', courseLanguage)}</Text>
+                <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm" w="100%">
+                  <Button
                 onClick={() => {
                   setResult(null);
                   loadEntitlement();
                 }}
-                className="min-h-[44px] flex-1 px-4 py-3 rounded-lg font-bold bg-brand-accent text-brand-black hover:opacity-90 transition-opacity"
+                    color="amanoba"
+                    leftSection={<IconRefresh size={18} />}
               >
                 {getFinalExamText('refreshStatus', courseLanguage)}
-              </button>
-              <button
+                  </Button>
+                  <Button
                 onClick={() => router.push(`/${courseLanguage}/courses/${courseId}`)}
-                className="min-h-[44px] flex-1 px-4 py-3 rounded-lg font-bold bg-brand-darkGrey text-brand-white hover:opacity-90 transition-opacity"
+                    variant="default"
               >
                 {getFinalExamText('backToCourseButton', courseLanguage)}
-              </button>
-            </div>
-          </div>
-        </div>
+                  </Button>
+                </SimpleGrid>
+              </Stack>
+            </Card>
       )}
-    </div>
+        </Stack>
+      </Container>
+    </Box>
   );
 }
