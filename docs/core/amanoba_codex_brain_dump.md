@@ -58,6 +58,7 @@ Current in-flight branch:
 - `sentinel-squad/course-ux-mantine-hardening` is continuing the Course UX commercial hardening lane from Project 12 issue `#822`.
 - Latest continuation converted the public course detail page wrapper to Mantine primitives while preserving course enrollment, purchase, voting, discussion, study groups, certification, and TOC behavior.
 - Current continuation converted the active course vote, discussion, and study-group components to Mantine primitives and removed stale duplicate app-level course community components.
+- Current continuation also converted the enrolled lesson runtime page wrapper/actions to Mantine primitives, including lesson completion, quiz gating, saved lessons, assessment launch feedback, voting, and locked-lesson recovery.
 - UI audit scripts now ignore tracked files that are staged for deletion so Mantine/foundation/layout checks stay usable during cleanup commits.
 - The shared design-system repo was updated in `PROJECTS/AMANOBA_MANTINE_REFACTOR.md` to record Amanoba as in-progress, Phase 0/1 complete, current course-surface progress, and remaining high-priority gaps.
 - `content/news-posts.json` may be dirty from the release/news automation lane; do not include or overwrite it unless the current task explicitly concerns news publishing.

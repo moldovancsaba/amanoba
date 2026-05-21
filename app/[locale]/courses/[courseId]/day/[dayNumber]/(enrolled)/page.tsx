@@ -12,17 +12,37 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { LocaleLink } from '@/components/LocaleLink';
 import {
-  ArrowLeft,
-  ArrowRight,
-  CheckCircle,
-  Lock,
-  Award,
-  Play,
-  Bookmark,
-  BookmarkCheck,
-} from 'lucide-react';
-import { Alert, Box, Button, Card, Container, Group, Skeleton, Stack, Text } from '@mantine/core';
-import { IconAlertTriangle, IconLock, IconRefresh } from '@tabler/icons-react';
+  Alert,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Container,
+  Divider,
+  Group,
+  Paper,
+  Progress,
+  SimpleGrid,
+  Skeleton,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+  TypographyStylesProvider,
+} from '@mantine/core';
+import { notifications } from '@mantine/notifications';
+import {
+  IconAlertTriangle,
+  IconArrowLeft,
+  IconArrowRight,
+  IconAward,
+  IconBookmark,
+  IconBookmarkFilled,
+  IconCircleCheck,
+  IconDeviceGamepad2,
+  IconLock,
+  IconRefresh,
+} from '@tabler/icons-react';
 import { useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Logo from '@/components/Logo';
@@ -583,7 +603,11 @@ export default function DailyLessonPage({
     const quizEnabled = quizPolicy?.enabled ?? lesson.quizConfig?.enabled ?? false;
     const quizRequired = quizPolicy?.required ?? lesson.quizConfig?.required ?? false;
     if (quizEnabled && quizRequired && !quizPassed) {
-      alert(getDayPageText('mustPassQuiz', courseLanguage));
+      notifications.show({
+        color: 'yellow',
+        title: getDayPageText('mustPassQuiz', courseLanguage),
+        message: getDayPageText('mustPassQuiz', courseLanguage),
+      });
       return;
     }
 
@@ -624,13 +648,20 @@ export default function DailyLessonPage({
             }),
           });
         }
-        // Alert removed - lesson completion is already visible in the UI
       } else {
-        alert(data.error || getDayPageText('failedToComplete', courseLanguage));
+        notifications.show({
+          color: 'red',
+          title: getDayPageText('failedToComplete', courseLanguage),
+          message: data.error || getDayPageText('failedToComplete', courseLanguage),
+        });
       }
     } catch (error) {
       console.error('Failed to complete lesson:', error);
-      alert(getDayPageText('failedToComplete', courseLanguage));
+      notifications.show({
+        color: 'red',
+        title: getDayPageText('failedToComplete', courseLanguage),
+        message: getDayPageText('failedToComplete', courseLanguage),
+      });
     } finally {
       setCompleting(false);
     }
@@ -764,263 +795,264 @@ export default function DailyLessonPage({
     : getDayPageText('quizRequiredMessage', courseLanguage, {
         count: effectiveQuestionCount,
       });
+  const lessonProgressValue = Math.min(100, (lesson.dayNumber / Math.max(totalDays, 1)) * 100);
+  const playerId = (session?.user as { id?: string; playerId?: string } | undefined)?.playerId
+    ?? (session?.user as { id?: string } | undefined)?.id
+    ?? null;
+
+  const handleStartAssessment = async () => {
+    try {
+      const sessionResponse = await fetch('/api/game-sessions/start', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          playerId: session?.user?.id,
+          gameId: lesson.assessmentGameId,
+          courseId,
+          lessonDay: dayNumber,
+        }),
+      });
+
+      const sessionData = await sessionResponse.json();
+
+      if (sessionData.success && lesson.assessmentGameRoute) {
+        router.push(`${lesson.assessmentGameRoute}?sessionId=${sessionData.sessionId}&courseId=${courseId}&lessonDay=${dayNumber}&assessment=true`);
+        return;
+      }
+
+      notifications.show({
+        color: 'red',
+        title: getDayPageText('failedToStartAssessment', courseLanguage),
+        message: getDayPageText('failedToStartAssessment', courseLanguage),
+      });
+    } catch (error) {
+      console.error('Failed to start assessment:', error);
+      notifications.show({
+        color: 'red',
+        title: getDayPageText('failedToStartAssessment', courseLanguage),
+        message: getDayPageText('failedToStartAssessment', courseLanguage),
+      });
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-brand-black pb-safe" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
-      {/* Header */}
-      <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 py-4 sm:py-6">
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-            <div className="flex items-center gap-3 sm:gap-4 min-w-0">
-              <Logo size="sm" showText={false} linkTo={session?.user ? "/dashboard" : "/"} className="flex-shrink-0" />
-              <LocaleLink
+    <Box bg="ink.9" mih="100vh" pb="xl" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
+      <Paper component="header" bg="ink.8" radius={0} withBorder>
+        <Container size="lg" py={{ base: 'md', sm: 'lg' }}>
+          <Group justify="space-between" align="center" gap="md">
+            <Group gap="md" wrap="nowrap" style={{ minWidth: 0 }}>
+              <Logo size="sm" showText={false} linkTo={session?.user ? "/dashboard" : "/"} />
+              <Button
+                component={LocaleLink}
                 href={`/${courseLanguage}/courses/${courseId}`}
-                className="min-h-[44px] inline-flex items-center gap-2 text-brand-white hover:text-brand-accent truncate"
+                variant="subtle"
+                color="gray"
+                leftSection={<IconArrowLeft size={18} />}
               >
-                <ArrowLeft className="w-5 h-5 flex-shrink-0" />
-                <span className="truncate">{getDayPageText('backToCourse', courseLanguage)}</span>
-              </LocaleLink>
-            </div>
-            <div className="flex flex-col items-end gap-1">
-              <span className="font-bold text-brand-white">
+                {getDayPageText('backToCourse', courseLanguage)}
+              </Button>
+            </Group>
+            <Stack gap={4} align="flex-end" miw={120}>
+              <Text fw={700} c="white" size="sm">
                 {getDayPageText('dayNumber', courseLanguage, { day: lesson.dayNumber })} / {totalDays}
-              </span>
-              <div className="w-24 sm:w-32 h-1.5 bg-brand-darkGrey/40 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-brand-accent rounded-full transition-all"
-                  style={{ width: `${Math.min(100, (lesson.dayNumber / totalDays) * 100)}%` }}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+              </Text>
+              <Progress value={lessonProgressValue} color="amanoba" w={{ base: 96, sm: 128 }} size="sm" radius="xl" />
+            </Stack>
+          </Group>
+        </Container>
+      </Paper>
 
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-10">
-        {/* Lesson Header */}
-        <div className="bg-brand-white rounded-2xl p-4 sm:p-6 lg:p-8 border-2 border-brand-accent shadow-lg mb-6 sm:mb-8">
-          <div className="flex items-start justify-between mb-5">
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-2">
+      <Container component="main" size="lg" py={{ base: 'lg', sm: 'xl' }}>
+        <Stack gap="lg">
+          <Card padding="xl" radius="md" withBorder>
+            <Stack gap="md">
+              <Group align="flex-start" gap="sm" wrap="nowrap">
                 {lesson.isCompleted ? (
-                  <CheckCircle className="w-6 h-6 text-green-500" />
+                  <ThemeIcon color="green" variant="light" radius="xl">
+                    <IconCircleCheck size={20} />
+                  </ThemeIcon>
                 ) : !lesson.isUnlocked ? (
-                  <Lock className="w-6 h-6 text-brand-darkGrey" />
+                  <ThemeIcon color="gray" variant="light" radius="xl">
+                    <IconLock size={20} />
+                  </ThemeIcon>
                 ) : null}
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-black leading-tight break-words">{lesson.title}</h1>
-              </div>
-              {!lesson.isUnlocked && (
-                <div className="bg-brand-darkGrey/20 border border-brand-darkGrey rounded-lg p-3 mt-3">
-                  <p className="text-brand-darkGrey">
-                    {getDayPageText('completePreviousLessons', courseLanguage)}
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
+                <Title order={1} size="h2" style={{ overflowWrap: 'anywhere' }}>{lesson.title}</Title>
+              </Group>
 
           {lesson.isUnlocked && (
-            <div className="flex items-center gap-4 text-base text-brand-darkGrey mt-2">
-              <div className="flex items-center gap-1">
-                <Award className="w-4 h-4" />
-                <span>{lesson.pointsReward} {getDayPageText('points', courseLanguage)}</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <Award className="w-4 h-4" />
-                <span>{lesson.xpReward} {getDayPageText('xp', courseLanguage)}</span>
-              </div>
-            </div>
+                <Group gap="xs">
+                  <Badge color="gray" variant="light" leftSection={<IconAward size={14} />}>
+                    {lesson.pointsReward} {getDayPageText('points', courseLanguage)}
+                  </Badge>
+                  <Badge color="gray" variant="light" leftSection={<IconAward size={14} />}>
+                    {lesson.xpReward} {getDayPageText('xp', courseLanguage)}
+                  </Badge>
+                </Group>
           )}
+
+              {!lesson.isUnlocked ? (
+                <Alert color="gray" icon={<IconLock size={18} />} radius="md">
+                  {getDayPageText('completePreviousLessons', courseLanguage)}
+                </Alert>
+              ) : null}
+
           {lesson.isUnlocked && session?.user ? (
-            <div className="mt-4">
-              <button
-                type="button"
+                <Button
                 onClick={handleToggleSavedLesson}
-                disabled={savingLesson}
-                className="min-h-[44px] inline-flex items-center gap-2 rounded-lg border-2 border-brand-accent px-4 py-2 font-bold text-brand-black transition-colors hover:bg-brand-accent/15 disabled:cursor-not-allowed disabled:opacity-60"
+                  loading={savingLesson}
+                  variant="outline"
+                  color="amanoba"
+                  leftSection={isSavedLesson ? <IconBookmarkFilled size={18} /> : <IconBookmark size={18} />}
               >
-                {isSavedLesson ? (
-                  <BookmarkCheck className="h-5 w-5 text-brand-accent" />
-                ) : (
-                  <Bookmark className="h-5 w-5 text-brand-accent" />
-                )}
-                <span>
                   {savingLesson
                     ? getDayPageText('savingLesson', courseLanguage)
                     : isSavedLesson
                     ? getDayPageText('removeSavedLesson', courseLanguage)
                     : getDayPageText('saveLesson', courseLanguage)}
-                </span>
-              </button>
-            </div>
+                </Button>
           ) : null}
-        </div>
+            </Stack>
+          </Card>
 
-        {/* Lesson Content */}
         {lesson.isUnlocked ? (
           <>
-            {/* Actions - Moved to top */}
-            <div className="bg-brand-white rounded-2xl p-4 sm:p-6 border-2 border-brand-accent shadow-lg mb-6 sm:mb-8">
-              <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-4">
-                {/* Left: Previous Day */}
-                <div className="flex-1 flex justify-start">
+            <Card padding="lg" radius="md" withBorder>
+              <Stack gap="md">
+                <SimpleGrid cols={{ base: 1, md: 3 }} spacing="sm">
                   {navigation?.previous && (
-                    <LocaleLink
+                    <Button
+                      component={LocaleLink}
                       href={`/${courseLanguage}/courses/${courseId}/day/${navigation.previous.day}`}
-                      className="min-h-[44px] flex items-center justify-center gap-2 bg-brand-darkGrey text-brand-white px-6 py-3 rounded-lg font-bold hover:bg-brand-secondary-700 transition-colors w-full touch-manipulation"
+                      variant="default"
+                      leftSection={<IconArrowLeft size={18} />}
+                      fullWidth
                     >
-                      <ArrowLeft className="w-5 h-5" />
                       {getDayPageText('previousDay', courseLanguage)}
-                    </LocaleLink>
-                  )}
-                </div>
-
-                {/* Center: Quiz and Complete buttons */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 flex-shrink-0 w-full md:w-auto">
-                  {/* Show quiz button if quiz is enabled and lesson not completed */}
-                  {isQuizEnabled && !lesson.isCompleted && (
-                    <LocaleLink
-                      href={`/${courseLanguage}/courses/${courseId}/day/${dayNumber}/quiz`}
-                      className={`min-h-[44px] min-w-[44px] flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold transition-colors text-base whitespace-nowrap touch-manipulation ${
-                        isQuizRequired && !quizPassed
-                          ? 'bg-brand-accent text-brand-black hover:bg-brand-primary-400 px-7 py-3.5 w-full'
-                          : 'bg-brand-white border-2 border-brand-accent text-brand-black hover:bg-brand-accent/80 w-full'
-                      }`}
-                    >
-                      {getDayPageText('takeQuiz', courseLanguage)}
-                    </LocaleLink>
+                    </Button>
                   )}
 
-                  {/* Show "Mark as Complete" button only if:
-                      - Lesson not completed AND
-                      - (No quiz required OR quiz already passed) */}
-                  {!lesson.isCompleted && 
-                   !(isQuizEnabled && isQuizRequired && !quizPassed) && (
-                    <button
-                      onClick={handleComplete}
-                      disabled={completing}
-                      className="min-h-[44px] min-w-[44px] flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-7 py-3.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base whitespace-nowrap w-full touch-manipulation"
-                    >
-                      <CheckCircle className="w-5 h-5" />
-                      {completing ? getDayPageText('completing', courseLanguage) : getDayPageText('markAsComplete', courseLanguage)}
-                    </button>
-                  )}
+                  <Stack gap="xs">
+                    {isQuizEnabled && !lesson.isCompleted ? (
+                      <Button
+                        component={LocaleLink}
+                        href={`/${courseLanguage}/courses/${courseId}/day/${dayNumber}/quiz`}
+                        color={isQuizRequired && !quizPassed ? 'amanoba' : 'gray'}
+                        variant={isQuizRequired && !quizPassed ? 'filled' : 'outline'}
+                        fullWidth
+                      >
+                        {getDayPageText('takeQuiz', courseLanguage)}
+                      </Button>
+                    ) : null}
 
-                  {/* Show completed state */}
-                  {lesson.isCompleted && (
-                    <div className="flex items-center justify-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg font-bold whitespace-nowrap w-full">
-                      <CheckCircle className="w-5 h-5" />
-                      {getDayPageText('completed', courseLanguage)}
-                    </div>
-                  )}
-                </div>
+                    {!lesson.isCompleted && !(isQuizEnabled && isQuizRequired && !quizPassed) ? (
+                      <Button
+                        onClick={handleComplete}
+                        loading={completing}
+                        color="amanoba"
+                        leftSection={<IconCircleCheck size={18} />}
+                        fullWidth
+                      >
+                        {completing ? getDayPageText('completing', courseLanguage) : getDayPageText('markAsComplete', courseLanguage)}
+                      </Button>
+                    ) : null}
 
-                {/* Right: Next Day */}
-                <div className="flex-1 flex justify-end">
-                  {navigation?.next && (
-                    <LocaleLink
+                    {lesson.isCompleted ? (
+                      <Button color="green" leftSection={<IconCircleCheck size={18} />} fullWidth>
+                        {getDayPageText('completed', courseLanguage)}
+                      </Button>
+                    ) : null}
+                  </Stack>
+
+                  {navigation?.next ? (
+                    <Button
+                      component={LocaleLink}
                       href={`/${courseLanguage}/courses/${courseId}/day/${navigation.next.day}`}
-                      className="min-h-[44px] flex items-center justify-center gap-2 bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors w-full touch-manipulation"
+                      color="amanoba"
+                      rightSection={<IconArrowRight size={18} />}
+                      fullWidth
                     >
                       {getDayPageText('nextDay', courseLanguage)}
-                      <ArrowRight className="w-5 h-5" />
-                    </LocaleLink>
-                  )}
-                </div>
-              </div>
-              {isQuizEnabled && isQuizRequired && !quizPassed && (
-                <p className="mt-4 text-sm text-brand-darkGrey text-center">
-                  {quizRequiredMessage}
-                </p>
-              )}
-            </div>
+                    </Button>
+                  ) : null}
+                </SimpleGrid>
 
-            <div className="bg-brand-white rounded-2xl p-6 sm:p-10 border-2 border-brand-accent shadow-lg mb-6 sm:mb-8">
-              <div
-                className="prose prose-base sm:prose-lg lesson-prose max-w-none text-brand-black"
+              {isQuizEnabled && isQuizRequired && !quizPassed && (
+                  <Alert color="amanoba" radius="md">
+                    {quizRequiredMessage}
+                  </Alert>
+              )}
+              </Stack>
+            </Card>
+
+            <Card padding="xl" radius="md" withBorder>
+              <TypographyStylesProvider
                 dangerouslySetInnerHTML={{ __html: contentToHtml(lesson.content, { stripFirstH1: true }) }}
               />
+              <Divider my="lg" />
               <ContentVoteWidget
                 targetType="lesson"
                 targetId={lesson._id}
-                playerId={(session?.user as { id?: string; playerId?: string } | undefined)?.playerId ?? (session?.user as { id?: string } | undefined)?.id ?? null}
+                playerId={playerId}
                 label="Was this lesson helpful?"
-                mt="xl"
               />
-            </div>
+            </Card>
 
-            {/* Assessment Game */}
             {lesson.assessmentGameId && lesson.isCompleted && (
-              <div className="bg-brand-accent/20 border-2 border-brand-accent rounded-xl p-8 mt-8">
-                <h3 className="text-2xl font-bold text-brand-black mb-3 flex items-center gap-2">
-                  <Play className="w-6 h-6" />
-                  {getDayPageText('testYourKnowledge', courseLanguage)}
-                </h3>
-                <p className="text-brand-darkGrey mb-5">
-                  {getDayPageText('assessmentDescription', courseLanguage)}
-                </p>
+              <Card padding="xl" radius="md" withBorder>
+                <Stack gap="md">
+                  <Group gap="sm">
+                    <ThemeIcon color="amanoba" variant="light" radius="md">
+                      <IconDeviceGamepad2 size={20} />
+                    </ThemeIcon>
+                    <Title order={2} size="h3">{getDayPageText('testYourKnowledge', courseLanguage)}</Title>
+                  </Group>
+                  <Text c="dimmed">{getDayPageText('assessmentDescription', courseLanguage)}</Text>
                 {lesson.assessmentGameRoute ? (
-                  <LocaleLink
+                    <Button
+                      component={LocaleLink}
                     href={`${lesson.assessmentGameRoute}?courseId=${courseId}&lessonDay=${dayNumber}&assessment=true`}
-                    className="min-h-[44px] inline-flex items-center justify-center bg-brand-accent text-brand-black px-7 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-base touch-manipulation"
+                      color="amanoba"
+                      leftSection={<IconDeviceGamepad2 size={18} />}
                   >
                     {getDayPageText('playAssessment', courseLanguage)}
-                  </LocaleLink>
+                    </Button>
                 ) : (
-                  <button
-                    onClick={async () => {
-                      try {
-                        // Start game session with course context
-                        const sessionResponse = await fetch('/api/game-sessions/start', {
-                          method: 'POST',
-                          headers: { 'Content-Type': 'application/json' },
-                          body: JSON.stringify({
-                            playerId: session?.user?.id,
-                            gameId: lesson.assessmentGameId,
-                            courseId: courseId,
-                            lessonDay: dayNumber,
-                          }),
-                        });
-
-                        const sessionData = await sessionResponse.json();
-
-                        if (sessionData.success && lesson.assessmentGameRoute) {
-                          // Navigate to game with session context
-                          router.push(`${lesson.assessmentGameRoute}?sessionId=${sessionData.sessionId}&courseId=${courseId}&lessonDay=${dayNumber}&assessment=true`);
-                        } else {
-                          alert(getDayPageText('failedToStartAssessment', courseLanguage));
-                        }
-                      } catch (error) {
-                        console.error('Failed to start assessment:', error);
-                        alert(getDayPageText('failedToStartAssessment', courseLanguage));
-                      }
-                    }}
-                    className="min-h-[44px] inline-flex items-center justify-center bg-brand-accent text-brand-black px-7 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors text-base touch-manipulation"
+                    <Button
+                      onClick={handleStartAssessment}
+                      color="amanoba"
+                      leftSection={<IconDeviceGamepad2 size={18} />}
                   >
                     {getDayPageText('playAssessment', courseLanguage)}
-                  </button>
+                    </Button>
                 )}
-              </div>
+                </Stack>
+              </Card>
             )}
           </>
         ) : (
-          <div className="bg-brand-darkGrey rounded-xl p-12 text-center border-2 border-brand-accent">
-            <Lock className="w-16 h-16 text-brand-white/30 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-brand-white mb-2">{getDayPageText('lessonLocked', courseLanguage)}</h3>
-            <p className="text-brand-white/70 mb-6">
+          <Card bg="ink.8" padding="xl" radius="md" withBorder>
+            <Stack gap="md" align="center">
+              <ThemeIcon color="gray" variant="light" size={72} radius="xl">
+                <IconLock size={38} />
+              </ThemeIcon>
+              <Title order={2} c="white" size="h3">{getDayPageText('lessonLocked', courseLanguage)}</Title>
+              <Text c="gray.3" ta="center">
               {getDayPageText('completePreviousLessons', courseLanguage)}
-            </p>
+              </Text>
               {navigation?.previous && (
-                <LocaleLink
+                <Button
+                  component={LocaleLink}
                   href={`/${courseLanguage}/courses/${courseId}/day/${navigation.previous.day}`}
-                  className="min-h-[44px] inline-flex items-center justify-center bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors touch-manipulation"
+                  color="amanoba"
                 >
                   {getDayPageText('goToDay', courseLanguage, { day: navigation.previous.day })}
-                </LocaleLink>
+                </Button>
               )}
-          </div>
+            </Stack>
+          </Card>
         )}
-      </main>
-    </div>
+        </Stack>
+      </Container>
+    </Box>
   );
 }

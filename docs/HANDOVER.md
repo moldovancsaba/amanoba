@@ -103,7 +103,12 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:check:mantine` ✅ pass
 - `npm run ui:check:foundation` ✅ pass
 - `npm run ui:check:layout` ✅ pass
+- `npm run lint` ✅ pass
+- `npm test` ✅ pass
+- `npm run build` ✅ pass
+- `npm run docs:links:check` ✅ pass
 - `git diff --check` ✅ pass
+- Local browser smoke on `http://localhost:3000/en/courses/GENERATIVE_AI_APPS_AGENTS_2026_EN/day/1` ✅ anonymous recovery UI renders `Sign in required`, `Sign in`, and `Back to Course`.
 
 ### Follow-up course community component refactor (2026-05-21)
 
@@ -116,6 +121,22 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 #### Verification
 - `npx eslint components/ContentVoteWidget.tsx components/CourseDiscussion.tsx components/CourseStudyGroups.tsx scripts/check-mantine-boundaries.mjs scripts/audit-ui-foundation.ts scripts/audit-layout-grammar-ui.ts app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx` ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run ui:check:layout` ✅ pass
+- `git diff --check` ✅ pass
+
+### Follow-up enrolled lesson runtime refactor (2026-05-21)
+
+#### What changed
+- Converted the enrolled lesson runtime page from legacy Tailwind page markup and lucide icons to Mantine primitives and Tabler icons.
+- Replaced browser alert feedback for quiz gating, lesson completion failures, and assessment launch failures with Mantine notifications.
+- Preserved lesson completion, required-quiz gating, save/remove saved lesson, previous/next navigation, assessment launch, progress display, voting, and locked-lesson recovery behavior.
+- Kept rich lesson body rendering inside Mantine `TypographyStylesProvider`, which is the allowed exception for course/editorial HTML content during the Mantine-only migration.
+
+#### Verification
+- `npx eslint app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx` ✅ pass
 - `npm run type-check` ✅ pass
 - `npm run ui:check:mantine` ✅ pass
 - `npm run ui:check:foundation` ✅ pass
