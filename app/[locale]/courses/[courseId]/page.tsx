@@ -13,6 +13,16 @@ import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
 import {
+  Affix,
+  Button,
+  Card,
+  Group,
+  Stack,
+  Text,
+  ThemeIcon,
+  Transition,
+} from '@mantine/core';
+import {
   ArrowLeft,
   Calendar,
   Award,
@@ -23,6 +33,9 @@ import {
   CreditCard,
   Trophy,
 } from 'lucide-react';
+import {
+  IconCertificate,
+} from '@tabler/icons-react';
 import Image from 'next/image';
 import Logo from '@/components/Logo';
 import ContentVoteWidget from '@/components/ContentVoteWidget';
@@ -886,7 +899,6 @@ export default function CourseDetailPage({
         window.history.replaceState({}, '', window.location.pathname);
       }
     };
-    loadData();
     void loadData();
   }, [checkEnrollment, checkPremiumStatus, fetchCourse, fetchEntitlement, fetchLessons, params, session]);
 
@@ -952,49 +964,46 @@ export default function CourseDetailPage({
     } else if (completed && poolOk && entitlementRequired && !hasAccess) {
       statusLabel = getCourseDetailText('certificationAvailable');
       cta = (
-        <div className="flex flex-wrap gap-2">
+        <Group gap="sm">
           {entitlement.pricePoints ? (
-            <button
+            <Button
+              color="amanoba"
               onClick={() => fetch(`/api/certification/entitlement/redeem-points`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ courseId }),
               }).then(() => fetchEntitlement(courseId))}
-              className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-500"
             >
               {getCourseDetailText('redeemPointsCert', { points: entitlement.pricePoints })}
-            </button>
+            </Button>
           ) : null}
-          <button
-            disabled
-            className="px-4 py-2 bg-gray-700 text-gray-400 rounded-lg cursor-not-allowed"
-          >
-            Pay (coming soon)
-          </button>
-        </div>
+        </Group>
       );
     } else if (completed && poolOk && hasAccess) {
       statusLabel = getCourseDetailText('certificationUnlocked');
       cta = (
-        <LocaleLink
+        <Button
+          component={LocaleLink}
           href={`/courses/${courseId}/final-exam`}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-500"
+          color="amanoba"
+          leftSection={<IconCertificate size={18} />}
         >
-          <Award className="w-4 h-4" />
           {getCourseDetailText('startFinalExam')}
-        </LocaleLink>
+        </Button>
       );
     }
 
     return (
-      <div className="bg-brand-darkGrey border-2 border-brand-accent rounded-xl p-4 space-y-2">
-        <div className="flex items-center gap-2 text-brand-white">
-          <Award className="w-5 h-5 text-amber-400" />
-          <span className="font-semibold">{getCourseDetailText('certification')}</span>
-        </div>
-        <p className="text-brand-white/80 text-sm">{statusLabel}</p>
+      <Card bg="ink.8" padding="md">
+        <Group gap="sm" mb={4}>
+          <ThemeIcon color="amanoba" variant="light">
+            <IconCertificate size={18} />
+          </ThemeIcon>
+          <Text c="white" fw={700}>{getCourseDetailText('certification')}</Text>
+        </Group>
+        <Text c="gray.3" size="sm" mb={cta ? 'sm' : 0}>{statusLabel}</Text>
         {cta}
-      </div>
+      </Card>
     );
   };
 
@@ -1434,60 +1443,73 @@ export default function CourseDetailPage({
 
         {/* Mobile CTA bar */}
         {course && (
-          <div
-            className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-brand-darkGrey/95 backdrop-blur border-t border-brand-accent px-4 py-3"
-            style={{ bottom: 'var(--consent-banner-height, 0px)' }}
+          <Affix
+            hiddenFrom="md"
+            position={{ left: 12, right: 12, bottom: 12 }}
+            style={{ bottom: 'calc(var(--consent-banner-height, 0px) + 12px)' }}
+            zIndex={40}
           >
-            <div className="flex items-center justify-between gap-3">
-              <div className="flex-1 text-brand-white text-sm leading-tight">
-                <div className="font-bold text-base line-clamp-1">{course.name}</div>
+            <Transition mounted transition="slide-up">
+              {(styles) => (
+                <Card padding="sm" shadow="lg" style={styles}>
+                  <Group justify="space-between" gap="sm" wrap="nowrap">
+                    <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
+                      <Text fw={700} size="sm" lineClamp={1}>{course.name}</Text>
                 {enrollment?.progress && (
-                  <div className="text-xs opacity-80">
+                        <Text size="xs" c="dimmed" lineClamp={1}>
                     {getCourseDetailText('dayOf', { currentDay: enrollment.progress.currentDay, totalDays: course.durationDays })} • {getCourseDetailText('daysCompleted', { count: enrollment.progress.completedDays })}
-                  </div>
+                        </Text>
                 )}
                 {prereqBlocked && (
-                  <div className="text-xs text-amber-300 mt-1">
+                        <Text size="xs" c="yellow.7">
                     Prerequisites required
-                  </div>
+                        </Text>
                 )}
-              </div>
+                    </Stack>
 
-              <div className="flex-1 flex justify-end">
                 {enrollment?.enrolled ? (
-                  <LocaleLink
+                      <Button
+                        component={LocaleLink}
                     href={continueCourseHref ?? `/${course.language}/courses/${courseId}/day/1`}
-                    className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-sm"
+                        color="amanoba"
+                        size="sm"
                   >
                     {getCourseDetailTexts().continuelLearning}
-                  </LocaleLink>
+                      </Button>
                 ) : !session ? (
-                  <LocaleLink
+                      <Button
+                        component={LocaleLink}
                     href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${course.language}/courses/${courseId}`)}`}
-                    className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors text-sm"
+                        color="amanoba"
+                        size="sm"
                   >
                     {getCourseDetailText('signInToEnroll')}
-                  </LocaleLink>
+                      </Button>
                 ) : course.requiresPremium && !isPremium ? (
-                  <button
+                      <Button
                     onClick={handlePurchase}
-                    disabled={purchasing}
-                    className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                        loading={purchasing}
+                        color="amanoba"
+                        size="sm"
                   >
-                    {purchasing ? getCourseDetailText('purchasing') : getCourseDetailText('purchasePremium')}
-                  </button>
+                        {getCourseDetailText('purchasePremium')}
+                      </Button>
                 ) : (
-                  <button
+                      <Button
                     onClick={handleEnroll}
-                    disabled={enrolling || prereqBlocked}
-                    className="w-full bg-brand-accent text-brand-black px-4 py-2.5 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                        loading={enrolling}
+                        disabled={prereqBlocked}
+                        color="amanoba"
+                        size="sm"
                   >
-                    {enrolling ? getCourseDetailText('enrolling') : getCourseDetailText('enrollNow')}
-                  </button>
+                        {getCourseDetailText('enrollNow')}
+                      </Button>
                 )}
-              </div>
-            </div>
-          </div>
+                  </Group>
+                </Card>
+              )}
+            </Transition>
+          </Affix>
         )}
       </main>
     </div>

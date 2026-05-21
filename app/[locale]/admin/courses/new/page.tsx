@@ -12,6 +12,8 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { ArrowLeft, Save } from 'lucide-react';
 import Link from 'next/link';
+import { Alert, Card, SimpleGrid, Stack, Stepper, Text, Title } from '@mantine/core';
+import { IconBook, IconCertificate, IconChecklist, IconSettings } from '@tabler/icons-react';
 import { getStripeMinimum, getFormattedMinimum, meetsStripeMinimum } from '@/app/lib/utils/stripe-minimums';
 import { COURSE_LANGUAGE_OPTIONS } from '@/app/lib/constants/course-languages';
 
@@ -112,6 +114,34 @@ export default function NewCoursePage() {
           <p className="text-gray-400">Set up basic course information</p>
         </div>
       </div>
+
+      <Card padding="lg">
+        <Stack gap="md">
+          <div>
+            <Title order={2} size="h3">Course creation path</Title>
+            <Text c="dimmed">
+              Create the course shell first, then add lessons, set the course-level quiz policy, configure certificates, and publish only after the checklist is clean.
+            </Text>
+          </div>
+          <Stepper active={0} allowNextStepsSelect={false}>
+            <Stepper.Step icon={<IconSettings size={18} />} label="Basics" description="This page" />
+            <Stepper.Step icon={<IconBook size={18} />} label="Lessons" description="1 to unlimited" />
+            <Stepper.Step icon={<IconChecklist size={18} />} label="Quiz policy" description="Course-level rules" />
+            <Stepper.Step icon={<IconCertificate size={18} />} label="Certificate" description="Optional gate" />
+          </Stepper>
+          <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md">
+            <Alert color="yellow" variant="light" title="Lesson count">
+              <Text size="sm">Minimum is 1 lesson. There is no maximum; the course can grow as lessons are added.</Text>
+            </Alert>
+            <Alert color="gray" variant="light" title="Short versions">
+              <Text size="sm">Create the full course first, then use the editor short-course tools to select lessons for a focused version.</Text>
+            </Alert>
+            <Alert color="gray" variant="light" title="Certificates">
+              <Text size="sm">Certificates are configured after the course exists, when final exam pool and gates can be verified.</Text>
+            </Alert>
+          </SimpleGrid>
+        </Stack>
+      </Card>
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">

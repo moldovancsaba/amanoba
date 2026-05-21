@@ -21,12 +21,15 @@ import {
   Bookmark,
   BookmarkCheck,
 } from 'lucide-react';
+import { Alert, Box, Button, Card, Container, Group, Skeleton, Stack, Text } from '@mantine/core';
+import { IconAlertTriangle, IconLock, IconRefresh } from '@tabler/icons-react';
 import { useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Logo from '@/components/Logo';
 import ContentVoteWidget from '@/components/ContentVoteWidget';
 import { contentToHtml } from '@/app/lib/lesson-content';
 import { readPracticeContextFromSearchParams } from '@/app/lib/practice-hub';
+import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 
 interface Lesson {
   _id: string;
@@ -62,6 +65,52 @@ interface QuizPolicy {
 interface Navigation {
   previous: { day: number; title: string } | null;
   next: { day: number; title: string } | null;
+}
+
+type LessonAccessIssue = {
+  status: number;
+  title: string;
+  message: string;
+  action: 'signin' | 'course' | 'retry';
+} | null;
+
+function GroupForAccessActions({
+  issue,
+  courseId,
+  courseLanguage,
+  onRetry,
+  signInHref,
+  backLabel,
+}: {
+  issue: NonNullable<LessonAccessIssue>;
+  courseId: string;
+  courseLanguage: string;
+  onRetry: () => void;
+  signInHref: string;
+  backLabel: string;
+}) {
+  return (
+    <Group>
+      {issue.action === 'signin' ? (
+        <Button component={LocaleLink} href={signInHref} color="amanoba">
+          Sign in
+        </Button>
+      ) : null}
+      {issue.action === 'retry' ? (
+        <Button onClick={onRetry} variant="outline" leftSection={<IconRefresh size={16} />}>
+          Retry
+        </Button>
+      ) : null}
+      <Button
+        component={LocaleLink}
+        href={`/${courseLanguage}/courses/${courseId}`}
+        variant={issue.action === 'course' ? 'filled' : 'outline'}
+        color={issue.action === 'course' ? 'amanoba' : 'gray'}
+      >
+        {backLabel}
+      </Button>
+    </Group>
+  );
 }
 
 // Static translations for day page - keyed by COURSE LANGUAGE
@@ -420,6 +469,7 @@ export default function DailyLessonPage({
   const [quizPolicy, setQuizPolicy] = useState<QuizPolicy | null>(null);
   const [isSavedLesson, setIsSavedLesson] = useState(false);
   const [savingLesson, setSavingLesson] = useState(false);
+  const [accessIssue, setAccessIssue] = useState<LessonAccessIssue>(null);
   const searchParams = useSearchParams();
   const locale = useLocale(); // URL locale (e.g. /hu/ → 'hu') for fallback when lesson not found before courseLanguage is set
 
@@ -433,6 +483,7 @@ export default function DailyLessonPage({
       const data = await response.json();
 
       if (data.success) {
+        setAccessIssue(null);
         // Store course language for UI translations
         if (data.courseLanguage) {
           setCourseLanguage(data.courseLanguage);
@@ -457,11 +508,25 @@ export default function DailyLessonPage({
           data.error === 'Lesson not found'
             ? getDayPageText('lessonNotFound', errorLanguage)
             : (data.error || getDayPageText('failedToLoadLesson', errorLanguage));
-        alert(message);
+        setLesson(null);
+        setAccessIssue({
+          status: response.status,
+          title: response.status === 401 ? 'Sign in required' : response.status === 404 ? getDayPageText('lessonNotFound', errorLanguage) : getDayPageText('failedToLoadLesson', errorLanguage),
+          message: response.status === 401
+            ? 'Sign in to continue this course from your saved progress.'
+            : message,
+          action: response.status === 401 ? 'signin' : response.status === 404 ? 'course' : 'retry',
+        });
       }
     } catch (error) {
       console.error('Failed to fetch lesson:', error);
-      alert(getDayPageText('failedToLoadLesson', errorLanguage));
+      setLesson(null);
+      setAccessIssue({
+        status: 0,
+        title: getDayPageText('failedToLoadLesson', errorLanguage),
+        message: 'The lesson could not be loaded. Retry the request or return to the course overview.',
+        action: 'retry',
+      });
     } finally {
       if (!opts.silent) {
         setLoading(false);
@@ -536,6 +601,7 @@ export default function DailyLessonPage({
       const data = await response.json();
 
       if (data.success) {
+        trackGAEvent('lesson_complete', { course_id: courseId, day_number: dayNumber });
         // Optimistically update UI without flashing the whole page
         setLesson((prev) =>
           prev
@@ -617,9 +683,19 @@ export default function DailyLessonPage({
     const displayLang = courseLanguage !== 'en' ? courseLanguage : (locale || 'en');
     const dir = (displayLang === 'ar' ? 'rtl' : 'ltr') as 'rtl' | 'ltr';
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={dir}>
-        <div className="text-brand-white text-xl">{getDayPageText('loadingLesson', displayLang)}</div>
-      </div>
+      <Box bg="ink.9" mih="100vh" py="xl" dir={dir}>
+        <Container size="md">
+          <Card padding="lg">
+            <Stack gap="md">
+              <Text fw={700}>{getDayPageText('loadingLesson', displayLang)}</Text>
+              <Skeleton height={32} width="70%" />
+              <Skeleton height={18} />
+              <Skeleton height={18} />
+              <Skeleton height={18} width="85%" />
+            </Stack>
+          </Card>
+        </Container>
+      </Box>
     );
   }
 
@@ -627,18 +703,37 @@ export default function DailyLessonPage({
     // Use URL locale as fallback so /hu/ always shows Hungarian message (courseLanguage may still be initial 'en')
     const displayLang = courseLanguage !== 'en' ? courseLanguage : (locale || 'en');
     const dir = (displayLang === 'ar' ? 'rtl' : 'ltr') as 'rtl' | 'ltr';
+    const issue = accessIssue ?? {
+      status: 404,
+      title: getDayPageText('lessonNotFound', displayLang),
+      message: getDayPageText('failedToLoadLesson', displayLang),
+      action: 'course' as const,
+    };
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center" dir={dir}>
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-brand-white mb-4">{getDayPageText('lessonNotFound', displayLang)}</h2>
-          <LocaleLink
-            href="/my-courses"
-            className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400"
-          >
-            {getDayPageText('backToMyCourses', displayLang)}
-          </LocaleLink>
-        </div>
-      </div>
+      <Box bg="ink.9" mih="100vh" py="xl" dir={dir}>
+        <Container size="sm">
+          <Card padding="lg">
+            <Stack gap="md">
+              <Alert
+                color={issue.status === 401 ? 'yellow' : 'red'}
+                variant="light"
+                title={issue.title}
+                icon={issue.status === 401 ? <IconLock size={18} /> : <IconAlertTriangle size={18} />}
+              >
+                <Text>{issue.message}</Text>
+              </Alert>
+              <GroupForAccessActions
+                issue={issue}
+                courseId={courseId}
+                courseLanguage={courseLanguage || displayLang}
+                onRetry={() => void fetchLesson(courseId, dayNumber, { fallbackLanguage: displayLang })}
+                signInHref={`/auth/signin?callbackUrl=${encodeURIComponent(`/${courseLanguage || displayLang}/courses/${courseId}/day/${dayNumber}`)}`}
+                backLabel={getDayPageText('backToCourse', displayLang)}
+              />
+            </Stack>
+          </Card>
+        </Container>
+      </Box>
     );
   }
 

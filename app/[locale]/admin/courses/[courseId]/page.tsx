@@ -25,6 +25,8 @@ import {
   Loader2,
 } from 'lucide-react';
 import Image from 'next/image';
+import { Alert, Badge, Card, Group, SimpleGrid, Stack, Stepper, Text, Title } from '@mantine/core';
+import { IconBook, IconCertificate, IconChecklist, IconSettings } from '@tabler/icons-react';
 import MarkdownEditor from '@/app/components/ui/markdown-editor';
 import { getStripeMinimum, getFormattedMinimum, meetsStripeMinimum } from '@/app/lib/utils/stripe-minimums';
 import { COURSE_LANGUAGE_OPTIONS } from '@/app/lib/constants/course-languages';
@@ -529,6 +531,46 @@ export default function CourseEditorPage({
           </button>
         </div>
       </div>
+
+      <Card padding="lg">
+        <Stack gap="md">
+          <Group justify="space-between" align="flex-start">
+            <div>
+              <Title order={2} size="h3">Course builder workflow</Title>
+              <Text c="dimmed">
+                Build the course in learner order: basics, lessons, quiz policy, certification, then publish checks.
+              </Text>
+            </div>
+            <Badge color={course.isActive ? 'green' : 'gray'} variant="light">
+              {course.isActive ? 'Published' : 'Draft'}
+            </Badge>
+          </Group>
+          <Stepper active={Math.min(4, [
+            Boolean(course.name && course.description && course.language),
+            lessons.length > 0,
+            course.lessonQuizPolicy?.enabled !== false,
+            course.certification?.enabled === true,
+            course.isActive,
+          ].filter(Boolean).length)} allowNextStepsSelect={false}>
+            <Stepper.Step icon={<IconSettings size={18} />} label="Basics" description="Name, language, pricing" />
+            <Stepper.Step icon={<IconBook size={18} />} label="Lessons" description={`${lessons.length} lesson${lessons.length === 1 ? '' : 's'}`} />
+            <Stepper.Step icon={<IconChecklist size={18} />} label="Quiz policy" description="Daily pass rules" />
+            <Stepper.Step icon={<IconCertificate size={18} />} label="Certificate" description={course.certification?.enabled ? 'Enabled' : 'Optional'} />
+            <Stepper.Completed>Ready for publish review</Stepper.Completed>
+          </Stepper>
+          <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md">
+            <Alert color={lessons.length > 0 ? 'green' : 'yellow'} variant="light" title="Lesson range">
+              <Text size="sm">Courses can contain 1 to unlimited lessons. Planned length is {course.durationDays}; highest lesson day is {maxLessonDay || 0}.</Text>
+            </Alert>
+            <Alert color={course.lessonQuizPolicy?.enabled !== false ? 'green' : 'gray'} variant="light" title="Quiz rule">
+              <Text size="sm">Course-level lesson quiz policy is authoritative; old lesson quiz fields are compatibility only.</Text>
+            </Alert>
+            <Alert color={course.certification?.enabled ? 'green' : 'gray'} variant="light" title="Certification">
+              <Text size="sm">Enable certificates after final exam pool, completion gates, price, and template are clear.</Text>
+            </Alert>
+          </SimpleGrid>
+        </Stack>
+      </Card>
 
       {/* Course Info */}
       <div className="bg-brand-white rounded-xl p-6 border-2 border-brand-accent">

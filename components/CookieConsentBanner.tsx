@@ -1,21 +1,17 @@
 /**
- * Cookie Consent Banner
- * 
- * What: Displays cookie consent banner for GDPR/CCPA compliance
- * Why: Required for legal compliance and Google Consent Mode v2
+ * Cookie consent banner.
+ *
+ * Keeps Google Consent Mode controls compact and exposes its height for fixed course CTAs.
  */
 
 'use client';
 
-import { useConsent } from '@/app/components/providers/ConsentProvider';
-import { useTranslations } from 'next-intl';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
+import { Button, Checkbox, Collapse, Group, Paper, Stack, Text, Title } from '@mantine/core';
+import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
+import { useConsent } from '@/app/components/providers/ConsentProvider';
 
-/**
- * Cookie Consent Banner Component
- * 
- * Why: Allows users to manage their cookie preferences
- */
 export default function CookieConsentBanner() {
   const { showBanner, acceptAll, rejectAll, updateConsent, consent } = useConsent();
   const t = useTranslations('consent');
@@ -49,120 +45,109 @@ export default function CookieConsentBanner() {
   }
 
   return (
-    <div
+    <Paper
       ref={bannerRef}
-      className="sticky bottom-0 left-0 right-0 z-50 bg-brand-white dark:bg-brand-black border-t border-brand-gray-200 dark:border-brand-gray-800 shadow-lg sm:fixed"
+      component="aside"
+      role="region"
+      aria-label={t('title')}
+      bg="white"
+      shadow="xl"
+      radius={0}
+      p={{ base: 'sm', sm: 'md' }}
+      style={{
+        position: 'fixed',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 50,
+        borderTop: '1px solid var(--mantine-color-gray-3)',
+        maxHeight: 'min(70vh, 360px)',
+        overflowY: 'auto',
+      }}
     >
-      <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-4">
-          {/* Main message */}
-          <div className="flex-1">
-            <h3 className="text-lg font-semibold text-brand-black dark:text-brand-white mb-2">
-              {t('title')}
-            </h3>
-            <p className="text-sm text-brand-gray-700 dark:text-brand-gray-300">
-              {t('description')}
-            </p>
-          </div>
+      <Stack gap="sm" maw={1180} mx="auto">
+        <Stack gap={4}>
+          <Title order={2} size="h4">
+            {t('title')}
+          </Title>
+          <Text size="sm" c="dimmed" lineClamp={showDetails ? undefined : 2}>
+            {t('description')}
+          </Text>
+        </Stack>
 
-          {/* Details section */}
-          {showDetails && (
-            <div className="mt-4 space-y-3 text-sm text-brand-gray-600 dark:text-brand-gray-400">
-              <div>
-                <h4 className="font-medium text-brand-black dark:text-brand-white mb-1">
-                  {t('analytics.title')}
-                </h4>
-                <p>{t('analytics.description')}</p>
-                <label className="flex items-center gap-2 mt-2">
-                  <input
-                    type="checkbox"
-                    checked={consent.analytics_storage === 'granted'}
-                    onChange={(e) =>
-                      updateConsent({
-                        analytics_storage: e.target.checked ? 'granted' : 'denied',
-                      })
-                    }
-                    className="rounded border-brand-gray-300 text-brand-primary focus:ring-brand-primary"
-                  />
-                  <span>{t('analytics.label')}</span>
-                </label>
-              </div>
+        <Collapse in={showDetails}>
+          <Stack gap="sm">
+            <Paper bg="gray.0" p="sm">
+              <Stack gap={6}>
+                <Text fw={700}>{t('analytics.title')}</Text>
+                <Text size="sm" c="dimmed">{t('analytics.description')}</Text>
+                <Checkbox
+                  label={t('analytics.label')}
+                  checked={consent.analytics_storage === 'granted'}
+                  onChange={(event) =>
+                    updateConsent({
+                      analytics_storage: event.currentTarget.checked ? 'granted' : 'denied',
+                    })
+                  }
+                />
+              </Stack>
+            </Paper>
 
-              <div>
-                <h4 className="font-medium text-brand-black dark:text-brand-white mb-1">
-                  {t('advertising.title')}
-                </h4>
-                <p>{t('advertising.description')}</p>
-                <div className="mt-2 space-y-2">
-                  <label className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      checked={consent.ad_storage === 'granted'}
-                      onChange={(e) =>
-                        updateConsent({
-                          ad_storage: e.target.checked ? 'granted' : 'denied',
-                        })
-                      }
-                      className="rounded border-brand-gray-300 text-brand-primary focus:ring-brand-primary"
-                    />
-                    <span>{t('advertising.storageLabel')}</span>
-                  </label>
-                  <label className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      checked={consent.ad_user_data === 'granted'}
-                      onChange={(e) =>
-                        updateConsent({
-                          ad_user_data: e.target.checked ? 'granted' : 'denied',
-                        })
-                      }
-                      className="rounded border-brand-gray-300 text-brand-primary focus:ring-brand-primary"
-                    />
-                    <span>{t('advertising.userDataLabel')}</span>
-                  </label>
-                  <label className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      checked={consent.ad_personalization === 'granted'}
-                      onChange={(e) =>
-                        updateConsent({
-                          ad_personalization: e.target.checked ? 'granted' : 'denied',
-                        })
-                      }
-                      className="rounded border-brand-gray-300 text-brand-primary focus:ring-brand-primary"
-                    />
-                    <span>{t('advertising.personalizationLabel')}</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          )}
+            <Paper bg="gray.0" p="sm">
+              <Stack gap={6}>
+                <Text fw={700}>{t('advertising.title')}</Text>
+                <Text size="sm" c="dimmed">{t('advertising.description')}</Text>
+                <Checkbox
+                  label={t('advertising.storageLabel')}
+                  checked={consent.ad_storage === 'granted'}
+                  onChange={(event) =>
+                    updateConsent({
+                      ad_storage: event.currentTarget.checked ? 'granted' : 'denied',
+                    })
+                  }
+                />
+                <Checkbox
+                  label={t('advertising.userDataLabel')}
+                  checked={consent.ad_user_data === 'granted'}
+                  onChange={(event) =>
+                    updateConsent({
+                      ad_user_data: event.currentTarget.checked ? 'granted' : 'denied',
+                    })
+                  }
+                />
+                <Checkbox
+                  label={t('advertising.personalizationLabel')}
+                  checked={consent.ad_personalization === 'granted'}
+                  onChange={(event) =>
+                    updateConsent({
+                      ad_personalization: event.currentTarget.checked ? 'granted' : 'denied',
+                    })
+                  }
+                />
+              </Stack>
+            </Paper>
+          </Stack>
+        </Collapse>
 
-          {/* Action buttons */}
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-            <button
-              onClick={() => setShowDetails(!showDetails)}
-              className="px-4 py-2 text-sm font-medium text-brand-gray-700 dark:text-brand-gray-300 hover:text-brand-black dark:hover:text-brand-white transition-colors"
-            >
-              {showDetails ? t('hideDetails') : t('showDetails')}
-            </button>
-            <div className="flex gap-2 sm:ml-auto">
-              <button
-                onClick={rejectAll}
-                className="px-4 py-2 text-sm font-medium text-brand-gray-700 dark:text-brand-gray-300 bg-brand-gray-100 dark:bg-brand-gray-800 rounded-lg hover:bg-brand-gray-200 dark:hover:bg-brand-gray-700 transition-colors"
-              >
-                {t('rejectAll')}
-              </button>
-              <button
-                onClick={acceptAll}
-                className="px-4 py-2 text-sm font-medium text-brand-white bg-brand-primary hover:bg-brand-primary-dark rounded-lg transition-colors"
-              >
-                {t('acceptAll')}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        <Group justify="space-between" gap="xs">
+          <Button
+            variant="subtle"
+            color="gray"
+            leftSection={showDetails ? <IconChevronDown size={16} /> : <IconChevronUp size={16} />}
+            onClick={() => setShowDetails((current) => !current)}
+          >
+            {showDetails ? t('hideDetails') : t('showDetails')}
+          </Button>
+          <Group gap="xs">
+            <Button variant="outline" color="gray" onClick={rejectAll}>
+              {t('rejectAll')}
+            </Button>
+            <Button color="amanoba" onClick={acceptAll}>
+              {t('acceptAll')}
+            </Button>
+          </Group>
+        </Group>
+      </Stack>
+    </Paper>
   );
 }

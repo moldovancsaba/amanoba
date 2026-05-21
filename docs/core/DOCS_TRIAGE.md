@@ -7,7 +7,7 @@
 
 **Last Updated**: 2026-05-21
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=3, KEEP(unclassified)=59
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=4, KEEP(unclassified)=60
 
 This file is the “what to do next” view derived from `docs/core/DOCS_CANONICAL_MAP.md`.
 
@@ -20,6 +20,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 ## ARCHIVE (grouped by target)
 ### docs/_archive/reference/
 - `docs/features/GEO_IMPROVEMENT_PLAN.md` — GEO Improvement Plan — Appearance in AI Chat Results (12.5 KB)
+- `docs/product/COURSE_CREATION_PLAYBOOK.md` — Amanoba Course Creation Playbook (13.4 KB)
 - `docs/quality/UI_FOUNDATION_AUDIT.md` — UI Foundation Audit (Hard Rules) (1.5 KB)
 - `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` — UI Layout Grammar Audit (23.0 KB)
 
@@ -41,6 +42,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/core/NAMING_GUIDE.md` — Amanoba Naming Guide
 - `docs/core/OLLAMA_TASKLIST_FOR_AGENT.md` — Ollama setup task list (for agent)
 - `docs/core/templates/FEATURE_TEMPLATE.md` — YYYY-MM-DD Feature Title
+- `docs/COURSE_PACKAGE_FORMAT.md` — Course Package Format
 - `docs/deployment/STRIPE_VERCEL_SETUP.md` — Stripe Setup Guide for Vercel
 - `docs/features/ASSESSMENT_GAME_ID_MIGRATION.md` — assessmentGameId Migration Plan
 - `docs/features/BUY_PREMIUM_FIX_DONE.md` — Buy premium fix — done

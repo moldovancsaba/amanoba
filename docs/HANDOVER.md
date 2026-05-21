@@ -88,6 +88,33 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - Wiki publish ✅ pushed `6870c70` to `https://github.com/moldovancsaba/amanoba.wiki.git` on `master`.
 - Public wiki checks ✅ `https://github.com/moldovancsaba/amanoba/wiki` and `https://github.com/moldovancsaba/amanoba/wiki/Release-Notes-2026-05-20T00-00-00.000Z` return 200.
 
+## Course UX Mantine hardening pass (2026-05-21)
+
+### What changed
+- Rebuilt the public course catalog surface with Mantine primitives for search, language filtering, course cards, skeleton loading, empty/error states, enrol/continue actions, and course enrol telemetry.
+- Added learner recovery states for protected lesson and quiz routes so anonymous learners see sign-in/back/retry actions instead of raw `Unauthorized` or generic not-found dead ends.
+- Added Mantine course-builder guidance to new-course and course-editor admin surfaces covering basics, lessons, quiz policy, certification, publish readiness, short courses, and the open-ended 1-to-unlimited lesson model.
+- Fixed a duplicated course-detail data load and converted the certification callout/actions to Mantine primitives while preserving existing course discussion and study-group behaviour.
+- Added client telemetry calls for lesson completion and lesson quiz answer submission.
+- Converted the cookie consent banner to compact Mantine controls and moved the course detail mobile CTA to Mantine `Affix`/`Card`/`Button`, keeping the consent-height offset so mobile CTAs no longer sit underneath the consent surface.
+- Added active course-creation package/playbook docs and refreshed generated docs inventory/canonical map/triage so the docs checker has the current docs baseline.
+
+### Verification
+- `npx eslint app/[locale]/courses/page.tsx app/[locale]/courses/[courseId]/page.tsx app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx app/[locale]/admin/courses/new/page.tsx app/[locale]/admin/courses/[courseId]/page.tsx` ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run ui:check:layout` ✅ pass
+- `npm run lint` ✅ pass
+- `npm test` ✅ pass
+- `npm run build` ✅ pass
+- Local browser checks on `http://localhost:3000/en/courses`, `/en/courses/GENERATIVE_AI_APPS_AGENTS_2026_EN`, `/en/courses/GENERATIVE_AI_APPS_AGENTS_2026_EN/day/1`, and `/en/courses/GENERATIVE_AI_APPS_AGENTS_2026_EN/day/1/quiz` ✅ render without console errors; anonymous lesson/quiz routes show recovery CTAs.
+
+### Rollback
+- Baseline: `origin/main` before branch `sentinel-squad/course-ux-mantine-hardening`.
+- Rollback before merge: discard this branch and return to `main`.
+- Rollback after merge: revert the course UX hardening commit, then rerun `npm run type-check`, targeted ESLint, and the three UI checks above.
+
 ## Foundation hardening pass (2026-05-20)
 
 ### What changed
@@ -834,3 +861,12 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ### Notes
 - The only remaining direct import from `@/components/ui/button` is `app/[locale]/auth/signin/page.tsx` for `buttonVariants`; that is now the next obvious primitive cleanup.
+
+## Course creation playbook refresh (2026-05-21)
+
+### What changed
+- Added `docs/product/COURSE_CREATION_PLAYBOOK.md` as the active course-creator reference for flexible lesson counts, short courses, lesson quiz policy, certificate setup, JSON upload/import, script seeding, and publishing checks.
+- Added `docs/COURSE_PACKAGE_FORMAT.md` as a compatibility entrypoint because the admin import API references that path.
+
+### Notes
+- Current course length is flexible: minimum 1 active lesson; no hard model maximum. `durationDays` remains a planned/fallback length while learner-facing length resolves from active lessons or child-course selections.
