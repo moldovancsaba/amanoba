@@ -7,13 +7,36 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
-import { CheckCircle, XCircle, ArrowLeft, Loader2 } from 'lucide-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
 import { useSession } from 'next-auth/react';
 import { readPracticeContextFromSearchParams } from '@/app/lib/practice-hub';
-import { Alert, Box, Button, Card, Container, Group, Skeleton, Stack, Text } from '@mantine/core';
-import { IconAlertTriangle, IconLock, IconRefresh } from '@tabler/icons-react';
+import {
+  Alert,
+  Box,
+  Button,
+  Card,
+  Container,
+  Divider,
+  Group,
+  Loader,
+  Paper,
+  Progress,
+  Skeleton,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import {
+  IconAlertTriangle,
+  IconArrowLeft,
+  IconCheck,
+  IconCircleCheck,
+  IconLock,
+  IconRefresh,
+  IconX,
+} from '@tabler/icons-react';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 
 interface LessonResponse {
@@ -499,7 +522,7 @@ export default function LessonQuizPage({
           <Card padding="lg">
             <Stack gap="md">
               <Group gap="sm">
-                <Loader2 className="w-5 h-5 animate-spin" />
+                <Loader size="sm" color="amanoba" />
                 <Text fw={700}>{getQuizPageText('lessonQuiz', courseLanguage)}</Text>
               </Group>
               <Skeleton height={28} width="70%" />
@@ -557,7 +580,7 @@ export default function LessonQuizPage({
                   href={`/${courseLanguage}/courses/${courseId}/day/${dayNumber}`}
                   variant={accessIssue?.action === 'lesson' ? 'filled' : 'outline'}
                   color={accessIssue?.action === 'lesson' ? 'amanoba' : 'gray'}
-                  leftSection={<ArrowLeft className="w-4 h-4" />}
+                  leftSection={<IconArrowLeft size={16} />}
                 >
                   {getQuizPageText('backToLesson', courseLanguage)}
                 </Button>
@@ -573,88 +596,114 @@ export default function LessonQuizPage({
     current: currentIndex + 1,
     total: questions.length,
   });
+  const progressValue = Math.min(100, ((currentIndex + 1) / Math.max(questions.length, 1)) * 100);
+  const feedbackColor = isAnswerCorrect === true ? 'green' : isAnswerCorrect === false ? 'red' : 'amanoba';
+  const FeedbackIcon = isAnswerCorrect === false ? IconX : IconCheck;
 
   return (
-    <div className="min-h-screen bg-brand-black" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
-      <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 py-6 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Logo size="sm" showText={false} linkTo={session?.user ? "/dashboard" : "/"} className="flex-shrink-0" />
-            <LocaleLink
+    <Box bg="ink.9" mih="100vh" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
+      <Paper component="header" bg="ink.8" radius={0} withBorder>
+        <Container size="md" py={{ base: 'md', sm: 'lg' }}>
+          <Group justify="space-between" align="center" gap="md">
+            <Group gap="md" wrap="nowrap" style={{ minWidth: 0 }}>
+              <Logo size="sm" showText={false} linkTo={session?.user ? "/dashboard" : "/"} />
+              <Button
+                component={LocaleLink}
               href={`/${courseLanguage}/courses/${courseId}/day/${dayNumber}`}
-              className="inline-flex items-center gap-2 text-brand-white hover:text-brand-accent"
+                variant="subtle"
+                color="gray"
+                leftSection={<IconArrowLeft size={18} />}
             >
-              <ArrowLeft className="w-5 h-5" />
               {getQuizPageText('backToLesson', courseLanguage)}
-            </LocaleLink>
-          </div>
-          <div className="text-brand-white text-sm">
-            {getQuizPageText('lessonQuiz', courseLanguage)}: {lessonTitle || getQuizPageText('quiz', courseLanguage)}
-          </div>
-        </div>
-      </header>
+              </Button>
+            </Group>
+            <Stack gap={4} align="flex-end" miw={140}>
+              <Text c="white" size="sm" fw={700} lineClamp={1}>
+                {getQuizPageText('lessonQuiz', courseLanguage)}
+              </Text>
+              <Text c="gray.3" size="xs" lineClamp={1}>
+                {lessonTitle || getQuizPageText('quiz', courseLanguage)}
+              </Text>
+            </Stack>
+          </Group>
+        </Container>
+      </Paper>
 
-      <main className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 py-12">
-        <div className="bg-brand-white rounded-2xl p-8 border-2 border-brand-accent shadow-lg">
-          <div className="flex items-center justify-between mb-6">
-            <h1 className="text-3xl font-bold text-brand-black leading-tight">
+      <Container component="main" size="md" py={{ base: 'lg', sm: 'xl' }}>
+        <Card padding="xl" radius="md" withBorder>
+          <Stack gap="xl">
+            <Stack gap="xs">
+              <Group justify="space-between" align="flex-start" gap="md">
+                <Title order={1} size="h2">
               {getQuizPageText('question', courseLanguage)} {currentIndex + 1}
-            </h1>
-            <span className="text-base font-semibold text-brand-darkGrey">{progressText}</span>
-          </div>
-          <p className="text-xl text-brand-black mb-8 leading-relaxed">{currentQuestion.question}</p>
+                </Title>
+                <Text fw={700} c="dimmed" size="sm">{progressText}</Text>
+              </Group>
+              <Progress value={progressValue} color="amanoba" radius="xl" />
+            </Stack>
 
-          <div className="space-y-4">
+            <Text size="xl" fw={600} lh={1.5} c="ink.9">{currentQuestion.question}</Text>
+
+            <Stack gap="sm">
             {currentQuestion.options.map((option: string, idx: number) => (
-              <button
+                <Button
                 key={idx}
                 disabled={answering}
                 onClick={() => handleAnswer(option, idx)}
-                className={`w-full ${courseLanguage === 'ar' ? 'text-right' : 'text-left'} border-2 border-brand-darkGrey/15 hover:border-brand-accent transition-colors rounded-xl px-5 py-4 font-semibold text-brand-black text-lg disabled:opacity-60 disabled:cursor-not-allowed shadow-sm hover:shadow-md`}
+                  variant="default"
+                  color="gray"
+                  justify="flex-start"
+                  fullWidth
+                  mih={56}
+                  styles={{
+                    label: {
+                      whiteSpace: 'normal',
+                      textAlign: courseLanguage === 'ar' ? 'right' : 'left',
+                      width: '100%',
+                      lineHeight: 1.45,
+                    },
+                  }}
               >
                 {option}
-              </button>
+                </Button>
             ))}
-          </div>
+            </Stack>
 
           {feedback && (
-            <div className={`mt-8 rounded-lg px-5 py-4 ${
-              isAnswerCorrect === true
-                ? 'bg-green-500/15 border border-green-500 text-green-700'
-                : isAnswerCorrect === false
-                ? 'bg-red-500/15 border border-red-500 text-red-700'
-                : 'bg-brand-accent/15 border border-brand-accent text-brand-black'
-            }`}>
-              <div className="flex items-center gap-3 font-semibold">
-                {isAnswerCorrect === true ? (
-                  <CheckCircle className="w-6 h-6 text-green-500" />
-                ) : isAnswerCorrect === false ? (
-                  <XCircle className="w-6 h-6 text-red-500" />
-                ) : (
-                  <CheckCircle className="w-6 h-6 text-brand-accent" />
-                )}
-                <span>{feedback}</span>
-              </div>
+              <Alert
+                color={feedbackColor}
+                icon={
+                  <ThemeIcon color={feedbackColor} variant="light" radius="xl" size="sm">
+                    {isAnswerCorrect === true ? <IconCircleCheck size={16} /> : <FeedbackIcon size={16} />}
+                  </ThemeIcon>
+                }
+                radius="md"
+              >
+                <Stack gap="sm">
+                  <Text fw={700}>{feedback}</Text>
               {(correctAnswerLabel || answerExplanation) && isAnswerCorrect === false ? (
-                <div className="mt-4 space-y-2 border-t border-current/20 pt-4 text-sm leading-relaxed">
+                    <>
+                      <Divider />
                   {correctAnswerLabel ? (
-                    <p>
-                      <span className="font-bold">{getQuizPageText('correctAnswerLabel', courseLanguage)}:</span>{' '}
-                      <span>{correctAnswerLabel}</span>
-                    </p>
+                        <Text size="sm">
+                          <Text span fw={700}>{getQuizPageText('correctAnswerLabel', courseLanguage)}:</Text>{' '}
+                          {correctAnswerLabel}
+                        </Text>
                   ) : null}
                   {answerExplanation ? (
-                    <p>
-                      <span className="font-bold">{getQuizPageText('explanationLabel', courseLanguage)}:</span>{' '}
-                      <span>{answerExplanation}</span>
-                    </p>
+                        <Text size="sm">
+                          <Text span fw={700}>{getQuizPageText('explanationLabel', courseLanguage)}:</Text>{' '}
+                          {answerExplanation}
+                        </Text>
                   ) : null}
-                </div>
+                    </>
               ) : null}
-            </div>
+                </Stack>
+              </Alert>
           )}
-        </div>
-      </main>
-    </div>
+          </Stack>
+        </Card>
+      </Container>
+    </Box>
   );
 }
