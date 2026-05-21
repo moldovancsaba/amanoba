@@ -40,6 +40,7 @@
 | **NEWS_POSTS_MVP.md** | `docs/features/NEWS_POSTS_MVP.md` | Blog/news publishing contract and automation handoff. |
 | **PRACTICE_HUB_MVP_CONTRACT.md** | `docs/features/PRACTICE_HUB_MVP_CONTRACT.md` | Practice Hub MVP review modes, prioritization rules, and current data limits. |
 | **QUIZ_ANSWER_EXPLANATION_PILOT.md** | `docs/features/QUIZ_ANSWER_EXPLANATION_PILOT.md` | Optional quiz answer explanation behavior. |
+| **RELEASE_NOTES_WIKI.md** | `docs/features/RELEASE_NOTES_WIKI.md` | GitHub wiki release-note archive format and publish workflow. |
 | **SAVED_LESSONS_MVP.md** | `docs/features/SAVED_LESSONS_MVP.md` | Saved Lessons library scope and data contract. |
 | **I18N_SETUP.md** | `docs/i18n/I18N_SETUP.md` | Locale setup and language integrity requirements. |
 | **SSO_IMPLEMENTATION_DETAILS.md** | `docs/sso/SSO_IMPLEMENTATION_DETAILS.md` | SSO architecture and implementation details. |

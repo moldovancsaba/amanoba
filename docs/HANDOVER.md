@@ -25,8 +25,9 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
   - `#16`: `Email/scheduler: Respect multiple enrolments` — verified in code/tests and moved to Project 12 `Done`.
   - `#225`: `Lesson quiz governance #10` — learner runtime now consumes course-level `quizPolicy`; legacy fields remain compatibility fallbacks.
   - `#104`: `Cross-repo documentation federation (amanoba + amanoba_courses)` — portable `amanoba_courses:process_them/docs/...` convention is documented in `docs/core/CROSS_REPO_DOCS.md`.
+- **In Progress**
+  - `#65`: `Move Amanoba release notes into Amanoba wiki by ISO UTC date` — exporter/workflow implemented; actual wiki push is blocked because GitHub returns `Repository not found` for `amanoba.wiki.git`.
 - **Remaining Backlog**
-  - `#65`: `Move Amanoba release notes into Amanoba wiki by ISO UTC date` — Project 12 Backlog.
   - `#749`: `Amanoba ideabank: targeted practice hub for mistakes, listening, speaking, and review modes` — Project 12 Backlog.
 
 ## Documentation index (update when behavior changes)
@@ -34,6 +35,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `READMEDEV.md` — this repo’s Brain Boost ritual (start-of-session, SSOT rules, quality gates).
 - `docs/product/TASKLIST.md` — prioritized actionable items (P1–P4). Completed tasks move to `docs/product/RELEASE_NOTES.md`.
 - `docs/product/RELEASE_NOTES.md` — shipped work only (per release definition).
+- `docs/features/RELEASE_NOTES_WIKI.md` — GitHub wiki release-note archive format and publish workflow.
 - `docs/status/PRODUCTION_STATUS.md` — deployment cadence, verification steps, and baseline route checks.
 - `docs/architecture/ARCHITECTURE.md` / `docs/product/ROADMAP.md` — reference high-level architecture and future vision.
 - `docs/product/ROADMAP_TASKLIST_SYSTEM_COMPARISON.md` — ensures roadmap vs tasklist alignment.
@@ -66,12 +68,24 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run build` (ensures Next.js build without warnings).
 
 ## Next steps
-1. Decide whether to promote `#65` from Backlog if release-note wiki publishing is still desired.
-2. Scope `#749` into concrete Practice Hub mode slices before implementation; keep it Backlog until prioritized.
-3. Keep release notes grouped by ISO UTC date for public-facing releases.
-4. Keep `docs/HANDOVER.md` appended whenever runtime behavior, process, production status, or board state changes.
+1. Scope `#749` into concrete Practice Hub mode slices before implementation; keep it Backlog until prioritized.
+2. Keep wiki release notes grouped by ISO UTC date for public-facing releases.
+3. Keep `docs/HANDOVER.md` appended whenever runtime behavior, process, production status, or board state changes.
 
 ---
+
+## Release notes wiki migration (2026-05-21)
+
+### What changed
+- Added `scripts/docs/export-release-notes-wiki.ts` and `npm run release-notes:wiki:export` to generate GitHub wiki pages from the repo release-note mirror.
+- Documented the canonical wiki page format and publish workflow in `docs/features/RELEASE_NOTES_WIKI.md`.
+- Updated `docs/product/RELEASE_NOTES.md` to point toward the intended Amanoba GitHub wiki archive while preserving the repo file as the local mirror until the wiki git repository accepts pushes.
+
+### Verification
+- `npm run release-notes:wiki:export -- --out=tmp/release-notes-wiki` ✅ generated 24 dated wiki pages plus one undated legacy page.
+- `npx eslint scripts/docs/export-release-notes-wiki.ts` ✅ pass
+- `npm run type-check` ✅ pass
+- Wiki publish blocker: `git push https://github.com/moldovancsaba/amanoba.wiki.git main` ❌ returns `Repository not found`, even after `gh auth setup-git` and `gh api repos/moldovancsaba/amanoba --method PATCH -f has_wiki=true` confirms `has_wiki: true`.
 
 ## Foundation hardening pass (2026-05-20)
 

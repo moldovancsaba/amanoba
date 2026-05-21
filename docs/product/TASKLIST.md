@@ -42,7 +42,7 @@ These are the main repo-visible follow-ups that still matter after the May docum
 
 | Area | Current repo-visible status | Next action |
 |------|-----------------------------|-------------|
-| Release notes wiki migration | Repo release notes remain canonical in `docs/product/RELEASE_NOTES.md`; the wiki migration request remains open. | Project 12 issue `#65` is in Backlog. |
+| Release notes wiki migration | Exporter and publish workflow exist, but GitHub rejects `amanoba.wiki.git` with `Repository not found` even though repo wiki is enabled. | Project 12 issue `#65` is `In Progress (NOW)` and blocked on wiki git repository initialization/exposure. |
 | Broader Practice Hub ideabank | MVP contract/UI/telemetry are shipped, but the broader listening/speaking/mistakes vision is not complete. | Keep Project 12 issue `#749` in Backlog until the next review-mode expansion is prioritized. |
 | Design-system migration | Hard-rule UI foundation checks pass; heuristic drift remains in older admin/game/profile/certificate surfaces. | Migrate touched surfaces incrementally and keep `docs/product/DESIGN_UPDATE.md` current. |
 | Certification templates/defaults | Certificate issuance, verification, entitlement, and template assignment exist; reusable admin-managed defaults/templates remain future work. | Keep as roadmap/backlog until Project 12 prioritizes it. |

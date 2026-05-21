@@ -1,9 +1,10 @@
 # Amanoba Release Notes
 
 **Current Version**: 2.9.49
-**Last Updated**: 2026-05-20
+**Last Updated**: 2026-05-21
 
 **Rule:** Each task exists in exactly one place.
+**Intended canonical archive:** https://github.com/moldovancsaba/amanoba/wiki. This repo file is retained as a local mirror and migration seed until the GitHub wiki git repository accepts pushes; dated wiki pages use `Release-Notes-YYYY-MM-DDT00-00-00.000Z`.
 
 ---
 
@@ -12,6 +13,7 @@
 **Status**: Delivered in repo
 **Type**: Documentation, Operations
 
+- **Release notes wiki migration workflow:** Added `npm run release-notes:wiki:export` and documented the GitHub wiki page format/publish workflow. GitHub still returns `Repository not found` for `amanoba.wiki.git`, so the actual wiki push remains blocked outside the repo.
 - **Foundation hardening:** Verified the multi-enrolment lesson email scheduler, aligned learner lesson quiz gating with the resolved course-level `quizPolicy`, and documented portable cross-repo references for `amanoba_courses`.
 - **Production route smoke:** Rechecked baseline production routes for home, auth, courses, blog/news, Practice Hub, Saved Lessons, sitemap, robots, and protected editor redirect behavior.
 - **Canonical docs refreshed:** README, developer onboarding, architecture, tech stack, handover, production status, docs index, roadmap, tasklist, i18n, release notes, and audit mapping now describe the current May 2026 platform baseline.

@@ -7,7 +7,7 @@
 
 **Last Updated**: 2026-05-21
 **Scope**: `docs/**/*.md` (excluding `docs/_archive/**`)
-**Count**: 98
+**Count**: 99
 
 | Path | Title | Size |
 |------|-------|------|
@@ -29,8 +29,8 @@
 | `docs/core/CODING_STANDARDS.md` | Amanoba Coding Standards | 3.8 KB |
 | `docs/core/CONTRIBUTING.md` | Contributing to Amanoba | 13.5 KB |
 | `docs/core/CROSS_REPO_DOCS.md` | Cross-Repo Documentation References | 1.7 KB |
-| `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 14.8 KB |
-| `docs/core/DOCS_INDEX.md` | Documentation index | 5.9 KB |
+| `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 15.0 KB |
+| `docs/core/DOCS_INDEX.md` | Documentation index | 6.1 KB |
 | `docs/core/DOCS_INVENTORY.md` | Docs Inventory | 8.9 KB |
 | `docs/core/DOCS_TRIAGE.md` | Docs Triage | 5.9 KB |
 | `docs/core/ENVIRONMENT_SETUP.md` | Environment Setup Guide | 3.6 KB |
@@ -55,6 +55,7 @@
 | `docs/features/PRACTICE_HUB_MVP_CONTRACT.md` | Practice Hub MVP Contract | 11.4 KB |
 | `docs/features/PUBLIC_PROFILE_SCHEMA.md` | Public Profile Schema | 2.1 KB |
 | `docs/features/QUIZ_ANSWER_EXPLANATION_PILOT.md` | Quiz Answer Explanation Pilot | 2.9 KB |
+| `docs/features/RELEASE_NOTES_WIKI.md` | Release Notes Wiki | 2.1 KB |
 | `docs/features/SAVED_LESSONS_MVP.md` | Saved Lessons MVP | 2.6 KB |
 | `docs/handoff/AmanobaAuditDocMapping.md` | Amanoba Audit: SSOT Inventory | 7.0 KB |
 | `docs/handoff/feature_issues/FEATURE_DASHBOARD_MULTI_COURSE_ENROL_P2_3.md` | Feature issue (mvp-factory-control) — Dashboard / multi-course Enrol + prerequisites | 2.7 KB |
@@ -64,7 +65,7 @@
 | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 4.8 KB |
 | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | MVP Factory Project — one-time setup (grant project scope) | 1.2 KB |
 | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Prompt for Next Context Window | 2.8 KB |
-| `docs/HANDOVER.md` | Amanoba — Developer Handover | 65.3 KB |
+| `docs/HANDOVER.md` | Amanoba — Developer Handover | 66.4 KB |
 | `docs/i18n/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB |
 | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB |
 | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB |
@@ -73,10 +74,10 @@
 | `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` | Developer Feedback Analysis | 7.2 KB |
 | `docs/product/NEXT_PHASES.md` | Next Phases: Detailed Implementation Plan | 13.6 KB |
 | `docs/product/P3_KNOWN_ISSUES_BACKLOG.md` | P3 Known Issues — Backlog | 2.0 KB |
-| `docs/product/RELEASE_NOTES.md` | Amanoba Release Notes | 173.4 KB |
+| `docs/product/RELEASE_NOTES.md` | Amanoba Release Notes | 173.9 KB |
 | `docs/product/ROADMAP_TASKLIST_SYSTEM_COMPARISON.md` | ROADMAP vs TASKLIST vs System Outline — Comparison | 5.7 KB |
 | `docs/product/ROADMAP.md` | Amanoba Roadmap — Future Vision & Client Benefits | 5.5 KB |
-| `docs/product/TASKLIST.md` | Amanoba Task List | 4.4 KB |
+| `docs/product/TASKLIST.md` | Amanoba Task List | 4.5 KB |
 | `docs/product/VOTING_AND_REUSE_PATTERN.md` | Unified Voting and Reuse Pattern | 3.9 KB |
 | `docs/quality/CODE_REVIEW_FINDINGS.md` | Code Review: Boolean Filter Logic Issues | 4.7 KB |
 | `docs/quality/PHASE_1_AUDIT_WORKSHEET.md` | PHASE 1 EXECUTION AUDIT WORKSHEET | 9.4 KB |
