@@ -53,18 +53,19 @@ Course authoring docs live outside this repo under `amanoba_courses:process_them
 
 ## Active Work Tracking
 
-Current documentation audit lane:
+Recently closed foundation/docs lane:
 
 - `#371` Amanoba: Establish audit plan & SSOT inventory
 - `#373` Amanoba: Document-to-code inventory for audit
 - `#374` Amanoba: Audit readiness checklist & handover prep
-
-Known follow-ups stay on the board, not buried in docs:
-
 - `#16` Multi-enrolment email scheduler.
 - `#225` Lesson quiz governance cleanup.
 - `#104` Cross-repo documentation federation.
+
+Known follow-ups stay on the board, not buried in docs:
+
 - `#65` Documentation refresh/audit backlog.
+- `#749` Broader Practice Hub ideabank.
 
 ## Operational Commands
 

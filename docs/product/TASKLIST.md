@@ -1,6 +1,6 @@
 # Amanoba Task List
 
-**Last Updated**: 2026-05-20
+**Last Updated**: 2026-05-21
 **Status**: Reference mirror only. The live work-tracking source of truth is the [Amanoba Project 12 board](https://github.com/users/moldovancsaba/projects/12/views/1) and issues in `moldovancsaba/mvp-factory-control`.
 
 ---
@@ -32,6 +32,9 @@ Recently closed / Done on Project 12:
 | `#781` | Amanoba practice hub MVP 1/3: define review modes, prioritization signals, and content contract | Done / closed |
 | `#782` | Amanoba practice hub MVP 2/3: learner UI shell, entry points, and review flows | Done / closed |
 | `#783` | Amanoba practice hub MVP 3/3: telemetry, rewards, and progress integration | Done / closed |
+| `#16` | Email/scheduler: Respect multiple enrolments | Done / closed |
+| `#104` | Cross-repo documentation federation (amanoba + amanoba_courses) | Done / closed |
+| `#225` | Lesson quiz governance #10 | Done / closed |
 
 ## Current Known Product / Platform Follow-Ups
 
@@ -39,9 +42,6 @@ These are the main repo-visible follow-ups that still matter after the May docum
 
 | Area | Current repo-visible status | Next action |
 |------|-----------------------------|-------------|
-| Multi-enrolment email scheduler | Scheduler code has been hardened and unit-tested, but the board still tracks broader multi-enrolment email validation. | Verify Project 12 issue `#16`, update the issue if the remaining work is validation-only, then close or split as appropriate. |
-| Lesson quiz governance | Runtime authority is course-level policy, but compatibility payloads and seed/import/export cleanup remain. | Continue Project 12 issue `#225`: package/import docs, seed cleanup, validator alignment, and migration/backfill. |
-| Cross-repo documentation federation | Portable `amanoba_courses:process_them/docs/...` references are now defined in `docs/core/CROSS_REPO_DOCS.md`; historical docs may still keep original absolute paths. | Keep Project 12 issue `#104` closed once board evidence is logged; migrate any newly touched active docs to the canonical notation. |
 | Release notes wiki migration | Repo release notes remain canonical in `docs/product/RELEASE_NOTES.md`; the wiki migration request remains open. | Project 12 issue `#65` is in Backlog. |
 | Broader Practice Hub ideabank | MVP contract/UI/telemetry are shipped, but the broader listening/speaking/mistakes vision is not complete. | Keep Project 12 issue `#749` in Backlog until the next review-mode expansion is prioritized. |
 | Design-system migration | Hard-rule UI foundation checks pass; heuristic drift remains in older admin/game/profile/certificate surfaces. | Migrate touched surfaces incrementally and keep `docs/product/DESIGN_UPDATE.md` current. |

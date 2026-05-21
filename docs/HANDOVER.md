@@ -2,7 +2,7 @@
 
 This document is the single-stop operational snapshot for Amanoba. Keep it current whenever the system behavior, process, or board status changes. Append entries instead of rewriting history.
 
-**Last Updated**: 2026-05-20
+**Last Updated**: 2026-05-21
 **Current Product Version**: 2.9.49 (per `package.json` and `README.md`)
 **Status**: Production stable, SSO-only auth, daily lessons + gamified learning live.
 
@@ -21,12 +21,13 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
   - `#371`, `#373`, `#374`: documentation audit lane.
   - `#750`, `#752`, `#770`, `#771`: learning streaks, friend streaks, saved lessons, and quiz answer explanations.
   - `#781`, `#782`, `#783`: Practice Hub contract, learner shell, telemetry/rewards.
-- **P2 platform follow-ups**
-  - `#16`: `Email/scheduler: Respect multiple enrolments` — verified in code/tests; close on Project 12 after board evidence is logged.
-  - `#225`: `Lesson quiz governance #10` — learner runtime and admin-facing documentation now use course-level policy as authority; remaining legacy fields are compatibility fallbacks.
-- **Documentation ops / federation**
+- **Foundation follow-ups closed on 2026-05-20**
+  - `#16`: `Email/scheduler: Respect multiple enrolments` — verified in code/tests and moved to Project 12 `Done`.
+  - `#225`: `Lesson quiz governance #10` — learner runtime now consumes course-level `quizPolicy`; legacy fields remain compatibility fallbacks.
   - `#104`: `Cross-repo documentation federation (amanoba + amanoba_courses)` — portable `amanoba_courses:process_them/docs/...` convention is documented in `docs/core/CROSS_REPO_DOCS.md`.
+- **Remaining Backlog**
   - `#65`: `Move Amanoba release notes into Amanoba wiki by ISO UTC date` — Project 12 Backlog.
+  - `#749`: `Amanoba ideabank: targeted practice hub for mistakes, listening, speaking, and review modes` — Project 12 Backlog.
 
 ## Documentation index (update when behavior changes)
 - `README.md` — quickstart + product overview (flexible courses, gamification, Stripe).
@@ -65,10 +66,10 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run build` (ensures Next.js build without warnings).
 
 ## Next steps
-1. Run and record the full foundation gates after the May 20 hardening pass.
-2. Update Project 12 issue evidence for `#16`, `#225`, and `#104`.
-3. Keep release notes grouped by ISO UTC date for public-facing releases (#65).
-4. Keep `docs/HANDOVER.md` appended whenever these areas move.
+1. Decide whether to promote `#65` from Backlog if release-note wiki publishing is still desired.
+2. Scope `#749` into concrete Practice Hub mode slices before implementation; keep it Backlog until prioritized.
+3. Keep release notes grouped by ISO UTC date for public-facing releases.
+4. Keep `docs/HANDOVER.md` appended whenever runtime behavior, process, production status, or board state changes.
 
 ---
 
@@ -90,7 +91,11 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:check:layout` ✅ pass
 - `npm run build` ✅ pass
 - Production route smoke via `curl -L`: `/`, `/robots.txt`, `/sitemap.xml`, `/en/auth/signin`, `/en/blog`, `/en/news`, `/en/courses`, `/en/practice`, `/en/saved`, `/en/editor/courses` ✅ reachable; editor route redirects anonymous users to sign-in.
-- `npm run docs:check` is rerun after commit because the generated-doc checker requires refreshed docs files to be committed before it can pass.
+- `npm run docs:check` ✅ pass after commit, when refreshed generated docs were part of the baseline.
+
+### Board state
+- `#16`, `#104`, and `#225` were commented, closed as completed, and moved to Project 12 `Done`.
+- `#65` and `#749` remain Project 12 `Backlog (SOONER)`.
 
 ## Project 12 board reconciliation (2026-05-20)
 
