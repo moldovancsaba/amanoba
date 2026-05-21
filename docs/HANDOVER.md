@@ -923,3 +923,50 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ### Notes
 - Current course length is flexible: minimum 1 active lesson; no hard model maximum. `durationDays` remains a planned/fallback length while learner-facing length resolves from active lessons or child-course selections.
+
+## Course UX Mantine hardening continuation (2026-05-21)
+
+### What changed
+- Continued Project 12 issue `#822` on `sentinel-squad/course-ux-mantine-hardening` with Mantine-only conversions for learner-critical course flows:
+  - enrolled lesson runtime
+  - lesson quiz runtime
+  - final exam runtime
+  - saved lessons
+  - Practice Hub
+  - dashboard and referral card
+  - sign-in and anonymous login
+  - public certificate verification pages
+- Converted high-impact admin/editor authoring surfaces:
+  - new course admin form
+  - quiz manager modal
+  - editor lesson page
+  - Markdown lesson editor
+- Replaced native browser alerts/confirmations in the migrated surfaces with Mantine notifications and modals.
+- Retired obsolete local legacy UI adapters:
+  - `app/components/ui/button.tsx`
+  - `app/components/ui/card.tsx`
+  - `app/components/ui/rich-text-editor.tsx`
+  - `app/lib/utils/cn.ts`
+- Removed unused Tailwind adapter dependencies `class-variance-authority`, `clsx`, and `tailwind-merge`.
+- Tightened `npm run ui:check:mantine` so no files remain allowlisted for the deleted legacy button/card/cn helpers.
+
+### Verification
+- Slice checks already passed while committing:
+  - `npm run type-check`
+  - `npm run ui:check:mantine`
+  - `npm run ui:check:foundation`
+  - `npm run ui:check:layout`
+  - focused `npx eslint` on migrated files
+- Full final validation:
+  - `npm run lint` ✅ pass
+  - `npm test` ✅ pass
+  - `npm run type-check` ✅ pass after `npm run build` regenerated `.next/types`
+  - `npm run build` ✅ pass
+  - `npm run docs:check` ✅ pass
+  - `npm run ui:check:mantine` ✅ pass
+  - `npm run ui:check:foundation` ✅ pass
+  - `npm run ui:check:layout` ✅ pass
+  - Browser smoke ✅ no Next.js runtime error detected on `/en/auth/signin`, lesson quiz, final exam, saved lessons, Practice Hub, and public certificate verification routes.
+
+### Notes
+- The full admin course editor page still has legacy Tailwind/lucide/native form markup and should be handled as a dedicated large conversion slice. Its shared quiz manager modal and Markdown editor dependency are now Mantine-only.
