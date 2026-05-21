@@ -1,5 +1,591 @@
 [
   {
+    "slug": "2026-05-21-steadier-lessons-memory-game-design-foundation",
+    "publishedAt": "2026-05-21",
+    "updatedAt": "2026-05-21",
+    "source": "amanoba-news",
+    "translations": {
+      "hu": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "en": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "ar": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "id": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "pt": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "vi": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "tr": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "bg": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "pl": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "ru": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "sw": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "zh": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "es": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "fr": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "bn": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      },
+      "ur": {
+        "headline": "Amanoba shipped steadier lesson rules, a refreshed memory game, and a stronger design foundation",
+        "summary": "This week focused on learner-facing stability: clearer quiz completion rules, a more consistent memory game experience, and a shared UI runtime for future course surfaces.",
+        "body": [
+          {
+            "heading": "Lesson completion now follows the course quiz policy",
+            "paragraphs": [
+              "Lesson pages now read the active course-level quiz policy when deciding whether a learner can mark a lesson complete. That makes the on-screen requirement match the real course rule, including question count and maximum wrong-answer limits where those rules are configured.",
+              "For learners, the practical result is less ambiguity: if a quiz is required, the lesson page keeps the quiz action visible, blocks premature completion, and explains the requirement in clearer product language."
+            ]
+          },
+          {
+            "heading": "The memory game moved onto the refreshed Amanoba UI foundation",
+            "paragraphs": [
+              "The Memory Match game now uses the same Mantine-based control and card primitives as the refreshed Amanoba interface. Difficulty choices, stats cards, pause and restart actions, and the completion dialog now sit on a more consistent UI layer.",
+              "Rewards, challenge completion, final score, moves, and time remain part of the game flow, but the surface is cleaner and more aligned with the rest of the learner experience."
+            ]
+          },
+          {
+            "heading": "A shared runtime prepares more learner screens for the new design system",
+            "paragraphs": [
+              "Amanoba now has a Mantine runtime provider wired into the localized app layout, with a product theme, color-scheme handling, modals, and notifications available across locale routes.",
+              "This is mostly foundation work, but it matters to learners because it lets future course, practice, and account screens move toward one consistent interaction model instead of each area carrying its own one-off controls."
+            ]
+          },
+          {
+            "heading": "Product updates are easier to publish and read",
+            "paragraphs": [
+              "The public blog and news surfaces continue to be backed by the same content source, so weekly updates can appear consistently at both the blog route and the news alias.",
+              "The release-note archive also moved into a published wiki workflow, making it easier to keep public-facing release history separated from internal implementation notes."
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
     "slug": "2026-05-11-smarter-review-saved-lessons-streaks",
     "publishedAt": "2026-05-11",
     "updatedAt": "2026-05-11",
