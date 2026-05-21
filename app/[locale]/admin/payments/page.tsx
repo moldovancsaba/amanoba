@@ -1,24 +1,42 @@
 /**
  * Admin Payments Dashboard
- * 
- * What: View all payment transactions and revenue analytics
- * Why: Allows admins to track revenue, view transactions, and analyze payment data
+ *
+ * What: View all payment transactions and revenue analytics.
+ * Why: Allows admins to track revenue, view transactions, and analyze payment data.
  */
 
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, type ReactNode } from 'react';
 import {
-  DollarSign,
-  TrendingUp,
-  TrendingDown,
-  Download,
-  CheckCircle,
-  XCircle,
-  RefreshCw,
-  Eye,
-  X,
-} from 'lucide-react';
+  Badge,
+  Button,
+  Card,
+  Group,
+  Loader,
+  Modal,
+  Pagination,
+  Paper,
+  ScrollArea,
+  Select,
+  SimpleGrid,
+  Stack,
+  Table,
+  Text,
+  TextInput,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import {
+  IconCheck,
+  IconDownload,
+  IconEye,
+  IconRefresh,
+  IconTrendingDown,
+  IconTrendingUp,
+  IconX,
+  IconCurrencyDollar,
+} from '@tabler/icons-react';
 
 interface PaymentTransaction {
   id: string;
@@ -73,47 +91,44 @@ interface Analytics {
   refundedTransactions: number;
 }
 
+const LIMIT = 50;
+
+const statusOptions = [
+  { value: 'all', label: 'All statuses' },
+  { value: 'succeeded', label: 'Succeeded' },
+  { value: 'failed', label: 'Failed' },
+  { value: 'pending', label: 'Pending' },
+  { value: 'processing', label: 'Processing' },
+  { value: 'refunded', label: 'Refunded' },
+  { value: 'canceled', label: 'Canceled' },
+];
+
 export default function AdminPaymentsPage() {
   const [transactions, setTransactions] = useState<PaymentTransaction[]>([]);
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedTransaction, setSelectedTransaction] = useState<PaymentTransaction | null>(null);
-
-  // Filters
   const [statusFilter, setStatusFilter] = useState<string>('all');
-  const [courseFilter, setCourseFilter] = useState<string>('all');
+  const [courseFilter, setCourseFilter] = useState<string>('');
   const [playerFilter, setPlayerFilter] = useState<string>('');
   const [startDate, setStartDate] = useState<string>('');
   const [endDate, setEndDate] = useState<string>('');
-
-  // Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
-  const limit = 50;
 
   const fetchPayments = useCallback(async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams();
-      
-      if (statusFilter !== 'all') {
-        params.append('status', statusFilter);
-      }
-      if (courseFilter !== 'all') {
-        params.append('courseId', courseFilter);
-      }
-      if (playerFilter) {
-        params.append('playerId', playerFilter);
-      }
-      if (startDate) {
-        params.append('startDate', startDate);
-      }
-      if (endDate) {
-        params.append('endDate', endDate);
-      }
-      
-      params.append('limit', limit.toString());
-      params.append('offset', ((currentPage - 1) * limit).toString());
+
+      if (statusFilter !== 'all') params.append('status', statusFilter);
+      if (courseFilter) params.append('courseId', courseFilter);
+      if (playerFilter) params.append('playerId', playerFilter);
+      if (startDate) params.append('startDate', startDate);
+      if (endDate) params.append('endDate', endDate);
+
+      params.append('limit', LIMIT.toString());
+      params.append('offset', ((currentPage - 1) * LIMIT).toString());
       params.append('analytics', 'true');
 
       const response = await fetch(`/api/admin/payments?${params.toString()}`);
@@ -145,37 +160,12 @@ export default function AdminPaymentsPage() {
         maximumFractionDigits: currency === 'HUF' ? 0 : 2,
       }
     );
-    // Convert from cents to main unit
-    const mainUnit = currency === 'HUF' ? amount : amount / 100;
-    return formatter.format(mainUnit);
+    return formatter.format(currency === 'HUF' ? amount : amount / 100);
   };
 
-  const getStatusColor = (status: string): string => {
-    switch (status) {
-      case 'succeeded':
-        return 'text-green-400 bg-green-400/20';
-      case 'failed':
-        return 'text-red-400 bg-red-400/20';
-      case 'refunded':
-      case 'partially_refunded':
-        return 'text-yellow-400 bg-yellow-400/20';
-      case 'pending':
-      case 'processing':
-        return 'text-brand-accent bg-brand-accent/20';
-      default:
-        return 'text-brand-white/70 bg-brand-white/5';
-    }
-  };
-
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case 'succeeded':
-        return <CheckCircle className="w-4 h-4" />;
-      case 'failed':
-        return <XCircle className="w-4 h-4" />;
-      default:
-        return null;
-    }
+  const resetToFirstPage = (setter: (value: string) => void, value: string | null) => {
+    setter(value || '');
+    setCurrentPage(1);
   };
 
   const exportToCSV = () => {
@@ -214,485 +204,355 @@ export default function AdminPaymentsPage() {
 
     const blob = new Blob([csvContent], { type: 'text/csv' });
     const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `payments-${new Date().toISOString().split('T')[0]}.csv`;
-    a.click();
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = `payments-${new Date().toISOString().split('T')[0]}.csv`;
+    anchor.click();
     window.URL.revokeObjectURL(url);
   };
 
-  const totalPages = Math.ceil(totalCount / limit);
+  const totalPages = Math.ceil(totalCount / LIMIT);
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-brand-white mb-2">Payment Dashboard</h1>
-          <p className="text-brand-white/70">View all transactions and revenue analytics</p>
-        </div>
-        <div className="flex items-center gap-3">
-          <button
-            onClick={exportToCSV}
-            className="flex items-center gap-2 bg-brand-darkGrey text-brand-white px-4 py-2 rounded-lg border border-brand-accent hover:bg-brand-accent hover:text-brand-black transition-colors"
-          >
-            <Download className="w-5 h-5" />
+    <Stack gap="lg">
+      <Group justify="space-between" align="flex-start">
+        <Stack gap={4}>
+          <Title order={1} c="white">Payment Dashboard</Title>
+          <Text c="gray.4">View all transactions and revenue analytics</Text>
+        </Stack>
+        <Group>
+          <Button variant="default" leftSection={<IconDownload size={18} />} onClick={exportToCSV}>
             Export CSV
-          </button>
-          <button
-            onClick={fetchPayments}
-            className="flex items-center gap-2 bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
-          >
-            <RefreshCw className="w-5 h-5" />
+          </Button>
+          <Button leftSection={<IconRefresh size={18} />} onClick={() => void fetchPayments()}>
             Refresh
-          </button>
-        </div>
-      </div>
+          </Button>
+        </Group>
+      </Group>
 
-      {/* Analytics Cards */}
       {analytics && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Total Revenue */}
-          <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-brand-white/70">Total Revenue</h3>
-              <DollarSign className="w-5 h-5 text-brand-accent" />
-            </div>
-            <div className="space-y-1">
-              {analytics.totalRevenue.length > 0 ? (
-                analytics.totalRevenue.map((rev) => (
-                  <div key={rev.currency} className="text-2xl font-bold text-brand-white">
-                    {formatCurrency(rev.amount, rev.currency)}
-                  </div>
-                ))
-              ) : (
-                <div className="text-2xl font-bold text-brand-white">$0.00</div>
-              )}
-              <p className="text-xs text-brand-white/70">
-                {analytics.succeededTransactions} successful transactions
-              </p>
-            </div>
-          </div>
-
-          {/* Success Rate */}
-          <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-brand-white/70">Success Rate</h3>
-              <TrendingUp className="w-5 h-5 text-green-400" />
-            </div>
-            <div className="text-2xl font-bold text-brand-white">
-              {analytics.successRate.toFixed(1)}%
-            </div>
-            <p className="text-xs text-brand-white/70">
-              {analytics.succeededTransactions} / {analytics.totalTransactions} transactions
-            </p>
-          </div>
-
-          {/* Failed Transactions */}
-          <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-brand-white/70">Failed</h3>
-              <TrendingDown className="w-5 h-5 text-red-400" />
-            </div>
-            <div className="text-2xl font-bold text-brand-white">
-              {analytics.failedTransactions}
-            </div>
-            <p className="text-xs text-brand-white/70">
-              {analytics.failureRate.toFixed(1)}% failure rate
-            </p>
-          </div>
-
-          {/* Refunded */}
-          <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-brand-white/70">Refunded</h3>
-              <RefreshCw className="w-5 h-5 text-yellow-400" />
-            </div>
-            <div className="text-2xl font-bold text-brand-white">
-              {analytics.refundedTransactions}
-            </div>
-            <p className="text-xs text-brand-white/70">
-              {analytics.refundRate.toFixed(1)}% refund rate
-            </p>
-          </div>
-        </div>
+        <SimpleGrid cols={{ base: 1, md: 2, lg: 4 }}>
+          <MetricCard
+            label="Total Revenue"
+            value={analytics.totalRevenue.length > 0
+              ? analytics.totalRevenue.map((rev) => formatCurrency(rev.amount, rev.currency)).join(' / ')
+              : '$0.00'}
+            detail={`${analytics.succeededTransactions} successful transactions`}
+            icon={<IconCurrencyDollar size={22} />}
+            color="amanobaYellow"
+          />
+          <MetricCard
+            label="Success Rate"
+            value={`${analytics.successRate.toFixed(1)}%`}
+            detail={`${analytics.succeededTransactions} / ${analytics.totalTransactions} transactions`}
+            icon={<IconTrendingUp size={22} />}
+            color="green"
+          />
+          <MetricCard
+            label="Failed"
+            value={analytics.failedTransactions.toString()}
+            detail={`${analytics.failureRate.toFixed(1)}% failure rate`}
+            icon={<IconTrendingDown size={22} />}
+            color="red"
+          />
+          <MetricCard
+            label="Refunded"
+            value={analytics.refundedTransactions.toString()}
+            detail={`${analytics.refundRate.toFixed(1)}% refund rate`}
+            icon={<IconRefresh size={22} />}
+            color="yellow"
+          />
+        </SimpleGrid>
       )}
 
-      {/* Revenue by Period */}
       {analytics && (
-        <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-          <h2 className="text-xl font-bold text-brand-white mb-4">Revenue by Period</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-              <h3 className="text-sm font-medium text-brand-white/70 mb-2">Today</h3>
-              {analytics.revenueByPeriod.today.length > 0 ? (
-                analytics.revenueByPeriod.today.map((rev) => (
-                  <div key={rev.currency} className="text-lg font-bold text-brand-white">
-                    {formatCurrency(rev.amount, rev.currency)}
-                  </div>
-                ))
-              ) : (
-                <div className="text-lg font-bold text-brand-white">$0.00</div>
-              )}
-            </div>
-            <div>
-              <h3 className="text-sm font-medium text-brand-white/70 mb-2">Last 7 Days</h3>
-              {analytics.revenueByPeriod.last7Days.length > 0 ? (
-                analytics.revenueByPeriod.last7Days.map((rev) => (
-                  <div key={rev.currency} className="text-lg font-bold text-brand-white">
-                    {formatCurrency(rev.amount, rev.currency)}
-                  </div>
-                ))
-              ) : (
-                <div className="text-lg font-bold text-brand-white">$0.00</div>
-              )}
-            </div>
-            <div>
-              <h3 className="text-sm font-medium text-brand-white/70 mb-2">Last 30 Days</h3>
-              {analytics.revenueByPeriod.last30Days.length > 0 ? (
-                analytics.revenueByPeriod.last30Days.map((rev) => (
-                  <div key={rev.currency} className="text-lg font-bold text-brand-white">
-                    {formatCurrency(rev.amount, rev.currency)}
-                  </div>
-                ))
-              ) : (
-                <div className="text-lg font-bold text-brand-white">$0.00</div>
-              )}
-            </div>
-          </div>
-        </div>
+        <Card padding="lg">
+          <Stack gap="md">
+            <Title order={2} size="h3">Revenue by Period</Title>
+            <SimpleGrid cols={{ base: 1, md: 3 }}>
+              <RevenuePeriod label="Today" values={analytics.revenueByPeriod.today} formatCurrency={formatCurrency} />
+              <RevenuePeriod label="Last 7 Days" values={analytics.revenueByPeriod.last7Days} formatCurrency={formatCurrency} />
+              <RevenuePeriod label="Last 30 Days" values={analytics.revenueByPeriod.last30Days} formatCurrency={formatCurrency} />
+            </SimpleGrid>
+          </Stack>
+        </Card>
       )}
 
-      {/* Filters */}
-      <div className="bg-brand-darkGrey rounded-xl p-4 border-2 border-brand-accent">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-          {/* Status Filter */}
-          <div>
-            <label className="block text-sm font-medium text-brand-white/70 mb-2">Status</label>
-            <select
-              value={statusFilter}
-              onChange={(e) => {
-                setStatusFilter(e.target.value);
-                setCurrentPage(1);
-              }}
-              className="w-full px-4 py-2 bg-brand-black border border-brand-accent/30 rounded-lg text-brand-white focus:outline-none focus:border-brand-accent"
-            >
-              <option value="all">All Statuses</option>
-              <option value="succeeded">Succeeded</option>
-              <option value="failed">Failed</option>
-              <option value="pending">Pending</option>
-              <option value="processing">Processing</option>
-              <option value="refunded">Refunded</option>
-              <option value="canceled">Canceled</option>
-            </select>
-          </div>
+      <Card padding="md">
+        <SimpleGrid cols={{ base: 1, md: 2, lg: 5 }}>
+          <Select
+            label="Status"
+            data={statusOptions}
+            value={statusFilter}
+            onChange={(value) => resetToFirstPage(setStatusFilter, value || 'all')}
+            allowDeselect={false}
+          />
+          <TextInput
+            label="Course"
+            placeholder="Course ID..."
+            value={courseFilter}
+            onChange={(event) => resetToFirstPage(setCourseFilter, event.currentTarget.value)}
+          />
+          <TextInput
+            label="User ID"
+            placeholder="User ID..."
+            value={playerFilter}
+            onChange={(event) => resetToFirstPage(setPlayerFilter, event.currentTarget.value)}
+          />
+          <TextInput
+            label="Start Date"
+            type="date"
+            value={startDate}
+            onChange={(event) => resetToFirstPage(setStartDate, event.currentTarget.value)}
+          />
+          <TextInput
+            label="End Date"
+            type="date"
+            value={endDate}
+            onChange={(event) => resetToFirstPage(setEndDate, event.currentTarget.value)}
+          />
+        </SimpleGrid>
+      </Card>
 
-          {/* Course Filter */}
-          <div>
-            <label className="block text-sm font-medium text-brand-white/70 mb-2">Course</label>
-            <input
-              type="text"
-              placeholder="Course ID..."
-              value={courseFilter}
-              onChange={(e) => {
-                setCourseFilter(e.target.value);
-                setCurrentPage(1);
-              }}
-              className="w-full px-4 py-2 bg-brand-black border border-brand-accent/30 rounded-lg text-brand-white placeholder-brand-white/50 focus:outline-none focus:border-brand-accent"
-            />
-          </div>
-
-          {/* Player Filter */}
-          <div>
-            <label className="block text-sm font-medium text-brand-white/70 mb-2">User ID</label>
-              <input
-                type="text"
-                placeholder="User ID..."
-              value={playerFilter}
-              onChange={(e) => {
-                setPlayerFilter(e.target.value);
-                setCurrentPage(1);
-              }}
-              className="w-full px-4 py-2 bg-brand-black border border-brand-accent/30 rounded-lg text-brand-white placeholder-brand-white/50 focus:outline-none focus:border-brand-accent"
-            />
-          </div>
-
-          {/* Start Date */}
-          <div>
-            <label className="block text-sm font-medium text-brand-white/70 mb-2">Start Date</label>
-            <input
-              type="date"
-              value={startDate}
-              onChange={(e) => {
-                setStartDate(e.target.value);
-                setCurrentPage(1);
-              }}
-              className="w-full px-4 py-2 bg-brand-black border border-brand-accent/30 rounded-lg text-brand-white focus:outline-none focus:border-brand-accent"
-            />
-          </div>
-
-          {/* End Date */}
-          <div>
-            <label className="block text-sm font-medium text-brand-white/70 mb-2">End Date</label>
-            <input
-              type="date"
-              value={endDate}
-              onChange={(e) => {
-                setEndDate(e.target.value);
-                setCurrentPage(1);
-              }}
-              className="w-full px-4 py-2 bg-brand-black border border-brand-accent/30 rounded-lg text-brand-white focus:outline-none focus:border-brand-accent"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Transactions Table */}
-      <div className="bg-brand-darkGrey rounded-xl border-2 border-brand-accent overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-brand-black/50">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-brand-white/70 uppercase tracking-wider">
-                  Date
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-brand-white/70 uppercase tracking-wider">
-                  Player
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-brand-white/70 uppercase tracking-wider">
-                  Course
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-brand-white/70 uppercase tracking-wider">
-                  Amount
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-brand-white/70 uppercase tracking-wider">
-                  Status
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-brand-white/70 uppercase tracking-wider">
-                  Payment Method
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-brand-white/70 uppercase tracking-wider">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-brand-black/50">
+      <Card padding={0}>
+        <ScrollArea>
+          <Table miw={980} verticalSpacing="sm" highlightOnHover>
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th>Date</Table.Th>
+                <Table.Th>Player</Table.Th>
+                <Table.Th>Course</Table.Th>
+                <Table.Th>Amount</Table.Th>
+                <Table.Th>Status</Table.Th>
+                <Table.Th>Payment Method</Table.Th>
+                <Table.Th>Actions</Table.Th>
+              </Table.Tr>
+            </Table.Thead>
+            <Table.Tbody>
               {loading ? (
-                <tr>
-                  <td colSpan={7} className="px-6 py-12 text-center text-brand-white/70">
-                    Loading transactions...
-                  </td>
-                </tr>
+                <Table.Tr>
+                  <Table.Td colSpan={7}>
+                    <Group justify="center" py="xl">
+                      <Loader color="amanobaYellow" />
+                      <Text c="dimmed">Loading transactions...</Text>
+                    </Group>
+                  </Table.Td>
+                </Table.Tr>
               ) : transactions.length === 0 ? (
-                <tr>
-                  <td colSpan={7} className="px-6 py-12 text-center text-brand-white/70">
-                    No transactions found
-                  </td>
-                </tr>
+                <Table.Tr>
+                  <Table.Td colSpan={7}>
+                    <Text c="dimmed" ta="center" py="xl">No transactions found</Text>
+                  </Table.Td>
+                </Table.Tr>
               ) : (
                 transactions.map((tx) => (
-                  <tr key={tx.id} className="hover:bg-brand-black/30">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-white">
-                      {new Date(tx.createdAt).toLocaleDateString()}
-                      <br />
-                      <span className="text-xs text-brand-white/60">
-                        {new Date(tx.createdAt).toLocaleTimeString()}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-brand-white">{tx.playerName}</div>
-                      {tx.playerEmail && (
-                        <div className="text-xs text-brand-white/60">{tx.playerEmail}</div>
-                      )}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-white">
-                      {tx.courseName || 'N/A'}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-brand-white">
-                      {formatCurrency(tx.amount, tx.currency)}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span
-                        className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(tx.status)}`}
-                      >
-                        {getStatusIcon(tx.status)}
-                        {tx.status}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-white">
-                      {tx.paymentMethod
-                        ? `${tx.paymentMethod.type} ${tx.paymentMethod.last4 ? `••••${tx.paymentMethod.last4}` : ''}`
-                        : 'N/A'}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm">
-                      <button
+                  <Table.Tr key={tx.id}>
+                    <Table.Td>
+                      <Stack gap={2}>
+                        <Text size="sm">{new Date(tx.createdAt).toLocaleDateString()}</Text>
+                        <Text size="xs" c="dimmed">{new Date(tx.createdAt).toLocaleTimeString()}</Text>
+                      </Stack>
+                    </Table.Td>
+                    <Table.Td>
+                      <Stack gap={2}>
+                        <Text size="sm">{tx.playerName}</Text>
+                        {tx.playerEmail && <Text size="xs" c="dimmed">{tx.playerEmail}</Text>}
+                      </Stack>
+                    </Table.Td>
+                    <Table.Td>
+                      <Text size="sm">{tx.courseName || 'N/A'}</Text>
+                    </Table.Td>
+                    <Table.Td>
+                      <Text size="sm" fw={700}>{formatCurrency(tx.amount, tx.currency)}</Text>
+                    </Table.Td>
+                    <Table.Td>
+                      <StatusBadge status={tx.status} />
+                    </Table.Td>
+                    <Table.Td>
+                      <Text size="sm">{formatPaymentMethod(tx.paymentMethod)}</Text>
+                    </Table.Td>
+                    <Table.Td>
+                      <Button
+                        variant="subtle"
+                        size="compact-sm"
+                        leftSection={<IconEye size={16} />}
                         onClick={() => setSelectedTransaction(tx)}
-                        className="text-brand-accent hover:text-brand-primary-400 flex items-center gap-1"
                       >
-                        <Eye className="w-4 h-4" />
                         View
-                      </button>
-                    </td>
-                  </tr>
+                      </Button>
+                    </Table.Td>
+                  </Table.Tr>
                 ))
               )}
-            </tbody>
-          </table>
-        </div>
+            </Table.Tbody>
+          </Table>
+        </ScrollArea>
 
-        {/* Pagination */}
         {totalPages > 1 && (
-          <div className="px-6 py-4 border-t border-brand-black/50 flex items-center justify-between">
-            <div className="text-sm text-brand-white/70">
-              Showing {(currentPage - 1) * limit + 1} to {Math.min(currentPage * limit, totalCount)} of {totalCount} transactions
-            </div>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                disabled={currentPage === 1}
-                className="px-4 py-2 bg-brand-black border border-brand-accent/30 rounded-lg text-brand-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-brand-accent hover:text-brand-black transition-colors"
-              >
-                Previous
-              </button>
-              <span className="text-sm text-brand-white/70">
-                Page {currentPage} of {totalPages}
-              </span>
-              <button
-                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                disabled={currentPage === totalPages}
-                className="px-4 py-2 bg-brand-black border border-brand-accent/30 rounded-lg text-brand-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-brand-accent hover:text-brand-black transition-colors"
-              >
-                Next
-              </button>
-            </div>
-          </div>
+          <Group justify="space-between" p="md">
+            <Text size="sm" c="dimmed">
+              Showing {(currentPage - 1) * LIMIT + 1} to {Math.min(currentPage * LIMIT, totalCount)} of {totalCount} transactions
+            </Text>
+            <Pagination value={currentPage} onChange={setCurrentPage} total={totalPages} />
+          </Group>
         )}
-      </div>
+      </Card>
 
-      {/* Transaction Details Modal */}
-      {selectedTransaction && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-brand-darkGrey rounded-xl border-2 border-brand-accent max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6 border-b border-brand-black/50">
-              <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-brand-white">Transaction Details</h2>
-                <button
-                  onClick={() => setSelectedTransaction(null)}
-                  className="text-brand-white/70 hover:text-brand-white"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-            </div>
-            <div className="p-6 space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-brand-white/70">Transaction ID</label>
-                  <div className="text-brand-white font-mono text-sm">{selectedTransaction.id}</div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-brand-white/70">Status</label>
-                  <div>
-                    <span
-                      className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(selectedTransaction.status)}`}
-                    >
-                      {getStatusIcon(selectedTransaction.status)}
-                      {selectedTransaction.status}
-                    </span>
-                  </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-brand-white/70">User</label>
-                  <div className="text-brand-white">{selectedTransaction.playerName}</div>
-                  {selectedTransaction.playerEmail && (
-                    <div className="text-sm text-brand-white/70">{selectedTransaction.playerEmail}</div>
-                  )}
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-brand-white/70">Course</label>
-                  <div className="text-brand-white">{selectedTransaction.courseName || 'N/A'}</div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-brand-white/70">Amount</label>
-                  <div className="text-brand-white font-bold">
-                    {formatCurrency(selectedTransaction.amount, selectedTransaction.currency)}
-                  </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-brand-white/70">Payment Method</label>
-                  <div className="text-brand-white">
-                    {selectedTransaction.paymentMethod
-                      ? `${selectedTransaction.paymentMethod.type} ${selectedTransaction.paymentMethod.last4 ? `••••${selectedTransaction.paymentMethod.last4}` : ''}`
-                      : 'N/A'}
-                  </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-brand-white/70">Created At</label>
-                  <div className="text-brand-white">
-                    {new Date(selectedTransaction.createdAt).toLocaleString()}
-                  </div>
-                </div>
-                {selectedTransaction.processedAt && (
-                  <div>
-                    <label className="text-sm font-medium text-brand-white/70">Processed At</label>
-                    <div className="text-brand-white">
-                      {new Date(selectedTransaction.processedAt).toLocaleString()}
-                    </div>
-                  </div>
-                )}
-                {selectedTransaction.refundedAt && (
-                  <div>
-                    <label className="text-sm font-medium text-brand-white/70">Refunded At</label>
-                    <div className="text-brand-white">
-                      {new Date(selectedTransaction.refundedAt).toLocaleString()}
-                    </div>
-                  </div>
-                )}
-                <div>
-                  <label className="text-sm font-medium text-brand-white/70">Premium Granted</label>
-                  <div className="text-brand-white">
-                    {selectedTransaction.premiumGranted ? 'Yes' : 'No'}
-                  </div>
-                </div>
-                {selectedTransaction.premiumExpiresAt && (
-                  <div>
-                    <label className="text-sm font-medium text-brand-white/70">Premium Expires</label>
-                    <div className="text-brand-white">
-                      {new Date(selectedTransaction.premiumExpiresAt).toLocaleString()}
-                    </div>
-                  </div>
-                )}
-              </div>
-              <div>
-                <label className="text-sm font-medium text-brand-white/70">Stripe Payment Intent ID</label>
-                <div className="text-brand-white font-mono text-sm break-all">
-                  {selectedTransaction.stripePaymentIntentId}
-                </div>
-              </div>
-              {selectedTransaction.stripeCheckoutSessionId && (
-                <div>
-                  <label className="text-sm font-medium text-brand-white/70">Stripe Checkout Session ID</label>
-                  <div className="text-brand-white font-mono text-sm break-all">
-                    {selectedTransaction.stripeCheckoutSessionId}
-                  </div>
-                </div>
+      <Modal
+        opened={Boolean(selectedTransaction)}
+        onClose={() => setSelectedTransaction(null)}
+        title="Transaction Details"
+        size="lg"
+        centered
+      >
+        {selectedTransaction && (
+          <Stack gap="md">
+            <SimpleGrid cols={{ base: 1, sm: 2 }}>
+              <Detail label="Transaction ID" value={selectedTransaction.id} mono />
+              <Detail label="Status" value={<StatusBadge status={selectedTransaction.status} />} />
+              <Detail label="User" value={selectedTransaction.playerName} detail={selectedTransaction.playerEmail || undefined} />
+              <Detail label="Course" value={selectedTransaction.courseName || 'N/A'} />
+              <Detail label="Amount" value={formatCurrency(selectedTransaction.amount, selectedTransaction.currency)} />
+              <Detail label="Payment Method" value={formatPaymentMethod(selectedTransaction.paymentMethod)} />
+              <Detail label="Created At" value={new Date(selectedTransaction.createdAt).toLocaleString()} />
+              {selectedTransaction.processedAt && (
+                <Detail label="Processed At" value={new Date(selectedTransaction.processedAt).toLocaleString()} />
               )}
-              {selectedTransaction.failureReason && (
-                <div>
-                  <label className="text-sm font-medium text-brand-white/70">Failure Reason</label>
-                  <div className="text-red-400">{selectedTransaction.failureReason}</div>
-                </div>
+              {selectedTransaction.refundedAt && (
+                <Detail label="Refunded At" value={new Date(selectedTransaction.refundedAt).toLocaleString()} />
               )}
-              {selectedTransaction.refundReason && (
-                <div>
-                  <label className="text-sm font-medium text-brand-white/70">Refund Reason</label>
-                  <div className="text-yellow-400">{selectedTransaction.refundReason}</div>
-                </div>
+              <Detail label="Premium Granted" value={selectedTransaction.premiumGranted ? 'Yes' : 'No'} />
+              {selectedTransaction.premiumExpiresAt && (
+                <Detail label="Premium Expires" value={new Date(selectedTransaction.premiumExpiresAt).toLocaleString()} />
               )}
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+            </SimpleGrid>
+
+            <Detail label="Stripe Payment Intent ID" value={selectedTransaction.stripePaymentIntentId} mono />
+            {selectedTransaction.stripeCheckoutSessionId && (
+              <Detail label="Stripe Checkout Session ID" value={selectedTransaction.stripeCheckoutSessionId} mono />
+            )}
+            {selectedTransaction.failureReason && (
+              <Detail label="Failure Reason" value={selectedTransaction.failureReason} color="red" />
+            )}
+            {selectedTransaction.refundReason && (
+              <Detail label="Refund Reason" value={selectedTransaction.refundReason} color="yellow" />
+            )}
+          </Stack>
+        )}
+      </Modal>
+    </Stack>
+  );
+}
+
+function MetricCard({
+  label,
+  value,
+  detail,
+  icon,
+  color,
+}: {
+  label: string;
+  value: string;
+  detail: string;
+  icon: ReactNode;
+  color: string;
+}) {
+  return (
+    <Card padding="lg">
+      <Stack gap="sm">
+        <Group justify="space-between">
+          <Text size="sm" c="dimmed" fw={600}>{label}</Text>
+          <ThemeIcon color={color} variant="light">{icon}</ThemeIcon>
+        </Group>
+        <Text size="xl" fw={800}>{value}</Text>
+        <Text size="xs" c="dimmed">{detail}</Text>
+      </Stack>
+    </Card>
+  );
+}
+
+function RevenuePeriod({
+  label,
+  values,
+  formatCurrency,
+}: {
+  label: string;
+  values: Array<{ currency: string; amount: number; count: number }>;
+  formatCurrency: (amount: number, currency: string) => string;
+}) {
+  return (
+    <Paper withBorder radius="md" p="md">
+      <Stack gap={4}>
+        <Text size="sm" c="dimmed" fw={600}>{label}</Text>
+        {values.length > 0 ? (
+          values.map((rev) => (
+            <Text key={rev.currency} fw={800}>{formatCurrency(rev.amount, rev.currency)}</Text>
+          ))
+        ) : (
+          <Text fw={800}>$0.00</Text>
+        )}
+      </Stack>
+    </Paper>
+  );
+}
+
+function StatusBadge({ status }: { status: string }) {
+  const color = getStatusColor(status);
+  const icon = status === 'succeeded'
+    ? <IconCheck size={12} />
+    : status === 'failed'
+      ? <IconX size={12} />
+      : undefined;
+
+  return (
+    <Badge color={color} leftSection={icon} variant="light">
+      {status}
+    </Badge>
+  );
+}
+
+function getStatusColor(status: string): string {
+  switch (status) {
+    case 'succeeded':
+      return 'green';
+    case 'failed':
+      return 'red';
+    case 'refunded':
+    case 'partially_refunded':
+      return 'yellow';
+    case 'pending':
+    case 'processing':
+      return 'amanobaYellow';
+    default:
+      return 'gray';
+  }
+}
+
+function formatPaymentMethod(method: PaymentTransaction['paymentMethod']) {
+  if (!method) return 'N/A';
+  return `${method.type} ${method.last4 ? `••••${method.last4}` : ''}`.trim();
+}
+
+function Detail({
+  label,
+  value,
+  detail,
+  mono,
+  color,
+}: {
+  label: string;
+  value: ReactNode;
+  detail?: string;
+  mono?: boolean;
+  color?: string;
+}) {
+  return (
+    <Stack gap={2}>
+      <Text size="xs" c="dimmed" fw={600}>{label}</Text>
+      <Text fw={600} ff={mono ? 'monospace' : undefined} size={mono ? 'sm' : undefined} c={color} style={{ wordBreak: 'break-word' }}>
+        {value}
+      </Text>
+      {detail && <Text size="sm" c="dimmed">{detail}</Text>}
+    </Stack>
   );
 }
