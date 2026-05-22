@@ -986,6 +986,7 @@ export default function DailyLessonPage({
 
             <Card padding="xl" radius="md" withBorder>
               <TypographyStylesProvider
+                className="lesson-prose lesson-prose-dark"
                 dangerouslySetInnerHTML={{ __html: contentToHtml(lesson.content, { stripFirstH1: true }) }}
               />
               <Divider my="lg" />

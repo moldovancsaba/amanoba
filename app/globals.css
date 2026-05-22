@@ -87,18 +87,23 @@ h3 {
   font-size: 1.15rem;
   line-height: 1.8;
   letter-spacing: -0.01em;
+  color: var(--lesson-prose-text, currentColor);
 }
 
 .lesson-prose p {
   margin-bottom: 1.1em;
+  color: var(--lesson-prose-text, currentColor);
 }
 
+.lesson-prose h1,
 .lesson-prose h2,
 .lesson-prose h3,
 .lesson-prose h4 {
   font-family: var(--font-secondary);
   margin-top: 1.6em;
   margin-bottom: 0.6em;
+  color: var(--lesson-prose-heading, var(--color-heading));
+  letter-spacing: 0;
 }
 
 .lesson-prose ul,
@@ -106,10 +111,41 @@ h3 {
   padding-left: 1.4em;
   margin-bottom: 1.2em;
   line-height: 1.8;
+  color: var(--lesson-prose-text, currentColor);
 }
 
 .lesson-prose li {
   margin-bottom: 0.6em;
+  color: var(--lesson-prose-text, currentColor);
+}
+
+.lesson-prose a {
+  color: var(--lesson-prose-link, var(--cta-bg));
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.lesson-prose blockquote {
+  color: var(--lesson-prose-muted, currentColor);
+  border-left: 3px solid var(--lesson-prose-accent, var(--cta-bg));
+  padding-left: 1em;
+}
+
+.lesson-prose code {
+  background: var(--lesson-prose-code-bg, color-mix(in srgb, currentColor 10%, transparent));
+  color: var(--lesson-prose-code-text, currentColor);
+  border-radius: var(--radius-md);
+  padding: 0.1em 0.28em;
+}
+
+.lesson-prose-dark {
+  --lesson-prose-heading: var(--mantine-color-white);
+  --lesson-prose-text: var(--mantine-color-gray-2);
+  --lesson-prose-muted: var(--mantine-color-gray-3);
+  --lesson-prose-link: var(--mantine-color-amanoba-4);
+  --lesson-prose-accent: var(--mantine-color-amanoba-5);
+  --lesson-prose-code-bg: var(--mantine-color-ink-9);
+  --lesson-prose-code-text: var(--mantine-color-gray-1);
 }
 
 /* Utility classes for text balance and accessibility */

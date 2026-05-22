@@ -79,6 +79,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 ### What changed
 - Added `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COLOR_MODES_READABILITY.md` as the shared SSOT rule for dark/light mode ownership, contrast, mixed-mode exceptions, and human-first readability.
 - Updated Amanoba's Mantine theme defaults so dark-mode `Text`, `Title`, `Card`, `Paper`, inputs, overlays, tabs, badges, and code surfaces render readable colors by default instead of relying on page-by-page overrides.
+- Added dark-mode lesson prose styling for rich lesson content rendered through `TypographyStylesProvider`, including generated headings, paragraphs, lists, links, blockquotes, and inline code.
 - Removed accidental light-mode `gray.0` referral panels from the dark profile surface.
 - Updated `docs/product/DESIGN_UPDATE.md` so Amanoba points at GDS `1.3.3` and treats color-mode readability as a hard migration rule.
 
