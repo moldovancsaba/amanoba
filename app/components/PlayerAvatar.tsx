@@ -1,25 +1,23 @@
 /**
  * Player Avatar Component
- * 
- * Reusable avatar component displaying player profile picture with level badge,
- * premium indicator, and online status. Used across profile pages, leaderboards,
- * and social features.
- * 
- * Features:
- * - Profile picture or fallback initials
- * - Level badge overlay
- * - Premium crown indicator
- * - Online status dot
- * - Multiple size variants
- * - Clickable link to profile
+ *
+ * Reusable Mantine avatar component for profile pictures, level badges,
+ * premium indicators, and online status.
  */
 
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { Crown } from 'lucide-react';
+import {
+  Avatar,
+  Box,
+  Group,
+  Indicator,
+  Stack,
+  Text,
+  ThemeIcon,
+} from '@mantine/core';
+import { IconCrown } from '@tabler/icons-react';
 
 export interface PlayerAvatarProps {
   playerId: string;
@@ -36,29 +34,90 @@ export interface PlayerAvatarProps {
   className?: string;
 }
 
-/**
- * Size mappings for avatar dimensions
- */
-const sizeClasses = {
-  sm: 'w-8 h-8 text-xs',
-  md: 'w-12 h-12 text-sm',
-  lg: 'w-16 h-16 text-base',
-  xl: 'w-24 h-24 text-2xl',
-};
+const avatarSizes = {
+  sm: 32,
+  md: 48,
+  lg: 64,
+  xl: 96,
+} as const;
 
-const levelBadgeSize = {
-  sm: 'w-5 h-5 text-[10px]',
-  md: 'w-6 h-6 text-xs',
-  lg: 'w-8 h-8 text-sm',
-  xl: 'w-12 h-12 text-base',
-};
+const levelBadgeSizes = {
+  sm: 18,
+  md: 22,
+  lg: 28,
+  xl: 36,
+} as const;
 
-const crownSize = {
-  sm: 'w-3 h-3',
-  md: 'w-4 h-4',
-  lg: 'w-5 h-5',
-  xl: 'w-6 h-6',
-};
+function getInitials(name: string): string {
+  const parts = name.trim().split(' ');
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[1][0]).toUpperCase();
+  }
+  return name.slice(0, 2).toUpperCase();
+}
+
+function AvatarFrame({
+  displayName,
+  profilePicture,
+  level,
+  isPremium,
+  isOnline,
+  size,
+  showLevel,
+  showPremium,
+  showOnline,
+}: Required<Pick<PlayerAvatarProps, 'displayName' | 'size' | 'showLevel' | 'showPremium' | 'showOnline'>> &
+  Pick<PlayerAvatarProps, 'profilePicture' | 'level' | 'isPremium' | 'isOnline'>) {
+  const avatar = (
+    <Indicator
+      disabled={!showOnline || !isOnline}
+      color="green"
+      size={12}
+      processing
+      position="top-start"
+      withBorder
+    >
+      <Indicator
+        disabled={!showLevel || level === undefined}
+        label={level}
+        size={levelBadgeSizes[size]}
+        position="bottom-end"
+        color="violet"
+        withBorder
+      >
+        <Avatar
+          src={profilePicture}
+          alt={displayName}
+          size={avatarSizes[size]}
+          radius="xl"
+          color="yellow"
+          variant="filled"
+        >
+          {getInitials(displayName)}
+        </Avatar>
+      </Indicator>
+    </Indicator>
+  );
+
+  if (!showPremium || !isPremium) {
+    return avatar;
+  }
+
+  return (
+    <Indicator
+      label={
+        <ThemeIcon size="xs" radius="xl" color="yellow">
+          <IconCrown size={12} />
+        </ThemeIcon>
+      }
+      size={18}
+      position="top-end"
+      withBorder
+    >
+      {avatar}
+    </Indicator>
+  );
+}
 
 export default function PlayerAvatar({
   playerId,
@@ -72,86 +131,32 @@ export default function PlayerAvatar({
   showPremium = true,
   showOnline = false,
   clickable = true,
-  className = '',
 }: PlayerAvatarProps) {
-  const [imageError, setImageError] = useState(false);
-
-  // Get initials from display name
-  const getInitials = (name: string): string => {
-    const parts = name.trim().split(' ');
-    if (parts.length >= 2) {
-      return (parts[0][0] + parts[1][0]).toUpperCase();
-    }
-    return name.slice(0, 2).toUpperCase();
-  };
-
-  const initials = getInitials(displayName);
-
-  // Avatar content (image or initials)
   const avatarContent = (
-    <div className={`relative ${sizeClasses[size]} ${className}`}>
-      {/* Main avatar circle */}
-      <div className={`relative ${sizeClasses[size]} rounded-full overflow-hidden border-2 ${
-        isPremium ? 'border-indigo-300' : 'border-gray-600'
-      } bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center`}>
-        {profilePicture && !imageError ? (
-          <Image
-            src={profilePicture}
-            alt={displayName}
-            fill
-            className="object-cover"
-            unoptimized
-            onError={() => setImageError(true)}
-          />
-        ) : (
-          <div className={`${sizeClasses[size]} flex items-center justify-center text-white font-bold`}>
-            {initials}
-          </div>
-        )}
-      </div>
-
-      {/* Level badge - bottom right */}
-      {showLevel && level !== undefined && (
-        <div className={`absolute -bottom-1 -right-1 ${levelBadgeSize[size]} bg-indigo-600 border-2 border-gray-900 rounded-full flex items-center justify-center font-bold text-white shadow-lg z-10`}>
-          {level}
-        </div>
-      )}
-
-      {/* Premium crown - top right */}
-      {showPremium && isPremium && (
-        <div className="absolute -top-1 -right-1 bg-brand-darkGrey/90 rounded-full p-1 border-2 border-gray-900 shadow-lg z-10">
-          <Crown className={`${crownSize[size]} text-white`} fill="currentColor" />
-        </div>
-      )}
-
-      {/* Online status - top left */}
-      {showOnline && isOnline && (
-        <div className="absolute top-0 left-0 w-3 h-3 bg-green-500 border-2 border-gray-900 rounded-full z-10"></div>
-      )}
-    </div>
+    <AvatarFrame
+      displayName={displayName}
+      profilePicture={profilePicture}
+      level={level}
+      isPremium={isPremium}
+      isOnline={isOnline}
+      size={size}
+      showLevel={showLevel}
+      showPremium={showPremium}
+      showOnline={showOnline}
+    />
   );
 
-  // Return clickable or static avatar
   if (clickable) {
     return (
-      <Link
-        href={`/profile/${playerId}`}
-        className="inline-block transition-transform hover:scale-105"
-        title={`View ${displayName}'s profile`}
-      >
+      <Box component={Link} href={`/profile/${playerId}`} title={`View ${displayName}'s profile`}>
         {avatarContent}
-      </Link>
+      </Box>
     );
   }
 
   return avatarContent;
 }
 
-/**
- * Player Avatar with Name
- * 
- * Convenience component that displays avatar with name label
- */
 export function PlayerAvatarWithName({
   playerId,
   displayName,
@@ -163,53 +168,44 @@ export function PlayerAvatarWithName({
   namePosition = 'right',
   clickable = true,
 }: PlayerAvatarProps & { namePosition?: 'top' | 'right' | 'bottom' }) {
-  const content = (
-    <>
-      <PlayerAvatar
-        playerId={playerId}
-        displayName={displayName}
-        profilePicture={profilePicture}
-        level={level}
-        isPremium={isPremium}
-        size={size}
-        showLevel={showLevel}
-        clickable={false}
-      />
-      <span className="font-semibold text-white">
-        {displayName}
-      </span>
-    </>
+  const avatar = (
+    <PlayerAvatar
+      playerId={playerId}
+      displayName={displayName}
+      profilePicture={profilePicture}
+      level={level}
+      isPremium={isPremium}
+      size={size}
+      showLevel={showLevel}
+      clickable={false}
+    />
   );
 
-  const flexDirection = {
-    top: 'flex-col',
-    right: 'flex-row',
-    bottom: 'flex-col-reverse',
-  };
+  const content =
+    namePosition === 'right' ? (
+      <Group gap="xs">
+        {avatar}
+        <Text fw={600}>{displayName}</Text>
+      </Group>
+    ) : (
+      <Stack gap="xs" align="center">
+        {namePosition === 'top' ? <Text fw={600}>{displayName}</Text> : null}
+        {avatar}
+        {namePosition === 'bottom' ? <Text fw={600}>{displayName}</Text> : null}
+      </Stack>
+    );
 
   if (clickable) {
     return (
-      <Link
-        href={`/profile/${playerId}`}
-        className={`inline-flex items-center gap-2 ${flexDirection[namePosition]} transition-opacity hover:opacity-80`}
-      >
+      <Box component={Link} href={`/profile/${playerId}`}>
         {content}
-      </Link>
+      </Box>
     );
   }
 
-  return (
-    <div className={`inline-flex items-center gap-2 ${flexDirection[namePosition]}`}>
-      {content}
-    </div>
-  );
+  return content;
 }
 
-/**
- * Player Avatar List
- * 
- * Display multiple player avatars in a horizontal stack with overlap
- */
 export function PlayerAvatarList({
   players,
   maxVisible = 5,
@@ -223,23 +219,17 @@ export function PlayerAvatarList({
   const remainingCount = players.length - maxVisible;
 
   return (
-    <div className="flex items-center -space-x-2">
+    <Avatar.Group spacing="sm">
       {visiblePlayers.map((player) => (
-        <div key={player.playerId} className="relative">
-          <PlayerAvatar
-            {...player}
-            size={size}
-            showLevel={false}
-            showPremium={false}
-            className="ring-2 ring-gray-900"
-          />
-        </div>
+        <PlayerAvatar
+          key={player.playerId}
+          {...player}
+          size={size}
+          showLevel={false}
+          showPremium={false}
+        />
       ))}
-      {remainingCount > 0 && (
-        <div className={`${sizeClasses[size]} rounded-full bg-gray-700 border-2 border-gray-900 flex items-center justify-center text-white font-bold`}>
-          +{remainingCount}
-        </div>
-      )}
-    </div>
+      {remainingCount > 0 ? <Avatar size={avatarSizes[size]}>+{remainingCount}</Avatar> : null}
+    </Avatar.Group>
   );
 }

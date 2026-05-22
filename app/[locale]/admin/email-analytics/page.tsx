@@ -1,15 +1,29 @@
 /**
  * Admin Email Analytics Page
  *
- * What: Displays email sent/open/click analytics by type and segment
- * Why: Enables admins to monitor email engagement (Phase 1 Email Automation)
+ * What: Displays email sent/open/click analytics by type and segment.
+ * Why: Enables admins to monitor email engagement.
  */
 
 'use client';
 
 import { useState, useEffect } from 'react';
+import type { ReactNode } from 'react';
 import { useTranslations } from 'next-intl';
-import { Mail, Send, MousePointer, Eye, Loader2 } from 'lucide-react';
+import {
+  Card,
+  Center,
+  Grid,
+  Group,
+  Loader,
+  Select,
+  Stack,
+  Table,
+  Text,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import { IconCursorText, IconEye, IconMail, IconSend } from '@tabler/icons-react';
 
 interface EmailSummary {
   sent: number;
@@ -48,6 +62,83 @@ interface EmailAnalyticsData {
   bySegment: BySegmentRow[];
 }
 
+function MetricCard({
+  icon,
+  label,
+  value,
+  detail,
+}: {
+  icon?: ReactNode;
+  label: string;
+  value: number;
+  detail?: string;
+}) {
+  return (
+    <Card withBorder>
+      <Stack gap={4}>
+        <Group gap="xs" c="dimmed">
+          {icon}
+          <Text size="sm">{label}</Text>
+        </Group>
+        <Text size="xl" fw={700}>
+          {value}
+        </Text>
+        {detail ? <Text size="sm" c="yellow">{detail}</Text> : null}
+      </Stack>
+    </Card>
+  );
+}
+
+function AnalyticsTable<T extends { sent: number; opened: number; clicked: number; clicks: number; openRatePct: number; clickRatePct: number }>({
+  title,
+  label,
+  rows,
+  getKey,
+}: {
+  title: string;
+  label: string;
+  rows: T[];
+  getKey: (row: T) => string;
+}) {
+  if (rows.length === 0) {
+    return null;
+  }
+
+  return (
+    <Stack gap="sm">
+      <Title order={2}>{title}</Title>
+      <Table.ScrollContainer minWidth={760}>
+        <Table striped highlightOnHover withTableBorder withColumnBorders>
+          <Table.Thead>
+            <Table.Tr>
+              <Table.Th>{label}</Table.Th>
+              <Table.Th>Sent</Table.Th>
+              <Table.Th>Opened</Table.Th>
+              <Table.Th>Clicked</Table.Th>
+              <Table.Th>Clicks</Table.Th>
+              <Table.Th>Open %</Table.Th>
+              <Table.Th>Click %</Table.Th>
+            </Table.Tr>
+          </Table.Thead>
+          <Table.Tbody>
+            {rows.map((row) => (
+              <Table.Tr key={getKey(row)}>
+                <Table.Td>{getKey(row)}</Table.Td>
+                <Table.Td>{row.sent}</Table.Td>
+                <Table.Td>{row.opened}</Table.Td>
+                <Table.Td>{row.clicked}</Table.Td>
+                <Table.Td>{row.clicks}</Table.Td>
+                <Table.Td>{row.openRatePct}%</Table.Td>
+                <Table.Td>{row.clickRatePct}%</Table.Td>
+              </Table.Tr>
+            ))}
+          </Table.Tbody>
+        </Table>
+      </Table.ScrollContainer>
+    </Stack>
+  );
+}
+
 export default function AdminEmailAnalyticsPage() {
   const t = useTranslations('admin');
   const [data, setData] = useState<EmailAnalyticsData | null>(null);
@@ -67,148 +158,81 @@ export default function AdminEmailAnalyticsPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[200px]">
-        <Loader2 className="w-8 h-8 animate-spin text-primary-400" />
-      </div>
+      <Center mih={200}>
+        <Loader />
+      </Center>
     );
   }
 
   if (!data) {
     return (
-      <div className="p-6">
-        <h1 className="text-2xl font-bold text-white mb-4">{t('emailAnalytics')}</h1>
-        <p className="text-gray-400">Failed to load email analytics.</p>
-      </div>
+      <Stack p="md">
+        <Title order={1}>{t('emailAnalytics')}</Title>
+        <Text c="dimmed">Failed to load email analytics.</Text>
+      </Stack>
     );
   }
 
   const { period, summary, byType, bySegment } = data;
 
   return (
-    <div className="p-6">
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-        <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-          <Mail className="w-7 h-7 text-primary-400" />
-          {t('emailAnalytics')}
-        </h1>
-        <select
-          value={days}
-          onChange={(e) => setDays(Number(e.target.value))}
-          className="bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 text-sm"
-        >
-          <option value={7}>Last 7 days</option>
-          <option value={30}>Last 30 days</option>
-          <option value={90}>Last 90 days</option>
-        </select>
-      </div>
+    <Stack p="md" gap="xl">
+      <Group justify="space-between" align="flex-end">
+        <Group>
+          <ThemeIcon variant="light" size="lg">
+            <IconMail size={22} />
+          </ThemeIcon>
+          <Title order={1}>{t('emailAnalytics')}</Title>
+        </Group>
+        <Select
+          value={String(days)}
+          onChange={(value) => setDays(Number(value || 30))}
+          data={[
+            { value: '7', label: 'Last 7 days' },
+            { value: '30', label: 'Last 30 days' },
+            { value: '90', label: 'Last 90 days' },
+          ]}
+        />
+      </Group>
 
-      <p className="text-gray-400 text-sm mb-6">
-        Period: {period.days} days (since {new Date(period.since).toLocaleDateString()}). Completion emails only (tracking added in Phase 1).
-      </p>
+      <Text c="dimmed" size="sm">
+        Period: {period.days} days since {new Date(period.since).toLocaleDateString()}.
+        Completion emails only.
+      </Text>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
-          <div className="flex items-center gap-2 text-gray-400 text-sm mb-1">
-            <Send className="w-4 h-4" />
-            Sent
-          </div>
-          <div className="text-2xl font-bold text-white">{summary.sent}</div>
-        </div>
-        <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
-          <div className="flex items-center gap-2 text-gray-400 text-sm mb-1">
-            <Eye className="w-4 h-4" />
-            Opened
-          </div>
-          <div className="text-2xl font-bold text-white">{summary.opened}</div>
-          <div className="text-sm text-primary-400">{summary.openRatePct}% open rate</div>
-        </div>
-        <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
-          <div className="flex items-center gap-2 text-gray-400 text-sm mb-1">
-            <MousePointer className="w-4 h-4" />
-            Clicked
-          </div>
-          <div className="text-2xl font-bold text-white">{summary.clicked}</div>
-          <div className="text-sm text-primary-400">{summary.clickRatePct}% click rate</div>
-        </div>
-        <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
-          <div className="flex items-center gap-2 text-gray-400 text-sm mb-1">Total clicks</div>
-          <div className="text-2xl font-bold text-white">{summary.totalClicks}</div>
-        </div>
-      </div>
+      <Grid>
+        <Grid.Col span={{ base: 12, sm: 6, lg: 3 }}>
+          <MetricCard icon={<IconSend size={16} />} label="Sent" value={summary.sent} />
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, sm: 6, lg: 3 }}>
+          <MetricCard
+            icon={<IconEye size={16} />}
+            label="Opened"
+            value={summary.opened}
+            detail={`${summary.openRatePct}% open rate`}
+          />
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, sm: 6, lg: 3 }}>
+          <MetricCard
+            icon={<IconCursorText size={16} />}
+            label="Clicked"
+            value={summary.clicked}
+            detail={`${summary.clickRatePct}% click rate`}
+          />
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, sm: 6, lg: 3 }}>
+          <MetricCard label="Total clicks" value={summary.totalClicks} />
+        </Grid.Col>
+      </Grid>
 
-      {byType.length > 0 && (
-        <section className="mb-8">
-          <h2 className="text-lg font-semibold text-white mb-4">By email type</h2>
-          <div className="overflow-x-auto rounded-lg border border-gray-700">
-            <table className="w-full text-left text-sm">
-              <thead className="bg-gray-800 text-gray-300">
-                <tr>
-                  <th className="px-4 py-3">Type</th>
-                  <th className="px-4 py-3">Sent</th>
-                  <th className="px-4 py-3">Opened</th>
-                  <th className="px-4 py-3">Clicked</th>
-                  <th className="px-4 py-3">Clicks</th>
-                  <th className="px-4 py-3">Open %</th>
-                  <th className="px-4 py-3">Click %</th>
-                </tr>
-              </thead>
-              <tbody className="bg-gray-900 text-gray-200">
-                {byType.map((row) => (
-                  <tr key={row.type} className="border-t border-gray-700">
-                    <td className="px-4 py-3">{row.type}</td>
-                    <td className="px-4 py-3">{row.sent}</td>
-                    <td className="px-4 py-3">{row.opened}</td>
-                    <td className="px-4 py-3">{row.clicked}</td>
-                    <td className="px-4 py-3">{row.clicks}</td>
-                    <td className="px-4 py-3">{row.openRatePct}%</td>
-                    <td className="px-4 py-3">{row.clickRatePct}%</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      )}
+      <AnalyticsTable title="By email type" label="Type" rows={byType} getKey={(row) => row.type} />
+      <AnalyticsTable title="By segment" label="Segment" rows={bySegment} getKey={(row) => row.segment} />
 
-      {bySegment.length > 0 && (
-        <section>
-          <h2 className="text-lg font-semibold text-white mb-4">By segment</h2>
-          <div className="overflow-x-auto rounded-lg border border-gray-700">
-            <table className="w-full text-left text-sm">
-              <thead className="bg-gray-800 text-gray-300">
-                <tr>
-                  <th className="px-4 py-3">Segment</th>
-                  <th className="px-4 py-3">Sent</th>
-                  <th className="px-4 py-3">Opened</th>
-                  <th className="px-4 py-3">Clicked</th>
-                  <th className="px-4 py-3">Clicks</th>
-                  <th className="px-4 py-3">Open %</th>
-                  <th className="px-4 py-3">Click %</th>
-                </tr>
-              </thead>
-              <tbody className="bg-gray-900 text-gray-200">
-                {bySegment.map((row) => (
-                  <tr key={row.segment} className="border-t border-gray-700">
-                    <td className="px-4 py-3">{row.segment}</td>
-                    <td className="px-4 py-3">{row.sent}</td>
-                    <td className="px-4 py-3">{row.opened}</td>
-                    <td className="px-4 py-3">{row.clicked}</td>
-                    <td className="px-4 py-3">{row.clicks}</td>
-                    <td className="px-4 py-3">{row.openRatePct}%</td>
-                    <td className="px-4 py-3">{row.clickRatePct}%</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-      )}
-
-      {summary.sent === 0 && (
-        <p className="text-gray-400 text-sm">
+      {summary.sent === 0 ? (
+        <Text c="dimmed" size="sm">
           No tracked emails in this period. Completion emails with open/click tracking are recorded when sent.
-        </p>
-      )}
-    </div>
+        </Text>
+      ) : null}
+    </Stack>
   );
 }

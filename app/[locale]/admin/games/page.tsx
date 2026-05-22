@@ -11,14 +11,32 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import {
-  Plus,
-  Search,
-  Edit,
-  Trash2,
-  Eye,
-  EyeOff,
-  Gamepad2,
-} from 'lucide-react';
+  ActionIcon,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Group,
+  Image as MantineImage,
+  Loader,
+  Paper,
+  SimpleGrid,
+  Stack,
+  Table,
+  Text,
+  TextInput,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import {
+  IconEdit,
+  IconEye,
+  IconEyeOff,
+  IconDeviceGamepad2,
+  IconPlus,
+  IconSearch,
+  IconTrash,
+} from '@tabler/icons-react';
 import Image from 'next/image';
 
 interface Game {
@@ -92,187 +110,154 @@ export default function AdminGamesPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">{tCommon('loading')}</div>
-      </div>
+      <Group justify="center" mih={400}>
+        <Loader color="amanoba" />
+        <Text size="xl">{tCommon('loading')}</Text>
+      </Group>
     );
   }
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-white mb-2">{t('gamesManagement')}</h1>
-          <p className="text-gray-400">{t('gamesDescription')}</p>
-        </div>
-        <Link
+    <Stack gap="lg">
+      <Group justify="space-between" align="flex-start">
+        <Stack gap={4}>
+          <Title order={1}>{t('gamesManagement')}</Title>
+          <Text c="dimmed">{t('gamesDescription')}</Text>
+        </Stack>
+        <Button
+          component={Link}
           href={`/${locale}/admin/games/new`}
-          className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-indigo-700 transition-colors"
+          color="amanoba"
+          leftSection={<IconPlus size={18} />}
         >
-          <Plus className="w-5 h-5" />
           {t('addGame')}
-        </Link>
-      </div>
+        </Button>
+      </Group>
 
-      {/* Search and Filters */}
-      <div className="flex items-center gap-4">
-        <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-          <input
-            type="text"
-            placeholder={t('searchGames')}
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
-          />
-        </div>
-      </div>
+      <TextInput
+        placeholder={t('searchGames')}
+        value={search}
+        onChange={(event) => setSearch(event.currentTarget.value)}
+        leftSection={<IconSearch size={18} />}
+      />
 
-      {/* Games Table */}
-      <div className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-gray-700">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  {t('game')}
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  {tCommon('type')}
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  {tCommon('status')}
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  {tCommon('premium')}
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  {t('assessment')}
-                </th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  {tCommon('actions')}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-700">
+      <Paper withBorder>
+        <Table.ScrollContainer minWidth={900}>
+          <Table verticalSpacing="md" highlightOnHover>
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th>{t('game')}</Table.Th>
+                <Table.Th>{tCommon('type')}</Table.Th>
+                <Table.Th>{tCommon('status')}</Table.Th>
+                <Table.Th>{tCommon('premium')}</Table.Th>
+                <Table.Th>{t('assessment')}</Table.Th>
+                <Table.Th ta="right">{tCommon('actions')}</Table.Th>
+              </Table.Tr>
+            </Table.Thead>
+            <Table.Tbody>
               {games.length === 0 ? (
-                <tr>
-                  <td colSpan={6} className="px-6 py-12 text-center text-gray-400">
-                    {tCommon('noDataFound')}
-                  </td>
-                </tr>
+                <Table.Tr>
+                  <Table.Td colSpan={6}>
+                    <Text c="dimmed" ta="center" py="xl">{tCommon('noDataFound')}</Text>
+                  </Table.Td>
+                </Table.Tr>
               ) : (
                 games.map((game) => (
-                  <tr key={game._id} className="hover:bg-gray-700/50">
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-3">
+                  <Table.Tr key={game._id}>
+                    <Table.Td>
+                      <Group gap="sm" wrap="nowrap">
                         {game.thumbnail ? (
-                          <Image
-                            src={game.thumbnail}
-                            alt={game.name}
-                            width={40}
-                            height={40}
-                            className="w-10 h-10 rounded-lg object-cover"
-                          />
+                          <Box w={40} h={40}>
+                            <MantineImage
+                              component={Image}
+                              src={game.thumbnail}
+                              alt={game.name}
+                              width={40}
+                              height={40}
+                              radius="md"
+                              fit="cover"
+                            />
+                          </Box>
                         ) : (
-                          <div className="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center">
-                            <Gamepad2 className="w-5 h-5 text-white" />
-                          </div>
+                          <ThemeIcon color="amanoba" variant="light" radius="md" size={40}>
+                            <IconDeviceGamepad2 size={20} />
+                          </ThemeIcon>
                         )}
-                        <div>
-                          <div className="text-white font-medium">{game.name}</div>
-                          <div className="text-gray-400 text-sm">{game.gameId}</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <span className="text-gray-300">{game.type}</span>
-                    </td>
-                    <td className="px-6 py-4">
-                      <button
+                        <Stack gap={2}>
+                          <Text fw={700}>{game.name}</Text>
+                          <Text c="dimmed" size="sm">{game.gameId}</Text>
+                        </Stack>
+                      </Group>
+                    </Table.Td>
+                    <Table.Td>
+                      <Text c="dimmed">{game.type}</Text>
+                    </Table.Td>
+                    <Table.Td>
+                      <Button
+                        variant="subtle"
+                        color={game.isActive ? 'green' : 'gray'}
+                        size="compact-sm"
                         onClick={() => toggleGameStatus(game.gameId, game.isActive)}
-                        className={`flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium ${
-                          game.isActive
-                            ? 'bg-green-500/20 text-green-400'
-                            : 'bg-gray-500/20 text-gray-400'
-                        }`}
+                        leftSection={game.isActive ? <IconEye size={14} /> : <IconEyeOff size={14} />}
                       >
-                        {game.isActive ? (
-                          <>
-                            <Eye className="w-3 h-3" />
-                            {tCommon('active')}
-                          </>
-                        ) : (
-                          <>
-                            <EyeOff className="w-3 h-3" />
-                            {tCommon('inactive')}
-                          </>
-                        )}
-                      </button>
-                    </td>
-                    <td className="px-6 py-4">
+                        {game.isActive ? tCommon('active') : tCommon('inactive')}
+                      </Button>
+                    </Table.Td>
+                    <Table.Td>
                       {game.isPremium ? (
-                        <span className="px-3 py-1 bg-neutral-600/80 text-neutral-200 rounded-full text-xs font-medium">
+                        <Badge color="amanoba">
                           {tCommon('premium')}
-                        </span>
+                        </Badge>
                       ) : (
-                        <span className="text-gray-400 text-sm">{tCommon('free')}</span>
+                        <Text c="dimmed" size="sm">{tCommon('free')}</Text>
                       )}
-                    </td>
-                    <td className="px-6 py-4">
+                    </Table.Td>
+                    <Table.Td>
                       {game.isAssessment ? (
-                        <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-medium">
+                        <Badge color="cyan" variant="light">
                           {t('assessment')}
-                        </span>
+                        </Badge>
                       ) : (
-                        <span className="text-gray-400 text-sm">-</span>
+                        <Text c="dimmed" size="sm">-</Text>
                       )}
-                    </td>
-                    <td className="px-6 py-4 text-right">
-                      <div className="flex items-center justify-end gap-2">
-                        <Link
+                    </Table.Td>
+                    <Table.Td ta="right">
+                      <Group justify="flex-end" gap="xs">
+                        <ActionIcon
+                          component={Link}
                           href={`/${locale}/admin/games/${game._id}`}
-                          className="p-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors"
-                          title={tCommon('edit')}
+                          variant="default"
+                          aria-label={tCommon('edit')}
                         >
-                          <Edit className="w-4 h-4 text-gray-300" />
-                        </Link>
-                        <button
-                          className="p-2 bg-gray-700 hover:bg-red-600 rounded-lg transition-colors"
-                          title={tCommon('delete')}
-                        >
-                          <Trash2 className="w-4 h-4 text-gray-300" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
+                          <IconEdit size={18} />
+                        </ActionIcon>
+                        <ActionIcon color="red" variant="subtle" aria-label={tCommon('delete')}>
+                          <IconTrash size={18} />
+                        </ActionIcon>
+                      </Group>
+                    </Table.Td>
+                  </Table.Tr>
                 ))
               )}
-            </tbody>
-          </table>
-        </div>
-      </div>
+            </Table.Tbody>
+          </Table>
+        </Table.ScrollContainer>
+      </Paper>
 
-      {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('totalGames')}</div>
-          <div className="text-2xl font-bold text-white">{games.length}</div>
-        </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('activeGames')}</div>
-          <div className="text-2xl font-bold text-green-400">
-            {games.filter((g) => g.isActive).length}
-          </div>
-        </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('assessmentGames')}</div>
-          <div className="text-2xl font-bold text-blue-400">
-            {games.filter((g) => g.isAssessment).length}
-          </div>
-        </div>
-      </div>
-    </div>
+      <SimpleGrid cols={{ base: 1, md: 3 }}>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">{t('totalGames')}</Text>
+          <Text size="xl" fw={800}>{games.length}</Text>
+        </Card>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">{t('activeGames')}</Text>
+          <Text size="xl" fw={800} c="green">{games.filter((g) => g.isActive).length}</Text>
+        </Card>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">{t('assessmentGames')}</Text>
+          <Text size="xl" fw={800} c="cyan">{games.filter((g) => g.isAssessment).length}</Text>
+        </Card>
+      </SimpleGrid>
+    </Stack>
   );
 }

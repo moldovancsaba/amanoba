@@ -1,15 +1,26 @@
 /**
  * Admin Feature Flags Management Page
- * 
- * What: Manage which features are enabled on the platform
- * Why: Allows admins to control what users can access
+ *
+ * What: Manage which features are enabled on the platform.
+ * Why: Allows admins to control what users can access.
  */
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
-import { Save, RefreshCw } from 'lucide-react';
+import {
+  Button,
+  Card,
+  Center,
+  Group,
+  Loader,
+  Stack,
+  Switch,
+  Text,
+  Title,
+} from '@mantine/core';
+import { IconDeviceFloppy, IconRefresh } from '@tabler/icons-react';
 
 interface FeatureFlags {
   _id?: string;
@@ -34,11 +45,7 @@ export default function AdminFeatureFlagsPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
-  useEffect(() => {
-    fetchFeatureFlags();
-  }, []);
-
-  const fetchFeatureFlags = async () => {
+  const fetchFeatureFlags = useCallback(async () => {
     try {
       setLoading(true);
       const response = await fetch('/api/admin/feature-flags');
@@ -52,7 +59,11 @@ export default function AdminFeatureFlagsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    void fetchFeatureFlags();
+  }, [fetchFeatureFlags]);
 
   const handleToggle = (feature: keyof FeatureFlags['features']) => {
     if (!featureFlags) return;
@@ -80,7 +91,7 @@ export default function AdminFeatureFlagsPage() {
 
       if (data.success) {
         alert('Feature flags updated successfully!');
-        fetchFeatureFlags();
+        void fetchFeatureFlags();
       } else {
         alert(data.error || 'Failed to update feature flags');
       }
@@ -94,17 +105,17 @@ export default function AdminFeatureFlagsPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">{tCommon('loading')}</div>
-      </div>
+      <Center mih={400}>
+        <Loader />
+      </Center>
     );
   }
 
   if (!featureFlags) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">Failed to load feature flags</div>
-      </div>
+      <Center mih={400}>
+        <Text>{tCommon('error')}</Text>
+      </Center>
     );
   }
 
@@ -121,70 +132,48 @@ export default function AdminFeatureFlagsPage() {
   };
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
+    <Stack gap="xl">
+      <Group justify="space-between" align="flex-start">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Feature Flags</h1>
-          <p className="text-gray-400">Control which features are enabled on amanoba.com</p>
+          <Title order={1}>Feature Flags</Title>
+          <Text c="dimmed">Control which features are enabled on amanoba.com</Text>
         </div>
-        <button
-          onClick={fetchFeatureFlags}
-          className="flex items-center gap-2 bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors"
-        >
-          <RefreshCw className="w-5 h-5" />
+        <Button variant="default" leftSection={<IconRefresh size={18} />} onClick={fetchFeatureFlags}>
           Refresh
-        </button>
-      </div>
+        </Button>
+      </Group>
 
-      {/* Feature Flags List */}
-      <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-        <div className="space-y-4">
+      <Card withBorder>
+        <Stack gap="md">
           {(Object.keys(featureFlags.features) as Array<keyof FeatureFlags['features']>).map((feature) => (
-            <div
-              key={feature}
-              className="flex items-center justify-between p-4 bg-gray-700/50 rounded-lg border border-gray-600"
-            >
-              <div>
-                <h3 className="text-white font-bold text-lg">{featureLabels[feature]}</h3>
-                <p className="text-gray-400 text-sm">
-                  {featureFlags.features[feature] ? 'Enabled' : 'Disabled'}
-                </p>
-              </div>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
+            <Card key={feature} withBorder>
+              <Group justify="space-between" align="center">
+                <div>
+                  <Title order={3}>{featureLabels[feature]}</Title>
+                  <Text c="dimmed" size="sm">
+                    {featureFlags.features[feature] ? 'Enabled' : 'Disabled'}
+                  </Text>
+                </div>
+                <Switch
                   checked={featureFlags.features[feature]}
                   onChange={() => handleToggle(feature)}
-                  className="sr-only peer"
+                  aria-label={`Toggle ${featureLabels[feature]}`}
                 />
-                <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
-              </label>
-            </div>
+              </Group>
+            </Card>
           ))}
-        </div>
-      </div>
+        </Stack>
+      </Card>
 
-      {/* Save Button */}
-      <div className="flex justify-end">
-        <button
+      <Group justify="flex-end">
+        <Button
+          leftSection={<IconDeviceFloppy size={18} />}
           onClick={handleSave}
-          disabled={saving}
-          className="flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          loading={saving}
         >
-          {saving ? (
-            <>
-              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              Saving...
-            </>
-          ) : (
-            <>
-              <Save className="w-5 h-5" />
-              Save Changes
-            </>
-          )}
-        </button>
-      </div>
-    </div>
+          Save Changes
+        </Button>
+      </Group>
+    </Stack>
   );
 }

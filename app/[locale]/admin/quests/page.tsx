@@ -1,8 +1,8 @@
 /**
  * Admin Quests Page
- * 
- * What: Quest management interface for admins
- * Why: Allows admins to view and manage quests
+ *
+ * What: Quest management interface for admins.
+ * Why: Allows admins to view and manage quests.
  */
 
 'use client';
@@ -10,11 +10,20 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import {
-  Scroll,
-  Search,
-  Award,
-  Loader2,
-} from 'lucide-react';
+  Badge,
+  Card,
+  Center,
+  Grid,
+  Group,
+  Loader,
+  Select,
+  Stack,
+  Text,
+  TextInput,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import { IconAward, IconListDetails, IconSearch } from '@tabler/icons-react';
 
 interface Quest {
   _id: string;
@@ -82,106 +91,105 @@ export default function AdminQuestsPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <Loader2 className="w-8 h-8 animate-spin text-indigo-500" />
-      </div>
+      <Center mih={400}>
+        <Loader />
+      </Center>
     );
   }
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Quest Management</h1>
-          <p className="text-gray-400">View and manage quests on the platform</p>
-        </div>
+    <Stack gap="xl">
+      <div>
+        <Title order={1}>Quest Management</Title>
+        <Text c="dimmed">View and manage quests on the platform</Text>
       </div>
 
-      {/* Filters */}
-      <div className="flex items-center gap-4">
-        <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search quests..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
-          />
-        </div>
-        <select
+      <Group align="flex-end">
+        <TextInput
+          flex={1}
+          leftSection={<IconSearch size={18} />}
+          label="Search"
+          placeholder="Search quests..."
+          value={search}
+          onChange={(event) => setSearch(event.currentTarget.value)}
+        />
+        <Select
+          label="Status"
           value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value as 'all' | 'active' | 'inactive')}
-          className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
-        >
-          <option value="all">All Quests</option>
-          <option value="active">Active</option>
-          <option value="inactive">Inactive</option>
-        </select>
-      </div>
+          onChange={(value) => setStatusFilter((value as 'all' | 'active' | 'inactive') || 'all')}
+          data={[
+            { value: 'all', label: 'All Quests' },
+            { value: 'active', label: 'Active' },
+            { value: 'inactive', label: 'Inactive' },
+          ]}
+        />
+      </Group>
 
       {error ? (
-        <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-red-200">
-          {error}
-        </div>
+        <Card withBorder>
+          <Text c="red">{error}</Text>
+        </Card>
       ) : null}
 
-      {/* Quests List */}
       {quests.length === 0 ? (
-        <div className="bg-gray-800 rounded-xl p-12 text-center border border-gray-700">
-          <Scroll className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-xl font-bold text-white mb-2">No Quests Found</h3>
-          <p className="text-gray-400 mb-4">
-            {search.trim() || statusFilter !== 'all'
-              ? 'No quests match the current filters.'
-              : 'No quests have been created yet.'}
-          </p>
-        </div>
+        <Card withBorder p="xl">
+          <Stack align="center" gap="sm">
+            <ThemeIcon variant="light" size="xl">
+              <IconListDetails size={28} />
+            </ThemeIcon>
+            <Title order={3}>No Quests Found</Title>
+            <Text c="dimmed" ta="center">
+              {search.trim() || statusFilter !== 'all'
+                ? 'No quests match the current filters.'
+                : 'No quests have been created yet.'}
+            </Text>
+          </Stack>
+        </Card>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Grid>
           {quests.map((quest) => (
-            <div
-              key={quest._id}
-              className="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-indigo-500 transition-all"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-white mb-2">{quest.title}</h3>
-                  <p className="text-gray-400 text-sm line-clamp-2">{quest.description}</p>
-                </div>
-                {quest.availability.isActive ? (
-                  <span className="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded">Active</span>
-                ) : (
-                  <span className="bg-gray-500/20 text-gray-400 text-xs px-2 py-1 rounded">Inactive</span>
-                )}
-              </div>
+            <Grid.Col key={quest._id} span={{ base: 12, md: 6, lg: 4 }}>
+              <Card withBorder h="100%">
+                <Stack gap="md">
+                  <Group justify="space-between" align="flex-start">
+                    <div>
+                      <Title order={3}>{quest.title}</Title>
+                      <Text c="dimmed" size="sm" lineClamp={2}>
+                        {quest.description}
+                      </Text>
+                    </div>
+                    <Badge color={quest.availability.isActive ? 'green' : 'gray'}>
+                      {quest.availability.isActive ? 'Active' : 'Inactive'}
+                    </Badge>
+                  </Group>
 
-              <div className="space-y-2 mb-4">
-                <div className="flex items-center gap-2 text-sm text-gray-400">
-                  <Scroll className="w-4 h-4" />
-                  <span>{quest.totalSteps} steps</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-400">
-                  <Award className="w-4 h-4" />
-                  <span>{quest.rewards.completionPoints} points</span>
-                </div>
-                {quest.requirements.isPremiumOnly && (
-                  <span className="text-xs px-2 py-0.5 bg-neutral-600/80 text-neutral-200 rounded">Premium Only</span>
-                )}
-              </div>
+                  <Stack gap="xs">
+                    <Group gap="xs">
+                      <IconListDetails size={16} />
+                      <Text size="sm" c="dimmed">{quest.totalSteps} steps</Text>
+                    </Group>
+                    <Group gap="xs">
+                      <IconAward size={16} />
+                      <Text size="sm" c="dimmed">{quest.rewards.completionPoints} points</Text>
+                    </Group>
+                    {quest.requirements.isPremiumOnly ? <Badge variant="light">Premium Only</Badge> : null}
+                  </Stack>
 
-              {quest.statistics && (
-                <div className="pt-4 border-t border-gray-700 text-xs text-gray-400">
-                  <div>Started: {quest.statistics.totalStarted}</div>
-                  <div>Completed: {quest.statistics.totalCompleted}</div>
-                  <div>Rate: {quest.statistics.completionRate.toFixed(1)}%</div>
-                </div>
-              )}
-            </div>
+                  {quest.statistics ? (
+                    <Card withBorder>
+                      <Stack gap={2}>
+                        <Text size="xs" c="dimmed">Started: {quest.statistics.totalStarted}</Text>
+                        <Text size="xs" c="dimmed">Completed: {quest.statistics.totalCompleted}</Text>
+                        <Text size="xs" c="dimmed">Rate: {quest.statistics.completionRate.toFixed(1)}%</Text>
+                      </Stack>
+                    </Card>
+                  ) : null}
+                </Stack>
+              </Card>
+            </Grid.Col>
           ))}
-        </div>
+        </Grid>
       )}
-    </div>
+    </Stack>
   );
 }

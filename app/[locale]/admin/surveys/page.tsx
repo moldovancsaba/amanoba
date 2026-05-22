@@ -10,12 +10,25 @@
 import { useState, useEffect } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import {
-  BarChart3,
-  Users,
-  Clock,
-  CheckCircle,
-  Loader2,
-} from 'lucide-react';
+  Card,
+  Group,
+  Loader,
+  Paper,
+  Progress,
+  SimpleGrid,
+  Stack,
+  Switch,
+  Table,
+  Text,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import {
+  IconChartBar,
+  IconCheck,
+  IconClock,
+  IconUsers,
+} from '@tabler/icons-react';
 
 interface QuestionStats {
   question: string;
@@ -127,198 +140,156 @@ export default function AdminSurveysPage() {
 
   if (loading) {
     return (
-      <div className="space-y-6">
-        <div className="text-center py-12">
-          <Loader2 className="w-8 h-8 animate-spin text-brand-accent mx-auto mb-4" />
-          <div className="text-brand-white text-lg">Loading survey analytics...</div>
-        </div>
-      </div>
+      <Group justify="center" py="xl">
+        <Loader color="amanoba" />
+        <Text size="lg">Loading survey analytics...</Text>
+      </Group>
     );
   }
 
   if (!analytics) {
     return (
-      <div className="space-y-6">
-        <div className="text-center py-12">
-          <div className="text-brand-white text-lg">No survey data available</div>
-        </div>
-      </div>
+      <Text ta="center" py="xl" size="lg">No survey data available</Text>
     );
   }
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Survey Analytics</h1>
-          <p className="text-gray-400">View survey response statistics and insights</p>
-        </div>
-      </div>
+    <Stack gap="lg">
+      <Stack gap={4}>
+        <Title order={1}>Survey Analytics</Title>
+        <Text c="dimmed">View survey response statistics and insights</Text>
+      </Stack>
 
-      {/* Survey Info */}
-      <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-        <div className="flex items-start justify-between mb-4">
-          <div>
-            <h2 className="text-xl font-bold text-white mb-2">{analytics.survey.name}</h2>
-            {analytics.survey.description && (
-              <p className="text-gray-400 mb-4">{analytics.survey.description}</p>
-            )}
-            <div className="flex items-center gap-6 text-sm text-gray-400">
-              <span>Survey ID: {analytics.survey.surveyId}</span>
-              <span>Questions: {analytics.survey.questionCount}</span>
-            </div>
-          </div>
-        </div>
-        
-        {/* Survey Settings Toggles */}
-        <div className="mt-4 pt-4 border-t border-brand-accent/30 space-y-3">
-          <div className="flex items-center justify-between">
-            <div>
-              <h3 className="text-white font-medium">Enable for New Users</h3>
-              <p className="text-gray-400 text-sm">
+      <Card withBorder>
+        <Stack gap="md">
+          <Stack gap={4}>
+            <Title order={2} size="h3">{analytics.survey.name}</Title>
+            {analytics.survey.description ? <Text c="dimmed">{analytics.survey.description}</Text> : null}
+            <Group gap="lg">
+              <Text c="dimmed" size="sm">Survey ID: {analytics.survey.surveyId}</Text>
+              <Text c="dimmed" size="sm">Questions: {analytics.survey.questionCount}</Text>
+            </Group>
+          </Stack>
+
+          <Stack gap="sm">
+            <Group justify="space-between" align="center">
+              <Stack gap={2}>
+                <Text fw={700}>Enable for New Users</Text>
+                <Text c="dimmed" size="sm">
                 {analytics.survey.isDefault ? 'Survey will be shown to new users' : 'Survey will not be shown to new users'}
-              </p>
-            </div>
-            <label className="relative inline-flex items-center cursor-pointer">
-              <input
-                type="checkbox"
+                </Text>
+              </Stack>
+              <Switch
                 checked={analytics.survey.isDefault || false}
                 onChange={() => handleToggleSurvey('isDefault')}
                 disabled={saving}
-                className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600 disabled:opacity-50"></div>
-            </label>
-          </div>
-          
-          <div className="flex items-center justify-between">
-            <div>
-              <h3 className="text-white font-medium">Survey Active</h3>
-              <p className="text-gray-400 text-sm">
+            </Group>
+
+            <Group justify="space-between" align="center">
+              <Stack gap={2}>
+                <Text fw={700}>Survey Active</Text>
+                <Text c="dimmed" size="sm">
                 {analytics.survey.isActive ? 'Survey is currently active' : 'Survey is disabled'}
-              </p>
-            </div>
-            <label className="relative inline-flex items-center cursor-pointer">
-              <input
-                type="checkbox"
+                </Text>
+              </Stack>
+              <Switch
                 checked={analytics.survey.isActive || false}
                 onChange={() => handleToggleSurvey('isActive')}
                 disabled={saving}
-                className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-800 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600 disabled:opacity-50"></div>
-            </label>
-          </div>
-        </div>
-      </div>
+            </Group>
+          </Stack>
+        </Stack>
+      </Card>
 
-      {/* Statistics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-400">Total Responses</h3>
-            <Users className="w-5 h-5 text-brand-accent" />
-          </div>
-          <div className="text-2xl font-bold text-white">
-            {analytics.statistics.totalResponses}
-          </div>
-        </div>
+      <SimpleGrid cols={{ base: 1, md: 2, lg: 4 }}>
+        {[
+          { label: 'Total Responses', value: analytics.statistics.totalResponses, icon: IconUsers, color: 'amanoba' },
+          { label: 'Completion Rate', value: `${analytics.statistics.completionRate}%`, icon: IconCheck, color: 'green' },
+          { label: 'Avg. Time Spent', value: formatTime(analytics.statistics.averageTimeSpent), icon: IconClock, color: 'cyan' },
+          { label: 'Questions', value: analytics.survey.questionCount, icon: IconChartBar, color: 'violet' },
+        ].map((item) => {
+          const ItemIcon = item.icon;
+          return (
+            <Card key={item.label} withBorder>
+              <Group justify="space-between" mb="xs">
+                <Text c="dimmed" size="sm" fw={700}>{item.label}</Text>
+                <ThemeIcon color={item.color} variant="light">
+                  <ItemIcon size={18} />
+                </ThemeIcon>
+              </Group>
+              <Text size="xl" fw={800}>{item.value}</Text>
+            </Card>
+          );
+        })}
+      </SimpleGrid>
 
-        <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-400">Completion Rate</h3>
-            <CheckCircle className="w-5 h-5 text-green-400" />
-          </div>
-          <div className="text-2xl font-bold text-white">
-            {analytics.statistics.completionRate}%
-          </div>
-        </div>
-
-        <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-400">Avg. Time Spent</h3>
-            <Clock className="w-5 h-5 text-blue-400" />
-          </div>
-          <div className="text-2xl font-bold text-white">
-            {formatTime(analytics.statistics.averageTimeSpent)}
-          </div>
-        </div>
-
-        <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-400">Questions</h3>
-            <BarChart3 className="w-5 h-5 text-purple-400" />
-          </div>
-          <div className="text-2xl font-bold text-white">
-            {analytics.survey.questionCount}
-          </div>
-        </div>
-      </div>
-
-      {/* Skill Level Distribution */}
       {analytics.statistics.skillLevelDistribution.length > 0 && (
-        <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-          <h2 className="text-xl font-bold text-white mb-4">Skill Level Distribution</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <Card withBorder>
+          <Stack gap="md">
+            <Title order={2} size="h3">Skill Level Distribution</Title>
+            <SimpleGrid cols={{ base: 1, md: 3 }}>
             {analytics.statistics.skillLevelDistribution.map((item) => (
-              <div key={item.level} className="bg-brand-black rounded-lg p-4">
-                <div className="text-sm text-gray-400 mb-1 capitalize">{item.level}</div>
-                <div className="text-2xl font-bold text-white">{item.count}</div>
-                <div className="text-xs text-gray-500 mt-1">
+              <Paper key={item.level} withBorder p="md">
+                <Text c="dimmed" size="sm" tt="capitalize">{item.level}</Text>
+                <Text size="xl" fw={800}>{item.count}</Text>
+                <Text c="dimmed" size="xs">
                   {analytics.statistics.totalResponses > 0
                     ? Math.round((item.count / analytics.statistics.totalResponses) * 100)
                     : 0}%
-                </div>
-              </div>
+                </Text>
+              </Paper>
             ))}
-          </div>
-        </div>
+            </SimpleGrid>
+          </Stack>
+        </Card>
       )}
 
-      {/* Top Interests */}
       {analytics.statistics.topInterests.length > 0 && (
-        <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-          <h2 className="text-xl font-bold text-white mb-4">Top Interests</h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <Card withBorder>
+          <Stack gap="md">
+            <Title order={2} size="h3">Top Interests</Title>
+            <SimpleGrid cols={{ base: 2, md: 5 }}>
             {analytics.statistics.topInterests.map((item) => (
-              <div key={item.interest} className="bg-brand-black rounded-lg p-3 text-center">
-                <div className="text-sm font-bold text-white mb-1">{item.count}</div>
-                <div className="text-xs text-gray-400 capitalize">
+              <Paper key={item.interest} withBorder p="sm" ta="center">
+                <Text size="sm" fw={800}>{item.count}</Text>
+                <Text c="dimmed" size="xs" tt="capitalize">
                   {item.interest.replace(/_/g, ' ')}
-                </div>
-              </div>
+                </Text>
+              </Paper>
             ))}
-          </div>
-        </div>
+            </SimpleGrid>
+          </Stack>
+        </Card>
       )}
 
-      {/* Question Statistics */}
-      <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-        <h2 className="text-xl font-bold text-white mb-4">Question Statistics</h2>
-        <div className="space-y-6">
+      <Card withBorder>
+        <Stack gap="md">
+          <Title order={2} size="h3">Question Statistics</Title>
           {Object.entries(analytics.questionStats).map(([questionId, stats]) => (
-            <div key={questionId} className="bg-brand-black rounded-lg p-4">
-              <h3 className="font-bold text-white mb-3">{stats.question}</h3>
-              
+            <Paper key={questionId} withBorder p="md">
+              <Stack gap="sm">
+              <Title order={3} size="h4">{stats.question}</Title>
+
               {stats.type === 'rating' && (
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400">Average Rating</span>
-                    <span className="text-white font-bold">{stats.averageRating} / 5</span>
-                  </div>
+                <Stack gap="xs">
+                  <Group justify="space-between">
+                    <Text c="dimmed" size="sm">Average Rating</Text>
+                    <Text size="sm" fw={800}>{stats.averageRating} / 5</Text>
+                  </Group>
                   {stats.minRating !== null && stats.maxRating !== null && (
-                    <div className="flex items-center justify-between text-xs text-gray-500">
-                      <span>Range: {stats.minRating} - {stats.maxRating}</span>
-                      <span>{stats.totalRatings} responses</span>
-                    </div>
+                    <Group justify="space-between">
+                      <Text c="dimmed" size="xs">Range: {stats.minRating} - {stats.maxRating}</Text>
+                      <Text c="dimmed" size="xs">{stats.totalRatings} responses</Text>
+                    </Group>
                   )}
-                </div>
+                </Stack>
               )}
 
               {(stats.type === 'single_choice' || stats.type === 'multiple_choice') &&
                 stats.answerCounts && (
-                  <div className="space-y-2">
+                  <Stack gap="sm">
                     {Object.entries(stats.answerCounts)
                       .sort(([, a], [, b]) => b - a)
                       .map(([value, count]) => {
@@ -327,80 +298,71 @@ export default function AdminSurveysPage() {
                             ? Math.round((count / stats.totalAnswers) * 100)
                             : 0;
                         return (
-                          <div key={value} className="space-y-1">
-                            <div className="flex items-center justify-between text-sm">
-                              <span className="text-gray-400 capitalize">
+                          <Stack key={value} gap={4}>
+                            <Group justify="space-between">
+                              <Text c="dimmed" size="sm" tt="capitalize">
                                 {value.replace(/_/g, ' ')}
-                              </span>
-                              <span className="text-white font-bold">
+                              </Text>
+                              <Text size="sm" fw={800}>
                                 {count} ({percentage}%)
-                              </span>
-                            </div>
-                            <div className="w-full bg-brand-darkGrey/50 rounded-full h-2 overflow-hidden">
-                              <div
-                                className="bg-brand-accent h-full transition-all"
-                                style={{ width: `${percentage}%` }}
-                              />
-                            </div>
-                          </div>
+                              </Text>
+                            </Group>
+                            <Progress color="amanoba" value={percentage} />
+                          </Stack>
                         );
                       })}
-                  </div>
+                  </Stack>
                 )}
-            </div>
+              </Stack>
+            </Paper>
           ))}
-        </div>
-      </div>
+        </Stack>
+      </Card>
 
-      {/* Recent Responses */}
       {analytics.recentResponses.length > 0 && (
-        <div className="bg-brand-darkGrey rounded-xl p-6 border-2 border-brand-accent">
-          <h2 className="text-xl font-bold text-white mb-4">Recent Responses</h2>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-brand-black/50">
-                <tr>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">
-                    Player
-                  </th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">
-                    Skill Level
-                  </th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">
-                    Time Spent
-                  </th>
-                  <th className="px-4 py-3 text-left text-xs font-medium text-gray-400 uppercase">
-                    Completed At
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-brand-black/50">
+        <Card withBorder>
+          <Stack gap="md">
+            <Title order={2} size="h3">Recent Responses</Title>
+            <Table.ScrollContainer minWidth={720}>
+              <Table verticalSpacing="sm" highlightOnHover>
+                <Table.Thead>
+                  <Table.Tr>
+                    <Table.Th>Player</Table.Th>
+                    <Table.Th>Skill Level</Table.Th>
+                    <Table.Th>Time Spent</Table.Th>
+                    <Table.Th>Completed At</Table.Th>
+                  </Table.Tr>
+                </Table.Thead>
+                <Table.Tbody>
                 {analytics.recentResponses.map((response) => (
-                  <tr key={response.id} className="hover:bg-brand-black/30">
-                    <td className="px-4 py-3 text-sm text-white">
-                      {response.playerName}
+                  <Table.Tr key={response.id}>
+                    <Table.Td>
+                      <Text size="sm">{response.playerName}</Text>
                       {response.playerEmail && (
-                        <div className="text-xs text-gray-400">{response.playerEmail}</div>
+                        <Text c="dimmed" size="xs">{response.playerEmail}</Text>
                       )}
-                    </td>
-                    <td className="px-4 py-3 text-sm text-white capitalize">
-                      {response.skillLevel || 'N/A'}
-                    </td>
-                    <td className="px-4 py-3 text-sm text-white">
+                    </Table.Td>
+                    <Table.Td>
+                      <Text size="sm" tt="capitalize">{response.skillLevel || 'N/A'}</Text>
+                    </Table.Td>
+                    <Table.Td>
+                      <Text size="sm">
                       {response.timeSpentSeconds
                         ? formatTime(response.timeSpentSeconds)
                         : 'N/A'}
-                    </td>
-                    <td className="px-4 py-3 text-sm text-white">
-                      {new Date(response.completedAt).toLocaleString()}
-                    </td>
-                  </tr>
+                      </Text>
+                    </Table.Td>
+                    <Table.Td>
+                      <Text size="sm">{new Date(response.completedAt).toLocaleString()}</Text>
+                    </Table.Td>
+                  </Table.Tr>
                 ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+                </Table.Tbody>
+              </Table>
+            </Table.ScrollContainer>
+          </Stack>
+        </Card>
       )}
-    </div>
+    </Stack>
   );
 }

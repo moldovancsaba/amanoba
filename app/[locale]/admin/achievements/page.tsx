@@ -11,11 +11,26 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import {
-  Plus,
-  Edit,
-  Trash2,
-  Search,
-} from 'lucide-react';
+  ActionIcon,
+  Badge,
+  Button,
+  Card,
+  Group,
+  Loader,
+  Modal,
+  Select,
+  SimpleGrid,
+  Stack,
+  Text,
+  TextInput,
+  Title,
+} from '@mantine/core';
+import {
+  IconEdit,
+  IconPlus,
+  IconSearch,
+  IconTrash,
+} from '@tabler/icons-react';
 
 interface Achievement {
   _id: string;
@@ -104,195 +119,179 @@ export default function AdminAchievementsPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">{tCommon('loading')}</div>
-      </div>
+      <Group justify="center" mih={400}>
+        <Loader color="amanoba" />
+        <Text size="xl">{tCommon('loading')}</Text>
+      </Group>
     );
   }
 
   const tierColors: Record<string, string> = {
-    bronze: 'bg-orange-500/20 text-orange-400',
-    silver: 'bg-gray-400/20 text-gray-300',
-    gold: 'bg-yellow-500/20 text-yellow-400',
-    platinum: 'bg-purple-500/20 text-purple-400',
+    bronze: 'orange',
+    silver: 'gray',
+    gold: 'amanoba',
+    platinum: 'violet',
   };
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-white mb-2">{t('achievementsManagement')}</h1>
-          <p className="text-gray-400">{t('achievementsDescription')}</p>
-        </div>
-        <Link
+    <Stack gap="lg">
+      <Group justify="space-between" align="flex-start">
+        <Stack gap={4}>
+          <Title order={1}>{t('achievementsManagement')}</Title>
+          <Text c="dimmed">{t('achievementsDescription')}</Text>
+        </Stack>
+        <Button
+          component={Link}
           href={`/${locale}/admin/achievements/new`}
-          className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-indigo-700 transition-colors"
+          color="amanoba"
+          leftSection={<IconPlus size={18} />}
         >
-          <Plus className="w-5 h-5" />
           {t('addAchievement')}
-        </Link>
-      </div>
+        </Button>
+      </Group>
 
-      {/* Search and Filters */}
-      <div className="flex items-center gap-4">
-        <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-          <input
-            type="text"
-            placeholder={t('searchAchievements')}
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
-          />
-        </div>
-        <select
+      <SimpleGrid cols={{ base: 1, md: 2 }}>
+        <TextInput
+          placeholder={t('searchAchievements')}
+          value={search}
+          onChange={(event) => setSearch(event.currentTarget.value)}
+          leftSection={<IconSearch size={18} />}
+        />
+        <Select
+          data={[
+            { value: 'all', label: t('allCategories') },
+            { value: 'gameplay', label: 'Gameplay' },
+            { value: 'progression', label: 'Progression' },
+            { value: 'social', label: 'Social' },
+            { value: 'collection', label: 'Collection' },
+            { value: 'mastery', label: 'Mastery' },
+            { value: 'streak', label: 'Streak' },
+            { value: 'special', label: 'Special' },
+          ]}
           value={categoryFilter}
-          onChange={(e) => setCategoryFilter(e.target.value)}
-          className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
-        >
-          <option value="all">{t('allCategories')}</option>
-          <option value="gameplay">Gameplay</option>
-          <option value="progression">Progression</option>
-          <option value="social">Social</option>
-          <option value="collection">Collection</option>
-          <option value="mastery">Mastery</option>
-          <option value="streak">Streak</option>
-          <option value="special">Special</option>
-        </select>
-      </div>
+          onChange={(value) => setCategoryFilter(value || 'all')}
+          allowDeselect={false}
+        />
+      </SimpleGrid>
 
-      {/* Achievements Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <SimpleGrid cols={{ base: 1, md: 2, lg: 3 }}>
         {achievements.length === 0 ? (
-          <div className="col-span-full text-center py-12 text-gray-400">
+          <Text c="dimmed" ta="center" py="xl">
             {tCommon('noDataFound')}
-          </div>
+          </Text>
         ) : (
           achievements.map((achievement) => (
-            <div
-              key={achievement._id}
-              className="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-indigo-500 transition-colors"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="text-4xl">{achievement.icon}</div>
-                  <div>
-                    <h3 className="text-white font-bold text-lg">{achievement.name}</h3>
-                    <span className={`px-2 py-1 rounded text-xs font-medium ${tierColors[achievement.tier] || tierColors.bronze}`}>
-                      {achievement.tier}
-                    </span>
-                  </div>
-                </div>
-                {achievement.isHidden && (
-                  <span className="px-2 py-1 bg-gray-700 text-gray-300 rounded text-xs">
-                    {t('hidden')}
-                  </span>
-                )}
-              </div>
+            <Card key={achievement._id} withBorder>
+              <Stack gap="md">
+                <Group justify="space-between" align="flex-start">
+                  <Group gap="sm" align="flex-start" wrap="nowrap">
+                    <Text size="2.5rem" lh={1}>{achievement.icon}</Text>
+                    <Stack gap={4}>
+                      <Title order={2} size="h4">{achievement.name}</Title>
+                      <Badge color={tierColors[achievement.tier] || tierColors.bronze}>
+                        {achievement.tier}
+                      </Badge>
+                    </Stack>
+                  </Group>
+                  {achievement.isHidden ? <Badge color="gray" variant="light">{t('hidden')}</Badge> : null}
+                </Group>
 
-              <p className="text-gray-400 text-sm mb-4">{achievement.description}</p>
+                <Text c="dimmed" size="sm">{achievement.description}</Text>
 
-              <div className="space-y-2 mb-4">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">{t('category')}:</span>
-                  <span className="text-white capitalize">{achievement.category}</span>
-                </div>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">{t('criteria')}:</span>
-                  <span className="text-white">
+                <Stack gap={6}>
+                  <Group justify="space-between" gap="md">
+                    <Text c="dimmed" size="sm">{t('category')}:</Text>
+                    <Text size="sm" tt="capitalize">{achievement.category}</Text>
+                  </Group>
+                  <Group justify="space-between" gap="md">
+                    <Text c="dimmed" size="sm">{t('criteria')}:</Text>
+                    <Text size="sm">
                     {achievement.criteria.type.replace(/_/g, ' ')} ({achievement.criteria.target})
-                  </span>
-                </div>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">{t('rewards')}:</span>
-                  <span className="text-white">
-                    {achievement.rewards.points} pts, {achievement.rewards.xp} XP
-                  </span>
-                </div>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">{t('unlocked')}:</span>
-                  <span className="text-white">{achievement.metadata.unlockCount} {t('players')}</span>
-                </div>
-              </div>
+                    </Text>
+                  </Group>
+                  <Group justify="space-between" gap="md">
+                    <Text c="dimmed" size="sm">{t('rewards')}:</Text>
+                    <Text size="sm">{achievement.rewards.points} pts, {achievement.rewards.xp} XP</Text>
+                  </Group>
+                  <Group justify="space-between" gap="md">
+                    <Text c="dimmed" size="sm">{t('unlocked')}:</Text>
+                    <Text size="sm">{achievement.metadata.unlockCount} {t('players')}</Text>
+                  </Group>
+                </Stack>
 
-              <div className="flex items-center gap-2 pt-4 border-t border-gray-700">
-                <Link
-                  href={`/${locale}/admin/achievements/${achievement._id}`}
-                  className="flex-1 flex items-center justify-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors"
-                >
-                  <Edit className="w-4 h-4" />
+                <Group gap="xs">
+                  <Button
+                    component={Link}
+                    href={`/${locale}/admin/achievements/${achievement._id}`}
+                    variant="default"
+                    leftSection={<IconEdit size={16} />}
+                    fullWidth
+                  >
                   {tCommon('edit')}
-                </Link>
-                <button
-                  onClick={() => setShowDeleteConfirm({ id: achievement._id, name: achievement.name })}
-                  disabled={deletingId === achievement._id}
-                  className="p-2 bg-gray-700 hover:bg-red-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  title={tCommon('delete')}
-                >
-                  <Trash2 className="w-4 h-4 text-gray-300" />
-                </button>
-              </div>
-            </div>
+                  </Button>
+                  <ActionIcon
+                    color="red"
+                    variant="subtle"
+                    onClick={() => setShowDeleteConfirm({ id: achievement._id, name: achievement.name })}
+                    disabled={deletingId === achievement._id}
+                    aria-label={tCommon('delete')}
+                  >
+                    <IconTrash size={18} />
+                  </ActionIcon>
+                </Group>
+              </Stack>
+            </Card>
           ))
         )}
-      </div>
+      </SimpleGrid>
 
-      {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('totalAchievements')}</div>
-          <div className="text-2xl font-bold text-white">{achievements.length}</div>
-        </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{tCommon('active')}</div>
-          <div className="text-2xl font-bold text-green-400">
-            {achievements.filter((a) => a.metadata.isActive).length}
-          </div>
-        </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('totalUnlocks')}</div>
-          <div className="text-2xl font-bold text-yellow-400">
-            {achievements.reduce((sum, a) => sum + a.metadata.unlockCount, 0)}
-          </div>
-        </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('hidden')}</div>
-          <div className="text-2xl font-bold text-blue-400">
-            {achievements.filter((a) => a.isHidden).length}
-          </div>
-        </div>
-      </div>
+      <SimpleGrid cols={{ base: 1, md: 4 }}>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">{t('totalAchievements')}</Text>
+          <Text size="xl" fw={800}>{achievements.length}</Text>
+        </Card>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">{tCommon('active')}</Text>
+          <Text size="xl" fw={800} c="green">{achievements.filter((a) => a.metadata.isActive).length}</Text>
+        </Card>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">{t('totalUnlocks')}</Text>
+          <Text size="xl" fw={800} c="amanoba">{achievements.reduce((sum, a) => sum + a.metadata.unlockCount, 0)}</Text>
+        </Card>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">{t('hidden')}</Text>
+          <Text size="xl" fw={800} c="gray">{achievements.filter((a) => a.isHidden).length}</Text>
+        </Card>
+      </SimpleGrid>
 
-      {/* Delete Confirmation Modal */}
-      {showDeleteConfirm && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-gray-800 rounded-xl p-6 border border-gray-700 max-w-md w-full mx-4">
-            <h3 className="text-xl font-bold text-white mb-4">Confirm Delete</h3>
-            <p className="text-gray-300 mb-6">
-              Are you sure you want to delete &quot;{showDeleteConfirm.name}&quot;? This action cannot be undone.
-            </p>
-            <div className="flex items-center justify-end gap-4">
-              <button
-                type="button"
-                onClick={() => setShowDeleteConfirm(null)}
-                disabled={deletingId === showDeleteConfirm.id}
-                className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition-colors disabled:opacity-50"
-              >
-                {tCommon('cancel')}
-              </button>
-              <button
-                type="button"
-                onClick={() => handleDelete(showDeleteConfirm.id)}
-                disabled={deletingId === showDeleteConfirm.id}
-                className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50"
-              >
-                {deletingId === showDeleteConfirm.id ? tCommon('loading') : tCommon('delete')}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+      <Modal
+        opened={showDeleteConfirm !== null}
+        onClose={() => setShowDeleteConfirm(null)}
+        title="Confirm Delete"
+        centered
+      >
+        <Stack gap="md">
+          <Text>
+            Are you sure you want to delete &quot;{showDeleteConfirm?.name}&quot;? This action cannot be undone.
+          </Text>
+          <Group justify="flex-end">
+            <Button
+              variant="default"
+              onClick={() => setShowDeleteConfirm(null)}
+              disabled={deletingId === showDeleteConfirm?.id}
+            >
+              {tCommon('cancel')}
+            </Button>
+            <Button
+              color="red"
+              onClick={() => showDeleteConfirm && handleDelete(showDeleteConfirm.id)}
+              loading={deletingId === showDeleteConfirm?.id}
+            >
+              {deletingId === showDeleteConfirm?.id ? tCommon('loading') : tCommon('delete')}
+            </Button>
+          </Group>
+        </Stack>
+      </Modal>
+    </Stack>
   );
 }

@@ -12,12 +12,30 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { useDebounce } from '@/app/lib/hooks/useDebounce';
 import {
-  Search,
-  Users,
-  Crown,
-  CheckCircle,
-  XCircle,
-} from 'lucide-react';
+  Badge,
+  Button,
+  Card,
+  Group,
+  Loader,
+  Overlay,
+  Paper,
+  Select,
+  SimpleGrid,
+  Stack,
+  Table,
+  Text,
+  TextInput,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import {
+  IconCheck,
+  IconCrown,
+  IconSearch,
+  IconUser,
+  IconUsers,
+  IconX,
+} from '@tabler/icons-react';
 
 interface Player {
   _id: string;
@@ -89,236 +107,195 @@ export default function AdminPlayersPage() {
   // Only show full-page loader on initial load
   if (initialLoading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">{tCommon('loading')}</div>
-      </div>
+      <Group justify="center" mih={400}>
+        <Loader color="amanoba" />
+        <Text size="xl">{tCommon('loading')}</Text>
+      </Group>
     );
   }
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-white mb-2">{t('playersManagement')}</h1>
-          <p className="text-gray-400">{t('playersDescription')}</p>
-        </div>
-      </div>
+    <Stack gap="lg">
+      <Stack gap={4}>
+        <Title order={1}>{t('playersManagement')}</Title>
+        <Text c="dimmed">{t('playersDescription')}</Text>
+      </Stack>
 
-      {/* Search and Filters */}
-      <div className="flex items-center gap-4">
-        <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-          <input
-            type="text"
-            placeholder={t('searchPlayers')}
-            value={search}
-            onChange={(e) => {
-              setSearch(e.target.value);
-              setPagination({ ...pagination, page: 1 });
-            }}
-            className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
-          />
-        </div>
-        <select
+      <SimpleGrid cols={{ base: 1, md: 3 }}>
+        <TextInput
+          placeholder={t('searchPlayers')}
+          value={search}
+          onChange={(event) => {
+            setSearch(event.currentTarget.value);
+            setPagination({ ...pagination, page: 1 });
+          }}
+          leftSection={<IconSearch size={18} />}
+        />
+        <Select
+          data={[
+            { value: 'all', label: t('allUsers') },
+            { value: 'guest', label: 'GUEST' },
+            { value: 'user', label: 'USER' },
+            { value: 'admin', label: 'ADMIN' },
+          ]}
           value={filters.userType}
-          onChange={(e) => {
-            setFilters({ ...filters, userType: e.target.value });
+          onChange={(value) => {
+            setFilters({ ...filters, userType: value || 'all' });
             setPagination({ ...pagination, page: 1 });
           }}
-          className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
-        >
-          <option value="all">{t('allUsers')}</option>
-          <option value="guest">GUEST</option>
-          <option value="user">USER</option>
-          <option value="admin">ADMIN</option>
-        </select>
-        <select
+          allowDeselect={false}
+        />
+        <Select
+          data={[
+            { value: 'all', label: t('allStatus') },
+            { value: 'true', label: t('activeOnly') },
+            { value: 'false', label: t('inactiveOnly') },
+          ]}
           value={filters.isActive}
-          onChange={(e) => {
-            setFilters({ ...filters, isActive: e.target.value });
+          onChange={(value) => {
+            setFilters({ ...filters, isActive: value || 'all' });
             setPagination({ ...pagination, page: 1 });
           }}
-          className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
-        >
-          <option value="all">{t('allStatus')}</option>
-          <option value="true">{t('activeOnly')}</option>
-          <option value="false">{t('inactiveOnly')}</option>
-        </select>
-      </div>
+          allowDeselect={false}
+        />
+      </SimpleGrid>
 
-      {/* Players Table */}
-      <div className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden relative">
-        {loading && (
-          <div className="absolute inset-0 bg-gray-800/80 flex items-center justify-center z-10 rounded-xl">
-            <div className="text-white text-sm">Searching...</div>
-          </div>
-        )}
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-gray-700">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  {t('player')}
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  Email
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  {tCommon('status')}
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  {tCommon('type')}
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  {t('joined')}
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  {t('lastLogin')}
-                </th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-gray-300 uppercase tracking-wider">
-                  {tCommon('actions')}
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-700">
+      <Paper withBorder pos="relative">
+        {loading ? (
+          <Overlay backgroundOpacity={0.65} blur={1} center>
+            <Group gap="xs">
+              <Loader color="amanoba" size="sm" />
+              <Text size="sm">Searching...</Text>
+            </Group>
+          </Overlay>
+        ) : null}
+        <Table.ScrollContainer minWidth={980}>
+          <Table verticalSpacing="md" highlightOnHover>
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th>{t('player')}</Table.Th>
+                <Table.Th>Email</Table.Th>
+                <Table.Th>{tCommon('status')}</Table.Th>
+                <Table.Th>{tCommon('type')}</Table.Th>
+                <Table.Th>{t('joined')}</Table.Th>
+                <Table.Th>{t('lastLogin')}</Table.Th>
+                <Table.Th ta="right">{tCommon('actions')}</Table.Th>
+              </Table.Tr>
+            </Table.Thead>
+            <Table.Tbody>
               {players.length === 0 ? (
-                <tr>
-                  <td colSpan={7} className="px-6 py-12 text-center text-gray-400">
-                    {tCommon('noDataFound')}
-                  </td>
-                </tr>
+                <Table.Tr>
+                  <Table.Td colSpan={7}>
+                    <Text ta="center" c="dimmed" py="xl">{tCommon('noDataFound')}</Text>
+                  </Table.Td>
+                </Table.Tr>
               ) : (
                 players.map((player) => (
-                  <tr key={player._id} className="hover:bg-gray-700/50">
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-indigo-500 rounded-full flex items-center justify-center">
-                          <Users className="w-5 h-5 text-white" />
-                        </div>
-                        <div>
-                          <div className="text-white font-medium">{player.displayName}</div>
-                          <div className="text-gray-400 text-xs">{player._id}</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <span className="text-gray-300">{player.email || '-'}</span>
-                    </td>
-                    <td className="px-6 py-4">
+                  <Table.Tr key={player._id}>
+                    <Table.Td>
+                      <Group gap="sm" wrap="nowrap">
+                        <ThemeIcon color="amanoba" variant="light" radius="xl" size="lg">
+                          <IconUsers size={18} />
+                        </ThemeIcon>
+                        <Stack gap={2}>
+                          <Text fw={700}>{player.displayName}</Text>
+                          <Text size="xs" c="dimmed">{player._id}</Text>
+                        </Stack>
+                      </Group>
+                    </Table.Td>
+                    <Table.Td>
+                      <Text c="dimmed">{player.email || '-'}</Text>
+                    </Table.Td>
+                    <Table.Td>
                       {player.isActive ? (
-                        <span className="flex items-center gap-1 px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-medium">
-                          <CheckCircle className="w-3 h-3" />
+                        <Badge color="green" variant="light" leftSection={<IconCheck size={12} />}>
                           {tCommon('active')}
-                        </span>
+                        </Badge>
                       ) : (
-                        <span className="flex items-center gap-1 px-3 py-1 bg-gray-500/20 text-gray-400 rounded-full text-xs font-medium">
-                          <XCircle className="w-3 h-3" />
+                        <Badge color="gray" variant="light" leftSection={<IconX size={12} />}>
                           {tCommon('inactive')}
-                        </span>
+                        </Badge>
                       )}
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-2">
-                        {player.isAnonymous ? (
-                          <span className="px-2 py-1 bg-gray-500/20 text-gray-400 rounded text-xs font-medium">
-                            GUEST
-                          </span>
-                        ) : player.role === 'admin' ? (
-                          <span className="px-2 py-1 bg-purple-500/20 text-purple-400 rounded text-xs font-medium flex items-center gap-1">
-                            <Crown className="w-3 h-3" />
-                            ADMIN
-                          </span>
-                        ) : (
-                          <span className="px-2 py-1 bg-blue-500/20 text-blue-400 rounded text-xs font-medium">
-                            USER
-                          </span>
-                        )}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <span className="text-gray-300 text-sm">
-                        {new Date(player.createdAt).toLocaleDateString('hu-HU')}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4">
-                      <span className="text-gray-300 text-sm">
+                    </Table.Td>
+                    <Table.Td>
+                      {player.isAnonymous ? (
+                        <Badge color="gray" variant="light">GUEST</Badge>
+                      ) : player.role === 'admin' ? (
+                        <Badge color="violet" variant="light" leftSection={<IconCrown size={12} />}>ADMIN</Badge>
+                      ) : (
+                        <Badge color="amanoba" variant="light" leftSection={<IconUser size={12} />}>USER</Badge>
+                      )}
+                    </Table.Td>
+                    <Table.Td>
+                      <Text size="sm">{new Date(player.createdAt).toLocaleDateString('hu-HU')}</Text>
+                    </Table.Td>
+                    <Table.Td>
+                      <Text size="sm">
                         {player.lastLoginAt
                           ? new Date(player.lastLoginAt).toLocaleDateString('hu-HU')
                           : t('never')}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-right">
-                      <Link
-                        href={`/${locale}/profile/${player._id}`}
-                        className="text-indigo-400 hover:text-indigo-300 text-sm font-medium"
-                      >
-                        {t('viewProfile')} →
-                      </Link>
-                    </td>
-                  </tr>
+                      </Text>
+                    </Table.Td>
+                    <Table.Td ta="right">
+                      <Button component={Link} href={`/${locale}/profile/${player._id}`} variant="subtle" color="amanoba" size="compact-sm">
+                        {t('viewProfile')}
+                      </Button>
+                    </Table.Td>
+                  </Table.Tr>
                 ))
               )}
-            </tbody>
-          </table>
-        </div>
-      </div>
+            </Table.Tbody>
+          </Table>
+        </Table.ScrollContainer>
+      </Paper>
 
-      {/* Pagination */}
-      {pagination.pages > 1 && (
-        <div className="flex items-center justify-between">
-          <div className="text-gray-400 text-sm">
+      {pagination.pages > 1 ? (
+        <Group justify="space-between">
+          <Text c="dimmed" size="sm">
             {t('showing')} {((pagination.page - 1) * pagination.limit) + 1} {t('to')}{' '}
             {Math.min(pagination.page * pagination.limit, pagination.total)} {t('of')}{' '}
             {pagination.total} {t('users')}
-          </div>
-          <div className="flex items-center gap-2">
-            <button
+          </Text>
+          <Group gap="xs">
+            <Button
+              variant="default"
               onClick={() => setPagination({ ...pagination, page: pagination.page - 1 })}
               disabled={pagination.page === 1}
-              className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {tCommon('previous')}
-            </button>
-            <span className="text-gray-400 text-sm">
+            </Button>
+            <Text c="dimmed" size="sm">
               {t('page')} {pagination.page} {t('of')} {pagination.pages}
-            </span>
-            <button
+            </Text>
+            <Button
+              variant="default"
               onClick={() => setPagination({ ...pagination, page: pagination.page + 1 })}
               disabled={pagination.page >= pagination.pages}
-              className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {tCommon('next')}
-            </button>
-          </div>
-        </div>
-      )}
+            </Button>
+          </Group>
+        </Group>
+      ) : null}
 
-      {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('totalUsers')}</div>
-          <div className="text-2xl font-bold text-white">{pagination.total}</div>
-        </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('activeUsers')}</div>
-          <div className="text-2xl font-bold text-green-400">
-            {players.filter((p) => p.isActive).length}
-          </div>
-        </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">Admin Users</div>
-          <div className="text-2xl font-bold text-purple-400">
-            {players.filter((p) => p.role === 'admin').length}
-          </div>
-        </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('guestUsers')}</div>
-          <div className="text-2xl font-bold text-blue-400">
-            {players.filter((p) => p.isAnonymous).length}
-          </div>
-        </div>
-      </div>
-    </div>
+      <SimpleGrid cols={{ base: 1, md: 4 }}>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">{t('totalUsers')}</Text>
+          <Text size="xl" fw={800}>{pagination.total}</Text>
+        </Card>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">{t('activeUsers')}</Text>
+          <Text size="xl" fw={800} c="green">{players.filter((p) => p.isActive).length}</Text>
+        </Card>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">Admin Users</Text>
+          <Text size="xl" fw={800} c="violet">{players.filter((p) => p.role === 'admin').length}</Text>
+        </Card>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">{t('guestUsers')}</Text>
+          <Text size="xl" fw={800} c="amanoba">{players.filter((p) => p.isAnonymous).length}</Text>
+        </Card>
+      </SimpleGrid>
+    </Stack>
   );
 }

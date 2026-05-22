@@ -9,7 +9,22 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { RotateCcw, Home } from 'lucide-react';
+import {
+  Button,
+  Card,
+  Center,
+  Checkbox,
+  Container,
+  Grid,
+  Group,
+  Loader,
+  Modal,
+  SimpleGrid,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
+import { IconHome, IconRefresh } from '@tabler/icons-react';
 import {
   type MadokuGameState,
   createInitialState,
@@ -195,18 +210,18 @@ export default function MadokuGame() {
   // Client-side only
   if (!isClient) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center">
-        <div className="text-white text-2xl">Loading...</div>
-      </div>
+      <Center mih="100vh">
+        <Loader />
+      </Center>
     );
   }
   
   // Loading
   if (status === 'loading') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center">
-        <div className="text-white text-2xl">Loading...</div>
-      </div>
+      <Center mih="100vh">
+        <Loader />
+      </Center>
     );
   }
   
@@ -235,64 +250,80 @@ export default function MadokuGame() {
     };
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center p-4">
-        <div className="max-w-2xl w-full bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8">
-          <div className="text-center mb-8">
-            <h1 className="text-5xl font-bold text-white mb-4">🎯 Madoku</h1>
-            <p className="text-xl text-white/90">Competitive Number-Picking Strategy Game</p>
-            <p className="text-sm text-white/70 mt-2">Pick numbers to build your score. Next player picks from your row/col!</p>
-          </div>
+      <Container size="sm" py="xl">
+        <Card withBorder p="xl">
+          <Stack gap="xl">
+          <Stack align="center" gap="sm">
+            <Title order={1}>🎯 Madoku</Title>
+            <Text c="dimmed">Competitive Number-Picking Strategy Game</Text>
+            <Text size="sm" c="dimmed" ta="center">Pick numbers to build your score. Next player picks from your row/col.</Text>
+          </Stack>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-            <button
+          <SimpleGrid cols={{ base: 1, md: 3 }}>
+            <Button
               onClick={() => startNewGame(1)}
-              className="p-6 rounded-2xl bg-green-500/20 hover:bg-green-500/30 border-2 border-green-500 text-white transition-all"
+              variant="default"
+              h="auto"
+              py="lg"
             >
-              <div className="text-3xl mb-2">🤖</div>
-              <div className="text-xl font-bold mb-2">Easy</div>
-              <div className="text-sm opacity-80">Greedy AI</div>
-            </button>
+              <Stack align="center" gap={2}>
+                <Text size="xl">🤖</Text>
+                <Text fw={700}>Easy</Text>
+                <Text size="sm">Greedy AI</Text>
+              </Stack>
+            </Button>
             
-            <button
+            <Button
               onClick={() => startNewGame(2)}
-              className="p-6 rounded-2xl bg-yellow-500/20 hover:bg-yellow-500/30 border-2 border-yellow-500 text-white transition-all"
+              variant="default"
+              h="auto"
+              py="lg"
             >
-              <div className="text-3xl mb-2">🦾</div>
-              <div className="text-xl font-bold mb-2">Medium</div>
-              <div className="text-sm opacity-80">2-move lookahead</div>
-            </button>
+              <Stack align="center" gap={2}>
+                <Text size="xl">🦾</Text>
+                <Text fw={700}>Medium</Text>
+                <Text size="sm">2-move lookahead</Text>
+              </Stack>
+            </Button>
             
-            <button
+            <Button
               onClick={() => startNewGame(3)}
-              className="p-6 rounded-2xl bg-red-500/20 hover:bg-red-500/30 border-2 border-red-500 text-white transition-all"
+              variant="default"
+              h="auto"
+              py="lg"
             >
-              <div className="text-3xl mb-2">💡</div>
-              <div className="text-xl font-bold mb-2">Hard</div>
-              <div className="text-sm opacity-80">3+ move lookahead</div>
-            </button>
-          </div>
+              <Stack align="center" gap={2}>
+                <Text size="xl">💡</Text>
+                <Text fw={700}>Hard</Text>
+                <Text size="sm">3+ move lookahead</Text>
+              </Stack>
+            </Button>
+          </SimpleGrid>
 
-          <div className="mb-4">
-            <label className="flex items-center justify-center gap-3 mb-2 text-white/90">
-              <input type="checkbox" checked={ghostMode} onChange={(e) => setGhostMode(e.target.checked)} className="w-4 h-4" />
-              <span>🌶️ Ghost Chili Mode — random negative numbers (practice, no rewards)</span>
-            </label>
-            <button
+          <Stack>
+            <Checkbox
+              checked={ghostMode}
+              onChange={(event) => setGhostMode(event.currentTarget.checked)}
+              label="🌶️ Ghost Chili Mode - random negative numbers (practice, no rewards)"
+            />
+            <Button
               onClick={onAutoMatch}
-              className="w-full mt-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-indigo-600 hover:to-purple-700 transition-colors"
+              fullWidth
             >
               🌙 Auto-Match (Rank-Based)
-            </button>
-          </div>
+            </Button>
+          </Stack>
           
-          <button
+          <Button
             onClick={() => router.push('/games')}
-            className="w-full bg-white/20 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-colors"
+            variant="default"
+            fullWidth
           >
             Back to Games
-          </button>
-        </div>
-      </div>
+          </Button>
+          </Stack>
+        </Card>
+      </Container>
     );
   }
   
@@ -304,170 +335,164 @@ export default function MadokuGame() {
   const selectableSet = new Set(selectableCells.map(c => `${c.row}-${c.col}`));
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 p-4">
-      <div className="max-w-5xl mx-auto">
+    <Container size="lg" py="xl">
+      <Stack gap="md">
         {/* Header with scores */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 mb-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-3xl">👤</span>
+        <Card withBorder>
+          <Group justify="space-between">
+          <Group>
+            <Text size="xl">👤</Text>
             <div>
-              <div className="text-xs text-white/70">{playerName}</div>
-              <div className="text-3xl font-bold text-white">{gameState.p1Score}</div>
+              <Text size="xs" c="dimmed">{playerName}</Text>
+              <Title order={2}>{gameState.p1Score}</Title>
             </div>
-          </div>
+          </Group>
           
-          <div className="text-center">
-            <div className="text-sm text-white/90 mb-1">
+          <Stack gap={0} align="center">
+            <Text size="sm">
               {gameState.gameEnded ? '🏁 Game Over' : gameState.currentPlayer === 0 ? '🟢 Your Turn' : '🔴 AI Turn'}
-            </div>
-            <div className="text-xs text-white/70">
+            </Text>
+            <Text size="xs" c="dimmed">
               Turn {gameState.totalTurns} • {gameState.picking === 'row' ? 'Pick from Row' : 'Pick from Column'} {gameState.allowedRowOrCol !== null ? gameState.allowedRowOrCol + 1 : ''}
-            </div>
-          </div>
+            </Text>
+          </Stack>
           
-          <div className="flex items-center gap-3">
-            <div className="text-right">
-              <div className="text-xs text-white/70">{aiPersona?.name || 'AI'}</div>
-              <div className="text-3xl font-bold text-white">{gameState.p2Score}</div>
+          <Group>
+            <div>
+              <Text size="xs" c="dimmed" ta="right">{aiPersona?.name || 'AI'}</Text>
+              <Title order={2} ta="right">{gameState.p2Score}</Title>
             </div>
-            <span className="text-3xl">{aiPersona?.emoji || '🤖'}</span>
-          </div>
-        </div>
+            <Text size="xl">{aiPersona?.emoji || '🤖'}</Text>
+          </Group>
+          </Group>
+        </Card>
         
         {/* Game board */}
-        <div className="bg-white rounded-2xl p-6 mb-4 shadow-2xl">
-          <div className="grid grid-cols-9 gap-0 border-4 border-gray-800 mx-auto" style={{ width: 'fit-content' }}>
+        <Card withBorder p="lg">
+          <SimpleGrid cols={9} spacing={0} w="fit-content" mx="auto">
             {gameState.board.map((row, rowIdx) =>
               row.map((cell, colIdx) => {
                 const isSelectable = selectableSet.has(`${rowIdx}-${colIdx}`);
-                const isThickRight = (colIdx + 1) % 3 === 0 && colIdx < 8;
-                const isThickBottom = (rowIdx + 1) % 3 === 0 && rowIdx < 8;
                 const isEmpty = cell === null;
                 
                 return (
-                  <div
+                  <Button
                     key={`${rowIdx}-${colIdx}`}
                     onClick={() => handleCellClick(rowIdx, colIdx)}
-                    className={`w-12 h-12 flex items-center justify-center text-xl font-bold transition-all border border-gray-300 ${
-                      isThickRight ? 'border-r-4 border-r-gray-800' : ''
-                    } ${
-                      isThickBottom ? 'border-b-4 border-b-gray-800' : ''
-                    } ${
-                      isEmpty ? 'bg-gray-100' :
-                      isSelectable ? 'bg-green-100 hover:bg-green-200 cursor-pointer hover:scale-110 shadow-lg' :
-                      'bg-white text-gray-400'
-                    }`}
+                    variant={isSelectable ? 'filled' : 'default'}
+                    color={isSelectable ? 'green' : 'dark'}
+                    w={48}
+                    h={48}
+                    p={0}
+                    disabled={isEmpty || !isSelectable}
                   >
                     {cell || ''}
-                  </div>
+                  </Button>
                 );
               })
             )}
-          </div>
-        </div>
+          </SimpleGrid>
+        </Card>
         
         {/* Action buttons */}
-        <div className="flex gap-4">
-          <button
+        <Grid>
+          <Grid.Col span={{ base: 12, md: 6 }}>
+          <Button
+            fullWidth
             onClick={() => {
               setGameState(null);
               setAiLevel(null);
               setAiPersona(null);
               setShowGameOver(false);
             }}
-            className="flex-1 bg-white/20 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-colors flex items-center justify-center gap-2"
+            variant="default"
+            leftSection={<IconRefresh size={18} />}
           >
-            <RotateCcw className="w-5 h-5" /> New Game
-          </button>
+            New Game
+          </Button>
+          </Grid.Col>
           
-          <button
+          <Grid.Col span={{ base: 12, md: 6 }}>
+          <Button
+            fullWidth
             onClick={() => router.push('/games')}
-            className="flex-1 bg-white/20 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-colors flex items-center justify-center gap-2"
+            variant="default"
+            leftSection={<IconHome size={18} />}
           >
-            <Home className="w-5 h-5" /> Back to Games
-          </button>
-        </div>
+            Back to Games
+          </Button>
+          </Grid.Col>
+        </Grid>
         
         {/* Game Over Dialog */}
-        {showGameOver && (
-          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-3xl p-8 max-w-md w-full text-center animate-bounce-in">
-              <div className="text-6xl mb-4">
+        <Modal opened={showGameOver} onClose={() => setShowGameOver(false)} centered title="Game result">
+              <Stack align="center">
+              <Text size="xl">
                 {gameState.winner === 0 ? '🏆' : gameState.winner === 1 ? '😞' : '🤝'}
-              </div>
+              </Text>
               
-              <h2 className="text-3xl font-bold mb-2 text-gray-900">
+              <Title order={2}>
                 {gameState.winner === 0 ? 'You Win!' : gameState.winner === 1 ? 'AI Wins!' : "It's a Tie!"}
-              </h2>
+              </Title>
               
-              <div className="bg-gray-100 rounded-xl p-4 mb-4">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-lg font-semibold">{playerName}</span>
-                  <span className="text-2xl font-bold text-indigo-600">{gameState.p1Score}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-lg font-semibold">{aiPersona?.name || 'AI'}</span>
-                  <span className="text-2xl font-bold text-purple-600">{gameState.p2Score}</span>
-                </div>
-              </div>
+              <Card withBorder w="100%">
+                <Group justify="space-between">
+                  <Text fw={600}>{playerName}</Text>
+                  <Text fw={700}>{gameState.p1Score}</Text>
+                </Group>
+                <Group justify="space-between">
+                  <Text fw={600}>{aiPersona?.name || 'AI'}</Text>
+                  <Text fw={700}>{gameState.p2Score}</Text>
+                </Group>
+              </Card>
               
               {/* Rewards */}
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-4 mb-4">
-                <div className="font-bold text-gray-900 mb-2">
-                  Rewards {isCompleting && <span className="text-sm text-gray-500">Calculating…</span>}
-                </div>
-                <div className="flex justify-between">
-                  <span>XP</span>
-                  <span className="font-bold text-purple-600">{rewards ? `+${rewards.xp || 0}` : '—'}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Points</span>
-                  <span className="font-bold text-indigo-600">{rewards ? `+${rewards.points || 0}` : '—'}</span>
-                </div>
+              <Card withBorder w="100%">
+                <Text fw={700}>Rewards {isCompleting ? <Text span size="sm" c="dimmed">Calculating...</Text> : null}</Text>
+                <Group justify="space-between"><Text>XP</Text><Text fw={700}>{rewards ? `+${rewards.xp || 0}` : '-'}</Text></Group>
+                <Group justify="space-between"><Text>Points</Text><Text fw={700}>{rewards ? `+${rewards.points || 0}` : '-'}</Text></Group>
                 {rewards?.streakBonus && rewards.streakBonus > 0 && (
-                  <div className="text-sm text-orange-700 mt-2">🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}%</div>
+                  <Text size="sm">🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}%</Text>
                 )}
-              </div>
+              </Card>
               
               {/* Daily challenges */}
               {completedChallenges.length > 0 && (
-                <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-xl p-4 mb-4 text-left">
-                  <div className="font-bold text-gray-900 mb-2">Daily Challenges Completed</div>
-                  <div className="space-y-1 text-sm">
+                <Card withBorder w="100%">
+                  <Text fw={700}>Daily Challenges Completed</Text>
+                  <Stack gap="xs">
                     {completedChallenges.map((c, idx) => (
-                      <div key={idx} className="flex justify-between">
-                        <span>• {c.title}</span>
-                        <span>+{c.rewardsEarned.points}pts • +{c.rewardsEarned.xp}xp</span>
-                      </div>
+                      <Group key={idx} justify="space-between">
+                        <Text size="sm">{c.title}</Text>
+                        <Text size="sm">+{c.rewardsEarned.points}pts - +{c.rewardsEarned.xp}xp</Text>
+                      </Group>
                     ))}
-                  </div>
-                </div>
+                  </Stack>
+                </Card>
               )}
               
-              <div className="flex gap-3">
-                <button
+              <Group grow w="100%">
+                <Button
                   onClick={() => {
                     setGameState(null);
                     setAiLevel(null);
                     setAiPersona(null);
                     setShowGameOver(false);
                   }}
-                  className="flex-1 bg-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-indigo-700 transition-colors"
                 >
                   Play Again
-                </button>
+                </Button>
                 
-                <button
+                <Button
                   onClick={() => router.push('/games')}
-                  className="flex-1 bg-gray-200 text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-300 transition-colors"
+                  variant="default"
                 >
                   Exit
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
+                </Button>
+              </Group>
+              </Stack>
+        </Modal>
+      </Stack>
+    </Container>
   );
 }

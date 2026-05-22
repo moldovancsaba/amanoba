@@ -12,12 +12,35 @@ import { useRouter, useParams } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import {
-  ArrowLeft,
-  Save,
-  Trophy,
-  HelpCircle,
-  Trash2,
-} from 'lucide-react';
+  ActionIcon,
+  Alert,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Checkbox,
+  Container,
+  Group,
+  Modal,
+  NumberInput,
+  Paper,
+  Select,
+  SimpleGrid,
+  Stack,
+  Text,
+  Textarea,
+  TextInput,
+  ThemeIcon,
+  Title,
+  Tooltip,
+} from '@mantine/core';
+import {
+  IconArrowLeft,
+  IconHelpCircle,
+  IconDeviceFloppy,
+  IconTrash,
+  IconTrophy,
+} from '@tabler/icons-react';
 
 interface Game {
   _id: string;
@@ -118,10 +141,10 @@ const CATEGORIES = [
 ] as const;
 
 const TIERS = [
-  { value: 'bronze', label: 'Bronze', color: 'bg-orange-500/20 text-orange-400' },
-  { value: 'silver', label: 'Silver', color: 'bg-gray-400/20 text-gray-300' },
-  { value: 'gold', label: 'Gold', color: 'bg-yellow-500/20 text-yellow-400' },
-  { value: 'platinum', label: 'Platinum', color: 'bg-purple-500/20 text-purple-400' },
+  { value: 'bronze', label: 'Bronze', color: 'orange' },
+  { value: 'silver', label: 'Silver', color: 'gray' },
+  { value: 'gold', label: 'Gold', color: 'amanoba' },
+  { value: 'platinum', label: 'Platinum', color: 'violet' },
 ] as const;
 
 const CRITERIA_TYPES = [
@@ -390,440 +413,312 @@ export default function EditAchievementPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">{tCommon('loading')}</div>
-      </div>
+      <Group justify="center" mih={400}>
+        <Text size="xl">{tCommon('loading')}</Text>
+      </Group>
     );
   }
 
+  const selectedTier = TIERS.find((tier) => tier.value === formData.tier) || TIERS[0];
+  const selectedCriteria = CRITERIA_TYPES.find((type) => type.value === formData.criteria.type);
+
   return (
-    <div className="page-shell p-6">
-      <div className="page-container max-w-4xl">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-4">
-            <Link
-              href={`/${locale}/admin/achievements`}
-              className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5 text-white" />
-            </Link>
-            <div>
-              <h1 className="text-3xl font-bold text-white mb-2">
-                {t('editAchievement') || 'Edit Achievement'}
-              </h1>
-              <p className="text-gray-400">
-                {t('editAchievementDescription') || 'Update achievement details'}
-              </p>
-            </div>
-          </div>
-        </div>
+    <Container size="md" py="xl">
+      <Stack gap="lg">
+        <Group justify="space-between" align="flex-start">
+          <Group gap="md" wrap="nowrap">
+            <ActionIcon component={Link} href={`/${locale}/admin/achievements`} variant="default" size="lg" aria-label="Back to achievements">
+              <IconArrowLeft size={20} />
+            </ActionIcon>
+            <Stack gap={4}>
+              <Title order={1}>{t('editAchievement') || 'Edit Achievement'}</Title>
+              <Text c="dimmed">{t('editAchievementDescription') || 'Update achievement details'}</Text>
+            </Stack>
+          </Group>
+        </Group>
 
-        {/* Error Display */}
-        {error && (
-          <div className="mb-6 p-4 bg-red-900/20 border border-red-500/50 rounded-lg">
-            <div className="text-red-400 font-semibold">{tCommon('error')}</div>
-            <div className="text-red-300 text-sm mt-1">{error}</div>
-          </div>
-        )}
+        {error ? (
+          <Alert color="red" title={tCommon('error')}>
+            {error}
+          </Alert>
+        ) : null}
 
-        {/* Unlock Count Info */}
-        {unlockCount > 0 && (
-          <div className="mb-6 p-4 bg-yellow-900/20 border border-yellow-500/50 rounded-lg">
-            <div className="text-yellow-400 font-semibold">Unlock Information</div>
-            <div className="text-yellow-300 text-sm mt-1">
-              This achievement has been unlocked by {unlockCount} player{unlockCount !== 1 ? 's' : ''}.
-              {unlockCount > 0 && ' Deleting this achievement will remove it from all players who have unlocked it.'}
-            </div>
-          </div>
-        )}
+        {unlockCount > 0 ? (
+          <Alert color="amanoba" title="Unlock Information">
+            This achievement has been unlocked by {unlockCount} player{unlockCount !== 1 ? 's' : ''}.
+            {' '}Deleting this achievement will remove it from all players who have unlocked it.
+          </Alert>
+        ) : null}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Basic Information */}
-          <div className="page-card-dark p-6">
-            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-              <Trophy className="w-5 h-5" />
-              Basic Information
-            </h2>
+        <Box component="form" onSubmit={handleSubmit}>
+          <Stack gap="lg">
+            <Card withBorder>
+              <Stack gap="md">
+                <Group gap="sm">
+                  <ThemeIcon color="amanoba" variant="light">
+                    <IconTrophy size={18} />
+                  </ThemeIcon>
+                  <Title order={2} size="h3">Basic Information</Title>
+                </Group>
 
-            <div className="space-y-4">
-              {/* Name */}
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  {tCommon('name')} <span className="text-red-400">*</span>
-                </label>
-                <input
-                  type="text"
+                <TextInput
+                  label={tCommon('name')}
                   value={formData.name}
-                  onChange={(e) => updateFormData('name', e.target.value)}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                  onChange={(event) => updateFormData('name', event.currentTarget.value)}
                   placeholder="Achievement name"
                   maxLength={100}
+                  description="Max 100 characters"
                   required
                 />
-                <p className="text-gray-400 text-xs mt-1">Max 100 characters</p>
-              </div>
 
-              {/* Description */}
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  {tCommon('description')} <span className="text-red-400">*</span>
-                </label>
-                <textarea
+                <Textarea
+                  label={tCommon('description')}
                   value={formData.description}
-                  onChange={(e) => updateFormData('description', e.target.value)}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                  onChange={(event) => updateFormData('description', event.currentTarget.value)}
                   placeholder="What does the player need to do to unlock this achievement?"
                   rows={3}
                   maxLength={500}
+                  description="Max 500 characters"
                   required
                 />
-                <p className="text-gray-400 text-xs mt-1">Max 500 characters</p>
-              </div>
 
-              {/* Category and Tier */}
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Category <span className="text-red-400">*</span>
-                  </label>
-                  <select
+                <SimpleGrid cols={{ base: 1, sm: 2 }}>
+                  <Select
+                    label="Category"
+                    data={CATEGORIES.map((category) => ({ value: category.value, label: category.label }))}
                     value={formData.category}
-                    onChange={(e) => updateFormData('category', e.target.value)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
-                    required
-                  >
-                    {CATEGORIES.map(cat => (
-                      <option key={cat.value} value={cat.value}>{cat.label}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Tier <span className="text-red-400">*</span>
-                  </label>
-                  <select
-                    value={formData.tier}
-                    onChange={(e) => updateFormData('tier', e.target.value)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
-                    required
-                  >
-                    {TIERS.map(tier => (
-                      <option key={tier.value} value={tier.value}>{tier.label}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* Icon */}
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  {'Icon '}<span className="text-red-400">*</span>
-                </label>
-                <div className="flex gap-2 mb-2">
-                  <input
-                    type="text"
-                    value={formData.icon}
-                    onChange={(e) => updateFormData('icon', e.target.value)}
-                    className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
-                    placeholder="🏆 or icon identifier"
-                    maxLength={50}
+                    onChange={(value) => value && updateFormData('category', value)}
+                    allowDeselect={false}
                     required
                   />
-                  <div className="text-4xl bg-gray-800 border border-gray-700 rounded-lg px-4 flex items-center justify-center">
-                    {formData.icon || '🏆'}
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {COMMON_ICONS.map(icon => (
-                    <button
-                      key={icon}
-                      type="button"
-                      onClick={() => updateFormData('icon', icon)}
-                      className={`text-2xl p-2 rounded-lg border transition-colors ${
-                        formData.icon === icon
-                          ? 'border-indigo-500 bg-indigo-500/20'
-                          : 'border-gray-700 hover:border-gray-600'
-                      }`}
-                    >
-                      {icon}
-                    </button>
-                  ))}
-                </div>
-              </div>
+                  <Select
+                    label="Tier"
+                    data={TIERS.map((tier) => ({ value: tier.value, label: tier.label }))}
+                    value={formData.tier}
+                    onChange={(value) => value && updateFormData('tier', value)}
+                    allowDeselect={false}
+                    required
+                  />
+                </SimpleGrid>
 
-              {/* Is Hidden */}
-              <div className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  id="isHidden"
-                  checked={formData.isHidden}
-                  onChange={(e) => updateFormData('isHidden', e.target.checked)}
-                  className="w-4 h-4 text-indigo-600 bg-gray-800 border-gray-700 rounded focus:ring-indigo-500"
-                />
-                <label htmlFor="isHidden" className="text-white text-sm">
-                  Hidden Achievement (secret, not shown until unlocked)
-                </label>
-              </div>
-            </div>
-          </div>
-
-          {/* Criteria */}
-          <div className="page-card-dark p-6">
-            <h2 className="text-xl font-bold text-white mb-4">Unlock Criteria</h2>
-
-            <div className="space-y-4">
-              {/* Criteria Type */}
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  Criteria Type <span className="text-red-400">*</span>
-                  <span title="What the player needs to accomplish"><HelpCircle className="w-4 h-4 inline-block ml-2 text-gray-400" /></span>
-                </label>
-                <select
-                  value={formData.criteria.type}
-                  onChange={(e) => updateFormData('criteria.type', e.target.value)}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
-                  required
-                >
-                  {CRITERIA_TYPES.map(type => (
-                    <option key={type.value} value={type.value}>
-                      {type.label} - {type.description}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Game Selection (optional) */}
-              {['perfect_score', 'speed', 'accuracy'].includes(formData.criteria.type) && (
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Game (Optional)
-                  </label>
-                  <select
-                    value={formData.criteria.gameId || ''}
-                    onChange={(e) => updateFormData('criteria.gameId', e.target.value || undefined)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
-                  >
-                    <option value="">All Games</option>
-                    {games.map(game => (
-                      <option key={game._id} value={game._id}>{game.name}</option>
+                <Stack gap="xs">
+                  <TextInput
+                    label="Icon"
+                    value={formData.icon}
+                    onChange={(event) => updateFormData('icon', event.currentTarget.value)}
+                    placeholder="Trophy or icon identifier"
+                    maxLength={50}
+                    required
+                    rightSection={<Text size="xl">{formData.icon || 'Trophy'}</Text>}
+                  />
+                  <Group gap="xs">
+                    {COMMON_ICONS.map((icon) => (
+                      <ActionIcon
+                        key={icon}
+                        type="button"
+                        variant={formData.icon === icon ? 'filled' : 'default'}
+                        color={formData.icon === icon ? 'amanoba' : 'gray'}
+                        size="lg"
+                        onClick={() => updateFormData('icon', icon)}
+                        aria-label={`Use ${icon} icon`}
+                      >
+                        <Text size="lg">{icon}</Text>
+                      </ActionIcon>
                     ))}
-                  </select>
-                </div>
-              )}
+                  </Group>
+                </Stack>
 
-              {/* Target */}
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  Target Value <span className="text-red-400">*</span>
-                </label>
-                <input
-                  type="number"
+                <Checkbox
+                  label="Hidden achievement (secret, not shown until unlocked)"
+                  checked={formData.isHidden}
+                  onChange={(event) => updateFormData('isHidden', event.currentTarget.checked)}
+                />
+              </Stack>
+            </Card>
+
+            <Card withBorder>
+              <Stack gap="md">
+                <Group gap="xs">
+                  <Title order={2} size="h3">Unlock Criteria</Title>
+                  <Tooltip label="What the player needs to accomplish">
+                    <ThemeIcon variant="subtle" color="gray" size="sm">
+                      <IconHelpCircle size={16} />
+                    </ThemeIcon>
+                  </Tooltip>
+                </Group>
+
+                <Select
+                  label="Criteria Type"
+                  data={CRITERIA_TYPES.map((type) => ({ value: type.value, label: `${type.label} - ${type.description}` }))}
+                  value={formData.criteria.type}
+                  onChange={(value) => value && updateFormData('criteria.type', value)}
+                  allowDeselect={false}
+                  required
+                />
+
+                {['perfect_score', 'speed', 'accuracy'].includes(formData.criteria.type) ? (
+                  <Select
+                    label="Game"
+                    data={[
+                      { value: '', label: 'All Games' },
+                      ...games.map((game) => ({ value: game._id, label: game.name })),
+                    ]}
+                    value={formData.criteria.gameId || ''}
+                    onChange={(value) => updateFormData('criteria.gameId', value || undefined)}
+                  />
+                ) : null}
+
+                <NumberInput
+                  label="Target Value"
                   value={formData.criteria.target}
-                  onChange={(e) => updateFormData('criteria.target', parseInt(e.target.value) || 1)}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                  onChange={(value) => updateFormData('criteria.target', typeof value === 'number' ? value : 1)}
                   min={1}
                   required
+                  description={
+                    formData.criteria.type === 'streak' ? 'Number of consecutive days/wins' :
+                    formData.criteria.type === 'games_played' ? 'Number of games to play' :
+                    formData.criteria.type === 'wins' ? 'Number of wins required' :
+                    formData.criteria.type === 'points_earned' ? 'Total points to earn' :
+                    formData.criteria.type === 'level_reached' ? 'Level number to reach' :
+                    formData.criteria.type === 'perfect_score' ? 'Score to achieve, usually max score' :
+                    formData.criteria.type === 'speed' ? 'Time in seconds' :
+                    formData.criteria.type === 'accuracy' ? 'Accuracy percentage, 0-100' :
+                    formData.criteria.type === 'first_lesson' ? 'First lesson completed, target usually 1' :
+                    formData.criteria.type === 'lessons_completed' ? 'Number of lessons completed' :
+                    formData.criteria.type === 'course_completed' ? 'Course completion, target usually 1' :
+                    formData.criteria.type === 'course_master' ? 'Course mastery, target usually 1' :
+                    formData.criteria.type === 'perfect_assessment' ? '100% on final exam, target usually 1' :
+                    formData.criteria.type === 'lesson_streak' ? 'Consecutive lesson days' :
+                    formData.criteria.type === 'perfect_week' ? '7 consecutive lessons, target usually 7' :
+                    formData.criteria.type === 'early_finisher' ? 'Finish course within N days' :
+                    'Custom value, explain in condition field'
+                  }
                 />
-                <p className="text-gray-400 text-xs mt-1">
-                  {formData.criteria.type === 'streak' && 'Number of consecutive days/wins'}
-                  {formData.criteria.type === 'games_played' && 'Number of games to play'}
-                  {formData.criteria.type === 'wins' && 'Number of wins required'}
-                  {formData.criteria.type === 'points_earned' && 'Total points to earn'}
-                  {formData.criteria.type === 'level_reached' && 'Level number to reach'}
-                  {formData.criteria.type === 'perfect_score' && 'Score to achieve (usually max score)'}
-                  {formData.criteria.type === 'speed' && 'Time in seconds'}
-                  {formData.criteria.type === 'accuracy' && 'Accuracy percentage (0-100)'}
-                  {formData.criteria.type === 'first_lesson' && 'First lesson completed (target usually 1)'}
-                  {formData.criteria.type === 'lessons_completed' && 'Number of lessons completed'}
-                  {formData.criteria.type === 'course_completed' && 'Course completion (target usually 1)'}
-                  {formData.criteria.type === 'course_master' && 'Course mastery (target usually 1)'}
-                  {formData.criteria.type === 'perfect_assessment' && '100% on final exam (target usually 1)'}
-                  {formData.criteria.type === 'lesson_streak' && 'Consecutive lesson days'}
-                  {formData.criteria.type === 'perfect_week' && '7 consecutive lessons (target usually 7)'}
-                  {formData.criteria.type === 'early_finisher' && 'Finish course within N days'}
-                  {formData.criteria.type === 'custom' && 'Custom value (explain in condition field)'}
-                </p>
-              </div>
 
-              {/* Condition (optional) */}
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  Additional Condition (Optional)
-                </label>
-                <input
-                  type="text"
+                <TextInput
+                  label="Additional Condition"
                   value={formData.criteria.condition || ''}
-                  onChange={(e) => updateFormData('criteria.condition', e.target.value)}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                  onChange={(event) => updateFormData('criteria.condition', event.currentTarget.value)}
                   placeholder="Additional requirements or conditions"
                   maxLength={200}
                 />
-              </div>
-            </div>
-          </div>
+              </Stack>
+            </Card>
 
-          {/* Rewards */}
-          <div className="page-card-dark p-6">
-            <h2 className="text-xl font-bold text-white mb-4">Rewards</h2>
-
-            <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Points <span className="text-red-400">*</span>
-                  </label>
-                  <input
-                    type="number"
+            <Card withBorder>
+              <Stack gap="md">
+                <Title order={2} size="h3">Rewards</Title>
+                <SimpleGrid cols={{ base: 1, sm: 2 }}>
+                  <NumberInput
+                    label="Points"
                     value={formData.rewards.points}
-                    onChange={(e) => updateFormData('rewards.points', parseInt(e.target.value) || 0)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                    onChange={(value) => updateFormData('rewards.points', typeof value === 'number' ? value : 0)}
                     min={0}
                     required
                   />
-                </div>
-
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    XP <span className="text-red-400">*</span>
-                  </label>
-                  <input
-                    type="number"
+                  <NumberInput
+                    label="XP"
                     value={formData.rewards.xp}
-                    onChange={(e) => updateFormData('rewards.xp', parseInt(e.target.value) || 0)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                    onChange={(value) => updateFormData('rewards.xp', typeof value === 'number' ? value : 0)}
                     min={0}
                     required
                   />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  Title (Optional)
-                </label>
-                <input
-                  type="text"
+                </SimpleGrid>
+                <TextInput
+                  label="Title"
                   value={formData.rewards.title || ''}
-                  onChange={(e) => updateFormData('rewards.title', e.target.value)}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
+                  onChange={(event) => updateFormData('rewards.title', event.currentTarget.value)}
                   placeholder="Special title/badge player can equip"
                   maxLength={50}
                 />
-              </div>
-            </div>
-          </div>
+              </Stack>
+            </Card>
 
-          {/* Metadata */}
-          <div className="page-card-dark p-6">
-            <h2 className="text-xl font-bold text-white mb-4">Settings</h2>
+            <Card withBorder>
+              <Stack gap="md">
+                <Title order={2} size="h3">Settings</Title>
+                <Checkbox
+                  label="Active (achievement can be unlocked)"
+                  checked={formData.metadata.isActive}
+                  onChange={(event) => updateFormData('metadata.isActive', event.currentTarget.checked)}
+                />
+              </Stack>
+            </Card>
 
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                id="isActive"
-                checked={formData.metadata.isActive}
-                onChange={(e) => updateFormData('metadata.isActive', e.target.checked)}
-                className="w-4 h-4 text-indigo-600 bg-gray-800 border-gray-700 rounded focus:ring-indigo-500"
-              />
-              <label htmlFor="isActive" className="text-white text-sm">
-                Active (achievement can be unlocked)
-              </label>
-            </div>
-          </div>
+            <Card withBorder>
+              <Stack gap="md">
+                <Title order={2} size="h3">Preview</Title>
+                <Paper withBorder p="md" radius="md">
+                  <Group align="flex-start" gap="md">
+                    <Text size="3rem" lh={1}>{formData.icon || 'Trophy'}</Text>
+                    <Stack gap="xs" flex={1}>
+                      <Group gap="sm">
+                        <Title order={3} size="h4">{formData.name || 'Achievement Name'}</Title>
+                        <Badge color={selectedTier.color}>{formData.tier}</Badge>
+                      </Group>
+                      <Text c="dimmed">{formData.description || 'Achievement description'}</Text>
+                      <Text size="sm">
+                        Rewards: {formData.rewards.points} points, {formData.rewards.xp} XP
+                      </Text>
+                      <Text size="sm">
+                        Criteria: {selectedCriteria?.label} ({formData.criteria.target})
+                      </Text>
+                    </Stack>
+                  </Group>
+                </Paper>
+              </Stack>
+            </Card>
 
-          {/* Preview */}
-          <div className="page-card-dark p-6">
-            <h2 className="text-xl font-bold text-white mb-4">Preview</h2>
-            <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-              <div className="flex items-start gap-4">
-                <div className="text-5xl">{formData.icon || '🏆'}</div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-white font-bold text-lg">{formData.name || 'Achievement Name'}</h3>
-                    <span className={`px-2 py-1 rounded text-xs font-medium ${
-                      TIERS.find(t => t.value === formData.tier)?.color || TIERS[0].color
-                    }`}>
-                      {formData.tier}
-                    </span>
-                  </div>
-                  <p className="text-gray-400 text-sm mb-3">{formData.description || 'Achievement description'}</p>
-                  <div className="text-sm text-gray-300">
-                    <div>Rewards: {formData.rewards.points} points, {formData.rewards.xp} XP</div>
-                    <div>Criteria: {CRITERIA_TYPES.find(t => t.value === formData.criteria.type)?.label} ({formData.criteria.target})</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Actions */}
-          <div className="flex items-center justify-between">
-            <button
-              type="button"
-              onClick={() => setShowDeleteConfirm(true)}
-              disabled={deleting}
-              className="flex items-center gap-2 px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <Trash2 className="w-4 h-4" />
-              {deleting ? tCommon('loading') : tCommon('delete')}
-            </button>
-            <div className="flex items-center gap-4">
-              <Link
-                href={`/${locale}/admin/achievements`}
-                className="px-6 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition-colors"
+            <Group justify="space-between">
+              <Button
+                type="button"
+                color="red"
+                variant="outline"
+                onClick={() => setShowDeleteConfirm(true)}
+                disabled={deleting}
+                leftSection={<IconTrash size={18} />}
               >
-                {tCommon('cancel')}
-              </Link>
-              <button
-                type="submit"
-                disabled={saving}
-                className="flex items-center gap-2 px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <Save className="w-4 h-4" />
-                {saving ? tCommon('loading') : tCommon('save')}
-              </button>
-            </div>
-          </div>
-        </form>
-
-        {/* Delete Confirmation Modal */}
-        {showDeleteConfirm && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div className="bg-gray-800 rounded-xl p-6 border border-gray-700 max-w-md w-full mx-4">
-              <h3 className="text-xl font-bold text-white mb-4">Confirm Delete</h3>
-              <p className="text-gray-300 mb-6">
-                Are you sure you want to delete this achievement? This action cannot be undone.
-                {unlockCount > 0 && (
-                  <span className="block mt-2 text-yellow-400">
-                    Warning: This achievement has been unlocked by {unlockCount} player{unlockCount !== 1 ? 's' : ''}.
-                    All unlock records will be removed.
-                  </span>
-                )}
-              </p>
-              <div className="flex items-center justify-end gap-4">
-                <button
-                  type="button"
-                  onClick={() => setShowDeleteConfirm(false)}
-                  disabled={deleting}
-                  className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition-colors disabled:opacity-50"
-                >
+                {deleting ? tCommon('loading') : tCommon('delete')}
+              </Button>
+              <Group gap="sm">
+                <Button component={Link} href={`/${locale}/admin/achievements`} variant="default">
                   {tCommon('cancel')}
-                </button>
-                <button
-                  type="button"
-                  onClick={handleDelete}
-                  disabled={deleting}
-                  className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50"
-                >
-                  {deleting ? tCommon('loading') : tCommon('delete')}
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
+                </Button>
+                <Button type="submit" color="amanoba" loading={saving} leftSection={<IconDeviceFloppy size={18} />}>
+                  {saving ? tCommon('loading') : tCommon('save')}
+                </Button>
+              </Group>
+            </Group>
+          </Stack>
+        </Box>
+
+        <Modal
+          opened={showDeleteConfirm}
+          onClose={() => setShowDeleteConfirm(false)}
+          title="Confirm Delete"
+          centered
+        >
+          <Stack gap="md">
+            <Text>
+              Are you sure you want to delete this achievement? This action cannot be undone.
+            </Text>
+            {unlockCount > 0 ? (
+              <Alert color="amanoba">
+                Warning: This achievement has been unlocked by {unlockCount} player{unlockCount !== 1 ? 's' : ''}.
+                {' '}All unlock records will be removed.
+              </Alert>
+            ) : null}
+            <Group justify="flex-end">
+              <Button variant="default" onClick={() => setShowDeleteConfirm(false)} disabled={deleting}>
+                {tCommon('cancel')}
+              </Button>
+              <Button color="red" onClick={handleDelete} loading={deleting}>
+                {deleting ? tCommon('loading') : tCommon('delete')}
+              </Button>
+            </Group>
+          </Stack>
+        </Modal>
+      </Stack>
+    </Container>
   );
 }

@@ -11,6 +11,21 @@ import { useEffect, useState, useCallback, useRef } from 'react';
 import { useSession } from 'next-auth/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { LocaleLink } from '@/components/LocaleLink';
+import {
+  Alert,
+  Button,
+  Card,
+  Center,
+  Container,
+  Group,
+  List,
+  Loader,
+  Progress,
+  SimpleGrid,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
 
 type Difficulty = 'EASY' | 'MEDIUM' | 'HARD' | 'EXPERT';
 
@@ -528,9 +543,9 @@ export default function QuizzzGame() {
   // Why: Redirect to sign-in if not authenticated
   if (status === 'loading') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center">
-        <div className="text-white text-2xl">Loading...</div>
-      </div>
+      <Center mih="100vh">
+        <Loader />
+      </Center>
     );
   }
 
@@ -542,28 +557,31 @@ export default function QuizzzGame() {
   // Why: Show error if question loading failed
   if (fetchError) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
-          <div className="text-6xl mb-4">❌</div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Error Loading Questions</h2>
-          <p className="text-gray-600 mb-6">{fetchError}</p>
-          <button
+      <Container size="xs" py="xl">
+        <Card withBorder>
+          <Stack align="center">
+          <Text size="xl">❌</Text>
+          <Title order={2}>Error Loading Questions</Title>
+          <Alert color="red">{fetchError}</Alert>
+          <Button
             onClick={() => {
               setFetchError(null);
               setGameState('ready');
             }}
-            className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all"
+            fullWidth
           >
             Try Again
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => router.push('/games')}
-            className="mt-3 block w-full text-gray-700 hover:text-gray-900"
+            variant="default"
+            fullWidth
           >
-            ← Back to Games
-          </button>
-        </div>
-      </div>
+            Back to Games
+          </Button>
+          </Stack>
+        </Card>
+      </Container>
     );
   }
 
@@ -573,77 +591,75 @@ export default function QuizzzGame() {
     const canPlayDifficulty = !config.isPremium || isPremium;
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full">
-          <div className="text-center">
-            <div className="text-6xl mb-4">🧠</div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">QUIZZZ</h1>
-            <p className="text-xl text-gray-600 mb-8">
+      <Container size="sm" py="xl">
+        <Card withBorder p="xl">
+          <Stack gap="xl">
+          <Stack align="center" gap="sm">
+            <Text size="xl">🧠</Text>
+            <Title order={1}>QUIZZZ</Title>
+            <Text c="dimmed" ta="center">
               Test your knowledge with rapid-fire trivia questions!
-            </p>
+            </Text>
+          </Stack>
 
             {/* Difficulty Selection */}
-            <div className="mb-8">
-              <h3 className="font-bold text-gray-900 mb-4">Select Difficulty:</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <Stack gap="sm">
+              <Title order={3}>Select Difficulty:</Title>
+              <SimpleGrid cols={{ base: 2, md: 4 }}>
                 {(['EASY', 'MEDIUM', 'HARD', 'EXPERT'] as Difficulty[]).map(diff => {
                   const diffConfig = DIFFICULTY_CONFIGS[diff];
                   const isLocked = diffConfig.isPremium && !isPremium;
                   const isSelected = difficulty === diff;
 
                   return (
-                    <button
+                    <Button
                       key={diff}
                       onClick={() => !isLocked && setDifficulty(diff)}
                       disabled={isLocked}
-                      className={`
-                        p-4 rounded-xl font-bold transition-all transform hover:scale-105
-                        ${isSelected
-                          ? 'bg-gradient-to-br from-indigo-600 to-purple-600 text-white shadow-lg'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                        }
-                        ${isLocked ? 'opacity-50 cursor-not-allowed' : ''}
-                      `}
+                      variant={isSelected ? 'filled' : 'default'}
+                      h="auto"
+                      py="md"
                     >
-                      {isLocked && '🔒 '}
-                      {diff}
-                      <div className="text-xs mt-1 opacity-80">
+                      <Stack gap={2} align="center">
+                      <Text fw={700}>{isLocked ? '🔒 ' : ''}{diff}</Text>
+                      <Text size="xs">
                         {diffConfig.questionCount}Q • {diffConfig.timePerQuestion}s
-                      </div>
-                    </button>
+                      </Text>
+                      </Stack>
+                    </Button>
                   );
                 })}
-              </div>
-            </div>
+              </SimpleGrid>
+            </Stack>
 
-            <div className="bg-indigo-50 rounded-lg p-6 mb-8">
-              <h3 className="font-bold text-gray-900 mb-4">How to Play:</h3>
-              <ul className="text-left text-gray-700 space-y-2">
-                <li>• Answer {config.questionCount} questions</li>
-                <li>• Get {config.minCorrect} or more correct to win</li>
-                <li>• {config.timePerQuestion} seconds per question</li>
-                <li>• {config.pointsMultiplier}x points multiplier</li>
-                <li>• Earn XP and unlock achievements!</li>
-              </ul>
-            </div>
+            <Card withBorder>
+              <Title order={3}>How to Play:</Title>
+              <List spacing="xs" mt="sm">
+                <List.Item>Answer {config.questionCount} questions</List.Item>
+                <List.Item>Get {config.minCorrect} or more correct to win</List.Item>
+                <List.Item>{config.timePerQuestion} seconds per question</List.Item>
+                <List.Item>{config.pointsMultiplier}x points multiplier</List.Item>
+                <List.Item>Earn XP and unlock achievements</List.Item>
+              </List>
+            </Card>
 
-            <button
+            <Button
               onClick={startGame}
               disabled={!canPlayDifficulty || isLoadingQuestions}
-              className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-12 py-4 rounded-xl font-bold text-xl hover:from-indigo-700 hover:to-purple-700 transform hover:scale-105 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              size="lg"
             >
-              {isLoadingQuestions ? 'Loading Questions...' : 'Start Game 🚀'}
-            </button>
+              {isLoadingQuestions ? 'Loading Questions...' : 'Start Game'}
+            </Button>
 
-            <button
+            <Button
               onClick={() => router.push('/games')}
-              className="mt-4 text-gray-600 hover:text-gray-900 transition-colors block w-full"
+              variant="default"
             >
-              ← Back to Games
-            </button>
-          </div>
-        </div>
-      </div>
+              Back to Games
+            </Button>
+          </Stack>
+        </Card>
+      </Container>
     );
   }
 
@@ -655,41 +671,29 @@ export default function QuizzzGame() {
     const timePercent = (timeLeft / DIFFICULTY_CONFIGS[difficulty].timePerQuestion) * 100;
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-4">
+      <Container size="md" py="xl">
         {/* Timer and Progress */}
-        <div className="max-w-4xl mx-auto mb-4 space-y-2">
+        <Stack gap="md">
           {/* Timer Bar */}
-          <div className="bg-white/20 rounded-full h-4 overflow-hidden">
-            <div
-              className={`h-full transition-all duration-1000 ${
-                timeLeft <= 3 ? 'bg-red-500' : timeLeft <= 5 ? 'bg-yellow-500' : 'bg-green-500'
-              }`}
-              style={{ width: `${timePercent}%` }}
-            />
-          </div>
-          <div className="flex justify-between text-white font-bold">
-            <span>⏱️ {timeLeft}s</span>
-            <span className="text-center">
+          <Progress value={timePercent} color={timeLeft <= 3 ? 'red' : timeLeft <= 5 ? 'yellow' : 'green'} />
+          <Group justify="space-between">
+            <Text fw={700}>⏱️ {timeLeft}s</Text>
+            <Text fw={700}>
               Question {currentQuestion + 1} of {questions.length}
-            </span>
-            <span>Score: {score}</span>
-          </div>
+            </Text>
+            <Text fw={700}>Score: {score}</Text>
+          </Group>
           {/* Progress bar */}
-          <div className="bg-white/20 rounded-full h-2 overflow-hidden">
-            <div
-              className="bg-white h-full transition-all duration-300"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-        </div>
+          <Progress value={progress} />
+        </Stack>
 
         {/* Question card */}
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl p-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+        <Card withBorder p="xl" mt="md">
+          <Title order={2} ta="center" mb="xl">
             {question.question}
-          </h2>
+          </Title>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <SimpleGrid cols={{ base: 1, md: 2 }}>
             {(() => {
               // Why: Determine correct answer index from answers fetched separately
               const correctIndex = questionsWithAnswers.find(q => q.id === question.id)?.correctIndex ?? -1;
@@ -698,58 +702,61 @@ export default function QuizzzGame() {
                 const isCorrect = index === correctIndex;
                 const showResult = showFeedback && isSelected;
 
-              let buttonClass = 'bg-gray-100 hover:bg-gray-200 text-gray-900';
+              let buttonColor = 'dark';
+              let buttonVariant: 'default' | 'filled' | 'light' = 'default';
               if (showResult && isCorrect) {
-                buttonClass = 'bg-green-500 text-white';
+                buttonColor = 'green';
+                buttonVariant = 'filled';
               } else if (showResult && !isCorrect) {
-                buttonClass = 'bg-red-500 text-white';
+                buttonColor = 'red';
+                buttonVariant = 'filled';
               } else if (isSelected) {
-                buttonClass = 'bg-indigo-200 text-gray-900';
+                buttonColor = 'yellow';
+                buttonVariant = 'light';
               }
 
               return (
-                <button
+                <Button
                   key={index}
                   onClick={() => handleAnswerSelect(index)}
                   disabled={selectedAnswer !== null}
-                  className={`
-                    ${buttonClass}
-                    p-6 rounded-xl font-medium text-lg text-left
-                    transition-all transform hover:scale-105
-                    disabled:cursor-not-allowed
-                  `}
+                  variant={buttonVariant}
+                  color={buttonColor}
+                  h="auto"
+                  py="lg"
+                  justify="flex-start"
                 >
                   {option}
                   {showResult && isCorrect && ' ✓'}
                   {showResult && isSelected && !isCorrect && ' ✗'}
-                </button>
+                </Button>
               );
             });
             })()}
-          </div>
+          </SimpleGrid>
 
           {showFeedback && (
-            <div className="mt-6 text-center">
+            <Text mt="lg" ta="center" size="xl" fw={700} c={timeLeft === 0 ? 'orange' : undefined}>
               {timeLeft === 0 ? (
-                <div className="text-2xl text-orange-600 font-bold">
+                <>
                   Time&apos;s Up! ⏰
-                </div>
+                </>
               ) : (() => {
                   const correctIndex = questionsWithAnswers.find(q => q.id === question.id)?.correctIndex ?? -1;
                   return selectedAnswer === correctIndex;
                 })() ? (
-                <div className="text-2xl text-green-600 font-bold animate-bounce">
+                <>
                   Correct! 🎉
-                </div>
+                </>
               ) : (
-                <div className="text-2xl text-red-600 font-bold">
+                <>
                   Incorrect 😔
-                </div>
+                </>
               )}
-            </div>
+            </Text>
           )}
-        </div>
-      </div>
+        </Card>
+      </Container>
     );
   }
 
@@ -759,112 +766,89 @@ export default function QuizzzGame() {
   const accuracy = Math.round((score / questions.length) * 100);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full">
-        <div className="text-center">
-          <div className="text-6xl mb-4">{isWin ? '🏆' : '💪'}</div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+    <Container size="sm" py="xl">
+      <Card withBorder p="xl">
+        <Stack gap="xl" align="center">
+          <Text size="xl">{isWin ? '🏆' : '💪'}</Text>
+          <Title order={1}>
             {isWin ? 'You Won!' : 'Good Try!'}
-          </h2>
+          </Title>
 
-          <div className="bg-gray-50 rounded-xl p-6 mb-6">
-            <div className="grid grid-cols-3 gap-4">
-              <div>
-                <div className="text-3xl font-bold text-indigo-600">{score}/{questions.length}</div>
-                <div className="text-gray-600">Correct</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-purple-600">{accuracy}%</div>
-                <div className="text-gray-600">Accuracy</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-pink-600">{difficulty}</div>
-                <div className="text-gray-600">Difficulty</div>
-              </div>
-            </div>
-          </div>
+          <SimpleGrid cols={3} w="100%">
+            <Card withBorder><Text size="xl" fw={700}>{score}/{questions.length}</Text><Text c="dimmed">Correct</Text></Card>
+            <Card withBorder><Text size="xl" fw={700}>{accuracy}%</Text><Text c="dimmed">Accuracy</Text></Card>
+            <Card withBorder><Text size="xl" fw={700}>{difficulty}</Text><Text c="dimmed">Difficulty</Text></Card>
+          </SimpleGrid>
 
           {/* Rewards & Progress Section (always visible) */}
-          <div className="space-y-4 mb-6">
+          <Stack gap="md" w="100%">
             {/* Main Rewards */}
-            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-6">
-              <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center gap-2">
+            <Card withBorder>
+              <Title order={3}>
                 💰 Rewards Earned
-                {isCompleting && <span className="text-sm text-gray-500">Calculating…</span>}
-              </h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white rounded-lg p-4 text-center">
-                  <div className="text-3xl font-bold text-indigo-600">
-                    {rewards ? `+${rewards.points || 0}` : '—'}
-                  </div>
-                  <div className="text-gray-600">💎 Points</div>
-                </div>
-                <div className="bg-white rounded-lg p-4 text-center">
-                  <div className="text-3xl font-bold text-purple-600">
-                    {rewards ? `+${rewards.xp || 0}` : '—'}
-                  </div>
-                  <div className="text-gray-600">⭐ XP</div>
-                </div>
-              </div>
-            </div>
+                {isCompleting ? <Text span size="sm" c="dimmed">Calculating...</Text> : null}
+              </Title>
+              <SimpleGrid cols={2} mt="md">
+                <Card withBorder><Text size="xl" fw={700}>{rewards ? `+${rewards.points || 0}` : '-'}</Text><Text c="dimmed">💎 Points</Text></Card>
+                <Card withBorder><Text size="xl" fw={700}>{rewards ? `+${rewards.xp || 0}` : '-'}</Text><Text c="dimmed">⭐ XP</Text></Card>
+              </SimpleGrid>
+            </Card>
 
             {/* Level Up */}
             {progression && progression.levelsGained > 0 && (
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-6">
-                <div className="text-center">
-                  <div className="text-5xl mb-2">🎉</div>
-                  <h3 className="font-bold text-green-700 text-2xl mb-2">
+              <Card withBorder>
+                <Stack align="center">
+                  <Text size="xl">🎉</Text>
+                  <Title order={3}>
                     Level Up!
-                  </h3>
-                  <div className="text-lg text-gray-700">
-                    You&apos;re now <span className="font-bold text-green-600">Level {progression.newLevel}</span>
+                  </Title>
+                  <Text>
+                    You&apos;re now Level {progression.newLevel}
                     {progression.newTitle && (
-                      <div className="mt-1 text-sm">
-                        New Title: <span className="font-bold text-purple-600">{progression.newTitle}</span>
-                      </div>
+                      <Text size="sm">New Title: {progression.newTitle}</Text>
                     )}
-                  </div>
-                </div>
-              </div>
+                  </Text>
+                </Stack>
+              </Card>
             )}
 
             {/* Achievements */}
             {achievements.length > 0 && (
-              <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl p-6">
-                <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center gap-2">
+              <Card withBorder>
+                <Title order={3}>
                   🏆 Achievements Unlocked!
-                </h3>
-                <div className="space-y-3">
+                </Title>
+                <Stack mt="md">
                   {achievements.map((ach, idx) => (
-                    <div key={idx} className="bg-white rounded-lg p-4 flex justify-between items-center">
+                    <Group key={idx} justify="space-between">
                       <div>
-                        <div className="font-bold text-gray-900">{ach.name}</div>
-                        <div className="text-sm text-gray-600">
+                        <Text fw={700}>{ach.name}</Text>
+                        <Text size="sm" c="dimmed">
                           {ach.tier} • +{ach.rewards.points}pts • +{ach.rewards.xp}xp
-                        </div>
+                        </Text>
                       </div>
-                      <div className="text-3xl">🏅</div>
-                    </div>
+                      <Text size="xl">🏅</Text>
+                    </Group>
                   ))}
-                </div>
-              </div>
+                </Stack>
+              </Card>
             )}
 
             {/* Newly Completed Daily Challenges */}
             {completedChallenges.length > 0 && (
-              <div className="bg-gradient-to-r from-teal-50 to-green-50 rounded-xl p-6">
-                <h3 className="font-bold text-gray-900 mb-4 text-xl flex items-center gap-2">
+              <Card withBorder>
+                <Title order={3}>
                   🎯 Daily Challenges Completed
-                </h3>
-                <div className="space-y-2">
+                </Title>
+                <Stack mt="md">
                   {completedChallenges.map((c, idx) => (
-                    <div key={idx} className="bg-white rounded-lg p-4 flex justify-between items-center">
-                      <div className="font-bold text-gray-900">{c.title}</div>
-                      <div className="text-sm text-gray-600">+{c.rewardsEarned.points}pts • +{c.rewardsEarned.xp}xp</div>
-                    </div>
+                    <Group key={idx} justify="space-between">
+                      <Text fw={700}>{c.title}</Text>
+                      <Text size="sm" c="dimmed">+{c.rewardsEarned.points}pts • +{c.rewardsEarned.xp}xp</Text>
+                    </Group>
                   ))}
-                </div>
-              </div>
+                </Stack>
+              </Card>
             )}
 
             {/* Streak Bonus */}
@@ -872,24 +856,20 @@ export default function QuizzzGame() {
               const r = rewards as Record<string, unknown> | null | undefined;
               const streakBonus = r && typeof r.streakBonus === 'number' ? r.streakBonus : 0;
               return streakBonus > 0 && (
-              <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-4 text-center">
-                <div className="font-bold text-orange-700">
+              <Alert color="orange">
                   🔥 Streak Bonus: +{Math.round(streakBonus * 100)}% rewards!
-                </div>
-              </div>
+              </Alert>
             );
             })()}
 
             {/* Daily Challenges CTA */}
-            <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-xl p-4 text-center">
-              <div className="text-sm text-gray-700">
-                🎯 View <LocaleLink href="/challenges" className="font-bold text-teal-600 hover:underline">Daily Challenges</LocaleLink> to track progress.
-              </div>
-            </div>
-          </div>
+            <Alert color="green">
+              🎯 View <Button component={LocaleLink} href="/challenges" variant="subtle" size="compact-sm">Daily Challenges</Button> to track progress.
+            </Alert>
+          </Stack>
 
-          <div className="flex gap-4">
-            <button
+          <Group grow w="100%">
+            <Button
               onClick={() => {
                 setGameState('ready');
                 setQuestions([]);
@@ -904,19 +884,18 @@ export default function QuizzzGame() {
                 setAchievements([]);
                 setCompletedChallenges([]);
               }}
-              className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold hover:from-indigo-700 hover:to-purple-700 transition-all"
             >
               Play Again
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => router.push('/games')}
-              className="flex-1 bg-gray-200 text-gray-800 px-6 py-3 rounded-xl font-bold hover:bg-gray-300 transition-all"
+              variant="default"
             >
               Back to Games
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+            </Button>
+          </Group>
+        </Stack>
+      </Card>
+    </Container>
   );
 }

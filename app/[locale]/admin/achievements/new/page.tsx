@@ -1,22 +1,40 @@
 /**
  * Create Achievement Page
- * 
- * What: Form to create new achievements
- * Why: Allows admins to create achievements with all required fields
+ *
+ * What: Form to create new achievements.
+ * Why: Allows admins to create achievements with all required fields.
  */
 
 'use client';
 
 import { useState, useEffect } from 'react';
+import type { FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import {
-  ArrowLeft,
-  Save,
-  Trophy,
-  HelpCircle,
-} from 'lucide-react';
+  ActionIcon,
+  Alert,
+  Box,
+  Button,
+  Card,
+  Center,
+  Checkbox,
+  Grid,
+  Group,
+  Loader,
+  NumberInput,
+  Select,
+  SimpleGrid,
+  Stack,
+  Text,
+  TextInput,
+  Textarea,
+  ThemeIcon,
+  Title,
+  Tooltip,
+} from '@mantine/core';
+import { IconArrowLeft, IconDeviceFloppy, IconHelpCircle, IconTrophy } from '@tabler/icons-react';
 
 interface Game {
   _id: string;
@@ -75,10 +93,10 @@ const CATEGORIES = [
 ] as const;
 
 const TIERS = [
-  { value: 'bronze', label: 'Bronze', color: 'bg-orange-500/20 text-orange-400' },
-  { value: 'silver', label: 'Silver', color: 'bg-brand-white/10 text-brand-white/80' },
-  { value: 'gold', label: 'Gold', color: 'bg-yellow-500/20 text-yellow-400' },
-  { value: 'platinum', label: 'Platinum', color: 'bg-purple-500/20 text-purple-400' },
+  { value: 'bronze', label: 'Bronze' },
+  { value: 'silver', label: 'Silver' },
+  { value: 'gold', label: 'Gold' },
+  { value: 'platinum', label: 'Platinum' },
 ] as const;
 
 const CRITERIA_TYPES = [
@@ -93,27 +111,25 @@ const CRITERIA_TYPES = [
   { value: 'first_lesson', label: 'First Lesson', description: 'Complete the first course lesson' },
   { value: 'lessons_completed', label: 'Lessons Completed', description: 'Complete a number of course lessons' },
   { value: 'course_completed', label: 'Course Completed', description: 'Finish a course' },
-  { value: 'course_master', label: 'Course Master', description: 'Master a course (completion-based)' },
+  { value: 'course_master', label: 'Course Master', description: 'Master a course' },
   { value: 'perfect_assessment', label: 'Perfect Assessment', description: 'Score 100% on final exam' },
   { value: 'lesson_streak', label: 'Lesson Streak', description: 'Complete consecutive lessons' },
   { value: 'perfect_week', label: 'Perfect Week', description: 'Complete 7 lessons in a row' },
   { value: 'early_finisher', label: 'Early Finisher', description: 'Complete a course within N days' },
-  { value: 'custom', label: 'Custom', description: 'Custom criteria (use condition field)' },
+  { value: 'custom', label: 'Custom', description: 'Custom criteria' },
 ] as const;
 
-const COMMON_ICONS = ['🏆', '⭐', '🎯', '🔥', '💎', '👑', '🏅', '🎖️', '⭐', '🌟', '✨', '💫', '🎊', '🎉', '🎈', '🎁'];
+const COMMON_ICONS = ['🏆', '⭐', '🎯', '🔥', '💎', '👑', '🏅', '🎖️', '🌟', '✨', '💫', '🎊', '🎉', '🎈', '🎁'];
 
 export default function NewAchievementPage() {
   const router = useRouter();
   const locale = useLocale();
   const t = useTranslations('admin');
   const tCommon = useTranslations('common');
-  
   const [games, setGames] = useState<Game[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  
   const [formData, setFormData] = useState<FormData>({
     name: '',
     description: '',
@@ -150,33 +166,21 @@ export default function NewAchievementPage() {
         setLoading(false);
       }
     };
-    fetchGames();
+    void fetchGames();
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
     setSaving(true);
 
     try {
-      // Validate form
-      if (!formData.name.trim()) {
-        throw new Error('Name is required');
-      }
-      if (!formData.description.trim()) {
-        throw new Error('Description is required');
-      }
-      if (formData.criteria.target < 1) {
-        throw new Error('Target must be at least 1');
-      }
-      if (formData.rewards.points < 0) {
-        throw new Error('Points cannot be negative');
-      }
-      if (formData.rewards.xp < 0) {
-        throw new Error('XP cannot be negative');
-      }
+      if (!formData.name.trim()) throw new Error('Name is required');
+      if (!formData.description.trim()) throw new Error('Description is required');
+      if (formData.criteria.target < 1) throw new Error('Target must be at least 1');
+      if (formData.rewards.points < 0) throw new Error('Points cannot be negative');
+      if (formData.rewards.xp < 0) throw new Error('XP cannot be negative');
 
-      // Prepare payload
       const criteria: Record<string, unknown> = {
         type: formData.criteria.type,
         target: formData.criteria.target,
@@ -190,33 +194,26 @@ export default function NewAchievementPage() {
       };
       if (formData.rewards.title?.trim()) rewards.title = formData.rewards.title.trim();
 
-      const payload: Record<string, unknown> = {
-        name: formData.name.trim(),
-        description: formData.description.trim(),
-        category: formData.category,
-        tier: formData.tier,
-        icon: formData.icon,
-        isHidden: formData.isHidden,
-        criteria,
-        rewards,
-        metadata: {
-          isActive: formData.metadata.isActive,
-        },
-      };
-
       const res = await fetch('/api/admin/achievements', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          description: formData.description.trim(),
+          category: formData.category,
+          tier: formData.tier,
+          icon: formData.icon,
+          isHidden: formData.isHidden,
+          criteria,
+          rewards,
+          metadata: {
+            isActive: formData.metadata.isActive,
+          },
+        }),
       });
 
       const data = await res.json();
-
-      if (!res.ok || !data.success) {
-        throw new Error(data.error || 'Failed to create achievement');
-      }
-
-      // Success - redirect to achievements list
+      if (!res.ok || !data.success) throw new Error(data.error || 'Failed to create achievement');
       router.push(`/${locale}/admin/achievements`);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to create achievement');
@@ -230,10 +227,7 @@ export default function NewAchievementPage() {
       const subField = field.replace('criteria.', '') as keyof FormData['criteria'];
       setFormData((prev) => ({
         ...prev,
-        criteria: {
-          ...prev.criteria,
-          [subField]: value as FormData['criteria'][typeof subField],
-        },
+        criteria: { ...prev.criteria, [subField]: value as FormData['criteria'][typeof subField] },
       }));
       return;
     }
@@ -242,10 +236,7 @@ export default function NewAchievementPage() {
       const subField = field.replace('rewards.', '') as keyof FormData['rewards'];
       setFormData((prev) => ({
         ...prev,
-        rewards: {
-          ...prev.rewards,
-          [subField]: value as FormData['rewards'][typeof subField],
-        },
+        rewards: { ...prev.rewards, [subField]: value as FormData['rewards'][typeof subField] },
       }));
       return;
     }
@@ -254,10 +245,7 @@ export default function NewAchievementPage() {
       const subField = field.replace('metadata.', '') as keyof FormData['metadata'];
       setFormData((prev) => ({
         ...prev,
-        metadata: {
-          ...prev.metadata,
-          [subField]: value as FormData['metadata'][typeof subField],
-        },
+        metadata: { ...prev.metadata, [subField]: value as FormData['metadata'][typeof subField] },
       }));
       return;
     }
@@ -267,382 +255,244 @@ export default function NewAchievementPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-brand-white text-xl">{tCommon('loading')}</div>
-      </div>
+      <Center mih={400}>
+        <Loader />
+      </Center>
     );
   }
 
+  const criteriaHelp = CRITERIA_TYPES.find((type) => type.value === formData.criteria.type)?.description;
+
   return (
-    <div className="page-shell p-6">
-      <div className="page-container max-w-4xl">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-4">
-            <Link
-              href={`/${locale}/admin/achievements`}
-              className="p-2 hover:bg-brand-secondary-700 rounded-lg transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5 text-white" />
-            </Link>
-            <div>
-              <h1 className="text-3xl font-bold text-white mb-2">
-                {t('createAchievement') || 'Create Achievement'}
-              </h1>
-              <p className="text-brand-white/70">
-                {t('createAchievementDescription') || 'Add a new achievement to the system'}
-              </p>
-            </div>
+    <Stack gap="xl">
+      <Group justify="space-between" align="flex-start">
+        <Group align="flex-start">
+          <ActionIcon
+            component={Link}
+            href={`/${locale}/admin/achievements`}
+            variant="default"
+            aria-label="Back to achievements"
+          >
+            <IconArrowLeft size={18} />
+          </ActionIcon>
+          <div>
+            <Title order={1}>{t('createAchievement') || 'Create Achievement'}</Title>
+            <Text c="dimmed">
+              {t('createAchievementDescription') || 'Add a new achievement to the system'}
+            </Text>
           </div>
-        </div>
+        </Group>
+      </Group>
 
-        {/* Error Display */}
-        {error && (
-          <div className="mb-6 p-4 bg-red-900/20 border border-red-500/50 rounded-lg">
-            <div className="text-red-400 font-semibold">{tCommon('error')}</div>
-            <div className="text-red-300 text-sm mt-1">{error}</div>
-          </div>
-        )}
+      {error ? (
+        <Alert color="red" title={tCommon('error')}>
+          {error}
+        </Alert>
+      ) : null}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Basic Information */}
-          <div className="page-card-dark p-6">
-            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-              <Trophy className="w-5 h-5" />
-              Basic Information
-            </h2>
-
-            <div className="space-y-4">
-              {/* Name */}
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  {tCommon('name')} <span className="text-red-400">*</span>
-                </label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => updateFormData('name', e.target.value)}
-                  className="w-full px-4 py-2 input-on-dark"
-                  placeholder="Achievement name"
-                  maxLength={100}
-                  required
-                />
-                <p className="text-brand-white/60 text-xs mt-1">Max 100 characters</p>
-              </div>
-
-              {/* Description */}
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  {tCommon('description')} <span className="text-red-400">*</span>
-                </label>
-                <textarea
-                  value={formData.description}
-                  onChange={(e) => updateFormData('description', e.target.value)}
-                  className="w-full px-4 py-2 input-on-dark"
-                  placeholder="What does the player need to do to unlock this achievement?"
-                  rows={3}
-                  maxLength={500}
-                  required
-                />
-                <p className="text-brand-white/60 text-xs mt-1">Max 500 characters</p>
-              </div>
-
-              {/* Category and Tier */}
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Category <span className="text-red-400">*</span>
-                  </label>
-                  <select
-                    value={formData.category}
-                    onChange={(e) => updateFormData('category', e.target.value)}
-                    className="w-full px-4 py-2 input-on-dark"
-                    required
-                  >
-                    {CATEGORIES.map(cat => (
-                      <option key={cat.value} value={cat.value}>{cat.label}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Tier <span className="text-red-400">*</span>
-                  </label>
-                  <select
-                    value={formData.tier}
-                    onChange={(e) => updateFormData('tier', e.target.value)}
-                    className="w-full px-4 py-2 input-on-dark"
-                    required
-                  >
-                    {TIERS.map(tier => (
-                      <option key={tier.value} value={tier.value}>{tier.label}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* Icon */}
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  {'Icon '}<span className="text-red-400">*</span>
-                </label>
-                <div className="flex gap-2 mb-2">
-                  <input
-                    type="text"
-                    value={formData.icon}
-                    onChange={(e) => updateFormData('icon', e.target.value)}
-                    className="flex-1 px-4 py-2 input-on-dark"
-                    placeholder="🏆 or icon identifier"
-                    maxLength={50}
-                    required
-                  />
-                  <div className="text-4xl bg-brand-darkGrey border border-brand-accent/30 rounded-lg px-4 flex items-center justify-center">
-                    {formData.icon || '🏆'}
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {COMMON_ICONS.map(icon => (
-                    <button
-                      key={icon}
-                      type="button"
-                      onClick={() => updateFormData('icon', icon)}
-                      className={`text-2xl p-2 rounded-lg border transition-colors ${
-                        formData.icon === icon
-                          ? 'border-brand-accent bg-brand-accent/20'
-                          : 'border-brand-accent/20 hover:border-brand-accent/40'
-                      }`}
-                    >
-                      {icon}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Is Hidden */}
-              <div className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  id="isHidden"
-                  checked={formData.isHidden}
-                  onChange={(e) => updateFormData('isHidden', e.target.checked)}
-                  className="w-4 h-4 text-brand-accent bg-brand-darkGrey border-brand-accent/30 rounded focus:ring-brand-accent"
-                />
-                <label htmlFor="isHidden" className="text-white text-sm">
-                  Hidden Achievement (secret, not shown until unlocked)
-                </label>
-              </div>
-            </div>
-          </div>
-
-          {/* Criteria */}
-          <div className="page-card-dark p-6">
-            <h2 className="text-xl font-bold text-white mb-4">Unlock Criteria</h2>
-
-            <div className="space-y-4">
-              {/* Criteria Type */}
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  Criteria Type <span className="text-red-400">*</span>
-                  <span title="What the player needs to accomplish"><HelpCircle className="w-4 h-4 inline-block ml-2 text-brand-white/70" /></span>
-                </label>
-                <select
-                  value={formData.criteria.type}
-                  onChange={(e) => updateFormData('criteria.type', e.target.value)}
-                  className="w-full px-4 py-2 input-on-dark"
-                  required
-                >
-                  {CRITERIA_TYPES.map(type => (
-                    <option key={type.value} value={type.value}>
-                      {type.label} - {type.description}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Game Selection (optional) */}
-              {['perfect_score', 'speed', 'accuracy'].includes(formData.criteria.type) && (
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Game (Optional)
-                  </label>
-                  <select
-                    value={formData.criteria.gameId || ''}
-                    onChange={(e) => updateFormData('criteria.gameId', e.target.value || undefined)}
-                    className="w-full px-4 py-2 input-on-dark"
-                  >
-                    <option value="">All Games</option>
-                    {games.map(game => (
-                      <option key={game._id} value={game._id}>{game.name}</option>
-                    ))}
-                  </select>
-                </div>
-              )}
-
-              {/* Target */}
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  Target Value <span className="text-red-400">*</span>
-                </label>
-                <input
-                  type="number"
-                  value={formData.criteria.target}
-                  onChange={(e) => updateFormData('criteria.target', parseInt(e.target.value) || 1)}
-                  className="w-full px-4 py-2 input-on-dark"
-                  min={1}
-                  required
-                />
-                <p className="text-brand-white/60 text-xs mt-1">
-                  {formData.criteria.type === 'streak' && 'Number of consecutive days/wins'}
-                  {formData.criteria.type === 'games_played' && 'Number of games to play'}
-                  {formData.criteria.type === 'wins' && 'Number of wins required'}
-                  {formData.criteria.type === 'points_earned' && 'Total points to earn'}
-                  {formData.criteria.type === 'level_reached' && 'Level number to reach'}
-                  {formData.criteria.type === 'perfect_score' && 'Score to achieve (usually max score)'}
-                  {formData.criteria.type === 'speed' && 'Time in seconds'}
-                  {formData.criteria.type === 'accuracy' && 'Accuracy percentage (0-100)'}
-                  {formData.criteria.type === 'first_lesson' && 'First lesson completed (target usually 1)'}
-                  {formData.criteria.type === 'lessons_completed' && 'Number of lessons completed'}
-                  {formData.criteria.type === 'course_completed' && 'Course completion (target usually 1)'}
-                  {formData.criteria.type === 'course_master' && 'Course mastery (target usually 1)'}
-                  {formData.criteria.type === 'perfect_assessment' && '100% on final exam (target usually 1)'}
-                  {formData.criteria.type === 'lesson_streak' && 'Consecutive lesson days'}
-                  {formData.criteria.type === 'perfect_week' && '7 consecutive lessons (target usually 7)'}
-                  {formData.criteria.type === 'early_finisher' && 'Finish course within N days'}
-                  {formData.criteria.type === 'custom' && 'Custom value (explain in condition field)'}
-                </p>
-              </div>
-
-              {/* Condition (optional) */}
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  Additional Condition (Optional)
-                </label>
-                <input
-                  type="text"
-                  value={formData.criteria.condition || ''}
-                  onChange={(e) => updateFormData('criteria.condition', e.target.value)}
-                  className="w-full px-4 py-2 input-on-dark"
-                  placeholder="Additional requirements or conditions"
-                  maxLength={200}
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Rewards */}
-          <div className="page-card-dark p-6">
-            <h2 className="text-xl font-bold text-white mb-4">Rewards</h2>
-
-            <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    Points <span className="text-red-400">*</span>
-                  </label>
-                  <input
-                    type="number"
-                    value={formData.rewards.points}
-                    onChange={(e) => updateFormData('rewards.points', parseInt(e.target.value) || 0)}
-                    className="w-full px-4 py-2 input-on-dark"
-                    min={0}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-white text-sm font-medium mb-2">
-                    XP <span className="text-red-400">*</span>
-                  </label>
-                  <input
-                    type="number"
-                    value={formData.rewards.xp}
-                    onChange={(e) => updateFormData('rewards.xp', parseInt(e.target.value) || 0)}
-                    className="w-full px-4 py-2 input-on-dark"
-                    min={0}
-                    required
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-white text-sm font-medium mb-2">
-                  Title (Optional)
-                </label>
-                <input
-                  type="text"
-                  value={formData.rewards.title || ''}
-                  onChange={(e) => updateFormData('rewards.title', e.target.value)}
-                  className="w-full px-4 py-2 input-on-dark"
-                  placeholder="Special title/badge player can equip"
-                  maxLength={50}
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Metadata */}
-          <div className="page-card-dark p-6">
-            <h2 className="text-xl font-bold text-white mb-4">Settings</h2>
-
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                id="isActive"
-                checked={formData.metadata.isActive}
-                onChange={(e) => updateFormData('metadata.isActive', e.target.checked)}
-                className="w-4 h-4 text-brand-accent bg-brand-darkGrey border-brand-accent/30 rounded focus:ring-brand-accent"
+      <Box component="form" onSubmit={handleSubmit}>
+        <Stack gap="xl">
+          <Card withBorder>
+            <Stack gap="md">
+              <Group>
+                <ThemeIcon variant="light">
+                  <IconTrophy size={18} />
+                </ThemeIcon>
+                <Title order={2}>Basic Information</Title>
+              </Group>
+              <TextInput
+                label={tCommon('name')}
+                value={formData.name}
+                onChange={(event) => updateFormData('name', event.currentTarget.value)}
+                placeholder="Achievement name"
+                maxLength={100}
+                required
               />
-              <label htmlFor="isActive" className="text-white text-sm">
-                Active (achievement can be unlocked)
-              </label>
-            </div>
-          </div>
+              <Textarea
+                label={tCommon('description')}
+                value={formData.description}
+                onChange={(event) => updateFormData('description', event.currentTarget.value)}
+                placeholder="What does the player need to do to unlock this achievement?"
+                rows={3}
+                maxLength={500}
+                required
+              />
+              <Grid>
+                <Grid.Col span={{ base: 12, md: 6 }}>
+                  <Select
+                    label="Category"
+                    value={formData.category}
+                    onChange={(value) => updateFormData('category', value)}
+                    data={CATEGORIES}
+                    required
+                  />
+                </Grid.Col>
+                <Grid.Col span={{ base: 12, md: 6 }}>
+                  <Select
+                    label="Tier"
+                    value={formData.tier}
+                    onChange={(value) => updateFormData('tier', value)}
+                    data={TIERS}
+                    required
+                  />
+                </Grid.Col>
+              </Grid>
+              <Group align="flex-end">
+                <TextInput
+                  flex={1}
+                  label="Icon"
+                  value={formData.icon}
+                  onChange={(event) => updateFormData('icon', event.currentTarget.value)}
+                  placeholder="🏆 or icon identifier"
+                  maxLength={50}
+                  required
+                />
+                <Card withBorder p="sm">
+                  <Text size="xl">{formData.icon || '🏆'}</Text>
+                </Card>
+              </Group>
+              <SimpleGrid cols={{ base: 5, sm: 10 }}>
+                {COMMON_ICONS.map((icon) => (
+                  <ActionIcon
+                    key={icon}
+                    variant={formData.icon === icon ? 'filled' : 'default'}
+                    size="lg"
+                    onClick={() => updateFormData('icon', icon)}
+                    aria-label={`Use ${icon}`}
+                  >
+                    {icon}
+                  </ActionIcon>
+                ))}
+              </SimpleGrid>
+              <Checkbox
+                checked={formData.isHidden}
+                onChange={(event) => updateFormData('isHidden', event.currentTarget.checked)}
+                label="Hidden Achievement (secret, not shown until unlocked)"
+              />
+            </Stack>
+          </Card>
 
-          {/* Preview */}
-          <div className="page-card-dark p-6">
-            <h2 className="text-xl font-bold text-white mb-4">Preview</h2>
-            <div className="panel-on-dark p-6">
-              <div className="flex items-start gap-4">
-                <div className="text-5xl">{formData.icon || '🏆'}</div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-white font-bold text-lg">{formData.name || 'Achievement Name'}</h3>
-                    <span className={`px-2 py-1 rounded text-xs font-medium ${
-                      TIERS.find(t => t.value === formData.tier)?.color || TIERS[0].color
-                    }`}>
-                      {formData.tier}
-                    </span>
-                  </div>
-                  <p className="text-brand-white/70 text-sm mb-3">{formData.description || 'Achievement description'}</p>
-                  <div className="text-sm text-brand-white/80">
-                    <div>Rewards: {formData.rewards.points} points, {formData.rewards.xp} XP</div>
-                    <div>Criteria: {CRITERIA_TYPES.find(t => t.value === formData.criteria.type)?.label} ({formData.criteria.target})</div>
-                  </div>
+          <Card withBorder>
+            <Stack gap="md">
+              <Group>
+                <Title order={2}>Unlock Criteria</Title>
+                <Tooltip label={criteriaHelp || 'What the player needs to accomplish'}>
+                  <ThemeIcon variant="subtle">
+                    <IconHelpCircle size={18} />
+                  </ThemeIcon>
+                </Tooltip>
+              </Group>
+              <Select
+                label="Criteria Type"
+                value={formData.criteria.type}
+                onChange={(value) => updateFormData('criteria.type', value)}
+                data={CRITERIA_TYPES.map((type) => ({
+                  value: type.value,
+                  label: `${type.label} - ${type.description}`,
+                }))}
+                required
+              />
+              {['perfect_score', 'speed', 'accuracy'].includes(formData.criteria.type) ? (
+                <Select
+                  label="Game (Optional)"
+                  value={formData.criteria.gameId || ''}
+                  onChange={(value) => updateFormData('criteria.gameId', value || undefined)}
+                  data={[
+                    { value: '', label: 'All Games' },
+                    ...games.map((game) => ({ value: game._id, label: game.name })),
+                  ]}
+                />
+              ) : null}
+              <NumberInput
+                label="Target Value"
+                value={formData.criteria.target}
+                onChange={(value) => updateFormData('criteria.target', Number(value) || 1)}
+                min={1}
+                required
+              />
+              <TextInput
+                label="Additional Condition (Optional)"
+                value={formData.criteria.condition || ''}
+                onChange={(event) => updateFormData('criteria.condition', event.currentTarget.value)}
+                placeholder="Additional requirements or conditions"
+                maxLength={200}
+              />
+            </Stack>
+          </Card>
+
+          <Card withBorder>
+            <Stack gap="md">
+              <Title order={2}>Rewards</Title>
+              <Grid>
+                <Grid.Col span={{ base: 12, md: 6 }}>
+                  <NumberInput
+                    label="Points"
+                    value={formData.rewards.points}
+                    onChange={(value) => updateFormData('rewards.points', Number(value) || 0)}
+                    min={0}
+                    required
+                  />
+                </Grid.Col>
+                <Grid.Col span={{ base: 12, md: 6 }}>
+                  <NumberInput
+                    label="XP"
+                    value={formData.rewards.xp}
+                    onChange={(value) => updateFormData('rewards.xp', Number(value) || 0)}
+                    min={0}
+                    required
+                  />
+                </Grid.Col>
+              </Grid>
+              <TextInput
+                label="Title (Optional)"
+                value={formData.rewards.title || ''}
+                onChange={(event) => updateFormData('rewards.title', event.currentTarget.value)}
+                placeholder="Special title/badge player can equip"
+                maxLength={50}
+              />
+            </Stack>
+          </Card>
+
+          <Card withBorder>
+            <Stack gap="md">
+              <Title order={2}>Settings</Title>
+              <Checkbox
+                checked={formData.metadata.isActive}
+                onChange={(event) => updateFormData('metadata.isActive', event.currentTarget.checked)}
+                label="Active (achievement can be unlocked)"
+              />
+            </Stack>
+          </Card>
+
+          <Card withBorder>
+            <Stack gap="md">
+              <Title order={2}>Preview</Title>
+              <Group align="flex-start">
+                <Text size="xl">{formData.icon || '🏆'}</Text>
+                <div>
+                  <Title order={3}>{formData.name || 'Achievement Name'}</Title>
+                  <Text c="dimmed">{formData.description || 'Achievement description'}</Text>
+                  <Text size="sm" c="dimmed">
+                    Rewards: {formData.rewards.points} points, {formData.rewards.xp} XP
+                  </Text>
+                  <Text size="sm" c="dimmed">
+                    Criteria: {CRITERIA_TYPES.find((type) => type.value === formData.criteria.type)?.label} ({formData.criteria.target})
+                  </Text>
                 </div>
-              </div>
-            </div>
-          </div>
+              </Group>
+            </Stack>
+          </Card>
 
-          {/* Actions */}
-          <div className="flex items-center justify-end gap-4">
-            <Link
-              href={`/${locale}/admin/achievements`}
-              className="page-button-secondary px-6 py-2 font-medium"
-            >
+          <Group justify="flex-end">
+            <Button component={Link} href={`/${locale}/admin/achievements`} variant="default">
               {tCommon('cancel')}
-            </Link>
-            <button
-              type="submit"
-              disabled={saving}
-              className="page-button-primary flex items-center gap-2 px-6 py-2 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <Save className="w-4 h-4" />
-              {saving ? tCommon('loading') : tCommon('create')}
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+            </Button>
+            <Button type="submit" loading={saving} leftSection={<IconDeviceFloppy size={18} />}>
+              {tCommon('create')}
+            </Button>
+          </Group>
+        </Stack>
+      </Box>
+    </Stack>
   );
 }

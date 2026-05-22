@@ -1,4 +1,16 @@
 import Link from "next/link";
+import {
+  Alert,
+  Anchor,
+  Container,
+  Divider,
+  Group,
+  List as MantineList,
+  Paper,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
 import { defaultLocale } from "@/i18n";
 import { type Locale, locales } from "@/app/lib/i18n/locales";
 
@@ -652,63 +664,59 @@ const termsContent: Record<string, TermsContent> = {
 // Swahili: use English content until translated
 (termsContent as Record<string, TermsContent>).sw = termsContent.en;
 
-function List({ items, ordered }: { items: string[]; ordered?: boolean }) {
-  const ListComponent = ordered ? "ol" : "ul";
+function LegalList({ items, ordered }: { items: string[]; ordered?: boolean }) {
   return (
-    <ListComponent className={`${ordered ? "list-decimal" : "list-disc"} pl-6 space-y-2`}>
+    <MantineList type={ordered ? "ordered" : "unordered"} spacing="xs">
       {items.map((item, idx) => (
-        <li key={idx}>{item}</li>
+        <MantineList.Item key={idx}>{item}</MantineList.Item>
       ))}
-    </ListComponent>
+    </MantineList>
   );
 }
 
 function SectionBlock({ section }: { section: Section }) {
-  const wrapperClasses =
-    section.variant === "warning"
-      ? "bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-lg"
-      : section.variant === "danger"
-        ? "bg-red-50 border-l-4 border-red-600 p-6 rounded-lg"
-        : "";
-
   const body = (
-    <>
+    <Stack gap="md">
       {section.paragraphs?.map((paragraph, idx) => (
-        <p key={idx} className={idx > 0 ? "mt-2" : undefined}>
+        <Text key={idx}>
           {paragraph}
-        </p>
+        </Text>
       ))}
-      {section.bullets && <List items={section.bullets} ordered={section.ordered} />}
+      {section.bullets && <LegalList items={section.bullets} ordered={section.ordered} />}
       {section.subSections?.map((sub, idx) => (
-        <div key={sub.id ?? `${sub.title}-${idx}`} className="mt-6">
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">{sub.title}</h3>
+        <Stack key={sub.id ?? `${sub.title}-${idx}`} gap="sm">
+          <Title order={3}>{sub.title}</Title>
           {sub.paragraphs?.map((paragraph, pIdx) => (
-            <p key={pIdx} className={pIdx > 0 ? "mt-2" : undefined}>
+            <Text key={pIdx}>
               {paragraph}
-            </p>
+            </Text>
           ))}
-          {sub.bullets && <List items={sub.bullets} ordered={sub.ordered} />}
+          {sub.bullets && <LegalList items={sub.bullets} ordered={sub.ordered} />}
           {sub.subSections?.map((nested, nIdx) => (
-            <div key={nested.id ?? `${nested.title}-${nIdx}`} className="mt-4">
-              <h4 className="text-lg font-semibold text-gray-800 mb-2">{nested.title}</h4>
+            <Stack key={nested.id ?? `${nested.title}-${nIdx}`} gap="sm">
+              <Title order={4}>{nested.title}</Title>
               {nested.paragraphs?.map((paragraph, npIdx) => (
-                <p key={npIdx} className={npIdx > 0 ? "mt-2" : undefined}>
+                <Text key={npIdx}>
                   {paragraph}
-                </p>
+                </Text>
               ))}
-              {nested.bullets && <List items={nested.bullets} ordered={nested.ordered} />}
-            </div>
+              {nested.bullets && <LegalList items={nested.bullets} ordered={nested.ordered} />}
+            </Stack>
           ))}
-        </div>
+        </Stack>
       ))}
-    </>
+    </Stack>
   );
 
   return (
-    <section className="space-y-4">
-      <h2 className="text-2xl font-bold text-gray-900">{section.title}</h2>
-      {section.variant ? <div className={wrapperClasses}>{body}</div> : body}
-    </section>
+    <Stack component="section" gap="md">
+      <Title order={2}>{section.title}</Title>
+      {section.variant ? (
+        <Alert color={section.variant === "danger" ? "red" : "yellow"}>{body}</Alert>
+      ) : (
+        body
+      )}
+    </Stack>
   );
 }
 
@@ -718,33 +726,34 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
   const content = termsContent[locale] ?? termsContent[defaultLocale];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-6">{content.title}</h1>
-        <p className="text-sm text-gray-600 mb-8">
+    <Container size="md" py="xl">
+      <Paper withBorder p="xl">
+        <Stack gap="xl">
+        <Title order={1}>{content.title}</Title>
+        <Text size="sm" c="dimmed">
           {content.lastUpdatedLabel} {content.lastUpdatedDate}
-        </p>
+        </Text>
 
-        <div className="space-y-8 text-gray-700">
+        <Stack gap="xl">
           {content.sections.map((section, idx) => (
             <SectionBlock key={section.id ?? `${section.title}-${idx}`} section={section} />
           ))}
-        </div>
+        </Stack>
 
-        <div className="mt-12 pt-8 border-t border-gray-200">
-          <p className="text-center text-gray-600 space-x-4">
-            <Link href={`/${locale}`} className="text-indigo-600 hover:underline">
+        <Divider />
+        <Group justify="center">
+            <Anchor component={Link} href={`/${locale}`}>
               {content.footer.home}
-            </Link>
-            <Link href={`/${locale}/privacy`} className="text-indigo-600 hover:underline">
+            </Anchor>
+            <Anchor component={Link} href={`/${locale}/privacy`}>
               {content.footer.privacy}
-            </Link>
-            <Link href={`/${locale}/data-deletion`} className="text-indigo-600 hover:underline">
+            </Anchor>
+            <Anchor component={Link} href={`/${locale}/data-deletion`}>
               {content.footer.dataDeletion}
-            </Link>
-          </p>
-        </div>
-      </div>
-    </div>
+            </Anchor>
+        </Group>
+        </Stack>
+      </Paper>
+    </Container>
   );
 }

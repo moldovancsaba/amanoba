@@ -1,8 +1,8 @@
 /**
  * Admin Challenges Management Page
- * 
- * What: Manage daily challenges in the platform
- * Why: Allows admins to view and manage daily challenges
+ *
+ * What: Manage daily challenges in the platform.
+ * Why: Allows admins to view and manage daily challenges.
  */
 
 'use client';
@@ -10,9 +10,20 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import {
-  Calendar,
-  Target,
-} from 'lucide-react';
+  Badge,
+  Card,
+  Center,
+  Grid,
+  Group,
+  Loader,
+  Select,
+  Stack,
+  Text,
+  TextInput,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import { IconCalendar, IconTarget } from '@tabler/icons-react';
 
 interface Challenge {
   _id: string;
@@ -38,6 +49,12 @@ interface Challenge {
     percentage: number;
   };
 }
+
+const difficultyColors: Record<string, string> = {
+  easy: 'green',
+  medium: 'yellow',
+  hard: 'red',
+};
 
 export default function AdminChallengesPage() {
   const t = useTranslations('admin');
@@ -79,148 +96,141 @@ export default function AdminChallengesPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">{tCommon('loading')}</div>
-      </div>
+      <Center mih={400}>
+        <Loader />
+      </Center>
     );
   }
 
-  const difficultyColors: Record<string, string> = {
-    easy: 'bg-green-500/20 text-green-400',
-    medium: 'bg-yellow-500/20 text-yellow-400',
-    hard: 'bg-red-500/20 text-red-400',
-  };
+  const activeChallenges = challenges.filter((challenge) => challenge.availability.isActive).length;
+  const averageCompletion =
+    challenges.length > 0
+      ? challenges.reduce((sum, challenge) => sum + challenge.completions.percentage, 0) /
+        challenges.length
+      : 0;
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
+    <Stack gap="xl">
+      <Group justify="space-between" align="flex-start">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">{t('challengesManagement')}</h1>
-          <p className="text-gray-400">{t('challengesDescription')}</p>
+          <Title order={1}>{t('challengesManagement')}</Title>
+          <Text c="dimmed">{t('challengesDescription')}</Text>
         </div>
-      </div>
+      </Group>
 
-      {/* Filters */}
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2">
-          <Calendar className="w-5 h-5 text-gray-400" />
-          <input
-            type="date"
-            value={dateFilter}
-            onChange={(e) => setDateFilter(e.target.value)}
-            className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
-          />
-        </div>
-        <select
+      <Group align="flex-end">
+        <TextInput
+          type="date"
+          label={tCommon('date')}
+          leftSection={<IconCalendar size={18} />}
+          value={dateFilter}
+          onChange={(event) => setDateFilter(event.currentTarget.value)}
+        />
+        <Select
+          label={t('difficulty')}
           value={difficultyFilter}
-          onChange={(e) => setDifficultyFilter(e.target.value)}
-          className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
-        >
-          <option value="all">{t('allDifficulties')}</option>
-          <option value="easy">{t('easy')}</option>
-          <option value="medium">{t('medium')}</option>
-          <option value="hard">{t('hard')}</option>
-        </select>
-      </div>
+          onChange={(value) => setDifficultyFilter(value || 'all')}
+          data={[
+            { value: 'all', label: t('allDifficulties') },
+            { value: 'easy', label: t('easy') },
+            { value: 'medium', label: t('medium') },
+            { value: 'hard', label: t('hard') },
+          ]}
+        />
+      </Group>
 
-      {/* Challenges List */}
-      <div className="space-y-4">
+      <Stack gap="md">
         {challenges.length === 0 ? (
-          <div className="text-center py-12 text-gray-400">
-            {tCommon('noDataFound')}
-          </div>
+          <Card withBorder p="xl">
+            <Text ta="center" c="dimmed">
+              {tCommon('noDataFound')}
+            </Text>
+          </Card>
         ) : (
           challenges.map((challenge) => (
-            <div
-              key={challenge._id}
-              className="bg-gray-800 rounded-xl p-6 border border-gray-700"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Target className="w-5 h-5 text-indigo-500" />
-                    <h3 className="text-white font-bold text-lg">{challenge.title}</h3>
-                    <span className={`px-2 py-1 rounded text-xs font-medium ${difficultyColors[challenge.difficulty] || difficultyColors.easy}`}>
-                      {challenge.difficulty}
-                    </span>
-                  </div>
-                  <p className="text-gray-400 text-sm mb-3">{challenge.description}</p>
-                  <div className="flex items-center gap-4 text-sm">
+            <Card key={challenge._id} withBorder p="lg">
+              <Stack gap="md">
+                <Group justify="space-between" align="flex-start">
+                  <Group align="flex-start">
+                    <ThemeIcon variant="light">
+                      <IconTarget size={18} />
+                    </ThemeIcon>
                     <div>
-                      <span className="text-gray-400">{tCommon('type')}: </span>
-                      <span className="text-white capitalize">{challenge.type.replace(/_/g, ' ')}</span>
+                      <Group gap="sm">
+                        <Title order={3}>{challenge.title}</Title>
+                        <Badge color={difficultyColors[challenge.difficulty] || 'gray'}>
+                          {challenge.difficulty}
+                        </Badge>
+                      </Group>
+                      <Text c="dimmed" size="sm">
+                        {challenge.description}
+                      </Text>
                     </div>
-                    <div>
-                      <span className="text-gray-400">Cél: </span>
-                      <span className="text-white font-bold">{challenge.requirement.target}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">{t('rewards')}: </span>
-                      <span className="text-white">
-                        {challenge.rewards.points} pont, {challenge.rewards.xp} XP
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-gray-400 text-sm mb-1">{t('completionRate')}</div>
-                  <div className="text-2xl font-bold text-green-400">
-                    {challenge.completions.percentage.toFixed(1)}%
-                  </div>
-                  <div className="text-gray-400 text-xs mt-1">
-                    {challenge.completions.total} {t('players')}
-                  </div>
-                </div>
-              </div>
+                  </Group>
+                  <Stack gap={0} align="flex-end">
+                    <Text size="sm" c="dimmed">
+                      {t('completionRate')}
+                    </Text>
+                    <Text fw={700} size="xl" c="green">
+                      {challenge.completions.percentage.toFixed(1)}%
+                    </Text>
+                    <Text size="xs" c="dimmed">
+                      {challenge.completions.total} {t('players')}
+                    </Text>
+                  </Stack>
+                </Group>
 
-              <div className="flex items-center justify-between pt-4 border-t border-gray-700">
-                <div className="text-xs text-gray-500">
-                  {new Date(challenge.availability.startTime).toLocaleString('hu-HU')} -{' '}
-                  {new Date(challenge.availability.endTime).toLocaleString('hu-HU')}
-                </div>
-                <div className="flex items-center gap-2">
-                  {challenge.availability.isActive ? (
-                    <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-medium">
-                      {tCommon('active')}
-                    </span>
-                  ) : (
-                    <span className="px-3 py-1 bg-gray-500/20 text-gray-400 rounded-full text-xs font-medium">
-                      {tCommon("inactive")}
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
+                <Grid>
+                  <Grid.Col span={{ base: 12, md: 4 }}>
+                    <TextInput label={tCommon('type')} value={challenge.type.replace(/_/g, ' ')} readOnly />
+                  </Grid.Col>
+                  <Grid.Col span={{ base: 12, md: 4 }}>
+                    <TextInput label="Cel" value={String(challenge.requirement.target)} readOnly />
+                  </Grid.Col>
+                  <Grid.Col span={{ base: 12, md: 4 }}>
+                    <TextInput
+                      label={t('rewards')}
+                      value={`${challenge.rewards.points} pont, ${challenge.rewards.xp} XP`}
+                      readOnly
+                    />
+                  </Grid.Col>
+                </Grid>
+
+                <Group justify="space-between">
+                  <Text size="xs" c="dimmed">
+                    {new Date(challenge.availability.startTime).toLocaleString('hu-HU')} -{' '}
+                    {new Date(challenge.availability.endTime).toLocaleString('hu-HU')}
+                  </Text>
+                  <Badge color={challenge.availability.isActive ? 'green' : 'gray'}>
+                    {challenge.availability.isActive ? tCommon('active') : tCommon('inactive')}
+                  </Badge>
+                </Group>
+              </Stack>
+            </Card>
           ))
         )}
-      </div>
+      </Stack>
 
-      {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('totalChallenges')}</div>
-          <div className="text-2xl font-bold text-white">{challenges.length}</div>
-        </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{tCommon('active')}</div>
-          <div className="text-2xl font-bold text-green-400">
-            {challenges.filter((c) => c.availability.isActive).length}
-          </div>
-        </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('avgCompletion')}</div>
-          <div className="text-2xl font-bold text-yellow-400">
-            {challenges.length > 0
-              ? (
-                  challenges.reduce((sum, c) => sum + c.completions.percentage, 0) /
-                  challenges.length
-                ).toFixed(1)
-              : 0}
-            %
-          </div>
-        </div>
-      </div>
-    </div>
+      <Grid>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <Card withBorder>
+            <Text size="sm" c="dimmed">{t('totalChallenges')}</Text>
+            <Text size="xl" fw={700}>{challenges.length}</Text>
+          </Card>
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <Card withBorder>
+            <Text size="sm" c="dimmed">{tCommon('active')}</Text>
+            <Text size="xl" fw={700} c="green">{activeChallenges}</Text>
+          </Card>
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, md: 4 }}>
+          <Card withBorder>
+            <Text size="sm" c="dimmed">{t('avgCompletion')}</Text>
+            <Text size="xl" fw={700}>{averageCompletion.toFixed(1)}%</Text>
+          </Card>
+        </Grid.Col>
+      </Grid>
+    </Stack>
   );
 }

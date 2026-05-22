@@ -8,7 +8,22 @@
 
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
-import { Play, RotateCcw, Lightbulb, X, Clock, Zap } from 'lucide-react';
+import {
+  Badge,
+  Button,
+  Card,
+  Center,
+  Checkbox,
+  Container,
+  Grid,
+  Group,
+  Loader,
+  SimpleGrid,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
+import { IconBolt, IconClock, IconPlayerPlay, IconRefresh, IconX, IconBulb } from '@tabler/icons-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
@@ -226,18 +241,18 @@ export default function SudokuGame() {
   // Ensure client-side only
   if (!isClient) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 flex items-center justify-center">
-        <div className="text-white text-2xl">Loading...</div>
-      </div>
+      <Center mih="100vh">
+        <Loader />
+      </Center>
     );
   }
   
   // Loading state
   if (status === 'loading') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 flex items-center justify-center">
-        <div className="text-white text-2xl">Loading...</div>
-      </div>
+      <Center mih="100vh">
+        <Loader />
+      </Center>
     );
   }
   
@@ -255,182 +270,181 @@ export default function SudokuGame() {
   // Difficulty selection
   if (!gameStarted || !puzzle) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 flex items-center justify-center p-4">
-        <div className="max-w-2xl w-full bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 bg-yellow-400 text-black px-4 py-2 rounded-full font-bold mb-4">
-              <Zap className="w-5 h-5" />
+      <Container size="sm" py="xl">
+        <Card withBorder p="xl">
+          <Stack gap="xl">
+          <Stack align="center" gap="sm">
+            <Badge leftSection={<IconBolt size={14} />}>
               PREMIUM
-            </div>
-            
-            <h1 className="text-5xl font-bold text-white mb-4">🔢 Sudoku</h1>
-            <p className="text-xl text-white/90">Choose your difficulty level</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            </Badge>
+            <Title order={1}>🔢 Sudoku</Title>
+            <Text c="dimmed">Choose your difficulty level</Text>
+          </Stack>
+
+          <SimpleGrid cols={{ base: 1, md: 2 }}>
             {(['easy', 'medium', 'hard', 'expert'] as SudokuDifficulty[]).map(level => (
-              <button
+              <Button
                 key={level}
                 onClick={() => setDifficulty(level)}
-                className={`p-6 rounded-2xl transition-all ${
-                  difficulty === level
-                    ? 'bg-white text-indigo-600 shadow-lg scale-105'
-                    : 'bg-white/20 text-white hover:bg-white/30'
-                }`}
+                variant={difficulty === level ? 'filled' : 'default'}
+                size="lg"
+                h="auto"
+                py="lg"
               >
-                <div className="text-2xl font-bold mb-2 capitalize">{level}</div>
-                <div className="text-sm opacity-80">
+                <Stack gap={2} align="center">
+                <Text fw={700} tt="capitalize">{level}</Text>
+                <Text size="sm">
                   {level === 'easy' && '~38% empty'}
                   {level === 'medium' && '~55% empty'}
                   {level === 'hard' && '~64% empty'}
                   {level === 'expert' && '~71% empty'}
-                </div>
-              </button>
+                </Text>
+                </Stack>
+              </Button>
             ))}
-          </div>
-          
-          {/* Ghost/Practice mode toggle */}
-          <label className="flex items-center gap-3 mb-4 text-white/90">
-            <input type="checkbox" checked={ghostMode} onChange={(e) => setGhostMode(e.target.checked)} />
-            <span>Practice (Ghost) mode — no XP/points, just practice</span>
-          </label>
-          <button onClick={startNewGame} className="w-full bg-white text-indigo-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors flex items-center justify-center gap-2">
-            <Play className="w-6 h-6" />
+          </SimpleGrid>
+
+          <Checkbox
+            checked={ghostMode}
+            onChange={(event) => setGhostMode(event.currentTarget.checked)}
+            label="Practice (Ghost) mode - no XP/points, just practice"
+          />
+          <Button fullWidth onClick={startNewGame} leftSection={<IconPlayerPlay size={22} />} size="lg">
             Start Game
-          </button>
-          
-          <LocaleLink href="/games" className="block text-center text-white/80 hover:text-white mt-4 transition-colors">
+          </Button>
+          <Button component={LocaleLink} href="/games" variant="default" fullWidth>
             Back to Games
-          </LocaleLink>
-        </div>
-      </div>
+          </Button>
+          </Stack>
+        </Card>
+      </Container>
     );
   }
   
   // Game board
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 p-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 mb-4 flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            🔢 Sudoku <span className="text-sm font-normal bg-white/20 px-3 py-1 rounded-full capitalize">{difficulty}</span>
-          </h1>
-          
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 text-white">
-              <Clock className="w-5 h-5" />
-              <span className="font-mono text-lg">{formatTime(timer)}</span>
-            </div>
-            
-            <div className="flex items-center gap-2 text-white">
-              <Lightbulb className="w-5 h-5" />
-              <span className="font-mono text-lg">{hintsUsed} {!isPremium && `/ ${maxFreeHints}`}</span>
-            </div>
-          </div>
-        </div>
-        
-        <div className="bg-white rounded-2xl p-6 mb-4 shadow-2xl">
-          <div className="grid grid-cols-9 gap-0 border-4 border-gray-800 mx-auto" style={{ width: 'fit-content' }}>
+    <Container size="md" py="xl">
+      <Stack gap="md">
+        <Card withBorder>
+          <Group justify="space-between">
+          <Group>
+            <Title order={1}>🔢 Sudoku</Title>
+            <Badge tt="capitalize">{difficulty}</Badge>
+          </Group>
+
+          <Group>
+            <Group gap="xs">
+              <IconClock size={18} />
+              <Text ff="monospace">{formatTime(timer)}</Text>
+            </Group>
+            <Group gap="xs">
+              <IconBulb size={18} />
+              <Text ff="monospace">{hintsUsed} {!isPremium && `/ ${maxFreeHints}`}</Text>
+            </Group>
+          </Group>
+          </Group>
+        </Card>
+
+        <Card withBorder p="lg">
+          <SimpleGrid cols={9} spacing={0} w="fit-content" mx="auto">
             {puzzle.map((row, rowIdx) =>
               row.map((cell, colIdx) => {
                 const isGiven = initialPuzzle && initialPuzzle[rowIdx][colIdx] !== null;
                 const isSelected = selectedCell?.[0] === rowIdx && selectedCell?.[1] === colIdx;
                 const hasError = errors.has(`${rowIdx}-${colIdx}`);
-                const isThickRight = (colIdx + 1) % 3 === 0 && colIdx < 8;
-                const isThickBottom = (rowIdx + 1) % 3 === 0 && rowIdx < 8;
                 
                 return (
-                  <div
+                  <Button
                     key={`${rowIdx}-${colIdx}`}
                     onClick={() => !isGiven && setSelectedCell([rowIdx, colIdx])}
-                    className={`w-12 h-12 flex items-center justify-center text-xl font-bold cursor-pointer transition-colors border border-gray-300 ${
-                      isThickRight ? 'border-r-4 border-r-gray-800' : ''
-                    } ${
-                      isThickBottom ? 'border-b-4 border-b-gray-800' : ''
-                    } ${
-                      isGiven ? 'bg-gray-100 text-gray-900' :
-                      isSelected ? 'bg-indigo-100' :
-                      hasError ? 'bg-red-100 text-red-600' :
-                      cell ? 'bg-white text-indigo-600' :
-                      'bg-white hover:bg-gray-50'
-                    }`}
+                    variant={isSelected ? 'filled' : isGiven ? 'light' : 'default'}
+                    color={hasError ? 'red' : isSelected ? 'yellow' : 'dark'}
+                    size="compact-md"
+                    w={48}
+                    h={48}
+                    p={0}
+                    disabled={Boolean(isGiven)}
                   >
                     {cell || ''}
-                  </div>
+                  </Button>
                 );
               })
             )}
-          </div>
-          
+          </SimpleGrid>
+
           {selectedCell && !isComplete && (
-            <div className="mt-6 flex justify-center gap-2">
+            <Group justify="center" mt="lg">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
-                <button key={num} onClick={() => handleCellChange(selectedCell[0], selectedCell[1], num)} className="w-12 h-12 bg-indigo-600 text-white rounded-lg font-bold hover:bg-indigo-700 transition-colors">
+                <Button key={num} onClick={() => handleCellChange(selectedCell[0], selectedCell[1], num)} w={48} h={48} p={0}>
                   {num}
-                </button>
+                </Button>
               ))}
-              <button onClick={() => handleCellChange(selectedCell[0], selectedCell[1], null)} className="w-12 h-12 bg-gray-600 text-white rounded-lg font-bold hover:bg-gray-700 transition-colors">
-                <X className="w-6 h-6 mx-auto" />
-              </button>
-            </div>
+              <Button onClick={() => handleCellChange(selectedCell[0], selectedCell[1], null)} w={48} h={48} p={0} variant="default">
+                <IconX size={22} />
+              </Button>
+            </Group>
           )}
-        </div>
-        
-        <div className="grid grid-cols-3 gap-4 mb-4">
-          <button onClick={useHint} disabled={isComplete || (!isPremium && hintsUsed >= maxFreeHints)} className="bg-yellow-400 text-black px-6 py-3 rounded-xl font-semibold hover:bg-yellow-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
-            <Lightbulb className="w-5 h-5" /> Get Hint
-          </button>
-          
-          <button onClick={startNewGame} className="bg-white/20 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-colors backdrop-blur-lg flex items-center justify-center gap-2">
-            <RotateCcw className="w-5 h-5" /> New Game
-          </button>
-          
-          <LocaleLink href="/games" className="bg-white/20 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-colors backdrop-blur-lg flex items-center justify-center gap-2">
+        </Card>
+
+        <Grid>
+          <Grid.Col span={{ base: 12, md: 4 }}>
+          <Button fullWidth onClick={useHint} disabled={isComplete || (!isPremium && hintsUsed >= maxFreeHints)} leftSection={<IconBulb size={18} />}>
+            Get Hint
+          </Button>
+          </Grid.Col>
+          <Grid.Col span={{ base: 12, md: 4 }}>
+          <Button fullWidth onClick={startNewGame} variant="default" leftSection={<IconRefresh size={18} />}>
+            New Game
+          </Button>
+          </Grid.Col>
+          <Grid.Col span={{ base: 12, md: 4 }}>
+          <Button component={LocaleLink} href="/games" fullWidth variant="default">
             Back
-          </LocaleLink>
-        </div>
+          </Button>
+          </Grid.Col>
+        </Grid>
         
         {isComplete && (
-          <div className="bg-white rounded-2xl p-6 text-center shadow-2xl">
-            <div className="text-6xl mb-2">🏆</div>
-            <h2 className="text-3xl font-bold mb-2 text-gray-900">Puzzle Complete!</h2>
-            <p className="text-lg text-gray-700 mb-4">Time: {formatTime(timer)} • Hints: {hintsUsed}</p>
+          <Card withBorder ta="center">
+            <Text size="xl">🏆</Text>
+            <Title order={2}>Puzzle Complete!</Title>
+            <Text c="dimmed">Time: {formatTime(timer)} - Hints: {hintsUsed}</Text>
 
             {/* Rewards */}
-            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-6 mb-4">
-              <div className="font-bold text-gray-900 mb-2 text-xl">Rewards {isCompleting && <span className="text-sm text-gray-500">Calculating…</span>}</div>
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-white rounded-lg p-3">
-                  <div className="text-2xl font-bold text-purple-600">{rewards ? `+${rewards.xp || 0}` : '—'}</div>
-                  <div className="text-sm text-gray-600">XP</div>
-                </div>
-                <div className="bg-white rounded-lg p-3">
-                  <div className="text-2xl font-bold text-indigo-600">{rewards ? `+${rewards.points || 0}` : '—'}</div>
-                  <div className="text-sm text-gray-600">Points</div>
-                </div>
-              </div>
+            <Card withBorder mt="md">
+              <Title order={3}>Rewards {isCompleting ? <Text span size="sm" c="dimmed">Calculating...</Text> : null}</Title>
+              <SimpleGrid cols={{ base: 1, sm: 2 }}>
+                <Card withBorder>
+                  <Text size="xl" fw={700}>{rewards ? `+${rewards.xp || 0}` : '-'}</Text>
+                  <Text c="dimmed">XP</Text>
+                </Card>
+                <Card withBorder>
+                  <Text size="xl" fw={700}>{rewards ? `+${rewards.points || 0}` : '-'}</Text>
+                  <Text c="dimmed">Points</Text>
+                </Card>
+              </SimpleGrid>
               {rewards?.streakBonus && rewards.streakBonus > 0 && (
-                <div className="mt-2 text-orange-700 font-medium">🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}%</div>
+                <Text mt="sm" fw={600}>🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}%</Text>
               )}
-            </div>
+            </Card>
 
             {/* Daily challenges */}
             {completedChallenges.length > 0 && (
-              <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-xl p-4 mb-4">
-                <div className="font-bold text-gray-900 mb-2">Daily Challenges Completed</div>
-                <div className="space-y-1 text-sm">
+              <Card withBorder mt="md">
+                <Title order={3}>Daily Challenges Completed</Title>
+                <Stack gap="xs">
                   {completedChallenges.map((c, idx) => (
-                    <div key={idx} className="flex justify-between">
-                      <span>• {c.title}</span>
-                      <span>+{c.rewardsEarned.points}pts • +{c.rewardsEarned.xp}xp</span>
-                    </div>
+                    <Group key={idx} justify="space-between">
+                      <Text>{c.title}</Text>
+                      <Text>+{c.rewardsEarned.points}pts - +{c.rewardsEarned.xp}xp</Text>
+                    </Group>
                   ))}
-                </div>
-              </div>
+                </Stack>
+              </Card>
             )}
-          </div>
+          </Card>
         )}
-      </div>
-    </div>
+      </Stack>
+    </Container>
   );
 }

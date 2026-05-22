@@ -1,6 +1,6 @@
 # UI Layout Grammar Audit
 
-**Generated at**: 2026-05-22T10:43:46.864Z
+**Generated at**: 2026-05-22T11:59:14.654Z
 
 This report scans tracked UI code (`app/**`, `components/**`) for **layout-grammar / design-token** drift. It is a *heuristic* scan: it finds likely violations, then humans decide which are intentional.
 
@@ -16,57 +16,57 @@ This report scans tracked UI code (`app/**`, `components/**`) for **layout-gramm
 ### Findings by area
 | Group | Findings |
 | --- | --- |
-| admin | 526 |
-| games | 199 |
-| app | 154 |
+| app | 75 |
+| admin | 32 |
+| games | 7 |
 | components | 7 |
 
 ### Findings by severity
 | Severity | Findings |
 | --- | --- |
-| major | 525 |
-| minor | 314 |
-| info | 47 |
+| major | 46 |
+| minor | 33 |
+| info | 42 |
 
 ### Top patterns (most frequent)
 | Pattern | Severity | Findings |
 | --- | --- | --- |
-| Default Tailwind gray scale in UI | major | 380 |
-| Plain white/black classes (bg-white, text-white, bg-black, text-black) | minor | 314 |
-| Default Tailwind indigo/blue palette in UI | major | 102 |
-| Inline style={{...}} in components/pages | info | 47 |
-| Tailwind yellow palette usage (prefer brand accent token) | major | 21 |
-| CTA accent background on non-action elements (likely misuse) | major | 15 |
+| Inline style={{...}} in components/pages | info | 42 |
+| Plain white/black classes (bg-white, text-white, bg-black, text-black) | minor | 33 |
+| Default Tailwind indigo/blue palette in UI | major | 15 |
+| CTA accent background on non-action elements (likely misuse) | major | 14 |
 | CTA accent text on non-link elements (review) | major | 7 |
+| Default Tailwind gray scale in UI | major | 6 |
+| Tailwind yellow palette usage (prefer brand accent token) | major | 4 |
 
 ### Top files (most findings)
 | File | Group | Findings |
 | --- | --- | --- |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx` | admin | 93 |
-| `app/[locale]/games/quizzz/page.tsx` | games | 57 |
-| `app/[locale]/admin/players/page.tsx` | admin | 53 |
-| `app/[locale]/admin/achievements/page.tsx` | admin | 51 |
-| `app/[locale]/admin/surveys/page.tsx` | admin | 50 |
-| `app/[locale]/games/sudoku/page.tsx` | games | 48 |
-| `app/[locale]/games/whackpop/page.tsx` | games | 46 |
-| `app/[locale]/admin/rewards/page.tsx` | admin | 44 |
-| `app/[locale]/admin/games/page.tsx` | admin | 41 |
-| `app/[locale]/games/madoku/page.tsx` | games | 41 |
-| `app/[locale]/data-deletion/page.tsx` | app | 39 |
-| `app/[locale]/admin/analytics/page.tsx` | admin | 36 |
-| `app/[locale]/admin/challenges/page.tsx` | admin | 35 |
-| `app/[locale]/admin/email-analytics/page.tsx` | admin | 29 |
-| `app/[locale]/admin/achievements/new/page.tsx` | admin | 23 |
 | `app/[locale]/admin/questions/page.tsx` | admin | 23 |
-| `app/[locale]/admin/quests/page.tsx` | admin | 23 |
 | `app/[locale]/quests/page.tsx` | app | 17 |
-| `app/[locale]/admin/feature-flags/page.tsx` | admin | 16 |
-| `app/[locale]/terms/page.tsx` | app | 14 |
-| `app/[locale]/privacy/page.tsx` | app | 13 |
-| `app/components/PlayerAvatar.tsx` | app | 13 |
 | `app/[locale]/achievements/page.tsx` | app | 9 |
 | `app/[locale]/courses/[courseId]/page.tsx` | app | 7 |
 | `app/[locale]/challenges/page.tsx` | app | 6 |
+| `app/[locale]/partners/page.tsx` | app | 6 |
+| `app/[locale]/rewards/page.tsx` | app | 6 |
+| `app/[locale]/games/page.tsx` | games | 4 |
+| `app/[locale]/stats/page.tsx` | app | 4 |
+| `app/[locale]/admin/courses/[courseId]/page.tsx` | admin | 3 |
+| `app/[locale]/admin/courses/page.tsx` | admin | 3 |
+| `app/[locale]/settings/email/page.tsx` | app | 3 |
+| `components/CourseDiscussion.tsx` | components | 3 |
+| `app/[locale]/admin/layout.tsx` | admin | 2 |
+| `app/[locale]/certificate/[slug]/page.tsx` | app | 2 |
+| `app/[locale]/certificate/verify/[playerId]/[courseId]/page.tsx` | app | 2 |
+| `app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx` | app | 2 |
+| `app/[locale]/onboarding/page.tsx` | app | 2 |
+| `app/components/LessonQuiz.tsx` | app | 2 |
+| `app/components/games/MemoryGame.tsx` | games | 2 |
+| `app/components/ui/markdown-editor.tsx` | app | 2 |
+| `app/[locale]/admin/payments/page.tsx` | admin | 1 |
+| `app/[locale]/auth/signin/page.tsx` | app | 1 |
+| `app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx` | app | 1 |
+| `app/[locale]/games/sudoku/loading.tsx` | games | 1 |
 
 ## Rules checked (what counts as a “defect”)
 
@@ -100,117 +100,120 @@ Use this section to spot-check; the totals above are the authoritative counts.
 | `app/[locale]/achievements/page.tsx:236` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
 | `app/[locale]/achievements/page.tsx:288` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
 | `app/[locale]/achievements/page.tsx:308` | Inline style={{...}} in components/pages | `style={{` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:459` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:475` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:493` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:509` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:529` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:546` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` `bg-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:563` | Default Tailwind indigo/blue palette in UI | `text-indigo-600` `ring-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:586` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:606` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:625` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:659` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:681` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:695` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:710` | Default Tailwind indigo/blue palette in UI | `border-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:728` | Default Tailwind indigo/blue palette in UI | `text-indigo-600` `ring-indigo-500` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:782` | Default Tailwind indigo/blue palette in UI | `bg-indigo-600` `bg-indigo-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:122` | Default Tailwind gray scale in UI | `bg-gray-400` `text-gray-300` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:407` | Default Tailwind gray scale in UI | `bg-gray-800` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:415` | Default Tailwind gray scale in UI | `text-gray-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:459` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:464` | Default Tailwind gray scale in UI | `text-gray-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:475` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:481` | Default Tailwind gray scale in UI | `text-gray-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:493` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:509` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:529` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:534` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:547` | Default Tailwind gray scale in UI | `border-gray-700` `border-gray-600` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:563` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:581` | Default Tailwind gray scale in UI | `text-gray-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:586` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:606` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:625` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:629` | Default Tailwind gray scale in UI | `text-gray-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:659` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:681` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:695` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:710` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:728` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:739` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:751` | Default Tailwind gray scale in UI | `text-gray-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:752` | Default Tailwind gray scale in UI | `text-gray-300` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:775` | Default Tailwind gray scale in UI | `bg-gray-700` `bg-gray-600` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:794` | Default Tailwind gray scale in UI | `bg-gray-800` `border-gray-700` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:796` | Default Tailwind gray scale in UI | `text-gray-300` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:810` | Default Tailwind gray scale in UI | `bg-gray-700` `bg-gray-600` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:123` | Tailwind yellow palette usage (prefer brand accent token) | `bg-yellow-500/20` `text-yellow-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:432` | Tailwind yellow palette usage (prefer brand accent token) | `bg-yellow-900/20` `border-yellow-500/50` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:433` | Tailwind yellow palette usage (prefer brand accent token) | `text-yellow-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:434` | Tailwind yellow palette usage (prefer brand accent token) | `text-yellow-300` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:799` | Tailwind yellow palette usage (prefer brand accent token) | `text-yellow-400` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:394` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:409` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:412` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:444` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:452` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:459` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:469` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:475` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:487` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:493` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:503` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:509` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:521` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:529` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:565` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:574` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:579` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:586` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:600` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:606` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:618` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:625` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:652` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:659` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:669` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:674` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:681` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:688` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:695` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:703` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:710` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:720` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:730` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:738` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:744` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:767` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:775` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:782` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:793` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `bg-black` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:795` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:810` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/[achievementId]/page.tsx:818` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:80` | Tailwind yellow palette usage (prefer brand accent token) | `bg-yellow-500/20` `text-yellow-400` |
-| `app/[locale]/admin/achievements/new/page.tsx:286` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:289` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:310` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:318` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:335` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:353` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:369` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:387` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:431` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:440` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:445` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:466` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:484` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:518` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:535` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:540` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
-| `app/[locale]/admin/achievements/new/page.tsx:554` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/courses/[courseId]/page.tsx:647` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/courses/[courseId]/page.tsx:652` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/courses/[courseId]/page.tsx:1508` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/courses/page.tsx:828` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/courses/page.tsx:833` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/courses/page.tsx:838` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/layout.tsx:223` | CTA accent background on non-action elements (likely misuse) | `<div className="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center flex-shrink-0"` |
+| `app/[locale]/admin/layout.tsx:149` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/payments/page.tsx:552` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/questions/page.tsx:383` | Default Tailwind indigo/blue palette in UI | `bg-indigo-600` `bg-indigo-700` |
+| `app/[locale]/admin/questions/page.tsx:610` | Default Tailwind indigo/blue palette in UI | `text-indigo-400` `text-indigo-300` |
+| `app/[locale]/admin/questions/page.tsx:629` | Default Tailwind indigo/blue palette in UI | `bg-indigo-600` `bg-indigo-700` |
+| `app/[locale]/admin/questions/page.tsx:677` | Default Tailwind indigo/blue palette in UI | `text-indigo-300` |
+| `app/[locale]/admin/questions/page.tsx:685` | Default Tailwind indigo/blue palette in UI | `text-indigo-400` `text-indigo-300` |
+| `app/[locale]/admin/questions/page.tsx:708` | Default Tailwind indigo/blue palette in UI | `bg-blue-500` `text-blue-300` |
+| `app/[locale]/admin/questions/page.tsx:758` | Default Tailwind indigo/blue palette in UI | `text-blue-400` `text-blue-300` `bg-blue-500` |
+| `app/[locale]/admin/questions/page.tsx:986` | Default Tailwind indigo/blue palette in UI | `bg-indigo-600` `bg-indigo-700` |
+| `app/[locale]/admin/questions/page.tsx:1038` | Default Tailwind indigo/blue palette in UI | `bg-indigo-600` `bg-indigo-700` |
+| `app/[locale]/admin/questions/page.tsx:1047` | Default Tailwind indigo/blue palette in UI | `bg-indigo-500` `text-indigo-300` |
+| `app/[locale]/admin/questions/page.tsx:1052` | Default Tailwind indigo/blue palette in UI | `text-indigo-200` |
+| `app/[locale]/admin/questions/page.tsx:1096` | Default Tailwind indigo/blue palette in UI | `bg-indigo-600` `bg-indigo-700` |
+| `app/[locale]/admin/questions/page.tsx:715` | Tailwind yellow palette usage (prefer brand accent token) | `bg-yellow-500/20` `text-yellow-300` |
+| `app/[locale]/admin/questions/page.tsx:376` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/questions/page.tsx:383` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/questions/page.tsx:394` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/questions/page.tsx:629` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/questions/page.tsx:697` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/questions/page.tsx:805` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `bg-black` |
+| `app/[locale]/admin/questions/page.tsx:808` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/questions/page.tsx:986` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/questions/page.tsx:1038` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/admin/questions/page.tsx:1096` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/auth/signin/page.tsx:85` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/certificate/[slug]/page.tsx:139` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/certificate/[slug]/page.tsx:152` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/certificate/verify/[playerId]/[courseId]/page.tsx:100` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/certificate/verify/[playerId]/[courseId]/page.tsx:113` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/challenges/page.tsx:45` | Tailwind yellow palette usage (prefer brand accent token) | `text-yellow-700` |
+| `app/[locale]/challenges/page.tsx:347` | CTA accent background on non-action elements (likely misuse) | `<div className="absolute top-0 right-0 bg-brand-accent text-brand-black px-4 py-1 rounded-bl-lg font-bold text-sm flex items-center gap-1"` |
+| `app/[locale]/challenges/page.tsx:315` | CTA accent text on non-link elements (review) | `<span className="font-bold text-brand-accent"` |
+| `app/[locale]/challenges/page.tsx:363` | CTA accent text on non-link elements (review) | `<span className="font-bold text-brand-accent"` |
+| `app/[locale]/challenges/page.tsx:279` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/challenges/page.tsx:305` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx:843` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx:879` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx:608` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/page.tsx:1248` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/page.tsx:1278` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/page.tsx:1283` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/page.tsx:1289` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/page.tsx:1414` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/page.tsx:1518` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/page.tsx:1525` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/games/page.tsx:174` | CTA accent background on non-action elements (likely misuse) | `<div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold min-h-[44px] inline-flex items-center"` |
+| `app/[locale]/games/page.tsx:178` | CTA accent background on non-action elements (likely misuse) | `<div className="bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold min-h-[44px] inline-flex items-center"` |
+| `app/[locale]/games/page.tsx:233` | CTA accent background on non-action elements (likely misuse) | `<span className="bg-brand-accent text-brand-black px-2 py-1 rounded font-bold"` |
+| `app/[locale]/games/page.tsx:242` | CTA accent background on non-action elements (likely misuse) | `<div className="bg-brand-accent p-4 text-center"` |
+| `app/[locale]/games/sudoku/loading.tsx:4` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/leaderboards/page.tsx:138` | Default Tailwind gray scale in UI | `text-gray-400` |
+| `app/[locale]/onboarding/page.tsx:282` | CTA accent background on non-action elements (likely misuse) | `<div
+              className="bg-brand-accent h-full transition-all duration-300"` |
+| `app/[locale]/onboarding/page.tsx:284` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/page.tsx:77` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/partners/page.tsx:174` | CTA accent background on non-action elements (likely misuse) | `<div className="inline-flex items-center space-x-2 px-4 py-2 bg-brand-accent/20 text-brand-black rounded-full font-medium"` |
+| `app/[locale]/partners/page.tsx:175` | CTA accent background on non-action elements (likely misuse) | `<span className="w-2 h-2 bg-brand-accent rounded-full animate-pulse"` |
+| `app/[locale]/partners/page.tsx:200` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/partners/page.tsx:210` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/partners/page.tsx:222` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/partners/page.tsx:223` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/quests/page.tsx:242` | Default Tailwind indigo/blue palette in UI | `bg-blue-50` `border-blue-200` |
+| `app/[locale]/quests/page.tsx:250` | Default Tailwind indigo/blue palette in UI | `text-blue-600` |
+| `app/[locale]/quests/page.tsx:261` | Default Tailwind indigo/blue palette in UI | `bg-blue-600` |
+| `app/[locale]/quests/page.tsx:243` | Default Tailwind gray scale in UI | `bg-gray-50` `border-gray-200` |
+| `app/[locale]/quests/page.tsx:206` | Tailwind yellow palette usage (prefer brand accent token) | `bg-yellow-400` |
+| `app/[locale]/quests/page.tsx:200` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/quests/page.tsx:206` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-black` |
+| `app/[locale]/quests/page.tsx:211` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/quests/page.tsx:213` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/quests/page.tsx:218` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/quests/page.tsx:223` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `bg-white` |
+| `app/[locale]/quests/page.tsx:225` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `bg-white` |
+| `app/[locale]/quests/page.tsx:261` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/quests/page.tsx:331` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/quests/page.tsx:336` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/quests/page.tsx:337` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/quests/page.tsx:226` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/rewards/page.tsx:234` | Tailwind yellow palette usage (prefer brand accent token) | `bg-yellow-400` |
+| `app/[locale]/rewards/page.tsx:241` | CTA accent background on non-action elements (likely misuse) | `<div className="absolute top-0 right-0 bg-brand-accent text-brand-black px-3 py-1 rounded-bl-lg font-bold text-sm animate-pulse"` |
+| `app/[locale]/rewards/page.tsx:270` | CTA accent text on non-link elements (review) | `<span className="text-2xl font-bold text-brand-accent flex items-center gap-1"` |
+| `app/[locale]/rewards/page.tsx:234` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-black` |
+| `app/[locale]/rewards/page.tsx:250` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `text-white` |
+| `app/[locale]/rewards/page.tsx:290` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `border-white` |
+| `app/[locale]/settings/email/page.tsx:142` | Default Tailwind gray scale in UI | `border-gray-300` |
+| `app/[locale]/settings/email/page.tsx:142` | CTA accent background on non-action elements (likely misuse) | `<div className="w-11 h-6 bg-brand-darkGrey peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-brand-accent/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-accent"` |
+| `app/[locale]/settings/email/page.tsx:142` | Plain white/black classes (bg-white, text-white, bg-black, text-black) | `border-white` `bg-white` |
+| `app/[locale]/stats/page.tsx:211` | CTA accent background on non-action elements (likely misuse) | `<div
+                className="h-full bg-brand-accent"` |
+| `app/[locale]/stats/page.tsx:326` | CTA accent background on non-action elements (likely misuse) | `<div
+                  className="h-full bg-brand-accent"` |
+| `app/[locale]/stats/page.tsx:213` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/stats/page.tsx:328` | Inline style={{...}} in components/pages | `style={{` |
+| `app/components/LessonQuiz.tsx:189` | CTA accent text on non-link elements (review) | `<span className="font-bold text-brand-accent"` |
+| `app/components/LessonQuiz.tsx:200` | CTA accent text on non-link elements (review) | `<span className="font-bold text-brand-accent text-lg"` |
+| `app/components/ReferralCard.tsx:210` | Inline style={{...}} in components/pages | `style={{` |
+| `app/components/games/MemoryGame.tsx:381` | Inline style={{...}} in components/pages | `style={{` |
+| `app/components/games/MemoryGame.tsx:462` | Inline style={{...}} in components/pages | `style={{` |
+| `app/components/ui/markdown-editor.tsx:55` | Inline style={{...}} in components/pages | `style={{` |
+| `app/components/ui/markdown-editor.tsx:81` | Inline style={{...}} in components/pages | `style={{` |
+| `components/CookieConsentBanner.tsx:56` | Inline style={{...}} in components/pages | `style={{` |
+| `components/CourseDiscussion.tsx:221` | Inline style={{...}} in components/pages | `style={{` |
+| `components/CourseDiscussion.tsx:226` | Inline style={{...}} in components/pages | `style={{` |
+| `components/CourseDiscussion.tsx:302` | Inline style={{...}} in components/pages | `style={{` |
+| `components/CourseStudyGroups.tsx:255` | Inline style={{...}} in components/pages | `style={{` |
+| `components/Icon.tsx:114` | Inline style={{...}} in components/pages | `style={{` |
 
 ## Actionable next steps (recommended)
 

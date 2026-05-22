@@ -11,12 +11,29 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import {
-  Plus,
-  Search,
-  Edit,
-  Trash2,
-  Gift,
-} from 'lucide-react';
+  ActionIcon,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Group,
+  Image as MantineImage,
+  Loader,
+  Select,
+  SimpleGrid,
+  Stack,
+  Text,
+  TextInput,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import {
+  IconEdit,
+  IconGift,
+  IconPlus,
+  IconSearch,
+  IconTrash,
+} from '@tabler/icons-react';
 import Image from 'next/image';
 
 interface Reward {
@@ -83,169 +100,154 @@ export default function AdminRewardsPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-white text-xl">{tCommon('loading')}</div>
-      </div>
+      <Group justify="center" mih={400}>
+        <Loader color="amanoba" />
+        <Text size="xl">{tCommon('loading')}</Text>
+      </Group>
     );
   }
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-white mb-2">{t('rewardsManagement')}</h1>
-          <p className="text-gray-400">{t('rewardsDescription')}</p>
-        </div>
-        <Link
+    <Stack gap="lg">
+      <Group justify="space-between" align="flex-start">
+        <Stack gap={4}>
+          <Title order={1}>{t('rewardsManagement')}</Title>
+          <Text c="dimmed">{t('rewardsDescription')}</Text>
+        </Stack>
+        <Button
+          component={Link}
           href={`/${locale}/admin/rewards/new`}
-          className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-indigo-700 transition-colors"
+          color="amanoba"
+          leftSection={<IconPlus size={18} />}
         >
-          <Plus className="w-5 h-5" />
           {t('addReward')}
-        </Link>
-      </div>
+        </Button>
+      </Group>
 
-      {/* Search and Filters */}
-      <div className="flex items-center gap-4">
-        <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-          <input
-            type="text"
-            placeholder={t('searchRewards')}
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500"
-          />
-        </div>
-        <select
+      <SimpleGrid cols={{ base: 1, md: 2 }}>
+        <TextInput
+          placeholder={t('searchRewards')}
+          value={search}
+          onChange={(event) => setSearch(event.currentTarget.value)}
+          leftSection={<IconSearch size={18} />}
+        />
+        <Select
+          data={[
+            { value: 'all', label: t('allCategories') },
+            { value: 'game_unlock', label: 'Game Unlock' },
+            { value: 'cosmetic', label: 'Cosmetic' },
+            { value: 'boost', label: 'Boost' },
+            { value: 'physical', label: 'Physical' },
+            { value: 'discount', label: 'Discount' },
+            { value: 'virtual_item', label: 'Virtual Item' },
+          ]}
           value={categoryFilter}
-          onChange={(e) => setCategoryFilter(e.target.value)}
-          className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-indigo-500"
-        >
-          <option value="all">{t('allCategories')}</option>
-          <option value="game_unlock">Game Unlock</option>
-          <option value="cosmetic">Cosmetic</option>
-          <option value="boost">Boost</option>
-          <option value="physical">Physical</option>
-          <option value="discount">Discount</option>
-          <option value="virtual_item">Virtual Item</option>
-        </select>
-      </div>
+          onChange={(value) => setCategoryFilter(value || 'all')}
+          allowDeselect={false}
+        />
+      </SimpleGrid>
 
-      {/* Rewards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <SimpleGrid cols={{ base: 1, md: 2, lg: 3 }}>
         {rewards.length === 0 ? (
-          <div className="col-span-full text-center py-12 text-gray-400">
+          <Text c="dimmed" ta="center" py="xl">
             {tCommon('noDataFound')}
-          </div>
+          </Text>
         ) : (
           rewards.map((reward) => (
-            <div
-              key={reward._id}
-              className="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-indigo-500 transition-colors"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-3">
+            <Card key={reward._id} withBorder>
+              <Stack gap="md">
+                <Group justify="space-between" align="flex-start">
+                  <Group gap="sm" align="flex-start" wrap="nowrap">
                   {reward.media.iconEmoji ? (
-                    <div className="text-4xl">{reward.media.iconEmoji}</div>
+                    <Text size="2.5rem" lh={1}>{reward.media.iconEmoji}</Text>
                   ) : reward.media.imageUrl ? (
-                    <Image
-                      src={reward.media.imageUrl}
-                      alt={reward.name}
-                      width={48}
-                      height={48}
-                      className="w-12 h-12 rounded-lg object-cover"
-                    />
+                    <Box w={48} h={48}>
+                      <MantineImage
+                        component={Image}
+                        src={reward.media.imageUrl}
+                        alt={reward.name}
+                        width={48}
+                        height={48}
+                        radius="md"
+                        fit="cover"
+                      />
+                    </Box>
                   ) : (
-                    <div className="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center">
-                      <Gift className="w-6 h-6 text-white" />
-                    </div>
+                    <ThemeIcon color="pink" variant="light" size={48} radius="md">
+                      <IconGift size={24} />
+                    </ThemeIcon>
                   )}
-                  <div>
-                    <h3 className="text-white font-bold text-lg">{reward.name}</h3>
-                    <span className="px-2 py-1 bg-gray-700 text-gray-300 rounded text-xs capitalize">
-                      {reward.category.replace(/_/g, ' ')}
-                    </span>
-                  </div>
-                </div>
-                {reward.availability.premiumOnly && (
-                  <span className="px-2 py-1 bg-neutral-600/80 text-neutral-200 rounded text-xs">
-                    Premium
-                  </span>
-                )}
-              </div>
+                    <Stack gap={4}>
+                      <Title order={2} size="h4">{reward.name}</Title>
+                      <Badge color="gray" variant="light">{reward.category.replace(/_/g, ' ')}</Badge>
+                    </Stack>
+                  </Group>
+                  {reward.availability.premiumOnly ? <Badge color="amanoba">Premium</Badge> : null}
+                </Group>
 
-              <p className="text-gray-400 text-sm mb-4">{reward.description}</p>
+                <Text c="dimmed" size="sm">{reward.description}</Text>
 
-              <div className="space-y-2 mb-4">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">{t('cost')}:</span>
-                  <span className="text-white font-bold">{reward.pointsCost} pont</span>
-                </div>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">{tCommon('type')}:</span>
-                  <span className="text-white capitalize">{reward.type}</span>
-                </div>
-                {reward.stock.isLimited && (
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400">{t('stock')}:</span>
-                    <span className="text-white">
+                <Stack gap={6}>
+                  <Group justify="space-between">
+                    <Text c="dimmed" size="sm">{t('cost')}:</Text>
+                    <Text size="sm" fw={700}>{reward.pointsCost} pont</Text>
+                  </Group>
+                  <Group justify="space-between">
+                    <Text c="dimmed" size="sm">{tCommon('type')}:</Text>
+                    <Text size="sm" tt="capitalize">{reward.type}</Text>
+                  </Group>
+                  {reward.stock.isLimited ? (
+                    <Group justify="space-between">
+                      <Text c="dimmed" size="sm">{t('stock')}:</Text>
+                      <Text size="sm">
                       {reward.stock.currentStock || 0} / {reward.stock.maxStock || 0}
-                    </span>
-                  </div>
-                )}
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">{t('redemptions')}:</span>
-                  <span className="text-white">{reward.metadata.totalRedemptions}</span>
-                </div>
-              </div>
+                      </Text>
+                    </Group>
+                  ) : null}
+                  <Group justify="space-between">
+                    <Text c="dimmed" size="sm">{t('redemptions')}:</Text>
+                    <Text size="sm">{reward.metadata.totalRedemptions}</Text>
+                  </Group>
+                </Stack>
 
-              <div className="flex items-center gap-2 pt-4 border-t border-gray-700">
-                <Link
-                  href={`/${locale}/admin/rewards/${reward._id}`}
-                  className="flex-1 flex items-center justify-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors"
-                >
-                  <Edit className="w-4 h-4" />
-                  {tCommon('edit')}
-                </Link>
-                <button
-                  className="p-2 bg-gray-700 hover:bg-red-600 rounded-lg transition-colors"
-                  title={tCommon('delete')}
-                >
-                  <Trash2 className="w-4 h-4 text-gray-300" />
-                </button>
-              </div>
-            </div>
+                <Group gap="xs">
+                  <Button
+                    component={Link}
+                    href={`/${locale}/admin/rewards/${reward._id}`}
+                    variant="default"
+                    leftSection={<IconEdit size={16} />}
+                    fullWidth
+                  >
+                    {tCommon('edit')}
+                  </Button>
+                  <ActionIcon color="red" variant="subtle" aria-label={tCommon('delete')}>
+                    <IconTrash size={18} />
+                  </ActionIcon>
+                </Group>
+              </Stack>
+            </Card>
           ))
         )}
-      </div>
+      </SimpleGrid>
 
-      {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('totalRewards')}</div>
-          <div className="text-2xl font-bold text-white">{rewards.length}</div>
-        </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{tCommon('active')}</div>
-          <div className="text-2xl font-bold text-green-400">
-            {rewards.filter((r) => r.availability.isActive).length}
-          </div>
-        </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('totalRedemptions')}</div>
-          <div className="text-2xl font-bold text-neutral-200">
-            {rewards.reduce((sum, r) => sum + r.metadata.totalRedemptions, 0)}
-          </div>
-        </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <div className="text-gray-400 text-sm mb-1">{t('premiumOnly')}</div>
-          <div className="text-2xl font-bold text-blue-400">
-            {rewards.filter((r) => r.availability.premiumOnly).length}
-          </div>
-        </div>
-      </div>
-    </div>
+      <SimpleGrid cols={{ base: 1, md: 4 }}>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">{t('totalRewards')}</Text>
+          <Text size="xl" fw={800}>{rewards.length}</Text>
+        </Card>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">{tCommon('active')}</Text>
+          <Text size="xl" fw={800} c="green">{rewards.filter((r) => r.availability.isActive).length}</Text>
+        </Card>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">{t('totalRedemptions')}</Text>
+          <Text size="xl" fw={800}>{rewards.reduce((sum, r) => sum + r.metadata.totalRedemptions, 0)}</Text>
+        </Card>
+        <Card withBorder>
+          <Text c="dimmed" size="sm">{t('premiumOnly')}</Text>
+          <Text size="xl" fw={800} c="amanoba">{rewards.filter((r) => r.availability.premiumOnly).length}</Text>
+        </Card>
+      </SimpleGrid>
+    </Stack>
   );
 }

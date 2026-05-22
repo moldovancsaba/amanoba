@@ -10,6 +10,21 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { useSession } from 'next-auth/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import {
+  Alert,
+  Button,
+  Card,
+  Center,
+  Container,
+  Grid,
+  Group,
+  Loader,
+  List,
+  SimpleGrid,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
 
 type Difficulty = 'EASY' | 'MEDIUM' | 'HARD' | 'EXPERT';
 
@@ -373,43 +388,42 @@ export default function WhackPopGame() {
   // Why: Show loading while fetching emojis
   if (isLoadingEmojis) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex items-center justify-center">
-        <div className="text-white text-2xl">Loading emojis...</div>
-      </div>
+      <Center mih="100vh">
+        <Stack align="center">
+          <Loader />
+          <Text>Loading emojis...</Text>
+        </Stack>
+      </Center>
     );
   }
 
   // Why: Show error if emoji loading failed
   if (fetchError) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
-          <div className="text-6xl mb-4">❌</div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Error Loading Game</h2>
-          <p className="text-gray-600 mb-6">{fetchError}</p>
-          <button
-            onClick={() => window.location.reload()}
-            className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-3 rounded-xl font-bold hover:from-orange-700 hover:to-red-700 transition-all"
-          >
+      <Container size="xs" py="xl">
+        <Card withBorder>
+          <Stack align="center">
+          <Text size="xl">❌</Text>
+          <Title order={2}>Error Loading Game</Title>
+          <Alert color="red">{fetchError}</Alert>
+          <Button onClick={() => window.location.reload()} fullWidth>
             Reload Page
-          </button>
-          <button
-            onClick={() => router.push('/games')}
-            className="mt-3 block w-full text-gray-700 hover:text-gray-900"
-          >
-            ← Back to Games
-          </button>
-        </div>
-      </div>
+          </Button>
+          <Button onClick={() => router.push('/games')} variant="default" fullWidth>
+            Back to Games
+          </Button>
+          </Stack>
+        </Card>
+      </Container>
     );
   }
 
   // Auth check
   if (status === 'loading') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex items-center justify-center">
-        <div className="text-white text-2xl">Loading...</div>
-      </div>
+      <Center mih="100vh">
+        <Loader />
+      </Center>
     );
   }
 
@@ -424,77 +438,75 @@ export default function WhackPopGame() {
     const canPlayDifficulty = !config.isPremium || isPremium;
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full">
-          <div className="text-center">
-            <div className="text-6xl mb-4">🎯</div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">WHACKPOP</h1>
-            <p className="text-xl text-gray-600 mb-8">
+      <Container size="sm" py="xl">
+        <Card withBorder p="xl">
+          <Stack gap="xl" align="stretch">
+            <Stack align="center" gap="sm">
+            <Text size="xl">🎯</Text>
+            <Title order={1}>WHACKPOP</Title>
+            <Text c="dimmed">
               Click the targets as fast as you can!
-            </p>
+            </Text>
+            </Stack>
 
             {/* Difficulty Selection */}
-            <div className="mb-8">
-              <h3 className="font-bold text-gray-900 mb-4">Select Difficulty:</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <Stack gap="sm">
+              <Title order={3}>Select Difficulty:</Title>
+              <SimpleGrid cols={{ base: 2, md: 4 }}>
                 {(['EASY', 'MEDIUM', 'HARD', 'EXPERT'] as Difficulty[]).map(diff => {
                   const diffConfig = DIFFICULTY_CONFIGS[diff];
                   const isLocked = diffConfig.isPremium && !isPremium;
                   const isSelected = difficulty === diff;
 
                   return (
-                    <button
+                    <Button
                       key={diff}
                       onClick={() => !isLocked && setDifficulty(diff)}
                       disabled={isLocked}
-                      className={`
-                        p-4 rounded-xl font-bold transition-all transform hover:scale-105
-                        ${isSelected
-                          ? 'bg-gradient-to-br from-orange-600 to-red-600 text-white shadow-lg'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                        }
-                        ${isLocked ? 'opacity-50 cursor-not-allowed' : ''}
-                      `}
+                      variant={isSelected ? 'filled' : 'default'}
+                      h="auto"
+                      py="md"
                     >
-                      {isLocked && '🔒 '}
-                      {diff}
-                      <div className="text-xs mt-1 opacity-80">
+                      <Stack gap={2} align="center">
+                      <Text fw={700}>{isLocked ? '🔒 ' : ''}{diff}</Text>
+                      <Text size="xs">
                         {diffConfig.duration}s • {diffConfig.hitsToWin} hits
-                      </div>
-                    </button>
+                      </Text>
+                      </Stack>
+                    </Button>
                   );
                 })}
-              </div>
-            </div>
+              </SimpleGrid>
+            </Stack>
 
-            <div className="bg-orange-50 rounded-lg p-6 mb-8">
-              <h3 className="font-bold text-gray-900 mb-4">How to Play:</h3>
-              <ul className="text-left text-gray-700 space-y-2">
-                <li>• Click targets before they disappear</li>
-                <li>• {config.duration} seconds gameplay</li>
-                <li>• +{config.pointsPerHit} points per hit</li>
-                <li>• Targets last {config.targetLifetime}ms</li>
-                <li>• Get {config.hitsToWin}+ hits to win!</li>
-              </ul>
-            </div>
+            <Card withBorder>
+              <Title order={3}>How to Play:</Title>
+              <List spacing="xs" mt="sm">
+                <List.Item>Click targets before they disappear</List.Item>
+                <List.Item>{config.duration} seconds gameplay</List.Item>
+                <List.Item>+{config.pointsPerHit} points per hit</List.Item>
+                <List.Item>Targets last {config.targetLifetime}ms</List.Item>
+                <List.Item>Get {config.hitsToWin}+ hits to win</List.Item>
+              </List>
+            </Card>
 
-            <button
+            <Button
               onClick={startGame}
               disabled={!canPlayDifficulty}
-              className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-12 py-4 rounded-xl font-bold text-xl hover:from-orange-700 hover:to-red-700 transform hover:scale-105 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              size="lg"
             >
-              Start Game 🚀
-            </button>
+              Start Game
+            </Button>
 
-            <button
+            <Button
               onClick={() => router.push('/games')}
-              className="mt-4 text-gray-600 hover:text-gray-900 transition-colors block w-full"
+              variant="default"
             >
-              ← Back to Games
-            </button>
-          </div>
-        </div>
-      </div>
+              Back to Games
+            </Button>
+          </Stack>
+        </Card>
+      </Container>
     );
   }
 
@@ -507,143 +519,137 @@ export default function WhackPopGame() {
     const finalScore = Math.round(score * config.pointsMultiplier);
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full">
-          <div className="text-center">
+      <Container size="sm" py="xl">
+        <Card withBorder p="xl">
+          <Stack align="center" gap="xl">
             {/* Win/Loss Indicator */}
-            <div className="text-8xl mb-4 animate-bounce">
+            <Text size="xl">
               {isWin ? '🏆' : '💪'}
-            </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-2">
+            </Text>
+            <Title order={1}>
               {isWin ? 'Victory!' : 'Good Try!'}
-            </h2>
-            <p className="text-xl text-gray-600 mb-6">
+            </Title>
+            <Text c="dimmed" ta="center">
               {isWin 
                 ? `You reached ${hits} hits! Amazing reflexes! 🎯`
                 : `You got ${hits}/${config.hitsToWin} hits. Keep practicing!`
               }
-            </p>
+            </Text>
 
             {/* Stats Grid */}
-            <div className="bg-gray-50 rounded-xl p-6 mb-6">
-              <h3 className="font-bold text-gray-900 mb-4">Game Stats</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-white rounded-lg p-4">
-                  <div className="text-3xl font-bold text-orange-600">{finalScore}</div>
-                  <div className="text-sm text-gray-600">Final Score</div>
-                </div>
-                <div className="bg-white rounded-lg p-4">
-                  <div className="text-3xl font-bold text-green-600">{hits}</div>
-                  <div className="text-sm text-gray-600">Hits</div>
-                </div>
-                <div className="bg-white rounded-lg p-4">
-                  <div className="text-3xl font-bold text-blue-600">{accuracy}%</div>
-                  <div className="text-sm text-gray-600">Accuracy</div>
-                </div>
-                <div className="bg-white rounded-lg p-4">
-                  <div className="text-2xl font-bold text-purple-600">{difficulty}</div>
-                  <div className="text-sm text-gray-600">Difficulty</div>
-                </div>
-              </div>
-            </div>
+            <Card withBorder w="100%">
+              <Title order={3}>Game Stats</Title>
+              <SimpleGrid cols={{ base: 2, md: 4 }} mt="md">
+                {[
+                  ['Final Score', finalScore],
+                  ['Hits', hits],
+                  ['Accuracy', `${accuracy}%`],
+                  ['Difficulty', difficulty],
+                ].map(([label, value]) => (
+                  <Card key={label} withBorder>
+                    <Text size="xl" fw={700}>{value}</Text>
+                    <Text size="sm" c="dimmed">{label}</Text>
+                  </Card>
+                ))}
+              </SimpleGrid>
+            </Card>
 
             {/* Rewards & Challenges (always visible) */}
-            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-6 mb-6 border-2 border-orange-200">
-              <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                🎁 Rewards Earned {isCompleting && <span className="text-sm text-gray-500">Calculating…</span>}
-              </h3>
-              <div className="space-y-3">
-                <div className="flex items-center justify-between bg-white rounded-lg p-3">
-                  <span className="font-medium text-gray-700">Experience Points</span>
-                  <span className="text-xl font-bold text-purple-600">{rewards ? `+${rewards.xp || 0} XP` : '—'}</span>
-                </div>
-                <div className="flex items-center justify-between bg-white rounded-lg p-3">
-                  <span className="font-medium text-gray-700">Points</span>
-                  <span className="text-xl font-bold text-orange-600">{rewards ? `+${rewards.points || 0} 💎` : '—'}</span>
-                </div>
+            <Card withBorder w="100%">
+              <Title order={3}>🎁 Rewards Earned {isCompleting ? <Text span size="sm" c="dimmed">Calculating...</Text> : null}</Title>
+              <Stack mt="md">
+                <Group justify="space-between">
+                  <Text fw={500}>Experience Points</Text>
+                  <Text fw={700}>{rewards ? `+${rewards.xp || 0} XP` : '-'}</Text>
+                </Group>
+                <Group justify="space-between">
+                  <Text fw={500}>Points</Text>
+                  <Text fw={700}>{rewards ? `+${rewards.points || 0}` : '-'}</Text>
+                </Group>
                 {rewards?.streakBonus && rewards.streakBonus > 0 && (
-                  <div className="bg-orange-100 rounded-lg p-3 text-orange-800 font-medium">
+                  <Alert color="orange">
                     🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}%
-                  </div>
+                  </Alert>
                 )}
                 {completedChallenges.length > 0 && (
-                  <div className="bg-green-100 rounded-lg p-4 border border-green-300">
-                    <div className="font-bold text-green-800 mb-2">🎯 Daily Challenges Completed</div>
+                  <Alert color="green" title="🎯 Daily Challenges Completed">
                     {completedChallenges.map((c, idx) => (
-                      <div key={idx} className="flex items-center justify-between text-sm text-green-700">
-                        <span>• {c.title}</span>
-                        <span>+{c.rewardsEarned.points}pts • +{c.rewardsEarned.xp}xp</span>
-                      </div>
+                      <Group key={idx} justify="space-between">
+                        <Text size="sm">{c.title}</Text>
+                        <Text size="sm">+{c.rewardsEarned.points}pts - +{c.rewardsEarned.xp}xp</Text>
+                      </Group>
                     ))}
-                  </div>
+                  </Alert>
                 )}
-              </div>
-            </div>
+              </Stack>
+            </Card>
 
             {/* Action Buttons */}
-            <div className="flex gap-4">
-              <button
+            <Grid w="100%">
+              <Grid.Col span={{ base: 12, md: 6 }}>
+              <Button
+                fullWidth
                 onClick={() => {
                   setGameState('ready');
                   setRewards(null);
                 }}
-                className="flex-1 bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-orange-700 hover:to-red-700 transform hover:scale-105 transition-all shadow-lg"
               >
-                🔄 Play Again
-              </button>
-              <button
+                Play Again
+              </Button>
+              </Grid.Col>
+              <Grid.Col span={{ base: 12, md: 6 }}>
+              <Button
+                fullWidth
                 onClick={() => router.push('/games')}
-                className="flex-1 bg-gray-200 text-gray-800 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-300 transition-all"
+                variant="default"
               >
-                ← Back to Games
-              </button>
-            </div>
-            
+                Back to Games
+              </Button>
+              </Grid.Col>
+            </Grid>
+
             {/* Dashboard Link */}
-            <button
+            <Button
               onClick={() => router.push('/dashboard')}
-              className="mt-4 text-gray-600 hover:text-gray-900 transition-colors text-sm"
+              variant="subtle"
             >
-              View Dashboard →
-            </button>
-          </div>
-        </div>
-      </div>
+              View Dashboard
+            </Button>
+          </Stack>
+        </Card>
+      </Container>
     );
   }
 
   // Playing screen
   if (gameState === 'playing') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 p-4">
+      <Container size="md" py="xl">
         {/* Game header */}
-        <div className="max-w-4xl mx-auto mb-6">
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 flex justify-between items-center">
-            <div className="text-2xl font-bold text-gray-900">
-              ⏱️ {timeLeft}s
-            </div>
-            <div className="text-2xl font-bold text-orange-600">
+        <Stack gap="xl">
+          <Card withBorder>
+            <Group justify="space-between">
+            <Title order={2}>⏱️ {timeLeft}s</Title>
+            <Title order={2}>
               Score: {score}
-            </div>
-            <div className="text-sm text-gray-600">
+            </Title>
+            <Text c="dimmed">
               Hits: {hits} • Misses: {misses}
-            </div>
-          </div>
-        </div>
+            </Text>
+            </Group>
+          </Card>
 
         {/* Game grid */}
-        <div className="max-w-4xl mx-auto">
-          <div 
-            className="grid grid-cols-3 gap-4 bg-white/20 backdrop-blur-sm rounded-2xl p-6"
-            onClick={handleMiss}
-          >
+          <Card withBorder onClick={handleMiss}>
+          <SimpleGrid cols={3}>
             {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((position) => {
               const target = targets.find((t) => t.position === position);
               
               return (
-                <div
+                <Button
                   key={position}
-                  className="aspect-square bg-white/40 rounded-xl flex items-center justify-center relative overflow-hidden hover:bg-white/50 transition-all cursor-pointer"
+                  variant="default"
+                  h={160}
                   onClick={(e) => {
                     if (target) {
                       e.stopPropagation();
@@ -652,21 +658,22 @@ export default function WhackPopGame() {
                   }}
                 >
                   {target && (
-                    <div className="text-6xl animate-bounce">
+                    <Text size="xl">
                       {target.emoji}
-                    </div>
+                    </Text>
                   )}
-                </div>
+                </Button>
               );
             })}
-          </div>
-        </div>
+          </SimpleGrid>
+          </Card>
 
         {/* Instructions */}
-        <div className="max-w-4xl mx-auto mt-6 text-center text-white text-lg font-medium">
+        <Text ta="center" fw={600}>
           Click the targets quickly! Difficulty: {difficulty} 🎯
-        </div>
-      </div>
+        </Text>
+        </Stack>
+      </Container>
     );
   }
 

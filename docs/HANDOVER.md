@@ -1115,3 +1115,16 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm test` ✅ pass
 - `npm run build` ✅ pass
 - `npm run docs:links:check` ✅ pass
+
+## Mantine-only admin/game/legal sweep (2026-05-22)
+
+### What changed
+- Converted high-drift admin surfaces to Mantine-only presentation: achievements list/detail/create, players, games, rewards, surveys, challenges, quests, feature flags, email analytics, and analytics.
+- Converted the highest-drift game pages (`QUIZZZ`, `Sudoku`, `WHACKPOP`, `Madoku`) from Tailwind/raw buttons/lucide markup to Mantine cards, buttons, progress, modals, grids, and Tabler icons while keeping the existing game engines and session/reward APIs intact.
+- Converted legal/data-deletion pages and the shared `PlayerAvatar` component to Mantine primitives.
+- Regenerated `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md`; legacy findings dropped from 886 to 121. Remaining largest tracked gaps are `app/[locale]/admin/questions/page.tsx`, `app/[locale]/quests/page.tsx`, and older public gamification pages.
+
+### Verification
+- focused `npx eslint` on converted admin/game/legal/shared files ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run ui:audit:layout` ✅ regenerated
