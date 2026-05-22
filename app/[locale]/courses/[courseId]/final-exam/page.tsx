@@ -1,5 +1,5 @@
 /**
- * Certification Final Exam Page (MVP)
+ * Certification Final Exam Page
  * - Fetches entitlement + pool availability
  * - Allows start -> answer flow one question at a time
  * - On completion, submits and shows score/pass/fail
@@ -569,12 +569,6 @@ export default function FinalExamPage() {
                 {getFinalExamText('redeemPoints', courseLanguage)}
                     </Button>
             ) : null}
-                  <Button
-              disabled
-                    variant="default"
-            >
-              Pay (disabled in MVP)
-                  </Button>
                 </Group>
               </Stack>
             </Card>

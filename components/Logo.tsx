@@ -1,66 +1,59 @@
-/**
- * Logo Component
- * 
- * What: Displays the Amanoba logo
- * Why: Consistent branding across the platform
- */
-
 import Image from 'next/image';
+import { Box, Group, Text } from '@mantine/core';
 import { LocaleLink } from './LocaleLink';
 
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg';
   showText?: boolean;
-  className?: string;
+  preventShrink?: boolean;
   linkTo?: string;
 }
 
-/**
- * Logo Component
- * 
- * Why: Reusable logo with different sizes and optional text
- */
+const logoSizes = {
+  sm: 32,
+  md: 48,
+  lg: 64,
+} as const;
+
+const textSizes = {
+  sm: 'lg',
+  md: 'xl',
+  lg: 'h2',
+} as const;
+
 export default function Logo({ 
   size = 'md', 
   showText = false,
-  className = '',
+  preventShrink = false,
   linkTo = '/dashboard'
 }: LogoProps) {
-  const sizeClasses = {
-    sm: 'h-8 w-auto',
-    md: 'h-12 w-auto',
-    lg: 'h-16 w-auto',
-  };
-
-  const textSizeClasses = {
-    sm: 'text-lg',
-    md: 'text-xl',
-    lg: 'text-2xl',
-  };
+  const logoSize = logoSizes[size];
 
   const logoContent = (
-    <div className={`flex items-center gap-3 ${className}`}>
-      <Image
-        src="/amanoba_logo.png"
-        alt="Amanoba Logo"
-        width={size === 'sm' ? 32 : size === 'md' ? 48 : 64}
-        height={size === 'sm' ? 32 : size === 'md' ? 48 : 64}
-        className={sizeClasses[size]}
-        priority
-      />
+    <Group gap="sm" wrap="nowrap" flex={preventShrink ? '0 0 auto' : undefined}>
+      <Box w={logoSize} h={logoSize} flex="0 0 auto">
+        <Image
+          src="/amanoba_logo.png"
+          alt="Amanoba Logo"
+          width={logoSize}
+          height={logoSize}
+          priority
+          style={{ display: 'block', width: '100%', height: '100%', objectFit: 'contain' }}
+        />
+      </Box>
       {showText && (
-        <span className={`font-bold text-brand-black dark:text-brand-white ${textSizeClasses[size]}`}>
+        <Text fw={800} size={textSizes[size]} c="var(--mantine-color-text)" lh={1}>
           Amanoba
-        </span>
+        </Text>
       )}
-    </div>
+    </Group>
   );
 
   if (linkTo) {
     return (
-      <LocaleLink href={linkTo} className="inline-block">
+      <Box component={LocaleLink} href={linkTo} display="inline-block">
         {logoContent}
-      </LocaleLink>
+      </Box>
     );
   }
 

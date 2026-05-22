@@ -6,7 +6,7 @@
  */
 
 import type { Metadata, Viewport } from "next";
-import { ColorSchemeScript } from "@mantine/core";
+import { ColorSchemeScript, Stack } from "@mantine/core";
 import { Inter, Noto_Sans, Playfair_Display, Afacad } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { MantineRuntimeProvider } from "@/app/components/providers/MantineRuntimeProvider";
@@ -138,10 +138,7 @@ export default async function LocaleLayout({
       <head>
         <ColorSchemeScript defaultColorScheme="dark" />
       </head>
-      <body
-        dir={direction}
-        className="antialiased bg-brand-white dark:bg-brand-black text-brand-black dark:text-brand-white"
-      >
+      <body dir={direction}>
         <OrganizationWebSiteJsonLd />
         <GoogleAnalytics />
         <NextIntlClientProvider locale={validLocale} messages={messages}>
@@ -154,10 +151,9 @@ export default async function LocaleLayout({
                 disableTransitionOnChange
               >
                 <MantineRuntimeProvider>
-                  {/* Main content wrapper */}
-                  <div className="min-h-screen flex flex-col">
+                  <Stack gap={0} mih="100vh">
                     {children}
-                  </div>
+                  </Stack>
                   {/* Cookie Consent Banner */}
                   <CookieConsentBanner />
                   <ServiceWorkerRegister />

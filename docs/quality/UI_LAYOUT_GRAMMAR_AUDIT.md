@@ -1,6 +1,6 @@
 # UI Layout Grammar Audit
 
-**Generated at**: 2026-05-21T10:44:40.217Z
+**Generated at**: 2026-05-22T10:43:46.864Z
 
 This report scans tracked UI code (`app/**`, `components/**`) for **layout-grammar / design-token** drift. It is a *heuristic* scan: it finds likely violations, then humans decide which are intentional.
 
@@ -11,63 +11,62 @@ This report scans tracked UI code (`app/**`, `components/**`) for **layout-gramm
 
 ## Summary
 
-- Files scanned: **219**
+- Files scanned: **216**
 
 ### Findings by area
 | Group | Findings |
 | --- | --- |
-| admin | 615 |
-| app | 438 |
+| admin | 526 |
 | games | 199 |
-| components | 11 |
+| app | 154 |
+| components | 7 |
 
 ### Findings by severity
 | Severity | Findings |
 | --- | --- |
-| major | 763 |
-| minor | 453 |
+| major | 525 |
+| minor | 314 |
 | info | 47 |
 
 ### Top patterns (most frequent)
 | Pattern | Severity | Findings |
 | --- | --- | --- |
-| Default Tailwind gray scale in UI | major | 535 |
-| Plain white/black classes (bg-white, text-white, bg-black, text-black) | minor | 453 |
-| Default Tailwind indigo/blue palette in UI | major | 115 |
-| CTA accent background on non-action elements (likely misuse) | major | 43 |
-| Tailwind yellow palette usage (prefer brand accent token) | major | 37 |
-| CTA accent text on non-link elements (review) | major | 33 |
-| Inline style={{...}} in components/pages | info | 31 |
-| Uses Tailwind dark: variants | info | 16 |
+| Default Tailwind gray scale in UI | major | 380 |
+| Plain white/black classes (bg-white, text-white, bg-black, text-black) | minor | 314 |
+| Default Tailwind indigo/blue palette in UI | major | 102 |
+| Inline style={{...}} in components/pages | info | 47 |
+| Tailwind yellow palette usage (prefer brand accent token) | major | 21 |
+| CTA accent background on non-action elements (likely misuse) | major | 15 |
+| CTA accent text on non-link elements (review) | major | 7 |
 
 ### Top files (most findings)
 | File | Group | Findings |
 | --- | --- | --- |
-| `app/[locale]/profile/[playerId]/page.tsx` | app | 132 |
 | `app/[locale]/admin/achievements/[achievementId]/page.tsx` | admin | 93 |
 | `app/[locale]/games/quizzz/page.tsx` | games | 57 |
 | `app/[locale]/admin/players/page.tsx` | admin | 53 |
 | `app/[locale]/admin/achievements/page.tsx` | admin | 51 |
-| `app/[locale]/admin/certificates/page.tsx` | admin | 50 |
 | `app/[locale]/admin/surveys/page.tsx` | admin | 50 |
 | `app/[locale]/games/sudoku/page.tsx` | games | 48 |
 | `app/[locale]/games/whackpop/page.tsx` | games | 46 |
 | `app/[locale]/admin/rewards/page.tsx` | admin | 44 |
 | `app/[locale]/admin/games/page.tsx` | admin | 41 |
-| `app/[locale]/data-deletion/page.tsx` | app | 41 |
 | `app/[locale]/games/madoku/page.tsx` | games | 41 |
-| `app/[locale]/certificate/[slug]/page.tsx` | app | 37 |
+| `app/[locale]/data-deletion/page.tsx` | app | 39 |
 | `app/[locale]/admin/analytics/page.tsx` | admin | 36 |
 | `app/[locale]/admin/challenges/page.tsx` | admin | 35 |
-| `app/[locale]/certificate/verify/[playerId]/[courseId]/page.tsx` | app | 34 |
 | `app/[locale]/admin/email-analytics/page.tsx` | admin | 29 |
-| `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx` | app | 28 |
-| `app/[locale]/admin/quests/page.tsx` | admin | 24 |
 | `app/[locale]/admin/achievements/new/page.tsx` | admin | 23 |
 | `app/[locale]/admin/questions/page.tsx` | admin | 23 |
+| `app/[locale]/admin/quests/page.tsx` | admin | 23 |
 | `app/[locale]/quests/page.tsx` | app | 17 |
 | `app/[locale]/admin/feature-flags/page.tsx` | admin | 16 |
-| `app/[locale]/admin/page.tsx` | admin | 16 |
+| `app/[locale]/terms/page.tsx` | app | 14 |
+| `app/[locale]/privacy/page.tsx` | app | 13 |
+| `app/components/PlayerAvatar.tsx` | app | 13 |
+| `app/[locale]/achievements/page.tsx` | app | 9 |
+| `app/[locale]/courses/[courseId]/page.tsx` | app | 7 |
+| `app/[locale]/challenges/page.tsx` | app | 6 |
 
 ## Rules checked (what counts as a “defect”)
 

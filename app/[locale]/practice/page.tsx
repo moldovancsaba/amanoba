@@ -77,11 +77,6 @@ type PracticeHubResponse = {
     nextRecommendation: PracticeRecommendation | null;
   };
   modes: PracticeMode[];
-  unavailableModes: Array<{
-    id: string;
-    title: string;
-    reason: string;
-  }>;
 };
 
 function modeIcon(modeId: PracticeModeId) {
@@ -317,12 +312,6 @@ export default function PracticeHubPage() {
                       {practiceHub.summary.availableModeCount}
                     </Text>
                   </Card>
-                  <Card bg="ink.9" padding="lg" withBorder>
-                    <Text c="gray.3" size="sm">Unavailable by design</Text>
-                    <Text c="white" size="lg" fw={800}>
-                      {practiceHub.unavailableModes.length}
-                    </Text>
-                  </Card>
                 </SimpleGrid>
               </SimpleGrid>
             </Card>
@@ -403,22 +392,6 @@ export default function PracticeHubPage() {
               </Stack>
 
               <Stack gap="lg">
-                <Card padding="lg" withBorder>
-                  <Stack gap="md">
-                    <Title order={2} size="h3">
-                    Unavailable for this MVP
-                    </Title>
-                    <Stack gap="sm">
-                    {practiceHub.unavailableModes.map((mode) => (
-                        <Card key={mode.id} padding="md" withBorder>
-                          <Text size="sm" fw={700}>{mode.title}</Text>
-                          <Text size="sm" c="dimmed">{mode.reason}</Text>
-                        </Card>
-                    ))}
-                    </Stack>
-                  </Stack>
-                </Card>
-
                 <Card padding="lg" withBorder>
                   <Stack gap="md">
                     <Group gap="xs">

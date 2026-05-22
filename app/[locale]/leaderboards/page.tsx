@@ -155,7 +155,7 @@ export default function LeaderboardsPage() {
         <div className="page-container py-6">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-4">
-              <Logo size="sm" showText={false} linkTo="/dashboard" className="flex-shrink-0" />
+              <Logo size="sm" showText={false} linkTo="/dashboard" preventShrink />
               <div>
                 <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
                   <Icon icon={MdEmojiEvents} size={40} />

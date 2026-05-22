@@ -14,7 +14,8 @@
 
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
-import { Moon, Sun } from 'lucide-react';
+import { ActionIcon, Skeleton } from '@mantine/core';
+import { IconMoon, IconSun } from '@tabler/icons-react';
 
 export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
@@ -26,19 +27,20 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return (
-      <div className="h-10 w-10 rounded-lg bg-brand-darkGrey/10 dark:bg-brand-darkGrey animate-pulse" />
-    );
+    return <Skeleton circle h={40} w={40} />;
   }
 
+  const isDark = theme === 'dark';
+
   return (
-    <button
+    <ActionIcon
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="relative h-10 w-10 rounded-lg bg-brand-darkGrey/10 dark:bg-brand-darkGrey hover:bg-brand-darkGrey/20 dark:hover:bg-brand-secondary-700 transition-colors flex items-center justify-center"
+      variant="default"
+      size={40}
+      radius="md"
       aria-label="Toggle theme"
     >
-      <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-    </button>
+      {isDark ? <IconSun size={20} /> : <IconMoon size={20} />}
+    </ActionIcon>
   );
 }

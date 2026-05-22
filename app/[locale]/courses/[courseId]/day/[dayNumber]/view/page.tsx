@@ -66,7 +66,7 @@ export default async function PublicLessonViewPage({ params }: ViewPageProps) {
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 py-4">
           <div className="flex items-center gap-3 sm:gap-4">
-            <Logo size="sm" showText={false} linkTo="/" className="flex-shrink-0" />
+            <Logo size="sm" showText={false} linkTo="/" preventShrink />
             <Link
               href={`/${locale}/courses/${courseId}`}
               className="min-h-[44px] inline-flex items-center gap-2 text-brand-white hover:text-brand-accent truncate"

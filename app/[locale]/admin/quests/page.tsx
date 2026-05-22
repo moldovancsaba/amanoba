@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import {
   Scroll,
@@ -48,31 +48,37 @@ export default function AdminQuestsPage() {
   const _t = useTranslations('admin');
   const [quests, setQuests] = useState<Quest[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'inactive'>('all');
 
-  useEffect(() => {
-    fetchQuests();
-  }, [statusFilter, search]);
-
-  const fetchQuests = async () => {
+  const fetchQuests = useCallback(async () => {
     try {
       setLoading(true);
-      // Note: Admin quests API endpoint needs to be created
-      // For now, using a placeholder that will show "Coming Soon"
-      const response = await fetch('/api/admin/quests');
+      setError(null);
+      const params = new URLSearchParams();
+      if (statusFilter !== 'all') params.set('status', statusFilter);
+      if (search.trim()) params.set('search', search.trim());
+
+      const response = await fetch(`/api/admin/quests?${params.toString()}`);
       const data = await response.json();
 
-      if (data.success) {
-        setQuests(data.quests || []);
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Failed to load quests');
       }
+      setQuests(data.quests || []);
     } catch (error) {
       console.error('Failed to fetch quests:', error);
-      // If API doesn't exist, show empty state with message
+      setError('Unable to load quests right now.');
+      setQuests([]);
     } finally {
       setLoading(false);
     }
-  };
+  }, [search, statusFilter]);
+
+  useEffect(() => {
+    void fetchQuests();
+  }, [fetchQuests]);
 
   if (loading) {
     return (
@@ -115,16 +121,21 @@ export default function AdminQuestsPage() {
         </select>
       </div>
 
+      {error ? (
+        <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-red-200">
+          {error}
+        </div>
+      ) : null}
+
       {/* Quests List */}
       {quests.length === 0 ? (
         <div className="bg-gray-800 rounded-xl p-12 text-center border border-gray-700">
           <Scroll className="w-16 h-16 text-gray-400 mx-auto mb-4" />
           <h3 className="text-xl font-bold text-white mb-2">No Quests Found</h3>
           <p className="text-gray-400 mb-4">
-            Quest management API is not yet implemented.
-          </p>
-          <p className="text-gray-500 text-sm">
-            Quests feature is currently disabled in feature flags. Enable it in Settings → Feature Flags to use quests.
+            {search.trim() || statusFilter !== 'all'
+              ? 'No quests match the current filters.'
+              : 'No quests have been created yet.'}
           </p>
         </div>
       ) : (

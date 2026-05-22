@@ -80,16 +80,8 @@ export default async function DataDeletionPage({
               </ul>
             </div>
 
-            <div className="bg-gray-50 border-l-4 border-gray-400 p-6 mb-4">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Method 2: In-App Request (Coming Soon)</h3>
-              <p>
-                You will soon be able to request account deletion directly from your account settings 
-                within the Amanoba platform. This feature is currently in development.
-              </p>
-            </div>
-
             <div className="bg-gray-50 border-l-4 border-gray-400 p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Method 3: Revoke SSO Access</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Method 2: Revoke SSO Access</h3>
               <p className="mb-2">
                 If you signed in using SSO (e.g. Google, Microsoft, or your organisation&apos;s provider), you can revoke Amanoba&apos;s access in your provider&apos;s account settings. That may trigger a data-deletion request depending on the provider.
               </p>

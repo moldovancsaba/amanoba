@@ -7,20 +7,24 @@
 
 'use client';
 
+import { Button } from '@mantine/core';
+import { IconLogout } from '@tabler/icons-react';
 import { signOut } from 'next-auth/react';
 
-/**
- * Sign Out Button
- * 
- * Why: Provides a reusable sign-out button for navigation components
- */
-export default function SignOutButton({ className }: { className?: string }) {
+type SignOutButtonProps = {
+  label?: string;
+  callbackUrl?: string;
+};
+
+export default function SignOutButton({ label = 'Sign Out', callbackUrl = '/' }: SignOutButtonProps) {
   return (
-    <button
-      onClick={() => signOut({ callbackUrl: '/' })}
-      className={className || 'px-4 py-2 text-red-600 hover:text-red-700 transition-colors font-medium'}
+    <Button
+      onClick={() => signOut({ callbackUrl })}
+      variant="subtle"
+      color="red"
+      leftSection={<IconLogout size={18} />}
     >
-      Sign Out
-    </button>
+      {label}
+    </Button>
   );
 }

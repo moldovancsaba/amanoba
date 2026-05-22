@@ -1070,3 +1070,48 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:check:mantine` ✅ pass
 - `npm run ui:check:foundation` ✅ pass
 - `npm run ui:check:layout` ✅ pass
+
+## Practice Hub placeholder removal (2026-05-22)
+
+### What changed
+- Removed the learner-facing `Unavailable for this MVP` panel and the related `Unavailable by design` metric card from `app/[locale]/practice/page.tsx`.
+- Practice Hub now only renders actionable review modes and the explanation card, instead of surfacing a dead-end `Mistake Review` placeholder to learners.
+- Kept the backend Practice Hub contract unchanged so operator-facing future-mode metadata can still exist without leaking into the learner UI.
+
+### Verification
+- `npx eslint app/[locale]/practice/page.tsx` ✅ pass
+- `npm run type-check` ✅ pass
+
+## Placeholder surface removal sweep (2026-05-22)
+
+### What changed
+- Removed the fake placeholder/coming-soon quest copy from `app/[locale]/admin/quests/page.tsx` and wired the page to the real `/api/admin/quests` filters.
+- Replaced the admin quests dead-end empty state with normal no-results messaging and added an explicit runtime error banner for failed loads.
+- Removed the `In-App Request (Coming Soon)` section from `app/[locale]/data-deletion/page.tsx` so the policy only documents currently real deletion paths.
+- Removed the `Pay (disabled in MVP)` CTA from `app/[locale]/courses/[courseId]/final-exam/page.tsx`.
+- Removed the hidden `Mistake Review` placeholder metadata from `app/api/practice-hub/route.ts` so the API no longer advertises a non-existent mode.
+
+### Verification
+- focused `npx eslint` on changed placeholder sweep files ✅ pass
+- `npm run type-check` ✅ pass
+
+## Mantine-only gap hardening sweep (2026-05-22)
+
+### What changed
+- Converted the blog/news detail pages from legacy Tailwind/lucide markup to Mantine `Paper`, `Container`, `Stack`, `Group`, `Button`, `Badge`, `Title`, and `Text` surfaces so detail pages no longer fall back to hard-coded dark/light styling.
+- Removed the legacy Tailwind body/root-wrapper classes from the localized app shell and replaced the content wrapper with a Mantine `Stack`, leaving Mantine runtime color-scheme variables responsible for app background and text defaults.
+- Refactored the shared `Logo`, `ThemeToggle`, and `SignOutButton` controls to Mantine primitives and removed their Tailwind `className` styling hooks.
+- Replaced `Logo className="flex-shrink-0"` call sites with an explicit `preventShrink` prop so shared branding layout remains controlled by the component contract instead of per-page utility classes.
+- Tightened `npm run ui:check:mantine` with a scoped Mantine-only file contract that blocks `className`, native button/form controls, and `lucide-react` imports from already-converted shared/product surfaces.
+- Confirmed the remaining legacy UI debt is still substantial: the generated layout audit currently reports 886 non-blocking legacy findings, mostly in admin and game surfaces. Those areas are not fixed by this sweep and must be converted in dedicated slices.
+
+### Verification
+- focused `npx eslint` on the changed shared/blog/news/boundary files ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run ui:check:layout` ✅ pass
+- `npm run lint` ✅ pass
+- `npm test` ✅ pass
+- `npm run build` ✅ pass
+- `npm run docs:links:check` ✅ pass

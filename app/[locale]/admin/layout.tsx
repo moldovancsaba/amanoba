@@ -151,7 +151,7 @@ export default function AdminLayout({
         {/* Logo */}
         <div className="h-16 flex-shrink-0 flex items-center justify-between px-4">
           <Link href={`/${locale}/admin`} className="flex items-center gap-2">
-            <Logo size="sm" showText={false} linkTo="" className="flex-shrink-0" />
+            <Logo size="sm" showText={false} linkTo="" preventShrink />
             <div>
               <div className="text-brand-white font-bold text-lg">Amanoba</div>
               <div className="text-xs text-brand-white/70">Admin Panel</div>

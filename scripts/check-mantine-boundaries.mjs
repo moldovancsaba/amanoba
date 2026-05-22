@@ -12,6 +12,18 @@ const trackedFiles = execFileSync('git', ['ls-files'], { encoding: 'utf8' })
 
 const allowedLegacyHelpers = new Set([]);
 
+const mantineOnlyFiles = new Set([
+  'app/[locale]/page.tsx',
+  'app/[locale]/blog/[slug]/page.tsx',
+  'app/[locale]/news/[slug]/page.tsx',
+  'app/components/LearnerPageHeader.tsx',
+  'app/components/ThemeToggle.tsx',
+  'app/components/sign-out-button.tsx',
+  'components/CookieConsentBanner.tsx',
+  'components/LanguageSwitcher.tsx',
+  'components/Logo.tsx',
+]);
+
 const hardBlockedImports = [
   {
     id: 'radix',
@@ -60,6 +72,29 @@ const helperImports = [
 
 const findings = [];
 
+const mantineOnlyRules = [
+  {
+    id: 'tailwind-classname',
+    pattern: /\bclassName\s*=/,
+    message: 'This file is Mantine-only; do not use className/Tailwind utility styling here.',
+  },
+  {
+    id: 'native-button',
+    pattern: /<button[\s>]/,
+    message: 'This file is Mantine-only; use Mantine Button, ActionIcon, Menu.Item, or another Mantine control.',
+  },
+  {
+    id: 'native-input',
+    pattern: /<(input|select|textarea)[\s>]/,
+    message: 'This file is Mantine-only; use Mantine form controls.',
+  },
+  {
+    id: 'lucide-icons',
+    pattern: /from\s+['"]lucide-react['"]/,
+    message: 'This file is Mantine-only; use the project Mantine/Tabler icon set.',
+  },
+];
+
 for (const file of trackedFiles) {
   const source = readFileSync(file, 'utf8');
 
@@ -77,6 +112,14 @@ for (const file of trackedFiles) {
 
   if (!allowedLegacyHelpers.has(file)) {
     for (const rule of helperImports) {
+      if (rule.pattern.test(source)) {
+        findings.push({ file, rule });
+      }
+    }
+  }
+
+  if (mantineOnlyFiles.has(file)) {
+    for (const rule of mantineOnlyRules) {
       if (rule.pattern.test(source)) {
         findings.push({ file, rule });
       }

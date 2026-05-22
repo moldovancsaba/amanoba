@@ -269,7 +269,7 @@ export default function OnboardingPage() {
       <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-40 mobile-sticky-header">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 py-5 sm:py-6">
           <div className="flex items-start gap-3 sm:gap-4 mb-4">
-            <Logo size="sm" showText={false} linkTo="/dashboard" className="flex-shrink-0" />
+            <Logo size="sm" showText={false} linkTo="/dashboard" preventShrink />
             <div>
               <h1 className="text-xl sm:text-2xl font-bold text-brand-white leading-tight">{survey.name}</h1>
               {survey.description && (

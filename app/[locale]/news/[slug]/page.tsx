@@ -1,6 +1,16 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { CalendarDays } from 'lucide-react';
+import {
+  Badge,
+  Button,
+  Container,
+  Group,
+  Paper,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
+import { IconCalendar } from '@tabler/icons-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
@@ -74,61 +84,76 @@ export default async function NewsPostPage({
   }
 
   return (
-    <div className="min-h-screen bg-brand-black">
-      <header className="border-b-2 border-brand-accent bg-brand-darkGrey">
-        <div className="mx-auto flex max-w-4xl flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-4">
-            <Logo size="sm" showText={false} linkTo="/news" className="flex-shrink-0" />
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-brand-accent">{labels.eyebrow}</p>
-              <h1 className="text-xl font-bold text-brand-white">Amanoba News</h1>
-            </div>
-          </div>
-          <nav className="flex flex-wrap items-center gap-3">
+    <>
+      <Paper component="header" bg="ink.8" radius={0} withBorder>
+        <Container size="md" py="md">
+          <Group justify="space-between" align="center" gap="md">
+            <Group gap="md" wrap="nowrap">
+              <Logo size="sm" showText={false} linkTo="/news" preventShrink />
+              <Stack gap={2}>
+                <Text size="xs" tt="uppercase" fw={800} c="amanoba.5">
+                  {labels.eyebrow}
+                </Text>
+                <Title order={1} size="h3" c="white">
+                  Amanoba News
+                </Title>
+              </Stack>
+            </Group>
+            <Group component="nav" gap="xs" justify="flex-end">
             <LanguageSwitcher />
-            <LocaleLink
+            <Button
+              component={LocaleLink}
               href="/news"
-              className="rounded-lg border-2 border-brand-accent px-4 py-2 font-bold text-brand-white transition-colors hover:bg-brand-accent hover:text-brand-black"
+              variant="outline"
+              color="gray"
             >
               {labels.backToNews}
-            </LocaleLink>
-            <LocaleLink
+            </Button>
+            <Button
+              component={LocaleLink}
               href="/dashboard"
-              className="rounded-lg bg-brand-accent px-4 py-2 font-bold text-brand-black transition-colors hover:bg-brand-primary-400"
+              color="amanoba"
             >
               {labels.backDashboard}
-            </LocaleLink>
-          </nav>
-        </div>
-      </header>
+            </Button>
+            </Group>
+          </Group>
+        </Container>
+      </Paper>
 
-      <main className="mx-auto max-w-4xl px-6 py-10">
-        <article className="rounded-xl border-2 border-brand-accent bg-brand-white p-6 shadow-xl sm:p-10">
-          <time className="mb-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-darkGrey" dateTime={post.publishedAt}>
-            <CalendarDays className="h-4 w-4" />
-            {post.publishedAt}
-          </time>
-          <h2 className="mb-4 text-3xl font-bold leading-tight text-brand-black sm:text-5xl">
-            {post.headline}
-          </h2>
-          <p className="mb-8 text-lg leading-8 text-brand-darkGrey">{post.summary}</p>
-
-          <div className="space-y-8">
+      <Container component="main" size="md" py={{ base: 'xl', sm: 56 }}>
+        <Paper component="article" withBorder shadow="sm" p={{ base: 'lg', sm: 'xl' }} radius="md">
+          <Stack gap="xl">
+            <Group gap="sm">
+              <Badge color="gray" variant="light" leftSection={<IconCalendar size={14} />} size="lg">
+                {post.publishedAt}
+              </Badge>
+            </Group>
+            <Stack gap="md">
+              <Title order={2} size="h1" lh={1.1}>
+                {post.headline}
+              </Title>
+              <Text size="lg" c="dimmed" lh={1.7}>
+                {post.summary}
+              </Text>
+            </Stack>
             {post.body.map((section) => (
-              <section key={section.heading}>
-                <h3 className="mb-3 text-xl font-bold text-brand-black">{section.heading}</h3>
-                <div className="space-y-3">
+              <Stack component="section" key={section.heading} gap="sm">
+                <Title order={3} size="h3">
+                  {section.heading}
+                </Title>
+                <Stack gap="xs">
                   {section.paragraphs.map((paragraph) => (
-                    <p key={paragraph} className="leading-7 text-brand-darkGrey">
+                    <Text key={paragraph} lh={1.75}>
                       {paragraph}
-                    </p>
+                    </Text>
                   ))}
-                </div>
-              </section>
+                </Stack>
+              </Stack>
             ))}
-          </div>
-        </article>
-      </main>
-    </div>
+          </Stack>
+        </Paper>
+      </Container>
+    </>
   );
 }

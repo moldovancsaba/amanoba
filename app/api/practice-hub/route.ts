@@ -373,13 +373,6 @@ export async function GET(request: NextRequest) {
         nextRecommendation,
       },
       modes,
-      unavailableModes: [
-        {
-          id: 'mistake-review',
-          title: 'Mistake Review',
-          reason: 'Learner-specific wrong-answer history is not stored yet, so mistake-based sessions would be misleading in MVP.',
-        },
-      ],
     });
   } catch (error) {
     logger.error({ error }, 'Failed to build Practice Hub');
