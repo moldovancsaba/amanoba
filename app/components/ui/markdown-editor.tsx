@@ -52,9 +52,9 @@ export default function MarkdownEditor({
   const previewHtml = contentToHtml(content);
 
   return (
-    <Paper withBorder radius="md" bg="white" style={{ overflow: 'hidden' }}>
+    <Paper withBorder radius="md" style={{ overflow: 'hidden' }}>
       <Stack gap={0}>
-        <Box p="xs" bg="gray.0">
+        <Box p="xs" bg="ink.8">
           <SegmentedControl
             value={activeTab}
             onChange={(value) => setActiveTab(value as 'edit' | 'preview')}

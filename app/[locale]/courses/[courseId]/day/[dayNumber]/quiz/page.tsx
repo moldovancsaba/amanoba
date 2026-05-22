@@ -642,7 +642,7 @@ export default function LessonQuizPage({
               <Progress value={progressValue} color="amanoba" radius="xl" />
             </Stack>
 
-            <Text size="xl" fw={600} lh={1.5} c="ink.9">{currentQuestion.question}</Text>
+            <Text size="xl" fw={600} lh={1.5}>{currentQuestion.question}</Text>
 
             <Stack gap="sm">
             {currentQuestion.options.map((option: string, idx: number) => (

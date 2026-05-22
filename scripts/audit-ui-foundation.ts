@@ -166,6 +166,9 @@ function main() {
   ]);
 
   const assetRestrictedFiles = new Set<string>(['public/manifest.json', 'public/offline.html', 'public/icon-192.svg']);
+  const colorModeExceptionFiles = new Set<string>([
+    'app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx',
+  ]);
 
   const approvedAssetHex = new Set<string>(
     [
@@ -196,6 +199,14 @@ function main() {
       include: (file) => assetRestrictedFiles.has(file),
       regex: /#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\b/g,
       note: 'Public assets may use hex, but only from the approved brand + semantic palette.',
+    },
+    {
+      id: 'blocker:hard-coded-mantine-mode-props',
+      title: 'Hard-coded Mantine light/dark color props in product UI',
+      severity: 'blocker',
+      include: (file) => /\.(tsx|jsx)$/.test(file) && !colorModeExceptionFiles.has(file),
+      regex: /\bbg="(?:white|gray\.0)"|\bc="(?:black|ink\.9)"/g,
+      note: 'Use theme defaults or semantic Mantine tokens. Do not hard-code known unreadable mode props such as `bg="white"`, `bg="gray.0"`, `c="black"`, or `c="ink.9"` in product UI.',
     },
   ];
 

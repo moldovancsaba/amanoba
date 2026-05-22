@@ -215,7 +215,7 @@ export default function CourseDiscussion({
         ) : (
           <Stack gap="md">
             {posts.map((post) => (
-              <Paper key={post._id} p="md" radius="md" withBorder bg="gray.0">
+              <Paper key={post._id} p="md" radius="md" withBorder>
                 <Stack gap="sm">
                   <Group align="flex-start" justify="space-between" gap="sm" wrap="nowrap">
                     <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
@@ -296,7 +296,7 @@ export default function CourseDiscussion({
                     <Stack gap="sm">
                       <Divider />
                       {post.replies.map((r) => (
-                        <Paper key={r._id} p="sm" radius="md" bg="white" withBorder>
+                        <Paper key={r._id} p="sm" radius="md" withBorder>
                           <Text fw={600} size="sm">{r.authorDisplayName}</Text>
                           <Text c="dimmed" size="xs">{new Date(r.createdAt).toLocaleDateString(undefined, { dateStyle: 'short', timeStyle: 'short' })}</Text>
                           <Text size="sm" mt={4} style={{ whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>{r.body}</Text>

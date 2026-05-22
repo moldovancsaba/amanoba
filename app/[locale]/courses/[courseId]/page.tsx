@@ -1344,7 +1344,7 @@ export default function CourseDetailPage({
                   ) : (
                     <Stack gap="xs">
                       {leaderboardEntries.map((entry) => (
-                        <Paper key={entry.rank} p="sm" radius="md" withBorder bg="gray.0">
+                        <Paper key={entry.rank} p="sm" radius="md" withBorder>
                           <Group gap="md" wrap="nowrap">
                             <Text w={32} fw={800}>{entry.rank}</Text>
                             <Text flex={1} fw={600} truncate>{entry.player?.displayName ?? '—'}</Text>
@@ -1406,7 +1406,7 @@ export default function CourseDetailPage({
               ) : (
                 <Stack gap="xs">
                   {tocLessons.map((lesson) => (
-                    <Paper key={lesson.lessonId} p="md" radius="md" withBorder bg="gray.0">
+                    <Paper key={lesson.lessonId} p="md" radius="md" withBorder>
                       <Group gap="md" wrap="nowrap" align="center">
                       <ThemeIcon color="gray" variant="light" size={48} radius="md">
                         {lesson.dayNumber}
@@ -1435,14 +1435,14 @@ export default function CourseDetailPage({
               <Card padding="lg" radius="md" withBorder>
                 <Stack gap="md">
                   <SimpleGrid cols={2} spacing="sm">
-                    <Paper p="md" radius="md" withBorder bg="gray.0">
+                    <Paper p="md" radius="md" withBorder>
                       <Group gap="xs" mb={4}>
                         <IconCalendar size={16} />
                         <Text size="sm" c="dimmed">{getCourseDetailTexts().duration}</Text>
                       </Group>
                       <Text fw={800} size="xl">{course.durationDays} {getCourseDetailTexts().days}</Text>
                     </Paper>
-                    <Paper p="md" radius="md" withBorder bg="gray.0">
+                    <Paper p="md" radius="md" withBorder>
                       <Group gap="xs" mb={4}>
                         <IconAward size={16} />
                         <Text size="sm" c="dimmed">{getCourseDetailTexts().pointsReward}</Text>

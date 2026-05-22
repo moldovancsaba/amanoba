@@ -1,6 +1,6 @@
 # UI Foundation Audit (Hard Rules)
 
-**Generated at**: 2026-05-21T11:20:47.116Z
+**Generated at**: 2026-05-22T10:04:50.114Z
 
 This report enforces **hard UI foundation rules** derived from `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` and the Amanoba adapter rules in `docs/architecture/layout_grammar.md`.
 Goal: a rock-solid, maintainable UI foundation by preventing **raw color literals** (hex/rgb/hsl) from leaking into UI/output code, except in explicit token, adapter, or asset sources.
@@ -14,7 +14,7 @@ This is intentionally stricter than `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` (w
 
 ## Summary
 
-- Files scanned: **352**
+- Files scanned: **347**
 - Findings (blockers): **0**
 
 ### Findings by rule
@@ -31,6 +31,7 @@ This is intentionally stricter than `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` (w
 | --- | --- | --- | --- |
 | Raw color literals outside token sources (hex/rgb/hsl) | blocker | `app/**`, `components/**`, `public/**` (tracked) | Move colors to approved token/adapter sources (`app/design-system.css`, Tailwind aliases while the adapter exists, or a dedicated constants file) and reference those tokens. |
 | Non-approved hex colors in restricted public assets | blocker | `app/**`, `components/**`, `public/**` (tracked) | Public assets may use hex, but only from the approved brand + semantic palette. |
+| Hard-coded Mantine light/dark color props in product UI | blocker | `app/**`, `components/**`, `public/**` (tracked) | Use theme defaults or semantic Mantine tokens. Do not hard-code known unreadable mode props such as `bg="white"`, `bg="gray.0"`, `c="black"`, or `c="ink.9"` in product UI. |
 
 ## Findings (first 200)
 

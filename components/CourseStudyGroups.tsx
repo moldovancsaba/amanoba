@@ -250,7 +250,7 @@ export default function CourseStudyGroups({
         ) : (
           <Stack gap="sm">
             {groups.map((g) => (
-              <Paper key={g._id} p="md" radius="md" withBorder bg="gray.0">
+              <Paper key={g._id} p="md" radius="md" withBorder>
                 <Group justify="space-between" align="center" gap="md">
                   <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
                     <Group gap="xs">

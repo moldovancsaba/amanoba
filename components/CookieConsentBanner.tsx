@@ -50,7 +50,6 @@ export default function CookieConsentBanner() {
       component="aside"
       role="region"
       aria-label={t('title')}
-      bg="white"
       shadow="xl"
       radius={0}
       p={{ base: 'sm', sm: 'md' }}
@@ -77,7 +76,7 @@ export default function CookieConsentBanner() {
 
         <Collapse in={showDetails}>
           <Stack gap="sm">
-            <Paper bg="gray.0" p="sm">
+            <Paper p="sm" withBorder>
               <Stack gap={6}>
                 <Text fw={700}>{t('analytics.title')}</Text>
                 <Text size="sm" c="dimmed">{t('analytics.description')}</Text>
@@ -93,7 +92,7 @@ export default function CookieConsentBanner() {
               </Stack>
             </Paper>
 
-            <Paper bg="gray.0" p="sm">
+            <Paper p="sm" withBorder>
               <Stack gap={6}>
                 <Text fw={700}>{t('advertising.title')}</Text>
                 <Text size="sm" c="dimmed">{t('advertising.description')}</Text>

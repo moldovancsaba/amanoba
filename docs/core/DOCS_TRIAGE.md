@@ -21,7 +21,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 ### docs/_archive/reference/
 - `docs/features/GEO_IMPROVEMENT_PLAN.md` — GEO Improvement Plan — Appearance in AI Chat Results (12.5 KB)
 - `docs/product/COURSE_CREATION_PLAYBOOK.md` — Amanoba Course Creation Playbook (13.4 KB)
-- `docs/quality/UI_FOUNDATION_AUDIT.md` — UI Foundation Audit (Hard Rules) (1.5 KB)
+- `docs/quality/UI_FOUNDATION_AUDIT.md` — UI Foundation Audit (Hard Rules) (1.8 KB)
 - `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` — UI Layout Grammar Audit (23.0 KB)
 
 ## KEEP (needs review)

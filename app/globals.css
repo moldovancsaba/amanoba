@@ -29,14 +29,24 @@
   }
 }
 
+html[data-mantine-color-scheme='dark'] {
+  color-scheme: dark;
+  --color-heading: var(--mantine-color-white);
+  --color-text-primary: var(--mantine-color-gray-1);
+  --color-text-inverse: var(--mantine-color-ink-9);
+  --color-text-muted: var(--mantine-color-gray-3);
+  --color-text-subtle: var(--mantine-color-gray-4);
+  --color-surface-shell: var(--mantine-color-ink-9);
+  --color-surface-panel: var(--mantine-color-ink-8);
+  --color-surface-card: var(--mantine-color-ink-8);
+  --color-surface-subtle: var(--mantine-color-ink-7);
+  --color-border-strong: var(--mantine-color-ink-6);
+  --color-border-subtle: var(--mantine-color-ink-6);
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--color-text-primary);
+  background: var(--color-surface-shell);
   font-family: var(--font-primary);
   font-size: 18px;
   line-height: 1.7;
@@ -412,14 +422,17 @@ h3 {
 
 /* TipTap / ProseMirror rich text editor */
 .rich-text-editor.ProseMirror {
-  color: var(--color-heading) !important;
+  color: var(--color-text-primary) !important;
   outline: none;
 }
 
 .rich-text-editor.ProseMirror p,
 .rich-text-editor.ProseMirror ul,
 .rich-text-editor.ProseMirror ol,
-.rich-text-editor.ProseMirror li,
+.rich-text-editor.ProseMirror li {
+  color: var(--color-text-primary) !important;
+}
+
 .rich-text-editor.ProseMirror h1,
 .rich-text-editor.ProseMirror h2,
 .rich-text-editor.ProseMirror h3,
@@ -430,7 +443,7 @@ h3 {
 }
 
 .rich-text-editor.ProseMirror blockquote {
-  color: var(--color-heading) !important;
+  color: var(--color-text-muted) !important;
   border-left: 3px solid var(--color-secondary-700);
   padding-left: 1em;
   margin: 1em 0;
