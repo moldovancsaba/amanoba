@@ -8,6 +8,7 @@
 'use client';
 
 import { useLocale } from 'next-intl';
+import { Select } from '@mantine/core';
 import { getPathname, usePathname, useRouter } from '@/app/lib/i18n/navigation';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
 
@@ -71,28 +72,15 @@ export default function LanguageSwitcher() {
   const displayLocale = locales.includes(locale) ? locale : 'hu';
 
   return (
-    <div className="relative inline-block">
-      <select
-        value={displayLocale}
-        onChange={(e) => handleLanguageChange(e.target.value as Locale)}
-        className="relative z-10 appearance-none bg-brand-white border border-brand-darkGrey/20 text-brand-black rounded-md px-3 py-2 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-brand-accent cursor-pointer"
-        aria-label="Select language"
-      >
-        {locales.map((loc) => (
-          <option key={loc} value={loc}>
-            {languageNames[loc]}
-          </option>
-        ))}
-      </select>
-      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-brand-darkGrey z-0">
-        <svg
-          className="fill-current h-4 w-4"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-        >
-          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-        </svg>
-      </div>
-    </div>
+    <Select
+      aria-label="Select language"
+      data={locales.map((loc) => ({ value: loc, label: languageNames[loc] }))}
+      value={displayLocale}
+      onChange={(value) => {
+        if (value) handleLanguageChange(value as Locale);
+      }}
+      allowDeselect={false}
+      w={220}
+    />
   );
 }

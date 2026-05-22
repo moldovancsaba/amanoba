@@ -254,7 +254,7 @@ export default function PracticeHubPage() {
                   </Text>
 
                   {practiceHub.summary.nextRecommendation ? (
-                    <Card bg="gray.0" padding="lg" withBorder>
+                    <Card padding="lg" withBorder>
                       <Stack gap="md">
                         <Group justify="space-between" align="flex-start" gap="md">
                           <Stack gap={4}>
@@ -283,7 +283,7 @@ export default function PracticeHubPage() {
                       </Stack>
                     </Card>
                   ) : (
-                    <Card bg="gray.0" padding="lg" withBorder>
+                    <Card padding="lg" withBorder>
                       <Stack gap="md">
                         <Title order={3} size="h4">
                         No practice pressure right now
@@ -357,9 +357,9 @@ export default function PracticeHubPage() {
                     {mode.items.length > 0 ? (
                         <Stack gap="md">
                         {mode.items.map((item) => (
-                            <Card key={`${item.mode}-${item.courseId}-${item.lessonDay}`} bg="gray.0" padding="md" withBorder>
+                            <Card key={`${item.mode}-${item.courseId}-${item.lessonDay}`} padding="md" withBorder>
                               <Group justify="space-between" align="flex-start" gap="md">
-                                <Stack gap={4} style={{ flex: 1 }}>
+                                <Stack gap={4} flex={1}>
                                   <Text size="sm" fw={700} c="amanoba.7">
                                   {item.courseName}
                                   </Text>
@@ -386,7 +386,7 @@ export default function PracticeHubPage() {
                         ))}
                         </Stack>
                     ) : (
-                        <Card bg="gray.0" padding="md" withBorder>
+                        <Card padding="md" withBorder>
                           <Stack gap="xs">
                             <Title order={3} size="h4">
                           {mode.emptyStateTitle}
@@ -410,7 +410,7 @@ export default function PracticeHubPage() {
                     </Title>
                     <Stack gap="sm">
                     {practiceHub.unavailableModes.map((mode) => (
-                        <Card key={mode.id} bg="gray.0" padding="md" withBorder>
+                        <Card key={mode.id} padding="md" withBorder>
                           <Text size="sm" fw={700}>{mode.title}</Text>
                           <Text size="sm" c="dimmed">{mode.reason}</Text>
                         </Card>

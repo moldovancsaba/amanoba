@@ -32,7 +32,6 @@ import {
 } from '@mantine/core';
 import {
   IconAlertTriangle,
-  IconArrowLeft,
   IconBook,
   IconCertificate,
   IconCreditCard,
@@ -43,8 +42,8 @@ import {
   IconThumbUp,
   IconTrophy,
 } from '@tabler/icons-react';
-import Logo from '@/components/Logo';
 import { LocaleLink } from '@/components/LocaleLink';
+import { LearnerPageHeader } from '@/app/components/LearnerPageHeader';
 import { COURSE_LANGUAGE_OPTIONS, type CourseLanguageCode } from '@/app/lib/constants/course-languages';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 
@@ -322,35 +321,16 @@ export default function CoursesPage() {
 
   return (
     <Box bg="ink.9" mih="100vh">
-      <Paper component="header" bg="ink.8" radius={0} py="lg">
-        <Container size="xl">
-          <Group justify="space-between" align="flex-start" gap="md" wrap="nowrap">
-            <Group gap="md" align="flex-start" wrap="nowrap">
-              <Logo size="sm" showText={false} linkTo={session ? '/dashboard' : '/'} />
-              <Button
-                component={LocaleLink}
-                href={session ? '/dashboard' : '/'}
-                variant="subtle"
-                color="gray"
-                leftSection={<IconArrowLeft size={18} />}
-              >
-                {session ? 'Dashboard' : 'Home'}
-              </Button>
-              <Stack gap={4}>
-                <Title order={1} c="white" size="h2">
-                  {t('availableCourses')}
-                </Title>
-                <Text c="gray.3">{t('browseAndEnroll')}</Text>
-              </Stack>
-            </Group>
-            {!session ? (
-              <Button component={LocaleLink} href={signInHref} color="amanoba">
-                {tAuth('signIn')}
-              </Button>
-            ) : null}
-          </Group>
-        </Container>
-      </Paper>
+      <LearnerPageHeader
+        title={t('availableCourses')}
+        subtitle={t('browseAndEnroll')}
+        icon={<IconBook size={20} />}
+        actions={!session ? (
+          <Button component={LocaleLink} href={signInHref} color="amanoba">
+            {tAuth('signIn')}
+          </Button>
+        ) : null}
+      />
 
       <Container component="main" size="xl" py="xl">
         <Stack gap="lg">
@@ -476,15 +456,15 @@ export default function CoursesPage() {
                       </Stack>
 
                       <SimpleGrid cols={3} spacing="xs">
-                        <Paper bg="gray.0" p="sm">
+                        <Paper p="sm">
                           <Text size="xs" c="dimmed">Length</Text>
                           <Text fw={700}>{course.durationDays} {courseTexts.lessons}</Text>
                         </Paper>
-                        <Paper bg="gray.0" p="sm">
+                        <Paper p="sm">
                           <Text size="xs" c="dimmed">Reward</Text>
                           <Text fw={700}>{course.pointsConfig.completionPoints} {courseTexts.points}</Text>
                         </Paper>
-                        <Paper bg="gray.0" p="sm">
+                        <Paper p="sm">
                           <Text size="xs" c="dimmed">Signal</Text>
                           <Group gap={4}>
                             <IconThumbUp size={15} />

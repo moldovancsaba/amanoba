@@ -35,6 +35,7 @@ type LearnerPageHeaderProps = {
   subtitle: string;
   icon?: ReactNode;
   onRefresh?: () => void;
+  actions?: ReactNode;
 };
 
 const learnerNavItems = [
@@ -46,7 +47,7 @@ const learnerNavItems = [
   { href: '/saved', labelKey: null, fallback: 'Saved Lessons', icon: IconBookmark },
 ];
 
-export function LearnerPageHeader({ title, subtitle, icon, onRefresh }: LearnerPageHeaderProps) {
+export function LearnerPageHeader({ title, subtitle, icon, onRefresh, actions }: LearnerPageHeaderProps) {
   const locale = useLocale();
   const { data: session } = useSession();
   const tDashboard = useTranslations('dashboard');
@@ -90,7 +91,7 @@ export function LearnerPageHeader({ title, subtitle, icon, onRefresh }: LearnerP
       <Container size="xl" py={{ base: 'md', sm: 'lg' }}>
         <Stack gap="md">
           <Group justify="space-between" align="flex-start" gap="md">
-            <Group gap="md" wrap="nowrap" style={{ minWidth: 0 }}>
+            <Group gap="md" wrap="nowrap" miw={0}>
               <Logo size="md" showText={false} linkTo="/dashboard" />
               <Stack gap={4}>
                 <Group gap="xs">
@@ -106,6 +107,7 @@ export function LearnerPageHeader({ title, subtitle, icon, onRefresh }: LearnerP
             </Group>
 
             <Group gap="xs" visibleFrom="md">
+              {actions}
               {onRefresh ? (
                 <Button onClick={onRefresh} color="amanoba" variant="light">
                   {tDashboard('refresh')}

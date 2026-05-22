@@ -1025,3 +1025,19 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:check:mantine` ✅ pass
 - `npm run ui:check:foundation` ✅ pass
 - `npm run ui:check:layout` ✅ pass
+
+## Learner navigation SSOT correction (2026-05-22)
+
+### What changed
+- Confirmed the screenshot-reported state was not acceptable against `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`: multiple page-local learner headers, duplicate dashboard navigation, Tailwind-styled blog/news chrome, a native language selector, and explicit light card backgrounds were design-system drift.
+- Extended `app/components/LearnerPageHeader.tsx` as the canonical learner header/navigation implementation and applied it to the course catalog, blog, and news index pages in addition to dashboard, my courses, Practice Hub, and saved lessons.
+- Converted `components/LanguageSwitcher.tsx` from a native select plus Tailwind classes to Mantine `Select`.
+- Removed explicit light `bg="gray.0"` course/dashboard card overrides from learner navigation-adjacent surfaces so card styling resolves through the Mantine dark runtime and theme instead of per-page hardcoded visual choices.
+- Converted blog/news index pages from Tailwind/lucide/raw layout markup to Mantine cards, stacks, badges, containers, and Tabler icons.
+
+### Verification
+- focused `npx eslint` on the changed learner/header/blog/news/course/language files ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run ui:check:layout` ✅ pass

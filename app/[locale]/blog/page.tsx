@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { CalendarDays, Sparkles } from 'lucide-react';
+import { Badge, Box, Card, Container, Group, SimpleGrid, Stack, Text, Title } from '@mantine/core';
+import { IconCalendar, IconSparkles } from '@tabler/icons-react';
 import { LocaleLink } from '@/components/LocaleLink';
-import Logo from '@/components/Logo';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { LearnerPageHeader } from '@/app/components/LearnerPageHeader';
 import { APP_URL } from '@/app/lib/constants/app-url';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
 import { getAllNewsPosts, getBlogLanguages, getLatestNewsPost } from '@/app/lib/news';
@@ -75,89 +76,68 @@ export default async function BlogPage({
   }
 
   return (
-    <div className="min-h-screen bg-brand-black">
-      <header className="border-b-2 border-brand-accent bg-brand-darkGrey">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-4">
-            <Logo size="sm" showText={false} linkTo="/" className="flex-shrink-0" />
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-brand-accent">{labels.eyebrow}</p>
-              <h1 className="text-2xl font-bold text-brand-white">{labels.title}</h1>
-            </div>
-          </div>
-          <nav className="flex flex-wrap items-center gap-3">
-            <LanguageSwitcher />
-            <LocaleLink
-              href="/"
-              className="rounded-lg border-2 border-brand-accent px-4 py-2 font-bold text-brand-white transition-colors hover:bg-brand-accent hover:text-brand-black"
-            >
-              {labels.backHome}
-            </LocaleLink>
-            <LocaleLink
-              href="/dashboard"
-              className="rounded-lg bg-brand-accent px-4 py-2 font-bold text-brand-black transition-colors hover:bg-brand-primary-400"
-            >
-              {labels.backDashboard}
-            </LocaleLink>
-          </nav>
-        </div>
-      </header>
+    <Box bg="ink.9" mih="100vh">
+      <LearnerPageHeader
+        title={labels.title}
+        subtitle={labels.description}
+        icon={<IconSparkles size={20} />}
+        actions={<LanguageSwitcher />}
+      />
 
-      <main className="mx-auto max-w-6xl px-6 py-10">
-        <section className="mb-10 grid gap-8 lg:grid-cols-[1.4fr_0.8fr] lg:items-start">
-          <article className="rounded-xl border-2 border-brand-accent bg-brand-white p-6 shadow-xl sm:p-8">
-            <div className="mb-5 flex flex-wrap items-center gap-3 text-sm font-semibold text-brand-darkGrey">
-              <span className="inline-flex items-center gap-2 rounded-lg bg-brand-darkGrey px-3 py-2 text-brand-white">
-                <Sparkles className="h-4 w-4 text-brand-accent" />
-                {labels.latest}
-              </span>
-              <time className="inline-flex items-center gap-2" dateTime={latest.publishedAt}>
-                <CalendarDays className="h-4 w-4" />
-                {latest.publishedAt}
-              </time>
-            </div>
-            <h2 className="mb-4 text-3xl font-bold leading-tight text-brand-black sm:text-4xl">
-              {latest.headline}
-            </h2>
-            <p className="mb-8 text-lg leading-8 text-brand-darkGrey">{latest.summary}</p>
-
-            <div className="space-y-8">
+      <Container component="main" size="xl" py="xl">
+        <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="xl">
+          <Card component="article" padding="xl" withBorder>
+            <Stack gap="xl">
+              <Group gap="sm">
+                <Badge color="amanoba" leftSection={<IconSparkles size={14} />}>{labels.latest}</Badge>
+                <Badge color="gray" variant="light" leftSection={<IconCalendar size={14} />} component="time" dateTime={latest.publishedAt}>
+                  {latest.publishedAt}
+                </Badge>
+              </Group>
+              <Stack gap="md">
+                <Title order={2}>{latest.headline}</Title>
+                <Text size="lg" c="dimmed">{latest.summary}</Text>
+              </Stack>
               {latest.body.map((section) => (
-                <section key={section.heading}>
-                  <h3 className="mb-3 text-xl font-bold text-brand-black">{section.heading}</h3>
-                  <div className="space-y-3">
+                <Stack key={section.heading} gap="sm">
+                  <Title order={3} size="h4">{section.heading}</Title>
+                  <Stack gap="xs">
                     {section.paragraphs.map((paragraph) => (
-                      <p key={paragraph} className="leading-7 text-brand-darkGrey">
+                      <Text key={paragraph} c="dimmed">
                         {paragraph}
-                      </p>
+                      </Text>
                     ))}
-                  </div>
-                </section>
+                  </Stack>
+                </Stack>
               ))}
-            </div>
-          </article>
+            </Stack>
+          </Card>
 
-          <aside className="rounded-xl border-2 border-brand-accent bg-brand-darkGrey p-6 shadow-xl">
-            <h2 className="mb-3 text-xl font-bold text-brand-white">{labels.allPosts}</h2>
-            <div className="space-y-4">
+          <Card component="aside" padding="xl" withBorder>
+            <Stack gap="md">
+              <Title order={2} size="h3">{labels.allPosts}</Title>
               {posts.map((post) => (
-                <LocaleLink
+                <Card
+                  component={LocaleLink}
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="block rounded-lg border border-brand-white/15 bg-brand-black/30 p-4 transition-colors hover:border-brand-accent"
+                  padding="md"
+                  withBorder
                 >
-                  <time className="text-xs font-semibold uppercase tracking-wide text-brand-accent" dateTime={post.publishedAt}>
+                  <Stack gap="xs">
+                  <Text component="time" size="xs" fw={700} c="amanoba.5" dateTime={post.publishedAt}>
                     {post.publishedAt}
-                  </time>
-                  <h3 className="mt-2 text-base font-bold text-brand-white">{post.headline}</h3>
-                  <p className="mt-2 line-clamp-3 text-sm leading-6 text-brand-white/75">{post.summary}</p>
-                  <span className="mt-3 inline-block text-sm font-bold text-brand-accent">{labels.readPost}</span>
-                </LocaleLink>
+                  </Text>
+                  <Text fw={700}>{post.headline}</Text>
+                  <Text size="sm" c="dimmed" lineClamp={3}>{post.summary}</Text>
+                  <Text size="sm" fw={700} c="amanoba.5">{labels.readPost}</Text>
+                  </Stack>
+                </Card>
               ))}
-            </div>
-          </aside>
-        </section>
-      </main>
-    </div>
+            </Stack>
+          </Card>
+        </SimpleGrid>
+      </Container>
+    </Box>
   );
 }

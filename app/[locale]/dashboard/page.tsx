@@ -11,7 +11,6 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
-import Image from 'next/image';
 import { LocaleLink } from '@/components/LocaleLink';
 import { ReferralCard } from '@/components/ReferralCard';
 import { LearnerPageHeader } from '@/app/components/LearnerPageHeader';
@@ -25,6 +24,7 @@ import {
   Card,
   Container,
   Group,
+  Image,
   Loader,
   Paper,
   Progress,
@@ -502,18 +502,10 @@ export default function Dashboard() {
                 ) : (
                   <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md">
                     {recommendations.map((course) => (
-                      <Card key={course.courseId} component={LocaleLink} href={`/${course.language ?? locale}/courses/${course.courseId}`} padding="md" bg="gray.0" withBorder>
+                      <Card key={course.courseId} component={LocaleLink} href={`/${course.language ?? locale}/courses/${course.courseId}`} padding="md" withBorder>
                         <Stack gap="sm">
                           {course.thumbnail ? (
-                            <Box pos="relative" h={128} bg="ink.8" style={{ overflow: 'hidden', borderRadius: 8 }}>
-                              <Image
-                                src={course.thumbnail}
-                                alt={course.name ?? 'Course'}
-                                fill
-                                style={{ objectFit: 'cover' }}
-                                sizes="(max-width: 768px) 100vw, 20rem"
-                              />
-                            </Box>
+                            <Image src={course.thumbnail} alt={course.name ?? 'Course'} h={128} fit="cover" radius="md" />
                           ) : null}
                           <Title order={3} size="h4" lineClamp={2}>{course.name}</Title>
                           <Text size="sm" c="dimmed" lineClamp={2}>{course.description}</Text>
@@ -552,7 +544,7 @@ export default function Dashboard() {
                 ) : (
                   <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">
                     {activeCourses.map((item) => (
-                      <Card key={item.course.courseId} padding="md" bg="gray.0" withBorder>
+                      <Card key={item.course.courseId} padding="md" withBorder>
                         <Stack gap="sm">
                           <Group justify="space-between" align="flex-start">
                             <Stack gap={2}>
@@ -682,14 +674,14 @@ export default function Dashboard() {
               {friendStreakMessage ? <Alert color="amanoba">{friendStreakMessage}</Alert> : null}
 
               <SimpleGrid cols={{ base: 1, lg: 2 }} spacing="md">
-                <Card bg="gray.0" padding="md" withBorder>
+                <Card padding="md" withBorder>
                   <Stack gap="md">
                     <Title order={3} size="h4">Create Invite</Title>
                     {pendingFriendInvite ? (
                       <Stack gap="sm">
                         <Text size="sm" c="dimmed">Share this code with your learning partner.</Text>
                         <Paper bg="ink.9" p="md" withBorder>
-                          <Text c="amanoba.5" size="xl" fw={800} style={{ letterSpacing: '0.25em' }}>
+                          <Text c="amanoba.5" size="xl" fw={800}>
                             {pendingFriendInvite.inviteCode}
                           </Text>
                         </Paper>
@@ -706,7 +698,7 @@ export default function Dashboard() {
                   </Stack>
                 </Card>
 
-                <Card bg="gray.0" padding="md" withBorder>
+                <Card padding="md" withBorder>
                   <Stack gap="md">
                     <Title order={3} size="h4">Join Invite</Title>
                     <Group align="flex-end" gap="sm">
@@ -714,7 +706,7 @@ export default function Dashboard() {
                         value={friendInviteCode}
                         onChange={(event) => setFriendInviteCode(event.currentTarget.value.toUpperCase())}
                         placeholder="Paste invite code"
-                        style={{ flex: 1 }}
+                        flex={1}
                       />
                       <Button onClick={() => void handleJoinFriendInvite()} loading={friendStreakBusy} variant="default">
                         Join
@@ -732,7 +724,7 @@ export default function Dashboard() {
               ) : (
                 <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">
                   {activeFriendStreaks.map((item) => (
-                    <Card key={item.id} bg="gray.0" padding="md" withBorder>
+                    <Card key={item.id} padding="md" withBorder>
                       <Stack gap="md">
                         <Group justify="space-between" align="flex-start">
                           <Stack gap={0}>
