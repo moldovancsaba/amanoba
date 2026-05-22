@@ -11,8 +11,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import Logo from '@/components/Logo';
 import { LocaleLink } from '@/components/LocaleLink';
+import { LearnerPageHeader } from '@/app/components/LearnerPageHeader';
 import {
   Alert,
   Badge,
@@ -22,7 +22,6 @@ import {
   Container,
   Group,
   Loader,
-  Paper,
   SimpleGrid,
   Stack,
   Text,
@@ -211,45 +210,11 @@ export default function PracticeHubPage() {
 
   return (
     <Box bg="ink.9" mih="100vh">
-      <Paper component="header" bg="ink.8" radius={0} withBorder>
-        <Container size="xl" py={{ base: 'md', sm: 'lg' }}>
-          <Group justify="space-between" align="flex-start" gap="md">
-            <Group gap="md" wrap="nowrap" style={{ minWidth: 0 }}>
-              <Logo size="sm" showText={false} linkTo="/dashboard" />
-              <Stack gap={4}>
-                <Group gap="xs">
-                  <ThemeIcon color="amanoba" variant="light" radius="xl">
-                    <IconBrain size={20} />
-                  </ThemeIcon>
-                  <Title order={1} size="h2" c="white">
-                  Practice Hub
-                  </Title>
-                </Group>
-                <Text c="gray.3" size="sm">
-                  Recover unfinished learning, reopen unresolved quizzes, and refresh lessons that have gone cold.
-                </Text>
-              </Stack>
-            </Group>
-            <Group gap="sm">
-              <Button
-                component={LocaleLink}
-                href="/my-courses"
-                variant="outline"
-                color="gray"
-              >
-                {tDashboard('myCourses')}
-              </Button>
-              <Button
-                component={LocaleLink}
-                href="/dashboard"
-                color="amanoba"
-              >
-                {tDashboard('backToDashboard')}
-              </Button>
-            </Group>
-          </Group>
-        </Container>
-      </Paper>
+      <LearnerPageHeader
+        title="Practice Hub"
+        subtitle="Recover unfinished learning, reopen unresolved quizzes, and refresh lessons that have gone cold."
+        icon={<IconBrain size={20} />}
+      />
 
       <Container component="main" size="xl" py={{ base: 'lg', sm: 'xl' }}>
         {loading ? (

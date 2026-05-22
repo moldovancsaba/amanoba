@@ -5,7 +5,7 @@
 
 # Docs Canonicalization Map
 
-**Last Updated**: 2026-05-21
+**Last Updated**: 2026-05-22
 **Scope**: `docs/**/*.md` (excluding `docs/_archive/**`)
 
 **Counts**: KEEP=97, MERGE=0, ARCHIVE=4, DELETE=0
@@ -69,7 +69,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 4.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | MVP Factory Project — one-time setup (grant project scope) | 1.2 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Prompt for Next Context Window | 2.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
-| KEEP | `docs/HANDOVER.md` | Amanoba — Developer Handover | 80.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
+| KEEP | `docs/HANDOVER.md` | Amanoba — Developer Handover | 81.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/i18n/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB | — | Unclassified; keep pending human review. |

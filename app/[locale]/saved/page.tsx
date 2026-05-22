@@ -11,16 +11,15 @@ import {
   Container,
   Group,
   Loader,
-  Paper,
   SimpleGrid,
   Stack,
   Text,
   ThemeIcon,
   Title,
 } from '@mantine/core';
-import { IconArrowLeft, IconBookmark, IconClock, IconLibrary } from '@tabler/icons-react';
+import { IconBookmark, IconClock, IconLibrary } from '@tabler/icons-react';
 import { LocaleLink } from '@/components/LocaleLink';
-import Logo from '@/components/Logo';
+import { LearnerPageHeader } from '@/app/components/LearnerPageHeader';
 
 type SavedLessonItem = {
   course: {
@@ -83,28 +82,11 @@ export default function SavedLessonsPage() {
 
   return (
     <Box bg="ink.9" mih="100vh">
-      <Paper component="header" bg="ink.8" radius={0} withBorder>
-        <Container size="lg" py={{ base: 'md', sm: 'lg' }}>
-          <Group justify="space-between" gap="md">
-            <Group gap="md" wrap="nowrap" style={{ minWidth: 0 }}>
-              <Logo size="sm" showText={false} linkTo={session?.user ? '/dashboard' : '/'} />
-              <Stack gap={2}>
-                <Title order={1} size="h2" c="white">Saved Lessons</Title>
-                <Text size="sm" c="gray.3">A focused library for lessons you want to revisit or resume.</Text>
-              </Stack>
-            </Group>
-            <Button
-              component={LocaleLink}
-            href="/dashboard"
-              variant="outline"
-              color="gray"
-              leftSection={<IconArrowLeft size={18} />}
-          >
-            Back to Dashboard
-            </Button>
-          </Group>
-        </Container>
-      </Paper>
+      <LearnerPageHeader
+        title="Saved Lessons"
+        subtitle="A focused library for lessons you want to revisit or resume."
+        icon={<IconBookmark size={20} />}
+      />
 
       <Container component="main" size="lg" py={{ base: 'lg', sm: 'xl' }}>
         {loading ? (

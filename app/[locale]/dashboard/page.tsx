@@ -14,7 +14,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
 import { LocaleLink } from '@/components/LocaleLink';
 import { ReferralCard } from '@/components/ReferralCard';
-import Logo from '@/components/Logo';
+import { LearnerPageHeader } from '@/app/components/LearnerPageHeader';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 import {
   Alert,
@@ -36,20 +36,13 @@ import {
   Title,
 } from '@mantine/core';
 import {
-  IconAward,
   IconBook,
-  IconBookmark,
   IconChartBar,
   IconDiamond,
   IconFlame,
-  IconGift,
-  IconMap,
   IconRefresh,
-  IconRocket,
-  IconShieldCheck,
   IconLogout,
   IconSparkles,
-  IconTargetArrow,
   IconTrophy,
   IconUser,
 } from '@tabler/icons-react';
@@ -161,12 +154,6 @@ export default function Dashboard() {
   const t = useTranslations('dashboard');
   const tCommon = useTranslations('common');
   const tAuth = useTranslations('auth');
-  const tGames = useTranslations('games');
-  const tLeaderboard = useTranslations('leaderboard');
-  const tChallenges = useTranslations('challenges');
-  const tQuests = useTranslations('quests');
-  const tAchievements = useTranslations('achievements');
-  const tRewards = useTranslations('rewards');
   const tCourses = useTranslations('courses');
   const [playerData, setPlayerData] = useState<PlayerData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -200,22 +187,6 @@ export default function Dashboard() {
     achievements: boolean;
     rewards: boolean;
   } | null>(null);
-  const [adminAccess, setAdminAccess] = useState<{ canAccessAdmin: boolean; isAdmin: boolean; isEditorOnly: boolean } | null>(null);
-
-  const fetchAdminAccess = useCallback(async () => {
-    try {
-      const response = await fetch('/api/admin/access');
-      const data = await response.json();
-      setAdminAccess({
-        canAccessAdmin: data?.canAccessAdmin === true,
-        isAdmin: data?.isAdmin === true,
-        isEditorOnly: data?.isEditorOnly === true,
-      });
-    } catch {
-      setAdminAccess({ canAccessAdmin: false, isAdmin: false, isEditorOnly: false });
-    }
-  }, []);
-
   const fetchFeatureFlags = useCallback(async () => {
     try {
       const response = await fetch('/api/feature-flags');
@@ -431,12 +402,7 @@ export default function Dashboard() {
     void fetchRecommendations();
     void fetchMyCourses();
     void fetchFriendStreaks();
-    if (session?.user) {
-      void fetchAdminAccess();
-    } else {
-      setAdminAccess({ canAccessAdmin: false, isAdmin: false, isEditorOnly: false });
-    }
-  }, [fetchAdminAccess, fetchFeatureFlags, fetchFriendStreaks, fetchMyCourses, fetchPlayerData, fetchRecommendations, session]);
+  }, [fetchFeatureFlags, fetchFriendStreaks, fetchMyCourses, fetchPlayerData, fetchRecommendations, session]);
 
   // Fire GA purchase when redirected here after payment success (e.g. general premium)
   useEffect(() => {
@@ -500,7 +466,6 @@ export default function Dashboard() {
 
   const { player, progression, wallet, streaks, achievementStats, courseStats } = playerData;
   const xpProgress = progression ? (progression.currentXP / progression.xpToNextLevel) * 100 : 0;
-  const currentPlayerId = player?.id ?? (session?.user as { id?: string; playerId?: string })?.playerId ?? (session?.user as { id?: string })?.id;
   const activeCourses = myCourses.filter((course) => !course.progress.isCompleted);
   const pendingFriendInvite = friendStreaks.find((item) => item.status === 'pending');
   const activeFriendStreaks = friendStreaks.filter((item) => item.status === 'active');
@@ -510,101 +475,19 @@ export default function Dashboard() {
     if (out === key || out === `courses.${key}`) return fallback;
     return out;
   };
-  const quickActions = [
-    { show: true, href: '/blog', label: 'Blog', icon: IconSparkles, variant: 'outline' as const },
-    { show: featureFlags?.courses, href: '/courses', label: t('courses'), icon: IconBook, variant: 'filled' as const },
-    { show: featureFlags?.myCourses, href: '/my-courses', label: t('myCourses'), icon: IconRocket, variant: 'filled' as const },
-    { show: featureFlags?.myCourses, href: '/practice', label: 'Practice Hub', icon: IconTargetArrow, variant: 'default' as const },
-    { show: featureFlags?.myCourses, href: '/saved', label: 'Saved Lessons', icon: IconBookmark, variant: 'outline' as const },
-    { show: featureFlags?.games, href: '/games', label: tGames('title'), icon: IconShieldCheck, variant: 'default' as const },
-    { show: featureFlags?.stats, href: '/stats', label: t('statistics'), icon: IconChartBar, variant: 'default' as const },
-    { show: featureFlags?.leaderboards, href: '/leaderboards', label: tLeaderboard('title'), icon: IconTrophy, variant: 'filled' as const },
-    { show: featureFlags?.challenges, href: '/challenges', label: tChallenges('title'), icon: IconTargetArrow, variant: 'default' as const },
-    { show: featureFlags?.quests, href: '/quests', label: tQuests('title'), icon: IconMap, variant: 'filled' as const },
-    { show: featureFlags?.achievements, href: '/achievements', label: tAchievements('title'), icon: IconAward, variant: 'default' as const },
-    { show: featureFlags?.rewards, href: '/rewards', label: tRewards('title'), icon: IconGift, variant: 'filled' as const },
-  ];
-
   return (
     <Box bg="ink.9" mih="100vh">
-      <Paper component="header" bg="ink.8" radius={0} withBorder>
-        <Container size="xl" py={{ base: 'md', sm: 'lg' }}>
-          <Group justify="space-between" align="flex-start" gap="md">
-            <Group gap="md" wrap="nowrap" style={{ minWidth: 0 }}>
-              <Logo size="md" showText={false} linkTo="/dashboard" />
-              <Stack gap={4}>
-                <Title order={1} size="h2" c="white">{t('title')}</Title>
-                <Text c="gray.3" size="sm">{t('yourLearningJourney')}</Text>
-              </Stack>
-            </Group>
-            <Group gap="sm">
-              <Button
-                onClick={() => {
-                  setLoading(true);
-                  fetchPlayerData();
-                }}
-                color="amanoba"
-                leftSection={<IconRefresh size={18} />}
-              >
-                {t('refresh')}
-              </Button>
-              <Button component={LocaleLink} href="/courses" color="amanoba" leftSection={<IconBook size={18} />}>
-                {t('browseCourses')}
-              </Button>
-              {currentPlayerId ? (
-                <Button component={LocaleLink} href={`/profile/${currentPlayerId}`} variant="outline" color="gray" leftSection={<IconUser size={18} />}>
-                  {t('myProfile')}
-                </Button>
-              ) : null}
-              {session?.user && adminAccess?.isAdmin === true ? (
-                <Button component={LocaleLink} href="/admin" variant="default">Admin</Button>
-              ) : null}
-              {session?.user && adminAccess?.isEditorOnly === true ? (
-                <Button component={LocaleLink} href="/editor/courses" variant="default">Editor</Button>
-              ) : null}
-              <Button
-                onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
-                variant="default"
-                leftSection={<IconLogout size={18} />}
-              >
-                {tAuth('signOut')}
-              </Button>
-            </Group>
-          </Group>
-        </Container>
-      </Paper>
+      <LearnerPageHeader
+        title={t('title')}
+        subtitle={t('yourLearningJourney')}
+        onRefresh={() => {
+          setLoading(true);
+          void fetchPlayerData();
+        }}
+      />
 
       <Container component="main" size="xl" py={{ base: 'lg', sm: 'xl' }}>
         <Stack gap="xl">
-          <Card padding="lg" withBorder>
-            <Stack gap="md">
-              <Group gap="xs">
-                <ThemeIcon color="amanoba" variant="light" radius="xl">
-                  <IconBook size={18} />
-                </ThemeIcon>
-                <Title order={2} size="h3">{t('startLearning')}</Title>
-              </Group>
-              <SimpleGrid cols={{ base: 2, sm: 3, md: 4, lg: 6 }} spacing="sm">
-                {quickActions.filter((action) => action.show).map((action) => {
-                  const ActionIcon = action.icon;
-                  return (
-                    <Button
-                      key={action.href}
-                      component={LocaleLink}
-                      href={action.href}
-                      variant={action.variant === 'filled' ? 'filled' : action.variant}
-                      color={action.variant === 'filled' ? 'amanoba' : 'gray'}
-                      leftSection={<ActionIcon size={18} />}
-                      fullWidth
-                    >
-                      {action.label}
-                    </Button>
-                  );
-                })}
-              </SimpleGrid>
-            </Stack>
-          </Card>
-
           {featureFlags?.courses && recommendations.length > 0 ? (
             <Card padding="lg" withBorder>
               <Stack gap="md">

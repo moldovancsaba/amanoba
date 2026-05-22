@@ -136,7 +136,7 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <head>
-        <ColorSchemeScript defaultColorScheme="auto" />
+        <ColorSchemeScript defaultColorScheme="dark" />
       </head>
       <body
         dir={direction}
@@ -149,8 +149,8 @@ export default async function LocaleLayout({
             <SessionProvider>
               <ThemeProvider
                 attribute="class"
-                defaultTheme="system"
-                enableSystem
+                defaultTheme="dark"
+                enableSystem={false}
                 disableTransitionOnChange
               >
                 <MantineRuntimeProvider>

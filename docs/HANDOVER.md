@@ -1010,3 +1010,18 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ### Notes
 - Amanoba is still not fully Mantine-only. Remaining high-priority product UI backlog includes `app/[locale]/courses/[courseId]/page.tsx`, `app/[locale]/admin/questions/page.tsx`, achievement editor pages, analytics/surveys/players/games/rewards admin lists, and game/challenge/reward surfaces.
+
+## Learner navigation consolidation (2026-05-22)
+
+### What changed
+- Added `app/components/LearnerPageHeader.tsx` as the shared Mantine header/navigation surface for learner pages.
+- Replaced the duplicate dashboard menu pattern by removing the separate `Start learning` quick-action panel and moving learner navigation into the shared header.
+- Applied the shared learner header to dashboard, my courses, Practice Hub, and saved lessons so those user pages no longer use different page-local navigation styles.
+- Locked the Mantine runtime and app color-scheme bootstrap to Amanoba dark mode so Mantine cards/buttons do not flip to a light visual style based on OS/browser preference.
+
+### Verification
+- focused `npx eslint` on the changed learner/header/runtime files ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run ui:check:layout` ✅ pass

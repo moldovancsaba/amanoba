@@ -1,8 +1,8 @@
 /**
  * My Courses Page
- * 
- * What: User dashboard showing enrolled courses and progress
- * Why: Allows users to track their learning progress
+ *
+ * What: User dashboard showing enrolled courses and progress.
+ * Why: Allows users to track their learning progress.
  */
 
 'use client';
@@ -10,13 +10,25 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
 import { useTranslations, useLocale } from 'next-intl';
-import { LocaleLink } from '@/components/LocaleLink';
-import Image from 'next/image';
 import {
-  BookOpen,
-  CheckCircle,
-} from 'lucide-react';
-import Logo from '@/components/Logo';
+  Badge,
+  Box,
+  Button,
+  Card,
+  Container,
+  Group,
+  Image,
+  Loader,
+  Progress,
+  SimpleGrid,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import { IconBook, IconCheck, IconLibrary } from '@tabler/icons-react';
+import { LocaleLink } from '@/components/LocaleLink';
+import { LearnerPageHeader } from '@/app/components/LearnerPageHeader';
 
 interface CourseProgress {
   course: {
@@ -56,7 +68,6 @@ export default function MyCoursesPage() {
   const [courses, setCourses] = useState<CourseProgress[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Fallback when translation is missing (e.g. DB override or incomplete locale) so we never show raw keys
   const courseLabel = (key: string, fallback: string, values?: Record<string, string | number>) => {
     const out = values ? tCourses(key, values as Record<string, string | number>) : tCourses(key);
     if (typeof out !== 'string') return fallback;
@@ -69,10 +80,7 @@ export default function MyCoursesPage() {
       setLoading(true);
       const response = await fetch(`/api/my-courses?locale=${locale}`);
       const data = await response.json();
-
-      if (data.success) {
-        setCourses(data.courses || []);
-      }
+      if (data.success) setCourses(data.courses || []);
     } catch (error) {
       console.error('Failed to fetch my courses:', error);
     } finally {
@@ -81,134 +89,111 @@ export default function MyCoursesPage() {
   }, [locale]);
 
   useEffect(() => {
-    if (session) {
-      fetchMyCourses();
-    }
+    if (session) void fetchMyCourses();
   }, [session, fetchMyCourses]);
 
   if (!session) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-brand-white mb-4">{tCourses('signInToView')}</h2>
-          <LocaleLink
-            href={signInHref}
-            className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400"
-          >
-            {tAuth('signIn')}
-          </LocaleLink>
-        </div>
-      </div>
+      <Box bg="ink.9" mih="100vh" px="md" py="xl">
+        <Container size="xs">
+          <Card padding="xl" withBorder>
+            <Stack align="center" ta="center" gap="md">
+              <ThemeIcon color="amanoba" variant="light" size={64} radius="xl">
+                <IconLibrary size={34} />
+              </ThemeIcon>
+              <Title order={1} size="h2">{tCourses('signInToView')}</Title>
+              <Button component={LocaleLink} href={signInHref} color="amanoba">
+                {tAuth('signIn')}
+              </Button>
+            </Stack>
+          </Card>
+        </Container>
+      </Box>
     );
   }
 
   return (
-    <div className="min-h-screen bg-brand-black">
-      {/* Header */}
-      <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-30 mobile-sticky-header">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
-          <div className="flex items-center gap-3 sm:gap-4 mb-2">
-            <Logo size="sm" showText={false} linkTo="/dashboard" className="flex-shrink-0" />
-            <h1 className="text-2xl sm:text-3xl font-bold text-brand-white flex items-center gap-2">
-              <BookOpen className="w-7 h-7 sm:w-8 sm:h-8" />
-              {tCourses('myCourses')}
-            </h1>
-          </div>
-          <p className="text-brand-white/80 mt-1 text-sm sm:text-base">{t('trackLearningProgress')}</p>
-        </div>
-      </header>
+    <Box bg="ink.9" mih="100vh">
+      <LearnerPageHeader
+        title={tCourses('myCourses')}
+        subtitle={t('trackLearningProgress')}
+        icon={<IconBook size={20} />}
+      />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <Container component="main" size="xl" py={{ base: 'lg', sm: 'xl' }}>
         {loading ? (
-          <div className="text-center py-12">
-            <div className="text-brand-white text-lg">{tCourses('loadingCourses')}</div>
-          </div>
+          <Card padding="xl" withBorder>
+            <Group justify="center" gap="sm">
+              <Loader color="amanoba" size="sm" />
+              <Text fw={700}>{tCourses('loadingCourses')}</Text>
+            </Group>
+          </Card>
         ) : courses.length === 0 ? (
-          <div className="bg-brand-darkGrey rounded-xl p-12 text-center border-2 border-brand-accent">
-            <BookOpen className="w-16 h-16 text-brand-white/30 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-brand-white mb-2">{t('noCoursesEnrolled')}</h3>
-            <p className="text-brand-white/70 mb-6">{t('noCoursesEnrolled')}</p>
-            <LocaleLink
-              href="/courses"
-              className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors"
-            >
-              📚 {t('browseCourses')}
-            </LocaleLink>
-          </div>
+          <Card padding="xl" withBorder>
+            <Stack gap="md" align="center" ta="center">
+              <ThemeIcon color="amanoba" variant="light" size={64} radius="xl">
+                <IconLibrary size={34} />
+              </ThemeIcon>
+              <Title order={2} size="h3">{t('noCoursesEnrolled')}</Title>
+              <Text c="dimmed">{t('noCoursesEnrolled')}</Text>
+              <Button component={LocaleLink} href="/courses" color="amanoba" leftSection={<IconBook size={18} />}>
+                {t('browseCourses')}
+              </Button>
+            </Stack>
+          </Card>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 dashboard-grid-3">
+          <SimpleGrid cols={{ base: 1, md: 2, lg: 3 }} spacing="md">
             {courses.map((item) => (
-              <div
-                key={item.course.courseId}
-                className="bg-brand-white rounded-xl p-5 sm:p-6 border-2 border-brand-accent hover:shadow-lg transition-all"
-              >
-                {item.course.thumbnail && (
-                  <div className="relative w-full h-40 bg-brand-darkGrey rounded-lg mb-4 overflow-hidden">
-                    <Image
-                      src={item.course.thumbnail}
-                      alt={item.course.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 20rem"
-                    />
-                  </div>
-                )}
+              <Card key={item.course.courseId} padding="lg" withBorder>
+                <Stack gap="md" h="100%">
+                  {item.course.thumbnail ? (
+                    <Image src={item.course.thumbnail} alt={item.course.name} h={180} fit="cover" radius="md" />
+                  ) : null}
 
-                <div className="mb-4">
-                  <div className="flex items-center justify-between mb-2 gap-2">
-                    <h3 className="text-lg sm:text-xl font-bold text-brand-black leading-tight">{item.course.name}</h3>
-                    {item.progress.isCompleted && (
-                      <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0" />
-                    )}
-                  </div>
-                  <p className="text-sm text-brand-darkGrey line-clamp-2">
-                    {item.course.description}
-                  </p>
-                </div>
+                  <Stack gap="xs" flex={1}>
+                    <Group justify="space-between" align="flex-start" gap="xs">
+                      <Title order={2} size="h3">{item.course.name}</Title>
+                      {item.progress.isCompleted ? (
+                        <Badge color="green" leftSection={<IconCheck size={12} />}>
+                          {courseLabel('completed', 'Completed')}
+                        </Badge>
+                      ) : null}
+                    </Group>
+                    <Text c="dimmed" size="sm" lineClamp={2}>{item.course.description}</Text>
+                  </Stack>
 
-                {/* Progress */}
-                <div className="mb-4">
-                  <div className="flex items-center justify-between text-sm mb-2">
-                    <span className="text-brand-darkGrey">{courseLabel('progress', 'Progress')}</span>
-                    <span className="font-bold text-brand-black">
-                      {item.progress.progressPercentage}%
-                    </span>
-                  </div>
-                  <div className="bg-brand-darkGrey/20 rounded-full h-3 overflow-hidden">
-                    <div
-                      className="bg-brand-accent h-full transition-all"
-                      style={{ width: `${item.progress.progressPercentage}%` }}
-                    />
-                  </div>
-                  <div className="flex items-center justify-between text-xs text-brand-darkGrey mt-2">
-                    <span>
-                      {courseLabel('dayOf', `Day ${item.progress.currentDay} of ${item.progress.totalDays}`, {
-                        currentDay: item.progress.currentDay,
-                        totalDays: item.progress.totalDays,
-                      })}
-                    </span>
-                    <span>
-                      {courseLabel('daysCompleted', `${item.progress.completedDays} days completed`, {
-                        count: item.progress.completedDays,
-                      })}
-                    </span>
-                  </div>
-                </div>
+                  <Stack gap="xs">
+                    <Group justify="space-between">
+                      <Text size="sm" c="dimmed">{courseLabel('progress', 'Progress')}</Text>
+                      <Text size="sm" fw={700}>{item.progress.progressPercentage}%</Text>
+                    </Group>
+                    <Progress value={item.progress.progressPercentage} color="amanoba" size="md" radius="xl" />
+                    <Group justify="space-between" gap="xs">
+                      <Text size="xs" c="dimmed">
+                        {courseLabel('dayOf', `Day ${item.progress.currentDay} of ${item.progress.totalDays}`, {
+                          currentDay: item.progress.currentDay,
+                          totalDays: item.progress.totalDays,
+                        })}
+                      </Text>
+                      <Text size="xs" c="dimmed">
+                        {courseLabel('daysCompleted', `${item.progress.completedDays} days completed`, {
+                          count: item.progress.completedDays,
+                        })}
+                      </Text>
+                    </Group>
+                  </Stack>
 
-                {/* Actions */}
-                <LocaleLink
-                  href={getCourseDayHref(item.course, item.progress)}
-                  className="block w-full bg-brand-accent text-brand-black px-4 py-3 rounded-lg font-bold text-center hover:bg-brand-primary-400 transition-colors mobile-full-width"
-                >
-                  {item.progress.isCompleted
-                    ? courseLabel('reviewCourse', 'Review Course')
-                    : `${courseLabel('continueLearning', 'Continue Learning')} →`}
-                </LocaleLink>
-              </div>
+                  <Button component={LocaleLink} href={getCourseDayHref(item.course, item.progress)} color="amanoba" fullWidth>
+                    {item.progress.isCompleted
+                      ? courseLabel('reviewCourse', 'Review Course')
+                      : courseLabel('continueLearning', 'Continue Learning')}
+                  </Button>
+                </Stack>
+              </Card>
             ))}
-          </div>
+          </SimpleGrid>
         )}
-      </main>
-    </div>
+      </Container>
+    </Box>
   );
 }
