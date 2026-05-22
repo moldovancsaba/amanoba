@@ -66,7 +66,7 @@
 | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 4.8 KB |
 | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | MVP Factory Project — one-time setup (grant project scope) | 1.2 KB |
 | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Prompt for Next Context Window | 2.8 KB |
-| `docs/HANDOVER.md` | Amanoba — Developer Handover | 90.9 KB |
+| `docs/HANDOVER.md` | Amanoba — Developer Handover | 92.1 KB |
 | `docs/i18n/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB |
 | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB |
 | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB |

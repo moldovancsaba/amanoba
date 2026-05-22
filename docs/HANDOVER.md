@@ -1149,3 +1149,24 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run docs:links:check` ✅ pass
 - `npm run build` ✅ pass
 - `npm run docs:check` ⚠️ refreshes generated docs and reports them changed until those generated files are committed
+
+## Dark-mode readability visual sweep (2026-05-23)
+
+### What changed
+- Ran desktop and mobile visual checks for home, partners, news, courses, sign-in, and the authenticated dashboard after the Mantine-only sweep.
+- Fixed the remaining dark-mode readability root cause: global CSS still forced old body typography and negative letter spacing, while Mantine `dimmed` text resolved too low-contrast on dark cards.
+- Added a Mantine `cssVariablesResolver` override for dark-mode text and dimmed tokens so Mantine components remain readable when using shared `c="dimmed"` semantics.
+- Fixed the anonymous sign-in button mobile wrapping so the full label remains visible on narrow screens.
+
+### Verification
+- Visual screenshots: home, news, partners, courses, sign-in, and authenticated dashboard ✅ checked
+- Authenticated dashboard DOM check after anonymous login ✅ no duplicate navigation structure found
+- `npm run lint` ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run ui:audit:layout` ✅ regenerated
+- `npm run ui:check:layout` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm test` ✅ pass
+- `npm run docs:check` ✅ pass before this handover append; rerun required before commit
+- `npm run build` ✅ pass

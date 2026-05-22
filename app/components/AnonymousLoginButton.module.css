@@ -1,0 +1,5 @@
+.buttonLabel {
+  white-space: normal;
+  text-align: center;
+  line-height: var(--mantine-line-height-sm);
+}

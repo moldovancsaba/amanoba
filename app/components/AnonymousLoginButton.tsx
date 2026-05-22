@@ -19,6 +19,7 @@ import { useTranslations } from 'next-intl';
 import { Button, Stack, Text } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 import { IconLoader2, IconUser } from '@tabler/icons-react';
+import classes from './AnonymousLoginButton.module.css';
 
 export function AnonymousLoginButton() {
   const [loading, setLoading] = useState(false);
@@ -87,7 +88,11 @@ export function AnonymousLoginButton() {
         variant="default"
         size="lg"
         fullWidth
+        h="auto"
+        mih={48}
+        py="sm"
         leftSection={loading ? <IconLoader2 size={20} /> : <IconUser size={20} />}
+        classNames={{ label: classes.buttonLabel }}
       >
         {loading ? t('creatingAccount') : t('continueWithoutRegistration')}
       </Button>

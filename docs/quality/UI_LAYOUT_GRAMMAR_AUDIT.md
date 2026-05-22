@@ -1,6 +1,6 @@
 # UI Layout Grammar Audit
 
-**Generated at**: 2026-05-22T13:01:45.680Z
+**Generated at**: 2026-05-22T22:31:42.676Z
 
 This report scans tracked UI code (`app/**`, `components/**`) for **layout-grammar / design-token** drift. It is a *heuristic* scan: it finds likely violations, then humans decide which are intentional.
 

@@ -31,11 +31,13 @@
 
 html[data-mantine-color-scheme='dark'] {
   color-scheme: dark;
+  --mantine-color-text: var(--mantine-color-gray-1);
+  --mantine-color-dimmed: var(--mantine-color-gray-2);
   --color-heading: var(--mantine-color-white);
   --color-text-primary: var(--mantine-color-gray-1);
   --color-text-inverse: var(--mantine-color-ink-9);
-  --color-text-muted: var(--mantine-color-gray-3);
-  --color-text-subtle: var(--mantine-color-gray-4);
+  --color-text-muted: var(--mantine-color-gray-2);
+  --color-text-subtle: var(--mantine-color-gray-3);
   --color-surface-shell: var(--mantine-color-ink-9);
   --color-surface-panel: var(--mantine-color-ink-8);
   --color-surface-card: var(--mantine-color-ink-8);
@@ -47,10 +49,10 @@ html[data-mantine-color-scheme='dark'] {
 body {
   color: var(--color-text-primary);
   background: var(--color-surface-shell);
-  font-family: var(--font-primary);
+  font-family: var(--font-secondary);
   font-size: 18px;
   line-height: 1.7;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 @media (min-width: 640px) {
@@ -63,7 +65,7 @@ p,
 li,
 ol,
 ul {
-  font-family: var(--font-primary);
+  font-family: var(--font-secondary);
   font-size: 18px;
   line-height: 1.7;
 }
@@ -73,7 +75,7 @@ h2,
 h3,
 h4 {
   font-family: var(--font-secondary);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   color: var(--color-heading);
 }
 
@@ -93,10 +95,10 @@ h3 {
 }
 
 .lesson-prose {
-  font-family: var(--font-primary);
+  font-family: var(--font-secondary);
   font-size: 1.15rem;
   line-height: 1.8;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   color: var(--lesson-prose-text, currentColor);
 }
 
