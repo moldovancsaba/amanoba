@@ -1,20 +1,24 @@
 import type { Metadata } from 'next';
 import { auth } from '@/auth';
 import { getTranslations } from 'next-intl/server';
+import Image from 'next/image';
+import {
+  Box,
+  Button,
+  Card,
+  Container,
+  Group,
+  SimpleGrid,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import { IconBook, IconMail, IconTargetArrow, IconTrophy, IconTrendingUp, IconStar } from '@tabler/icons-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
-import Image from 'next/image';
-import Icon, { MdMenuBook, MdEmail, MdGpsFixed, MdEmojiEvents, MdTrendingUp, MdStar } from '@/components/Icon';
 import { APP_URL } from '@/app/lib/constants/app-url';
 import { locales } from '@/app/lib/i18n/locales';
-
-/**
- * Landing Page
- *
- * What: Main entry point for the platform - shows features and allows users to choose to sign in
- * Why: Users should see what the platform offers before being asked to sign in
- * Locale: All copy uses next-intl so /en shows English, /hu shows Hungarian, etc.
- */
 
 export async function generateMetadata({
   params,
@@ -45,203 +49,113 @@ export default async function LandingPage({
   const tAuth = await getTranslations({ locale, namespace: 'auth' });
   const tLanding = await getTranslations({ locale, namespace: 'landing' });
   const signInHref = `/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}`)}`;
+  const primaryHref = session?.user ? '/courses' : signInHref;
+  const primaryLabel = session?.user ? tLanding('browseCourses') : tLanding('getStarted');
+  const secondaryHref = session?.user ? '/dashboard' : '/courses';
+  const secondaryLabel = session?.user ? t('dashboard') : tLanding('viewCourses');
+
+  const features = [
+    { icon: IconBook, title: tLanding('feature1Title'), description: tLanding('feature1Description') },
+    { icon: IconMail, title: tLanding('feature2Title'), description: tLanding('feature2Description') },
+    { icon: IconTargetArrow, title: tLanding('feature3Title'), description: tLanding('feature3Description') },
+    { icon: IconTrophy, title: tLanding('feature4Title'), description: tLanding('feature4Description') },
+    { icon: IconTrendingUp, title: tLanding('feature5Title'), description: tLanding('feature5Description') },
+    { icon: IconStar, title: tLanding('feature6Title'), description: tLanding('feature6Description') },
+  ];
 
   return (
-    <div className="min-h-screen bg-brand-black">
-      {/* Header */}
-      <header className="border-b border-brand-darkGrey">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
+    <Box bg="ink.9" mih="100vh">
+      <Box component="header" bg="ink.8" bd="0 0 1px solid var(--mantine-color-ink-6)">
+        <Container size="xl" py="md">
+          <Group justify="space-between" align="center" gap="md">
+            <Group gap="sm" wrap="nowrap" miw={0}>
               <Image
                 src="/amanoba_logo.png"
                 alt="Amanoba Logo"
                 width={48}
                 height={48}
-                className="h-12 w-auto"
+                style={{ height: 48, width: 'auto' }}
                 priority
               />
-              <div>
-                <h1 className="text-xl font-bold text-brand-white">{t('appName')}</h1>
-                <p className="text-sm text-brand-white/70">{tLanding('tagline')}</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <LocaleLink
-                href="/blog"
-                className="hidden text-sm font-semibold text-brand-white/75 transition-colors hover:text-brand-accent sm:inline-block"
-              >
+              <Stack gap={0} visibleFrom="xs">
+                <Title order={1} size="h4">{t('appName')}</Title>
+                <Text size="sm" c="gray.3">{tLanding('tagline')}</Text>
+              </Stack>
+            </Group>
+
+            <Group gap="sm" justify="flex-end">
+              <Button component={LocaleLink} href="/blog" variant="subtle" color="gray" visibleFrom="sm">
                 Blog
-              </LocaleLink>
-              <LocaleLink
-                href="/courses"
-                className="hidden text-sm font-semibold text-brand-white/75 transition-colors hover:text-brand-accent sm:inline-block"
-              >
+              </Button>
+              <Button component={LocaleLink} href="/courses" variant="subtle" color="gray" visibleFrom="sm">
                 {tLanding('viewCourses')}
-              </LocaleLink>
+              </Button>
               <LanguageSwitcher />
-              {session?.user ? (
-                <LocaleLink
-                  href="/dashboard"
-                  className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-semibold hover:bg-brand-primary-400 transition-colors"
-                >
-                  {t('dashboard')}
-                </LocaleLink>
-              ) : (
-                <LocaleLink
-                  href={signInHref}
-                  className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-semibold hover:bg-brand-primary-400 transition-colors"
-                >
-                  {tAuth('signIn')}
-                </LocaleLink>
-              )}
-            </div>
-          </div>
-        </div>
-      </header>
+              <Button component={LocaleLink} href={session?.user ? '/dashboard' : signInHref} color="amanoba">
+                {session?.user ? t('dashboard') : tAuth('signIn')}
+              </Button>
+            </Group>
+          </Group>
+        </Container>
+      </Box>
 
-      {/* Hero Section */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-white mb-6">
-            {tLanding('heroTitle')}
-          </h2>
-          <p className="text-xl text-brand-white/70 max-w-3xl mx-auto mb-8">
-            {tLanding('heroDescription')}
-          </p>
+      <Container component="main" size="xl" py="xl">
+        <Stack gap="xl">
+          <Stack align="center" ta="center" gap="lg">
+            <Title order={2} size="h1" maw={900}>
+              {tLanding('heroTitle')}
+            </Title>
+            <Text size="xl" c="gray.2" maw={760}>
+              {tLanding('heroDescription')}
+            </Text>
+            <Group justify="center" gap="md">
+              <Button component={LocaleLink} href={primaryHref} color="amanoba" size="xl">
+                {primaryLabel}
+              </Button>
+              <Button component={LocaleLink} href={secondaryHref} variant="default" size="xl">
+                {secondaryLabel}
+              </Button>
+            </Group>
+          </Stack>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            {session?.user ? (
-              <>
-                <LocaleLink
-                  href="/courses"
-                  className="px-8 py-4 bg-brand-accent text-brand-black rounded-lg font-bold text-lg hover:bg-brand-primary-400 transition-colors"
-                >
-                  {tLanding('browseCourses')}
-                </LocaleLink>
-                <LocaleLink
-                  href="/dashboard"
-                  className="px-8 py-4 bg-brand-darkGrey text-brand-white rounded-lg font-bold text-lg hover:bg-brand-secondary-700 transition-colors"
-                >
-                  {t('dashboard')}
-                </LocaleLink>
-              </>
-            ) : (
-              <>
-                <LocaleLink
-                  href={signInHref}
-                  className="px-8 py-4 bg-brand-accent text-brand-black rounded-lg font-bold text-lg hover:bg-brand-primary-400 transition-colors"
-                >
-                  {tLanding('getStarted')}
-                </LocaleLink>
-                <LocaleLink
-                  href="/courses"
-                  className="px-8 py-4 bg-brand-darkGrey text-brand-white rounded-lg font-bold text-lg hover:bg-brand-secondary-700 transition-colors"
-                >
-                  {tLanding('viewCourses')}
-                </LocaleLink>
-              </>
-            )}
-          </div>
-        </div>
+          <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="lg">
+            {features.map((feature) => {
+              const FeatureIcon = feature.icon;
+              return (
+                <Card key={feature.title} padding="xl" withBorder>
+                  <Stack align="center" ta="center" gap="md" mih={190}>
+                    <ThemeIcon color="amanoba" variant="light" size={64} radius="xl">
+                      <FeatureIcon size={34} />
+                    </ThemeIcon>
+                    <Stack gap={6}>
+                      <Title order={3} size="h4">{feature.title}</Title>
+                      <Text c="gray.3">{feature.description}</Text>
+                    </Stack>
+                  </Stack>
+                </Card>
+              );
+            })}
+          </SimpleGrid>
+        </Stack>
+      </Container>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <div className="bg-brand-darkGrey rounded-xl p-6 border border-brand-accent/30">
-            <div className="flex justify-center mb-4">
-              <Icon icon={MdMenuBook} size={48} className="text-brand-accent" />
-            </div>
-            <h3 className="text-xl font-bold text-brand-white mb-2 text-center">
-              {tLanding('feature1Title')}
-            </h3>
-            <p className="text-brand-white/70 text-center">
-              {tLanding('feature1Description')}
-            </p>
-          </div>
-
-          <div className="bg-brand-darkGrey rounded-xl p-6 border border-brand-accent/30">
-            <div className="flex justify-center mb-4">
-              <Icon icon={MdEmail} size={48} className="text-brand-accent" />
-            </div>
-            <h3 className="text-xl font-bold text-brand-white mb-2 text-center">
-              {tLanding('feature2Title')}
-            </h3>
-            <p className="text-brand-white/70 text-center">
-              {tLanding('feature2Description')}
-            </p>
-          </div>
-
-          <div className="bg-brand-darkGrey rounded-xl p-6 border border-brand-accent/30">
-            <div className="flex justify-center mb-4">
-              <Icon icon={MdGpsFixed} size={48} className="text-brand-accent" />
-            </div>
-            <h3 className="text-xl font-bold text-brand-white mb-2 text-center">
-              {tLanding('feature3Title')}
-            </h3>
-            <p className="text-brand-white/70 text-center">
-              {tLanding('feature3Description')}
-            </p>
-          </div>
-        </div>
-
-        {/* Additional Features */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-brand-darkGrey rounded-xl p-6 border border-brand-accent/30">
-            <div className="flex justify-center mb-4">
-              <Icon icon={MdEmojiEvents} size={48} className="text-brand-accent" />
-            </div>
-            <h3 className="text-xl font-bold text-brand-white mb-2 text-center">
-              {tLanding('feature4Title')}
-            </h3>
-            <p className="text-brand-white/70 text-center">
-              {tLanding('feature4Description')}
-            </p>
-          </div>
-
-          <div className="bg-brand-darkGrey rounded-xl p-6 border border-brand-accent/30">
-            <div className="flex justify-center mb-4">
-              <Icon icon={MdTrendingUp} size={48} className="text-brand-accent" />
-            </div>
-            <h3 className="text-xl font-bold text-brand-white mb-2 text-center">
-              {tLanding('feature5Title')}
-            </h3>
-            <p className="text-brand-white/70 text-center">
-              {tLanding('feature5Description')}
-            </p>
-          </div>
-
-          <div className="bg-brand-darkGrey rounded-xl p-6 border border-brand-accent/30">
-            <div className="flex justify-center mb-4">
-              <Icon icon={MdStar} size={48} className="text-brand-accent" />
-            </div>
-            <h3 className="text-xl font-bold text-brand-white mb-2 text-center">
-              {tLanding('feature6Title')}
-            </h3>
-            <p className="text-brand-white/70 text-center">
-              {tLanding('feature6Description')}
-            </p>
-          </div>
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="border-t border-brand-darkGrey mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-brand-white/70 text-sm">
-              © 2025 {t('appName')}. {tLanding('footerRights')}
-            </div>
-            <div className="flex gap-6">
-              <LocaleLink href="/terms" className="text-brand-white/70 hover:text-brand-white text-sm">
+      <Box component="footer" bd="1px 0 0 0 solid var(--mantine-color-ink-6)">
+        <Container size="xl" py="lg">
+          <Group justify="space-between" gap="md">
+            <Text c="gray.3" size="sm">
+              © 2026 {t('appName')}. {tLanding('footerRights')}
+            </Text>
+            <Group gap="md">
+              <Button component={LocaleLink} href="/terms" variant="subtle" color="gray" size="compact-sm">
                 {tLanding('terms')}
-              </LocaleLink>
-              <LocaleLink href="/privacy" className="text-brand-white/70 hover:text-brand-white text-sm">
+              </Button>
+              <Button component={LocaleLink} href="/privacy" variant="subtle" color="gray" size="compact-sm">
                 {tLanding('privacy')}
-              </LocaleLink>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+              </Button>
+            </Group>
+          </Group>
+        </Container>
+      </Box>
+    </Box>
   );
 }

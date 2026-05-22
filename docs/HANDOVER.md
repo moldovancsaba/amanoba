@@ -82,6 +82,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - Bridged the legacy global CSS token layer to the active Mantine dark-mode tokens so global selectors such as `h1`-`h4`, rich text, and legacy `.ds-*` helpers no longer default to black text on dark surfaces.
 - Added dark-mode lesson prose styling for rich lesson content rendered through `TypographyStylesProvider`, including generated headings, paragraphs, lists, links, blockquotes, and inline code.
 - Removed hard-coded Mantine light-mode props from active course detail, course discussion, study group, quiz, cookie-consent, and markdown-editor surfaces.
+- Converted the public localized landing page from legacy Tailwind markup to Mantine primitives so homepage headings, hero copy, navigation, CTAs, and feature cards inherit dark-mode theme readability.
 - Tightened `npm run ui:check:foundation` so hard-coded Mantine props like `bg="white"`, `bg="gray.0"`, `c="black"`, and `c="ink.9"` are blocker findings outside documented exception files.
 - Removed accidental light-mode `gray.0` referral panels from the dark profile surface.
 - Updated `docs/product/DESIGN_UPDATE.md` so Amanoba points at GDS `1.3.3` and treats color-mode readability as a hard migration rule.
@@ -257,6 +258,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - Refreshed active documentation around the current platform baseline: flexible course lengths, 17 primary UI locales, SSO-only auth, provider-selectable email transport, live production domains, and Blog/News publishing.
 - Rewrote `docs/i18n/I18N_SETUP.md` as a current reference instead of an old migration checklist.
 - Updated `docs/product/RELEASE_NOTES.md` so already-live Blog/News work is no longer listed as unreleased.
+
 - Marked older handoff, certification, i18n, audit, and next-phase planning docs as historical where they still contain fixed 30-day or old locale assumptions.
 - Rebuilt `docs/core/amanoba_codex_brain_dump.md`, `docs/core/DOCS_INDEX.md`, `docs/product/TASKLIST.md`, `docs/product/ROADMAP.md`, `docs/status/PRODUCTION_STATUS.md`, and `docs/handoff/AmanobaAuditDocMapping.md` around the current docs audit lane.
 
