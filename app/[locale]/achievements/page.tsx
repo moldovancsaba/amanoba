@@ -1,19 +1,38 @@
 'use client';
 
-/**
- * Achievements Page
- * 
- * Why: Display player achievements with beautiful UI instead of raw JSON
- * What: Shows unlocked and locked achievements with progress tracking
- */
-
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { Lock, CheckCircle, ChevronLeft, Sparkles } from 'lucide-react';
+import {
+  Badge,
+  Button,
+  Card,
+  Center,
+  Container,
+  Grid,
+  Group,
+  Loader,
+  Progress,
+  SegmentedControl,
+  SimpleGrid,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import {
+  IconBolt,
+  IconChevronLeft,
+  IconDiamond,
+  IconLock,
+  IconMoodSad,
+  IconRosetteDiscountCheck,
+  IconSparkles,
+  IconStar,
+  IconTrophy,
+} from '@tabler/icons-react';
 import { LocaleLink } from '@/components/LocaleLink';
-import Icon, { MdEmojiEvents, MdSentimentDissatisfied, MdDiamond, MdBolt, MdStar } from '@/components/Icon';
 
 interface Achievement {
   id: string;
@@ -39,11 +58,11 @@ interface AchievementsData {
   };
 }
 
-const TIER_COLORS = {
-  bronze: 'from-stone-500 to-stone-700',
-  silver: 'from-gray-400 to-gray-600',
-  gold: 'from-slate-300 to-slate-500',
-  platinum: 'from-purple-400 to-purple-600',
+const tierColor: Record<Achievement['tier'], string> = {
+  bronze: 'orange',
+  silver: 'gray',
+  gold: 'yellow',
+  platinum: 'violet',
 };
 
 export default function AchievementsPage() {
@@ -69,33 +88,29 @@ export default function AchievementsPage() {
       try {
         const user = session.user as { id?: string; playerId?: string };
         const playerId = user.playerId || user.id;
-        
-        // Why: Add timeout to prevent infinite loading
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
-        
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
+
         const response = await fetch(`/api/players/${playerId}/achievements?t=${Date.now()}`, {
           cache: 'no-store',
           signal: controller.signal,
         });
-        
+
         clearTimeout(timeoutId);
-        
+
         if (!response.ok) {
           const errorText = await response.text();
           console.error('Failed to fetch achievements:', response.status, errorText);
           throw new Error(`Failed to load achievements: ${response.status}`);
         }
-        
+
         const data = await response.json();
         setAchievementsData(data);
       } catch (err) {
         console.error('Achievement fetch error:', err);
-        if (err instanceof Error && err.name === 'AbortError') {
-          setError('Request timed out. Please try again.');
-        } else {
-          setError(err instanceof Error ? err.message : 'Failed to load achievements');
-        }
+        setError(err instanceof Error && err.name === 'AbortError'
+          ? 'Request timed out. Please try again.'
+          : err instanceof Error ? err.message : 'Failed to load achievements');
       } finally {
         setLoading(false);
       }
@@ -104,240 +119,195 @@ export default function AchievementsPage() {
     fetchAchievements();
   }, [session, status, router, locale]);
 
-  // Loading state
   if (loading || status === 'loading') {
     return (
-      <div className="page-shell flex items-center justify-center">
-        <div className="text-brand-white text-2xl">{t('loading')}</div>
-      </div>
+      <Center mih="70vh">
+        <Stack align="center" gap="md">
+          <Loader />
+          <Text size="lg">{t('loading')}</Text>
+        </Stack>
+      </Center>
     );
   }
 
-  // Error state
   if (error || !achievementsData) {
     return (
-      <div className="page-shell flex items-center justify-center p-4">
-        <div className="page-card p-8 max-w-md w-full text-center">
-          <Icon icon={MdSentimentDissatisfied} size={64} className="text-brand-darkGrey mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-brand-black mb-4">{t('unableToLoad')}</h2>
-          <p className="text-brand-darkGrey mb-6">{error}</p>
-          <LocaleLink
-            href="/dashboard"
-            className="page-button-primary inline-block"
-          >
-            {tDashboard('backToDashboard')}
-          </LocaleLink>
-        </div>
-      </div>
+      <Container size="sm" py="xl">
+        <Card withBorder p="xl">
+          <Stack align="center" gap="md">
+            <ThemeIcon size="xl" variant="light" color="gray">
+              <IconMoodSad />
+            </ThemeIcon>
+            <Title order={2}>{t('unableToLoad')}</Title>
+            <Text c="dimmed" ta="center">{error}</Text>
+            <Button component={LocaleLink} href="/dashboard" leftSection={<IconChevronLeft size={18} />}>
+              {tDashboard('backToDashboard')}
+            </Button>
+          </Stack>
+        </Card>
+      </Container>
     );
   }
 
   const { achievements, stats } = achievementsData;
-  const categories = ['all', ...new Set(achievements.map(a => a.category))];
-  
+  const categories = ['all', ...new Set(achievements.map((achievement) => achievement.category))];
   const filteredAchievements = filterCategory === 'all'
     ? achievements
-    : achievements.filter(a => a.category === filterCategory);
-
-  const unlockedAchievements = filteredAchievements.filter(a => a.isUnlocked);
-  const lockedAchievements = filteredAchievements.filter(a => !a.isUnlocked);
+    : achievements.filter((achievement) => achievement.category === filterCategory);
+  const unlockedAchievements = filteredAchievements.filter((achievement) => achievement.isUnlocked);
+  const lockedAchievements = filteredAchievements.filter((achievement) => !achievement.isUnlocked);
+  const earnedPoints = achievements
+    .filter((achievement) => achievement.isUnlocked)
+    .reduce((sum, achievement) => sum + achievement.points, 0);
 
   return (
-    <div className="page-shell">
-      {/* Header */}
-      <header className="page-header">
-        <div className="page-container py-6">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
-                <Icon icon={MdEmojiEvents} size={40} />
-                {t('title')}
-              </h1>
-              <p className="text-brand-white/80 mt-1">{t('description')}</p>
-            </div>
-            <LocaleLink
-              href="/dashboard"
-              className="page-button-secondary border-2 border-brand-darkGrey flex items-center gap-2"
-            >
-              <ChevronLeft className="w-5 h-5" />
-              {tCommon('dashboard')}
-            </LocaleLink>
-          </div>
-        </div>
-      </header>
+    <Container size="xl" py="xl">
+      <Stack gap="xl">
+        <Group justify="space-between" align="flex-start">
+          <Group gap="md">
+            <ThemeIcon size="xl" variant="light">
+              <IconTrophy />
+            </ThemeIcon>
+            <Stack gap={4}>
+              <Title order={1}>{t('title')}</Title>
+              <Text c="dimmed">{t('description')}</Text>
+            </Stack>
+          </Group>
+          <Button component={LocaleLink} href="/dashboard" variant="default" leftSection={<IconChevronLeft size={18} />}>
+            {tCommon('dashboard')}
+          </Button>
+        </Group>
 
-      <main className="page-container py-8">
-        {/* Stats Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="page-card p-6">
-            <Icon icon={MdEmojiEvents} size={36} className="text-brand-darkGrey mb-2" />
-            <div className="text-3xl font-bold text-brand-black">
-              {stats.unlocked}/{stats.total}
-            </div>
-            <div className="text-brand-darkGrey">{t('unlockedCount')}</div>
-          </div>
-          
-          <div className="page-card p-6">
-            <Icon icon={MdStar} size={36} className="text-brand-darkGrey mb-2" />
-            <div className="text-3xl font-bold text-brand-black">
-              {stats.percentage}%
-            </div>
-            <div className="text-brand-darkGrey">{t('complete')}</div>
-          </div>
-          
-          <div className="page-card p-6">
-            <Icon icon={MdDiamond} size={36} className="text-brand-darkGrey mb-2" />
-            <div className="text-3xl font-bold text-brand-black">
-              {achievements.filter(a => a.isUnlocked).reduce((sum, a) => sum + a.points, 0).toLocaleString()}
-            </div>
-            <div className="text-brand-darkGrey">{t('pointsEarned')}</div>
-          </div>
-        </div>
+        <SimpleGrid cols={{ base: 1, sm: 3 }}>
+          <StatCard icon={<IconTrophy />} label={t('unlockedCount')} value={`${stats.unlocked}/${stats.total}`} />
+          <StatCard icon={<IconStar />} label={t('complete')} value={`${stats.percentage}%`} />
+          <StatCard icon={<IconDiamond />} label={t('pointsEarned')} value={earnedPoints.toLocaleString()} />
+        </SimpleGrid>
 
-        {/* Category Filter */}
-        <div className="page-card p-4 mb-6">
-          <div className="flex flex-wrap gap-2">
-            {categories.map(category => (
-              <button
-                key={category}
-                onClick={() => setFilterCategory(category)}
-                className={`px-4 py-2 rounded-lg font-medium transition-all capitalize border-2 ${
-                  filterCategory === category
-                    ? 'bg-brand-accent text-brand-black border-brand-accent shadow-md'
-                    : 'bg-brand-white text-brand-darkGrey border-brand-darkGrey/20 hover:border-brand-accent'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
+        <Card withBorder p="md">
+          <SegmentedControl
+            value={filterCategory}
+            onChange={setFilterCategory}
+            data={categories.map((category) => ({
+              value: category,
+              label: category === 'all' ? 'All' : category,
+            }))}
+          />
+        </Card>
 
-        {/* Unlocked Achievements */}
-        {unlockedAchievements.length > 0 && (
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
-              <CheckCircle className="w-7 h-7" />
-              {t('unlocked')} ({unlockedAchievements.length})
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {unlockedAchievements.map(achievement => (
-                <div
-                  key={achievement.id}
-                  className="page-card p-6 border-2 border-brand-accent relative overflow-hidden"
-                >
-                  <div className="absolute top-0 right-0 bg-brand-accent text-brand-black px-3 py-1 rounded-bl-lg font-bold text-sm">
-                    <CheckCircle className="w-4 h-4 inline mr-1" />
-                    {t('unlocked')}
-                  </div>
-                  
-                  <div className="text-6xl mb-4">{achievement.icon}</div>
-                  
-                  <div className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 bg-gradient-to-r ${TIER_COLORS[achievement.tier]} text-white`}>
-                    {achievement.tier.toUpperCase()}
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-brand-black mb-2">
-                    {achievement.name}
-                  </h3>
-                  <p className="text-brand-darkGrey text-sm mb-4">
-                    {achievement.description}
-                  </p>
-                  
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-brand-accent font-bold flex items-center gap-1">
-                      <Icon icon={MdDiamond} size={16} />
-                      {achievement.points} pts
-                    </span>
-                    <span className="text-brand-darkGrey font-bold flex items-center gap-1">
-                      <Icon icon={MdBolt} size={16} />
-                      {achievement.xp} XP
-                    </span>
-                    {achievement.unlockedAt && (
-                      <span className="text-brand-darkGrey text-xs">
-                        {new Date(achievement.unlockedAt).toLocaleDateString()}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+        <AchievementSection
+          title={`${t('unlocked')} (${unlockedAchievements.length})`}
+          icon={<IconRosetteDiscountCheck />}
+          achievements={unlockedAchievements}
+          empty={false}
+          t={t}
+        />
 
-        {/* Locked Achievements */}
-        {lockedAchievements.length > 0 && (
-          <div>
-            <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
-              <Lock className="w-7 h-7" />
-              {t('locked')} ({lockedAchievements.length})
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {lockedAchievements.map(achievement => (
-                <div
-                  key={achievement.id}
-                  className="page-card p-6 border-2 border-brand-darkGrey/30 relative"
-                >
-                  <div className="absolute top-0 right-0 bg-brand-darkGrey text-brand-white px-3 py-1 rounded-bl-lg font-bold text-sm">
-                    <Lock className="w-4 h-4 inline mr-1" />
-                    {t('locked')}
-                  </div>
-                  
-                  <div className="text-6xl mb-4 opacity-40">{achievement.icon}</div>
-                  
-                  <div className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 bg-gradient-to-r ${TIER_COLORS[achievement.tier]} text-white opacity-60`}>
-                    {achievement.tier.toUpperCase()}
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-brand-black mb-2">
-                    {achievement.name}
-                  </h3>
-                  <p className="text-brand-darkGrey text-sm mb-4">
-                    {achievement.description}
-                  </p>
-                  
-                  {achievement.progressPercentage !== undefined && achievement.progressPercentage > 0 && !achievement.isUnlocked && (
-                    <div className="mb-4">
-                      <div className="flex justify-between text-xs text-brand-darkGrey mb-1">
-                        <span>Progress</span>
-                        <span>{achievement.progressPercentage}%</span>
-                      </div>
-                      <div className="bg-brand-darkGrey/20 rounded-full h-2 overflow-hidden">
-                        <div
-                          className="bg-gradient-to-r from-purple-500 to-indigo-500 h-full transition-all"
-                          style={{ width: `${achievement.progressPercentage}%` }}
-                        />
-                      </div>
-                    </div>
-                  )}
-                  
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-brand-accent font-bold">
-                      💎 {achievement.points} pts
-                    </span>
-                    <span className="text-brand-darkGrey font-bold">
-                      <Icon icon={MdBolt} size={16} className="inline mr-1" />
-                      {achievement.xp} XP
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+        <AchievementSection
+          title={`${t('locked')} (${lockedAchievements.length})`}
+          icon={<IconLock />}
+          achievements={lockedAchievements}
+          empty={false}
+          t={t}
+        />
 
         {filteredAchievements.length === 0 && (
-          <div className="page-card p-12 text-center">
-            <Sparkles className="w-16 h-16 text-brand-accent mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-brand-black mb-2">
-              {t('noAchievements')}
-            </h3>
-            <p className="text-brand-darkGrey">
-              {t('checkBackLater')}
-            </p>
-          </div>
+          <Card withBorder p="xl">
+            <Stack align="center" gap="sm">
+              <ThemeIcon size="xl" variant="light">
+                <IconSparkles />
+              </ThemeIcon>
+              <Title order={3}>{t('noAchievements')}</Title>
+              <Text c="dimmed" ta="center">{t('checkBackLater')}</Text>
+            </Stack>
+          </Card>
         )}
-      </main>
-    </div>
+      </Stack>
+    </Container>
+  );
+}
+
+function StatCard({ icon, label, value }: { icon: ReactNode; label: string; value: string }) {
+  return (
+    <Card withBorder p="lg">
+      <Stack gap="xs">
+        <ThemeIcon variant="light">{icon}</ThemeIcon>
+        <Title order={2}>{value}</Title>
+        <Text c="dimmed">{label}</Text>
+      </Stack>
+    </Card>
+  );
+}
+
+function AchievementSection({
+  achievements,
+  icon,
+  title,
+  t,
+}: {
+  achievements: Achievement[];
+  empty: boolean;
+  icon: ReactNode;
+  title: string;
+  t: (key: string) => string;
+}) {
+  if (achievements.length === 0) return null;
+
+  return (
+    <Stack gap="md">
+      <Group gap="sm">
+        <ThemeIcon variant="light">{icon}</ThemeIcon>
+        <Title order={2}>{title}</Title>
+      </Group>
+      <Grid>
+        {achievements.map((achievement) => (
+          <Grid.Col key={achievement.id} span={{ base: 12, md: 6, lg: 4 }}>
+            <Card withBorder p="lg" h="100%">
+              <Stack gap="md">
+                <Group justify="space-between" align="flex-start">
+                  <Text size="xl">{achievement.icon}</Text>
+                  <Badge
+                    color={achievement.isUnlocked ? 'green' : 'gray'}
+                    variant={achievement.isUnlocked ? 'light' : 'outline'}
+                    leftSection={achievement.isUnlocked ? <IconRosetteDiscountCheck size={12} /> : <IconLock size={12} />}
+                  >
+                    {achievement.isUnlocked ? t('unlocked') : t('locked')}
+                  </Badge>
+                </Group>
+                <Badge color={tierColor[achievement.tier]} variant="light">
+                  {achievement.tier.toUpperCase()}
+                </Badge>
+                <Stack gap={4}>
+                  <Title order={3}>{achievement.name}</Title>
+                  <Text c="dimmed" size="sm">{achievement.description}</Text>
+                </Stack>
+                {achievement.progressPercentage !== undefined && achievement.progressPercentage > 0 && !achievement.isUnlocked && (
+                  <Stack gap={4}>
+                    <Group justify="space-between">
+                      <Text size="xs" c="dimmed">Progress</Text>
+                      <Text size="xs" fw={700}>{achievement.progressPercentage}%</Text>
+                    </Group>
+                    <Progress value={achievement.progressPercentage} />
+                  </Stack>
+                )}
+                <Group justify="space-between" mt="auto">
+                  <Badge variant="light" leftSection={<IconDiamond size={12} />}>
+                    {achievement.points} pts
+                  </Badge>
+                  <Badge color="gray" variant="light" leftSection={<IconBolt size={12} />}>
+                    {achievement.xp} XP
+                  </Badge>
+                </Group>
+                {achievement.unlockedAt && (
+                  <Text size="xs" c="dimmed">
+                    {new Date(achievement.unlockedAt).toLocaleDateString()}
+                  </Text>
+                )}
+              </Stack>
+            </Card>
+          </Grid.Col>
+        ))}
+      </Grid>
+    </Stack>
   );
 }

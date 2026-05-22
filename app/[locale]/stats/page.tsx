@@ -19,6 +19,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
+import { Progress } from '@mantine/core';
 import { LocaleLink } from '@/components/LocaleLink';
 import { getEloRank, getEloIcon } from '@/lib/gamification/elo-calculator';
 
@@ -207,12 +208,7 @@ export default function StatsPage() {
             <div className="text-brand-darkGrey text-sm mb-2">{t('level')}</div>
             <div className="text-4xl font-bold text-brand-black mb-2">⚡ {stats.level}</div>
             <div className="text-brand-darkGrey text-sm">{stats.currentXP} / 100 XP</div>
-            <div className="mt-2 h-2 bg-brand-darkGrey/20 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-brand-accent"
-                style={{ width: `${stats.currentXP}%` }}
-              />
-            </div>
+            <Progress value={stats.currentXP} mt="sm" />
           </div>
 
           <div className="page-card p-6">
@@ -322,12 +318,7 @@ export default function StatsPage() {
                   total: stats.achievementsTotal,
                 })}
               </div>
-              <div className="max-w-xs mx-auto h-3 bg-brand-darkGrey/20 rounded-full overflow-hidden">
-                <div 
-                  className="h-full bg-brand-accent"
-                  style={{ width: `${achievementProgress}%` }}
-                />
-              </div>
+              <Progress value={Number(achievementProgress)} maw={320} mx="auto" />
             </div>
             
             <LocaleLink href="/achievements" className="page-button-primary w-full text-center mt-4 block">

@@ -549,7 +549,7 @@ function Detail({
   return (
     <Stack gap={2}>
       <Text size="xs" c="dimmed" fw={600}>{label}</Text>
-      <Text fw={600} ff={mono ? 'monospace' : undefined} size={mono ? 'sm' : undefined} c={color} style={{ wordBreak: 'break-word' }}>
+      <Text fw={600} ff={mono ? 'monospace' : undefined} size={mono ? 'sm' : undefined} c={color} className="break-words">
         {value}
       </Text>
       {detail && <Text size="sm" c="dimmed">{detail}</Text>}

@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
+import { Progress } from '@mantine/core';
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
 import {
@@ -278,12 +279,7 @@ export default function OnboardingPage() {
             </div>
           </div>
           {/* Progress Bar */}
-          <div className="w-full bg-brand-black/50 rounded-full h-2 overflow-hidden">
-            <div
-              className="bg-brand-accent h-full transition-all duration-300"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
+          <Progress value={progress} />
           <div className="text-sm text-brand-white/70 mt-2 text-center">
             {tOnboarding('questionProgress', { current: currentStep + 1, total: survey.questions.length }) || `Question ${currentStep + 1} of ${survey.questions.length}`}
           </div>

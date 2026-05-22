@@ -301,7 +301,7 @@ export default function MemoryGame({
 
   const timeRemaining = config.timeLimit - gameState.timeElapsed;
   const gridCols = config.gridSize.cols;
-  const gridRows = config.gridSize.rows;
+  const gridClassName = gridCols === 6 ? 'grid-cols-6' : 'grid-cols-4';
 
   return (
     <div className="space-y-6 pb-8">
@@ -376,13 +376,7 @@ export default function MemoryGame({
       </div>
 
       {/* Card Grid */}
-      <div
-        className={`grid gap-3 mx-auto max-w-4xl`}
-        style={{
-          gridTemplateColumns: `repeat(${gridCols}, minmax(0, 1fr))`,
-          gridTemplateRows: `repeat(${gridRows}, minmax(0, 1fr))`,
-        }}
-      >
+      <div className={`grid ${gridClassName} gap-3 mx-auto max-w-4xl`}>
         {gameState.cards.map(card => (
           <button
             key={card.id}
@@ -459,7 +453,7 @@ export default function MemoryGame({
                   <span className="font-bold text-brand-black">{rewards ? `+${rewards.points || 0}` : '—'}</span>
                 </div>
                 {rewards?.streakBonus && rewards.streakBonus > 0 && (
-                  <div className="text-sm mt-2" style={{ color: 'var(--color-warning-dark)' }}>🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}%</div>
+                  <div className="text-sm mt-2 text-brand-darkGrey">🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}%</div>
                 )}
               </div>
               {completedChallenges.length > 0 && (

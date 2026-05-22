@@ -840,7 +840,7 @@ export default function DailyLessonPage({
       <Paper component="header" bg="ink.8" radius={0} withBorder>
         <Container size="lg" py={{ base: 'md', sm: 'lg' }}>
           <Group justify="space-between" align="center" gap="md">
-            <Group gap="md" wrap="nowrap" style={{ minWidth: 0 }}>
+            <Group gap="md" wrap="nowrap" miw={0}>
               <Logo size="sm" showText={false} linkTo={session?.user ? "/dashboard" : "/"} />
               <Button
                 component={LocaleLink}
@@ -876,7 +876,7 @@ export default function DailyLessonPage({
                     <IconLock size={20} />
                   </ThemeIcon>
                 ) : null}
-                <Title order={1} size="h2" style={{ overflowWrap: 'anywhere' }}>{lesson.title}</Title>
+                <Title order={1} size="h2" className="break-words">{lesson.title}</Title>
               </Group>
 
           {lesson.isUnlocked && (

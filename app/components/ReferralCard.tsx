@@ -207,7 +207,7 @@ export function ReferralCard() {
             <Text size="sm" fw={700}>
             {t('referredFriends')} ({referralData.referrals.length})
             </Text>
-            <Stack gap="xs" mah={192} style={{ overflowY: 'auto' }}>
+            <Stack gap="xs" mah={192} className="overflow-y-auto">
             {referralData.referrals.map((referral) => (
                 <Paper key={referral.id} p="sm" withBorder>
                   <Group justify="space-between" gap="sm">

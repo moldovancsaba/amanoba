@@ -135,7 +135,7 @@ export default function LeaderboardsPage() {
 
   const getRankIcon = (rank: number) => {
     if (rank === 1) return <Crown className="w-6 h-6 text-brand-darkGrey" />;
-    if (rank === 2) return <Medal className="w-6 h-6 text-gray-400" />;
+    if (rank === 2) return <Medal className="w-6 h-6 text-brand-darkGrey" />;
     if (rank === 3) return <Award className="w-6 h-6 text-amber-600" />;
     return null;
   };

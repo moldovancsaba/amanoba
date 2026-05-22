@@ -218,12 +218,12 @@ export default function CourseDiscussion({
               <Paper key={post._id} p="md" radius="md" withBorder>
                 <Stack gap="sm">
                   <Group align="flex-start" justify="space-between" gap="sm" wrap="nowrap">
-                    <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
+                    <Stack gap={2} miw={0} flex={1}>
                       <Text fw={600} size="sm">{post.authorDisplayName}</Text>
                       <Text c="dimmed" size="xs">
                         {new Date(post.createdAt).toLocaleDateString(undefined, { dateStyle: 'short', timeStyle: 'short' })}
                       </Text>
-                      <Text style={{ whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>{post.body}</Text>
+                      <Text className="whitespace-pre-wrap break-words">{post.body}</Text>
                       <ContentVoteWidget
                         targetType="discussion_post"
                         targetId={post._id}
@@ -299,7 +299,7 @@ export default function CourseDiscussion({
                         <Paper key={r._id} p="sm" radius="md" withBorder>
                           <Text fw={600} size="sm">{r.authorDisplayName}</Text>
                           <Text c="dimmed" size="xs">{new Date(r.createdAt).toLocaleDateString(undefined, { dateStyle: 'short', timeStyle: 'short' })}</Text>
-                          <Text size="sm" mt={4} style={{ whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>{r.body}</Text>
+                          <Text size="sm" mt={4} className="whitespace-pre-wrap break-words">{r.body}</Text>
                         </Paper>
                       ))}
                     </Stack>

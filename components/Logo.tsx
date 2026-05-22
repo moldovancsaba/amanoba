@@ -1,5 +1,4 @@
-import Image from 'next/image';
-import { Box, Group, Text } from '@mantine/core';
+import { Box, Group, Image, Text } from '@mantine/core';
 import { LocaleLink } from './LocaleLink';
 
 interface LogoProps {
@@ -35,10 +34,9 @@ export default function Logo({
         <Image
           src="/amanoba_logo.png"
           alt="Amanoba Logo"
-          width={logoSize}
-          height={logoSize}
-          priority
-          style={{ display: 'block', width: '100%', height: '100%', objectFit: 'contain' }}
+          w="100%"
+          h="100%"
+          fit="contain"
         />
       </Box>
       {showText && (

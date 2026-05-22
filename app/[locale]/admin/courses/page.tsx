@@ -825,17 +825,17 @@ function FlatCoursesView({
         <Card key={course._id} padding="lg">
           <Stack gap="md" h="100%">
             {course.thumbnail && (
-              <Paper withBorder radius="md" pos="relative" h={160} style={{ overflow: 'hidden' }}>
+              <Paper withBorder radius="md" pos="relative" h={160} className="overflow-hidden">
                 <Image
                   src={course.thumbnail}
                   alt={course.name}
                   fill
-                  style={{ objectFit: 'cover' }}
+                  className="object-cover"
                   sizes="(max-width: 768px) 100vw, 20rem"
                 />
               </Paper>
             )}
-            <Stack gap="xs" style={{ flex: 1 }}>
+            <Stack gap="xs" flex={1}>
               <Group justify="space-between" align="flex-start">
                 <Title order={3} size="h4">{course.name}</Title>
                 <Badge color={course.isActive ? 'green' : 'gray'}>{course.isActive ? 'Active' : 'Draft'}</Badge>

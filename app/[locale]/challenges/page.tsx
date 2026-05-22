@@ -1,19 +1,37 @@
 'use client';
 
-/**
- * Daily Challenges Page
- * 
- * Why: Engage players with time-limited daily objectives for bonus rewards
- * What: Shows available daily challenges with progress tracking and rewards
- */
-
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, type ReactNode } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { ChevronLeft, Clock, RefreshCw } from 'lucide-react';
+import {
+  Badge,
+  Button,
+  Card,
+  Center,
+  Container,
+  Grid,
+  Group,
+  Loader,
+  Progress,
+  SimpleGrid,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import {
+  IconBolt,
+  IconCalendar,
+  IconChevronLeft,
+  IconClock,
+  IconGift,
+  IconMoodSad,
+  IconRefresh,
+  IconTarget,
+  IconTrophy,
+} from '@tabler/icons-react';
 import { LocaleLink } from '@/components/LocaleLink';
-import Icon, { MdCalendarToday, MdMyLocation, MdCardGiftcard, MdCheckCircle, MdSentimentDissatisfied, MdBolt, MdDiamond } from '@/components/Icon';
 
 interface Challenge {
   _id: string;
@@ -32,19 +50,11 @@ interface Challenge {
   completedAt?: string;
 }
 
-const DIFFICULTY_COLORS = {
-  easy: 'from-green-500 to-green-600',
-  medium: 'from-yellow-500 to-yellow-600',
-  hard: 'from-orange-500 to-orange-600',
-  expert: 'from-red-500 to-red-600',
-};
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const DIFFICULTY_TEXT = {
-  easy: 'text-green-700',
-  medium: 'text-yellow-700',
-  hard: 'text-orange-700',
-  expert: 'text-red-700',
+const difficultyColor: Record<Challenge['difficulty'], string> = {
+  easy: 'green',
+  medium: 'yellow',
+  hard: 'orange',
+  expert: 'red',
 };
 
 export default function ChallengesPage() {
@@ -58,6 +68,41 @@ export default function ChallengesPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const fetchChallenges = useCallback(async () => {
+    if (!session) return;
+
+    try {
+      const user = session.user as { id?: string; playerId?: string };
+      const playerId = user.playerId || user.id;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+      const response = await fetch(`/api/challenges?playerId=${playerId}&t=${Date.now()}`, {
+        cache: 'no-store',
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Failed to fetch challenges:', response.status, errorText);
+        throw new Error(`Failed to load challenges: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setChallenges(data.challenges || []);
+      setError(null);
+    } catch (err) {
+      console.error('Challenge fetch error:', err);
+      setError(err instanceof Error && err.name === 'AbortError'
+        ? 'Request timed out. Please try again.'
+        : err instanceof Error ? err.message : 'Failed to load challenges');
+    } finally {
+      setLoading(false);
+    }
+  }, [session]);
+
   useEffect(() => {
     if (status === 'loading') return;
     if (!session) {
@@ -65,77 +110,37 @@ export default function ChallengesPage() {
       return;
     }
 
-    const fetchChallenges = async () => {
-      try {
-        const user = session.user as { id?: string; playerId?: string };
-        const playerId = user.playerId || user.id;
-        
-        // Why: Add timeout to prevent infinite loading
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
-        
-        const response = await fetch(`/api/challenges?playerId=${playerId}&t=${Date.now()}`, {
-          cache: 'no-store',
-          signal: controller.signal,
-        });
-        
-        clearTimeout(timeoutId);
-        
-        if (!response.ok) {
-          const errorText = await response.text();
-          console.error('Failed to fetch challenges:', response.status, errorText);
-          throw new Error(`Failed to load challenges: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        setChallenges(data.challenges || []);
-      } catch (err) {
-        console.error('Challenge fetch error:', err);
-        if (err instanceof Error && err.name === 'AbortError') {
-          setError('Request timed out. Please try again.');
-        } else {
-          setError(err instanceof Error ? err.message : 'Failed to load challenges');
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchChallenges();
-    
-    // Why: Refresh challenges when user returns to page (after playing a game)
+
     const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        fetchChallenges();
-      }
+      if (document.visibilityState === 'visible') fetchChallenges();
     };
-    
+    const handleFocus = () => fetchChallenges();
+
     document.addEventListener('visibilitychange', handleVisibilityChange);
-    
-    // Why: Also refresh on window focus (user returns from another tab/window)
-    const handleFocus = () => {
-      fetchChallenges();
-    };
-    
     window.addEventListener('focus', handleFocus);
-    
-    // Why: Cleanup event listeners
+
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('focus', handleFocus);
     };
-  }, [session, status, router, locale]);
+  }, [fetchChallenges, locale, router, session, status]);
+
+  const refreshChallenges = () => {
+    setLoading(true);
+    fetchChallenges();
+  };
 
   const getTimeRemaining = (expiresAt: string): string => {
     const now = new Date();
     const expiry = new Date(expiresAt);
     const diff = expiry.getTime() - now.getTime();
-    
+
     if (diff <= 0) return 'Expired';
-    
+
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    
+
     if (hours > 0) return `${hours}h ${minutes}m`;
     return `${minutes}m`;
   };
@@ -144,260 +149,204 @@ export default function ChallengesPage() {
     return Math.min(100, Math.round((current / target) * 100));
   };
 
-  // Loading state
   if (loading || status === 'loading') {
     return (
-      <div className="page-shell flex items-center justify-center">
-        <div className="text-brand-white text-2xl">{t('loading')}</div>
-      </div>
+      <Center mih="70vh">
+        <Stack align="center" gap="md">
+          <Loader />
+          <Text size="lg">{t('loading')}</Text>
+        </Stack>
+      </Center>
     );
   }
 
-  // Error state
   if (error) {
     return (
-      <div className="page-shell flex items-center justify-center p-4">
-        <div className="page-card p-8 max-w-md w-full text-center">
-          <Icon icon={MdSentimentDissatisfied} size={64} className="text-brand-darkGrey mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-brand-black mb-4">{t('unableToLoad')}</h2>
-          <p className="text-brand-darkGrey mb-6">{error}</p>
-          <LocaleLink
-            href="/dashboard"
-            className="page-button-primary inline-block"
-          >
-            {tDashboard('backToDashboard')}
-          </LocaleLink>
-        </div>
-      </div>
+      <Container size="sm" py="xl">
+        <Card withBorder p="xl">
+          <Stack align="center" gap="md">
+            <ThemeIcon size="xl" variant="light" color="gray">
+              <IconMoodSad />
+            </ThemeIcon>
+            <Title order={2}>{t('unableToLoad')}</Title>
+            <Text c="dimmed" ta="center">{error}</Text>
+            <Button component={LocaleLink} href="/dashboard" leftSection={<IconChevronLeft size={18} />}>
+              {tDashboard('backToDashboard')}
+            </Button>
+          </Stack>
+        </Card>
+      </Container>
     );
   }
 
-  const activeChallenges = challenges.filter(c => !c.isCompleted);
-  const completedChallenges = challenges.filter(c => c.isCompleted);
+  const activeChallenges = challenges.filter((challenge) => !challenge.isCompleted);
+  const completedChallenges = challenges.filter((challenge) => challenge.isCompleted);
+  const earnedPoints = completedChallenges.reduce((sum, challenge) => sum + challenge.rewards.points, 0);
 
   return (
-    <div className="page-shell">
-      {/* Header */}
-      <header className="page-header">
-        <div className="page-container py-6">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
-                <Icon icon={MdCalendarToday} size={40} />
-                {t('dailyChallenges')}
-              </h1>
-              <p className="text-brand-white/80 mt-1">{t('description')}</p>
-            </div>
-            <div className="flex gap-2">
-              <button
-                onClick={() => {
-                  setLoading(true);
-                  const fetchChallenges = async () => {
-                    try {
-                      if (!session) return;
-                      const user = session.user as { id?: string; playerId?: string };
-                      const playerId = user.playerId || user.id;
-                      const response = await fetch(`/api/challenges?playerId=${playerId}&t=${Date.now()}`, {
-                        cache: 'no-store',
-                      });
-                      if (response.ok) {
-                        const data = await response.json();
-                        setChallenges(data.challenges || []);
-                      }
-                    } catch (err) {
-                      console.error('Refresh error:', err);
-                    } finally {
-                      setLoading(false);
-                    }
-                  };
-                  fetchChallenges();
-                }}
-                className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
-                title={t('refreshChallenges')}
-              >
-                <RefreshCw className="w-5 h-5" />
-                {tCommon('refresh')}
-              </button>
-              <LocaleLink
-                href="/dashboard"
-                className="page-button-secondary border-2 border-brand-accent flex items-center gap-2"
-              >
-                <ChevronLeft className="w-5 h-5" />
-                {tCommon('dashboard')}
-              </LocaleLink>
-            </div>
-          </div>
-        </div>
-      </header>
+    <Container size="xl" py="xl">
+      <Stack gap="xl">
+        <Group justify="space-between" align="flex-start">
+          <Group gap="md">
+            <ThemeIcon size="xl" variant="light">
+              <IconCalendar />
+            </ThemeIcon>
+            <Stack gap={4}>
+              <Title order={1}>{t('dailyChallenges')}</Title>
+              <Text c="dimmed">{t('description')}</Text>
+            </Stack>
+          </Group>
+          <Group gap="sm">
+            <Button variant="default" leftSection={<IconRefresh size={18} />} onClick={refreshChallenges}>
+              {tCommon('refresh')}
+            </Button>
+            <Button component={LocaleLink} href="/dashboard" variant="default" leftSection={<IconChevronLeft size={18} />}>
+              {tCommon('dashboard')}
+            </Button>
+          </Group>
+        </Group>
 
-      <main className="page-container py-8">
-        {/* Stats Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="page-card p-6">
-            <Icon icon={MdMyLocation} size={36} className="text-brand-accent mb-2" />
-            <div className="text-3xl font-bold text-brand-black">
-              {activeChallenges.length}
-            </div>
-            <div className="text-brand-darkGrey">{t('active')}</div>
-          </div>
-          
-          <div className="page-card p-6">
-            <Icon icon={MdCheckCircle} size={36} className="text-brand-accent mb-2" />
-            <div className="text-3xl font-bold text-brand-black">
-              {completedChallenges.length}
-            </div>
-            <div className="text-brand-darkGrey">{t('completed')}</div>
-          </div>
-          
-          <div className="page-card p-6">
-            <Icon icon={MdDiamond} size={36} className="text-brand-accent mb-2" />
-            <div className="text-3xl font-bold text-brand-black">
-              {completedChallenges.reduce((sum, c) => sum + c.rewards.points, 0).toLocaleString()}
-            </div>
-            <div className="text-brand-darkGrey">{t('points')}</div>
-          </div>
-        </div>
+        <SimpleGrid cols={{ base: 1, sm: 3 }}>
+          <StatCard icon={<IconTarget />} label={t('active')} value={activeChallenges.length.toLocaleString()} />
+          <StatCard icon={<IconTrophy />} label={t('completed')} value={completedChallenges.length.toLocaleString()} />
+          <StatCard icon={<IconGift />} label={t('points')} value={earnedPoints.toLocaleString()} />
+        </SimpleGrid>
 
-        {/* Active Challenges */}
         {activeChallenges.length > 0 && (
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
-              <Icon icon={MdMyLocation} size={28} />
-              {t('active')} {t('title')} ({activeChallenges.length})
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {activeChallenges.map(challenge => {
-                const progress = getProgressPercentage(challenge.currentProgress, challenge.targetValue);
-                const timeLeft = getTimeRemaining(challenge.expiresAt);
-                
-                return (
-                  <div
-                    key={challenge._id}
-                    className="page-card p-6 relative overflow-hidden"
-                  >
-                    {/* Difficulty Badge */}
-                    <div className={`absolute top-0 right-0 px-4 py-1 rounded-bl-lg bg-gradient-to-r ${DIFFICULTY_COLORS[challenge.difficulty]} text-white font-bold text-sm`}>
-                      {challenge.difficulty.toUpperCase()}
-                    </div>
-                    
-                    {/* Time Remaining */}
-                    <div className="flex items-center gap-2 text-brand-darkGrey mb-4 mt-6">
-                      <Clock className="w-4 h-4" />
-                      <span className="text-sm font-medium">{timeLeft} remaining</span>
-                    </div>
-                    
-                    <h3 className="text-xl font-bold text-brand-black mb-2">
-                      {challenge.name}
-                    </h3>
-                    <p className="text-brand-darkGrey text-sm mb-4">
-                      {challenge.description}
-                    </p>
-                    
-                    {/* Progress */}
-                    <div className="mb-4">
-                      <div className="flex justify-between text-sm text-brand-darkGrey mb-2">
-                        <span>Progress</span>
-                        <span className="font-bold">{challenge.currentProgress} / {challenge.targetValue}</span>
-                      </div>
-                      <div className="bg-brand-darkGrey/20 rounded-full h-3 overflow-hidden">
-                        <div
-                          className={`h-full transition-all bg-gradient-to-r ${DIFFICULTY_COLORS[challenge.difficulty]}`}
-                          style={{ width: `${progress}%` }}
-                        />
-                      </div>
-                    </div>
-                    
-                    {/* Rewards */}
-                    <div className="flex items-center justify-between pt-4 border-t border-brand-darkGrey/20">
-                      <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-1">
-                          <Icon icon={MdCardGiftcard} size={16} className="text-brand-accent" />
-                          <span className="font-bold text-brand-accent">{challenge.rewards.points} pts</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Icon icon={MdBolt} size={16} className="text-brand-darkGrey" />
-                          <span className="font-bold text-brand-darkGrey">{challenge.rewards.xp} XP</span>
-                        </div>
-                      </div>
-                      
-                      <LocaleLink href="/games" className="page-button-primary text-sm">
-                        Play Now
-                      </LocaleLink>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          <ChallengeSection title={`${t('active')} ${t('title')} (${activeChallenges.length})`} icon={<IconTarget />}>
+            {activeChallenges.map((challenge) => {
+              const progress = getProgressPercentage(challenge.currentProgress, challenge.targetValue);
+              const timeLeft = getTimeRemaining(challenge.expiresAt);
+
+              return (
+                <Grid.Col key={challenge._id} span={{ base: 12, md: 6 }}>
+                  <Card withBorder p="lg" h="100%">
+                    <Stack gap="md">
+                      <Group justify="space-between" align="flex-start">
+                        <Badge
+                          color={difficultyColor[challenge.difficulty]}
+                          variant="light"
+                        >
+                          {challenge.difficulty.toUpperCase()}
+                        </Badge>
+                        <Badge color="gray" variant="outline" leftSection={<IconClock size={12} />}>
+                          {timeLeft} remaining
+                        </Badge>
+                      </Group>
+                      <Stack gap={4}>
+                        <Title order={3}>{challenge.name}</Title>
+                        <Text c="dimmed" size="sm">{challenge.description}</Text>
+                      </Stack>
+                      <Stack gap={4}>
+                        <Group justify="space-between">
+                          <Text size="sm" c="dimmed">Progress</Text>
+                          <Text size="sm" fw={700}>{challenge.currentProgress} / {challenge.targetValue}</Text>
+                        </Group>
+                        <Progress value={progress} color={difficultyColor[challenge.difficulty]} />
+                      </Stack>
+                      <Group justify="space-between" mt="auto">
+                        <Group gap="xs">
+                          <Badge variant="light" leftSection={<IconGift size={12} />}>
+                            {challenge.rewards.points} pts
+                          </Badge>
+                          <Badge color="gray" variant="light" leftSection={<IconBolt size={12} />}>
+                            {challenge.rewards.xp} XP
+                          </Badge>
+                        </Group>
+                        <Button component={LocaleLink} href="/games" size="sm">
+                          Play Now
+                        </Button>
+                      </Group>
+                    </Stack>
+                  </Card>
+                </Grid.Col>
+              );
+            })}
+          </ChallengeSection>
         )}
 
-        {/* Completed Challenges */}
         {completedChallenges.length > 0 && (
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
-              <Icon icon={MdCheckCircle} size={28} />
-              {t('completed')} ({completedChallenges.length})
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {completedChallenges.map(challenge => (
-                <div
-                  key={challenge._id}
-                  className="page-card p-6 border-2 border-brand-accent relative"
-                >
-                  <div className="absolute top-0 right-0 bg-brand-accent text-brand-black px-4 py-1 rounded-bl-lg font-bold text-sm flex items-center gap-1">
-                    <Icon icon={MdCheckCircle} size={16} />
-                    {t('complete')}
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-brand-black mb-2 mt-6">
-                    {challenge.name}
-                  </h3>
-                  <p className="text-brand-darkGrey text-sm mb-4">
-                    {challenge.description}
-                  </p>
-                  
-                  {/* Rewards Earned */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-brand-darkGrey/20">
-                    <div className="flex items-center gap-1">
-                      <Icon icon={MdCardGiftcard} size={16} className="text-brand-accent" />
-                      <span className="font-bold text-brand-accent">+{challenge.rewards.points} pts</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Icon icon={MdBolt} size={16} className="text-brand-darkGrey" />
-                      <span className="font-bold text-brand-darkGrey">+{challenge.rewards.xp} XP</span>
-                    </div>
-                  </div>
-                  
-                  {challenge.completedAt && (
-                    <p className="text-xs text-brand-darkGrey mt-2">
-                      Completed {new Date(challenge.completedAt).toLocaleTimeString()}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+          <ChallengeSection title={`${t('completed')} (${completedChallenges.length})`} icon={<IconTrophy />}>
+            {completedChallenges.map((challenge) => (
+              <Grid.Col key={challenge._id} span={{ base: 12, md: 6 }}>
+                <Card withBorder p="lg" h="100%">
+                  <Stack gap="md">
+                    <Group justify="space-between" align="flex-start">
+                      <Badge color="green" variant="light" leftSection={<IconTrophy size={12} />}>
+                        {t('complete')}
+                      </Badge>
+                      {challenge.completedAt && (
+                        <Text size="xs" c="dimmed">
+                          {new Date(challenge.completedAt).toLocaleTimeString()}
+                        </Text>
+                      )}
+                    </Group>
+                    <Stack gap={4}>
+                      <Title order={3}>{challenge.name}</Title>
+                      <Text c="dimmed" size="sm">{challenge.description}</Text>
+                    </Stack>
+                    <Group gap="xs" mt="auto">
+                      <Badge variant="light" leftSection={<IconGift size={12} />}>
+                        +{challenge.rewards.points} pts
+                      </Badge>
+                      <Badge color="gray" variant="light" leftSection={<IconBolt size={12} />}>
+                        +{challenge.rewards.xp} XP
+                      </Badge>
+                    </Group>
+                  </Stack>
+                </Card>
+              </Grid.Col>
+            ))}
+          </ChallengeSection>
         )}
 
-        {/* Empty State */}
         {challenges.length === 0 && (
-          <div className="page-card p-12 text-center">
-            <Icon icon={MdCalendarToday} size={64} className="text-brand-darkGrey mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-brand-black mb-2">
-              {t('noChallenges')}
-            </h3>
-            <p className="text-brand-darkGrey mb-6">
-              {t('checkBackLater')}
-            </p>
-            <LocaleLink
-              href="/games"
-              className="inline-block page-button-primary"
-            >
-              {tCommon('games')}
-            </LocaleLink>
-          </div>
+          <Card withBorder p="xl">
+            <Stack align="center" gap="sm">
+              <ThemeIcon size="xl" variant="light" color="gray">
+                <IconCalendar />
+              </ThemeIcon>
+              <Title order={3}>{t('noChallenges')}</Title>
+              <Text c="dimmed" ta="center">{t('checkBackLater')}</Text>
+              <Button component={LocaleLink} href="/games">
+                {tCommon('games')}
+              </Button>
+            </Stack>
+          </Card>
         )}
-      </main>
-    </div>
+      </Stack>
+    </Container>
+  );
+}
+
+function StatCard({ icon, label, value }: { icon: ReactNode; label: string; value: string }) {
+  return (
+    <Card withBorder p="lg">
+      <Stack gap="xs">
+        <ThemeIcon variant="light">{icon}</ThemeIcon>
+        <Title order={2}>{value}</Title>
+        <Text c="dimmed">{label}</Text>
+      </Stack>
+    </Card>
+  );
+}
+
+function ChallengeSection({
+  children,
+  icon,
+  title,
+}: {
+  children: ReactNode;
+  icon: ReactNode;
+  title: string;
+}) {
+  return (
+    <Stack gap="md">
+      <Group gap="sm">
+        <ThemeIcon variant="light">{icon}</ThemeIcon>
+        <Title order={2}>{title}</Title>
+      </Group>
+      <Grid>{children}</Grid>
+    </Stack>
   );
 }

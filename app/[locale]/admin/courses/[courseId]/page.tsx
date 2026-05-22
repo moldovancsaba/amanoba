@@ -644,12 +644,12 @@ export default function CourseEditorPage({
           <Stack gap="xs">
             <Text fw={600} size="sm">Course Thumbnail</Text>
             {course.thumbnail ? (
-              <Paper withBorder radius="md" pos="relative" h={220} style={{ overflow: 'hidden' }}>
+              <Paper withBorder radius="md" pos="relative" h={220} className="overflow-hidden">
                 <Image
                   src={course.thumbnail}
                   alt="Course thumbnail"
                   fill
-                  style={{ objectFit: 'cover' }}
+                  className="object-cover"
                   sizes="(max-width: 768px) 100vw, 24rem"
                 />
                 <ActionIcon
@@ -1505,7 +1505,7 @@ export default function CourseEditorPage({
 
                     {lesson ? (
                       <>
-                        <Stack gap={4} style={{ flex: 1 }}>
+                        <Stack gap={4} flex={1}>
                           <Text fw={700} lineClamp={1}>{lesson.title}</Text>
                           <Text size="sm" c="dimmed" lineClamp={2}>{lesson.content}</Text>
                         </Stack>

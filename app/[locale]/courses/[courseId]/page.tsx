@@ -1245,7 +1245,7 @@ export default function CourseDetailPage({
 
   return (
     <Box bg="ink.9" mih="100vh" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-      <Paper component="header" bg="ink.8" radius={0} withBorder pos="sticky" top={0} style={{ zIndex: 30 }}>
+      <Paper component="header" bg="ink.8" radius={0} withBorder pos="sticky" top={0} className="z-30">
         <Container size="xl" py={{ base: 'md', sm: 'lg' }}>
           <Stack gap="sm">
             <Group gap="md" wrap="nowrap">
@@ -1275,18 +1275,18 @@ export default function CourseDetailPage({
           <Grid.Col span={{ base: 12, lg: 8 }}>
             <Stack gap="lg">
             {course.thumbnail && !thumbnailError ? (
-              <Box pos="relative" w="100%" style={{ aspectRatio: '16 / 9', overflow: 'hidden', borderRadius: 'var(--mantine-radius-md)' }}>
+              <Box pos="relative" w="100%" className="aspect-video overflow-hidden rounded-md">
                 <Image
                   src={course.thumbnail}
                   alt={course.name}
                   fill
-                  style={{ objectFit: 'cover' }}
+                  className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 66vw"
                   onError={() => setThumbnailError(true)}
                 />
               </Box>
             ) : (
-              <Paper bg="ink.8" radius="md" withBorder style={{ aspectRatio: '16 / 9' }}>
+              <Paper bg="ink.8" radius="md" withBorder className="aspect-video">
                 <Center h="100%">
                   <ThemeIcon color="amanoba" variant="light" size={72} radius="md">
                     <IconBook size={40} />
@@ -1411,7 +1411,7 @@ export default function CourseDetailPage({
                       <ThemeIcon color="gray" variant="light" size={48} radius="md">
                         {lesson.dayNumber}
                       </ThemeIcon>
-                      <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
+                      <Stack gap={2} miw={0} flex={1}>
                         <Text fw={700} size="lg" truncate>{lesson.title}</Text>
                         <Group gap="xs">
                           <Text size="sm" c="dimmed">{getCourseDetailText('day')} {lesson.dayNumber}</Text>
@@ -1515,14 +1515,13 @@ export default function CourseDetailPage({
           <Affix
             hiddenFrom="md"
             position={{ left: 12, right: 12, bottom: 12 }}
-            style={{ bottom: 'calc(var(--consent-banner-height, 0px) + 12px)' }}
             zIndex={40}
           >
             <Transition mounted transition="slide-up">
               {(styles) => (
                 <Card padding="sm" shadow="lg" style={styles}>
                   <Group justify="space-between" gap="sm" wrap="nowrap">
-                    <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
+                    <Stack gap={2} miw={0} flex={1}>
                       <Text fw={700} size="sm" lineClamp={1}>{course.name}</Text>
                 {enrollment?.progress && (
                         <Text size="xs" c="dimmed" lineClamp={1}>

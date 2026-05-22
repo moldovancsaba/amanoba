@@ -1128,3 +1128,24 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - focused `npx eslint` on converted admin/game/legal/shared files ✅ pass
 - `npm run type-check` ✅ pass
 - `npm run ui:audit:layout` ✅ regenerated
+
+## Mantine-only completion sweep (2026-05-22)
+
+### What changed
+- Converted the remaining high-drift learner/public gamification pages to Mantine surfaces: achievements, challenges, rewards, quests, games launcher, email settings, and partners.
+- Removed stale partner-page content that still described Amanoba as an old unified game-platform landing page with hardcoded 2025/version copy.
+- Converted the admin questions manager from legacy Tailwind/lucide/raw controls to Mantine tables, form controls, modal, badges, actions, and Tabler icons.
+- Replaced remaining scanned inline style findings with Mantine props, Mantine components, or scoped CSS modules where browser/runtime geometry was required.
+- Regenerated `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md`; the UI layout grammar audit now reports zero findings across scanned `app/**` and `components/**` UI files.
+
+### Verification
+- `npm run lint` ✅ pass
+- `npm test` ✅ pass
+- `npm run type-check` ✅ pass after build regenerated `.next/types`
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run ui:audit:layout` ✅ regenerated clean report
+- `npm run ui:check:layout` ✅ pass
+- `npm run docs:links:check` ✅ pass
+- `npm run build` ✅ pass
+- `npm run docs:check` ⚠️ refreshes generated docs and reports them changed until those generated files are committed

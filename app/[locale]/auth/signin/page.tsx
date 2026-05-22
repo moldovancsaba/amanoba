@@ -80,9 +80,8 @@ export default async function SignInPage({
               <Image
                 src="/amanoba_logo.png"
                 alt="Amanoba Logo"
-                width={120}
-                height={120}
-                    style={{ height: 96, width: 'auto' }}
+                width={96}
+                height={96}
                 priority
               />
                 <Title order={1} size="h1">

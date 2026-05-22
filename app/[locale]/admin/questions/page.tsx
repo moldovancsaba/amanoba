@@ -16,14 +16,25 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import {
-  Plus,
-  Search,
-  Filter,
-  Edit,
-  Trash2,
-  X,
-  HelpCircle,
-} from 'lucide-react';
+  ActionIcon,
+  Badge,
+  Button,
+  Card,
+  Checkbox,
+  Grid,
+  Group,
+  Loader,
+  Modal,
+  Radio,
+  Select,
+  Stack,
+  Table,
+  Text,
+  TextInput,
+  Textarea,
+  Title,
+} from '@mantine/core';
+import { IconCopy, IconEdit, IconFilter, IconHelpCircle, IconPlus, IconSearch, IconTrash, IconX } from '@tabler/icons-react';
 import { QuestionDifficulty, QuestionType, Question } from '@/types/quiz-question';
 
 interface Course {
@@ -368,202 +379,171 @@ export default function AdminQuestionsPage() {
     }
   };
 
+  const languageOptions = [
+    { value: '', label: 'All Languages' },
+    { value: 'hu', label: 'Hungarian' },
+    { value: 'en', label: 'English' },
+    { value: 'de', label: 'German' },
+    { value: 'zh', label: 'Chinese' },
+    { value: 'es', label: 'Spanish' },
+    { value: 'fr', label: 'French' },
+    { value: 'it', label: 'Italian' },
+    { value: 'bn', label: 'Bengali' },
+    { value: 'ur', label: 'Urdu' },
+    { value: 'pt', label: 'Portuguese' },
+    { value: 'pl', label: 'Polish' },
+    { value: 'tr', label: 'Turkish' },
+    { value: 'vi', label: 'Vietnamese' },
+    { value: 'id', label: 'Indonesian' },
+    { value: 'hi', label: 'Hindi' },
+    { value: 'ar', label: 'Arabic' },
+    { value: 'bg', label: 'Bulgarian' },
+    { value: 'ru', label: 'Russian' },
+    { value: 'sw', label: 'Swahili' },
+  ];
+
+  const courseOptions = [
+    { value: '', label: 'All Courses' },
+    ...courses.map((course) => ({
+      value: course.courseId,
+      label: `${course.name} (${course.language.toUpperCase()})`,
+    })),
+  ];
+
+  const difficultyBadgeColor = (difficulty: QuestionDifficulty) => {
+    if (difficulty === QuestionDifficulty.EASY) return 'green';
+    if (difficulty === QuestionDifficulty.MEDIUM) return 'yellow';
+    if (difficulty === QuestionDifficulty.HARD) return 'orange';
+    return 'red';
+  };
+
   return (
-    <div className="space-y-6">
+    <Stack gap="xl">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <Group justify="space-between" align="flex-start">
         <div>
-          <h1 className="text-3xl font-bold text-white">Quiz Questions</h1>
-          <p className="text-brand-white/80 mt-1">
+          <Title order={1}>Quiz Questions</Title>
+          <Text c="dimmed">
             Manage and organize quiz questions across all courses
-          </p>
+          </Text>
         </div>
-        <button
+        <Button
           onClick={handleCreateQuestion}
-          className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors"
+          leftSection={<IconPlus size={18} />}
         >
-          <Plus className="w-5 h-5" />
           Create Question
-        </button>
-      </div>
+        </Button>
+      </Group>
 
       {/* Filters Panel */}
       {showFilters && (
-        <div className="panel-on-dark p-4">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-white flex items-center gap-2">
-              <Filter className="w-5 h-5" />
+        <Card withBorder>
+          <Stack gap="md">
+          <Group justify="space-between">
+            <Group>
+              <IconFilter size={20} />
+              <Title order={2}>
               Filters
-            </h2>
-            <button
+              </Title>
+            </Group>
+            <ActionIcon
               onClick={() => setShowFilters(false)}
-              className="text-brand-white/80 hover:text-brand-white"
+              variant="default"
+              aria-label="Hide filters"
             >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
+              <IconX size={18} />
+            </ActionIcon>
+          </Group>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {/* Language Filter */}
-            <div>
-              <label className="block text-sm font-medium text-brand-white/90 mb-1">
-                Language
-              </label>
-              <select
-                value={filters.language}
-                onChange={(e) => handleFilterChange('language', e.target.value)}
-                className="input-on-dark w-full px-3 py-2"
-              >
-                <option value="">All Languages</option>
-                <option value="hu">Hungarian</option>
-                <option value="en">English</option>
-                <option value="de">German</option>
-                <option value="zh">Chinese</option>
-                <option value="es">Spanish</option>
-                <option value="fr">French</option>
-                <option value="it">Italian</option>
-                <option value="bn">Bengali</option>
-                <option value="ur">Urdu</option>
-                <option value="pt">Portuguese</option>
-                <option value="pl">Polish</option>
-                <option value="tr">Turkish</option>
-                <option value="vi">Vietnamese</option>
-                <option value="id">Indonesian</option>
-                <option value="hi">Hindi</option>
-                <option value="ar">Arabic</option>
-                <option value="bg">Bulgarian</option>
-                <option value="ru">Russian</option>
-                <option value="sw">Swahili</option>
-              </select>
-            </div>
-
-            {/* Course Filter */}
-            <div>
-              <label className="block text-sm font-medium text-brand-white/90 mb-1">
-                Course
-              </label>
-              <select
-                value={filters.courseId}
-                onChange={(e) => handleFilterChange('courseId', e.target.value)}
-                className="input-on-dark w-full px-3 py-2"
-              >
-                <option value="">All Courses</option>
-                {courses.map(course => (
-                  <option key={course._id} value={course.courseId}>
-                    {course.name} ({course.language.toUpperCase()})
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Question Type Filter */}
-            <div>
-              <label className="block text-sm font-medium text-brand-white/90 mb-1">
-                Question Type
-              </label>
-              <select
+          <Grid>
+            <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
+              <Select label="Language" value={filters.language} onChange={(value) => handleFilterChange('language', value || '')} data={languageOptions} />
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
+              <Select label="Course" value={filters.courseId} onChange={(value) => handleFilterChange('courseId', value || '')} data={courseOptions} searchable />
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
+              <Select
+                label="Question Type"
                 value={filters.questionType}
-                onChange={(e) => handleFilterChange('questionType', e.target.value)}
-                className="input-on-dark w-full px-3 py-2"
-              >
-                <option value="">All Types</option>
-                <option value="recall">Recall</option>
-                <option value="application">Application</option>
-                <option value="critical-thinking">Critical Thinking</option>
-              </select>
-            </div>
-
-            {/* Difficulty Filter */}
-            <div>
-              <label className="block text-sm font-medium text-brand-white/90 mb-1">
-                Difficulty
-              </label>
-              <select
+                onChange={(value) => handleFilterChange('questionType', value || '')}
+                data={[
+                  { value: '', label: 'All Types' },
+                  { value: 'recall', label: 'Recall' },
+                  { value: 'application', label: 'Application' },
+                  { value: 'critical-thinking', label: 'Critical Thinking' },
+                ]}
+              />
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
+              <Select
+                label="Difficulty"
                 value={filters.difficulty}
-                onChange={(e) => handleFilterChange('difficulty', e.target.value)}
-                className="input-on-dark w-full px-3 py-2"
-              >
-                <option value="">All Difficulties</option>
-                <option value="EASY">Easy</option>
-                <option value="MEDIUM">Medium</option>
-                <option value="HARD">Hard</option>
-                <option value="EXPERT">Expert</option>
-              </select>
-            </div>
-
-            {/* Category Filter */}
-            <div>
-              <label className="block text-sm font-medium text-brand-white/90 mb-1">
-                Category
-              </label>
-              <select
+                onChange={(value) => handleFilterChange('difficulty', value || '')}
+                data={[
+                  { value: '', label: 'All Difficulties' },
+                  { value: 'EASY', label: 'Easy' },
+                  { value: 'MEDIUM', label: 'Medium' },
+                  { value: 'HARD', label: 'Hard' },
+                  { value: 'EXPERT', label: 'Expert' },
+                ]}
+              />
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
+              <Select
+                label="Category"
                 value={filters.category}
-                onChange={(e) => handleFilterChange('category', e.target.value)}
-                className="input-on-dark w-full px-3 py-2"
-              >
-                <option value="">All Categories</option>
-                <option value="Course Specific">Course Specific</option>
-                <option value="General Knowledge">General Knowledge</option>
-                <option value="Science">Science</option>
-                <option value="Technology">Technology</option>
-                <option value="History">History</option>
-                <option value="Geography">Geography</option>
-              </select>
-            </div>
-
-            {/* Active Status Filter */}
-            <div>
-              <label className="block text-sm font-medium text-brand-white/90 mb-1">
-                Status
-              </label>
-              <select
+                onChange={(value) => handleFilterChange('category', value || '')}
+                data={[
+                  { value: '', label: 'All Categories' },
+                  { value: 'Course Specific', label: 'Course Specific' },
+                  { value: 'General Knowledge', label: 'General Knowledge' },
+                  { value: 'Science', label: 'Science' },
+                  { value: 'Technology', label: 'Technology' },
+                  { value: 'History', label: 'History' },
+                  { value: 'Geography', label: 'Geography' },
+                ]}
+              />
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
+              <Select
+                label="Status"
                 value={filters.isActive}
-                onChange={(e) => handleFilterChange('isActive', e.target.value)}
-                className="input-on-dark w-full px-3 py-2"
-              >
-                <option value="">All</option>
-                <option value="true">Active</option>
-                <option value="false">Inactive</option>
-              </select>
-            </div>
-
-            {/* Course-Specific Filter */}
-            <div>
-              <label className="block text-sm font-medium text-brand-white/90 mb-1">
-                Type
-              </label>
-              <select
+                onChange={(value) => handleFilterChange('isActive', value || '')}
+                data={[
+                  { value: '', label: 'All' },
+                  { value: 'true', label: 'Active' },
+                  { value: 'false', label: 'Inactive' },
+                ]}
+              />
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
+              <Select
+                label="Type"
                 value={filters.isCourseSpecific}
-                onChange={(e) => handleFilterChange('isCourseSpecific', e.target.value)}
-                className="input-on-dark w-full px-3 py-2"
-              >
-                <option value="">All</option>
-                <option value="true">Course-Specific</option>
-                <option value="false">Reusable</option>
-              </select>
-            </div>
-
-            {/* Search */}
-            <div>
-              <label className="block text-sm font-medium text-brand-white/90 mb-1">
-                Search
-              </label>
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-brand-white/60" />
-                <input
-                  type="text"
-                  value={filters.search}
-                  onChange={(e) => handleFilterChange('search', e.target.value)}
-                  placeholder="Search questions..."
-                  className="input-on-dark w-full pl-10 pr-3 py-2"
-                />
-              </div>
-            </div>
-          </div>
+                onChange={(value) => handleFilterChange('isCourseSpecific', value || '')}
+                data={[
+                  { value: '', label: 'All' },
+                  { value: 'true', label: 'Course-Specific' },
+                  { value: 'false', label: 'Reusable' },
+                ]}
+              />
+            </Grid.Col>
+            <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
+              <TextInput
+                label="Search"
+                leftSection={<IconSearch size={18} />}
+                value={filters.search}
+                onChange={(event) => handleFilterChange('search', event.currentTarget.value)}
+                placeholder="Search questions..."
+              />
+            </Grid.Col>
+          </Grid>
 
           {/* Clear Filters */}
-          <div className="mt-4 flex justify-end">
-            <button
+          <Group justify="flex-end">
+            <Button
+              variant="default"
               onClick={() => {
                 setFilters({
                   language: '',
@@ -579,289 +559,258 @@ export default function AdminQuestionsPage() {
                 });
                 setOffset(0);
               }}
-              className="px-4 py-2 text-brand-white/80 hover:text-brand-white"
             >
               Clear All Filters
-            </button>
-          </div>
-        </div>
+            </Button>
+          </Group>
+          </Stack>
+        </Card>
       )}
 
       {!showFilters && (
-        <button
+        <Button
           onClick={() => setShowFilters(true)}
-          className="flex items-center gap-2 px-4 py-2 panel-on-dark hover:bg-brand-darkGrey/90 text-brand-white rounded-lg"
+          variant="default"
+          leftSection={<IconFilter size={18} />}
         >
-          <Filter className="w-5 h-5" />
           Show Filters
-        </button>
+        </Button>
       )}
 
       {/* Results Summary */}
-      <div className="flex items-center justify-between text-sm text-brand-white/80">
-        <div>
+      <Group justify="space-between">
+        <Text size="sm" c="dimmed">
           Showing {questions.length} of {total} questions
-        </div>
+        </Text>
         {selectedQuestions.size > 0 && (
-          <div className="flex items-center gap-2">
-            <span>{selectedQuestions.size} selected</span>
-            <button
+          <Group gap="xs">
+            <Text size="sm">{selectedQuestions.size} selected</Text>
+            <Button
               onClick={() => setSelectedQuestions(new Set())}
-              className="text-indigo-400 hover:text-indigo-300"
+              variant="subtle"
+              size="xs"
             >
               Clear Selection
-            </button>
-          </div>
+            </Button>
+          </Group>
         )}
-      </div>
+      </Group>
 
       {/* Questions Table */}
       {loading ? (
-        <div className="text-center py-12">
-          <div className="text-brand-white/80">Loading questions...</div>
-        </div>
+        <Card withBorder>
+          <Group justify="center" p="xl"><Loader /><Text>Loading questions...</Text></Group>
+        </Card>
       ) : questions.length === 0 ? (
-        <div className="text-center py-12 panel-on-dark rounded-lg">
-          <HelpCircle className="w-12 h-12 text-brand-white/60 mx-auto mb-4" />
-          <div className="text-brand-white/80">No questions found</div>
-          <button
+        <Card withBorder p="xl">
+          <Stack align="center">
+          <IconHelpCircle size={40} />
+          <Text c="dimmed">No questions found</Text>
+          <Button
             onClick={handleCreateQuestion}
-            className="mt-4 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg"
+            leftSection={<IconPlus size={18} />}
           >
             Create First Question
-          </button>
-        </div>
+          </Button>
+          </Stack>
+        </Card>
       ) : (
-        <div className="panel-on-dark rounded-lg overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-brand-black/50">
-                <tr>
-                  <th className="px-4 py-3 text-left">
-                    <input
-                      type="checkbox"
+        <Card withBorder p={0}>
+          <Table.ScrollContainer minWidth={1100}>
+            <Table highlightOnHover verticalSpacing="sm">
+              <Table.Thead>
+                <Table.Tr>
+                  <Table.Th>
+                    <Checkbox
                       checked={selectedQuestions.size === questions.length && questions.length > 0}
                       onChange={toggleAllSelection}
-                      className="rounded"
                     />
-                  </th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">UUID</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">Question</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">Type</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">Difficulty</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">Hashtags</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">Status</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">Usage</th>
-                  <th className="px-4 py-3 text-left text-sm font-medium text-brand-white/90">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-brand-accent/30">
+                  </Table.Th>
+                  <Table.Th>UUID</Table.Th>
+                  <Table.Th>Question</Table.Th>
+                  <Table.Th>Type</Table.Th>
+                  <Table.Th>Difficulty</Table.Th>
+                  <Table.Th>Hashtags</Table.Th>
+                  <Table.Th>Status</Table.Th>
+                  <Table.Th>Usage</Table.Th>
+                  <Table.Th>Actions</Table.Th>
+                </Table.Tr>
+              </Table.Thead>
+              <Table.Tbody>
                 {questions.map((question) => (
-                  <tr
-                    key={question._id}
-                    className={`hover:bg-brand-darkGrey/80 ${
-                      !question.isActive ? 'opacity-50' : ''
-                    }`}
-                  >
-                    <td className="px-4 py-3">
-                      <input
-                        type="checkbox"
+                  <Table.Tr key={question._id} opacity={question.isActive ? 1 : 0.55}>
+                    <Table.Td>
+                      <Checkbox
                         checked={selectedQuestions.has(question._id)}
                         onChange={() => toggleQuestionSelection(question._id)}
-                        className="rounded"
                       />
-                    </td>
-                    <td className="px-4 py-3">
+                    </Table.Td>
+                    <Table.Td>
                       {question.uuid ? (
-                        <div className="max-w-xs">
-                          <code className="text-xs text-indigo-300 font-mono break-all">
+                        <Group gap="xs" maw={260}>
+                          <Text size="xs" ff="monospace">
                             {question.uuid}
-                          </code>
-                          <button
+                          </Text>
+                          <ActionIcon
                             onClick={() => {
                               navigator.clipboard.writeText(question.uuid!);
                               alert('UUID copied to clipboard!');
                             }}
-                            className="ml-2 text-xs text-indigo-400 hover:text-indigo-300"
-                            title="Copy UUID"
+                            variant="subtle"
+                            aria-label="Copy UUID"
                           >
-                            📋
-                          </button>
-                        </div>
+                            <IconCopy size={16} />
+                          </ActionIcon>
+                        </Group>
                       ) : (
-                        <span className="text-xs text-brand-white/60">No UUID</span>
+                        <Text size="xs" c="dimmed">No UUID</Text>
                       )}
-                    </td>
-                    <td className="px-4 py-3">
-                      <div className="max-w-md">
-                        <div className="text-white text-sm font-medium line-clamp-2">
+                    </Table.Td>
+                    <Table.Td>
+                      <Stack gap={2} maw={420}>
+                        <Text size="sm" fw={600} lineClamp={2}>
                           {question.question}
-                        </div>
+                        </Text>
                         {question.category && (
-                          <div className="text-xs text-brand-white/80 mt-1">
+                          <Text size="xs" c="dimmed">
                             {question.category}
-                          </div>
+                          </Text>
                         )}
-                      </div>
-                    </td>
-                    <td className="px-4 py-3">
-                      <span className="text-xs px-2 py-1 bg-blue-500/20 text-blue-300 rounded">
+                      </Stack>
+                    </Table.Td>
+                    <Table.Td>
+                      <Badge variant="light">
                         {question.questionType || 'N/A'}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <span className={`text-xs px-2 py-1 rounded ${
-                        question.difficulty === QuestionDifficulty.EASY ? 'bg-green-500/20 text-green-300' :
-                        question.difficulty === QuestionDifficulty.MEDIUM ? 'bg-yellow-500/20 text-yellow-300' :
-                        question.difficulty === QuestionDifficulty.HARD ? 'bg-orange-500/20 text-orange-300' :
-                        'bg-red-500/20 text-red-300'
-                      }`}>
+                      </Badge>
+                    </Table.Td>
+                    <Table.Td>
+                      <Badge color={difficultyBadgeColor(question.difficulty)}>
                         {question.difficulty}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <div className="flex flex-wrap gap-1 max-w-xs">
+                      </Badge>
+                    </Table.Td>
+                    <Table.Td>
+                      <Group gap={4} maw={240}>
                         {question.hashtags?.slice(0, 3).map((tag, idx) => (
-                          <span
-                            key={idx}
-                            className="text-xs px-2 py-0.5 bg-brand-black/50 text-brand-white/90 rounded"
-                          >
+                          <Badge key={idx} variant="outline">
                             {tag}
-                          </span>
+                          </Badge>
                         ))}
                         {question.hashtags && question.hashtags.length > 3 && (
-                          <span className="text-xs text-brand-white/80">
+                          <Text size="xs" c="dimmed">
                             +{question.hashtags.length - 3}
-                          </span>
+                          </Text>
                         )}
-                      </div>
-                    </td>
-                    <td className="px-4 py-3">
-                      <button
+                      </Group>
+                    </Table.Td>
+                    <Table.Td>
+                      <Badge
+                        component="button"
                         onClick={() => handleToggleActive(question)}
-                        className={`text-xs px-2 py-1 rounded ${
-                          question.isActive
-                            ? 'bg-green-500/20 text-green-300'
-                            : 'bg-brand-white/10 text-brand-white/80'
-                        }`}
+                        color={question.isActive ? 'green' : 'gray'}
+                        variant="light"
                       >
                         {question.isActive ? 'Active' : 'Inactive'}
-                      </button>
-                    </td>
-                    <td className="px-4 py-3 text-sm text-brand-white/80">
+                      </Badge>
+                    </Table.Td>
+                    <Table.Td>
+                      <Text size="sm" c="dimmed">
                       {question.showCount} shown, {question.correctCount} correct
-                    </td>
-                    <td className="px-4 py-3">
-                      <div className="flex items-center gap-2">
-                        <button
+                      </Text>
+                    </Table.Td>
+                    <Table.Td>
+                      <Group gap="xs">
+                        <ActionIcon
                           onClick={() => handleEditQuestion(question)}
-                          className="p-1.5 text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 rounded"
-                          title="Edit"
+                          variant="subtle"
+                          aria-label="Edit question"
                         >
-                          <Edit className="w-4 h-4" />
-                        </button>
-                        <button
+                          <IconEdit size={16} />
+                        </ActionIcon>
+                        <ActionIcon
                           onClick={() => handleDeleteQuestion(question._id)}
-                          className="p-1.5 text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded"
-                          title="Delete"
+                          color="red"
+                          variant="subtle"
+                          aria-label="Delete question"
                         >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
+                          <IconTrash size={16} />
+                        </ActionIcon>
+                      </Group>
+                    </Table.Td>
+                  </Table.Tr>
                 ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+              </Table.Tbody>
+            </Table>
+          </Table.ScrollContainer>
+        </Card>
       )}
 
       {/* Pagination */}
       {total > limit && (
-        <div className="flex items-center justify-between">
-          <button
+        <Group justify="space-between">
+          <Button
             onClick={() => setOffset(Math.max(0, offset - limit))}
             disabled={offset === 0}
-            className="px-4 py-2 panel-on-dark hover:bg-brand-darkGrey/90 text-brand-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            variant="default"
           >
             Previous
-          </button>
-          <div className="text-sm text-brand-white/80">
+          </Button>
+          <Text size="sm" c="dimmed">
             Page {Math.floor(offset / limit) + 1} of {Math.ceil(total / limit)}
-          </div>
-          <button
+          </Text>
+          <Button
             onClick={() => setOffset(offset + limit)}
             disabled={!hasMore}
-            className="px-4 py-2 panel-on-dark hover:bg-brand-darkGrey/90 text-brand-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            variant="default"
           >
             Next
-          </button>
-        </div>
+          </Button>
+        </Group>
       )}
 
       {/* Question Form Modal */}
-      {showQuestionForm && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-          <div className="panel-on-dark rounded-xl p-6 max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-white">
-                {editingQuestion ? 'Edit Question' : 'Create Question'}
-              </h2>
-              <button
-                onClick={() => {
-                  setShowQuestionForm(false);
-                  setEditingQuestion(null);
-                }}
-                className="text-brand-white/80 hover:text-brand-white"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
-            <div className="space-y-4">
+      <Modal
+        opened={showQuestionForm}
+        onClose={() => {
+          setShowQuestionForm(false);
+          setEditingQuestion(null);
+        }}
+        size="xl"
+        title={editingQuestion ? 'Edit Question' : 'Create Question'}
+      >
+            <Stack gap="md">
               {/* Question Text */}
-              <div>
-                <label className="block text-sm font-medium text-brand-white/90 mb-2">
-                  Question Text *
-                </label>
-                <textarea
+              <Textarea
+                  label="Question Text"
                   value={questionForm.question}
-                  onChange={(e) => setQuestionForm(prev => ({ ...prev, question: e.target.value }))}
+                  onChange={(e) => setQuestionForm(prev => ({ ...prev, question: e.currentTarget.value }))}
                   rows={3}
-                    className="input-on-dark w-full px-3 py-2"
                   placeholder="Enter the question..."
-                />
-              </div>
+                  required
+              />
 
               {/* Options (minimum 4) */}
-              <div>
-                <label className="block text-sm font-medium text-brand-white/90 mb-2">
-                  Answer Options * (minimum 4)
-                </label>
+              <Stack gap="xs">
+                <Text fw={600}>Answer Options * (minimum 4)</Text>
                 {questionForm.options.map((option, idx) => (
-                  <div key={idx} className="mb-2 flex items-center gap-2">
-                    <input
-                      type="radio"
-                      name="correctIndex"
+                  <Group key={idx} align="center">
+                    <Radio
                       checked={questionForm.correctIndex === idx}
                       onChange={() => setQuestionForm(prev => ({ ...prev, correctIndex: idx }))}
-                      className="w-4 h-4"
                     />
-                    <input
-                      type="text"
+                    <TextInput
+                      flex={1}
                       value={option}
                       onChange={(e) => {
                         const newOptions = [...questionForm.options];
-                        newOptions[idx] = e.target.value;
+                        newOptions[idx] = e.currentTarget.value;
                         setQuestionForm(prev => ({ ...prev, options: newOptions }));
                       }}
                       placeholder={`Option ${idx + 1}${questionForm.correctIndex === idx ? ' (correct)' : ''}`}
-                      className="input-on-dark flex-1 px-3 py-2"
                     />
                     {questionForm.options.length > 4 && (
-                      <button
-                        type="button"
+                      <Button
+                        variant="subtle"
+                        color="red"
                         onClick={() => {
                           const newOptions = questionForm.options.filter((_, i) => i !== idx);
                           const newCorrect = questionForm.correctIndex >= newOptions.length
@@ -871,159 +820,138 @@ export default function AdminQuestionsPage() {
                               : questionForm.correctIndex;
                           setQuestionForm(prev => ({ ...prev, options: newOptions, correctIndex: newCorrect }));
                         }}
-                        className="px-2 py-1 text-xs text-red-400 hover:underline"
                       >
                         Remove
-                      </button>
+                      </Button>
                     )}
-                  </div>
+                  </Group>
                 ))}
-                <button
-                  type="button"
+                <Button
                   onClick={() => setQuestionForm(prev => ({ ...prev, options: [...prev.options, ''] }))}
-                  className="mt-1 text-sm text-brand-accent hover:underline"
+                  variant="default"
                 >
-                  + Add option
-                </button>
-              </div>
+                  Add option
+                </Button>
+              </Stack>
 
               {/* Metadata Row 1 */}
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-brand-white/90 mb-2">
-                    Difficulty *
-                  </label>
-                  <select
+              <Grid>
+                <Grid.Col span={{ base: 12, md: 6 }}>
+                  <Select
+                    label="Difficulty"
                     value={questionForm.difficulty}
-                    onChange={(e) => setQuestionForm(prev => ({ ...prev, difficulty: e.target.value as QuestionDifficulty }))}
-                    className="input-on-dark w-full px-3 py-2"
-                  >
-                    <option value={QuestionDifficulty.EASY}>Easy</option>
-                    <option value={QuestionDifficulty.MEDIUM}>Medium</option>
-                    <option value={QuestionDifficulty.HARD}>Hard</option>
-                    <option value={QuestionDifficulty.EXPERT}>Expert</option>
-                  </select>
-                </div>
+                    onChange={(value) => setQuestionForm(prev => ({ ...prev, difficulty: value as QuestionDifficulty }))}
+                    data={[
+                      { value: QuestionDifficulty.EASY, label: 'Easy' },
+                      { value: QuestionDifficulty.MEDIUM, label: 'Medium' },
+                      { value: QuestionDifficulty.HARD, label: 'Hard' },
+                      { value: QuestionDifficulty.EXPERT, label: 'Expert' },
+                    ]}
+                    required
+                  />
+                </Grid.Col>
 
-                <div>
-                  <label className="block text-sm font-medium text-brand-white/90 mb-2">
-                    Question Type *
-                  </label>
-                  <select
+                <Grid.Col span={{ base: 12, md: 6 }}>
+                  <Select
+                    label="Question Type"
                     value={questionForm.questionType}
-                    onChange={(e) => setQuestionForm(prev => ({ ...prev, questionType: e.target.value as QuestionType }))}
-                    className="input-on-dark w-full px-3 py-2"
-                  >
-                    <option value={QuestionType.RECALL}>Recall</option>
-                    <option value={QuestionType.APPLICATION}>Application</option>
-                    <option value={QuestionType.CRITICAL_THINKING}>Critical Thinking</option>
-                  </select>
-                </div>
-              </div>
+                    onChange={(value) => setQuestionForm(prev => ({ ...prev, questionType: value as QuestionType }))}
+                    data={[
+                      { value: QuestionType.RECALL, label: 'Recall' },
+                      { value: QuestionType.APPLICATION, label: 'Application' },
+                      { value: QuestionType.CRITICAL_THINKING, label: 'Critical Thinking' },
+                    ]}
+                    required
+                  />
+                </Grid.Col>
+              </Grid>
 
               {/* Metadata Row 2 */}
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-brand-white/90 mb-2">
-                    Category *
-                  </label>
-                  <select
+              <Grid>
+                <Grid.Col span={{ base: 12, md: 6 }}>
+                  <Select
+                    label="Category"
                     value={questionForm.category}
-                    onChange={(e) => setQuestionForm(prev => ({ ...prev, category: e.target.value }))}
-                    className="input-on-dark w-full px-3 py-2"
-                  >
-                    <option value="Course Specific">Course Specific</option>
-                    <option value="General Knowledge">General Knowledge</option>
-                    <option value="Science">Science</option>
-                    <option value="Technology">Technology</option>
-                    <option value="History">History</option>
-                    <option value="Geography">Geography</option>
-                  </select>
-                </div>
+                    onChange={(value) => setQuestionForm(prev => ({ ...prev, category: value || '' }))}
+                    data={[
+                      { value: 'Course Specific', label: 'Course Specific' },
+                      { value: 'General Knowledge', label: 'General Knowledge' },
+                      { value: 'Science', label: 'Science' },
+                      { value: 'Technology', label: 'Technology' },
+                      { value: 'History', label: 'History' },
+                      { value: 'Geography', label: 'Geography' },
+                    ]}
+                    required
+                  />
+                </Grid.Col>
 
-                <div>
-                  <label className="block text-sm font-medium text-brand-white/90 mb-2">
-                    Course (Optional)
-                  </label>
-                  <select
+                <Grid.Col span={{ base: 12, md: 6 }}>
+                  <Select
+                    label="Course (Optional)"
                     value={questionForm.courseId}
-                    onChange={(e) => setQuestionForm(prev => ({ ...prev, courseId: e.target.value }))}
-                    className="input-on-dark w-full px-3 py-2"
-                  >
-                    <option value="">None (Reusable)</option>
-                    {courses.map(course => (
-                      <option key={course._id} value={course.courseId}>
-                        {course.name} ({course.language.toUpperCase()})
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
+                    onChange={(value) => setQuestionForm(prev => ({ ...prev, courseId: value || '' }))}
+                    data={[{ value: '', label: 'None (Reusable)' }, ...courseOptions.slice(1)]}
+                    searchable
+                  />
+                </Grid.Col>
+              </Grid>
 
               {/* Related Courses */}
-              <div>
-                <label className="block text-sm font-medium text-brand-white/90 mb-2">
-                  Related Courses (Multiple)
-                </label>
-                <div className="flex gap-2 mb-2">
-                  <select
+              <Stack gap="xs">
+                <Text fw={600}>Related Courses (Multiple)</Text>
+                <Group align="flex-end">
+                  <Select
+                    flex={1}
                     value={courseSelectInput}
-                    onChange={(e) => setCourseSelectInput(e.target.value)}
-                    className="input-on-dark flex-1 px-3 py-2"
-                  >
-                    <option value="">Select a course to add...</option>
-                    {courses
+                    onChange={(value) => setCourseSelectInput(value || '')}
+                    placeholder="Select a course to add..."
+                    data={courses
                       .filter(course => !questionForm.relatedCourseIds.includes(course.courseId))
                       .map(course => (
-                        <option key={course._id} value={course.courseId}>
-                          {course.name} ({course.language.toUpperCase()})
-                        </option>
+                        { value: course.courseId, label: `${course.name} (${course.language.toUpperCase()})` }
                       ))}
-                  </select>
-                  <button
+                    searchable
+                  />
+                  <Button
                     onClick={() => courseSelectInput && addRelatedCourse(courseSelectInput)}
                     disabled={!courseSelectInput}
-                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Add
-                  </button>
-                </div>
-                <div className="flex flex-wrap gap-2">
+                  </Button>
+                </Group>
+                <Group gap="xs">
                   {questionForm.relatedCourseIds.map((courseId) => {
                     const course = courses.find(c => c.courseId === courseId);
                     return (
-                      <span
+                      <Badge
                         key={courseId}
-                        className="inline-flex items-center gap-1 px-2 py-1 bg-green-500/20 text-green-300 rounded text-sm"
+                        color="green"
+                        rightSection={
+                          <ActionIcon variant="transparent" size="xs" onClick={() => removeRelatedCourse(courseId)} aria-label="Remove course">
+                            <IconX size={12} />
+                          </ActionIcon>
+                        }
                       >
                         {course ? `${course.name} (${course.language.toUpperCase()})` : courseId}
-                        <button
-                          onClick={() => removeRelatedCourse(courseId)}
-                          className="hover:text-green-200"
-                        >
-                          <X className="w-3 h-3" />
-                        </button>
-                      </span>
+                      </Badge>
                     );
                   })}
-                </div>
+                </Group>
                 {questionForm.relatedCourseIds.length === 0 && (
-                  <p className="text-xs text-brand-white/80 mt-1">
+                  <Text size="xs" c="dimmed">
                     Add courses that can use this question. Leave empty for reusable questions.
-                  </p>
+                  </Text>
                 )}
-              </div>
+              </Stack>
 
               {/* Hashtags */}
-              <div>
-                <label className="block text-sm font-medium text-brand-white/90 mb-2">
-                  Hashtags
-                </label>
-                <div className="flex gap-2 mb-2">
-                  <input
-                    type="text"
+              <Stack gap="xs">
+                <Text fw={600}>Hashtags</Text>
+                <Group>
+                  <TextInput
+                    flex={1}
                     value={hashtagInput}
-                    onChange={(e) => setHashtagInput(e.target.value)}
+                    onChange={(e) => setHashtagInput(e.currentTarget.value)}
                     onKeyPress={(e) => {
                       if (e.key === 'Enter') {
                         e.preventDefault();
@@ -1031,77 +959,63 @@ export default function AdminQuestionsPage() {
                       }
                     }}
                     placeholder="#topic #difficulty #type #language"
-                    className="input-on-dark flex-1 px-3 py-2"
                   />
-                  <button
+                  <Button
                     onClick={addHashtag}
-                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg"
                   >
                     Add
-                  </button>
-                </div>
-                <div className="flex flex-wrap gap-2">
+                  </Button>
+                </Group>
+                <Group gap="xs">
                   {questionForm.hashtags.map((tag, idx) => (
-                    <span
+                    <Badge
                       key={idx}
-                      className="inline-flex items-center gap-1 px-2 py-1 bg-indigo-500/20 text-indigo-300 rounded text-sm"
+                      variant="outline"
+                      rightSection={
+                        <ActionIcon variant="transparent" size="xs" onClick={() => removeHashtag(tag)} aria-label="Remove hashtag">
+                          <IconX size={12} />
+                        </ActionIcon>
+                      }
                     >
                       {tag}
-                      <button
-                        onClick={() => removeHashtag(tag)}
-                        className="hover:text-indigo-200"
-                      >
-                        <X className="w-3 h-3" />
-                      </button>
-                    </span>
+                    </Badge>
                   ))}
-                </div>
-              </div>
+                </Group>
+              </Stack>
 
               {/* Toggles */}
-              <div className="flex items-center gap-6">
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
+              <Group>
+                <Checkbox
                     checked={questionForm.isCourseSpecific}
-                    onChange={(e) => setQuestionForm(prev => ({ ...prev, isCourseSpecific: e.target.checked }))}
-                    className="rounded"
-                  />
-                  <span className="text-sm text-brand-white/90">Course-Specific</span>
-                </label>
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
+                    onChange={(e) => setQuestionForm(prev => ({ ...prev, isCourseSpecific: e.currentTarget.checked }))}
+                    label="Course-Specific"
+                />
+                <Checkbox
                     checked={questionForm.isActive}
-                    onChange={(e) => setQuestionForm(prev => ({ ...prev, isActive: e.target.checked }))}
-                    className="rounded"
-                  />
-                  <span className="text-sm text-brand-white/90">Active</span>
-                </label>
-              </div>
+                    onChange={(e) => setQuestionForm(prev => ({ ...prev, isActive: e.currentTarget.checked }))}
+                    label="Active"
+                />
+              </Group>
 
               {/* Actions */}
-              <div className="flex justify-end gap-3 pt-4 border-t border-brand-accent/30">
-                <button
+              <Group justify="flex-end">
+                <Button
                   onClick={() => {
                     setShowQuestionForm(false);
                     setEditingQuestion(null);
                   }}
-                  className="px-4 py-2 bg-brand-darkGrey hover:bg-brand-secondary-700 text-brand-white rounded-lg"
+                  variant="default"
                 >
                   Cancel
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={handleSaveQuestion}
-                  className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg"
                 >
                   {editingQuestion ? 'Update' : 'Create'} Question
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+                </Button>
+              </Group>
+            </Stack>
+      </Modal>
+    </Stack>
   );
 }

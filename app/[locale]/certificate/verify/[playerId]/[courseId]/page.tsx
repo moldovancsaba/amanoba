@@ -12,7 +12,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { useLocale } from 'next-intl';
-import { Badge, Box, Button, Card, Container, Divider, Group, Loader, Paper, SimpleGrid, Stack, Text, ThemeIcon, Title } from '@mantine/core';
+import { Badge, Box, Button, Card, Center, Container, Divider, Group, Loader, Paper, SimpleGrid, Stack, Text, ThemeIcon, Title } from '@mantine/core';
 import { IconCertificate, IconCircleCheck, IconExternalLink, IconX } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
 
@@ -97,12 +97,12 @@ export default function CertificateVerificationPage({
   if (loading) {
     return (
       <Box bg="dark.9" mih="100vh">
-        <Container size="sm" py="xl" mih="100vh" style={{ display: 'grid', placeItems: 'center' }}>
+        <Center mih="100vh" py="xl">
           <Stack align="center">
             <Loader color="amanobaYellow" />
             <Text c="gray.4">Verifying certificate...</Text>
           </Stack>
-        </Container>
+        </Center>
       </Box>
     );
   }
@@ -110,7 +110,7 @@ export default function CertificateVerificationPage({
   if (error || !certificateData) {
     return (
       <Box bg="dark.9" mih="100vh">
-        <Container size="sm" py="xl" mih="100vh" style={{ display: 'grid', placeItems: 'center' }}>
+        <Center mih="100vh" py="xl">
           <Paper withBorder radius="md" p="xl" bg="dark.8" ta="center">
             <ThemeIcon size={64} radius="xl" color="red" mx="auto" mb="md">
               <IconX size={34} />
@@ -123,7 +123,7 @@ export default function CertificateVerificationPage({
             </Text>
             <Button onClick={() => router.push(`/${locale}`)}>Go Home</Button>
           </Paper>
-        </Container>
+        </Center>
       </Box>
     );
   }

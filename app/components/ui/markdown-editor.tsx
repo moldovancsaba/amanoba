@@ -52,7 +52,7 @@ export default function MarkdownEditor({
   const previewHtml = contentToHtml(content);
 
   return (
-    <Paper withBorder radius="md" style={{ overflow: 'hidden' }}>
+    <Paper withBorder radius="md" className="overflow-hidden">
       <Stack gap={0}>
         <Box p="xs" bg="ink.8">
           <SegmentedControl
@@ -78,7 +78,7 @@ export default function MarkdownEditor({
           <Box
             p="md"
             c="dark.9"
-            style={{ minHeight }}
+            mih={minHeight}
             dangerouslySetInnerHTML={{ __html: previewHtml }}
           />
         )}

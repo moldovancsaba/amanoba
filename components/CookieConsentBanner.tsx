@@ -11,6 +11,7 @@ import { useTranslations } from 'next-intl';
 import { Button, Checkbox, Collapse, Group, Paper, Stack, Text, Title } from '@mantine/core';
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import { useConsent } from '@/app/components/providers/ConsentProvider';
+import classes from './CookieConsentBanner.module.css';
 
 export default function CookieConsentBanner() {
   const { showBanner, acceptAll, rejectAll, updateConsent, consent } = useConsent();
@@ -53,16 +54,7 @@ export default function CookieConsentBanner() {
       shadow="xl"
       radius={0}
       p={{ base: 'sm', sm: 'md' }}
-      style={{
-        position: 'fixed',
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 50,
-        borderTop: '1px solid var(--mantine-color-gray-3)',
-        maxHeight: 'min(70vh, 360px)',
-        overflowY: 'auto',
-      }}
+      classNames={{ root: classes.banner }}
     >
       <Stack gap="sm" maw={1180} mx="auto">
         <Stack gap={4}>

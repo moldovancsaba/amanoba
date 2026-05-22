@@ -1,0 +1,9 @@
+.banner {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 50;
+  max-height: min(70vh, 360px);
+  overflow-y: auto;
+  border-top: 1px solid var(--mantine-color-gray-3);
+}

@@ -2,18 +2,45 @@
 
 /**
  * Quests Page
- * 
- * Why: Provide multi-step storyline challenges for extended engagement
- * What: Shows active and available quests with step-by-step progression
+ *
+ * Why: Provide multi-step storyline challenges for extended engagement.
+ * What: Shows active and available quests with step-by-step progression.
  */
 
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { ChevronLeft, CheckCircle, Circle, Lock, Sparkles, Trophy } from 'lucide-react';
+import {
+  Alert,
+  Badge,
+  Button,
+  Card,
+  Center,
+  Container,
+  Grid,
+  Group,
+  Loader,
+  Progress,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from '@mantine/core';
+import {
+  IconBolt,
+  IconChevronLeft,
+  IconCircle,
+  IconCircleCheck,
+  IconGift,
+  IconLock,
+  IconMap,
+  IconSparkles,
+  IconStar,
+  IconTarget,
+  IconTrophy,
+} from '@tabler/icons-react';
 import { LocaleLink } from '@/components/LocaleLink';
-import Icon, { MdMap, MdMyLocation, MdAutoAwesome, MdEmojiEvents, MdSentimentDissatisfied, MdBolt, MdStars, MdCardGiftcard } from '@/components/Icon';
 
 interface QuestStep {
   stepNumber: number;
@@ -43,10 +70,10 @@ interface Quest {
 }
 
 const DIFFICULTY_COLORS = {
-  easy: 'from-green-500 to-emerald-600',
-  medium: 'from-blue-500 to-cyan-600',
-  hard: 'from-purple-500 to-pink-600',
-  expert: 'from-red-500 to-orange-600',
+  easy: 'green',
+  medium: 'cyan',
+  hard: 'violet',
+  expert: 'red',
 };
 
 export default function QuestsPage() {
@@ -73,13 +100,13 @@ export default function QuestsPage() {
         const user = session.user as { id?: string; playerId?: string; isPremium?: boolean };
         const playerId = user.playerId || user.id;
         setIsPremium(user.isPremium || false);
-        
+
         const response = await fetch(`/api/quests?playerId=${playerId}`);
-        
+
         if (!response.ok) {
           throw new Error('Failed to load quests');
         }
-        
+
         const data = await response.json();
         setQuests(data.quests || []);
       } catch (err) {
@@ -89,38 +116,35 @@ export default function QuestsPage() {
       }
     };
 
-    fetchQuests();
+    void fetchQuests();
   }, [session, status, router, locale]);
 
   const getQuestProgress = (quest: Quest): number => {
     return Math.round((quest.currentStep / quest.totalSteps) * 100);
   };
 
-  // Loading state
   if (loading || status === 'loading') {
     return (
-      <div className="page-shell flex items-center justify-center">
-        <div className="text-brand-white text-2xl">{t('loading')}</div>
-      </div>
+      <Center mih="100vh">
+        <Loader />
+      </Center>
     );
   }
 
-  // Error state
   if (error) {
     return (
-      <div className="page-shell flex items-center justify-center p-4">
-        <div className="page-card p-8 max-w-md w-full text-center">
-          <Icon icon={MdSentimentDissatisfied} size={64} className="text-brand-darkGrey mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-brand-black mb-4">{t('unableToLoad')}</h2>
-          <p className="text-brand-darkGrey mb-6">{error}</p>
-          <LocaleLink
-            href="/dashboard"
-            className="page-button-primary inline-block"
-          >
-            {tDashboard('backToDashboard')}
-          </LocaleLink>
-        </div>
-      </div>
+      <Container size="xs" py="xl">
+        <Card withBorder>
+          <Stack align="center">
+            <Alert color="red" title={t('unableToLoad')}>
+              {error}
+            </Alert>
+            <Button component={LocaleLink} href="/dashboard">
+              {tDashboard('backToDashboard')}
+            </Button>
+          </Stack>
+        </Card>
+      </Container>
     );
   }
 
@@ -129,305 +153,172 @@ export default function QuestsPage() {
   const completedQuests = quests.filter(q => q.isCompleted);
 
   return (
-    <div className="page-shell">
-      {/* Header */}
-      <header className="page-header">
-        <div className="page-container py-6">
-          <div className="flex justify-between items-center">
+    <Container size="lg" py="xl">
+      <Stack gap="xl">
+        <Group justify="space-between" align="flex-start">
+          <Group align="flex-start">
+            <ThemeIcon size="xl" variant="light">
+              <IconMap size={30} />
+            </ThemeIcon>
             <div>
-              <h1 className="text-3xl font-bold text-brand-white flex items-center gap-3">
-                <Icon icon={MdMap} size={40} />
-                {t('questLog')}
-              </h1>
-              <p className="text-brand-white/80 mt-1">{t('description')}</p>
+              <Title order={1}>{t('questLog')}</Title>
+              <Text c="dimmed">{t('description')}</Text>
             </div>
-            <LocaleLink
-              href="/dashboard"
-              className="page-button-secondary border-2 border-brand-darkGrey flex items-center gap-2"
-            >
-              <ChevronLeft className="w-5 h-5" />
-              {tCommon('dashboard')}
-            </LocaleLink>
-          </div>
-        </div>
-      </header>
+          </Group>
+          <Button component={LocaleLink} href="/dashboard" variant="default" leftSection={<IconChevronLeft size={18} />}>
+            {tCommon('dashboard')}
+          </Button>
+        </Group>
 
-      <main className="page-container py-8">
-        {/* Stats Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="page-card p-6">
-            <Icon icon={MdMyLocation} size={36} className="text-brand-darkGrey mb-2" />
-            <div className="text-3xl font-bold text-brand-black">
-              {activeQuests.length}
-            </div>
-            <div className="text-brand-darkGrey">{t('active')}</div>
-          </div>
-          
-          <div className="page-card p-6">
-            <Icon icon={MdAutoAwesome} size={36} className="text-brand-darkGrey mb-2" />
-            <div className="text-3xl font-bold text-brand-black">
-              {availableQuests.length}
-            </div>
-            <div className="text-brand-darkGrey">{t('available')}</div>
-          </div>
-          
-          <div className="page-card p-6">
-            <Icon icon={MdEmojiEvents} size={36} className="text-brand-darkGrey mb-2" />
-            <div className="text-3xl font-bold text-brand-black">
-              {completedQuests.length}
-            </div>
-            <div className="text-brand-darkGrey">{t('completed')}</div>
-          </div>
-        </div>
+        <Grid>
+          {[
+            { icon: <IconTarget size={24} />, value: activeQuests.length, label: t('active') },
+            { icon: <IconSparkles size={24} />, value: availableQuests.length, label: t('available') },
+            { icon: <IconTrophy size={24} />, value: completedQuests.length, label: t('completed') },
+          ].map((item) => (
+            <Grid.Col key={item.label} span={{ base: 12, md: 4 }}>
+              <Card withBorder>
+                <ThemeIcon variant="light">{item.icon}</ThemeIcon>
+                <Title order={2}>{item.value}</Title>
+                <Text c="dimmed">{item.label}</Text>
+              </Card>
+            </Grid.Col>
+          ))}
+        </Grid>
 
-        {/* Active Quests */}
-        {activeQuests.length > 0 && (
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
-              <Sparkles className="w-7 h-7" />
-              {t('activeQuests', { count: activeQuests.length })}
-            </h2>
-            <div className="space-y-6">
-              {activeQuests.map(quest => {
-                const progress = getQuestProgress(quest);
-                
-                return (
-                  <div
-                    key={quest._id}
-                    className="page-card overflow-hidden"
-                  >
-                    {/* Quest Header */}
-                    <div className={`bg-gradient-to-r ${DIFFICULTY_COLORS[quest.difficulty]} text-white p-6`}>
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-2xl font-bold">{quest.name}</h3>
-                            {quest.isPremiumOnly && (
-                              <span className="bg-yellow-400 text-black px-2 py-1 rounded text-xs font-bold">
-                                ⭐ PREMIUM
-                              </span>
-                            )}
-                          </div>
-                          <p className="text-white/90">{quest.description}</p>
-                          {quest.storyline && (
-                            <p className="text-white/70 text-sm mt-2 italic">{quest.storyline}</p>
-                          )}
-                        </div>
-                        <div className="text-right ml-4">
-                          <div className="text-3xl font-bold">{quest.currentStep}/{quest.totalSteps}</div>
-                          <div className="text-white/80 text-sm">{t('steps')}</div>
-                        </div>
+        {activeQuests.length > 0 ? (
+          <Stack gap="md">
+            <Group>
+              <IconSparkles size={24} />
+              <Title order={2}>{t('activeQuests', { count: activeQuests.length })}</Title>
+            </Group>
+            {activeQuests.map(quest => {
+              const progress = getQuestProgress(quest);
+              return (
+                <Card key={quest._id} withBorder>
+                  <Stack gap="lg">
+                    <Group justify="space-between" align="flex-start">
+                      <div>
+                        <Group>
+                          <Title order={3}>{quest.name}</Title>
+                          <Badge color={DIFFICULTY_COLORS[quest.difficulty]}>{quest.difficulty}</Badge>
+                          {quest.isPremiumOnly ? <Badge color="yellow">Premium</Badge> : null}
+                        </Group>
+                        <Text c="dimmed">{quest.description}</Text>
+                        {quest.storyline ? <Text size="sm" c="dimmed" fs="italic">{quest.storyline}</Text> : null}
                       </div>
-                      
-                      {/* Progress Bar */}
-                      <div className="mt-4 bg-white/20 rounded-full h-2 overflow-hidden">
-                        <div
-                          className="bg-white h-full transition-all"
-                          style={{ width: `${progress}%` }}
-                        />
-                      </div>
-                    </div>
-                    
-                    {/* Quest Steps */}
-                    <div className="p-6">
-                      <h4 className="font-bold text-brand-black mb-4">Quest Steps:</h4>
-                      <div className="space-y-3">
-                        {quest.steps.map((step, index) => (
-                          <div
-                            key={index}
-                            className={`flex items-start gap-3 p-3 rounded-lg ${
-                              step.isCompleted
-                                ? 'bg-green-50 border border-green-200'
-                                : index === quest.currentStep
-                                ? 'bg-blue-50 border border-blue-200'
-                                : 'bg-gray-50 border border-gray-200'
-                            }`}
-                          >
-                            <div className="flex-shrink-0 mt-1">
-                              {step.isCompleted ? (
-                                <CheckCircle className="w-5 h-5 text-green-600" />
-                              ) : index === quest.currentStep ? (
-                                <Circle className="w-5 h-5 text-blue-600" />
-                              ) : (
-                                <Circle className="w-5 h-5 text-brand-darkGrey" />
-                              )}
-                            </div>
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2">
-                                <span className="font-medium text-brand-black">
-                                  Step {step.stepNumber}:
-                                </span>
-                                {index === quest.currentStep && !step.isCompleted && (
-                                  <span className="text-xs bg-blue-600 text-white px-2 py-1 rounded">
-                                    CURRENT
-                                  </span>
-                                )}
+                      <Stack gap={0} align="flex-end">
+                        <Title order={3}>{quest.currentStep}/{quest.totalSteps}</Title>
+                        <Text size="sm" c="dimmed">{t('steps')}</Text>
+                      </Stack>
+                    </Group>
+                    <Progress value={progress} />
+                    <Stack gap="sm">
+                      <Title order={4}>Quest Steps</Title>
+                      {quest.steps.map((step, index) => {
+                        const current = index === quest.currentStep && !step.isCompleted;
+                        return (
+                          <Card key={index} withBorder>
+                            <Group align="flex-start">
+                              {step.isCompleted ? <IconCircleCheck color="var(--mantine-color-green-6)" /> : <IconCircle />}
+                              <div>
+                                <Group gap="xs">
+                                  <Text fw={600}>Step {step.stepNumber}</Text>
+                                  {current ? <Badge>Current</Badge> : null}
+                                </Group>
+                                <Text c={step.isCompleted ? 'green' : 'dimmed'}>{step.description}</Text>
+                                {step.completedAt ? (
+                                  <Text size="xs" c="dimmed">Completed {new Date(step.completedAt).toLocaleString()}</Text>
+                                ) : null}
                               </div>
-                              <p className={`text-sm mt-1 ${
-                                step.isCompleted ? 'text-green-700' : 'text-brand-darkGrey'
-                              }`}>
-                                {step.description}
-                              </p>
-                              {step.completedAt && (
-                                <p className="text-xs text-brand-darkGrey mt-1">
-                                  ✓ Completed {new Date(step.completedAt).toLocaleString()}
-                                </p>
-                              )}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                      
-                      {/* Rewards */}
-                      <div className="mt-6 pt-6 border-t border-brand-darkGrey/20">
-                        <h4 className="font-bold text-brand-black mb-3">Quest Rewards:</h4>
-                        <div className="flex items-center gap-6">
-                          <div className="flex items-center gap-2">
-                            <Icon icon={MdCardGiftcard} size={20} className="text-brand-darkGrey" />
-                            <span className="font-bold text-brand-darkGrey">{quest.rewards.points} Points</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Icon icon={MdBolt} size={20} className="text-brand-darkGrey" />
-                            <span className="font-bold text-brand-darkGrey">{quest.rewards.xp} XP</span>
-                          </div>
-                          {quest.rewards.title && (
-                            <div className="flex items-center gap-2">
-                              <Icon icon={MdStars} size={20} className="text-brand-darkGrey" />
-                              <span className="font-bold text-brand-darkGrey">Title: &quot;{quest.rewards.title}&quot;</span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                      
-                      <LocaleLink
-                        href="/games"
-                        className="mt-4 block w-full page-button-primary text-center"
-                      >
-                        Continue Quest
-                      </LocaleLink>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
+                            </Group>
+                          </Card>
+                        );
+                      })}
+                    </Stack>
+                    <Group>
+                      <Badge leftSection={<IconGift size={14} />}>{quest.rewards.points} Points</Badge>
+                      <Badge leftSection={<IconBolt size={14} />}>{quest.rewards.xp} XP</Badge>
+                      {quest.rewards.title ? <Badge leftSection={<IconStar size={14} />}>Title: {quest.rewards.title}</Badge> : null}
+                    </Group>
+                    <Button component={LocaleLink} href="/games" fullWidth>
+                      Continue Quest
+                    </Button>
+                  </Stack>
+                </Card>
+              );
+            })}
+          </Stack>
+        ) : null}
 
-        {/* Available Quests */}
-        {availableQuests.length > 0 && (
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-brand-white mb-4">
-              Available Quests ({availableQuests.length})
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {availableQuests.length > 0 ? (
+          <Stack gap="md">
+            <Title order={2}>Available Quests ({availableQuests.length})</Title>
+            <Grid>
               {availableQuests.map(quest => {
                 const isLocked = quest.isPremiumOnly && !isPremium;
-                
                 return (
-                  <div
-                    key={quest._id}
-                    className={`page-card overflow-hidden ${isLocked ? 'opacity-60' : ''}`}
-                  >
-                    <div className={`bg-gradient-to-r ${DIFFICULTY_COLORS[quest.difficulty]} text-white p-6`}>
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-xl font-bold">{quest.name}</h3>
-                        {isLocked && <Lock className="w-5 h-5" />}
-                      </div>
-                      <p className="text-white/90 text-sm">{quest.description}</p>
-                      <div className="mt-3 text-sm text-white/80">
-                        {quest.totalSteps} steps • {quest.difficulty}
-                      </div>
-                    </div>
-                    
-                    <div className="p-6">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="flex items-center gap-1">
-                          <Trophy className="w-4 h-4 text-brand-darkGrey" />
-                          <span className="font-bold text-brand-darkGrey">{quest.rewards.points} pts</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Icon icon={MdBolt} size={16} className="text-brand-darkGrey" />
-                          <span className="font-bold text-brand-darkGrey">{quest.rewards.xp} XP</span>
-                        </div>
-                      </div>
-                      
-                      <button
-                        disabled={isLocked}
-                        className={`w-full py-3 rounded-lg font-bold transition-all ${
-                          isLocked
-                            ? 'bg-brand-darkGrey/20 text-brand-darkGrey cursor-not-allowed'
-                            : 'bg-brand-accent text-brand-black hover:bg-brand-primary-400'
-                        }`}
-                      >
-                        {isLocked ? (
-                          <>
-                            <Lock className="w-4 h-4 inline mr-2" />
-                            Premium Only
-                          </>
-                        ) : (
-                          'Start Quest'
-                        )}
-                      </button>
-                    </div>
-                  </div>
+                  <Grid.Col key={quest._id} span={{ base: 12, md: 6 }}>
+                    <Card withBorder opacity={isLocked ? 0.6 : 1}>
+                      <Stack gap="md">
+                        <Group justify="space-between">
+                          <Title order={3}>{quest.name}</Title>
+                          {isLocked ? <IconLock size={20} /> : <Badge color={DIFFICULTY_COLORS[quest.difficulty]}>{quest.difficulty}</Badge>}
+                        </Group>
+                        <Text c="dimmed">{quest.description}</Text>
+                        <Group>
+                          <Badge leftSection={<IconTrophy size={14} />}>{quest.rewards.points} pts</Badge>
+                          <Badge leftSection={<IconBolt size={14} />}>{quest.rewards.xp} XP</Badge>
+                        </Group>
+                        <Button disabled={isLocked} fullWidth>
+                          {isLocked ? 'Premium Only' : 'Start Quest'}
+                        </Button>
+                      </Stack>
+                    </Card>
+                  </Grid.Col>
                 );
               })}
-            </div>
-          </div>
-        )}
+            </Grid>
+          </Stack>
+        ) : null}
 
-        {/* Completed Quests */}
-        {completedQuests.length > 0 && (
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-brand-white mb-4 flex items-center gap-2">
-              <Trophy className="w-7 h-7" />
-              Completed Quests ({completedQuests.length})
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {completedQuests.length > 0 ? (
+          <Stack gap="md">
+            <Group>
+              <IconTrophy size={24} />
+              <Title order={2}>Completed Quests ({completedQuests.length})</Title>
+            </Group>
+            <Grid>
               {completedQuests.map(quest => (
-                <div
-                  key={quest._id}
-                  className="page-card p-6 border-2 border-brand-darkGrey/30"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-brand-black">{quest.name}</h3>
-                      <p className="text-brand-darkGrey text-sm mt-1">{quest.description}</p>
-                    </div>
-                    <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0" />
-                  </div>
-                  
-                  <div className="flex items-center gap-4 text-sm">
-                    <span className="text-green-600 font-medium">✓ {quest.totalSteps} Steps Completed</span>
-                  </div>
-                  
-                  {quest.completedAt && (
-                    <p className="text-xs text-brand-darkGrey mt-2">
-                      Completed {new Date(quest.completedAt).toLocaleDateString()}
-                    </p>
-                  )}
-                </div>
+                <Grid.Col key={quest._id} span={{ base: 12, md: 6 }}>
+                  <Card withBorder>
+                    <Group justify="space-between" align="flex-start">
+                      <div>
+                        <Title order={3}>{quest.name}</Title>
+                        <Text c="dimmed" size="sm">{quest.description}</Text>
+                        <Text c="green" size="sm" fw={600}>{quest.totalSteps} Steps Completed</Text>
+                        {quest.completedAt ? <Text size="xs" c="dimmed">Completed {new Date(quest.completedAt).toLocaleDateString()}</Text> : null}
+                      </div>
+                      <IconCircleCheck color="var(--mantine-color-green-6)" />
+                    </Group>
+                  </Card>
+                </Grid.Col>
               ))}
-            </div>
-          </div>
-        )}
+            </Grid>
+          </Stack>
+        ) : null}
 
-        {/* Empty State */}
-        {quests.length === 0 && (
-          <div className="page-card p-12 text-center">
-            <div className="text-6xl mb-4">🗺️</div>
-            <h3 className="text-2xl font-bold text-brand-black mb-2">
-              No Quests Available
-            </h3>
-            <p className="text-brand-darkGrey mb-6">
-              New quests are added regularly. Check back soon for epic adventures!
-            </p>
-            <LocaleLink href="/games" className="inline-block page-button-primary">
-              Play Games
-            </LocaleLink>
-          </div>
-        )}
-      </main>
-    </div>
+        {quests.length === 0 ? (
+          <Card withBorder p="xl">
+            <Stack align="center">
+              <Text size="xl">🗺️</Text>
+              <Title order={3}>No Quests Available</Title>
+              <Text c="dimmed" ta="center">New quests are added regularly. Check back soon for epic adventures.</Text>
+              <Button component={LocaleLink} href="/games">Play Games</Button>
+            </Stack>
+          </Card>
+        ) : null}
+      </Stack>
+    </Container>
   );
 }

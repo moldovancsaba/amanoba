@@ -74,7 +74,6 @@ export default async function LandingPage({
                 alt="Amanoba Logo"
                 width={48}
                 height={48}
-                style={{ height: 48, width: 'auto' }}
                 priority
               />
               <Stack gap={0} visibleFrom="xs">

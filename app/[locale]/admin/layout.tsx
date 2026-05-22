@@ -145,8 +145,7 @@ export default function AdminLayout({
       <aside
         className={`fixed top-0 left-0 z-40 h-screen transition-transform flex flex-col ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } bg-brand-darkGrey`}
-        style={{ width: '260px' }}
+        } bg-brand-darkGrey w-[260px]`}
       >
         {/* Logo */}
         <div className="h-16 flex-shrink-0 flex items-center justify-between px-4">
@@ -220,8 +219,8 @@ export default function AdminLayout({
                   {isEditorOnly ? t('editor') : t('administrator')}
                 </div>
               </div>
-              <div className="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center flex-shrink-0">
-                <Crown className="w-6 h-6 text-brand-black" />
+              <div className="w-10 h-10 rounded-full bg-brand-secondary-700 flex items-center justify-center flex-shrink-0">
+                <Crown className="w-6 h-6 text-brand-white" />
               </div>
               <ChevronDown className={`w-5 h-5 text-brand-white/80 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
             </button>

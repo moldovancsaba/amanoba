@@ -252,7 +252,7 @@ export default function CourseStudyGroups({
             {groups.map((g) => (
               <Paper key={g._id} p="md" radius="md" withBorder>
                 <Group justify="space-between" align="center" gap="md">
-                  <Stack gap={2} style={{ minWidth: 0, flex: 1 }}>
+                  <Stack gap={2} miw={0} flex={1}>
                     <Group gap="xs">
                       <Text fw={700}>{g.name}</Text>
                       {g.isMember ? <Badge color="green" variant="light">Joined</Badge> : null}

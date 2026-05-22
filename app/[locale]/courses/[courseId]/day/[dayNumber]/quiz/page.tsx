@@ -605,7 +605,7 @@ export default function LessonQuizPage({
       <Paper component="header" bg="ink.8" radius={0} withBorder>
         <Container size="md" py={{ base: 'md', sm: 'lg' }}>
           <Group justify="space-between" align="center" gap="md">
-            <Group gap="md" wrap="nowrap" style={{ minWidth: 0 }}>
+            <Group gap="md" wrap="nowrap" miw={0}>
               <Logo size="sm" showText={false} linkTo={session?.user ? "/dashboard" : "/"} />
               <Button
                 component={LocaleLink}

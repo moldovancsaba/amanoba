@@ -186,7 +186,7 @@ export default function LessonQuiz({
         <p className="text-brand-darkGrey">
           {t('quizDescription', { count: quizConfig.questionCount })}
           {quizConfig.required && (
-            <span className="font-bold text-brand-accent"> {t('quizRequired', { threshold: quizConfig.successThreshold })}</span>
+            <span className="font-bold"> {t('quizRequired', { threshold: quizConfig.successThreshold })}</span>
           )}
         </p>
       </div>
@@ -197,7 +197,7 @@ export default function LessonQuiz({
             {questions.map((question, index) => (
               <div key={question.id} className="border-2 border-brand-darkGrey/20 rounded-lg p-4">
                 <div className="flex items-start gap-2 mb-4">
-                  <span className="font-bold text-brand-accent text-lg">{index + 1}.</span>
+                  <span className="font-bold text-brand-black text-lg">{index + 1}.</span>
                   <h3 className="text-lg font-bold text-brand-black flex-1">{question.question}</h3>
                 </div>
                 <div className="space-y-2">
