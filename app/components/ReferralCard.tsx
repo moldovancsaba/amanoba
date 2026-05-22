@@ -131,11 +131,11 @@ export function ReferralCard() {
           <Title order={2} size="h3">{t('inviteFriends')}</Title>
         </Group>
 
-        <Paper bg="gray.0" p="md" withBorder>
+        <Paper p="md" withBorder>
           <Stack gap="sm">
             <Text size="sm" c="dimmed">{t('yourReferralCode')}</Text>
             <Group gap="sm" align="center">
-              <Code fz="xl" fw={800} style={{ letterSpacing: '0.08em', flex: 1 }}>
+              <Code fz="xl" fw={800} flex={1}>
             {referralData.referralCode}
               </Code>
               <Button
@@ -188,13 +188,13 @@ export function ReferralCard() {
         </SimpleGrid>
 
         <SimpleGrid cols={2} spacing="sm">
-          <Paper bg="gray.0" p="md" withBorder>
+          <Paper p="md" withBorder>
             <Text ta="center" size="xl" fw={800}>
             {referralData.stats.totalReferrals}
             </Text>
             <Text ta="center" size="xs" c="dimmed">{t('friendsInvited')}</Text>
           </Paper>
-          <Paper bg="gray.0" p="md" withBorder>
+          <Paper p="md" withBorder>
             <Text ta="center" size="xl" fw={800}>
             {referralData.stats.totalPointsEarned}
             </Text>
@@ -209,7 +209,7 @@ export function ReferralCard() {
             </Text>
             <Stack gap="xs" mah={192} style={{ overflowY: 'auto' }}>
             {referralData.referrals.map((referral) => (
-                <Paper key={referral.id} bg="gray.0" p="sm" withBorder>
+                <Paper key={referral.id} p="sm" withBorder>
                   <Group justify="space-between" gap="sm">
                     <Group gap="sm">
                       <Avatar color="gray" radius="xl">
@@ -241,7 +241,7 @@ export function ReferralCard() {
       )}
 
       {referralData.referrals.length === 0 && (
-          <Paper bg="gray.0" p="md" withBorder>
+          <Paper p="md" withBorder>
             <Stack gap="xs">
               <Group gap="xs">
                 <ThemeIcon color="amanoba" variant="light" radius="xl" size="sm">

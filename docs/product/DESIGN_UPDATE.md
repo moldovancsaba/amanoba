@@ -1,6 +1,6 @@
 # Design System Adapter Status
 
-**Last Updated**: 2026-05-21
+**Last Updated**: 2026-05-22
 **Status**: Shared SSOT adopted; Mantine root runtime installed; legacy adapter still migrating
 
 ---
@@ -19,12 +19,13 @@ Read in this order:
 2. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/FOUNDATION.md`
 3. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/MANTINE_PLATFORM.md`
 4. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/MANTINE_RUNTIME.md`
-5. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENT_CONTRACTS.md`
-6. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/NAVIGATION_RESPONSIVE.md`
-7. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/UX_PATTERNS.md`
-8. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/GOVERNANCE.md`
-9. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECT_ADOPTION.md`
-10. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/IMPLEMENTATION_READINESS.md`
+5. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COLOR_MODES_READABILITY.md`
+6. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENT_CONTRACTS.md`
+7. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/NAVIGATION_RESPONSIVE.md`
+8. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/UX_PATTERNS.md`
+9. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/GOVERNANCE.md`
+10. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECT_ADOPTION.md`
+11. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/IMPLEMENTATION_READINESS.md`
 
 The shared SSOT is managed as its own Git repository. Amanoba should reference its version/date when major UI migration work is done.
 
@@ -38,7 +39,7 @@ Use that plan for migration sequencing, legacy inventory, enforcement rules, fir
 
 ## Local Adapter
 
-**Aligned SSOT version/date**: `1.2.3`, 2026-05-21
+**Aligned SSOT version/date**: `1.3.3`, 2026-05-22
 **Status**: Migrating
 **Current UI foundation**: Mantine root runtime plus legacy Tailwind CSS + Radix primitives + local CSS/token utilities
 **Target UI foundation**: Mantine-only contract from the shared SSOT
@@ -60,7 +61,7 @@ Implemented:
 - Mantine package baseline: `@mantine/core`, `@mantine/hooks`, `@mantine/form`, `@mantine/notifications`, `@mantine/modals`, and `@tabler/icons-react`.
 - Root runtime wiring in `app/[locale]/layout.tsx`.
 - Central `MantineProvider`, `ModalsProvider`, and `Notifications` setup.
-- Initial Amanoba theme in `app/lib/ui/mantine-theme.ts`.
+- Amanoba theme in `app/lib/ui/mantine-theme.ts`, including dark-mode component defaults for readable text, cards, papers, inputs, overlays, tabs, badges, and code surfaces.
 - Initial guardrail command: `npm run ui:check:mantine`.
 - First proof surface: Memory Match now uses Mantine `Button` and `Card` directly instead of the legacy shared UI primitives.
 
@@ -76,6 +77,7 @@ Still pending:
 - Do not add new design rules to Amanoba docs when they belong in `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`.
 - Do not add new raw color literals in tracked UI code outside approved token sources.
 - Do not add new generic template palettes in touched UI code.
+- Do not mix dark and light surfaces inside learner/product flows unless the exception is documented against `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COLOR_MODES_READABILITY.md`.
 - Do not expand Tailwind/Radix-specific abstractions as if they are the long-term system.
 - Keep CTA yellow reserved for primary actions until the Mantine theme migration replaces the local adapter with shared-theme semantics.
 - New or refactored reusable primitives must be planned against `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENT_CONTRACTS.md`.

@@ -2,7 +2,7 @@
 
 This document is the single-stop operational snapshot for Amanoba. Keep it current whenever the system behavior, process, or board status changes. Append entries instead of rewriting history.
 
-**Last Updated**: 2026-05-21
+**Last Updated**: 2026-05-22
 **Current Product Version**: 2.9.49 (per `package.json` and `README.md`)
 **Status**: Production stable, SSO-only auth, daily lessons + gamified learning live.
 
@@ -71,6 +71,29 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 1. Scope `#749` into concrete Practice Hub mode slices before implementation; keep it Backlog until prioritized.
 2. Keep wiki release notes grouped by ISO UTC date for public-facing releases.
 3. Keep `docs/HANDOVER.md` appended whenever runtime behavior, process, production status, or board state changes.
+
+---
+
+## Dark-mode readability hardening (2026-05-22)
+
+### What changed
+- Added `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COLOR_MODES_READABILITY.md` as the shared SSOT rule for dark/light mode ownership, contrast, mixed-mode exceptions, and human-first readability.
+- Updated Amanoba's Mantine theme defaults so dark-mode `Text`, `Title`, `Card`, `Paper`, inputs, overlays, tabs, badges, and code surfaces render readable colors by default instead of relying on page-by-page overrides.
+- Removed accidental light-mode `gray.0` referral panels from the dark profile surface.
+- Updated `docs/product/DESIGN_UPDATE.md` so Amanoba points at GDS `1.3.3` and treats color-mode readability as a hard migration rule.
+
+### Verification
+- `npx eslint app/lib/ui/mantine-theme.ts app/components/ReferralCard.tsx app/[locale]/profile/[playerId]/page.tsx app/[locale]/blog/page.tsx app/[locale]/courses/page.tsx app/[locale]/my-courses/page.tsx app/components/LearnerPageHeader.tsx` ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run ui:check:layout` ✅ pass
+- `npm run lint` ✅ pass
+- `npm test` ✅ pass
+- `npm run docs:refresh` ✅ pass, generated inventory/map updated
+- `npm run docs:links:check` ✅ pass
+- `npm run build` ✅ pass
+- `git diff --check` ✅ pass
 
 ---
 
