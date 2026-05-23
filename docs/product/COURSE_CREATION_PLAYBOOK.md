@@ -297,6 +297,15 @@ npx tsx --env-file=.env.local scripts/inject-course-from-json.ts path/to/course-
 
 Seed scripts must set `course.lessonQuizPolicy` for quiz behavior. Do not encode lesson-level behavior authority in `lesson.quizConfig`; keep that field null or compatibility-only when a legacy payload still needs to round-trip.
 
+Backfill existing courses with divergent legacy lesson configs:
+
+```sh
+npm run backfill:course-quiz-policy
+npm run backfill:course-quiz-policy -- --apply
+```
+
+The backfill writes `course.lessonQuizPolicy` only, uses most-common lesson behavior with strictest tie-breakers, and emits a JSON conflict report under `scripts/reports/`.
+
 Course-specific seed scripts:
 
 - Use only when the script is written for that exact course family.

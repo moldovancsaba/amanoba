@@ -71,7 +71,7 @@
 | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB |
 | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB |
 | `docs/i18n/LANGUAGE_DROPDOWN_PROBLEM_LOG.md` | Language dropdown / i18n problem — collected information | 13.1 KB |
-| `docs/product/COURSE_CREATION_PLAYBOOK.md` | Amanoba Course Creation Playbook | 13.9 KB |
+| `docs/product/COURSE_CREATION_PLAYBOOK.md` | Amanoba Course Creation Playbook | 14.2 KB |
 | `docs/product/DESIGN_UPDATE.md` | Design System Adapter Status | 5.8 KB |
 | `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` | Developer Feedback Analysis | 7.2 KB |
 | `docs/product/NEXT_PHASES.md` | Next Phases: Detailed Implementation Plan | 13.6 KB |

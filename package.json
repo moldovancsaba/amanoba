@@ -45,6 +45,7 @@
     "admin:check-role": "tsx --env-file=.env.local scripts/check-user-role.ts",
     "migrate:fix-facebookid-index": "tsx --env-file=.env.local scripts/fix-facebookid-index.ts",
     "migrate:remove-facebookid": "tsx --env-file=.env.local scripts/migrate-remove-facebookid.ts",
+    "backfill:course-quiz-policy": "tsx --env-file=.env.local scripts/backfill-course-quiz-policy.ts",
     "admin:disable-course-discussion": "tsx --env-file=.env.local scripts/disable-course-discussion.ts",
     "seo:submit-sitemap": "tsx --env-file=.env.local scripts/submit-sitemap-search-console.ts",
     "blog:publish": "tsx scripts/publish-amanoba-news.ts",

@@ -74,7 +74,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/i18n/LANGUAGE_DROPDOWN_PROBLEM_LOG.md` | Language dropdown / i18n problem — collected information | 13.1 KB | — | Unclassified; keep pending human review. |
-| ARCHIVE | `docs/product/COURSE_CREATION_PLAYBOOK.md` | Amanoba Course Creation Playbook | 13.9 KB | `docs/_archive/reference/` | Process/delivery doc; keep for context but treat as non-canonical. |
+| ARCHIVE | `docs/product/COURSE_CREATION_PLAYBOOK.md` | Amanoba Course Creation Playbook | 14.2 KB | `docs/_archive/reference/` | Process/delivery doc; keep for context but treat as non-canonical. |
 | KEEP | `docs/product/DESIGN_UPDATE.md` | Design System Adapter Status | 5.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` | Developer Feedback Analysis | 7.2 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/product/NEXT_PHASES.md` | Next Phases: Detailed Implementation Plan | 13.6 KB | — | Unclassified; keep pending human review. |
