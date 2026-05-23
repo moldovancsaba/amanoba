@@ -1356,3 +1356,16 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:check:foundation` ✅ pass
 - `npm run ui:check:layout` ✅ pass
 - `npm run build` ✅ pass
+
+## GDS learner surfaces + AuthShell (2026-05-23)
+
+### What changed
+- Extracted `app/components/patterns/AuthShell.tsx` and wired sign-in and auth error routes to it.
+- Migrated `leaderboards`, `stats`, `onboarding`, and `admin/votes` to Mantine (`LearnerPageHeader`, `StateBlock`, `MetricCard`, governed admin table).
+- Onboarding submit feedback uses Mantine notifications instead of browser `alert()`.
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run build` ✅ pass

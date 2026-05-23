@@ -1,27 +1,40 @@
 'use client';
 
 /**
- * User Statistics Page
- * 
- * Purpose: Display comprehensive user statistics and analytics
- * Why: Helps users track their progress and identify areas for improvement
- * 
- * Features from original Madoku:
- * - Overall stats (games played, win rate, average time)
- * - Game-specific stats (per game type)
- * - ELO progression chart
- * - Best performances
- * - Activity heatmap
- * - Achievement progress
+ * User Statistics Page — Mantine learner metrics surface.
  */
 
-import { useEffect, useState, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { Progress } from '@mantine/core';
+import {
+  Box,
+  Button,
+  Card,
+  Center,
+  Container,
+  Group,
+  Loader,
+  Progress,
+  SimpleGrid,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
+import {
+  IconBolt,
+  IconFlame,
+  IconHourglass,
+  IconMedal,
+  IconTarget,
+  IconTrophy,
+} from '@tabler/icons-react';
+import { LearnerPageHeader } from '@/app/components/LearnerPageHeader';
+import { MetricCard } from '@/app/components/patterns/MetricCard';
+import { StateBlock } from '@/app/components/patterns/StateBlock';
 import { LocaleLink } from '@/components/LocaleLink';
-import { getEloRank, getEloIcon } from '@/lib/gamification/elo-calculator';
+import { getEloIcon, getEloRank } from '@/lib/gamification/elo-calculator';
 
 interface PlayerStats {
   overall: {
@@ -35,8 +48,9 @@ interface PlayerStats {
     currentStreak: number;
     bestStreak: number;
   };
-  gameSpecific: {
-    [gameKey: string]: {
+  gameSpecific: Record<
+    string,
+    {
       gamesPlayed: number;
       wins: number;
       losses: number;
@@ -46,8 +60,8 @@ interface PlayerStats {
       fastestWin?: number;
       highestAccuracy?: number;
       elo?: number;
-    };
-  };
+    }
+  >;
   level: number;
   currentXP: number;
   totalXP: number;
@@ -64,37 +78,37 @@ export default function StatsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const formatTime = (ms: number): string => {
+    if (!ms) return t('notAvailable');
+    const seconds = Math.floor(ms / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    if (hours > 0) return `${hours}h ${minutes % 60}m`;
+    if (minutes > 0) return `${minutes}m ${seconds % 60}s`;
+    return `${seconds}s`;
+  };
+
   const fetchStats = useCallback(async () => {
     try {
       setLoading(true);
       const user = session?.user as { id?: string; playerId?: string };
-      const playerId = user.playerId || user.id;
-      
-      if (!playerId) {
-        throw new Error(t('noPlayerId'));
-      }
+      const playerId = user?.playerId || user?.id;
+      if (!playerId) throw new Error(t('noPlayerId'));
 
-      // Why: Add timeout to prevent infinite loading
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+      const timeoutId = setTimeout(() => controller.abort(), 10000);
 
       const response = await fetch(`/api/profile/${playerId}?t=${Date.now()}`, {
         cache: 'no-store',
         signal: controller.signal,
       });
-      
       clearTimeout(timeoutId);
-      
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Failed to fetch stats:', response.status, errorText);
-        throw new Error(t('failedToLoad'));
-      }
+
+      if (!response.ok) throw new Error(t('failedToLoad'));
 
       const data = await response.json();
-      const profile = data.profile || data; // Handle both wrapped and unwrapped response
-      
-      // Transform API response to PlayerStats structure
+      const profile = data.profile || data;
+
       setStats({
         overall: {
           totalGamesPlayed: profile.statistics?.totalGamesPlayed || 0,
@@ -114,10 +128,8 @@ export default function StatsPage() {
         achievementsUnlocked: profile.achievements?.unlocked || 0,
         achievementsTotal: profile.achievements?.total || 0,
       });
-      
       setError(null);
     } catch (err) {
-      console.error('Failed to fetch stats:', err);
       if (err instanceof Error && err.name === 'AbortError') {
         setError(t('requestTimedOut'));
       } else {
@@ -130,230 +142,214 @@ export default function StatsPage() {
 
   useEffect(() => {
     if (status === 'loading') return;
-
     if (!session?.user) {
       router.push(`/${locale}/auth/signin`);
       return;
     }
-
     void fetchStats();
   }, [fetchStats, locale, router, session, status]);
 
-  const formatTime = (ms: number): string => {
-    if (!ms) return t('notAvailable');
-    const seconds = Math.floor(ms / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    
-    if (hours > 0) {
-      return `${hours}h ${minutes % 60}m`;
-    } else if (minutes > 0) {
-      return `${minutes}m ${seconds % 60}s`;
-    } else {
-      return `${seconds}s`;
-    }
-  };
-
   if (status === 'loading' || loading) {
     return (
-      <div className="page-shell flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-brand-accent mx-auto mb-4"></div>
-          <p className="text-xl">{t('loading')}</p>
-        </div>
-      </div>
+      <Box bg="ink.9" mih="100vh">
+        <Center mih="50vh">
+          <Loader color="amanoba" size="lg" />
+        </Center>
+      </Box>
     );
   }
 
   if (error || !stats) {
     return (
-      <div className="page-shell flex items-center justify-center p-4">
-        <div className="page-card max-w-md w-full p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">😕 {t('unableToLoad')}</h2>
-          <p className="text-brand-darkGrey mb-6">{error || t('failedToLoad')}</p>
-          <LocaleLink href="/dashboard" className="page-button-primary inline-block">
-            {t('backToDashboard')}
-          </LocaleLink>
-        </div>
-      </div>
+      <Box bg="ink.9" mih="100vh">
+        <Container size="sm" py="xl">
+          <StateBlock
+            kind="error"
+            title={t('unableToLoad')}
+            description={error || t('failedToLoad')}
+            action={(
+              <Button component={LocaleLink} href={`/${locale}/dashboard`} color="amanoba">
+                {t('backToDashboard')}
+              </Button>
+            )}
+          />
+        </Container>
+      </Box>
     );
   }
 
-  const achievementProgress = stats.achievementsTotal > 0 
-    ? ((stats.achievementsUnlocked / stats.achievementsTotal) * 100).toFixed(0)
-    : 0;
+  const achievementProgress =
+    stats.achievementsTotal > 0
+      ? Math.round((stats.achievementsUnlocked / stats.achievementsTotal) * 100)
+      : 0;
 
   return (
-    <div className="page-shell">
-      <header className="page-header mobile-sticky-header">
-        <div className="page-container py-6">
-          <div className="flex items-center justify-between gap-3">
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-bold text-brand-white flex items-center gap-2 leading-tight">
-                <span>📊</span>
-                {t('pageTitle')}
-              </h1>
-              <p className="text-brand-white/80 mt-1 text-sm sm:text-base">{t('pageSubtitle')}</p>
-            </div>
-            <LocaleLink href="/dashboard" className="page-button-secondary">
-              ← {t('backToDashboard')}
-            </LocaleLink>
-          </div>
-        </div>
-      </header>
+    <Box bg="ink.9" mih="100vh">
+      <LearnerPageHeader
+        title={t('pageTitle')}
+        subtitle={t('pageSubtitle')}
+        icon={<IconTarget size={22} />}
+        actions={(
+          <Button component={LocaleLink} href={`/${locale}/dashboard`} variant="default" color="gray">
+            {t('backToDashboard')}
+          </Button>
+        )}
+      />
 
-      <main className="page-container py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8 dashboard-grid-2">
-          <div className="page-card p-6">
-            <div className="text-brand-darkGrey text-sm mb-2">{t('level')}</div>
-            <div className="text-4xl font-bold text-brand-black mb-2">⚡ {stats.level}</div>
-            <div className="text-brand-darkGrey text-sm">{stats.currentXP} / 100 XP</div>
-            <Progress value={stats.currentXP} mt="sm" />
-          </div>
+      <Container size="xl" py="xl">
+        <Stack gap="xl">
+          <SimpleGrid cols={{ base: 1, sm: 2, lg: 4 }}>
+            <MetricCard
+              icon={<IconBolt size={24} />}
+              value={stats.level}
+              label={t('level')}
+              detail={`${stats.currentXP} / 100 XP`}
+              progress={stats.currentXP}
+            />
+            <MetricCard
+              icon={<IconTrophy size={24} />}
+              value={stats.overall.totalGamesPlayed}
+              label={t('gamesPlayed')}
+              detail={`${stats.overall.totalWins}W / ${stats.overall.totalLosses}L / ${stats.overall.totalDraws}D`}
+            />
+            <MetricCard
+              icon={<IconMedal size={24} />}
+              value={`${stats.overall.winRate}%`}
+              label={t('winRate')}
+              detail={`${stats.overall.totalWins} ${t('victories')}`}
+            />
+            <MetricCard
+              icon={<IconFlame size={24} />}
+              value={stats.overall.currentStreak}
+              label={t('streak')}
+              detail={`${t('best')}: ${stats.overall.bestStreak}`}
+            />
+          </SimpleGrid>
 
-          <div className="page-card p-6">
-            <div className="text-brand-darkGrey text-sm mb-2">{t('gamesPlayed')}</div>
-            <div className="text-4xl font-bold text-brand-black mb-2">🎮 {stats.overall.totalGamesPlayed}</div>
-            <div className="text-brand-darkGrey text-sm">
-              {stats.overall.totalWins}W / {stats.overall.totalLosses}L / {stats.overall.totalDraws}D
-            </div>
-          </div>
+          <Card padding="lg" withBorder>
+            <Title order={2} size="h3" mb="lg">
+              {t('gameSpecificStats')}
+            </Title>
+            {Object.keys(stats.gameSpecific).length === 0 ? (
+              <Text c="dimmed" ta="center" py="xl">
+                {t('noGameStats')}
+              </Text>
+            ) : (
+              <SimpleGrid cols={{ base: 1, md: 2, lg: 3 }}>
+                {Object.entries(stats.gameSpecific).map(([gameKey, gameStats]) => (
+                  <Card key={gameKey} padding="md" withBorder bg="ink.8">
+                    <Stack gap="xs">
+                      <Text fw={700} tt="capitalize">
+                        {gameKey}
+                      </Text>
+                      <Group justify="space-between">
+                        <Text size="sm" c="dimmed">
+                          {t('gamesPlayed')}
+                        </Text>
+                        <Text size="sm" fw={600}>
+                          {gameStats.gamesPlayed}
+                        </Text>
+                      </Group>
+                      <Group justify="space-between">
+                        <Text size="sm" c="dimmed">
+                          {t('winRate')}
+                        </Text>
+                        <Text size="sm" fw={600}>
+                          {gameStats.gamesPlayed > 0
+                            ? ((gameStats.wins / gameStats.gamesPlayed) * 100).toFixed(1)
+                            : 0}
+                          %
+                        </Text>
+                      </Group>
+                      <Group justify="space-between">
+                        <Text size="sm" c="dimmed">
+                          {t('bestScore')}
+                        </Text>
+                        <Text size="sm" fw={600}>
+                          {gameStats.bestScore || 0}
+                        </Text>
+                      </Group>
+                      {gameStats.elo ? (
+                        <Stack gap={2} mt="xs">
+                          <Group justify="space-between">
+                            <Text size="sm" c="dimmed">
+                              {t('eloRating')}
+                            </Text>
+                            <Text fw={700}>
+                              {getEloIcon(gameStats.elo)} {gameStats.elo}
+                            </Text>
+                          </Group>
+                          <Text size="xs" c="dimmed" ta="center">
+                            {getEloRank(gameStats.elo)}
+                          </Text>
+                        </Stack>
+                      ) : null}
+                    </Stack>
+                  </Card>
+                ))}
+              </SimpleGrid>
+            )}
+          </Card>
 
-          <div className="page-card p-6">
-            <div className="text-brand-darkGrey text-sm mb-2">{t('winRate')}</div>
-            <div className="text-4xl font-bold text-brand-black mb-2">🏆 {stats.overall.winRate}%</div>
-            <div className="text-brand-darkGrey text-sm">
-              {stats.overall.totalWins} {t('victories')}
-            </div>
-          </div>
+          <SimpleGrid cols={{ base: 1, md: 2 }}>
+            <Card padding="lg" withBorder>
+              <Title order={2} size="h3" mb="md">
+                {t('achievements')}
+              </Title>
+              <Stack align="center" gap="md" py="md">
+                <Text size="3rem" fw={800} lh={1}>
+                  {achievementProgress}%
+                </Text>
+                <Text c="dimmed">
+                  {t('unlockedCount', {
+                    unlocked: stats.achievementsUnlocked,
+                    total: stats.achievementsTotal,
+                  })}
+                </Text>
+                <Progress value={achievementProgress} maw={320} w="100%" color="amanoba" />
+              </Stack>
+              <Button
+                component={LocaleLink}
+                href={`/${locale}/achievements`}
+                color="amanoba"
+                fullWidth
+                mt="md"
+              >
+                {t('viewAllAchievements')}
+              </Button>
+            </Card>
 
-          <div className="page-card p-6">
-            <div className="text-brand-darkGrey text-sm mb-2">{t('streak')}</div>
-            <div className="text-4xl font-bold text-brand-black mb-2">🔥 {stats.overall.currentStreak}</div>
-            <div className="text-brand-darkGrey text-sm">
-              {t('best')}: {stats.overall.bestStreak}
-            </div>
-          </div>
-        </div>
-
-        <div className="page-card p-6 mb-8">
-          <h2 className="text-2xl font-bold text-brand-black mb-6">🎯 {t('gameSpecificStats')}</h2>
-          
-          {Object.keys(stats.gameSpecific).length === 0 ? (
-            <p className="text-brand-darkGrey text-center py-8">{t('noGameStats')}</p>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 dashboard-grid-3">
-              {Object.entries(stats.gameSpecific).map(([gameKey, gameStats]) => (
-                <div 
-                  key={gameKey}
-                  className="bg-brand-darkGrey/5 rounded-xl p-4 border border-brand-darkGrey/20"
-                >
-                  <h3 className="text-lg font-semibold text-brand-black mb-3 capitalize">{gameKey}</h3>
-                  
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between text-brand-darkGrey">
-                      <span>{t('gamesPlayed')}:</span>
-                      <span className="font-semibold">{gameStats.gamesPlayed}</span>
-                    </div>
-                    
-                    <div className="flex justify-between text-brand-darkGrey">
-                      <span>{t('winRate')}:</span>
-                      <span className="font-semibold">
-                        {gameStats.gamesPlayed > 0 
-                          ? ((gameStats.wins / gameStats.gamesPlayed) * 100).toFixed(1)
-                          : 0}%
-                      </span>
-                    </div>
-                    
-                    <div className="flex justify-between text-brand-darkGrey">
-                      <span>{t('bestScore')}:</span>
-                      <span className="font-semibold">{gameStats.bestScore || 0}</span>
-                    </div>
-                    
-                    {gameStats.highestAccuracy !== undefined && (
-                      <div className="flex justify-between text-brand-darkGrey">
-                        <span>{t('bestAccuracy')}:</span>
-                        <span className="font-semibold">{gameStats.highestAccuracy.toFixed(1)}%</span>
-                      </div>
-                    )}
-                    
-                    {gameStats.fastestWin && (
-                      <div className="flex justify-between text-brand-darkGrey">
-                        <span>{t('fastestWin')}:</span>
-                        <span className="font-semibold">{formatTime(gameStats.fastestWin)}</span>
-                      </div>
-                    )}
-                    
-                    {gameStats.elo && (
-                      <div className="mt-3 pt-3 border-t border-brand-darkGrey/20">
-                        <div className="flex justify-between items-center">
-                          <span className="text-brand-darkGrey">{t('eloRating')}:</span>
-                          <span className="text-xl font-bold text-brand-black">
-                            {getEloIcon(gameStats.elo)} {gameStats.elo}
-                          </span>
-                        </div>
-                        <div className="text-center mt-1">
-                          <span className="text-xs text-brand-darkGrey">{getEloRank(gameStats.elo)}</span>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 dashboard-grid-2">
-          <div className="page-card p-6">
-            <h2 className="text-2xl font-bold text-brand-black mb-4">🏅 {t('achievements')}</h2>
-            
-            <div className="text-center py-8">
-              <div className="text-6xl font-bold text-brand-black mb-2">
-                {achievementProgress}%
-              </div>
-              <div className="text-brand-darkGrey text-lg mb-4">
-                {t('unlockedCount', {
-                  unlocked: stats.achievementsUnlocked,
-                  total: stats.achievementsTotal,
-                })}
-              </div>
-              <Progress value={Number(achievementProgress)} maw={320} mx="auto" />
-            </div>
-            
-            <LocaleLink href="/achievements" className="page-button-primary w-full text-center mt-4 block">
-              {t('viewAllAchievements')}
-            </LocaleLink>
-          </div>
-
-          <div className="page-card p-6">
-            <h2 className="text-2xl font-bold text-brand-black mb-4">⏱️ {t('playTime')}</h2>
-            
-            <div className="space-y-4">
-              <div className="bg-brand-darkGrey/5 rounded-lg p-4 border border-brand-darkGrey/20">
-                <div className="text-brand-darkGrey text-sm mb-2">{t('totalPlayTime')}</div>
-                <div className="text-3xl font-bold text-brand-black">
-                  {formatTime(stats.overall.totalPlayTime)}
-                </div>
-              </div>
-              
-              <div className="bg-brand-darkGrey/5 rounded-lg p-4 border border-brand-darkGrey/20">
-                <div className="text-brand-darkGrey text-sm mb-2">{t('averageSession')}</div>
-                <div className="text-3xl font-bold text-brand-black">
-                  {formatTime(stats.overall.averageSessionTime)}
-                </div>
-              </div>
-              
-              <div className="bg-brand-darkGrey/5 rounded-lg p-4 border border-brand-darkGrey/20">
-                <div className="text-brand-darkGrey text-sm mb-2">{t('sessionsPlayed')}</div>
-                <div className="text-3xl font-bold text-brand-black">
-                  {stats.overall.totalGamesPlayed}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
+            <Card padding="lg" withBorder>
+              <Title order={2} size="h3" mb="md">
+                {t('playTime')}
+              </Title>
+              <Stack gap="md">
+                <Card padding="md" bg="ink.8">
+                  <Text size="sm" c="dimmed" mb={4}>
+                    {t('totalPlayTime')}
+                  </Text>
+                  <Text size="xl" fw={700}>
+                    {formatTime(stats.overall.totalPlayTime)}
+                  </Text>
+                </Card>
+                <Card padding="md" bg="ink.8">
+                  <Group gap="sm">
+                    <IconHourglass size={20} />
+                    <Stack gap={2}>
+                      <Text size="sm" c="dimmed">
+                        {t('averageSession')}
+                      </Text>
+                      <Text size="xl" fw={700}>
+                        {formatTime(stats.overall.averageSessionTime)}
+                      </Text>
+                    </Stack>
+                  </Group>
+                </Card>
+              </Stack>
+            </Card>
+          </SimpleGrid>
+        </Stack>
+      </Container>
+    </Box>
   );
 }

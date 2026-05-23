@@ -11,12 +11,11 @@ import { AnonymousLoginButton } from '@/app/components/AnonymousLoginButton';
 import { getTranslations } from 'next-intl/server';
 import { LocaleLink } from '@/components/LocaleLink';
 import Image from 'next/image';
+import { AuthShell } from '@/app/components/patterns/AuthShell';
 import {
   Alert,
-  Box,
   Button,
   Card,
-  Container,
   Divider,
   Paper,
   SimpleGrid,
@@ -66,14 +65,30 @@ export default async function SignInPage({
   const errorMessage = errorMessageKey ? t(errorMessageKey) : errorCode ? t('errorSignInFailed') : null;
 
   return (
-    <Box bg="ink.9" mih="100vh" py={{ base: 'lg', sm: 'xl' }} px="md">
-      <Container size="xs">
-        <Stack gap="xl">
-        {errorMessage && (
-            <Alert color="red" radius="md">
-            {errorMessage}
-            </Alert>
-        )}
+    <AuthShell
+      alert={errorMessage ? <Alert color="red" radius="md">{errorMessage}</Alert> : undefined}
+      footer={(
+          <Stack gap="md" ta="center">
+            <Title order={2} size="h3" c="white">{t('whyJoin')}</Title>
+            <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="sm">
+              {[
+                { icon: IconBook, label: tCommon('courses.title') },
+                { icon: IconMail, label: t('dailyLessons') },
+                { icon: IconTargetArrow, label: t('interactiveAssessments') },
+              ].map((item) => (
+                <Paper key={item.label} bg="ink.8" p="md" withBorder>
+                  <Stack gap="xs" align="center">
+                    <ThemeIcon color="amanoba" variant="light" radius="xl">
+                      <item.icon size={20} />
+                    </ThemeIcon>
+                    <Text c="white" fw={700} size="sm">{item.label}</Text>
+                  </Stack>
+                </Paper>
+              ))}
+            </SimpleGrid>
+          </Stack>
+      )}
+    >
           <Card padding="xl" withBorder>
             <Stack gap="xl">
               <Stack gap="md" align="center" ta="center">
@@ -142,28 +157,6 @@ export default async function SignInPage({
               </Text>
             </Stack>
           </Card>
-
-          <Stack gap="md" ta="center">
-            <Title order={2} size="h3" c="white">{t('whyJoin')}</Title>
-            <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="sm">
-              {[
-                { icon: IconBook, label: tCommon('courses.title') },
-                { icon: IconMail, label: t('dailyLessons') },
-                { icon: IconTargetArrow, label: t('interactiveAssessments') },
-              ].map((item) => (
-                <Paper key={item.label} bg="ink.8" p="md" withBorder>
-                  <Stack gap="xs" align="center">
-                    <ThemeIcon color="amanoba" variant="light" radius="xl">
-                      <item.icon size={20} />
-                    </ThemeIcon>
-                    <Text c="white" fw={700} size="sm">{item.label}</Text>
-                  </Stack>
-                </Paper>
-              ))}
-            </SimpleGrid>
-          </Stack>
-        </Stack>
-      </Container>
-    </Box>
+    </AuthShell>
   );
 }

@@ -5,9 +5,10 @@
  * Why: Handle SSO/auth failures and provide clear guidance to users
  */
 
-import { Anchor, Box, Button, Code, Container, Stack, Text } from '@mantine/core';
+import { Anchor, Button, Code, Stack, Text } from '@mantine/core';
 import { IconAlertTriangle } from '@tabler/icons-react';
 import { LocaleLink } from '@/components/LocaleLink';
+import { AuthShell } from '@/app/components/patterns/AuthShell';
 import { StateBlock } from '@/app/components/patterns/StateBlock';
 
 /**
@@ -88,8 +89,7 @@ export default async function AuthErrorPage({
   const errorInfo = errorMessages[errorType] || errorMessages.default;
 
   return (
-    <Box bg="ink.9" mih="100vh" px="md" py="xl">
-      <Container size="xs">
+    <AuthShell>
         <Stack gap="md">
           <StateBlock
             kind="error"
@@ -118,7 +118,6 @@ export default async function AuthErrorPage({
             <Code block>Error Type: {errorType}</Code>
           )}
         </Stack>
-      </Container>
-    </Box>
+    </AuthShell>
   );
 }

@@ -1,26 +1,40 @@
-/**
- * Onboarding Survey Page
- * 
- * What: Multi-step survey form for new users
- * Why: Collects user preferences for personalized course recommendations
- */
-
 'use client';
 
-import { useState, useEffect } from 'react';
+/**
+ * Onboarding Survey Page — Mantine form shell with governed layout.
+ */
+
+import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { Progress } from '@mantine/core';
+import {
+  Alert,
+  Box,
+  Button,
+  Card,
+  Center,
+  Checkbox,
+  Group,
+  Loader,
+  Paper,
+  Progress,
+  Radio,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
+import { notifications } from '@mantine/notifications';
+import {
+  IconArrowLeft,
+  IconArrowRight,
+  IconCheck,
+  IconHelp,
+} from '@tabler/icons-react';
+import { AuthShell } from '@/app/components/patterns/AuthShell';
+import { StateBlock } from '@/app/components/patterns/StateBlock';
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
-import {
-  ArrowLeft,
-  ArrowRight,
-  CheckCircle,
-  Loader2,
-  HelpCircle,
-} from 'lucide-react';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 
 interface SurveyQuestion {
@@ -74,7 +88,7 @@ export default function OnboardingPage() {
       router.push(`/${locale}/auth/signin?callbackUrl=/${locale}/onboarding`);
       return;
     }
-    fetchSurvey();
+    void fetchSurvey();
   }, [session, status, router, locale]);
 
   const fetchSurvey = async () => {
@@ -82,108 +96,83 @@ export default function OnboardingPage() {
       setLoading(true);
       const response = await fetch('/api/surveys/onboarding');
       const data = await response.json();
-
       if (data.success) {
-        if (data.survey.alreadyCompleted) {
-          // Already completed - don't redirect, just show a message or allow them to view
-          // This prevents redirect loops
-          setSurvey(data.survey);
-        } else {
-          setSurvey(data.survey);
-        }
-      } else {
-        console.error('Failed to fetch survey:', data.error);
+        setSurvey(data.survey);
       }
-    } catch (error) {
-      console.error('Failed to fetch survey:', error);
+    } catch (err) {
+      console.error('Failed to fetch survey:', err);
     } finally {
       setLoading(false);
     }
   };
 
   const handleAnswerChange = (questionId: string, value: unknown) => {
-    setAnswers((prev) => ({
-      ...prev,
-      [questionId]: value,
-    }));
-    // Clear error for this question
+    setAnswers((prev) => ({ ...prev, [questionId]: value }));
     if (errors[questionId]) {
       setErrors((prev) => {
-        const newErrors = { ...prev };
-        delete newErrors[questionId];
-        return newErrors;
+        const next = { ...prev };
+        delete next[questionId];
+        return next;
       });
     }
   };
 
   const validateCurrentStep = (): boolean => {
     if (!survey) return false;
-
     const currentQuestion = survey.questions[currentStep];
-    if (!currentQuestion) return false;
-
-    if (currentQuestion.required) {
-      const answer = answers[currentQuestion.questionId];
-      if (answer === undefined || answer === null || answer === '' || 
-          (Array.isArray(answer) && answer.length === 0)) {
-        setErrors((prev) => ({
-          ...prev,
-          [currentQuestion.questionId]: 'This question is required',
-        }));
-        return false;
-      }
+    if (!currentQuestion?.required) return true;
+    const answer = answers[currentQuestion.questionId];
+    if (
+      answer === undefined ||
+      answer === null ||
+      answer === '' ||
+      (Array.isArray(answer) && answer.length === 0)
+    ) {
+      setErrors((prev) => ({
+        ...prev,
+        [currentQuestion.questionId]: 'This question is required',
+      }));
+      return false;
     }
-
     return true;
   };
 
   const handleNext = () => {
-    if (!survey) return;
-
-    if (!validateCurrentStep()) {
-      return;
-    }
-
+    if (!survey || !validateCurrentStep()) return;
     if (currentStep < survey.questions.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      handleSubmit();
+      void handleSubmit();
     }
   };
 
   const handlePrevious = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
-    }
+    if (currentStep > 0) setCurrentStep(currentStep - 1);
   };
 
   const handleSubmit = async () => {
     if (!survey) return;
 
-    // Final validation
-    const allRequiredAnswered = survey.questions.every((q) => {
-      if (!q.required) return true;
+    const missingQuestion = survey.questions.find((q) => {
+      if (!q.required) return false;
       const answer = answers[q.questionId];
-      return answer !== undefined && answer !== null && answer !== '' &&
-             !(Array.isArray(answer) && answer.length === 0);
+      return (
+        answer === undefined ||
+        answer === null ||
+        answer === '' ||
+        (Array.isArray(answer) && answer.length === 0)
+      );
     });
 
-    if (!allRequiredAnswered) {
-      // Find first missing required question
-      const missingQuestion = survey.questions.find((q) => {
-        if (!q.required) return false;
-        const answer = answers[q.questionId];
-        return answer === undefined || answer === null || answer === '' ||
-               (Array.isArray(answer) && answer.length === 0);
-      });
-      if (missingQuestion) {
-        const missingIndex = survey.questions.findIndex((q) => q.questionId === missingQuestion.questionId);
-        setCurrentStep(missingIndex);
-        setErrors((prev) => ({
-          ...prev,
-          [missingQuestion.questionId]: 'This question is required',
-        }));
-      }
+    if (missingQuestion) {
+      const missingIndex = survey.questions.findIndex(
+        (q) => q.questionId === missingQuestion.questionId
+      );
+      setCurrentStep(missingIndex);
+      setErrors((prev) => ({
+        ...prev,
+        [missingQuestion.questionId]: 'This question is required',
+      }));
       return;
     }
 
@@ -191,12 +180,9 @@ export default function OnboardingPage() {
 
     try {
       const timeSpentSeconds = Math.floor((Date.now() - startTime) / 1000);
-
       const response = await fetch('/api/surveys/onboarding', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           answers: survey.questions.map((q) => ({
             questionId: q.questionId,
@@ -216,232 +202,212 @@ export default function OnboardingPage() {
           survey_id: 'onboarding',
           time_spent_seconds: timeSpentSeconds,
         });
-        // Survey submitted successfully
-        // Show success message and allow manual navigation
-        alert(tOnboarding('submitSuccess') || 'Survey submitted successfully! Thank you.');
-        setSubmitting(false);
-        // Optionally redirect after showing message (disabled for now)
-        // setTimeout(() => {
-        //   const redirectUrl = survey.metadata?.redirectUrl || `/${locale}/dashboard`;
-        //   router.replace(`${redirectUrl}?surveyCompleted=true`);
-        // }, 2000);
+        notifications.show({
+          color: 'green',
+          title: tOnboarding('submitSuccess') || 'Survey submitted',
+          message: tOnboarding('submitSuccess') || 'Thank you for completing onboarding.',
+        });
       } else {
-        alert(data.error || tOnboarding('submitError') || 'Failed to submit survey. Please try again.');
-        setSubmitting(false);
+        notifications.show({
+          color: 'red',
+          title: tOnboarding('submitError') || 'Submission failed',
+          message: data.error || tOnboarding('submitError') || 'Please try again.',
+        });
       }
-    } catch (error) {
-      console.error('Failed to submit survey:', error);
-      alert('Failed to submit survey. Please try again.');
+    } catch (err) {
+      console.error('Failed to submit survey:', err);
+      notifications.show({
+        color: 'red',
+        title: tOnboarding('submitError') || 'Submission failed',
+        message: 'Please try again.',
+      });
+    } finally {
       setSubmitting(false);
     }
   };
 
   if (status === 'loading' || loading) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center">
-        <div className="text-brand-white text-xl">{t('loading')}</div>
-      </div>
+      <Box bg="ink.9" mih="100vh">
+        <Center mih="100vh">
+          <Loader color="amanoba" />
+        </Center>
+      </Box>
     );
   }
 
   if (!survey) {
     return (
-      <div className="min-h-screen bg-brand-black flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-brand-white mb-4">{tOnboarding('notAvailable') || 'Survey not available'}</h2>
-          <LocaleLink
-            href="/dashboard"
-            className="inline-block bg-brand-accent text-brand-black px-6 py-3 rounded-lg font-bold hover:bg-brand-primary-400"
-          >
-            {tOnboarding('goToDashboard') || t('dashboard')}
-          </LocaleLink>
-        </div>
-      </div>
+      <AuthShell>
+        <StateBlock
+          kind="empty"
+          title={tOnboarding('notAvailable') || 'Survey not available'}
+          action={(
+            <Button component={LocaleLink} href={`/${locale}/dashboard`} color="amanoba">
+              {tOnboarding('goToDashboard') || t('dashboard')}
+            </Button>
+          )}
+        />
+      </AuthShell>
     );
   }
 
   const currentQuestion = survey.questions[currentStep];
   const progress = ((currentStep + 1) / survey.questions.length) * 100;
   const isLastStep = currentStep === survey.questions.length - 1;
+  const minRating = currentQuestion.metadata?.min || 1;
+  const maxRating = currentQuestion.metadata?.max || 5;
 
   return (
-    <div className="min-h-screen bg-brand-black">
-      {/* Header */}
-      <header className="bg-brand-darkGrey border-b-2 border-brand-accent sticky top-0 z-40 mobile-sticky-header">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 py-5 sm:py-6">
-          <div className="flex items-start gap-3 sm:gap-4 mb-4">
-            <Logo size="sm" showText={false} linkTo="/dashboard" preventShrink />
-            <div>
-              <h1 className="text-xl sm:text-2xl font-bold text-brand-white leading-tight">{survey.name}</h1>
-              {survey.description && (
-                <p className="text-brand-white/70 text-sm mt-1">{survey.description}</p>
-              )}
-            </div>
-          </div>
-          {/* Progress Bar */}
-          <Progress value={progress} />
-          <div className="text-sm text-brand-white/70 mt-2 text-center">
-            {tOnboarding('questionProgress', { current: currentStep + 1, total: survey.questions.length }) || `Question ${currentStep + 1} of ${survey.questions.length}`}
-          </div>
-        </div>
-      </header>
+    <Box bg="ink.9" mih="100vh">
+      <Paper component="header" bg="ink.8" radius={0} withBorder pos="sticky" top={0} style={{ zIndex: 40 }}>
+        <Box maw={900} mx="auto" px="md" py="md">
+          <Group align="flex-start" gap="md" mb="md">
+            <Logo size="sm" showText={false} linkTo={`/${locale}/dashboard`} preventShrink />
+            <Stack gap={4} style={{ flex: 1 }}>
+              <Title order={1} size="h3">
+                {survey.name}
+              </Title>
+              {survey.description ? (
+                <Text size="sm" c="dimmed">
+                  {survey.description}
+                </Text>
+              ) : null}
+            </Stack>
+          </Group>
+          <Progress value={progress} color="amanoba" />
+          <Text size="sm" c="dimmed" ta="center" mt="xs">
+            {tOnboarding('questionProgress', {
+              current: currentStep + 1,
+              total: survey.questions.length,
+            }) || `Question ${currentStep + 1} of ${survey.questions.length}`}
+          </Text>
+        </Box>
+      </Paper>
 
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
-        <div className="bg-brand-white rounded-2xl p-6 sm:p-8 border-2 border-brand-accent shadow-lg">
-          {/* Question */}
-          <div className="mb-8">
-            <div className="flex items-start gap-3 mb-4">
-              <h2 className="text-xl sm:text-2xl font-bold text-brand-black flex-1 leading-tight">
-                {currentQuestion.question}
-              </h2>
-              {currentQuestion.required && (
-                <span className="text-red-500 text-sm font-medium">*</span>
-              )}
-            </div>
-            {currentQuestion.description && (
-              <p className="text-brand-darkGrey mb-6 flex items-center gap-2">
-                <HelpCircle className="w-4 h-4" />
-                {currentQuestion.description}
-              </p>
-            )}
+      <Box maw={900} mx="auto" px="md" py="xl">
+        <Card padding="xl" withBorder>
+          <Stack gap="lg">
+            <Stack gap="xs">
+              <Group align="flex-start" gap="xs" wrap="nowrap">
+                <Title order={2} size="h3" style={{ flex: 1 }}>
+                  {currentQuestion.question}
+                </Title>
+                {currentQuestion.required ? (
+                  <Text c="red" fw={600}>
+                    *
+                  </Text>
+                ) : null}
+              </Group>
+              {currentQuestion.description ? (
+                <Group gap="xs" align="flex-start">
+                  <IconHelp size={16} style={{ marginTop: 2 }} />
+                  <Text size="sm" c="dimmed">
+                    {currentQuestion.description}
+                  </Text>
+                </Group>
+              ) : null}
+            </Stack>
 
-            {/* Error Message */}
-            {errors[currentQuestion.questionId] && (
-              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4">
+            {errors[currentQuestion.questionId] ? (
+              <Alert color="red" variant="light">
                 {errors[currentQuestion.questionId]}
-              </div>
-            )}
+              </Alert>
+            ) : null}
 
-            {/* Answer Input */}
-            <div className="space-y-3">
-              {currentQuestion.type === 'single_choice' && currentQuestion.options && (
-                <div className="space-y-2">
+            {currentQuestion.type === 'single_choice' && currentQuestion.options ? (
+              <Radio.Group
+                value={String(answers[currentQuestion.questionId] ?? '')}
+                onChange={(value) => handleAnswerChange(currentQuestion.questionId, value)}
+              >
+                <Stack gap="sm">
                   {currentQuestion.options.map((option) => (
-                    <label
+                    <Radio
                       key={option.value}
-                      className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-all ${
-                        answers[currentQuestion.questionId] === option.value
-                          ? 'border-brand-accent bg-brand-accent/10'
-                          : 'border-brand-darkGrey/30 hover:border-brand-accent/50'
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name={currentQuestion.questionId}
-                        value={option.value}
-                        checked={answers[currentQuestion.questionId] === option.value}
-                        onChange={(e) => handleAnswerChange(currentQuestion.questionId, e.target.value)}
-                        className="w-5 h-5 text-brand-accent focus:ring-brand-accent"
-                      />
-                      <span className="text-brand-black font-medium">{option.label}</span>
-                    </label>
+                      value={option.value}
+                      label={option.label}
+                      styles={{ label: { fontWeight: 500 } }}
+                    />
                   ))}
-                </div>
-              )}
+                </Stack>
+              </Radio.Group>
+            ) : null}
 
-              {currentQuestion.type === 'multiple_choice' && currentQuestion.options && (
-                <div className="space-y-2">
-                  {currentQuestion.options.map((option) => {
-                    const selectedValues = answers[currentQuestion.questionId] || [];
-                    const isSelected = Array.isArray(selectedValues) && selectedValues.includes(option.value);
-                    return (
-                      <label
-                        key={option.value}
-                        className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-all ${
-                          isSelected
-                            ? 'border-brand-accent bg-brand-accent/10'
-                            : 'border-brand-darkGrey/30 hover:border-brand-accent/50'
-                        }`}
-                      >
-                        <input
-                          type="checkbox"
-                          value={option.value}
-                          checked={isSelected}
-                          onChange={(e) => {
-                            const currentValues = answers[currentQuestion.questionId] || [];
-                            const newValues = e.target.checked
-                              ? [...(Array.isArray(currentValues) ? currentValues : []), option.value]
-                              : (Array.isArray(currentValues) ? currentValues : []).filter((v) => v !== option.value);
-                            handleAnswerChange(currentQuestion.questionId, newValues);
-                          }}
-                          className="w-5 h-5 text-brand-accent focus:ring-brand-accent rounded"
-                        />
-                        <span className="text-brand-black font-medium">{option.label}</span>
-                      </label>
-                    );
-                  })}
-                </div>
-              )}
+            {currentQuestion.type === 'multiple_choice' && currentQuestion.options ? (
+              <Stack gap="sm">
+                {currentQuestion.options.map((option) => {
+                  const selectedValues = answers[currentQuestion.questionId];
+                  const values = Array.isArray(selectedValues) ? selectedValues : [];
+                  const checked = values.includes(option.value);
+                  return (
+                    <Checkbox
+                      key={option.value}
+                      label={option.label}
+                      checked={checked}
+                      onChange={(event) => {
+                        const next = event.currentTarget.checked
+                          ? [...values, option.value]
+                          : values.filter((v) => v !== option.value);
+                        handleAnswerChange(currentQuestion.questionId, next);
+                      }}
+                    />
+                  );
+                })}
+              </Stack>
+            ) : null}
 
-              {currentQuestion.type === 'rating' && (
-                <div className="flex items-center gap-4">
-                  <span className="text-brand-darkGrey text-sm">
-                    {currentQuestion.metadata?.min || 1}
-                  </span>
-                  <div className="flex-1 flex items-center justify-center gap-2">
-                    {Array.from({ length: (currentQuestion.metadata?.max || 5) - (currentQuestion.metadata?.min || 1) + 1 }, (_, i) => {
-                      const value = (currentQuestion.metadata?.min || 1) + i;
-                      const isSelected = answers[currentQuestion.questionId] === value;
-                      return (
-                        <button
-                          key={value}
-                          type="button"
-                          onClick={() => handleAnswerChange(currentQuestion.questionId, value)}
-                          className={`w-12 h-12 rounded-full font-bold text-lg transition-all ${
-                            isSelected
-                              ? 'bg-brand-accent text-brand-black'
-                              : 'bg-brand-darkGrey/20 text-brand-darkGrey hover:bg-brand-accent/50'
-                          }`}
-                        >
-                          {value}
-                        </button>
-                      );
-                    })}
-                  </div>
-                  <span className="text-brand-darkGrey text-sm">
-                    {currentQuestion.metadata?.max || 5}
-                  </span>
-                </div>
-              )}
-            </div>
-          </div>
+            {currentQuestion.type === 'rating' ? (
+              <Group justify="center" gap="sm" wrap="wrap">
+                {Array.from({ length: maxRating - minRating + 1 }, (_, i) => {
+                  const value = minRating + i;
+                  const selected = answers[currentQuestion.questionId] === value;
+                  return (
+                    <Button
+                      key={value}
+                      variant={selected ? 'filled' : 'light'}
+                      color={selected ? 'amanoba' : 'gray'}
+                      onClick={() => handleAnswerChange(currentQuestion.questionId, value)}
+                      w={48}
+                      h={48}
+                      p={0}
+                    >
+                      {value}
+                    </Button>
+                  );
+                })}
+              </Group>
+            ) : null}
 
-          {/* Navigation */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-6 border-t border-brand-darkGrey/20">
-            <button
-              onClick={handlePrevious}
-              disabled={currentStep === 0 || submitting}
-              className="flex items-center justify-center gap-2 px-5 py-3 bg-brand-darkGrey text-brand-white rounded-lg font-bold hover:bg-brand-darkGrey/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              {t('previous')}
-            </button>
-
-            <button
-              onClick={handleNext}
-              disabled={submitting}
-              className="flex items-center justify-center gap-2 px-5 py-3 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
-            >
-              {submitting ? (
-                <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
-                  {tOnboarding('submitting') || 'Submitting...'}
-                </>
-              ) : isLastStep ? (
-                <>
-                  {t('submit')}
-                  <CheckCircle className="w-5 h-5" />
-                </>
-              ) : (
-                <>
-                  {t('next')}
-                  <ArrowRight className="w-5 h-5" />
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-      </main>
-    </div>
+            <Group justify="space-between" mt="md" pt="md" style={{ borderTop: '1px solid var(--mantine-color-default-border)' }}>
+              <Button
+                variant="default"
+                color="gray"
+                leftSection={<IconArrowLeft size={18} />}
+                onClick={handlePrevious}
+                disabled={currentStep === 0 || submitting}
+              >
+                {t('previous')}
+              </Button>
+              <Button
+                color="amanoba"
+                rightSection={
+                  submitting ? (
+                    <Loader size={18} color="dark" />
+                  ) : isLastStep ? (
+                    <IconCheck size={18} />
+                  ) : (
+                    <IconArrowRight size={18} />
+                  )
+                }
+                onClick={handleNext}
+                loading={submitting}
+              >
+                {isLastStep ? t('submit') : t('next')}
+              </Button>
+            </Group>
+          </Stack>
+        </Card>
+      </Box>
+    </Box>
   );
 }

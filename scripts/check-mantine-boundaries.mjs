@@ -31,6 +31,10 @@ const mantineOnlyFiles = new Set([
   'components/LanguageSwitcher.tsx',
   'components/Logo.tsx',
   'app/[locale]/admin/layout.tsx',
+  'app/[locale]/leaderboards/page.tsx',
+  'app/[locale]/stats/page.tsx',
+  'app/[locale]/onboarding/page.tsx',
+  'app/components/patterns/AuthShell.tsx',
 ]);
 
 const hardBlockedImports = [
