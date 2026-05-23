@@ -1288,3 +1288,23 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run type-check` ✅ pass
 - `npm run lint` ✅ pass
 - `npm run build` ✅ pass
+
+## Lesson quiz governance #9 — migration/backfill + conflict reporting (2026-05-23)
+
+### What changed
+- Added `app/lib/course-quiz-policy-backfill.ts` to derive `course.lessonQuizPolicy` from legacy course fields and lesson `quizConfig`, using most-common lesson behavior with strictest tie-breakers.
+- Added repeatable CLI `scripts/backfill-course-quiz-policy.ts` (`--apply`, `--force`) with JSON conflict reports under `scripts/reports/`.
+- Added `npm run backfill:course-quiz-policy` and documented the command in `docs/product/COURSE_CREATION_PLAYBOOK.md`.
+
+### Decisions
+- Writes **`course.lessonQuizPolicy` only**; does not scrub lesson-level compatibility fields.
+- Skips courses with explicit existing policy unless `--force`.
+- Conflict report lists per-field lesson groups when lesson behavior diverges within a course.
+
+### Board / issue
+- `#109` moved to **Done** on Project 12.
+
+### Verification
+- `npm test -- __tests__/unit/course-quiz-policy-backfill.test.ts` ✅ 3 passed
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
