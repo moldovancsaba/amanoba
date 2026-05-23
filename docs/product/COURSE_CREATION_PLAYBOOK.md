@@ -93,6 +93,8 @@ Legacy fields:
 
 These remain for import/export and compatibility only. New behavior should use `course.lessonQuizPolicy`.
 
+Package import/export routes resolve and persist `course.lessonQuizPolicy` canonically. Legacy course fields are preserved when present, but `lesson.quizConfig` is never promoted to runtime authority during import.
+
 Question authoring minimum:
 
 - Minimum 7 valid questions per lesson.
@@ -193,6 +195,10 @@ The canonical upload package is a single JSON object:
 {
   "packageVersion": "2.0",
   "version": "2.0",
+  "quizGovernance": {
+    "authority": "course.lessonQuizPolicy",
+    "lessonQuizConfigRole": "compatibility-only"
+  },
   "course": {
     "courseId": "EXAMPLE_COURSE_EN",
     "name": "Example Course",
@@ -288,6 +294,8 @@ Script seed from JSON:
 ```sh
 npx tsx --env-file=.env.local scripts/inject-course-from-json.ts path/to/course-export.json
 ```
+
+Seed scripts must set `course.lessonQuizPolicy` for quiz behavior. Do not encode lesson-level behavior authority in `lesson.quizConfig`; keep that field null or compatibility-only when a legacy payload still needs to round-trip.
 
 Course-specific seed scripts:
 

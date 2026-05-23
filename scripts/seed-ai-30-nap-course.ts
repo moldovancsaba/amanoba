@@ -4767,7 +4767,14 @@ async function seed() {
           completionXP: 500,
           lessonXP: 25
         },
-        metadata: {
+        lessonQuizPolicy: {
+      enabled: true,
+      required: true,
+      questionCount: 5,
+      shownAnswerCount: 3,
+      successThreshold: 100,
+    },
+    metadata: {
           category: 'ai',
           difficulty: 'beginner',
           estimatedHours: 7.5,
@@ -4833,13 +4840,7 @@ async function seed() {
             requireCourseStart: true
           },
           // Quiz configuration: 5 questions shown, 15 in pool, 100% threshold (5/5 correct)
-          quizConfig: {
-            enabled: true,
-            successThreshold: 100, // Need all 5 correct answers
-            questionCount: 5, // Show 5 questions
-            poolSize: 15, // 15 questions in pool (system selects 5 randomly)
-            required: true, // Quiz is required to complete lesson
-          },
+                    quizConfig: null,
           metadata: {
             estimatedMinutes: 10,
             difficulty: 'beginner' as const,

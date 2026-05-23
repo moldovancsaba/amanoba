@@ -70,6 +70,7 @@ export default function QuizManagerModal({
 }) {
   const [questions, setQuestions] = useState<QuizQuestionItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [shownAnswerCount, setShownAnswerCount] = useState(3);
   const [showQuestionForm, setShowQuestionForm] = useState(false);
   const [editingQuestion, setEditingQuestion] = useState<QuizQuestionItem | null>(null);
   const [questionForm, setQuestionForm] = useState(DEFAULT_FORM);
@@ -83,6 +84,7 @@ export default function QuizManagerModal({
       const data = await response.json();
       if (data.success) {
         setQuestions(data.questions || []);
+        setShownAnswerCount(data.courseQuizPolicy?.shownAnswerCount ?? 3);
       } else {
         notifications.show({ color: 'red', title: 'Could not load questions', message: data.error || 'Failed to load quiz questions' });
       }
@@ -102,7 +104,11 @@ export default function QuizManagerModal({
     try {
       const optionsToSend = questionForm.options.map((o) => o.trim()).filter(Boolean);
       if (optionsToSend.length < 4) {
-        notifications.show({ color: 'red', title: 'Question needs more options', message: 'At least 4 options must be filled.' });
+        notifications.show({
+          color: 'red',
+          title: 'Question needs more options',
+          message: `Store at least 4 options in the question bank. Learners see ${shownAnswerCount} answers per course policy.`,
+        });
         return;
       }
       if (new Set(optionsToSend).size !== optionsToSend.length) {

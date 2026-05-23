@@ -13,6 +13,8 @@ import { logger } from '@/lib/logger';
 import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
 import type { Session } from 'next-auth';
 import { quizEditableFields, getEditorActorId } from '../utils';
+import { resolveCourseQuizPolicy } from '@/lib/course-quiz-policy';
+import { validateQuestionAuthoringInput } from '@/lib/quiz-question-authoring';
 
 /**
  * PATCH /api/admin/courses/[courseId]/lessons/[lessonId]/quiz/[questionId]
@@ -32,17 +34,42 @@ export async function PATCH(
 
     await connectDB();
     const { courseId, lessonId, questionId } = await params;
+
+    const course = await Course.findOne({ courseId }).lean();
+    if (!course) {
+      return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+    }
+    if (!isAdmin(session) && !canAccessCourse(course, getPlayerIdFromSession(session))) {
+      return NextResponse.json({ error: 'Forbidden', message: 'You do not have access to this course' }, { status: 403 });
+    }
+
+    const courseQuizPolicy = resolveCourseQuizPolicy(course as Parameters<typeof resolveCourseQuizPolicy>[0]);
     const body = (await request.json()) as Record<string, unknown>;
     const hasOwnProperty = (prop: string) => Object.prototype.hasOwnProperty.call(body, prop);
     const updatePayload: Record<string, unknown> = {};
 
+    const mergedInput = {
+      options: hasOwnProperty('options') ? (body.options as string[]) : undefined,
+      correctIndex: hasOwnProperty('correctIndex') ? Number(body.correctIndex) : undefined,
+      correctAnswer: hasOwnProperty('correctAnswer') ? String(body.correctAnswer) : undefined,
+      wrongAnswers: hasOwnProperty('wrongAnswers') ? (body.wrongAnswers as string[]) : undefined,
+    };
+    if (
+      hasOwnProperty('options') ||
+      hasOwnProperty('correctIndex') ||
+      hasOwnProperty('correctAnswer') ||
+      hasOwnProperty('wrongAnswers')
+    ) {
+      const validation = validateQuestionAuthoringInput(mergedInput, courseQuizPolicy.shownAnswerCount);
+      if (!validation.ok) {
+        return NextResponse.json({ error: validation.error }, { status: 400 });
+      }
+    }
+
     if (hasOwnProperty('options')) {
       const options = body.options;
-      if (!Array.isArray(options) || options.length < 4) {
-        return NextResponse.json(
-          { error: 'Must provide at least 4 options' },
-          { status: 400 }
-        );
+      if (!Array.isArray(options)) {
+        return NextResponse.json({ error: 'options must be an array' }, { status: 400 });
       }
       if (!options.every((opt) => typeof opt === 'string' && opt.trim().length > 0)) {
         return NextResponse.json(
@@ -54,18 +81,24 @@ export async function PATCH(
     }
 
     if (hasOwnProperty('correctIndex')) {
-      const correctIndex = Number(body.correctIndex);
-      if (!Number.isInteger(correctIndex) || correctIndex < 0) {
-        return NextResponse.json(
-          { error: 'correctIndex must be a non-negative integer (0 to options.length - 1)' },
-          { status: 400 }
-        );
-      }
-      updatePayload.correctIndex = correctIndex;
+      updatePayload.correctIndex = Number(body.correctIndex);
+    }
+
+    if (hasOwnProperty('correctAnswer')) {
+      updatePayload.correctAnswer =
+        typeof body.correctAnswer === 'string' && body.correctAnswer.trim()
+          ? body.correctAnswer.trim()
+          : undefined;
+    }
+
+    if (hasOwnProperty('wrongAnswers')) {
+      updatePayload.wrongAnswers = Array.isArray(body.wrongAnswers) ? body.wrongAnswers : undefined;
     }
 
     for (const field of quizEditableFields) {
-      if (field === 'options' || field === 'correctIndex') continue;
+      if (field === 'options' || field === 'correctIndex' || field === 'correctAnswer' || field === 'wrongAnswers') {
+        continue;
+      }
       if (hasOwnProperty(field)) {
         updatePayload[field] =
           field === 'explanation' && typeof body[field] === 'string'
@@ -76,14 +109,6 @@ export async function PATCH(
 
     if (Object.keys(updatePayload).length === 0) {
       return NextResponse.json({ error: 'No editable fields provided' }, { status: 400 });
-    }
-
-    const course = await Course.findOne({ courseId }).lean();
-    if (!course) {
-      return NextResponse.json({ error: 'Course not found' }, { status: 404 });
-    }
-    if (!isAdmin(session) && !canAccessCourse(course, getPlayerIdFromSession(session))) {
-      return NextResponse.json({ error: 'Forbidden', message: 'You do not have access to this course' }, { status: 403 });
     }
 
     const lesson = await Lesson.findOne({ 

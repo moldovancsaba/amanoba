@@ -18,6 +18,7 @@ config({ path: resolve(process.cwd(), '.env') });
 import connectDB from '../app/lib/mongodb';
 import { Course, Lesson, QuizQuestion, Brand } from '../app/lib/models';
 import { contentToMarkdown } from '../app/lib/lesson-content';
+import { buildCourseQuizPolicyPackageFields, type CourseQuizPolicyInput } from '../app/lib/course-quiz-policy';
 
 const mapToObject = (
   map: Map<string, unknown> | Record<string, unknown> | null | undefined
@@ -62,11 +63,21 @@ async function main() {
     isCourseSpecific: true,
   }).lean();
 
+  const quizPolicyFields = buildCourseQuizPolicyPackageFields({
+    lessonQuizPolicy: (course as { lessonQuizPolicy?: CourseQuizPolicyInput['lessonQuizPolicy'] }).lessonQuizPolicy,
+    quizMaxWrongAllowed: (course as { quizMaxWrongAllowed?: number }).quizMaxWrongAllowed,
+    defaultLessonQuizQuestionCount: (course as { defaultLessonQuizQuestionCount?: number }).defaultLessonQuizQuestionCount,
+  });
+
   const exportData = {
     packageVersion: '2.0',
     version: '2.0',
     exportedAt: new Date().toISOString(),
     exportedBy: 'scripts/export-course-from-db',
+    quizGovernance: {
+      authority: 'course.lessonQuizPolicy',
+      lessonQuizConfigRole: 'compatibility-only',
+    },
     course: {
       courseId: course.courseId,
       name: course.name || '',
@@ -96,8 +107,9 @@ async function main() {
           ? course.prerequisiteCourseIds.map((id: unknown) => String(id))
           : undefined,
       prerequisiteEnforcement: course.prerequisiteEnforcement ?? undefined,
-      quizMaxWrongAllowed: (course as { quizMaxWrongAllowed?: number }).quizMaxWrongAllowed ?? undefined,
-      defaultLessonQuizQuestionCount: (course as { defaultLessonQuizQuestionCount?: number }).defaultLessonQuizQuestionCount ?? undefined,
+      lessonQuizPolicy: quizPolicyFields.lessonQuizPolicy,
+      quizMaxWrongAllowed: quizPolicyFields.quizMaxWrongAllowed,
+      defaultLessonQuizQuestionCount: quizPolicyFields.defaultLessonQuizQuestionCount,
       certification: course.certification ?? undefined,
     },
     lessons: lessons.map((lesson) => {
@@ -127,6 +139,7 @@ async function main() {
         content: contentToMarkdown(lesson.content),
         emailSubject: lesson.emailSubject || '',
         emailBody: contentToMarkdown(lesson.emailBody),
+        // Compatibility export only. Course.lessonQuizPolicy is the live authority for quiz behavior.
         quizConfig: lesson.quizConfig || null,
         unlockConditions: lesson.unlockConditions || {},
         pointsReward: lesson.pointsReward || 0,

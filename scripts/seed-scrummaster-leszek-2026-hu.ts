@@ -431,7 +431,14 @@ async function main() {
         requiresPremium: false,
         brandId: brand._id,
         ccsId: ccs.ccsId,
-        pointsConfig: { completionPoints: 1000, lessonPoints: 50, perfectCourseBonus: 500 },
+        lessonQuizPolicy: {
+      enabled: true,
+      required: true,
+      questionCount: 5,
+      shownAnswerCount: 3,
+      successThreshold: 70,
+    },
+    pointsConfig: { completionPoints: 1000, lessonPoints: 50, perfectCourseBonus: 500 },
         xpConfig: { completionXP: 500, lessonXP: 25 },
         certification: {
           enabled: true,
@@ -467,13 +474,7 @@ async function main() {
             xpReward: 5,
             isActive: lessonActive,
             displayOrder: day,
-            quizConfig: {
-              enabled: true,
-              successThreshold: 70,
-              questionCount: 5,
-              poolSize: 7,
-              required: true,
-            },
+                      quizConfig: null,
           },
         },
         { upsert: true, new: true }
@@ -500,13 +501,7 @@ async function main() {
             xpReward: 5,
             isActive: lessonActive,
             displayOrder: entry.day,
-            quizConfig: {
-              enabled: true,
-              successThreshold: 70,
-              questionCount: 5,
-              poolSize: 7,
-              required: true,
-            },
+                      quizConfig: null,
           },
         },
         { upsert: true, new: true }

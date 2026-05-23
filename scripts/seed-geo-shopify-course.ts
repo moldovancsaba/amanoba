@@ -1883,7 +1883,14 @@ async function seed() {
           completionXP: 500,
           lessonXP: 25
         },
-        metadata: {
+        lessonQuizPolicy: {
+      enabled: true,
+      required: true,
+      questionCount: 5,
+      shownAnswerCount: 3,
+      successThreshold: 100,
+    },
+    metadata: {
           category: 'education',
           difficulty: 'intermediate',
           estimatedHours: 10,
@@ -1934,13 +1941,7 @@ async function seed() {
             requirePreviousLesson: entry.day > 1,
             requireCourseStart: true
           },
-          quizConfig: {
-            enabled: true,
-            successThreshold: 100,
-            questionCount: 5,
-            poolSize: 5,
-            required: true
-          },
+                    quizConfig: null,
           metadata: {
             estimatedMinutes: 20,
             difficulty: 'intermediate' as const,

@@ -14,6 +14,7 @@ import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse 
 import type { Session } from 'next-auth';
 import { getEditorActorId } from './utils';
 import { resolveCourseQuizPolicy } from '@/lib/course-quiz-policy';
+import { validateQuestionAuthoringInput } from '@/lib/quiz-question-authoring';
 
 /**
  * GET /api/admin/courses/[courseId]/lessons/[lessonId]/quiz
@@ -126,41 +127,46 @@ export async function POST(
       explanation,
       options,
       correctIndex,
+      correctAnswer,
+      wrongAnswers,
       difficulty = QuestionDifficulty.MEDIUM,
       category = 'General Knowledge',
     } = body;
 
-    // Validate required fields
-    if (!question || !options || correctIndex === undefined) {
-      return NextResponse.json(
-        { error: 'Missing required fields: question, options, correctIndex' },
-        { status: 400 }
-      );
+    const courseQuizPolicy = resolveCourseQuizPolicy(course as Parameters<typeof resolveCourseQuizPolicy>[0]);
+
+    const validation = validateQuestionAuthoringInput(
+      {
+        options,
+        correctIndex,
+        correctAnswer,
+        wrongAnswers,
+      },
+      courseQuizPolicy.shownAnswerCount
+    );
+    if (!validation.ok) {
+      return NextResponse.json({ error: validation.error }, { status: 400 });
     }
 
-    // Validate options (minimum 4)
-    if (!Array.isArray(options) || options.length < 4) {
-      return NextResponse.json(
-        { error: 'Must provide at least 4 options' },
-        { status: 400 }
-      );
+    if (!question) {
+      return NextResponse.json({ error: 'Missing required field: question' }, { status: 400 });
     }
 
-    // Validate correctIndex (0 to options.length - 1)
-    if (!Number.isInteger(correctIndex) || correctIndex < 0 || correctIndex >= options.length) {
-      return NextResponse.json(
-        { error: 'correctIndex must be between 0 and options.length - 1' },
-        { status: 400 }
-      );
-    }
+    const usesLegacyOptions =
+      Array.isArray(options) &&
+      options.filter((entry) => typeof entry === 'string' && entry.trim()).length >= 4 &&
+      correctIndex !== undefined &&
+      !(typeof correctAnswer === 'string' && correctAnswer.trim());
 
     // Create quiz question
     const actor = getEditorActorId(session);
     const quizQuestion = new QuizQuestion({
       question,
       explanation: typeof explanation === 'string' && explanation.trim().length > 0 ? explanation.trim() : undefined,
-      options,
-      correctIndex,
+      options: usesLegacyOptions ? options : undefined,
+      correctIndex: usesLegacyOptions ? correctIndex : undefined,
+      correctAnswer: typeof correctAnswer === 'string' && correctAnswer.trim() ? correctAnswer.trim() : undefined,
+      wrongAnswers: Array.isArray(wrongAnswers) ? wrongAnswers : undefined,
       difficulty: difficulty as QuestionDifficulty,
       category,
       lessonId,

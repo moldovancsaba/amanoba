@@ -1239,3 +1239,52 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm test` ✅ pass
 - `npm run build` ✅ pass
 - `npm audit --omit=dev --audit-level=high` initially found a `nodemailer` issue; resolved in the follow-up dependency and deprecation hardening pass on 2026-05-23.
+
+## Project 1 → Project 12 board migration (2026-05-23)
+
+### What changed
+- Moved all canonical Amanoba issues from GitHub Project 1 (`https://github.com/users/moldovancsaba/projects/1`) to the Amanoba board on Project 12 (`https://github.com/users/moldovancsaba/projects/12/views/1`).
+- Selection criteria matched the prior migration pass: `mvp-factory-control` issues matching `amanoba in:title,body`, excluding `amanoba_courses:` Idea Bank titles.
+- Preserved each card's **Status** from Project 1 when adding to Project 12, then removed the card from Project 1.
+- Added repeatable script: `scripts/migrate-amanoba-project-1-to-12.py` (`--dry-run` supported).
+
+### Verification
+- Canonical Amanoba issues: **91**
+- Still on Project 1 after migration: **0**
+- Present on Project 12: **91**
+- Missing from Project 12: **0**
+
+## Lesson quiz governance #6 — import/export package ownership (2026-05-23)
+
+### What changed
+- Added `buildCourseQuizPolicyPackageFields()` in `app/lib/course-quiz-policy.ts` so package import/export/seed paths resolve and persist canonical `course.lessonQuizPolicy`.
+- Admin export now emits `course.lessonQuizPolicy`, optional legacy course quiz fallbacks, and top-level `quizGovernance` markers; `lessons[].quizConfig` remains compatibility-only.
+- Admin import and `scripts/inject-course-from-json.ts` now persist canonical `lessonQuizPolicy` from package course fields without promoting `lessons[].quizConfig` to runtime authority.
+- Aligned `scripts/export-course-from-db.ts` with the same export contract.
+- Updated `docs/COURSE_PACKAGE_FORMAT.md` and `docs/product/COURSE_CREATION_PLAYBOOK.md`.
+
+### Board / issue
+- `#106` assigned and moved to `In Progress (NOW)`; triaged closed cards `#16`, `#371`, `#373`, `#374` to `Done`; ideabank items `#748–#780` to `IDEABANK (SOMEDAY)`.
+
+### Verification
+- `npm test -- __tests__/unit/course-quiz-policy.test.ts` ✅ pass (5 tests)
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run docs:check` ✅ pass (after generated docs refresh)
+
+## Lesson quiz governance #7–#8 — seed + authoring validation (2026-05-23)
+
+### What changed
+- Added `app/lib/seed-course-quiz-policy.ts` with seed defaults and `normalizeSeedLessonQuizConfig()` so lesson `quizConfig` is compatibility-only during seed/import.
+- Updated behavior-heavy seed scripts to set `course.lessonQuizPolicy` and `quizConfig: null` on lessons; aligned `scripts/course-quality-live-bridge.ts` with the same governance.
+- Added `app/lib/quiz-question-authoring.ts` and wired admin lesson-quiz create/update routes plus `QuizManagerModal` to validate against course `shownAnswerCount` policy.
+- Extended lesson quiz editable fields to include `correctAnswer` / `wrongAnswers`.
+
+### Board / issues
+- `#106`, `#107`, `#108` moved to **Done** on Project 12.
+
+### Verification
+- `npm test -- __tests__/unit/course-quiz-policy.test.ts __tests__/unit/quiz-question-authoring.test.ts` ✅ 8 passed
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run build` ✅ pass

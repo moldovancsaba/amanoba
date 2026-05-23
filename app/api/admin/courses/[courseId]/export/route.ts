@@ -14,6 +14,7 @@ import { logger } from '@/lib/logger';
 import { requireAdminOrEditor, getPlayerIdFromSession, isAdmin, canAccessCourse } from '@/lib/rbac';
 import { contentToMarkdown } from '@/app/lib/lesson-content';
 import { normalizeCourseDurationDays } from '@/lib/course-helpers';
+import { buildCourseQuizPolicyPackageFields, type CourseQuizPolicyInput } from '@/lib/course-quiz-policy';
 
 /**
  * GET /api/admin/courses/[courseId]/export
@@ -76,12 +77,21 @@ export async function GET(
       return {};
     };
 
-    // Build export structure (package format v2 — legacy lesson.quizConfig is emitted for compatibility only)
+    // Build export structure (package format v2 — lesson.quizConfig is compatibility metadata only)
+    const quizPolicyFields = buildCourseQuizPolicyPackageFields({
+      lessonQuizPolicy: (course as { lessonQuizPolicy?: CourseQuizPolicyInput['lessonQuizPolicy'] }).lessonQuizPolicy,
+      quizMaxWrongAllowed: (course as { quizMaxWrongAllowed?: number }).quizMaxWrongAllowed,
+      defaultLessonQuizQuestionCount: (course as { defaultLessonQuizQuestionCount?: number }).defaultLessonQuizQuestionCount,
+    });
     const exportData = {
       packageVersion: '2.0',
       version: '2.0',
       exportedAt: new Date().toISOString(),
       exportedBy: session.user.email || 'admin',
+      quizGovernance: {
+        authority: 'course.lessonQuizPolicy',
+        lessonQuizConfigRole: 'compatibility-only',
+      },
       course: {
         courseId: course.courseId,
         name: course.name || '',
@@ -110,8 +120,9 @@ export async function GET(
           ? course.prerequisiteCourseIds.map((id: unknown) => String(id))
           : undefined,
         prerequisiteEnforcement: course.prerequisiteEnforcement ?? undefined,
-        quizMaxWrongAllowed: (course as { quizMaxWrongAllowed?: number }).quizMaxWrongAllowed ?? undefined,
-        defaultLessonQuizQuestionCount: (course as { defaultLessonQuizQuestionCount?: number }).defaultLessonQuizQuestionCount ?? undefined,
+        lessonQuizPolicy: quizPolicyFields.lessonQuizPolicy,
+        quizMaxWrongAllowed: quizPolicyFields.quizMaxWrongAllowed,
+        defaultLessonQuizQuestionCount: quizPolicyFields.defaultLessonQuizQuestionCount,
         certification: course.certification ?? undefined,
       },
       lessons: lessons.map((lesson) => {

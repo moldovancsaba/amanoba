@@ -3039,7 +3039,14 @@ async function seed() {
           completionXP: 500,
           lessonXP: 25
         },
-        metadata: {
+        lessonQuizPolicy: {
+      enabled: true,
+      required: true,
+      questionCount: 7,
+      shownAnswerCount: 3,
+      successThreshold: 100,
+    },
+    metadata: {
           category: 'education',
           difficulty: 'beginner',
           estimatedHours: 7.5,
@@ -3108,13 +3115,7 @@ async function seed() {
             requireCourseStart: true
           },
           // Quiz configuration: 5 questions shown (or all, ha kevesebb), pool = elérhető kérdések
-          quizConfig: {
-            enabled: true,
-            successThreshold: 100,
-            questionCount,
-            poolSize,
-            required: true,
-          },
+                    quizConfig: null,
           metadata: {
             estimatedMinutes: 10,
             difficulty: 'beginner' as const,

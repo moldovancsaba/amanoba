@@ -845,6 +845,13 @@ async function seed() {
       completionXP: 500,
       lessonXP: 25
     },
+    lessonQuizPolicy: {
+      enabled: true,
+      required: true,
+      questionCount: 7,
+      shownAnswerCount: 3,
+      successThreshold: 70,
+    },
     metadata: {
       category: 'business',
       difficulty: 'intermediate',
@@ -900,13 +907,7 @@ async function seed() {
       content,
       emailSubject,
       emailBody,
-      quizConfig: {
-        enabled: true,
-        successThreshold: 70,
-        questionCount: 7,
-        poolSize: 10,
-        required: true
-      },
+                quizConfig: null,
       pointsReward: 50,
       xpReward: 25,
       metadata: {

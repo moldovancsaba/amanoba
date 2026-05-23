@@ -21,6 +21,7 @@ import { QuestionDifficulty, QuizQuestionType } from '@/lib/models';
 import mongoose from 'mongoose';
 import { contentToMarkdown } from '@/lib/lesson-content';
 import { normalizeCourseDurationDays } from '@/lib/course-helpers';
+import { buildCourseQuizPolicyPackageFields } from '@/lib/course-quiz-policy';
 
 const VALID_QUESTION_TYPES = new Set(Object.values(QuizQuestionType));
 function normalizeQuestionType(value: unknown): string | undefined {
@@ -187,6 +188,8 @@ export async function POST(request: NextRequest) {
             .filter(Boolean) as mongoose.Types.ObjectId[]
         : undefined;
 
+    const quizPolicyFields = buildCourseQuizPolicyPackageFields(courseInfo);
+
     // Course content/config payload (merge-safe: only set provided fields so package name/description etc. apply exactly)
     const courseSet: Record<string, unknown> = {
       courseId: courseInfo.courseId,
@@ -203,8 +206,9 @@ export async function POST(request: NextRequest) {
       ccsId: courseInfo.ccsId ?? undefined,
       prerequisiteCourseIds: prerequisiteCourseIds ?? undefined,
       prerequisiteEnforcement: courseInfo.prerequisiteEnforcement ?? undefined,
-      quizMaxWrongAllowed: courseInfo.quizMaxWrongAllowed !== undefined ? courseInfo.quizMaxWrongAllowed : undefined,
-      defaultLessonQuizQuestionCount: courseInfo.defaultLessonQuizQuestionCount !== undefined ? courseInfo.defaultLessonQuizQuestionCount : undefined,
+      lessonQuizPolicy: quizPolicyFields.lessonQuizPolicy,
+      quizMaxWrongAllowed: quizPolicyFields.quizMaxWrongAllowed,
+      defaultLessonQuizQuestionCount: quizPolicyFields.defaultLessonQuizQuestionCount,
       certification: courseInfo.certification ?? undefined,
     };
     // Apply string content exactly when provided (preserves – vs - and avoids overwriting with undefined)

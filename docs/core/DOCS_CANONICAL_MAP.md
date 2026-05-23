@@ -44,7 +44,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/core/templates/FEATURE_TEMPLATE.md` | YYYY-MM-DD Feature Title | 247 B | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/WARP.DEV_AI_CONVERSATION.md` | Amanoba Development Planning Log | 17.1 KB | — | Reference notes (kept but not canonical). |
 | KEEP | `docs/core/WARP.md` | Amanoba AI Assistant Guide | 2.6 KB | — | Reference notes (kept but not canonical). |
-| KEEP | `docs/COURSE_PACKAGE_FORMAT.md` | Course Package Format | 406 B | — | Unclassified; keep pending human review. |
+| KEEP | `docs/COURSE_PACKAGE_FORMAT.md` | Course Package Format | 874 B | — | Unclassified; keep pending human review. |
 | KEEP | `docs/deployment/DEPLOYMENT.md` | Amanoba Deployment Guide | 2.0 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/deployment/STRIPE_VERCEL_SETUP.md` | Stripe Setup Guide for Vercel | 5.9 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/features/ASSESSMENT_GAME_ID_MIGRATION.md` | assessmentGameId Migration Plan | 1.6 KB | — | Unclassified; keep pending human review. |
@@ -69,12 +69,12 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 4.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | MVP Factory Project — one-time setup (grant project scope) | 1.2 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Prompt for Next Context Window | 2.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
-| KEEP | `docs/HANDOVER.md` | Amanoba — Developer Handover | 96.2 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
+| KEEP | `docs/HANDOVER.md` | Amanoba — Developer Handover | 99.1 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/i18n/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/i18n/LANGUAGE_DROPDOWN_PROBLEM_LOG.md` | Language dropdown / i18n problem — collected information | 13.1 KB | — | Unclassified; keep pending human review. |
-| ARCHIVE | `docs/product/COURSE_CREATION_PLAYBOOK.md` | Amanoba Course Creation Playbook | 13.4 KB | `docs/_archive/reference/` | Process/delivery doc; keep for context but treat as non-canonical. |
+| ARCHIVE | `docs/product/COURSE_CREATION_PLAYBOOK.md` | Amanoba Course Creation Playbook | 13.9 KB | `docs/_archive/reference/` | Process/delivery doc; keep for context but treat as non-canonical. |
 | KEEP | `docs/product/DESIGN_UPDATE.md` | Design System Adapter Status | 5.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` | Developer Feedback Analysis | 7.2 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/product/NEXT_PHASES.md` | Next Phases: Detailed Implementation Plan | 13.6 KB | — | Unclassified; keep pending human review. |

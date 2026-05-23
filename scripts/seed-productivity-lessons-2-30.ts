@@ -146,16 +146,17 @@ async function seedLessonForLanguages(
           content: lessonContent.content,
           emailSubject: lessonContent.emailSubject.replace(/\{\{APP_URL\}\}/g, appUrl),
           emailBody: lessonContent.emailBody.replace(/\{\{APP_URL\}\}/g, appUrl),
-          quizConfig: {
-            enabled: true,
-            successThreshold: 70,
-            questionCount: 5,
-            poolSize: 5,
-            required: true
-          },
+                    quizConfig: null,
           pointsReward: 50,
           xpReward: 25,
-          metadata: {
+          lessonQuizPolicy: {
+      enabled: true,
+      required: true,
+      questionCount: 5,
+      shownAnswerCount: 3,
+      successThreshold: 70,
+    },
+    metadata: {
             estimatedMinutes: 25,
             difficulty: 'medium'
           }

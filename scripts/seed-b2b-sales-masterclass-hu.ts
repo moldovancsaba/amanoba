@@ -3398,7 +3398,14 @@ async function main() {
         completionXP: 500,
         lessonXP: 25,
       },
-      metadata: {
+      lessonQuizPolicy: {
+      enabled: true,
+      required: true,
+      questionCount: 7,
+      shownAnswerCount: 3,
+      successThreshold: 80,
+    },
+    metadata: {
         category: 'B2B Sales',
         difficulty: 'intermediate',
         tags: ['b2b', 'sales', 'pipeline', 'ai'],
@@ -3421,13 +3428,7 @@ async function main() {
         content: entry.content,
         emailSubject: entry.emailSubject,
         emailBody: entry.emailBody,
-        quizConfig: {
-          enabled: true,
-          successThreshold: 80,
-          questionCount: entry.quiz?.questions.length || 4,
-          poolSize: entry.quiz?.questions.length || 4,
-          required: true,
-        },
+                  quizConfig: null,
         pointsReward: 25,
         xpReward: 25,
         isActive: true,

@@ -1769,6 +1769,13 @@ async function seed() {
       completionXP: 500,
       lessonXP: 25
     },
+    lessonQuizPolicy: {
+      enabled: true,
+      required: true,
+      questionCount: 5,
+      shownAnswerCount: 3,
+      successThreshold: 70,
+    },
     metadata: {
       category: 'education',
       difficulty: 'beginner',
@@ -1826,12 +1833,7 @@ async function seed() {
       content,
       emailSubject,
       emailBody,
-      quizConfig: {
-        questionCount: 5,
-        poolSize: 5,
-        shuffleQuestions: true,
-        shuffleOptions: true
-      },
+                quizConfig: null,
       metadata: {
         estimatedMinutes: 20,
         xpReward: 25,

@@ -15,6 +15,8 @@ const mongoModule = require('../app/lib/mongodb');
 const connectDB: () => Promise<unknown> = mongoModule.default;
 const disconnectDB: () => Promise<void> = mongoModule.disconnectDB;
 const { Course, Lesson, QuizQuestion } = require('../app/lib/models');
+const { buildCourseQuizPolicyPackageFields } = require('../app/lib/course-quiz-policy');
+const { normalizeSeedLessonQuizConfig } = require('../app/lib/seed-course-quiz-policy');
 
 type LiveLessonRecord = {
   objectId: string;
@@ -700,6 +702,8 @@ async function importPackage(payloadFile: string, actor: string) {
     creatorImportedBy: actor,
     draftOnly: true,
   };
+  const quizPolicyFields = buildCourseQuizPolicyPackageFields(courseInfo);
+
   const courseSet: Record<string, unknown> = {
     courseId,
     name: String(courseInfo.name || courseId),
@@ -716,6 +720,11 @@ async function importPackage(payloadFile: string, actor: string) {
     leaderboardEnabled: courseInfo.leaderboardEnabled !== undefined ? Boolean(courseInfo.leaderboardEnabled) : false,
     studyGroupsEnabled: courseInfo.studyGroupsEnabled !== undefined ? Boolean(courseInfo.studyGroupsEnabled) : false,
     quizMaxWrongAllowed: courseInfo.quizMaxWrongAllowed !== undefined ? Number(courseInfo.quizMaxWrongAllowed) : undefined,
+    defaultLessonQuizQuestionCount:
+      courseInfo.defaultLessonQuizQuestionCount !== undefined
+        ? Number(courseInfo.defaultLessonQuizQuestionCount)
+        : undefined,
+    lessonQuizPolicy: quizPolicyFields.lessonQuizPolicy,
     pointsConfig: courseInfo.pointsConfig || { completionPoints: 1000, lessonPoints: 50, perfectCourseBonus: 500 },
     xpConfig: courseInfo.xpConfig || { completionXP: 500, lessonXP: 25 },
     metadata,
@@ -734,7 +743,8 @@ async function importPackage(payloadFile: string, actor: string) {
   let questionsDeleted = 0;
 
   for (const lessonData of lessons) {
-    const existingLesson = await Lesson.findOne({ lessonId: lessonData.lessonId }).lean();
+    const normalizedLesson = normalizeSeedLessonQuizConfig(lessonData);
+    const existingLesson = await Lesson.findOne({ lessonId: normalizedLesson.lessonId }).lean();
     const lessonMetadata = {
       ...(lessonData.metadata && typeof lessonData.metadata === 'object' ? lessonData.metadata : {}),
       creatorImportedAt: now,
@@ -742,23 +752,23 @@ async function importPackage(payloadFile: string, actor: string) {
       creatorSource: 'amanoba_courses',
     };
     const lesson = await Lesson.findOneAndUpdate(
-      { lessonId: lessonData.lessonId },
+      { lessonId: normalizedLesson.lessonId },
       {
         $set: {
-          lessonId: lessonData.lessonId,
+          lessonId: normalizedLesson.lessonId,
           courseId: course._id,
-          dayNumber: lessonData.dayNumber ?? 1,
-          language: lessonData.language ?? course.language ?? 'en',
-          title: lessonData.title ?? '',
-          content: lessonData.content ?? '',
-          emailSubject: lessonData.emailSubject ?? '',
-          emailBody: lessonData.emailBody ?? '',
-          quizConfig: lessonData.quizConfig ?? null,
-          unlockConditions: lessonData.unlockConditions ?? {},
-          pointsReward: lessonData.pointsReward ?? 10,
-          xpReward: lessonData.xpReward ?? 5,
+          dayNumber: normalizedLesson.dayNumber ?? 1,
+          language: normalizedLesson.language ?? course.language ?? 'en',
+          title: normalizedLesson.title ?? '',
+          content: normalizedLesson.content ?? '',
+          emailSubject: normalizedLesson.emailSubject ?? '',
+          emailBody: normalizedLesson.emailBody ?? '',
+          quizConfig: normalizedLesson.quizConfig ?? null,
+          unlockConditions: normalizedLesson.unlockConditions ?? {},
+          pointsReward: normalizedLesson.pointsReward ?? 10,
+          xpReward: normalizedLesson.xpReward ?? 5,
           isActive: false,
-          displayOrder: lessonData.displayOrder ?? lessonData.dayNumber ?? 1,
+          displayOrder: normalizedLesson.displayOrder ?? normalizedLesson.dayNumber ?? 1,
           metadata: lessonMetadata,
         },
       },

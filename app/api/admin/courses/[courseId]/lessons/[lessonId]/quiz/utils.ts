@@ -12,6 +12,8 @@ export const quizEditableFields = [
   'explanation',
   'options',
   'correctIndex',
+  'correctAnswer',
+  'wrongAnswers',
   'difficulty',
   'category',
   'isActive',

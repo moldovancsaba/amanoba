@@ -236,13 +236,7 @@ function planLessons(canonical: Canonical, outlineMd?: string) {
       content: buildLessonContent(lesson, outlineMd),
       emailSubject: buildEmailSubject(lesson),
       emailBody: buildEmailBody(lesson),
-      quizConfig: {
-        enabled: true,
-        required: true,
-        successThreshold: 70,
-        questionCount: 7,
-        poolSize: 10,
-      },
+      quizConfig: null,
     }));
 }
 
@@ -293,6 +287,13 @@ async function main() {
       premiumIncludesCertification: false,
       requireAllLessonsCompleted: true,
       requireAllQuizzesPassed: true,
+    },
+    lessonQuizPolicy: {
+      enabled: true,
+      required: true,
+      questionCount: 7,
+      shownAnswerCount: 3,
+      successThreshold: 70,
     },
     metadata: {
       category: 'sport_sales_network',

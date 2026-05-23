@@ -24,6 +24,7 @@ import mongoose from 'mongoose';
 import connectDB from '../app/lib/mongodb';
 import { Course, Lesson, QuizQuestion, Brand } from '../app/lib/models';
 import { QuestionDifficulty, QuizQuestionType } from '../app/lib/models';
+import { buildCourseQuizPolicyPackageFields } from '../app/lib/course-quiz-policy';
 
 const CREATED_BY = 'inject-course-from-json';
 
@@ -121,6 +122,8 @@ async function main() {
           .filter(Boolean) as mongoose.Types.ObjectId[]
       : undefined;
 
+  const quizPolicyFields = buildCourseQuizPolicyPackageFields(courseInfo);
+
   const courseSet: Record<string, unknown> = {
     courseId: courseInfo.courseId,
     durationDays: courseInfo.durationDays ?? 30,
@@ -136,8 +139,9 @@ async function main() {
     ccsId: courseInfo.ccsId ?? undefined,
     prerequisiteCourseIds: prerequisiteCourseIds ?? undefined,
     prerequisiteEnforcement: courseInfo.prerequisiteEnforcement ?? undefined,
-    quizMaxWrongAllowed: courseInfo.quizMaxWrongAllowed !== undefined ? courseInfo.quizMaxWrongAllowed : undefined,
-    defaultLessonQuizQuestionCount: courseInfo.defaultLessonQuizQuestionCount !== undefined ? courseInfo.defaultLessonQuizQuestionCount : undefined,
+    lessonQuizPolicy: quizPolicyFields.lessonQuizPolicy,
+    quizMaxWrongAllowed: quizPolicyFields.quizMaxWrongAllowed,
+    defaultLessonQuizQuestionCount: quizPolicyFields.defaultLessonQuizQuestionCount,
     certification: courseInfo.certification ?? undefined,
   };
   if (courseInfo.name !== undefined && courseInfo.name !== null) courseSet.name = String(courseInfo.name);
@@ -174,6 +178,7 @@ async function main() {
           content: lessonData.content ?? '',
           emailSubject: lessonData.emailSubject ?? '',
           emailBody: lessonData.emailBody ?? '',
+          // Compatibility ingest only; runtime authority is course.lessonQuizPolicy.
           quizConfig: lessonData.quizConfig ?? null,
           unlockConditions: lessonData.unlockConditions ?? {},
           pointsReward: lessonData.pointsReward ?? 0,
