@@ -41,7 +41,10 @@ export async function GET(
   try {
     const session = await auth();
     if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized', code: 'SIGN_IN_REQUIRED' },
+        { status: 401 }
+      );
     }
 
     await connectDB();
@@ -51,7 +54,10 @@ export async function GET(
     // Find course
     const course = await Course.findOne({ courseId });
     if (!course) {
-      return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+      return NextResponse.json(
+        { success: false, error: 'Course not found', code: 'COURSE_NOT_FOUND' },
+        { status: 404 }
+      );
     }
 
     const { totalDays } = await resolveCourseLength(course);
@@ -144,7 +150,10 @@ export async function GET(
     }
 
     if (!lesson) {
-      return NextResponse.json({ error: 'Lesson not found' }, { status: 404 });
+      return NextResponse.json(
+        { success: false, error: 'Lesson not found', code: 'LESSON_NOT_FOUND' },
+        { status: 404 }
+      );
     }
 
     // For child courses, the resolved lesson has the parent's dayNumber; normalize to the requested (child) day so the UI shows "Day 1", "Day 2", etc.
@@ -251,7 +260,10 @@ export async function POST(
   try {
     const session = await auth();
     if (!session?.user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized', code: 'SIGN_IN_REQUIRED' },
+        { status: 401 }
+      );
     }
 
     await connectDB();
@@ -269,7 +281,10 @@ export async function POST(
     // Find course
     const course = await Course.findOne({ courseId });
     if (!course) {
-      return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+      return NextResponse.json(
+        { success: false, error: 'Course not found', code: 'COURSE_NOT_FOUND' },
+        { status: 404 }
+      );
     }
 
     const { totalDays } = await resolveCourseLength(course);
@@ -311,7 +326,10 @@ export async function POST(
     }
 
     if (!lesson) {
-      return NextResponse.json({ error: 'Lesson not found' }, { status: 404 });
+      return NextResponse.json(
+        { success: false, error: 'Lesson not found', code: 'LESSON_NOT_FOUND' },
+        { status: 404 }
+      );
     }
 
     let learningStreak:

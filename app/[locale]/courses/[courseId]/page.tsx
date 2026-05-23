@@ -55,6 +55,7 @@ import ContentVoteWidget from '@/components/ContentVoteWidget';
 import CourseDiscussion from '@/components/CourseDiscussion';
 import CourseStudyGroups from '@/components/CourseStudyGroups';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
+import { MOBILE_COURSE_DETAIL_BOTTOM_PADDING, MOBILE_FIXED_CTA_BOTTOM } from '@/app/lib/ui/consent-layout';
 
 interface Course {
   _id: string;
@@ -1266,12 +1267,17 @@ export default function CourseDetailPage({
               {course.metadata?.difficulty ? <Badge color="gray" variant="light">{course.metadata.difficulty}</Badge> : null}
               {course.requiresPremium ? <Badge color="amanoba" variant="light">{getCourseDetailText('premiumCourse')}</Badge> : null}
             </Group>
-            <Title order={1} c="white" size="h2">{course.name}</Title>
+            <Title order={1} c="white" size="h2" style={{ overflowWrap: 'anywhere' }}>{course.name}</Title>
           </Stack>
         </Container>
       </Paper>
 
-      <Container component="main" size="xl" py={{ base: 'lg', sm: 'xl' }} pb={112}>
+      <Container
+        component="main"
+        size="xl"
+        py={{ base: 'lg', sm: 'xl' }}
+        style={{ paddingBottom: MOBILE_COURSE_DETAIL_BOTTOM_PADDING }}
+      >
         <Grid gutter={{ base: 'lg', lg: 'xl' }}>
           <Grid.Col span={{ base: 12, lg: 8 }}>
             <Stack gap="lg">
@@ -1515,7 +1521,7 @@ export default function CourseDetailPage({
         {course && (
           <Affix
             hiddenFrom="md"
-            position={{ left: 12, right: 12, bottom: 12 }}
+            position={{ left: 12, right: 12, bottom: MOBILE_FIXED_CTA_BOTTOM }}
             zIndex={40}
           >
             <Transition mounted transition="slide-up">

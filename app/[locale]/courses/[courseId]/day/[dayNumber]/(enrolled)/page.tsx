@@ -41,7 +41,6 @@ import {
   IconCircleCheck,
   IconDeviceGamepad2,
   IconLock,
-  IconRefresh,
 } from '@tabler/icons-react';
 import { useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
@@ -50,6 +49,11 @@ import ContentVoteWidget from '@/components/ContentVoteWidget';
 import { contentToHtml } from '@/app/lib/lesson-content';
 import { readPracticeContextFromSearchParams } from '@/app/lib/practice-hub';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
+import {
+  resolveCourseAccessIssue,
+  type CourseAccessRecoveryIssue,
+} from '@/app/lib/course-access-recovery';
+import CourseAccessRecoveryActions from '@/components/patterns/CourseAccessRecoveryActions';
 
 interface Lesson {
   _id: string;
@@ -87,51 +91,7 @@ interface Navigation {
   next: { day: number; title: string } | null;
 }
 
-type LessonAccessIssue = {
-  status: number;
-  title: string;
-  message: string;
-  action: 'signin' | 'course' | 'retry';
-} | null;
-
-function GroupForAccessActions({
-  issue,
-  courseId,
-  courseLanguage,
-  onRetry,
-  signInHref,
-  backLabel,
-}: {
-  issue: NonNullable<LessonAccessIssue>;
-  courseId: string;
-  courseLanguage: string;
-  onRetry: () => void;
-  signInHref: string;
-  backLabel: string;
-}) {
-  return (
-    <Group>
-      {issue.action === 'signin' ? (
-        <Button component={LocaleLink} href={signInHref} color="amanoba">
-          Sign in
-        </Button>
-      ) : null}
-      {issue.action === 'retry' ? (
-        <Button onClick={onRetry} variant="outline" leftSection={<IconRefresh size={16} />}>
-          Retry
-        </Button>
-      ) : null}
-      <Button
-        component={LocaleLink}
-        href={`/${courseLanguage}/courses/${courseId}`}
-        variant={issue.action === 'course' ? 'filled' : 'outline'}
-        color={issue.action === 'course' ? 'amanoba' : 'gray'}
-      >
-        {backLabel}
-      </Button>
-    </Group>
-  );
-}
+type LessonAccessIssue = CourseAccessRecoveryIssue | null;
 
 // Static translations for day page - keyed by COURSE LANGUAGE
 const dayPageTranslations: Record<string, Record<string, string>> = {
@@ -523,30 +483,13 @@ export default function DailyLessonPage({
         const stored = localStorage.getItem(storageKey);
         setQuizPassed(stored === 'true');
       } else {
-        // Use localized message for known API errors (avoid English "Lesson not found" in /hu/ etc.)
-        const message =
-          data.error === 'Lesson not found'
-            ? getDayPageText('lessonNotFound', errorLanguage)
-            : (data.error || getDayPageText('failedToLoadLesson', errorLanguage));
         setLesson(null);
-        setAccessIssue({
-          status: response.status,
-          title: response.status === 401 ? 'Sign in required' : response.status === 404 ? getDayPageText('lessonNotFound', errorLanguage) : getDayPageText('failedToLoadLesson', errorLanguage),
-          message: response.status === 401
-            ? 'Sign in to continue this course from your saved progress.'
-            : message,
-          action: response.status === 401 ? 'signin' : response.status === 404 ? 'course' : 'retry',
-        });
+        setAccessIssue(resolveCourseAccessIssue(response.status, data, errorLanguage, 'lesson'));
       }
     } catch (error) {
       console.error('Failed to fetch lesson:', error);
       setLesson(null);
-      setAccessIssue({
-        status: 0,
-        title: getDayPageText('failedToLoadLesson', errorLanguage),
-        message: 'The lesson could not be loaded. Retry the request or return to the course overview.',
-        action: 'retry',
-      });
+      setAccessIssue(resolveCourseAccessIssue(0, {}, errorLanguage, 'lesson'));
     } finally {
       if (!opts.silent) {
         setLoading(false);
@@ -734,12 +677,7 @@ export default function DailyLessonPage({
     // Use URL locale as fallback so /hu/ always shows Hungarian message (courseLanguage may still be initial 'en')
     const displayLang = courseLanguage !== 'en' ? courseLanguage : (locale || 'en');
     const dir = (displayLang === 'ar' ? 'rtl' : 'ltr') as 'rtl' | 'ltr';
-    const issue = accessIssue ?? {
-      status: 404,
-      title: getDayPageText('lessonNotFound', displayLang),
-      message: getDayPageText('failedToLoadLesson', displayLang),
-      action: 'course' as const,
-    };
+    const issue = accessIssue ?? resolveCourseAccessIssue(0, {}, displayLang, 'lesson');
     return (
       <Box bg="ink.9" mih="100vh" py="xl" dir={dir}>
         <Container size="sm">
@@ -753,7 +691,7 @@ export default function DailyLessonPage({
               >
                 <Text>{issue.message}</Text>
               </Alert>
-              <GroupForAccessActions
+              <CourseAccessRecoveryActions
                 issue={issue}
                 courseId={courseId}
                 courseLanguage={courseLanguage || displayLang}

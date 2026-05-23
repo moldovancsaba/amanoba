@@ -42,6 +42,7 @@ import { CourseCard } from '@/app/components/patterns/CourseCard';
 import { StateBlock } from '@/app/components/patterns/StateBlock';
 import { COURSE_LANGUAGE_OPTIONS, type CourseLanguageCode } from '@/app/lib/constants/course-languages';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
+import { CATALOG_BOTTOM_PADDING } from '@/app/lib/ui/consent-layout';
 
 interface Course {
   _id: string;
@@ -328,7 +329,7 @@ export default function CoursesPage() {
         ) : null}
       />
 
-      <Container component="main" size="xl" py="xl">
+      <Container component="main" size="xl" py="xl" style={{ paddingBottom: CATALOG_BOTTOM_PADDING }}>
         <Stack gap="lg">
           <Paper bg="ink.8" p="md">
             <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">

@@ -1308,3 +1308,36 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm test -- __tests__/unit/course-quiz-policy-backfill.test.ts` ✅ 3 passed
 - `npm run type-check` ✅ pass
 - `npm run lint` ✅ pass
+
+## Course UX #823 — mobile conversion shell + consent CTA fix (2026-05-23)
+
+### What changed
+- Added `app/lib/ui/consent-layout.ts` with shared `--consent-banner-height` offsets for fixed mobile CTAs and scroll padding.
+- Applied consent banner body padding on all viewports in `app/globals.css` (previously `sm+` only).
+- Course catalog (`app/[locale]/courses/page.tsx`) and course detail (`app/[locale]/courses/[courseId]/page.tsx`) now reserve bottom space when the consent banner is open.
+- Mobile enrollment `Affix` sits above the consent banner via `MOBILE_FIXED_CTA_BOTTOM`; course detail title uses `overflowWrap: 'anywhere'` to avoid horizontal clipping.
+
+### Board / issue
+- `#823` ready for **Done** on Project 12.
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run ui:check:layout` ✅ pass
+- `npm run build` ✅ pass
+
+## Course UX #824 — protected course access recovery states (2026-05-23)
+
+### What changed
+- Added `app/lib/course-access-recovery.ts` and `components/patterns/CourseAccessRecoveryActions.tsx` to normalize 401/404 access errors into sign-in, course, retry, and continue recovery states.
+- Day lesson API (`app/api/courses/[courseId]/day/[dayNumber]/route.ts`) now returns structured `{ success: false, code }` payloads for `SIGN_IN_REQUIRED`, `COURSE_NOT_FOUND`, and `LESSON_NOT_FOUND`.
+- Lesson day UI and quiz UI use shared recovery copy/actions instead of raw `Unauthorized` or misleading default `Lesson not found` for anonymous access.
+
+### Board / issue
+- `#824` ready for **Done** on Project 12.
+
+### Verification
+- `npm test -- __tests__/unit/course-access-recovery.test.ts` ✅ 3 passed
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run build` ✅ pass

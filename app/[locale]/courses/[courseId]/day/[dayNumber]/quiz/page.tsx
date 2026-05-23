@@ -34,10 +34,14 @@ import {
   IconCheck,
   IconCircleCheck,
   IconLock,
-  IconRefresh,
   IconX,
 } from '@tabler/icons-react';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
+import {
+  resolveCourseAccessIssue,
+  type CourseAccessRecoveryIssue,
+} from '@/app/lib/course-access-recovery';
+import CourseAccessRecoveryActions from '@/components/patterns/CourseAccessRecoveryActions';
 
 interface LessonResponse {
   success: boolean;
@@ -78,12 +82,7 @@ interface QuizSubmitResult {
   explanation?: string | null;
 }
 
-type QuizAccessIssue = {
-  status: number;
-  title: string;
-  message: string;
-  action: 'signin' | 'lesson' | 'retry';
-} | null;
+type QuizAccessIssue = CourseAccessRecoveryIssue | null;
 
 // Static translations for quiz page - keyed by COURSE LANGUAGE
 const quizPageTranslations: Record<string, Record<string, string>> = {
@@ -300,20 +299,9 @@ export default function LessonQuizPage({
       if (lessonData.courseLanguage) setCourseLanguage(lessonData.courseLanguage);
       
       if (!lessonData.success || !lessonData.lesson) {
-        const title = lessonRes.status === 401
-          ? 'Sign in required'
-          : lessonRes.status === 404
-          ? getQuizPageText('failedToLoadLesson', apiLanguage)
-          : getQuizPageText('quizError', apiLanguage);
-        setAccessIssue({
-          status: lessonRes.status,
-          title,
-          message: lessonRes.status === 401
-            ? 'Sign in to take this lesson quiz and save your progress.'
-            : (lessonData.error || getQuizPageText('failedToLoadLesson', apiLanguage)),
-          action: lessonRes.status === 401 ? 'signin' : lessonRes.status === 404 ? 'lesson' : 'retry',
-        });
-        setError(lessonData.error || getQuizPageText('failedToLoadLesson', apiLanguage));
+        const issue = resolveCourseAccessIssue(lessonRes.status, lessonData, apiLanguage, 'quiz');
+        setAccessIssue(issue);
+        setError(issue.message);
         return;
       }
       
@@ -341,13 +329,9 @@ export default function LessonQuizPage({
       }
     } catch (err) {
       console.error(err);
-      setAccessIssue({
-        status: 0,
-        title: getQuizPageText('quizError', fallbackLanguage),
-        message: getQuizPageText('quizError', fallbackLanguage),
-        action: 'retry',
-      });
-      setError(getQuizPageText('quizError', fallbackLanguage));
+      const issue = resolveCourseAccessIssue(0, {}, fallbackLanguage, 'quiz');
+      setAccessIssue(issue);
+      setError(issue.message);
     } finally {
       setLoading(false);
     }
@@ -537,54 +521,68 @@ export default function LessonQuizPage({
   }
 
   if (error || !currentQuestion) {
-    // Show translated error message
+    if (accessIssue) {
+      const lessonHref = `/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}`;
+      const signInHref = `/auth/signin?callbackUrl=${encodeURIComponent(`/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}/quiz`)}`;
+
+      return (
+        <Box bg="ink.9" mih="100vh" py="xl" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
+          <Container size="sm">
+            <Card padding="lg">
+              <Stack gap="md">
+                <Alert
+                  color={accessIssue.status === 401 ? 'yellow' : 'red'}
+                  variant="light"
+                  title={accessIssue.title}
+                  icon={accessIssue.status === 401 ? <IconLock size={18} /> : <IconAlertTriangle size={18} />}
+                >
+                  <Text>{accessIssue.message}</Text>
+                </Alert>
+                <CourseAccessRecoveryActions
+                  issue={accessIssue}
+                  courseId={courseId}
+                  courseLanguage={courseLanguage || locale}
+                  signInHref={signInHref}
+                  backHref={lessonHref}
+                  backLabel={getQuizPageText('backToLesson', courseLanguage)}
+                  onRetry={() => void loadLessonAndQuestions(courseId, dayNumber, courseLanguage || locale)}
+                />
+              </Stack>
+            </Card>
+          </Container>
+        </Box>
+      );
+    }
+
     let errorMessage = error || getQuizPageText('quizError', courseLanguage);
     if (error && (error.includes('Some questions not found') || error.includes('someQuestionsNotFound'))) {
       errorMessage = getQuizPageText('someQuestionsNotFound', courseLanguage);
     }
-    
+
+    const lessonHref = `/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}`;
+
     return (
       <Box bg="ink.9" mih="100vh" py="xl" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
         <Container size="sm">
           <Card padding="lg">
             <Stack gap="md">
               <Alert
-                color={accessIssue?.status === 401 ? 'yellow' : 'red'}
+                color="red"
                 variant="light"
-                title={accessIssue?.title || getQuizPageText('quizError', courseLanguage)}
-                icon={accessIssue?.status === 401 ? <IconLock size={18} /> : <IconAlertTriangle size={18} />}
+                title={getQuizPageText('quizError', courseLanguage)}
+                icon={<IconAlertTriangle size={18} />}
               >
-                <Text>{accessIssue?.message || errorMessage}</Text>
+                <Text>{errorMessage}</Text>
               </Alert>
-              <Group>
-                {accessIssue?.action === 'signin' ? (
-                  <Button
-                    component={LocaleLink}
-                    href={`/auth/signin?callbackUrl=${encodeURIComponent(`/${courseLanguage || locale}/courses/${courseId}/day/${dayNumber}/quiz`)}`}
-                    color="amanoba"
-                  >
-                    Sign in
-                  </Button>
-                ) : null}
-                {accessIssue?.action === 'retry' ? (
-                  <Button
-                    variant="outline"
-                    leftSection={<IconRefresh size={16} />}
-                    onClick={() => void loadLessonAndQuestions(courseId, dayNumber, courseLanguage || locale)}
-                  >
-                    Retry
-                  </Button>
-                ) : null}
-                <Button
-                  component={LocaleLink}
-                  href={`/${courseLanguage}/courses/${courseId}/day/${dayNumber}`}
-                  variant={accessIssue?.action === 'lesson' ? 'filled' : 'outline'}
-                  color={accessIssue?.action === 'lesson' ? 'amanoba' : 'gray'}
-                  leftSection={<IconArrowLeft size={16} />}
-                >
-                  {getQuizPageText('backToLesson', courseLanguage)}
-                </Button>
-              </Group>
+              <Button
+                component={LocaleLink}
+                href={lessonHref}
+                variant="outline"
+                color="gray"
+                leftSection={<IconArrowLeft size={16} />}
+              >
+                {getQuizPageText('backToLesson', courseLanguage)}
+              </Button>
             </Stack>
           </Card>
         </Container>
