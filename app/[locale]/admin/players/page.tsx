@@ -28,6 +28,7 @@ import {
   ThemeIcon,
   Title,
 } from '@mantine/core';
+import { DataToolbar } from '@/app/components/patterns/DataToolbar';
 import {
   IconCheck,
   IconCrown,
@@ -121,7 +122,7 @@ export default function AdminPlayersPage() {
         <Text c="dimmed">{t('playersDescription')}</Text>
       </Stack>
 
-      <SimpleGrid cols={{ base: 1, md: 3 }}>
+      <DataToolbar title={t('searchPlayers')}>
         <TextInput
           placeholder={t('searchPlayers')}
           value={search}
@@ -130,6 +131,7 @@ export default function AdminPlayersPage() {
             setPagination({ ...pagination, page: 1 });
           }}
           leftSection={<IconSearch size={18} />}
+          w={{ base: '100%', sm: 280 }}
         />
         <Select
           data={[
@@ -144,6 +146,7 @@ export default function AdminPlayersPage() {
             setPagination({ ...pagination, page: 1 });
           }}
           allowDeselect={false}
+          w={{ base: '100%', sm: 200 }}
         />
         <Select
           data={[
@@ -157,8 +160,9 @@ export default function AdminPlayersPage() {
             setPagination({ ...pagination, page: 1 });
           }}
           allowDeselect={false}
+          w={{ base: '100%', sm: 200 }}
         />
-      </SimpleGrid>
+      </DataToolbar>
 
       <Paper withBorder pos="relative">
         {loading ? (

@@ -40,6 +40,8 @@ const mantineOnlyFiles = new Set([
   'app/[locale]/editor/layout.tsx',
   'app/[locale]/editor/courses/page.tsx',
   'app/[locale]/editor/courses/[courseId]/page.tsx',
+  'app/components/LessonQuiz.tsx',
+  'app/[locale]/games/memory/page.tsx',
 ]);
 
 const hardBlockedImports = [

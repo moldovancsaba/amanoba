@@ -2,29 +2,37 @@
 
 /**
  * Memory Card Matching Game Component
- * 
+ *
  * Interactive card-flipping game with full gamification integration.
- * Features animations, sound effects, and responsive design.
- * 
- * Why this implementation:
- * - Client-only rendering for game state management
- * - Smooth animations using Mantine-compatible CSS transitions
- * - Session integration for points, XP, achievements
- * - Responsive grid that adapts to screen size
  */
 
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { Button, Card } from '@mantine/core';
+import { useLocale } from 'next-intl';
 import {
-  Play,
-  Pause,
-  RotateCcw,
-  Trophy,
-  Clock,
-  Zap,
-  Target,
-} from 'lucide-react';
+  Badge,
+  Button,
+  Card,
+  Center,
+  Group,
+  Modal,
+  Paper,
+  SimpleGrid,
+  Stack,
+  Text,
+  Title,
+  UnstyledButton,
+} from '@mantine/core';
+import {
+  IconBolt,
+  IconClock,
+  IconPlayerPause,
+  IconPlayerPlay,
+  IconRefresh,
+  IconTarget,
+  IconTrophy,
+} from '@tabler/icons-react';
+import { MetricCard } from '@/app/components/patterns/MetricCard';
 import {
   type MemoryDifficulty,
   type MemoryGameState,
@@ -52,34 +60,29 @@ export default function MemoryGame({
   onGameComplete,
 }: MemoryGameProps) {
   const router = useRouter();
-  
-  // Game configuration
+  const locale = useLocale();
+
   const [difficulty, setDifficulty] = useState<MemoryDifficulty>('MEDIUM');
   const [config, setConfig] = useState<MemoryGameConfig>(getDifficultyConfig('MEDIUM'));
-  
-  // Game state
   const [gameState, setGameState] = useState<MemoryGameState | null>(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [rewards, setRewards] = useState<{ points: number; xp: number; streakBonus?: number } | null>(null);
-  const [completedChallenges, setCompletedChallenges] = useState<Array<{ title: string; rewardsEarned: { points: number; xp: number } }>>([]);
+  const [completedChallenges, setCompletedChallenges] = useState<
+    Array<{ title: string; rewardsEarned: { points: number; xp: number } }>
+  >([]);
   const [isCompleting, setIsCompleting] = useState(false);
-  
-  // Timer
+
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  
-  // Pending flip handling
   const flipTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Initialize game
   const startNewGame = useCallback(async () => {
     const newConfig = getDifficultyConfig(difficulty);
     setConfig(newConfig);
     const initialState = initializeGame(newConfig);
     setGameState(initialState);
     setGameStarted(true);
-    
-    // Start game session
+
     try {
       const response = await fetch('/api/game-sessions/start', {
         method: 'POST',
@@ -90,7 +93,7 @@ export default function MemoryGame({
           difficulty,
         }),
       });
-      
+
       if (response.ok) {
         const data = await response.json();
         setSessionId(data.sessionId);
@@ -100,7 +103,6 @@ export default function MemoryGame({
     }
   }, [difficulty, playerId]);
 
-  // Timer effect
   const shouldRunTimer = Boolean(gameState && gameStarted && !gameState.isPaused && !gameState.isComplete);
 
   useEffect(() => {
@@ -111,22 +113,21 @@ export default function MemoryGame({
       }
       return;
     }
-    
+
     timerRef.current = setInterval(() => {
-      setGameState(prev => {
+      setGameState((prev) => {
         if (!prev) return prev;
         const newTime = prev.timeElapsed + 1;
-        
-        // Check for time limit
+
         if (newTime >= config.timeLimit) {
           clearInterval(timerRef.current!);
           return { ...prev, timeElapsed: config.timeLimit, isComplete: true };
         }
-        
+
         return updateTime(prev, newTime);
       });
     }, 1000);
-    
+
     return () => {
       if (timerRef.current) {
         clearInterval(timerRef.current);
@@ -134,59 +135,52 @@ export default function MemoryGame({
     };
   }, [shouldRunTimer, config.timeLimit]);
 
-  // Handle card click
-  const handleCardClick = useCallback((cardId: string) => {
-    if (!gameState) return;
-    
-    const newState = flipCard(gameState, cardId);
-    if (!newState) return;
-    
-    setGameState(newState);
-    
-    // Check for match after 2 cards flipped
-    if (newState.flippedCards.length === 2) {
-      // Clear any pending flip timeout
-      if (flipTimeoutRef.current) {
-        clearTimeout(flipTimeoutRef.current);
-      }
-      
-      // Small delay to let user see both cards
-      flipTimeoutRef.current = setTimeout(() => {
-        setGameState(prev => {
-          if (!prev) return prev;
-          const checkedState = checkMatch(prev);
-          
-          // If no match, reset cards after another delay
-          if (checkedState.moves > prev.moves && checkedState.flippedCards.length === 2) {
-            // Why: A move was made and two cards remain flipped => it's a non-match, so flip them back after a brief delay for UX
-            setTimeout(() => {
-              setGameState(current => (current ? resetFlippedCards(current) : current));
-            }, 800);
-          }
-          
-          return checkedState;
-        });
-      }, 600);
-    }
-  }, [gameState]);
+  const handleCardClick = useCallback(
+    (cardId: string) => {
+      if (!gameState) return;
 
-  // Handle pause/resume
+      const newState = flipCard(gameState, cardId);
+      if (!newState) return;
+
+      setGameState(newState);
+
+      if (newState.flippedCards.length === 2) {
+        if (flipTimeoutRef.current) {
+          clearTimeout(flipTimeoutRef.current);
+        }
+
+        flipTimeoutRef.current = setTimeout(() => {
+          setGameState((prev) => {
+            if (!prev) return prev;
+            const checkedState = checkMatch(prev);
+
+            if (checkedState.moves > prev.moves && checkedState.flippedCards.length === 2) {
+              setTimeout(() => {
+                setGameState((current) => (current ? resetFlippedCards(current) : current));
+              }, 800);
+            }
+
+            return checkedState;
+          });
+        }, 600);
+      }
+    },
+    [gameState]
+  );
+
   const handleTogglePause = useCallback(() => {
     if (!gameState) return;
     setGameState(togglePause(gameState));
   }, [gameState]);
 
-  // Handle game completion
   useEffect(() => {
     if (!gameState || !gameState.isComplete || !sessionId) return;
-    
+
     const completeSession = async () => {
       const finalScore = calculateScore(gameState, config);
       const stats = getGameStats(gameState, config);
-      
-      // Why: Calculate if player won (completed all pairs)
       const isWin = gameState.matchedPairs === gameState.totalPairs;
-      
+
       try {
         setIsCompleting(true);
         const response = await fetch('/api/game-sessions/complete', {
@@ -202,21 +196,23 @@ export default function MemoryGame({
             metadata: stats,
           }),
         });
-        
+
         if (response.ok) {
           const data = await response.json();
           setRewards(data.rewards);
           onGameComplete?.(finalScore, data);
-          // Fetch updated challenges for the player
           try {
-            const playerIdParam = playerId;
-            const chRes = await fetch(`/api/challenges?playerId=${playerIdParam}&t=${Date.now()}`, { cache: 'no-store' });
+            const chRes = await fetch(`/api/challenges?playerId=${playerId}&t=${Date.now()}`, {
+              cache: 'no-store',
+            });
             if (chRes.ok) {
               const ch = await chRes.json();
-              const completed = (ch.challenges || []).filter((c: { isCompleted?: boolean }) => c.isCompleted).map((c: { name?: string; rewards?: { points?: number; xp?: number } }) => ({
-                title: c.name,
-                rewardsEarned: { points: c.rewards?.points || 0, xp: c.rewards?.xp || 0 },
-              }));
+              const completed = (ch.challenges || [])
+                .filter((c: { isCompleted?: boolean }) => c.isCompleted)
+                .map((c: { name?: string; rewards?: { points?: number; xp?: number } }) => ({
+                  title: c.name,
+                  rewardsEarned: { points: c.rewards?.points || 0, xp: c.rewards?.xp || 0 },
+                }));
               setCompletedChallenges(completed);
             }
           } catch {
@@ -229,15 +225,16 @@ export default function MemoryGame({
         setIsCompleting(false);
       }
     };
-    
-    completeSession();
+
+    void completeSession();
   }, [gameState?.isComplete, sessionId, gameState, config, onGameComplete, playerId]);
 
-  // Restart game
   const handleRestart = useCallback(() => {
     setGameState(null);
     setGameStarted(false);
     setSessionId(null);
+    setRewards(null);
+    setCompletedChallenges([]);
     if (timerRef.current) {
       clearInterval(timerRef.current);
     }
@@ -246,7 +243,6 @@ export default function MemoryGame({
     }
   }, []);
 
-  // Cleanup on unmount
   useEffect(() => {
     return () => {
       if (timerRef.current) {
@@ -260,228 +256,229 @@ export default function MemoryGame({
 
   if (!gameStarted || !gameState) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[500px] space-y-6">
-        <h2 className="text-3xl font-bold text-center text-brand-white">Memory Match</h2>
-        <p className="ds-copy-subtle text-center max-w-md">
+      <Stack align="center" justify="center" mih={500} gap="lg">
+        <Title order={2} ta="center">
+          Memory Match
+        </Title>
+        <Text c="dimmed" ta="center" maw={420}>
           Find matching pairs of cards by flipping them over. Complete all pairs before time runs out!
-        </p>
-        
-        <div className="space-y-4 w-full max-w-sm">
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-brand-white">Difficulty</label>
-            <div className="grid grid-cols-4 gap-2">
-              {(['EASY', 'MEDIUM', 'HARD', 'EXPERT'] as MemoryDifficulty[]).map(diff => (
+        </Text>
+
+        <Stack gap="md" w="100%" maw={360}>
+          <Stack gap="xs">
+            <Text size="sm" fw={600}>
+              Difficulty
+            </Text>
+            <SimpleGrid cols={4}>
+              {(['EASY', 'MEDIUM', 'HARD', 'EXPERT'] as MemoryDifficulty[]).map((diff) => (
                 <Button
                   key={diff}
                   variant={difficulty === diff ? 'filled' : 'light'}
-                  color={difficulty === diff ? 'amanoba' : 'ink'}
+                  color={difficulty === diff ? 'amanoba' : 'gray'}
                   size="sm"
                   onClick={() => setDifficulty(diff)}
                   disabled={diff === 'EXPERT' && !isPremium}
                 >
-                  {diff === 'EXPERT' && !isPremium ? '🔒 ' : ''}{diff}
+                  {diff === 'EXPERT' && !isPremium ? '🔒 ' : ''}
+                  {diff}
                 </Button>
               ))}
-            </div>
-            {!isPremium && (
-              <p className="text-xs ds-copy-subtle">
+            </SimpleGrid>
+            {!isPremium ? (
+              <Text size="xs" c="dimmed">
                 Expert mode requires Premium
-              </p>
-            )}
-          </div>
-          
-          <Button onClick={startNewGame} size="lg" className="w-full">
-            <Play className="mr-2 h-5 w-5" />
+              </Text>
+            ) : null}
+          </Stack>
+
+          <Button onClick={startNewGame} size="lg" leftSection={<IconPlayerPlay size={18} />} fullWidth>
             Start Game
           </Button>
-        </div>
-      </div>
+        </Stack>
+      </Stack>
     );
   }
 
   const timeRemaining = config.timeLimit - gameState.timeElapsed;
   const gridCols = config.gridSize.cols;
-  const gridClassName = gridCols === 6 ? 'grid-cols-6' : 'grid-cols-4';
+  const timeLabel = `${Math.floor(timeRemaining / 60)}:${(timeRemaining % 60).toString().padStart(2, '0')}`;
+  const elapsedLabel = `${Math.floor(gameState.timeElapsed / 60)}:${(gameState.timeElapsed % 60).toString().padStart(2, '0')}`;
+  const finalScore = calculateScore(gameState, config);
+  const isVictory = gameState.matchedPairs === gameState.totalPairs;
 
   return (
-    <div className="space-y-6 pb-8">
-      {/* Game Stats Header */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card withBorder className="p-4">
-          <div className="flex items-center space-x-2">
-            <Clock className="h-5 w-5 ds-icon-info" />
-            <div>
-              <p className="text-xs ds-copy-muted">Time</p>
-              <p className="text-lg font-bold ds-stat-value">{Math.floor(timeRemaining / 60)}:{(timeRemaining % 60).toString().padStart(2, '0')}</p>
-            </div>
-          </div>
-        </Card>
-        
-        <Card withBorder className="p-4">
-          <div className="flex items-center space-x-2">
-            <Zap className="h-5 w-5 ds-icon-warning" />
-            <div>
-              <p className="text-xs ds-copy-muted">Moves</p>
-              <p className="text-lg font-bold ds-stat-value">{gameState.moves}</p>
-            </div>
-          </div>
-        </Card>
-        
-        <Card withBorder className="p-4">
-          <div className="flex items-center space-x-2">
-            <Target className="h-5 w-5 ds-icon-success" />
-            <div>
-              <p className="text-xs ds-copy-muted">Pairs</p>
-              <p className="text-lg font-bold ds-stat-value">{gameState.matchedPairs} / {gameState.totalPairs}</p>
-            </div>
-          </div>
-        </Card>
-        
-        <Card withBorder className="p-4">
-          <div className="flex items-center space-x-2">
-            <Trophy className="h-5 w-5 ds-icon-accent" />
-            <div>
-              <p className="text-xs ds-copy-muted">Score</p>
-              <p className="text-lg font-bold ds-stat-value">{calculateScore(gameState, config)}</p>
-            </div>
-          </div>
-        </Card>
-      </div>
+    <Stack gap="lg" pb="md">
+      <SimpleGrid cols={{ base: 2, md: 4 }}>
+        <MetricCard
+          icon={<IconClock size={22} />}
+          value={timeLabel}
+          label="Time"
+          color="blue"
+        />
+        <MetricCard
+          icon={<IconBolt size={22} />}
+          value={gameState.moves}
+          label="Moves"
+          color="yellow"
+        />
+        <MetricCard
+          icon={<IconTarget size={22} />}
+          value={`${gameState.matchedPairs} / ${gameState.totalPairs}`}
+          label="Pairs"
+          color="green"
+        />
+        <MetricCard
+          icon={<IconTrophy size={22} />}
+          value={finalScore}
+          label="Score"
+          color="amanoba"
+        />
+      </SimpleGrid>
 
-      {/* Game Controls */}
-      <div className="flex justify-center space-x-2">
+      <Group justify="center" gap="sm">
         <Button
           onClick={handleTogglePause}
-          variant="outline"
-          color="amanoba"
+          variant="default"
           disabled={gameState.isComplete}
+          leftSection={
+            gameState.isPaused ? <IconPlayerPlay size={16} /> : <IconPlayerPause size={16} />
+          }
         >
-          {gameState.isPaused ? (
-            <>
-              <Play className="mr-2 h-4 w-4" />
-              Resume
-            </>
-          ) : (
-            <>
-              <Pause className="mr-2 h-4 w-4" />
-              Pause
-            </>
-          )}
+          {gameState.isPaused ? 'Resume' : 'Pause'}
         </Button>
-        
-        <Button onClick={handleRestart} variant="outline" color="amanoba">
-          <RotateCcw className="mr-2 h-4 w-4" />
+        <Button onClick={handleRestart} variant="default" leftSection={<IconRefresh size={16} />}>
           Restart
         </Button>
-      </div>
+      </Group>
 
-      {/* Card Grid */}
-      <div className={`grid ${gridClassName} gap-3 mx-auto max-w-4xl`}>
-        {gameState.cards.map(card => (
-          <button
-            key={card.id}
-            onClick={() => handleCardClick(card.id)}
-            disabled={
-              gameState.isPaused ||
-              gameState.isComplete ||
-              card.isFlipped ||
-              card.isMatched ||
-              gameState.flippedCards.length >= 2
-            }
-            className={`
-              aspect-square rounded-xl border transition-all duration-300 transform
-              ${card.isFlipped || card.isMatched
-                ? 'border-brand-accent bg-gradient-to-br from-brand-accent to-primary-600 text-brand-black scale-100'
-                : 'border-brand-border-subtle bg-gradient-to-br from-brand-white to-brand-surface-subtle text-brand-text-muted hover:scale-105 active:scale-95'
-              }
-              ${card.isMatched ? 'opacity-50 cursor-not-allowed' : ''}
-              disabled:cursor-not-allowed disabled:hover:scale-100
-              shadow-md hover:shadow-lg
-            `}
-          >
-            <div className="flex items-center justify-center h-full text-4xl md:text-5xl lg:text-6xl">
-              {card.isFlipped || card.isMatched ? card.value : '?'}
-            </div>
-          </button>
-        ))}
-      </div>
+      <SimpleGrid cols={gridCols} spacing="sm" maw={960} mx="auto" w="100%">
+        {gameState.cards.map((card) => {
+          const revealed = card.isFlipped || card.isMatched;
+          const disabled =
+            gameState.isPaused ||
+            gameState.isComplete ||
+            card.isFlipped ||
+            card.isMatched ||
+            gameState.flippedCards.length >= 2;
 
-      {/* Game Complete Overlay */}
-      {gameState.isComplete && (
-        <div className="fixed inset-0 ds-overlay flex items-center justify-center z-50 p-4">
-          <Card withBorder className="p-8 max-w-md w-full space-y-6 animate-in zoom-in duration-300">
-            <div className="text-center space-y-2">
-              <Trophy className="h-16 w-16 ds-icon-accent mx-auto" />
-              <h2 className="text-3xl font-bold">
-                {gameState.matchedPairs === gameState.totalPairs ? 'Victory!' : 'Time Up!'}
-              </h2>
-              <p className="ds-copy-muted">
-                {gameState.matchedPairs === gameState.totalPairs
-                  ? 'You found all the pairs!'
-                  : `You found ${gameState.matchedPairs} of ${gameState.totalPairs} pairs`
-                }
-              </p>
-            </div>
-            
-            <div className="space-y-3">
-              <div className="flex justify-between">
-                <span>Final Score:</span>
-                <span className="font-bold">{calculateScore(gameState, config)}</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Moves:</span>
-                <span className="font-bold">{gameState.moves}</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Time:</span>
-                <span className="font-bold">{Math.floor(gameState.timeElapsed / 60)}:{(gameState.timeElapsed % 60).toString().padStart(2, '0')}</span>
-              </div>
-            </div>
-            
-            {/* Rewards & Challenges */}
-            <div className="space-y-3">
-              <div className="ds-panel-soft-accent p-4">
-                <div className="font-bold text-brand-text-primary mb-2">
-                  Rewards {isCompleting && <span className="text-sm ds-copy-muted">Calculating…</span>}
-                </div>
-                <div className="flex justify-between">
-                  <span>XP</span>
-                  <span className="font-bold text-brand-black">{rewards ? `+${rewards.xp || 0}` : '—'}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Points</span>
-                  <span className="font-bold text-brand-black">{rewards ? `+${rewards.points || 0}` : '—'}</span>
-                </div>
-                {rewards?.streakBonus && rewards.streakBonus > 0 && (
-                  <div className="text-sm mt-2 text-brand-darkGrey">🔥 Streak Bonus: +{Math.round(rewards.streakBonus * 100)}%</div>
-                )}
-              </div>
-              {completedChallenges.length > 0 && (
-                <div className="ds-panel-soft-success p-4">
-                  <div className="font-bold text-brand-text-primary mb-2">Daily Challenges Completed</div>
-                  <div className="space-y-1 text-sm">
-                    {completedChallenges.map((c, idx) => (
-                      <div key={idx} className="flex justify-between">
-                        <span>• {c.title}</span>
-                        <span>+{c.rewardsEarned.points}pts • +{c.rewardsEarned.xp}xp</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-            
-            <div className="space-y-2">
-              <Button onClick={handleRestart} fullWidth>
-                Play Again
-              </Button>
-              <Button onClick={() => router.push('/dashboard')} variant="outline" color="amanoba" fullWidth>
-                Back to Dashboard
-              </Button>
-            </div>
+          return (
+            <UnstyledButton
+              key={card.id}
+              onClick={() => handleCardClick(card.id)}
+              disabled={disabled}
+              style={{ width: '100%' }}
+            >
+              <Paper
+                withBorder
+                radius="md"
+                p="md"
+                bg={revealed ? 'amanoba.5' : 'dark.6'}
+                style={{
+                  aspectRatio: '1',
+                  opacity: card.isMatched ? 0.55 : 1,
+                  cursor: disabled ? 'not-allowed' : 'pointer',
+                }}
+              >
+                <Center h="100%">
+                  <Text size="xl" fw={700}>
+                    {revealed ? card.value : '?'}
+                  </Text>
+                </Center>
+              </Paper>
+            </UnstyledButton>
+          );
+        })}
+      </SimpleGrid>
+
+      <Modal
+        opened={gameState.isComplete}
+        onClose={() => undefined}
+        withCloseButton={false}
+        centered
+        title={null}
+      >
+        <Stack gap="md">
+          <Stack align="center" gap="xs">
+            <IconTrophy size={48} color="var(--mantine-color-amanoba-5)" />
+            <Title order={2}>{isVictory ? 'Victory!' : 'Time Up!'}</Title>
+            <Text c="dimmed" ta="center">
+              {isVictory
+                ? 'You found all the pairs!'
+                : `You found ${gameState.matchedPairs} of ${gameState.totalPairs} pairs`}
+            </Text>
+          </Stack>
+
+          <Stack gap="xs">
+            <Group justify="space-between">
+              <Text>Final Score</Text>
+              <Text fw={700}>{finalScore}</Text>
+            </Group>
+            <Group justify="space-between">
+              <Text>Moves</Text>
+              <Text fw={700}>{gameState.moves}</Text>
+            </Group>
+            <Group justify="space-between">
+              <Text>Time</Text>
+              <Text fw={700}>{elapsedLabel}</Text>
+            </Group>
+          </Stack>
+
+          <Card withBorder bg="amanoba.0">
+            <Stack gap="xs">
+              <Group justify="space-between">
+                <Text fw={700}>Rewards</Text>
+                {isCompleting ? (
+                  <Badge variant="light" color="gray">
+                    Calculating…
+                  </Badge>
+                ) : null}
+              </Group>
+              <Group justify="space-between">
+                <Text size="sm">XP</Text>
+                <Text fw={700}>{rewards ? `+${rewards.xp || 0}` : '—'}</Text>
+              </Group>
+              <Group justify="space-between">
+                <Text size="sm">Points</Text>
+                <Text fw={700}>{rewards ? `+${rewards.points || 0}` : '—'}</Text>
+              </Group>
+              {rewards?.streakBonus && rewards.streakBonus > 0 ? (
+                <Text size="sm" c="dimmed">
+                  Streak bonus: +{Math.round(rewards.streakBonus * 100)}%
+                </Text>
+              ) : null}
+            </Stack>
           </Card>
-        </div>
-      )}
-    </div>
+
+          {completedChallenges.length > 0 ? (
+            <Card withBorder bg="green.0">
+              <Stack gap="xs">
+                <Text fw={700}>Daily Challenges Completed</Text>
+                {completedChallenges.map((challenge, idx) => (
+                  <Group key={idx} justify="space-between" gap="md" wrap="nowrap">
+                    <Text size="sm">• {challenge.title}</Text>
+                    <Text size="sm">
+                      +{challenge.rewardsEarned.points}pts • +{challenge.rewardsEarned.xp}xp
+                    </Text>
+                  </Group>
+                ))}
+              </Stack>
+            </Card>
+          ) : null}
+
+          <Stack gap="xs">
+            <Button onClick={handleRestart} fullWidth>
+              Play Again
+            </Button>
+            <Button
+              onClick={() => router.push(`/${locale}/dashboard`)}
+              variant="default"
+              fullWidth
+            >
+              Back to Dashboard
+            </Button>
+          </Stack>
+        </Stack>
+      </Modal>
+    </Stack>
   );
 }

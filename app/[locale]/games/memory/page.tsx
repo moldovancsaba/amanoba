@@ -2,14 +2,14 @@
 
 /**
  * Memory Match Game Page (Client)
- * 
+ *
  * Why: Use client-side session to avoid SSR auth redirect loops that send users back to dashboard.
  */
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import { Card, Center, Container, Loader, Stack, Text } from '@mantine/core';
 import MemoryGame from '@/components/games/MemoryGame';
-import { Card } from '@mantine/core';
 
 export default function MemoryGamePage() {
   const { data: session, status } = useSession();
@@ -22,9 +22,14 @@ export default function MemoryGamePage() {
 
   if (status === 'loading') {
     return (
-      <div className="ds-shell ds-shell-gradient flex items-center justify-center px-4">
-        <div className="ds-panel-dark px-8 py-6 text-2xl font-bold animate-pulse">Loading...</div>
-      </div>
+      <Container py="xl">
+        <Center mih={400}>
+          <Stack align="center" gap="md">
+            <Loader color="amanoba" />
+            <Text>Loading...</Text>
+          </Stack>
+        </Center>
+      </Container>
     );
   }
 
@@ -37,12 +42,10 @@ export default function MemoryGamePage() {
   const isPremium = (session.user as { isPremium?: boolean }).isPremium || false;
 
   return (
-    <div className="ds-shell ds-shell-gradient">
-      <div className="page-container py-8">
-      <Card withBorder className="p-6 md:p-8">
+    <Container size="lg" py="xl">
+      <Card withBorder p="lg">
         <MemoryGame playerId={playerId} isPremium={isPremium} />
       </Card>
-      </div>
-    </div>
+    </Container>
   );
 }

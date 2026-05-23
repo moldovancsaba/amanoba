@@ -31,6 +31,7 @@ import {
   IconSearch,
   IconTrash,
 } from '@tabler/icons-react';
+import { DataToolbar } from '@/app/components/patterns/DataToolbar';
 
 interface Achievement {
   _id: string;
@@ -150,12 +151,13 @@ export default function AdminAchievementsPage() {
         </Button>
       </Group>
 
-      <SimpleGrid cols={{ base: 1, md: 2 }}>
+      <DataToolbar title={t('searchAchievements')}>
         <TextInput
           placeholder={t('searchAchievements')}
           value={search}
           onChange={(event) => setSearch(event.currentTarget.value)}
           leftSection={<IconSearch size={18} />}
+          w={{ base: '100%', sm: 280 }}
         />
         <Select
           data={[
@@ -171,8 +173,9 @@ export default function AdminAchievementsPage() {
           value={categoryFilter}
           onChange={(value) => setCategoryFilter(value || 'all')}
           allowDeselect={false}
+          w={{ base: '100%', sm: 220 }}
         />
-      </SimpleGrid>
+      </DataToolbar>
 
       <SimpleGrid cols={{ base: 1, md: 2, lg: 3 }}>
         {achievements.length === 0 ? (

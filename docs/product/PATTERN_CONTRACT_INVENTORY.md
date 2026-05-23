@@ -20,7 +20,7 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | Admin shell | `app/[locale]/admin/layout.tsx` | Canonical | Mantine `AppShell` with `NavLink`, `ScrollArea`, `Menu`, and Tabler icons. |
 | Auth shell | `app/components/patterns/AuthShell.tsx`, `app/[locale]/auth/signin/page.tsx`, `app/[locale]/auth/error/page.tsx` | Canonical | Shared centered auth layout; sign-in and auth error routes compose `AuthShell` with Mantine cards and `StateBlock`. |
 | Public shell | `app/components/patterns/PublicAppShell.tsx`, `app/[locale]/page.tsx`, `app/[locale]/partners/page.tsx` | Canonical | Shared marketing header/footer band; landing and partners compose the shell. |
-| Data toolbar | `app/components/patterns/DataToolbar.tsx` | Pilot | Used on admin course list filters; extend to other admin list pages. |
+| Data toolbar | `app/components/patterns/DataToolbar.tsx` | Pilot | Admin course, player, achievement, and question list filters. |
 | Responsive data view | Admin list pages | Backlog | Table/card responsive layouts still page-local beyond course admin filters. |
 | Editor shell | `app/[locale]/editor/layout.tsx` | Canonical | Mantine `AppShell` for the editor portal (courses navigation). |
 | Game shell | `app/[locale]/games/**`, `app/components/games/**` | Backlog / exception review | Game engine internals may remain custom, but navigation, cards, loading/error states, and chrome must use Mantine contracts. |
@@ -36,9 +36,9 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 
 ## Current Highest-Risk Gaps
 
-1. Game chrome (`MemoryGame`, `LessonQuiz`) still contains legacy page-local markup where not yet framed by Mantine contracts.
+1. Phase 6 CSS/token deletion (`design-system.css`, transitional globals) remains open.
 3. Memory-game internals still contain local CSS/layout classes. Game-board internals may remain custom only if framed by Mantine shell/state/card contracts.
-4. `ResponsiveDataView` is not extracted yet; extend `DataToolbar` to remaining admin list pages.
+4. `ResponsiveDataView` is not extracted yet; extend `DataToolbar` to remaining admin list pages (payments, quests, etc.).
 
 ## Implementation Sequence
 

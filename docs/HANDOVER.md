@@ -1370,13 +1370,13 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:check:mantine` ✅ pass
 - `npm run build` ✅ pass
 
-## GDS PublicAppShell, editor shell, DataToolbar (2026-05-23)
+## GDS game chrome + DataToolbar rollout (2026-05-23)
 
 ### What changed
-- Added `PublicAppShell` and wired landing + partners pages.
-- Migrated editor portal layout and editor course list/detail pages to Mantine `AppShell` / cards / `StateBlock`.
-- Added `DataToolbar` pilot on admin course list filters.
-- Migrated public GEO lesson view (`/view`) to Mantine layout.
+- Migrated `MemoryGame` and memory game page to Mantine (`MetricCard`, `Modal`, Tabler icons).
+- Migrated `LessonQuiz` to Mantine (`StateBlock`, `Radio`, notifications).
+- Extended `DataToolbar` to admin players, achievements, and questions filters (`layout="stack"` for grid filters).
+- Removed last `lucide-react` imports from product UI.
 
 ### Verification
 - `npm run type-check` ✅ pass

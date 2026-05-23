@@ -1,15 +1,26 @@
 /**
  * Lesson Quiz Component
- * 
- * What: Quiz/survey component for lesson assessments
- * Why: Allows students to take quizzes at the end of lessons
+ *
+ * Quiz/survey component for lesson assessments.
  */
 
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
-import { CheckCircle, XCircle, RotateCcw } from 'lucide-react';
+import {
+  Alert,
+  Button,
+  Card,
+  Group,
+  Radio,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
+import { notifications } from '@mantine/notifications';
+import { IconCircleCheck, IconCircleX, IconRefresh } from '@tabler/icons-react';
+import { StateBlock } from '@/app/components/patterns/StateBlock';
 
 interface Question {
   id: string;
@@ -58,8 +69,7 @@ export default function LessonQuiz({
     try {
       setLoading(true);
       setError(null);
-      
-      // Fetch questions in lesson mode (no difficulty required)
+
       const response = await fetch(
         `/api/games/quizzz/questions?lessonId=${lessonId}&courseId=${courseId}&count=${quizConfig.questionCount}&t=${Date.now()}`,
         { cache: 'no-store' }
@@ -70,8 +80,11 @@ export default function LessonQuiz({
       if (data.ok && data.data?.questions) {
         setQuestions(data.data.questions);
       } else {
-        // Use localized message when no questions for this lesson (avoids "difficulty: undefined")
-        setError(data.error?.code === 'NO_QUESTIONS' ? t('noQuizQuestions') : (data.error?.message || t('quizError')));
+        setError(
+          data.error?.code === 'NO_QUESTIONS'
+            ? t('noQuizQuestions')
+            : data.error?.message || t('quizError')
+        );
       }
     } catch (err) {
       console.error('Failed to fetch questions:', err);
@@ -94,7 +107,6 @@ export default function LessonQuiz({
     if (submitted || questions.length === 0) return;
 
     try {
-      // Submit answers to get results
       const response = await fetch(`/api/courses/${courseId}/lessons/${lessonId}/quiz/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -118,18 +130,26 @@ export default function LessonQuiz({
         };
         setResult(quizResult);
         setSubmitted(true);
-        
+
         if (!quizResult.passed) {
           setCanRetake(true);
         } else {
           onComplete(quizResult);
         }
       } else {
-        alert(data.error || t('quizError'));
+        notifications.show({
+          color: 'red',
+          title: t('quizError'),
+          message: data.error || t('quizError'),
+        });
       }
     } catch (err) {
       console.error('Failed to submit quiz:', err);
-      alert(t('quizError'));
+      notifications.show({
+        color: 'red',
+        title: t('quizError'),
+        message: t('quizError'),
+      });
     }
   };
 
@@ -140,157 +160,168 @@ export default function LessonQuiz({
     setResult(null);
     setCanRetake(false);
     setError(null);
-    fetchQuestions();
+    void fetchQuestions();
   };
 
   if (loading) {
     return (
-      <div className="bg-brand-white rounded-xl p-8 border-2 border-brand-accent">
-        <div className="text-center">
-          <div className="text-brand-darkGrey">{t('loadingQuiz')}</div>
-        </div>
-      </div>
+      <Card withBorder p="xl">
+        <StateBlock kind="loading" title={t('loadingQuiz')} compact />
+      </Card>
     );
   }
 
   if (error) {
     return (
-      <div className="bg-brand-white rounded-xl p-8 border-2 border-brand-accent">
-        <div className="text-center">
-          <div className="ds-text-error mb-4">{error}</div>
-          <button
-            onClick={fetchQuestions}
-            className="px-4 py-2 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400"
-          >
-            {t('retry')}
-          </button>
-        </div>
-      </div>
+      <Card withBorder p="xl">
+        <StateBlock
+          kind="error"
+          title={t('quizError')}
+          description={error}
+          action={
+            <Button onClick={() => void fetchQuestions()} color="amanoba">
+              {t('retry')}
+            </Button>
+          }
+          compact
+        />
+      </Card>
     );
   }
 
   if (questions.length === 0) {
     return (
-      <div className="bg-brand-white rounded-xl p-8 border-2 border-brand-accent">
-        <div className="text-center">
-          <div className="text-brand-darkGrey mb-4">{t('noQuizQuestions')}</div>
-        </div>
-      </div>
+      <Card withBorder p="xl">
+        <StateBlock kind="empty" title={t('noQuizQuestions')} compact />
+      </Card>
     );
   }
 
   return (
-    <div className="bg-brand-white rounded-xl p-8 border-2 border-brand-accent">
-      <div className="mb-6">
-        <h2 className="text-2xl font-bold text-brand-black mb-2">{t('lessonQuiz')}</h2>
-        <p className="text-brand-darkGrey">
-          {t('quizDescription', { count: quizConfig.questionCount })}
-          {quizConfig.required && (
-            <span className="font-bold"> {t('quizRequired', { threshold: quizConfig.successThreshold })}</span>
-          )}
-        </p>
-      </div>
+    <Card withBorder p="xl">
+      <Stack gap="lg">
+        <Stack gap={4}>
+          <Title order={2}>{t('lessonQuiz')}</Title>
+          <Text c="dimmed">
+            {t('quizDescription', { count: quizConfig.questionCount })}
+            {quizConfig.required ? (
+              <Text span fw={700}>
+                {' '}
+                {t('quizRequired', { threshold: quizConfig.successThreshold })}
+              </Text>
+            ) : null}
+          </Text>
+        </Stack>
 
-      {!submitted ? (
-        <>
-          <div className="space-y-6 mb-6">
-            {questions.map((question, index) => (
-              <div key={question.id} className="border-2 border-brand-darkGrey/20 rounded-lg p-4">
-                <div className="flex items-start gap-2 mb-4">
-                  <span className="font-bold text-brand-black text-lg">{index + 1}.</span>
-                  <h3 className="text-lg font-bold text-brand-black flex-1">{question.question}</h3>
-                </div>
-                <div className="space-y-2">
-                  {question.options.map((option, optionIndex) => (
-                    <label
-                      key={optionIndex}
-                      className={`flex items-center gap-3 p-3 rounded-lg cursor-pointer border-2 transition-all ${
-                        answers[question.id]?.index === optionIndex
-                          ? 'border-brand-accent bg-brand-accent/10'
-                          : 'border-brand-darkGrey/20 hover:border-brand-accent/50'
-                      }`}
+        {!submitted ? (
+          <>
+            <Stack gap="md">
+              {questions.map((question, index) => (
+                <Card key={question.id} withBorder p="md">
+                  <Stack gap="sm">
+                    <Group align="flex-start" wrap="nowrap" gap="xs">
+                      <Text fw={700} size="lg">
+                        {index + 1}.
+                      </Text>
+                      <Title order={4} style={{ flex: 1 }}>
+                        {question.question}
+                      </Title>
+                    </Group>
+                    <Radio.Group
+                      value={
+                        answers[question.id] !== undefined
+                          ? String(answers[question.id].index)
+                          : undefined
+                      }
+                      onChange={(value) => {
+                        const optionIndex = Number(value);
+                        const option = question.options[optionIndex];
+                        if (option !== undefined) {
+                          handleAnswer(question.id, optionIndex, option);
+                        }
+                      }}
                     >
-                      <input
-                        type="radio"
-                        name={`question-${question.id}`}
-                        checked={answers[question.id]?.index === optionIndex}
-                        onChange={() => handleAnswer(question.id, optionIndex, option)}
-                        className="w-5 h-5 text-brand-accent"
-                      />
-                      <span className="text-brand-black flex-1">{option}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+                      <Stack gap="xs">
+                        {question.options.map((option, optionIndex) => (
+                          <Radio
+                            key={optionIndex}
+                            value={String(optionIndex)}
+                            label={option}
+                          />
+                        ))}
+                      </Stack>
+                    </Radio.Group>
+                  </Stack>
+                </Card>
+              ))}
+            </Stack>
 
-          <div className="flex items-center justify-between pt-4 border-t border-brand-darkGrey/20">
-            <div className="text-sm text-brand-darkGrey">
-              {t('answeredCount', { answered: Object.keys(answers).length, total: questions.length })}
-            </div>
-            <button
-              onClick={handleSubmit}
-              disabled={Object.keys(answers).length < questions.length}
-              className="min-h-[44px] px-6 py-3 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+            <Group justify="space-between" pt="md" style={{ borderTop: '1px solid var(--mantine-color-default-border)' }}>
+              <Text size="sm" c="dimmed">
+                {t('answeredCount', {
+                  answered: Object.keys(answers).length,
+                  total: questions.length,
+                })}
+              </Text>
+              <Button
+                onClick={() => void handleSubmit()}
+                disabled={Object.keys(answers).length < questions.length}
+                color="amanoba"
+              >
+                {t('submitQuiz')}
+              </Button>
+            </Group>
+          </>
+        ) : result ? (
+          <Stack gap="md" align="center">
+            <Alert
+              color={result.passed ? 'green' : 'red'}
+              variant="light"
+              icon={result.passed ? <IconCircleCheck size={20} /> : <IconCircleX size={20} />}
+              w="100%"
             >
-              {t('submitQuiz')}
-            </button>
-          </div>
-        </>
-      ) : result ? (
-        <div className="text-center">
-          <div
-            className={`rounded-xl border-2 p-6 mb-4 text-left ${
-              result.passed
-                ? 'ds-status-success'
-                : 'ds-status-error'
-            }`}
-          >
-            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 gap-3">
-              {result.passed ? (
-                <CheckCircle className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 mx-auto sm:mx-0" aria-hidden />
-              ) : (
-                <XCircle className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 mx-auto sm:mx-0" aria-hidden />
-              )}
-              <div className="flex-1 min-w-0">
-                <h3 className="text-xl sm:text-2xl font-bold mb-1">
+              <Stack gap={4}>
+                <Text fw={700} size="lg">
                   {result.passed ? t('quizPassed') : t('quizFailed')}
-                </h3>
-                <p className="text-lg sm:text-xl font-bold opacity-90">
-                  {t('quizScore', { score: result.score, total: result.total, percentage: result.percentage })}
-                </p>
-                <p className="text-sm mt-1 opacity-80">
+                </Text>
+                <Text fw={600}>
+                  {t('quizScore', {
+                    score: result.score,
+                    total: result.total,
+                    percentage: result.percentage,
+                  })}
+                </Text>
+                <Text size="sm" c="dimmed">
                   {t('quizRequiredScore', { threshold: quizConfig.successThreshold })}
-                </p>
-              </div>
-            </div>
-          </div>
+                </Text>
+              </Stack>
+            </Alert>
 
-          {result.passed ? (
-            <div className="ds-status-success border-2 rounded-xl p-5 mb-4 text-left">
-              <p className="font-bold">
-                {t('quizPassedMessage')}
-              </p>
-            </div>
-          ) : (
-            <div className="ds-status-error border-2 rounded-xl p-5 mb-4 text-left">
-              <p className="font-bold mb-2">
-                {t('quizFailedMessage', { threshold: quizConfig.successThreshold })}
-              </p>
-              {canRetake && (
-                <button
-                  onClick={handleRetake}
-                  className="min-h-[44px] inline-flex items-center justify-center gap-2 mt-2 px-6 py-3 bg-brand-accent text-brand-black rounded-lg font-bold hover:bg-brand-primary-400 transition-colors touch-manipulation"
-                >
-                  <RotateCcw className="w-5 h-5" />
-                  {t('retakeQuiz')}
-                </button>
-              )}
-            </div>
-          )}
-        </div>
-      ) : null}
-    </div>
+            {result.passed ? (
+              <Alert color="green" variant="outline" w="100%">
+                <Text fw={700}>{t('quizPassedMessage')}</Text>
+              </Alert>
+            ) : (
+              <Alert color="red" variant="outline" w="100%">
+                <Stack gap="sm">
+                  <Text fw={700}>
+                    {t('quizFailedMessage', { threshold: quizConfig.successThreshold })}
+                  </Text>
+                  {canRetake ? (
+                    <Button
+                      onClick={handleRetake}
+                      color="amanoba"
+                      leftSection={<IconRefresh size={18} />}
+                    >
+                      {t('retakeQuiz')}
+                    </Button>
+                  ) : null}
+                </Stack>
+              </Alert>
+            )}
+          </Stack>
+        ) : null}
+      </Stack>
+    </Card>
   );
 }

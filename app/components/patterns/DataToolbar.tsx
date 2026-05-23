@@ -5,12 +5,14 @@ type DataToolbarProps = {
   children: ReactNode;
   title?: string;
   description?: string;
+  /** Use stack layout for multi-row filter grids; default is inline controls. */
+  layout?: 'inline' | 'stack';
 };
 
 /**
  * Shared admin/list filter row: search, selects, and action buttons in one governed band.
  */
-export function DataToolbar({ children, title, description }: DataToolbarProps) {
+export function DataToolbar({ children, title, description, layout = 'inline' }: DataToolbarProps) {
   return (
     <Paper bg="ink.8" p="md" withBorder>
       <Stack gap="md">
@@ -24,9 +26,13 @@ export function DataToolbar({ children, title, description }: DataToolbarProps) 
             ) : null}
           </Stack>
         ) : null}
-        <Group align="flex-end" gap="md" wrap="wrap">
-          {children}
-        </Group>
+        {layout === 'stack' ? (
+          <Stack gap="md">{children}</Stack>
+        ) : (
+          <Group align="flex-end" gap="md" wrap="wrap">
+            {children}
+          </Group>
+        )}
       </Stack>
     </Paper>
   );

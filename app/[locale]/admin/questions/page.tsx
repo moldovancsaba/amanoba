@@ -34,7 +34,8 @@ import {
   Textarea,
   Title,
 } from '@mantine/core';
-import { IconCopy, IconEdit, IconFilter, IconHelpCircle, IconPlus, IconSearch, IconTrash, IconX } from '@tabler/icons-react';
+import { DataToolbar } from '@/app/components/patterns/DataToolbar';
+import { IconAdjustments, IconCopy, IconEdit, IconHelpCircle, IconPlus, IconSearch, IconTrash, IconX } from '@tabler/icons-react';
 import { QuestionDifficulty, QuestionType, Question } from '@/types/quiz-question';
 
 interface Course {
@@ -437,15 +438,8 @@ export default function AdminQuestionsPage() {
 
       {/* Filters Panel */}
       {showFilters && (
-        <Card withBorder>
-          <Stack gap="md">
-          <Group justify="space-between">
-            <Group>
-              <IconFilter size={20} />
-              <Title order={2}>
-              Filters
-              </Title>
-            </Group>
+        <DataToolbar title="Filters" layout="stack">
+          <Group justify="flex-end">
             <ActionIcon
               onClick={() => setShowFilters(false)}
               variant="default"
@@ -540,7 +534,6 @@ export default function AdminQuestionsPage() {
             </Grid.Col>
           </Grid>
 
-          {/* Clear Filters */}
           <Group justify="flex-end">
             <Button
               variant="default"
@@ -563,15 +556,14 @@ export default function AdminQuestionsPage() {
               Clear All Filters
             </Button>
           </Group>
-          </Stack>
-        </Card>
+        </DataToolbar>
       )}
 
       {!showFilters && (
         <Button
           onClick={() => setShowFilters(true)}
           variant="default"
-          leftSection={<IconFilter size={18} />}
+          leftSection={<IconAdjustments size={18} />}
         >
           Show Filters
         </Button>
