@@ -195,7 +195,7 @@ function formatMarkdown(params: {
   sections.push(mdTable(topFilesRows, ['File', 'Group', 'Findings']), '');
   sections.push('## Rules checked (what counts as a “defect”)', '');
   sections.push(
-    'These rules are derived from `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` plus the Amanoba adapter rules in `docs/architecture/layout_grammar.md` (§ UI layout). `app/design-system.css` and `tailwind.config.ts` are adapter sources, not design authority.',
+    'These rules are derived from `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` plus the Amanoba adapter rules in `docs/architecture/layout_grammar.md` (§ UI layout). `app/design-system.css` and the Mantine theme are local adapter sources, not design authority.',
     '',
   );
   sections.push(mdTable(patternRulesRows, ['Rule', 'Severity', 'Scope', 'Notes']), '');
@@ -207,7 +207,7 @@ function formatMarkdown(params: {
     '1. **Admin UI first:** Replace `indigo-*` / `gray-*` button + panel styling in `app/[locale]/admin/**` with shared adapter primitives now, then map those surfaces to Mantine wrappers during the shared-SSOT migration.',
   );
   sections.push(
-    '2. **Shared components next:** Fix `components/LanguageSwitcher.tsx` and any other shared component that uses default Tailwind palettes (these leak inconsistent styling across the app).',
+    '2. **Shared components next:** Fix shared components that use template palette classes or page-local styling (these leak inconsistent styling across the app).',
   );
   sections.push(
     '3. **Decide policy for games:** Document any game-canvas exceptions against `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/GOVERNANCE.md`, then migrate reusable chrome to the shared adapter.',
@@ -230,7 +230,7 @@ function main() {
   const patterns: Pattern[] = [
     {
       id: 'blocker:hex-colors-in-ui',
-      title: 'Hardcoded hex Tailwind colors (e.g. bg-[#...] )',
+      title: 'Hardcoded utility hex colors (e.g. bg-[#...] )',
       severity: 'blocker',
       include: (file) => file.endsWith('.tsx'),
       regex: /\b(?:bg|text|border|ring|from|to)-\[#(?:[0-9a-fA-F]{3}){1,2}\]/g,
@@ -245,24 +245,24 @@ function main() {
       note: 'Avoid hardcoded colors in inline styles; use shared-theme or adapter tokens. (Heuristic scan: may include some false positives.)',
     },
     {
-      id: 'major:tailwind-indigo-blue',
-      title: 'Default Tailwind indigo/blue palette in UI',
+      id: 'major:template-indigo-blue',
+      title: 'Default template indigo/blue palette in UI',
       severity: 'major',
       include: (file) => !file.startsWith('app/components/games/'),
       regex: /\b(?:bg|text|border|ring)-(?:indigo|blue)-\d{2,3}\b/g,
       note: 'Amanoba UI grammar expects brand tokens (CTA yellow + dark shell). Indigo/blue typically indicates template leftovers.',
     },
     {
-      id: 'major:tailwind-gray-scale',
-      title: 'Default Tailwind gray scale in UI',
+      id: 'major:template-gray-scale',
+      title: 'Default template gray scale in UI',
       severity: 'major',
       include: (file) => !file.startsWith('app/components/games/'),
       regex: /\b(?:bg|text|border|ring|from|to)-(?:gray|slate|zinc|neutral|stone)-\d{2,3}\b/g,
       note: 'Prefer shared-theme semantics; while migrating, use adapter tokens (brand-darkGrey, brand-white, brand-black) and approved CSS variables.',
     },
     {
-      id: 'major:tailwind-yellow-palette',
-      title: 'Tailwind yellow palette usage (prefer brand accent token)',
+      id: 'major:template-yellow-palette',
+      title: 'Template yellow palette usage (prefer brand accent token)',
       severity: 'major',
       include: (file) => !file.startsWith('app/components/games/'),
       regex: /\b(?:bg|text|border|ring)-yellow-\d{2,3}(?:\/\d{1,3})?\b/g,
@@ -294,11 +294,11 @@ function main() {
     },
     {
       id: 'info:dark-mode-classes',
-      title: 'Uses Tailwind dark: variants',
+      title: 'Uses utility dark: variants',
       severity: 'info',
       include: (file) => file.endsWith('.tsx'),
       regex: /\bdark:[\w-]+\b/g,
-      note: 'Dark mode exists (`darkMode: class`), but the product grammar is “dark shell by default”. Review for consistency.',
+      note: 'The product grammar is “dark shell by default”. Review utility dark-mode variants for consistency.',
     },
     {
       id: 'info:inline-style-attr',
@@ -306,7 +306,7 @@ function main() {
       severity: 'info',
       include: (file) => file.endsWith('.tsx'),
       regex: /\bstyle=\{\{/g,
-      note: 'Often needed for progress widths/aspect ratios. Prefer Tailwind utilities when possible; ensure tokens for colors.',
+      note: 'Often needed for progress widths/aspect ratios. Prefer Mantine props or pattern contracts when possible; ensure tokens for colors.',
     },
   ];
 

@@ -177,7 +177,7 @@ All dependencies must:
 
 	•	Be security-audited (0 vulnerabilities)
 	•	Have no post-install warnings
-	•	Fit the approved architecture (Next.js App Router, Vercel, MongoDB, current Tailwind adapter, target Mantine design-system contract, Mongoose, Socket.io)
+	•	Fit the approved architecture (Next.js App Router, Vercel, MongoDB, Mantine design-system contract, Mongoose, Socket.io)
 
 If in doubt, do not install — ask first.
 
@@ -336,7 +336,7 @@ TEAM:
 
 - **Supported locales (UI and courses)**: `hu`, `en`, `ar`, `hi`, `id`, `pt`, `vi`, `tr`, `bg`, `pl`, `ru`, `sw`, `zh`, `es`, `fr`, `bn`, `ur` (17 locales). Defined in **`app/lib/i18n/locales.ts`**; translation files in **`messages/<locale>.json`**. When the user selects a language, the entire UI must be in that language (no English placeholders for live locales).
 - **Default locale**: Fallback when the browser language is not supported (see **`i18n.ts`** `defaultLocale`; e.g. `hu`). Not the only language: all supported locales are available.
-- **Default locale by browser**: Middleware uses **next-intl** with `localeDetection: true`, so the first visit (and when no locale cookie is set) uses the browser `Accept-Language` header to choose a supported locale; otherwise falls back to `defaultLocale`.
+- **Default locale by browser**: Proxy uses **next-intl** with `localeDetection: true`, so the first visit (and when no locale cookie is set) uses the browser `Accept-Language` header to choose a supported locale; otherwise falls back to `defaultLocale`.
 - **User preference**: Users can set their preferred language in **Profile → Profile settings → Language**. The value is stored on the player (`player.locale`), used for session, emails, and recommendations, and the UI redirects to the chosen locale path.
 
 ### Authentication System (CRITICAL - DO NOT MODIFY)
@@ -346,7 +346,7 @@ TEAM:
 - `next.config.ts`: Headers apply to ALL routes including `/api/` (source: '/:path*')
 - `public/service-worker.js`: Version 2.0.0 with networkFirstStrategy for APIs (DO NOT disable)
 - `auth.ts`: Complex JWT callback with database refresh on every request (DO NOT simplify)
-- `middleware.ts`: Simple `export default auth((req) => { ... })` pattern (DO NOT restructure)
+- `proxy.ts`: Simple `export default auth((req) => { ... })` pattern (DO NOT restructure)
 - `app/components/session-provider.tsx`: Simple wrapper, no extra props (DO NOT add basePath/refetchInterval)
 
 **⚠️ CRITICAL WARNING**: All attempts to "improve" or "fix" these files broke the system. The working version is simple. Keep it simple.

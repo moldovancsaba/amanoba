@@ -1,9 +1,5 @@
 @import './design-system.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* What: Global CSS variables and base styles for Amanoba */
 /* Why: Provides consistent theming and utilities across the entire platform */
 
@@ -161,214 +157,197 @@ h3 {
 }
 
 /* Utility classes for text balance and accessibility */
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  
-  /* Focus visible for keyboard navigation - accessibility compliance */
-  .focus-visible-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
-  }
-  
-  /* Screen reader only content */
-  .sr-only {
-    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
-  }
+.text-balance {
+  text-wrap: balance;
 }
 
-/* Unified page primitives */
-@layer components {
-  .page-shell {
-    @apply min-h-screen bg-brand-black text-brand-white;
-  }
+.focus-visible-ring:focus-visible {
+  outline: 2px solid var(--mantine-color-amanoba-5);
+  outline-offset: 2px;
+}
 
-  .page-header {
-    @apply bg-brand-darkGrey border-b-2 border-brand-accent;
-  }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
-  .page-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
+/* Unified page primitives retained only as transitional class contracts. */
+.page-shell,
+.ds-shell {
+  min-height: 100vh;
+  background: var(--color-surface-shell);
+  color: var(--color-text-primary);
+}
 
-  .page-card {
-    @apply bg-brand-white text-brand-black rounded-xl border-2 border-brand-accent shadow-lg;
-  }
+.page-header {
+  background: var(--color-surface-panel);
+  border-bottom: 2px solid var(--cta-bg);
+}
 
-  .page-card-dark {
-    @apply bg-brand-darkGrey text-brand-white rounded-xl border-2 border-brand-accent;
-  }
+.page-container {
+  width: min(100% - 2rem, 80rem);
+  margin-inline: auto;
+}
 
-  .ds-shell {
-    @apply min-h-screen bg-brand-black text-brand-white;
-  }
+.page-card,
+.ds-panel {
+  color: var(--color-text-primary);
+  background: var(--color-surface-card);
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
 
-  .ds-shell-gradient {
-    background:
-      radial-gradient(circle at top, color-mix(in srgb, var(--cta-bg) 12%, transparent), transparent 42%),
-      linear-gradient(180deg, var(--color-surface-panel) 0%, var(--color-surface-shell) 100%);
-  }
+.page-card-dark,
+.ds-panel-dark,
+.panel-on-dark {
+  color: var(--color-text-primary);
+  background: var(--color-surface-panel);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+}
 
-  .ds-panel {
-    @apply rounded-2xl border bg-brand-white text-brand-black shadow-lg;
-    border-color: var(--color-border-strong);
-  }
+.ds-shell-gradient {
+  background: linear-gradient(180deg, var(--color-surface-panel) 0%, var(--color-surface-shell) 100%);
+}
 
-  .ds-panel-dark {
-    @apply rounded-2xl border bg-brand-darkGrey text-brand-white shadow-lg;
-    border-color: var(--color-border-strong);
-  }
+.ds-panel-soft,
+.ds-panel-soft-accent,
+.ds-panel-soft-success {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-subtle);
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-sm);
+}
 
-  .ds-panel-soft {
-    @apply rounded-xl border shadow-sm;
-    background: var(--color-surface-subtle);
-    border-color: var(--color-border-subtle);
-    color: var(--color-text-primary);
-  }
+.ds-copy-muted {
+  color: var(--color-text-muted);
+}
 
-  .ds-panel-soft-accent {
-    @apply rounded-xl border shadow-sm;
-    background: linear-gradient(135deg, color-mix(in srgb, var(--cta-bg) 12%, white), var(--color-surface-card));
-    border-color: color-mix(in srgb, var(--cta-bg) 40%, transparent);
-    color: var(--color-text-primary);
-  }
+.ds-copy-subtle {
+  color: var(--color-text-subtle);
+}
 
-  .ds-panel-soft-success {
-    @apply rounded-xl border shadow-sm;
-    background: linear-gradient(135deg, color-mix(in srgb, var(--color-success) 12%, white), var(--color-surface-card));
-    border-color: color-mix(in srgb, var(--color-success) 40%, transparent);
-    color: var(--color-text-primary);
-  }
+.ds-stat-value {
+  color: var(--color-text-primary);
+}
 
-  .ds-copy-muted {
-    color: var(--color-text-muted);
-  }
+.ds-overlay {
+  background: var(--color-surface-overlay);
+}
 
-  .ds-copy-subtle {
-    color: var(--color-text-subtle);
-  }
+.ds-icon-info {
+  color: var(--color-info);
+}
 
-  .ds-stat-value {
-    color: var(--color-text-primary);
-  }
+.ds-icon-warning {
+  color: var(--color-warning);
+}
 
-  .ds-overlay {
-    background: var(--color-surface-overlay);
-  }
+.ds-icon-success {
+  color: var(--color-success);
+}
 
-  .ds-icon-info {
-    color: var(--color-info);
-  }
+.ds-icon-accent {
+  color: var(--cta-bg);
+}
 
-  .ds-icon-warning {
-    color: var(--color-warning);
-  }
+.ds-status-success,
+.ds-status-warning,
+.ds-status-error {
+  border: 2px solid currentColor;
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
 
-  .ds-icon-success {
-    color: var(--color-success);
-  }
+.ds-status-success,
+.ds-text-success {
+  color: var(--color-success-dark);
+}
 
-  .ds-icon-accent {
-    color: var(--cta-bg);
-  }
+.ds-status-warning,
+.ds-text-warning {
+  color: var(--color-warning-dark);
+}
 
-  .ds-status-success {
-    background: color-mix(in srgb, var(--color-success) 14%, white);
-    border-color: color-mix(in srgb, var(--color-success) 55%, transparent);
-    color: var(--color-success-dark);
-  }
+.ds-status-error,
+.ds-text-error {
+  color: var(--color-error-dark);
+}
 
-  .ds-status-warning {
-    background: color-mix(in srgb, var(--color-warning) 14%, white);
-    border-color: color-mix(in srgb, var(--color-warning) 55%, transparent);
-    color: var(--color-warning-dark);
-  }
+.ds-button-success {
+  background: var(--color-success);
+  color: var(--color-text-inverse);
+}
 
-  .ds-status-error {
-    background: color-mix(in srgb, var(--color-error) 12%, white);
-    border-color: color-mix(in srgb, var(--color-error) 55%, transparent);
-    color: var(--color-error-dark);
-  }
+.ds-button-warning {
+  background: var(--color-warning);
+  color: var(--color-text-primary);
+}
 
-  .ds-button-success {
-    background: var(--color-success);
-    color: var(--color-text-inverse);
-  }
-  .ds-button-success:hover {
-    background: var(--color-success-dark);
-  }
+.ds-button-danger {
+  background: var(--color-error);
+  color: var(--color-text-inverse);
+}
 
-  .ds-button-warning {
-    background: var(--color-warning);
-    color: var(--color-text-primary);
-  }
-  .ds-button-warning:hover {
-    background: var(--color-warning-dark);
-    color: var(--color-text-inverse);
-  }
+.page-button-primary,
+.page-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+}
 
-  .ds-button-danger {
-    background: var(--color-error);
-    color: var(--color-text-inverse);
-  }
-  .ds-button-danger:hover {
-    background: var(--color-error-dark);
-  }
+.page-button-primary {
+  background: var(--cta-bg);
+  color: var(--color-text-inverse);
+}
 
-  .ds-text-success {
-    color: var(--color-success-dark);
-  }
+.page-button-secondary {
+  background: var(--color-surface-panel);
+  color: var(--color-text-primary);
+}
 
-  .ds-text-warning {
-    color: var(--color-warning-dark);
-  }
+.input-on-dark {
+  color: var(--color-text-primary);
+  background: var(--color-surface-panel);
+  border: 1px solid color-mix(in srgb, var(--cta-bg) 30%, transparent);
+  border-radius: var(--radius-md);
+}
 
-  .ds-text-error {
-    color: var(--color-error-dark);
-  }
-
-  .page-button-primary {
-    @apply bg-brand-accent text-brand-black px-4 py-2 rounded-lg font-bold hover:bg-brand-primary-400 transition-colors;
-  }
-
-  .page-button-secondary {
-    @apply bg-brand-darkGrey text-brand-white px-4 py-2 rounded-lg font-medium hover:bg-brand-secondary-700 transition-colors;
-  }
-
-  /* Form controls on dark shell (admin/editor) — prevents invisible text */
-  .input-on-dark {
-    @apply bg-brand-darkGrey border text-brand-white rounded-lg focus:outline-none placeholder:text-gray-400;
-    border-color: color-mix(in srgb, var(--cta-bg) 30%, transparent);
-  }
-  .input-on-dark:focus {
-    border-color: var(--cta-bg);
-  }
-
-  /* Panel/card on dark shell — use brand tokens, ensure text visible */
-  .panel-on-dark {
-    @apply bg-brand-darkGrey rounded-xl text-brand-white border;
-    border-color: color-mix(in srgb, var(--cta-bg) 30%, transparent);
-  }
+.input-on-dark:focus {
+  outline: 2px solid var(--cta-bg);
+  outline-offset: 2px;
 }
 
 /* Custom scrollbar styling */
-@layer base {
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    @apply bg-gray-100 dark:bg-gray-800;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-400 dark:bg-gray-500;
-  }
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-shell);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-subtle);
 }
 
 /* Animation presets for gamification elements */

@@ -1,5 +1,5 @@
 /**
- * next-intl routing config shared by middleware and navigation.
+ * next-intl routing config shared by proxy and navigation.
  * Single source for locales, defaultLocale, and prefix/detection.
  */
 

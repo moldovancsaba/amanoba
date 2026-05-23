@@ -2,7 +2,7 @@
  * Mailgun email transport (API)
  *
  * What: Sends email via Mailgun HTTP API
- * Why: Alternative to Resend/SMTP; use when you prefer Mailgun dashboard and API
+ * Why: Alternative to Resend; use when you prefer Mailgun dashboard and API
  */
 
 import Mailgun from 'mailgun.js';

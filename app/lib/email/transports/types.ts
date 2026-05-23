@@ -1,7 +1,7 @@
 /**
  * Email transport types — industry-standard send interface
  *
- * What: Common interface for sending email via any provider (Resend, SMTP, Mailgun, etc.)
+ * What: Common interface for sending email via any supported provider (Resend, Mailgun, etc.)
  * Why: Allows switching providers via env (EMAIL_PROVIDER) without changing call sites
  */
 
@@ -24,4 +24,4 @@ export type EmailTransport = {
   isConfigured(): boolean;
 };
 
-export type EmailProviderType = 'resend' | 'smtp' | 'mailgun';
+export type EmailProviderType = 'resend' | 'mailgun';

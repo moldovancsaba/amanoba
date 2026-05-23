@@ -27,9 +27,6 @@ export async function GET(request: NextRequest) {
       emailFrom: process.env.EMAIL_FROM || '',
       emailFromName: process.env.EMAIL_FROM_NAME || '',
       emailReplyTo: process.env.EMAIL_REPLY_TO || '',
-      smtpHost: process.env.SMTP_HOST ?? null,
-      smtpPort: process.env.SMTP_PORT ?? null,
-      smtpSecure: process.env.SMTP_SECURE ?? null,
       mailgunDomain: process.env.MAILGUN_DOMAIN ?? null,
     };
 

@@ -4,7 +4,7 @@
  * What: Root layout that delegates to locale-based layout
  * Why: Next.js requires a root layout, but we use locale-based layouts
  * 
- * Note: This layout should not redirect - let middleware handle routing
+ * Note: This layout should not redirect - let proxy handle routing
  */
 
 import { ReactNode } from 'react';
@@ -19,7 +19,7 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  // Don't redirect here - middleware handles routing
+  // Don't redirect here - proxy handles routing
   // This is just a pass-through for Next.js requirements
   return <>{children}</>;
 }

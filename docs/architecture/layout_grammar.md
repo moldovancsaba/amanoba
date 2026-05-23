@@ -118,7 +118,7 @@ Amanoba's local files are the current implementation adapter and migration surfa
 **Color tokens**:
 
 - **Backgrounds**: Black (`#000000`), Dark grey (`#2D2D2D`), White (`#FFFFFF`).
-- **Accent / CTA**: Yellow/Gold `#FAB908` (Tailwind: `brand-accent`, `primary`, CSS: `--cta-bg`, `--color-primary-500`).
+- **Accent / CTA**: Yellow/Gold `#FAB908` (Mantine theme `amanoba`, CSS support tokens `--cta-bg`, `--color-primary-500`).
 
 **CTA yellow exclusivity**:
 
@@ -165,7 +165,7 @@ Amanoba's local files are the current implementation adapter and migration surfa
 ## 8. Language and localization layout
 
 - **Supported locales (UI)**: `hu`, `en`, `ar`, `hi`, `id`, `pt`, `vi`, `tr`, `bg`, `pl`, `ru`, `sw`, `zh`, `es`, `fr`, `bn`, `ur` (17 locales). Single source of truth: **`app/lib/i18n/locales.ts`**. Translation files: **`messages/<locale>.json`**.
-- **Default locale**: Configurable in **`i18n.ts`** (e.g. `hu`). Used as fallback when browser language is not in the supported list. **Locale detection**: Middleware uses browser `Accept-Language` and locale cookie (`localeDetection: true`).
+- **Default locale**: Configurable in **`i18n.ts`** (e.g. `hu`). Used as fallback when browser language is not in the supported list. **Locale detection**: Proxy uses browser `Accept-Language` and locale cookie (`localeDetection: true`).
 - **User locale preference**: Stored on the player (`player.locale`). Users set it in **Profile → Profile settings → Language**; used for session, emails, and course recommendations.
 - **Course language**: Each course has a single `language` (e.g. `hu`, `en`). All lesson content and email fields for that course must be in that language (language integrity).
 - **Multi-language courses**: One course document per language (e.g. `PRODUCTIVITY_2026_EN`, `PRODUCTIVITY_2026_HU`). CCS is language-neutral; implementations are per-language.

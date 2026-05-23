@@ -8,7 +8,7 @@
  * 
  * Why this implementation:
  * - Client-only rendering for game state management
- * - Smooth animations using Tailwind and transitions
+ * - Smooth animations using Mantine-compatible CSS transitions
  * - Session integration for points, XP, achievements
  * - Responsive grid that adapts to screen size
  */

@@ -34,8 +34,8 @@ Use that plan for migration sequencing, legacy inventory, enforcement rules, fir
 ## Local Adapter
 
 **Aligned SSOT version/date**: `2.1.0`, 2026-05-23
-**Status**: Mantine-only runtime active; reusable pattern-service contracts being consolidated
-**Current UI foundation**: Mantine root runtime plus a narrowed legacy CSS adapter for global reset/prose/assets and documented exception surfaces
+**Status**: Mantine-only runtime active; reusable pattern-service contracts being consolidated; Tailwind/Radix UI dependency baseline removed
+**Current UI foundation**: Mantine root runtime plus a narrowed global CSS support layer for document defaults, prose, assets, and documented exception surfaces
 **Target UI foundation**: Mantine-only contract from the shared SSOT
 
 Local adapter files:
@@ -48,7 +48,7 @@ Local adapter files:
 - `app/components/patterns/CourseCard.tsx` — canonical course-card/product-card contract.
 - `app/components/patterns/MetricCard.tsx` — canonical metric/progress card contract.
 - `app/components/patterns/StateBlock.tsx` — canonical loading/empty/error/permission/success state contract.
-- `app/globals.css` — narrow global reset, Mantine token bridge, and rich-content prose defaults. It is not product component authority.
+- `app/globals.css` — narrow global reset, Mantine token bridge, transitional class contracts, and rich-content prose defaults. It is not product component authority.
 - `app/lib/constants/color-tokens.ts` and `app/lib/constants/certificate-colors.ts` — non-CSS token sources for emails, OG/certificate image rendering, charts, and similar server-rendered contexts.
 
 ## Runtime And Pattern Status
@@ -66,7 +66,7 @@ Still pending:
 
 - extraction of `AuthShell`, `PublicAppShell`, `AdminAppShell`, `DataToolbar`, and `ResponsiveDataView`
 - migration of legacy admin shell, leaderboards, stats, onboarding, auth error, admin votes, and game chrome
-- deletion of unused Radix/Tailwind/sonner/vaul dependencies after verified no product UI imports remain
+- continued reduction of transitional class contracts as remaining legacy surfaces move behind Mantine pattern contracts
 - stronger pattern-drift checks that reject page-local shells/cards/states once each area is migrated
 
 ## Hard Rules During Migration
@@ -75,7 +75,7 @@ Still pending:
 - Do not add new raw color literals in tracked UI code outside approved token sources.
 - Do not add new generic template palettes in touched UI code.
 - Do not mix dark and light surfaces inside learner/product flows unless the exception is documented against the GDS color-mode contract in `FOUNDATION.md`.
-- Do not expand Tailwind/Radix-specific abstractions as if they are the long-term system.
+- Do not add Tailwind/Radix-specific abstractions or dependencies.
 - New repeated shells, cards, metrics, article layouts, state blocks, data toolbars, and auth panels must be implemented through the pattern-service inventory.
 
 ## Known Pattern-Service Debt

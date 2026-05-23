@@ -2,7 +2,7 @@
 
 This document is the single-stop operational snapshot for Amanoba. Keep it current whenever the system behavior, process, or board status changes. Append entries instead of rewriting history.
 
-**Last Updated**: 2026-05-22
+**Last Updated**: 2026-05-23
 **Current Product Version**: 2.9.49 (per `package.json` and `README.md`)
 **Status**: Production stable, SSO-only auth, daily lessons + gamified learning live.
 
@@ -47,7 +47,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `scripts/`: seeds, analytics audits, doc generators, and workflow helpers (seed courses, start workers, doc checks).
 - `messages/`: translation units used by `next-intl`.
 - `public/`: static assets (logos, icons).
-- `middleware.ts` & `auth.*`: SSO/auth wiring, guard logic, and rate limiting.
+- `proxy.ts` & `auth.*`: SSO/auth wiring, guard logic, and rate limiting.
 
 ## Production verification policy
 - Automation path: git push → `origin/main` → Vercel (auto). Manual CLI deployments only with explicit request.
@@ -71,6 +71,32 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 1. Scope `#749` into concrete Practice Hub mode slices before implementation; keep it Backlog until prioritized.
 2. Keep wiki release notes grouped by ISO UTC date for public-facing releases.
 3. Keep `docs/HANDOVER.md` appended whenever runtime behavior, process, production status, or board state changes.
+
+---
+
+## Dependency and deprecation hardening (2026-05-23)
+
+### What changed
+- Upgraded the framework baseline to Next.js 16.2.6 and React 19.2.6.
+- Migrated the Next request interception file from deprecated `middleware.ts` to `proxy.ts`; production build no longer emits the middleware deprecation warning.
+- Removed the Tailwind build chain (`tailwind.config.ts`, `postcss.config.mjs`, Tailwind packages, Tailwind animation/typography packages, and Autoprefixer).
+- Removed the SMTP/Nodemailer transport and dependency. Email delivery is now Resend or Mailgun only via `EMAIL_PROVIDER=resend|mailgun`.
+- Upgraded `uuid` to 14.0.0 and removed obsolete `@types/uuid`.
+- Added an npm override for Next's internal `postcss` dependency until Next ships the patched bundled version directly.
+- Updated active architecture, tech stack, coding standards, README, environment, and handover docs for the new baseline.
+
+### Verification
+- `npm install` completed with `found 0 vulnerabilities`.
+- `npm audit --omit=dev` and `npm audit` both reported `found 0 vulnerabilities`.
+- `npm ls --depth=0` completed with no package errors or extraneous packages.
+- `npm run type-check` passed.
+- `npm run lint` passed with no warnings.
+- `npm test` passed: 10 files / 20 tests.
+- `npm run build` passed without deprecation warnings.
+- `npm run ui:check:mantine`, `npm run ui:check:foundation`, and `npm run ui:check:layout` passed.
+
+### Notes
+- React Compiler lint rules introduced by Next 16 are intentionally disabled for this release line; enabling them is a separate React Compiler migration, not a dependency-hardening prerequisite.
 
 ---
 
@@ -303,7 +329,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 ## Audit update (2026-03-10)
 
 ### Consolidated doc/code discrepancies
-- **Version drift resolved later**: active docs now align on 2.9.49 and Next.js 15.5.18; this March audit note is retained as historical context.
+- **Version drift resolved later**: active docs now align on 2.9.49 and Next.js 16.2.6; this March audit note is retained as historical context.
 - **Lesson quiz governance still in transition**: runtime authority is course-level (`lessonQuizPolicy` resolver), but compatibility surfaces remain in APIs/UI as `lesson.quizConfig` fields and import/export payload compatibility (`app/api/admin/courses/import/route.ts`, `app/api/admin/courses/[courseId]/export/route.ts`, learner day/quiz routes).
 - **Cross-repo portability risk**: active docs should use `amanoba_courses:process_them/docs/...` per `docs/core/CROSS_REPO_DOCS.md`; historical docs may still preserve old machine-local paths for auditability.
 - **Scheduler reality vs risk note**: `app/lib/courses/email-scheduler.ts` already iterates per active enrolment and deduplicates by `emailSentDays`, so the risk text should be interpreted as broader multi-enrolment behavior validation, not absence of dedupe logic.
@@ -1180,7 +1206,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - Routed the course catalog, My Courses, dashboard course/progress/metric surfaces, blog/news detail pages, and auth error recovery page through those shared pattern contracts.
 - Tightened `npm run ui:check:mantine` so the newly canonical learner/course/dashboard/auth/article/pattern files are covered by the Mantine-only boundary rules.
 - Removed obsolete unused Radix, Sonner, and Vaul product-UI dependencies from `package.json`/`package-lock.json`.
-- Ran `npm audit fix` non-breaking updates; remaining audit findings require breaking upgrades (`nodemailer`, Next transitive `postcss`, and `uuid`) and were not forced in this slice.
+- Initial non-breaking `npm audit fix` left findings that were resolved in the follow-up dependency and deprecation hardening pass on 2026-05-23.
 
 ### Verification
 - `npm run ui:check:mantine` ✅ pass
@@ -1190,4 +1216,4 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run lint` ✅ pass
 - `npm test` ✅ pass
 - `npm run build` ✅ pass
-- `npm audit --omit=dev --audit-level=high` ⚠️ remaining high issue is `nodemailer`; available fix requires breaking upgrade path
+- `npm audit --omit=dev --audit-level=high` initially found a `nodemailer` issue; resolved in the follow-up dependency and deprecation hardening pass on 2026-05-23.

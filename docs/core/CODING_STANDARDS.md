@@ -1,7 +1,7 @@
 # Amanoba Coding Standards
 
 **Version**: 1.0
-**Last Updated**: 2026-05-21
+**Last Updated**: 2026-05-23
 **Status**: ACTIVE
 
 ---
@@ -25,10 +25,10 @@ This document defines the coding rules that apply when changing Amanoba applicat
 ## 3. UI and design system
 
 - `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` is the design, UI, UX, component contract, and governance SSOT. If local Amanoba docs or code comments conflict with that folder, update the local material; do not fork the design rules.
-- Amanoba's current implementation adapter is legacy Tailwind/Radix: `app/design-system.css`, `tailwind.config.ts`, `app/globals.css`, shared primitives, and non-CSS token files for server-rendered outputs. These files are implementation details, not the authority.
-- Target UI foundation is the shared Mantine contract defined in `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`. New UI planning should move toward Mantine-only primitives and thin project wrappers instead of expanding Tailwind/Radix-specific patterns.
+- Amanoba's UI dependency baseline is Mantine-only. `app/design-system.css`, `app/globals.css`, and non-CSS token files are narrow implementation support for document defaults, rich content, and server-rendered outputs; they are not product component authority.
+- Target UI foundation is the shared Mantine contract defined in `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`. New UI must use Mantine primitives and thin project wrappers instead of Tailwind/Radix-specific patterns.
 - The Amanoba migration plan is `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECTS/AMANOBA_MANTINE_REFACTOR.md`; use it for sequencing, legacy freeze rules, allowed exceptions, and done criteria.
-- While the legacy adapter remains, use Amanoba tokens and utilities: `brand.*`, `primary.*`, `semantic.*`, `social.*`, `.page-shell`, `.page-card`, `.ds-panel`, `.ds-status-*`, `.ds-button-*`, and `.ds-text-*`.
+- Transitional CSS class contracts are allowed only while legacy surfaces are being converted; do not add new Tailwind utility class usage or Tailwind dependencies.
 - Do not add raw hex colours or generic template palettes in touched UI code. Approved non-CSS token files are limited to server-rendered contexts such as emails, charts, certificates, and OG images.
 - CTA yellow remains reserved for primary actions only until the Mantine theme migration replaces the local adapter with shared-theme semantics.
 - If a visual pattern appears in more than one place, route it through the current adapter or the planned Mantine wrapper layer before duplicating it again.

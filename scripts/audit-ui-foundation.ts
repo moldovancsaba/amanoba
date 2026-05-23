@@ -158,7 +158,6 @@ function main() {
     'app/design-system.css',
     'app/globals.css',
     'app/mobile-styles.css',
-    'tailwind.config.ts',
     'app/lib/ui/mantine-theme.ts',
     'app/lib/constants/app-url.ts',
     'app/lib/constants/certificate-colors.ts',
@@ -190,7 +189,7 @@ function main() {
       severity: 'blocker',
       include: (file) => !tokenSourceFiles.has(file) && !assetRestrictedFiles.has(file),
       regex: /#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\b|rgba?\(|hsla?\(/g,
-      note: 'Move colors to approved token/adapter sources (`app/design-system.css`, Tailwind aliases while the adapter exists, or a dedicated constants file) and reference those tokens.',
+      note: 'Move colors to approved token sources (`app/design-system.css`, Mantine theme tokens, or a dedicated constants file) and reference those tokens.',
     },
     {
       id: 'blocker:non-approved-asset-hex',

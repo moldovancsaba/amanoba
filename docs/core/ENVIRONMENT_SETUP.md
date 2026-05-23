@@ -1,7 +1,7 @@
 # Environment Setup Guide
 
 **Project**: Amanoba  
-**Last Updated**: 2026-02-26
+**Last Updated**: 2026-05-23
 
 ---
 
@@ -23,7 +23,7 @@ Canonical rules:
 - MongoDB Atlas project/database access
 - SSO provider credentials (OIDC)
 - Stripe account (if payments are enabled)
-- Email provider account (`resend`, `smtp`, or `mailgun`)
+- Email provider account (`resend` or `mailgun`)
 
 ---
 

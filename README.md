@@ -1,12 +1,12 @@
 # Amanoba
 
 **Current Version**: 2.9.49
-**Last Updated**: 2026-05-20
-**Status**: Production Stable — ROADMAP & TASKLIST clean; RELEASE_NOTES current; SSO-only auth; shared design-system SSOT adopted
+**Last Updated**: 2026-05-23
+**Status**: Production Stable — SSO-only auth; shared design-system SSOT adopted; Mantine-only UI dependency baseline
 
 ## 🎓 Overview
 
-Amanoba is transforming into a **unified flexible learning platform** that combines structured education with gamified engagement. Built on Next.js 15 with full TypeScript support, Amanoba delivers lessons via email, uses interactive games as student assessments, and maintains a comprehensive gamification system with achievements, leaderboards, and rewards.
+Amanoba is transforming into a **unified flexible learning platform** that combines structured education with gamified engagement. Built on Next.js 16 with full TypeScript support, Amanoba delivers lessons via email, uses interactive games as student assessments, and maintains a comprehensive gamification system with achievements, leaderboards, and rewards.
 
 ### Core Features
 
@@ -43,17 +43,17 @@ Amanoba is transforming into a **unified flexible learning platform** that combi
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 15.5.18 (App Router)
+- **Framework**: Next.js 16.2.6 (App Router)
 - **Database**: MongoDB Atlas with Mongoose 8.18.0
 - **Language**: TypeScript 5
 - **Design/UI/UX SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
-- **UI Runtime**: Mantine 8.3.18 root runtime installed; product UI is migrating from the legacy Tailwind/Radix adapter
-- **Styling**: Tailwind CSS 3.4.11 with local token utilities as the current legacy adapter pending full Mantine migration
-- **Email**: Provider-selectable transport (`EMAIL_PROVIDER=resend|smtp|mailgun`) for lesson delivery and transactional emails
+- **UI Runtime**: Mantine 8.3.18 with shared GDS pattern-service contracts
+- **Styling**: Mantine theme plus narrow global CSS for document defaults, token bridge, and rich lesson prose
+- **Email**: Provider-selectable transport (`EMAIL_PROVIDER=resend|mailgun`) for lesson delivery and transactional emails
 - **Rich Text Editor**: TipTap for course content creation
 - **i18n**: next-intl for multi-language support (Hungarian default, English)
 - **Animation**: Framer Motion 10.18.0
-- **UI Components**: Mantine runtime plus Radix UI primitives in the current adapter; target system is the shared Mantine contract
+- **UI Components**: Mantine primitives and thin project pattern contracts
 - **Charts**: Recharts 3.2.1
 - **State Management**: TanStack React Query
 - **Validation**: Zod (XSS protection)

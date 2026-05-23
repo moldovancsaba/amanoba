@@ -1,10 +1,10 @@
 /**
- * Next.js Middleware
+ * Next.js Proxy
  * 
  * What: Request interceptor for authentication, route protection, and i18n routing
  * Why: Protect routes that require authentication and handle language routing
  * 
- * Note: This middleware runs in Edge Runtime, so it cannot import Mongoose/MongoDB
+ * Note: This proxy runs before matching routes, so it cannot import Mongoose/MongoDB
  */
 
 import { NextResponse } from 'next/server';
@@ -19,11 +19,11 @@ import { locales, type Locale } from '@/app/lib/i18n/locales';
 const publicDefaultLocale: Locale = 'hu';
 const adminDefaultLocale: Locale = 'en';
 
-// next-intl middleware: routing config is shared with app/lib/i18n/navigation.ts
+// next-intl proxy handler: routing config is shared with app/lib/i18n/navigation.ts
 const intlMiddleware = createMiddleware(routing);
 
 /**
- * Middleware Handler
+ * Proxy Handler
  * 
  * Why: Check authentication status, handle i18n routing, and redirect unauthenticated users
  */
@@ -31,8 +31,8 @@ export default auth((req) => {
   const isLoggedIn = !!req.auth?.user;
   const pathname = req.nextUrl.pathname;
 
-  // CRITICAL: Skip middleware for static files in public/ folder
-  // Why: Next.js serves these files directly, middleware should not process them
+  // CRITICAL: Skip proxy for static files in public/ folder
+  // Why: Next.js serves these files directly, proxy should not process them
   // Static files include: manifest.json, icons, images, etc.
   if (
     pathname.startsWith('/manifest.json') ||
@@ -107,7 +107,7 @@ export default auth((req) => {
     return NextResponse.redirect(new URL(`/en/editor${editorPath}${req.nextUrl.search}`, req.url));
   }
   
-  // FIRST: Let intlMiddleware handle ALL locale routing
+  // FIRST: Let next-intl handle ALL locale routing
   // With localePrefix: 'always', / redirects to /hu
   // This MUST happen first before any other processing
   const response = intlMiddleware(req);
@@ -230,9 +230,9 @@ export default auth((req) => {
 });
 
 /**
- * Middleware Configuration
+ * Proxy Configuration
  * 
- * Why: Define which routes the middleware should run on
+ * Why: Define which routes the proxy should run on
  */
 export const config = {
   matcher: [

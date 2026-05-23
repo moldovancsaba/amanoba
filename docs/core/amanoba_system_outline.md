@@ -7,7 +7,7 @@
 
 ## Table of Contents (high-level)
 
-1. [Auth & Middleware](#1-auth--middleware)
+1. [Auth & Proxy](#1-auth--proxy)
 2. [App — Pages (route entry points)](#2-app--pages-route-entry-points)
 3. [App — API Routes](#3-app--api-routes)
 4. [App — Lib (shared logic)](#4-app--lib-shared-logic)
@@ -17,12 +17,12 @@
 
 ---
 
-## 1. Auth & Middleware
+## 1. Auth & Proxy
 
 | Location | Export / function | Description |
 |----------|-------------------|-------------|
 | `auth.ts` | `handlers`, `auth`, `signIn`, `signOut` | NextAuth instance; callbacks: signIn, jwt, session |
-| `middleware.ts` | `default` | Auth-wrapped middleware (i18n, route protection, locale) |
+| `proxy.ts` | `default` | Auth-wrapped proxy (i18n, route protection, locale) |
 
 ---
 

@@ -1,14 +1,14 @@
 # Amanoba Architecture
 
 **Version**: 2.9.49
-**Last Updated**: 2026-05-21
-**Status**: Active — production course platform with SSO-only auth, gamified learning, content voting, certificate flows, and a shared design-system SSOT with local adapter migration
+**Last Updated**: 2026-05-23
+**Status**: Active — production course platform with SSO-only auth, gamified learning, content voting, certificate flows, and a shared design-system SSOT with Mantine-only UI dependency baseline
 
 ---
 
 ## System Overview
 
-Amanoba is a unified flexible learning platform built on Next.js 15.5.18 (App Router) that combines multi-game infrastructure with a course, quiz, and certification platform. The architecture follows a monolithic serverless design optimized for Vercel deployment with MongoDB Atlas for persistence and the shared `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` SSOT for design, UI, UX, and component contracts.
+Amanoba is a unified flexible learning platform built on Next.js 16.2.6 (App Router) that combines multi-game infrastructure with a course, quiz, and certification platform. The architecture follows a monolithic serverless design optimized for Vercel deployment with MongoDB Atlas for persistence and the shared `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` SSOT for design, UI, UX, and component contracts.
 
 ### Core Principles
 
@@ -18,7 +18,7 @@ Amanoba is a unified flexible learning platform built on Next.js 15.5.18 (App Ro
 4. **Type-Safe**: Full TypeScript coverage with strict mode enabled
 5. **Security-First**: Rate limiting, input validation, XSS protection, and anti-cheat on all endpoints
 6. **Reuse via discriminator**: Same feature in 2+ places = one model, one API, one component; discriminator (e.g. `targetType`) selects context. See **docs/product/VOTING_AND_REUSE_PATTERN.md** (unified voting and how to reuse features).
-7. **Shared design-system first**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` is the design/UI/UX SSOT. Amanoba's local Tailwind/Radix files are the current adapter and migration surface only; do not reintroduce hard-coded template palettes in touched surfaces.
+7. **Shared design-system first**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` is the design/UI/UX SSOT. Amanoba's UI dependency baseline is Mantine-only; do not reintroduce Tailwind, Radix, hard-coded template palettes, or page-local design systems in touched surfaces.
 
 ### Lesson quiz governance
 
@@ -31,17 +31,17 @@ Amanoba is a unified flexible learning platform built on Next.js 15.5.18 (App Ro
 ## Technology Stack
 
 ### Frontend
-- **Framework**: Next.js 15.5.18 (App Router)
+- **Framework**: Next.js 16.2.6 (App Router)
 - **Language**: TypeScript 5
 - **Design/UI/UX SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
-- **Styling**: Tailwind CSS 3.4.11 with centralized local adapter tokens in `app/design-system.css`, Tailwind aliases in `tailwind.config.ts`, shared utilities in `app/globals.css`, and shared primitives in `app/components/ui/*`
-- **UI Components**: Radix UI primitives in the current adapter; target foundation is the shared Mantine contract
+- **Styling**: Mantine theme plus narrow global CSS for document defaults, token bridge, and rich lesson prose
+- **UI Components**: Mantine primitives and thin project pattern contracts aligned to the shared GDS
 - **Animation**: Framer Motion 10.18.0
 - **State Management**: TanStack React Query 5.56.2
 - **Forms**: React Hook Form 7.53.0 with Zod validation
 - **Charts**: Recharts 3.2.1
 - **Icons**: Lucide React 0.462.0
-- **Utilities**: clsx, tailwind-merge, class-variance-authority
+- **Utilities**: project-specific TypeScript helpers; no Tailwind/Radix utility layer
 - **CTA Rule**: CTA yellow (`#FAB908`) remains exclusive to primary actions in the current adapter via tokens `--cta-bg`, `--cta-bg-hover`, `--cta-text`, `--cta-shadow`; non-CTA elements must use neutral/secondary palette until the Mantine theme migration replaces this local rule with shared-theme semantics.
 
 ### Backend
@@ -285,9 +285,7 @@ amanoba/
 ├── .env.local                   # Local environment (not committed)
 ├── package.json                 # Dependencies and scripts
 ├── tsconfig.json                # TypeScript configuration
-├── tailwind.config.ts           # Tailwind configuration
 ├── next.config.ts               # Next.js configuration
-├── postcss.config.mjs           # PostCSS configuration
 │
 ├── README.md                    # Project overview
 ├── ARCHITECTURE.md              # This file

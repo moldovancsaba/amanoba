@@ -63,9 +63,6 @@ interface MailSettings {
   emailFrom?: string;
   emailFromName?: string;
   emailReplyTo?: string;
-  smtpHost?: string | null;
-  smtpPort?: string | null;
-  smtpSecure?: string | null;
   mailgunDomain?: string | null;
 }
 
@@ -360,13 +357,6 @@ export default function AdminSettingsPage() {
               <TextInput label={t('fromName')} value={mailSettings.emailFromName || ''} readOnly />
               <TextInput label={t('replyTo')} value={mailSettings.emailReplyTo || ''} readOnly />
             </SimpleGrid>
-            {mailSettings.smtpHost && (
-              <SimpleGrid cols={{ base: 1, md: 3 }}>
-                <TextInput label={t('smtpHost')} value={mailSettings.smtpHost} readOnly />
-                <TextInput label={t('smtpPort')} value={mailSettings.smtpPort || ''} readOnly />
-                <TextInput label={t('smtpSecure')} value={mailSettings.smtpSecure || ''} readOnly />
-              </SimpleGrid>
-            )}
             {mailSettings.mailgunDomain && (
               <TextInput label={t('mailgunDomain')} value={mailSettings.mailgunDomain} readOnly />
             )}

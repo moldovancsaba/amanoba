@@ -2,7 +2,7 @@
  * Email Service
  *
  * What: Handles sending emails for course lessons and notifications
- * Why: Centralized email delivery via configurable transport (Resend, SMTP/Gmail/Mailgun)
+ * Why: Centralized email delivery via configurable transport (Resend/Mailgun)
  */
 
 import { logger } from '../logger';

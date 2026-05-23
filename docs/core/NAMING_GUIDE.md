@@ -263,11 +263,11 @@ GET /api/analytics?startDate=2025-01-01&endDate=2025-01-31&granularity=day
 
 ## 🎨 CSS & Styling
 
-### Tailwind Classes
+### Mantine And Pattern Contracts
 
-**Design authority**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` governs design, UI, UX, and component contracts. Tailwind class naming applies only to Amanoba's current legacy adapter while migration continues.
+**Design authority**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` governs design, UI, UX, and component contracts. Amanoba's UI dependency baseline is Mantine-only.
 
-**Component Classes**: Use the current adapter utilities where needed, avoid custom classes unless necessary, and do not introduce names that create a second design system.
+**Component Names**: Use domain-specific PascalCase for shared Mantine wrappers and pattern contracts. Avoid names that imply a second design system.
 
 **Custom Classes**: kebab-case with semantic naming
 ```css

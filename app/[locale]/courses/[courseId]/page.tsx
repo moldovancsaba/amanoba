@@ -8,6 +8,7 @@
 'use client';
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
+import type { ReactNode } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
@@ -965,7 +966,7 @@ export default function CourseDetailPage({
     const hasAccess = entitlement.entitlementOwned || !entitlementRequired;
 
     let statusLabel = getCourseDetailText('certificationUnavailable');
-    let cta: JSX.Element | null = null;
+    let cta: ReactNode = null;
 
     if (!entitlement.certificationEnabled) {
       statusLabel = getCourseDetailText('certificationUnavailable');
