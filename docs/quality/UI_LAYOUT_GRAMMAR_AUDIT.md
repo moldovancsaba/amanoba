@@ -1,6 +1,6 @@
 # UI Layout Grammar Audit
 
-**Generated at**: 2026-05-23T07:45:44.088Z
+**Generated at**: 2026-05-23T19:26:12.189Z
 
 This report scans tracked UI code (`app/**`, `components/**`) for **layout-grammar / design-token** drift. It is a *heuristic* scan: it finds likely violations, then humans decide which are intentional.
 
@@ -11,23 +11,28 @@ This report scans tracked UI code (`app/**`, `components/**`) for **layout-gramm
 
 ## Summary
 
-- Files scanned: **219**
+- Files scanned: **226**
 
 ### Findings by area
 | Group | Findings |
 | --- | --- |
+| app | 3 |
 
 ### Findings by severity
 | Severity | Findings |
 | --- | --- |
+| info | 3 |
 
 ### Top patterns (most frequent)
 | Pattern | Severity | Findings |
 | --- | --- | --- |
+| Inline style={{...}} in components/pages | info | 3 |
 
 ### Top files (most findings)
 | File | Group | Findings |
 | --- | --- | --- |
+| `app/[locale]/courses/[courseId]/page.tsx` | app | 2 |
+| `app/[locale]/courses/page.tsx` | app | 1 |
 
 ## Rules checked (what counts as a “defect”)
 
@@ -52,10 +57,13 @@ Use this section to spot-check; the totals above are the authoritative counts.
 
 | Where | Pattern | Matches |
 | --- | --- | --- |
+| `app/[locale]/courses/[courseId]/page.tsx:1270` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/page.tsx:1279` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/page.tsx:332` | Inline style={{...}} in components/pages | `style={{` |
 
 ## Actionable next steps (recommended)
 
 1. **Admin UI first:** Replace `indigo-*` / `gray-*` button + panel styling in `app/[locale]/admin/**` with shared adapter primitives now, then map those surfaces to Mantine wrappers during the shared-SSOT migration.
 2. **Shared components next:** Fix shared components that use template palette classes or page-local styling (these leak inconsistent styling across the app).
-3. **Decide policy for games:** Document any game-canvas exceptions against `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/GOVERNANCE.md`, then migrate reusable chrome to the shared adapter.
+3. **Decide policy for games:** Document any game-canvas exceptions against `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/GOVERNANCE_AND_ADOPTION.md`, then migrate reusable chrome to the shared adapter.
 4. **Add guardrails:** Turn the “blocker/major” rules into a `--check` CI step once we’ve reduced the current findings to an acceptable baseline.

@@ -19,7 +19,9 @@ Read in this order:
 2. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/FOUNDATION.md`
 3. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENTS_AND_PATTERNS.md`
 4. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PATTERN_SERVICE_MODEL.md`
-5. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/GOVERNANCE_AND_ADOPTION.md`
+5. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/SERVICE_BACKBONE_IMPLEMENTATION_PLAN.md`
+6. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/GOVERNANCE_AND_ADOPTION.md`
+7. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECTS/PORTFOLIO_ADOPTION_MATRIX.md`
 
 The shared SSOT is managed as its own Git repository. Amanoba should reference its version/date when major UI migration work is done.
 
@@ -33,7 +35,7 @@ Use that plan for migration sequencing, legacy inventory, enforcement rules, fir
 
 ## Local Adapter
 
-**Aligned SSOT version/date**: `2.1.0`, 2026-05-23
+**Aligned SSOT version/date**: `2.2.0`, 2026-05-23
 **Status**: Mantine-only runtime active; reusable pattern-service contracts being consolidated; Tailwind/Radix UI dependency baseline removed
 **Current UI foundation**: Mantine root runtime plus a narrowed global CSS support layer for document defaults, prose, assets, and documented exception surfaces
 **Target UI foundation**: Mantine-only contract from the shared SSOT
@@ -48,6 +50,8 @@ Local adapter files:
 - `app/components/patterns/CourseCard.tsx` — canonical course-card/product-card contract.
 - `app/components/patterns/MetricCard.tsx` — canonical metric/progress card contract.
 - `app/components/patterns/StateBlock.tsx` — canonical loading/empty/error/permission/success state contract.
+- `app/components/patterns/CourseAccessRecoveryActions.tsx` — canonical sign-in / course / retry recovery actions for protected lesson and quiz routes.
+- `app/[locale]/admin/layout.tsx` — Mantine `AppShell` admin navigation shell.
 - `app/globals.css` — narrow global reset, Mantine token bridge, transitional class contracts, and rich-content prose defaults. It is not product component authority.
 - `app/lib/constants/color-tokens.ts` and `app/lib/constants/certificate-colors.ts` — non-CSS token sources for emails, OG/certificate image rendering, charts, and similar server-rendered contexts.
 
@@ -64,7 +68,7 @@ Implemented:
 
 Still pending:
 
-- extraction of `AuthShell`, `PublicAppShell`, `AdminAppShell`, `DataToolbar`, and `ResponsiveDataView`
+- extraction of `AuthShell`, `PublicAppShell`, `DataToolbar`, and `ResponsiveDataView`
 - migration of legacy admin shell, leaderboards, stats, onboarding, auth error, admin votes, and game chrome
 - continued reduction of transitional class contracts as remaining legacy surfaces move behind Mantine pattern contracts
 - stronger pattern-drift checks that reject page-local shells/cards/states once each area is migrated
@@ -80,8 +84,8 @@ Still pending:
 
 ## Known Pattern-Service Debt
 
-- Some older route surfaces still contain legacy local markup: admin shell, leaderboards, stats, onboarding, auth error, admin votes, and game chrome.
-- `AuthShell`, `PublicAppShell`, `AdminAppShell`, `DataToolbar`, and `ResponsiveDataView` are backlog contracts.
+- Some older route surfaces still contain legacy local markup: leaderboards, stats, onboarding, auth error, admin votes, and game chrome.
+- `AuthShell`, `PublicAppShell`, `DataToolbar`, and `ResponsiveDataView` are backlog contracts.
 - Some historical release notes and archive documents still describe older local design-system states for audit history.
 - Package dependencies still include legacy UI libraries until the final dependency deletion pass proves they are unused in product UI.
 
@@ -97,7 +101,6 @@ Use `npm run ui:audit:foundation` and `npm run ui:audit:layout` to refresh gener
 ## Next Migration Targets
 
 1. Extract `AuthShell` from the sign-in page and migrate `app/[locale]/auth/error/page.tsx`.
-2. Migrate `app/[locale]/admin/layout.tsx` to Mantine `AppShell`.
-3. Extract `DataToolbar` and `ResponsiveDataView` for admin list pages.
+2. Extract `DataToolbar` and `ResponsiveDataView` for admin list pages.
 4. Migrate leaderboards, stats, onboarding, and game chrome to shell/card/state contracts.
 5. Tighten `npm run ui:check:mantine` after each surface group so old variants cannot return.

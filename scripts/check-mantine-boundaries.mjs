@@ -30,6 +30,7 @@ const mantineOnlyFiles = new Set([
   'components/CookieConsentBanner.tsx',
   'components/LanguageSwitcher.tsx',
   'components/Logo.tsx',
+  'app/[locale]/admin/layout.tsx',
 ]);
 
 const hardBlockedImports = [

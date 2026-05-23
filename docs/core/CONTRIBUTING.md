@@ -407,7 +407,7 @@ Requires explicit instruction. Includes:
 - **Current adapter**: Amanoba uses Mantine primitives, shared pattern contracts, and narrow local CSS support while remaining legacy surfaces are converted.
 - **Target foundation**: Mantine-only shared contract with thin project wrappers.
 - **Colors and spacing**: Use current adapter tokens only while the migration is active; do not add new raw values or generic template palettes.
-- **Components**: New reusable component planning must follow `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENT_CONTRACTS.md`.
+- **Components**: New reusable component planning must follow `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENTS_AND_PATTERNS.md`.
 - **Animations**: Use predefined classes (`.animate-points`, `.animate-achievement`, etc.) only where they fit the shared motion rules.
 
 ### Accessibility

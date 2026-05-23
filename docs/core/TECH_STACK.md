@@ -25,7 +25,7 @@
 
 ### UI Components
 - **Current runtime**: Mantine root runtime plus shared pattern-service contracts.
-- **Target adapter**: Mantine primitives and thin project wrappers aligned to `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENT_CONTRACTS.md`.
+- **Target adapter**: Mantine primitives and thin project wrappers aligned to `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENTS_AND_PATTERNS.md`.
 - **lucide-react**: 0.462.0 (icons)
 
 ### Animation

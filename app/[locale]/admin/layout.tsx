@@ -1,72 +1,84 @@
 /**
- * Admin Dashboard Layout
- * 
- * Protected admin area layout with sidebar navigation and header.
- * Provides consistent navigation and structure for all admin pages.
+ * Admin dashboard layout — Mantine AppShell with governed navigation.
  */
 
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { useSession, signOut } from 'next-auth/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
-  LayoutDashboard,
-  Gamepad2,
-  Users,
-  Trophy,
-  Gift,
-  Target,
-  Scroll,
-  BarChart3,
-  Settings,
+  AppShell,
+  Avatar,
+  Box,
+  Burger,
+  Divider,
+  Group,
   Menu,
-  X,
-  Crown,
-  ChevronDown,
-  User,
-  BookOpen,
-  CreditCard,
-  ClipboardList,
-  LogOut,
-  Award,
-  HelpCircle,
-  Mail,
-  ThumbsUp,
-} from 'lucide-react';
+  NavLink,
+  ScrollArea,
+  Stack,
+  Text,
+  UnstyledButton,
+} from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import {
+  IconAward,
+  IconBook,
+  IconChartBar,
+  IconClipboardList,
+  IconCreditCard,
+  IconCrown,
+  IconDeviceGamepad2,
+  IconGift,
+  IconHelp,
+  IconLayoutDashboard,
+  IconLogout,
+  IconMail,
+  IconMap2,
+  IconSettings,
+  IconTarget,
+  IconThumbUp,
+  IconTrophy,
+  IconUser,
+  IconUsers,
+} from '@tabler/icons-react';
+import type { TablerIcon } from '@tabler/icons-react';
 import Logo from '@/components/Logo';
 
-// Full nav for admins; editor-only users see only dashboard + courses
-const allNavigationItems = [
-  { key: 'dashboard', href: '/admin', icon: LayoutDashboard },
-  { key: 'analytics', href: '/admin/analytics', icon: BarChart3 },
-  { key: 'payments', href: '/admin/payments', icon: CreditCard },
-  { key: 'emailAnalytics', href: '/admin/email-analytics', icon: Mail },
-  { key: 'surveys', href: '/admin/surveys', icon: ClipboardList },
-  { key: 'votes', href: '/admin/votes', icon: ThumbsUp },
-  { key: 'courses', href: '/admin/courses', icon: BookOpen },
-  { key: 'questions', href: '/admin/questions', icon: HelpCircle },
-  { key: 'certificates', href: '/admin/certificates', icon: Award },
-  { key: 'users', href: '/admin/players', icon: Users },
-  { key: 'games', href: '/admin/games', icon: Gamepad2 },
-  { key: 'achievements', href: '/admin/achievements', icon: Trophy },
-  { key: 'rewards', href: '/admin/rewards', icon: Gift },
-  { key: 'challenges', href: '/admin/challenges', icon: Target },
-  { key: 'quests', href: '/admin/quests', icon: Scroll },
-  { key: 'featureFlags', href: '/admin/feature-flags', icon: Settings },
-  { key: 'settings', href: '/admin/settings', icon: Settings },
+const allNavigationItems: Array<{
+  key: string;
+  href: string;
+  icon: TablerIcon;
+}> = [
+  { key: 'dashboard', href: '/admin', icon: IconLayoutDashboard },
+  { key: 'analytics', href: '/admin/analytics', icon: IconChartBar },
+  { key: 'payments', href: '/admin/payments', icon: IconCreditCard },
+  { key: 'emailAnalytics', href: '/admin/email-analytics', icon: IconMail },
+  { key: 'surveys', href: '/admin/surveys', icon: IconClipboardList },
+  { key: 'votes', href: '/admin/votes', icon: IconThumbUp },
+  { key: 'courses', href: '/admin/courses', icon: IconBook },
+  { key: 'questions', href: '/admin/questions', icon: IconHelp },
+  { key: 'certificates', href: '/admin/certificates', icon: IconAward },
+  { key: 'users', href: '/admin/players', icon: IconUsers },
+  { key: 'games', href: '/admin/games', icon: IconDeviceGamepad2 },
+  { key: 'achievements', href: '/admin/achievements', icon: IconTrophy },
+  { key: 'rewards', href: '/admin/rewards', icon: IconGift },
+  { key: 'challenges', href: '/admin/challenges', icon: IconTarget },
+  { key: 'quests', href: '/admin/quests', icon: IconMap2 },
+  { key: 'featureFlags', href: '/admin/feature-flags', icon: IconSettings },
+  { key: 'settings', href: '/admin/settings', icon: IconSettings },
 ];
 
 const editorOnlyNavKeys = new Set(['dashboard', 'courses']);
 
-// Create a client outside the component to avoid recreating on every render
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 60 * 1000, // 1 minute
+      staleTime: 60 * 1000,
       retry: 1,
     },
   },
@@ -81,29 +93,16 @@ export default function AdminLayout({
   const router = useRouter();
   const { data: session } = useSession();
   const t = useTranslations('admin');
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [userMenuOpen, setUserMenuOpen] = useState(false);
-  const [version, setVersion] = useState<string>('2.7.0');
-  const [isEditorOnly, setIsEditorOnly] = useState<boolean | null>(null);
   const pathname = usePathname();
-  const userMenuRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (userMenuRef.current && !userMenuRef.current.contains(event.target as Node)) {
-        setUserMenuOpen(false);
-      }
-    }
-    if (userMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
-    }
-  }, [userMenuOpen]);
+  const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
+  const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
+  const [version, setVersion] = useState('2.7.0');
+  const [isEditorOnly, setIsEditorOnly] = useState<boolean | null>(null);
 
   useEffect(() => {
     fetch('/api/admin/system-info')
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (data.success && data.systemInfo?.version) {
           setVersion(data.systemInfo.version);
         }
@@ -113,8 +112,8 @@ export default function AdminLayout({
 
   useEffect(() => {
     fetch('/api/admin/access')
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         if (data?.canAccessAdmin !== true) {
           router.replace(`/${locale}/dashboard?error=admin_access_required`);
           return;
@@ -131,139 +130,138 @@ export default function AdminLayout({
       ? allNavigationItems.filter((item) => editorOnlyNavKeys.has(item.key))
       : allNavigationItems;
 
-  const navigation = navigationItems.map(item => ({
-    ...item,
-    label: t(item.key),
-    href: item.href,
-    icon: item.icon,
-  }));
+  if (isEditorOnly === null) {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <Box bg="ink.9" mih="100vh" />
+      </QueryClientProvider>
+    );
+  }
+
+  const profileHref = session?.user?.id
+    ? `/${locale}/profile/${session.user.id}`
+    : `/${locale}/dashboard`;
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-brand-black">
-      {/* Sidebar */}
-      <aside
-        className={`fixed top-0 left-0 z-40 h-screen transition-transform flex flex-col ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } bg-brand-darkGrey w-[260px]`}
+      <AppShell
+        header={{ height: 64 }}
+        navbar={{
+          width: 260,
+          breakpoint: 'sm',
+          collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
+        }}
+        padding="md"
+        bg="ink.9"
       >
-        {/* Logo */}
-        <div className="h-16 flex-shrink-0 flex items-center justify-between px-4">
-          <Link href={`/${locale}/admin`} className="flex items-center gap-2">
-            <Logo size="sm" showText={false} linkTo="" preventShrink />
-            <div>
-              <div className="text-brand-white font-bold text-lg">Amanoba</div>
-              <div className="text-xs text-brand-white/70">Admin Panel</div>
-            </div>
-          </Link>
-        </div>
+        <AppShell.Navbar p="md" bg="ink.8">
+          <AppShell.Section mb="md">
+            <UnstyledButton component={Link} href={`/${locale}/admin`}>
+              <Group gap="sm" wrap="nowrap">
+                <Logo size="sm" showText={false} linkTo="" preventShrink />
+                <Stack gap={0}>
+                  <Text fw={700} c="white" size="sm">
+                    Amanoba
+                  </Text>
+                  <Text size="xs" c="dimmed">
+                    Admin Panel
+                  </Text>
+                </Stack>
+              </Group>
+            </UnstyledButton>
+          </AppShell.Section>
 
-        {/* Navigation - Scrollable */}
-        <nav className="flex-1 overflow-y-auto p-4 space-y-1">
-          {navigation.map((item) => {
-            const Icon = item.icon;
-            const fullPath = `/${locale}${item.href}`;
-            const isActive = pathname === fullPath || pathname.startsWith(fullPath + '/');
+          <AppShell.Section grow component={ScrollArea} scrollbarSize={6}>
+            <Stack gap={4}>
+              {navigationItems.map((item) => {
+                const fullPath = `/${locale}${item.href}`;
+                const isActive =
+                  pathname === fullPath || pathname.startsWith(`${fullPath}/`);
+                const Icon = item.icon;
 
-            return (
-              <Link
-                key={item.href}
-                href={`/${locale}${item.href}`}
-                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                  isActive
-                    ? 'bg-brand-accent text-brand-black'
-                    : 'text-brand-white hover:bg-brand-secondary-700 hover:text-brand-white'
-                }`}
-              >
-                <Icon className="w-5 h-5" />
-                <span className="font-medium">{item.label}</span>
-              </Link>
-            );
-          })}
-        </nav>
-      </aside>
+                return (
+                  <NavLink
+                    key={item.href}
+                    component={Link}
+                    href={fullPath}
+                    label={t(item.key)}
+                    leftSection={<Icon size={18} stroke={1.75} />}
+                    active={isActive}
+                    color="amanoba"
+                    variant="light"
+                    onClick={() => {
+                      if (mobileOpened) toggleMobile();
+                    }}
+                  />
+                );
+              })}
+            </Stack>
+          </AppShell.Section>
+        </AppShell.Navbar>
 
-      {/* Main Content */}
-      <div
-        className={`transition-all ${
-          sidebarOpen ? 'ml-[260px]' : 'ml-0'
-        }`}
-      >
-        {/* Header */}
-        <header className="h-16 bg-brand-darkGrey flex items-center justify-between px-6">
-          <button
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="p-2 rounded-lg hover:bg-brand-secondary-700 text-brand-white"
-          >
-            {sidebarOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
+        <AppShell.Header bg="ink.8">
+          <Group h="100%" px="md" justify="space-between">
+            <Burger
+              opened={mobileOpened}
+              onClick={toggleMobile}
+              hiddenFrom="sm"
+              size="sm"
+              color="gray.3"
+            />
+            <Burger
+              opened={desktopOpened}
+              onClick={toggleDesktop}
+              visibleFrom="sm"
+              size="sm"
+              color="gray.3"
+            />
 
-          {/* User menu: profile, logout, version */}
-          <div className="relative" ref={userMenuRef}>
-            <button
-              type="button"
-              onClick={() => setUserMenuOpen((o) => !o)}
-              className="flex items-center gap-3 p-2 rounded-lg hover:bg-brand-secondary-700 text-brand-white transition-colors"
-              aria-expanded={userMenuOpen}
-              aria-haspopup="true"
-            >
-              <div className="text-right hidden sm:block">
-                <div className="text-brand-white text-sm font-medium">
-                  {session?.user?.name || session?.user?.email || t('adminUser')}
-                </div>
-                <div className="text-brand-white/70 text-xs">
-                  {isEditorOnly ? t('editor') : t('administrator')}
-                </div>
-              </div>
-              <div className="w-10 h-10 rounded-full bg-brand-secondary-700 flex items-center justify-center flex-shrink-0">
-                <Crown className="w-6 h-6 text-brand-white" />
-              </div>
-              <ChevronDown className={`w-5 h-5 text-brand-white/80 transition-transform ${userMenuOpen ? 'rotate-180' : ''}`} />
-            </button>
-
-            {userMenuOpen && (
-              <div
-                className="absolute right-0 top-full mt-2 w-56 py-2 rounded-lg bg-brand-darkGrey border border-brand-white/10 shadow-xl z-50"
-                role="menu"
-              >
-                <Link
-                  href={session?.user?.id ? `/${locale}/profile/${session.user.id}` : `/${locale}/dashboard`}
-                  className="flex items-center gap-3 px-4 py-2.5 text-brand-white hover:bg-brand-secondary-700 transition-colors"
-                  role="menuitem"
-                  onClick={() => setUserMenuOpen(false)}
+            <Menu position="bottom-end" withinPortal>
+              <Menu.Target>
+                <UnstyledButton>
+                  <Group gap="sm" wrap="nowrap">
+                    <Stack gap={0} visibleFrom="sm" align="flex-end">
+                      <Text size="sm" fw={600} c="white">
+                        {session?.user?.name || session?.user?.email || t('adminUser')}
+                      </Text>
+                      <Text size="xs" c="dimmed">
+                        {isEditorOnly ? t('editor') : t('administrator')}
+                      </Text>
+                    </Stack>
+                    <Avatar color="gray" radius="xl" size={40}>
+                      <IconCrown size={22} />
+                    </Avatar>
+                  </Group>
+                </UnstyledButton>
+              </Menu.Target>
+              <Menu.Dropdown>
+                <Menu.Item
+                  component={Link}
+                  href={profileHref}
+                  leftSection={<IconUser size={16} />}
                 >
-                  <User className="w-5 h-5" />
-                  <span>{t('profile')}</span>
-                </Link>
-                <button
-                  type="button"
+                  {t('profile')}
+                </Menu.Item>
+                <Menu.Item
+                  leftSection={<IconLogout size={16} />}
                   onClick={async () => {
-                    setUserMenuOpen(false);
                     await signOut({ redirect: false });
                     router.push(`/${locale}/auth/signin`);
                   }}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 text-brand-white hover:bg-brand-secondary-700 transition-colors text-left"
-                  role="menuitem"
                 >
-                  <LogOut className="w-5 h-5" />
-                  <span>{t('logout')}</span>
-                </button>
-                <div className="border-t border-brand-white/10 mt-2 pt-2 px-4 py-1.5 text-xs text-brand-white/60">
+                  {t('logout')}
+                </Menu.Item>
+                <Divider />
+                <Menu.Label>
                   v{version} | Admin Mode
-                </div>
-              </div>
-            )}
-          </div>
-        </header>
+                </Menu.Label>
+              </Menu.Dropdown>
+            </Menu>
+          </Group>
+        </AppShell.Header>
 
-        {/* Page Content */}
-        <main className="p-6 bg-brand-black text-brand-white">{children}</main>
-      </div>
-    </div>
+        <AppShell.Main bg="ink.9">{children}</AppShell.Main>
+      </AppShell>
     </QueryClientProvider>
   );
 }

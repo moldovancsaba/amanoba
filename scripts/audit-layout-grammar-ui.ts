@@ -210,7 +210,7 @@ function formatMarkdown(params: {
     '2. **Shared components next:** Fix shared components that use template palette classes or page-local styling (these leak inconsistent styling across the app).',
   );
   sections.push(
-    '3. **Decide policy for games:** Document any game-canvas exceptions against `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/GOVERNANCE.md`, then migrate reusable chrome to the shared adapter.',
+    '3. **Decide policy for games:** Document any game-canvas exceptions against `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/GOVERNANCE_AND_ADOPTION.md`, then migrate reusable chrome to the shared adapter.',
   );
   sections.push(
     '4. **Add guardrails:** Turn the “blocker/major” rules into a `--check` CI step once we’ve reduced the current findings to an acceptable baseline.',

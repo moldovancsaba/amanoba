@@ -1341,3 +1341,18 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run type-check` ✅ pass
 - `npm run lint` ✅ pass
 - `npm run build` ✅ pass
+
+## GDS 2.2.0 alignment and admin AppShell (2026-05-23)
+
+### What changed
+- Aligned local adapter docs to GDS **2.2.0** (`DESIGN_UPDATE.md`, `PATTERN_CONTRACT_INVENTORY.md`) with expanded read order (`SERVICE_BACKBONE_IMPLEMENTATION_PLAN.md`, `PORTFOLIO_ADOPTION_MATRIX.md`).
+- Fixed stale GDS path references (`COMPONENTS_AND_PATTERNS.md`, `GOVERNANCE_AND_ADOPTION.md`) in `TECH_STACK.md`, `CONTRIBUTING.md`, and layout audit generator.
+- Migrated `app/[locale]/admin/layout.tsx` to Mantine `AppShell` (`NavLink`, `ScrollArea`, `Menu`, Tabler icons); registered in pattern inventory and `ui:check:mantine` allowlist.
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run ui:check:layout` ✅ pass
+- `npm run build` ✅ pass
