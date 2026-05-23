@@ -49,7 +49,7 @@ Amanoba is transforming into a **unified flexible learning platform** that combi
 - **Design/UI/UX SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
 - **UI Runtime**: Mantine 8.3.18 with shared GDS pattern-service contracts
 - **Styling**: Mantine theme plus narrow global CSS for document defaults, token bridge, and rich lesson prose
-- **Email**: Provider-selectable transport (`EMAIL_PROVIDER=resend|mailgun`) for lesson delivery and transactional emails
+- **Email**: Provider-selectable transport (`EMAIL_PROVIDER=resend|gmail|mailgun`) for lesson delivery and transactional emails
 - **Rich Text Editor**: TipTap for course content creation
 - **i18n**: next-intl for multi-language support (Hungarian default, English)
 - **Animation**: Framer Motion 10.18.0

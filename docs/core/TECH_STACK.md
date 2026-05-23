@@ -81,7 +81,7 @@
 
 ### Email Service
 - **Email transport layer**: `app/lib/email/transports/*`
-- **Providers**: Resend or Mailgun, selected by `EMAIL_PROVIDER`
+- **Providers**: Resend, Gmail API, or Mailgun, selected by `EMAIL_PROVIDER`
 - **Default provider**: Resend when `EMAIL_PROVIDER` is unset
 
 ### Push Notifications

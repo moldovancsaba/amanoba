@@ -2,7 +2,7 @@
  * Email Service
  *
  * What: Handles sending emails for course lessons and notifications
- * Why: Centralized email delivery via configurable transport (Resend/Mailgun)
+ * Why: Centralized email delivery via configurable transport (Resend/Gmail/Mailgun)
  */
 
 import { logger } from '../logger';
@@ -36,7 +36,7 @@ import { EMAIL_THEME_DEFAULT } from '@/app/lib/constants/color-tokens';
  * Why: Centralized email settings from environment variables (used by all transports)
  */
 const EMAIL_CONFIG = {
-  from: process.env.EMAIL_FROM || 'noreply@amanoba.com',
+  from: process.env.EMAIL_FROM || process.env.GMAIL_SENDER_EMAIL || 'noreply@amanoba.com',
   fromName: process.env.EMAIL_FROM_NAME || 'Amanoba Learning',
   replyTo: process.env.EMAIL_REPLY_TO || 'support@amanoba.com',
 };

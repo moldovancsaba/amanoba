@@ -45,7 +45,7 @@ This is the **Brain Boost** every developer must read before touching Amanoba co
 ## 6. Ops & environment reminders
 - `.env.local` secrets: always copy from `.env.local.example`; never check actual secrets into Git.
 - Primary auth: SSO-only via `sso.doneisbetter.com` (exposed in `auth.ts`, `auth.edge.ts`, `auth.config.ts`).
-- Email channel: daily lessons use the shared email transport layer in `app/lib/email`; the active provider is selected with `EMAIL_PROVIDER` (`resend` or `mailgun`). Treat provider keys and scheduling logic with care.
+- Email channel: daily lessons use the shared email transport layer in `app/lib/email`; the active provider is selected with `EMAIL_PROVIDER` (`resend`, `gmail`, or `mailgun`). Treat provider keys and scheduling logic with care.
 - Payments: Stripe checkout is wired under `app/api/payments/*` and helper code in `app/lib/utils/stripe-minimums.ts`, tied to course pricing. Validate currencies (USD, EUR, HUF, GBP) before touching pricing logic.
 
 ## 7. Where to look fast

@@ -49,6 +49,7 @@
     "seo:submit-sitemap": "tsx --env-file=.env.local scripts/submit-sitemap-search-console.ts",
     "blog:publish": "tsx scripts/publish-amanoba-news.ts",
     "news:publish": "tsx scripts/publish-amanoba-news.ts",
+    "email:gmail:oauth": "tsx --env-file=.env.local scripts/gmail-oauth-helper.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:payment-contract": "tsx scripts/payment-e2e-contract-test.ts",

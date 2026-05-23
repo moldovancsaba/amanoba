@@ -48,7 +48,7 @@ Course authoring docs live outside this repo under `amanoba_courses:process_them
 - Courses are flexible length. A course can contain one lesson or any number of lessons; `dayNumber` is a positive lesson position.
 - Supported primary UI locales: `hu`, `en`, `ar`, `hi`, `id`, `pt`, `vi`, `tr`, `bg`, `pl`, `ru`, `sw`, `zh`, `es`, `fr`, `bn`, `ur`.
 - Auth is SSO-only for registered users through `sso.doneisbetter.com`, with anonymous access still supported.
-- Email delivery uses the shared `app/lib/email` transport layer and `EMAIL_PROVIDER` (`resend` or `mailgun`).
+- Email delivery uses the shared `app/lib/email` transport layer and `EMAIL_PROVIDER` (`resend`, `gmail`, or `mailgun`).
 - Weekly learner-facing updates publish to `/[locale]/blog`; `/[locale]/news` remains a compatibility alias.
 
 ## Active Work Tracking

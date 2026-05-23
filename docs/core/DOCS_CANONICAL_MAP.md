@@ -27,7 +27,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/certification/certification_final_exam_plan_v5.md` | certification_final_exam_plan_v5.md | 16.4 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/certification/CERTIFICATION_REFERENCE.md` | Certification — reference index | 1.4 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/core/agent_working_loop_canonical_operating_document.md` | Amanoba — Agent Operating Document | 30.6 KB | — | Listed in DOCS_INDEX.md (core docs section). |
-| KEEP | `docs/core/amanoba_codex_brain_dump.md` | Amanoba Codex Brain Dump | 6.1 KB | — | Listed in DOCS_INDEX.md (core docs section). |
+| KEEP | `docs/core/amanoba_codex_brain_dump.md` | Amanoba Codex Brain Dump | 6.2 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/core/amanoba_system_outline.md` | Amanoba System Outline — Table of Contents | 24.2 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/CODING_STANDARDS.md` | Amanoba Coding Standards | 4.6 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/core/CONTRIBUTING.md` | Contributing to Amanoba | 14.1 KB | — | Listed in DOCS_INDEX.md (core docs section). |
@@ -36,7 +36,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/core/DOCS_INDEX.md` | Documentation index | 6.4 KB | — | Single entry point (canonical docs index). |
 | KEEP | `docs/core/DOCS_INVENTORY.md` | Docs Inventory | 9.2 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/DOCS_TRIAGE.md` | Docs Triage | 6.0 KB | — | Unclassified; keep pending human review. |
-| KEEP | `docs/core/ENVIRONMENT_SETUP.md` | Environment Setup Guide | 3.6 KB | — | Unclassified; keep pending human review. |
+| KEEP | `docs/core/ENVIRONMENT_SETUP.md` | Environment Setup Guide | 4.8 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/LEARNINGS.md` | Amanoba Learnings | 76.8 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/core/NAMING_GUIDE.md` | Amanoba Naming Guide | 10.8 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/OLLAMA_TASKLIST_FOR_AGENT.md` | Ollama setup task list (for agent) | 5.7 KB | — | Unclassified; keep pending human review. |
@@ -69,7 +69,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 4.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | MVP Factory Project — one-time setup (grant project scope) | 1.2 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Prompt for Next Context Window | 2.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
-| KEEP | `docs/HANDOVER.md` | Amanoba — Developer Handover | 95.2 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
+| KEEP | `docs/HANDOVER.md` | Amanoba — Developer Handover | 96.2 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/i18n/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB | — | Unclassified; keep pending human review. |

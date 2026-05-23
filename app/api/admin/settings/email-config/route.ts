@@ -27,6 +27,8 @@ export async function GET(request: NextRequest) {
       emailFrom: process.env.EMAIL_FROM || '',
       emailFromName: process.env.EMAIL_FROM_NAME || '',
       emailReplyTo: process.env.EMAIL_REPLY_TO || '',
+      gmailClientIdConfigured: Boolean(process.env.GMAIL_CLIENT_ID),
+      gmailSenderEmail: process.env.GMAIL_SENDER_EMAIL ?? null,
       mailgunDomain: process.env.MAILGUN_DOMAIN ?? null,
     };
 

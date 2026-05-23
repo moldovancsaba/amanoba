@@ -63,6 +63,8 @@ interface MailSettings {
   emailFrom?: string;
   emailFromName?: string;
   emailReplyTo?: string;
+  gmailClientIdConfigured?: boolean;
+  gmailSenderEmail?: string | null;
   mailgunDomain?: string | null;
 }
 
@@ -357,6 +359,20 @@ export default function AdminSettingsPage() {
               <TextInput label={t('fromName')} value={mailSettings.emailFromName || ''} readOnly />
               <TextInput label={t('replyTo')} value={mailSettings.emailReplyTo || ''} readOnly />
             </SimpleGrid>
+            {mailSettings.emailProvider === 'gmail' && (
+              <SimpleGrid cols={{ base: 1, md: 2 }}>
+                <TextInput
+                  label="Gmail sender"
+                  value={mailSettings.gmailSenderEmail || mailSettings.emailFrom || ''}
+                  readOnly
+                />
+                <TextInput
+                  label="Gmail OAuth client"
+                  value={mailSettings.gmailClientIdConfigured ? 'Configured' : 'Missing'}
+                  readOnly
+                />
+              </SimpleGrid>
+            )}
             {mailSettings.mailgunDomain && (
               <TextInput label={t('mailgunDomain')} value={mailSettings.mailgunDomain} readOnly />
             )}

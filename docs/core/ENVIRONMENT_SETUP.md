@@ -23,7 +23,7 @@ Canonical rules:
 - MongoDB Atlas project/database access
 - SSO provider credentials (OIDC)
 - Stripe account (if payments are enabled)
-- Email provider account (`resend` or `mailgun`)
+- Email provider account (`resend`, `gmail`, or `mailgun`)
 
 ---
 
@@ -66,6 +66,33 @@ Optional groups:
 - Push notifications (VAPID)
 - Analytics (`NEXT_PUBLIC_GA_ID`)
 - Logging/debug flags
+
+### Email Providers
+
+`EMAIL_PROVIDER` supports:
+
+- `resend`: requires `RESEND_API_KEY`
+- `gmail`: requires `GMAIL_CLIENT_ID`, `GMAIL_CLIENT_SECRET`, `GMAIL_REFRESH_TOKEN`, and a Gmail/Google Workspace sender in `EMAIL_FROM` or `GMAIL_SENDER_EMAIL`
+- `mailgun`: requires `MAILGUN_API_KEY` and `MAILGUN_DOMAIN`
+
+Gmail delivery uses the Gmail API with OAuth and the `https://www.googleapis.com/auth/gmail.send` scope. It does not use SMTP or Nodemailer.
+
+Gmail production setup:
+
+1. Create or select a Google Cloud OAuth client for the Gmail/Workspace sender account.
+2. Authorize the sender account with the `https://www.googleapis.com/auth/gmail.send` scope.
+3. Store the resulting refresh token in `GMAIL_REFRESH_TOKEN`.
+4. Set `EMAIL_PROVIDER=gmail`.
+5. Set `EMAIL_FROM` or `GMAIL_SENDER_EMAIL` to the authorized Gmail/Workspace address or an approved Gmail send-as alias.
+6. Send one real test email after deployment and verify it appears in the sender's Gmail sent mail.
+
+Refresh token helper:
+
+```bash
+npm run email:gmail:oauth
+```
+
+The helper reads `GMAIL_CLIENT_ID`, `GMAIL_CLIENT_SECRET`, and optional `GMAIL_OAUTH_REDIRECT_URI` from `.env.local`, prints the Google authorization URL, then exchanges the pasted authorization code for `GMAIL_REFRESH_TOKEN`.
 
 ---
 
@@ -150,4 +177,3 @@ Rotate on schedule or incident:
 - Deployment runbook: `docs/deployment/DEPLOYMENT.md`
 - Contribution/DoD rules: `docs/core/CONTRIBUTING.md`
 - Agent operating rules: `docs/core/agent_working_loop_canonical_operating_document.md`
-

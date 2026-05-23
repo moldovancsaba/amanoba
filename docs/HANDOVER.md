@@ -80,7 +80,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - Upgraded the framework baseline to Next.js 16.2.6 and React 19.2.6.
 - Migrated the Next request interception file from deprecated `middleware.ts` to `proxy.ts`; production build no longer emits the middleware deprecation warning.
 - Removed the Tailwind build chain (`tailwind.config.ts`, `postcss.config.mjs`, Tailwind packages, Tailwind animation/typography packages, and Autoprefixer).
-- Removed the SMTP/Nodemailer transport and dependency. Email delivery is now Resend or Mailgun only via `EMAIL_PROVIDER=resend|mailgun`.
+- Removed the SMTP/Nodemailer transport and dependency. Email delivery uses API transports only: Resend, Gmail API, or Mailgun via `EMAIL_PROVIDER=resend|gmail|mailgun`.
 - Upgraded `uuid` to 14.0.0 and removed obsolete `@types/uuid`.
 - Added an npm override for Next's internal `postcss` dependency until Next ships the patched bundled version directly.
 - Updated active architecture, tech stack, coding standards, README, environment, and handover docs for the new baseline.
@@ -97,6 +97,28 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ### Notes
 - React Compiler lint rules introduced by Next 16 are intentionally disabled for this release line; enabling them is a separate React Compiler migration, not a dependency-hardening prerequisite.
+
+---
+
+## Gmail API email provider (2026-05-23)
+
+### What changed
+- Added `EMAIL_PROVIDER=gmail` support through the Gmail API and OAuth refresh tokens.
+- Added `app/lib/email/transports/gmail-transport.ts` with direct Gmail API sending and no SMTP/Nodemailer dependency.
+- Updated admin email settings metadata to show Gmail sender/config status.
+- Updated `.env.local.example`, README, READMEDEV, tech stack, environment setup, and handover docs for Gmail provider setup.
+
+### Required production env
+- `EMAIL_PROVIDER=gmail`
+- `GMAIL_CLIENT_ID`
+- `GMAIL_CLIENT_SECRET`
+- `GMAIL_REFRESH_TOKEN`
+- `EMAIL_FROM` or `GMAIL_SENDER_EMAIL` set to the authorized Gmail/Google Workspace sender or approved send-as alias
+- Optional: `EMAIL_FROM_NAME`, `EMAIL_REPLY_TO`
+
+### Verification required after deployment
+- Send one real test email and verify Gmail accepts it.
+- Confirm the message appears in the sender Gmail account's sent mail.
 
 ---
 
