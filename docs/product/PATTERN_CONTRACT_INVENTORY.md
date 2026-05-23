@@ -19,8 +19,10 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | Course access recovery | `app/components/patterns/CourseAccessRecoveryActions.tsx` + `app/lib/course-access-recovery.ts` | Canonical | Used by protected lesson day and lesson quiz routes for 401/404 recovery (sign-in, back to course, retry). |
 | Admin shell | `app/[locale]/admin/layout.tsx` | Canonical | Mantine `AppShell` with `NavLink`, `ScrollArea`, `Menu`, and Tabler icons. |
 | Auth shell | `app/components/patterns/AuthShell.tsx`, `app/[locale]/auth/signin/page.tsx`, `app/[locale]/auth/error/page.tsx` | Canonical | Shared centered auth layout; sign-in and auth error routes compose `AuthShell` with Mantine cards and `StateBlock`. |
-| Public shell | `app/[locale]/page.tsx`, `app/[locale]/partners/page.tsx` | Partial | Public pages are Mantine-based but do not yet share one explicit `PublicAppShell` contract. |
-| Data toolbar / responsive data view | Admin list pages | Backlog | Several admin pages use Mantine forms/tables now, but the shared toolbar/table contract is not yet extracted. |
+| Public shell | `app/components/patterns/PublicAppShell.tsx`, `app/[locale]/page.tsx`, `app/[locale]/partners/page.tsx` | Canonical | Shared marketing header/footer band; landing and partners compose the shell. |
+| Data toolbar | `app/components/patterns/DataToolbar.tsx` | Pilot | Used on admin course list filters; extend to other admin list pages. |
+| Responsive data view | Admin list pages | Backlog | Table/card responsive layouts still page-local beyond course admin filters. |
+| Editor shell | `app/[locale]/editor/layout.tsx` | Canonical | Mantine `AppShell` for the editor portal (courses navigation). |
 | Game shell | `app/[locale]/games/**`, `app/components/games/**` | Backlog / exception review | Game engine internals may remain custom, but navigation, cards, loading/error states, and chrome must use Mantine contracts. |
 
 ## Canonical Component Rules
@@ -34,9 +36,9 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 
 ## Current Highest-Risk Gaps
 
-1. Game chrome and editor shells still contain legacy page-local markup where not yet framed by Mantine contracts.
+1. Game chrome (`MemoryGame`, `LessonQuiz`) still contains legacy page-local markup where not yet framed by Mantine contracts.
 3. Memory-game internals still contain local CSS/layout classes. Game-board internals may remain custom only if framed by Mantine shell/state/card contracts.
-4. `PublicAppShell`, `DataToolbar`, and `ResponsiveDataView` are not extracted yet.
+4. `ResponsiveDataView` is not extracted yet; extend `DataToolbar` to remaining admin list pages.
 
 ## Implementation Sequence
 

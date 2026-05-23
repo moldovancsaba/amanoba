@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import {
   Badge,
   Button,
@@ -20,6 +19,8 @@ import {
   IconSparkles,
 } from '@tabler/icons-react';
 import { auth } from '@/auth';
+import { LocaleLink } from '@/components/LocaleLink';
+import { PublicAppShell } from '@/app/components/patterns/PublicAppShell';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import Logo from '@/components/Logo';
 
@@ -35,12 +36,14 @@ export default async function PartnersPage({
     {
       icon: <IconSchool />,
       title: 'Course delivery',
-      description: 'Publish structured lessons, quizzes, exercises, and certificates from one learner-first platform.',
+      description:
+        'Publish structured lessons, quizzes, exercises, and certificates from one learner-first platform.',
     },
     {
       icon: <IconChartBar />,
       title: 'Progress visibility',
-      description: 'Track learner progress, completion, practice activity, and quiz outcomes without separate tools.',
+      description:
+        'Track learner progress, completion, practice activity, and quiz outcomes without separate tools.',
     },
     {
       icon: <IconRocket />,
@@ -50,12 +53,14 @@ export default async function PartnersPage({
     {
       icon: <IconShieldCheck />,
       title: 'Operational foundation',
-      description: 'Built around a shared Mantine design system, documented course rules, and maintainable admin workflows.',
+      description:
+        'Built around a shared Mantine design system, documented course rules, and maintainable admin workflows.',
     },
     {
       icon: <IconMap />,
       title: 'Flexible programs',
-      description: 'Support short courses, long programs, and open-ended learning paths without a fixed 30-day assumption.',
+      description:
+        'Support short courses, long programs, and open-ended learning paths without a fixed 30-day assumption.',
     },
     {
       icon: <IconSparkles />,
@@ -65,63 +70,73 @@ export default async function PartnersPage({
   ];
 
   return (
-    <Container size="xl" py="xl">
-      <Stack gap="xl">
-        <Group justify="space-between" align="center">
-          <Group gap="md">
-            <Logo size="md" showText={false} linkTo="/" preventShrink />
-            <Stack gap={2}>
-              <Title order={2}>Amanoba</Title>
-              <Text c="dimmed">Flexible learning platform</Text>
-            </Stack>
-          </Group>
-          <Group gap="sm">
-            <ThemeToggle />
-            {session?.user ? (
-              <Button component={Link} href={`/${locale}/dashboard`}>
-                Dashboard
-              </Button>
-            ) : (
-              <Button component={Link} href={`/${locale}/auth/signin`}>
-                Sign in
-              </Button>
-            )}
-          </Group>
+    <PublicAppShell
+      brand={(
+        <Group gap="md">
+          <Logo size="md" showText={false} linkTo="/" preventShrink />
+          <Stack gap={2}>
+            <Title order={2} size="h4">
+              Amanoba
+            </Title>
+            <Text c="dimmed" size="sm">
+              Flexible learning platform
+            </Text>
+          </Stack>
         </Group>
-
-        <Stack gap="lg" align="center" ta="center" py="xl">
-          <Badge variant="light" size="lg">Partner overview</Badge>
-          <Title order={1}>Learning programs that can grow past templates</Title>
-          <Text c="dimmed" size="lg" maw={760}>
-            Amanoba helps teams publish courses, guide learners through practice, and keep progress visible without
-            locking every program into the same course shape.
-          </Text>
-          <Group gap="sm" justify="center">
-            <Button component={Link} href={`/${locale}/courses`}>
-              View courses
+      )}
+      headerActions={(
+        <>
+          <ThemeToggle />
+          {session?.user ? (
+            <Button component={LocaleLink} href={`/${locale}/dashboard`}>
+              Dashboard
             </Button>
-            <Button component={Link} href={`/${locale}/news`} variant="default">
-              Read updates
+          ) : (
+            <Button component={LocaleLink} href={`/${locale}/auth/signin`}>
+              Sign in
             </Button>
-          </Group>
-        </Stack>
+          )}
+        </>
+      )}
+    >
+      <Container size="xl" py="xl">
+        <Stack gap="xl">
+          <Stack gap="lg" align="center" ta="center" py="xl">
+            <Badge variant="light" size="lg">
+              Partner overview
+            </Badge>
+            <Title order={1}>Learning programs that can grow past templates</Title>
+            <Text c="dimmed" size="lg" maw={760}>
+              Amanoba helps teams publish courses, guide learners through practice, and keep progress
+              visible without locking every program into the same course shape.
+            </Text>
+            <Group gap="sm" justify="center">
+              <Button component={LocaleLink} href={`/${locale}/courses`}>
+                View courses
+              </Button>
+              <Button component={LocaleLink} href={`/${locale}/news`} variant="default">
+                Read updates
+              </Button>
+            </Group>
+          </Stack>
 
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }}>
-          {features.map((feature) => (
-            <Card key={feature.title} withBorder p="lg" h="100%">
-              <Stack gap="md">
-                <ThemeIcon variant="light" size="xl">
-                  {feature.icon}
-                </ThemeIcon>
-                <Stack gap={4}>
-                  <Title order={3}>{feature.title}</Title>
-                  <Text c="dimmed">{feature.description}</Text>
+          <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }}>
+            {features.map((feature) => (
+              <Card key={feature.title} withBorder p="lg" h="100%">
+                <Stack gap="md">
+                  <ThemeIcon variant="light" size="xl" color="amanoba">
+                    {feature.icon}
+                  </ThemeIcon>
+                  <Stack gap={4}>
+                    <Title order={3}>{feature.title}</Title>
+                    <Text c="dimmed">{feature.description}</Text>
+                  </Stack>
                 </Stack>
-              </Stack>
-            </Card>
-          ))}
-        </SimpleGrid>
-      </Stack>
-    </Container>
+              </Card>
+            ))}
+          </SimpleGrid>
+        </Stack>
+      </Container>
+    </PublicAppShell>
   );
 }

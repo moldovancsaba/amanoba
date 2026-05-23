@@ -52,6 +52,9 @@ Local adapter files:
 - `app/components/patterns/StateBlock.tsx` — canonical loading/empty/error/permission/success state contract.
 - `app/components/patterns/CourseAccessRecoveryActions.tsx` — canonical sign-in / course / retry recovery actions for protected lesson and quiz routes.
 - `app/components/patterns/AuthShell.tsx` — canonical centered auth/onboarding page shell.
+- `app/components/patterns/PublicAppShell.tsx` — canonical public/marketing page shell.
+- `app/components/patterns/DataToolbar.tsx` — pilot admin list filter toolbar.
+- `app/[locale]/editor/layout.tsx` — Mantine `AppShell` editor portal shell.
 - `app/[locale]/admin/layout.tsx` — Mantine `AppShell` admin navigation shell.
 - `app/globals.css` — narrow global reset, Mantine token bridge, transitional class contracts, and rich-content prose defaults. It is not product component authority.
 - `app/lib/constants/color-tokens.ts` and `app/lib/constants/certificate-colors.ts` — non-CSS token sources for emails, OG/certificate image rendering, charts, and similar server-rendered contexts.
@@ -85,8 +88,8 @@ Still pending:
 
 ## Known Pattern-Service Debt
 
-- Some older route surfaces still contain legacy local markup: game chrome and editor shells.
-- `PublicAppShell`, `DataToolbar`, and `ResponsiveDataView` are backlog contracts.
+- Some older route surfaces still contain legacy local markup: game chrome internals.
+- `ResponsiveDataView` remains a backlog contract; extend `DataToolbar` across admin lists.
 - Some historical release notes and archive documents still describe older local design-system states for audit history.
 - Package dependencies still include legacy UI libraries until the final dependency deletion pass proves they are unused in product UI.
 

@@ -4,6 +4,17 @@ import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
+import {
+  Anchor,
+  Badge,
+  Card,
+  Group,
+  Loader,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
+import { StateBlock } from '@/app/components/patterns/StateBlock';
 
 type Course = {
   _id: string;
@@ -72,42 +83,50 @@ export default function EditorCourseDetailPage() {
   }, [lessons]);
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between gap-4">
-        <div>
-          <div className="text-xs text-brand-white/60">
-            <Link className="hover:underline" href={`/${locale}/editor/courses`}>
-              Courses
-            </Link>{' '}
-            / {courseId}
-          </div>
-          <h1 className="text-xl font-bold">{course?.name || courseId}</h1>
-          <div className="text-sm text-brand-white/80">
-            {(course?.language || '').toUpperCase()} • {course?.durationDays ?? '?'} lessons • {course?.isActive ? 'active' : 'draft'}
-          </div>
-        </div>
-      </div>
+    <Stack gap="lg">
+      <Stack gap={4}>
+        <Anchor component={Link} href={`/${locale}/editor/courses`} size="sm" c="dimmed">
+          Courses
+        </Anchor>
+        <Title order={1}>{course?.name || courseId}</Title>
+        <Text c="dimmed" size="sm">
+          {(course?.language || '').toUpperCase()} • {course?.durationDays ?? '?'} lessons •{' '}
+          {course?.isActive ? 'active' : 'draft'}
+        </Text>
+      </Stack>
 
-      {loading && <div className="text-sm text-brand-white/80">Loading...</div>}
-      {error && <div className="text-sm ds-text-error">{error}</div>}
+      {loading ? (
+        <Group gap="sm">
+          <Loader size="sm" color="amanoba" />
+          <Text c="dimmed">Loading…</Text>
+        </Group>
+      ) : null}
 
-      {!loading && !error && (
-        <div className="grid gap-2">
-          {sortedLessons.map((l) => (
-            <Link
-              key={l._id || l.lessonId}
-              href={`/${locale}/editor/courses/${encodeURIComponent(courseId)}/lessons/${encodeURIComponent(l.lessonId)}`}
-              className="flex items-center justify-between panel-on-dark px-4 py-3 hover:bg-brand-secondary-700"
+      {error ? <StateBlock kind="error" title="Could not load course" description={error} /> : null}
+
+      {!loading && !error ? (
+        <Stack gap="xs">
+          {sortedLessons.map((lesson) => (
+            <Card
+              key={lesson._id || lesson.lessonId}
+              component={Link}
+              href={`/${locale}/editor/courses/${encodeURIComponent(courseId)}/lessons/${encodeURIComponent(lesson.lessonId)}`}
+              padding="md"
+              withBorder
+              bg="ink.8"
             >
-              <div className="flex items-center gap-3">
-                <div className="text-xs text-brand-white/60 w-20">Lesson {String(l.dayNumber).padStart(2, '0')}</div>
-                <div className="font-medium">{l.title || l.lessonId}</div>
-              </div>
-              <div className="text-xs text-brand-white/80">{l.isActive ? 'published' : 'draft'}</div>
-            </Link>
+              <Group justify="space-between" wrap="nowrap">
+                <Text fw={600}>
+                  Day {lesson.dayNumber}: {lesson.title || lesson.lessonId}
+                </Text>
+                <Badge color={lesson.isActive ? 'green' : 'gray'} variant="light">
+                  {lesson.isActive ? 'active' : 'draft'}
+                </Badge>
+              </Group>
+            </Card>
           ))}
-        </div>
-      )}
-    </div>
+        </Stack>
+      ) : null}
+    </Stack>
   );
 }

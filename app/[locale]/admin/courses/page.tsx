@@ -58,6 +58,7 @@ import {
   IconUpload,
 } from '@tabler/icons-react';
 import { useDebounce } from '@/app/lib/hooks/useDebounce';
+import { DataToolbar } from '@/app/components/patterns/DataToolbar';
 
 interface Course {
   _id: string;
@@ -486,48 +487,49 @@ export default function AdminCoursesPage() {
         </Group>
 
         {viewMode === 'flat' && (
-          <Card padding="md">
-            <SimpleGrid cols={{ base: 1, md: 3 }}>
-              <TextInput
-                label="Search"
-                placeholder="Search courses..."
-                leftSection={<IconSearch size={16} />}
-                value={search}
-                onChange={(event) => setSearch(event.currentTarget.value)}
-              />
-              <Select
-                label="Status"
-                leftSection={<IconFilter size={16} />}
-                value={statusFilter}
-                allowDeselect={false}
-                data={[
-                  { value: 'all', label: 'All Courses' },
-                  { value: 'active', label: 'Active' },
-                  { value: 'inactive', label: 'Inactive' },
-                ]}
-                onChange={(value) => setStatusFilter((value || 'all') as StatusFilter)}
-              />
-              <Select
-                label="Sort"
-                leftSection={<IconArrowsSort size={16} />}
-                value={sortBy}
-                allowDeselect={false}
-                data={[
-                  { value: 'created_desc', label: 'Newest created' },
-                  { value: 'created_asc', label: 'Oldest created' },
-                  { value: 'updated_desc', label: 'Newest updated' },
-                  { value: 'updated_asc', label: 'Oldest updated' },
-                  { value: 'enrolled_desc', label: 'Most enrolled' },
-                  { value: 'enrolled_asc', label: 'Least enrolled' },
-                  { value: 'liked_desc', label: 'Most liked' },
-                  { value: 'liked_asc', label: 'Least liked' },
-                  { value: 'alpha_asc', label: 'A to Z' },
-                  { value: 'alpha_desc', label: 'Z to A' },
-                ]}
-                onChange={(value) => setSortBy((value || 'created_desc') as SortBy)}
-              />
-            </SimpleGrid>
-          </Card>
+          <DataToolbar title="Filter courses">
+            <TextInput
+              label="Search"
+              placeholder="Search courses..."
+              leftSection={<IconSearch size={16} />}
+              value={search}
+              onChange={(event) => setSearch(event.currentTarget.value)}
+              style={{ flex: 1, minWidth: 200 }}
+            />
+            <Select
+              label="Status"
+              leftSection={<IconFilter size={16} />}
+              value={statusFilter}
+              allowDeselect={false}
+              data={[
+                { value: 'all', label: 'All Courses' },
+                { value: 'active', label: 'Active' },
+                { value: 'inactive', label: 'Inactive' },
+              ]}
+              onChange={(value) => setStatusFilter((value || 'all') as StatusFilter)}
+              w={200}
+            />
+            <Select
+              label="Sort"
+              leftSection={<IconArrowsSort size={16} />}
+              value={sortBy}
+              allowDeselect={false}
+              data={[
+                { value: 'created_desc', label: 'Newest created' },
+                { value: 'created_asc', label: 'Oldest created' },
+                { value: 'updated_desc', label: 'Newest updated' },
+                { value: 'updated_asc', label: 'Oldest updated' },
+                { value: 'enrolled_desc', label: 'Most enrolled' },
+                { value: 'enrolled_asc', label: 'Least enrolled' },
+                { value: 'liked_desc', label: 'Most liked' },
+                { value: 'liked_asc', label: 'Least liked' },
+                { value: 'alpha_asc', label: 'A to Z' },
+                { value: 'alpha_desc', label: 'Z to A' },
+              ]}
+              onChange={(value) => setSortBy((value || 'created_desc') as SortBy)}
+              w={220}
+            />
+          </DataToolbar>
         )}
 
         {loading && !initialLoading && (

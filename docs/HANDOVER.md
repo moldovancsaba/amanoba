@@ -1369,3 +1369,31 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run lint` ✅ pass
 - `npm run ui:check:mantine` ✅ pass
 - `npm run build` ✅ pass
+
+## GDS PublicAppShell, editor shell, DataToolbar (2026-05-23)
+
+### What changed
+- Added `PublicAppShell` and wired landing + partners pages.
+- Migrated editor portal layout and editor course list/detail pages to Mantine `AppShell` / cards / `StateBlock`.
+- Added `DataToolbar` pilot on admin course list filters.
+- Migrated public GEO lesson view (`/view`) to Mantine layout.
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run build` ✅ pass
+
+## GDS PublicAppShell, editor shell, DataToolbar (2026-05-23)
+
+### What changed
+- Added `PublicAppShell` and wired landing + partners pages.
+- Migrated editor portal layout and editor course list/detail pages to Mantine `AppShell` / cards / `StateBlock`.
+- Added `DataToolbar` pilot on admin course list filters.
+- Migrated public GEO lesson view (`/view`) to Mantine layout.
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run build` ✅ pass

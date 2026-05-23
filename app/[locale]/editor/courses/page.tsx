@@ -3,6 +3,16 @@
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
+import {
+  Badge,
+  Card,
+  Group,
+  Loader,
+  Stack,
+  Text,
+  Title,
+} from '@mantine/core';
+import { StateBlock } from '@/app/components/patterns/StateBlock';
 
 type Course = {
   _id: string;
@@ -53,41 +63,59 @@ export default function EditorCoursesPage() {
   }, [courses]);
 
   return (
-    <div className="space-y-4">
-      <div>
-        <h1 className="text-xl font-bold">My editor courses</h1>
-        <p className="text-sm text-brand-white/80">Courses you created or were assigned to.</p>
-      </div>
+    <Stack gap="lg">
+      <Stack gap={4}>
+        <Title order={1}>My editor courses</Title>
+        <Text c="dimmed" size="sm">
+          Courses you created or were assigned to.
+        </Text>
+      </Stack>
 
-      {loading && <div className="text-sm text-brand-white/80">Loading...</div>}
-      {error && <div className="text-sm ds-text-error">{error}</div>}
+      {loading ? (
+        <Group gap="sm">
+          <Loader size="sm" color="amanoba" />
+          <Text c="dimmed">Loading…</Text>
+        </Group>
+      ) : null}
 
-      {!loading && !error && (
-        <div className="grid gap-3">
-          {sorted.length === 0 ? (
-            <div className="text-sm text-brand-white/80">No courses assigned.</div>
-          ) : (
-            sorted.map((c) => (
-              <Link
-                key={c._id || c.courseId}
-                href={`/${locale}/editor/courses/${encodeURIComponent(c.courseId)}`}
-                className="block panel-on-dark p-4 hover:bg-brand-secondary-700"
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <div className="font-semibold">{c.name || c.courseId}</div>
-                    <div className="text-xs text-brand-white/60">{c.courseId}</div>
-                  </div>
-                  <div className="text-xs text-brand-white/80">
-                    {(c.language || '').toUpperCase()} • {c.durationDays ?? '?'} lessons • {c.isActive ? 'active' : 'draft'}
-                  </div>
-                </div>
-                {c.description ? <div className="text-sm text-brand-white/80 mt-2 line-clamp-2">{c.description}</div> : null}
-              </Link>
-            ))
-          )}
-        </div>
-      )}
-    </div>
+      {error ? <StateBlock kind="error" title="Could not load courses" description={error} /> : null}
+
+      {!loading && !error && sorted.length === 0 ? (
+        <StateBlock kind="empty" title="No courses assigned" description="When you are assigned editor access, courses appear here." />
+      ) : null}
+
+      {!loading && !error && sorted.length > 0 ? (
+        <Stack gap="sm">
+          {sorted.map((course) => (
+            <Card
+              key={course._id || course.courseId}
+              component={Link}
+              href={`/${locale}/editor/courses/${encodeURIComponent(course.courseId)}`}
+              padding="md"
+              withBorder
+              bg="ink.8"
+            >
+              <Group justify="space-between" align="flex-start" wrap="wrap" gap="md">
+                <Stack gap={4} style={{ flex: 1, minWidth: 0 }}>
+                  <Text fw={700}>{course.name || course.courseId}</Text>
+                  <Text size="xs" c="dimmed" ff="monospace">
+                    {course.courseId}
+                  </Text>
+                  {course.description ? (
+                    <Text size="sm" c="dimmed" lineClamp={2}>
+                      {course.description}
+                    </Text>
+                  ) : null}
+                </Stack>
+                <Badge color={course.isActive ? 'green' : 'gray'} variant="light">
+                  {(course.language || '').toUpperCase()} • {course.durationDays ?? '?'} lessons •{' '}
+                  {course.isActive ? 'active' : 'draft'}
+                </Badge>
+              </Group>
+            </Card>
+          ))}
+        </Stack>
+      ) : null}
+    </Stack>
   );
 }

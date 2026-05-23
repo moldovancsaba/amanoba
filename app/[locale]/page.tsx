@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
 import { auth } from '@/auth';
 import { getTranslations } from 'next-intl/server';
-import Image from 'next/image';
 import {
-  Box,
   Button,
   Card,
   Container,
@@ -17,6 +15,7 @@ import {
 import { IconBook, IconMail, IconTargetArrow, IconTrophy, IconTrendingUp, IconStar } from '@tabler/icons-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { PublicAppShell } from '@/app/components/patterns/PublicAppShell';
 import { APP_URL } from '@/app/lib/constants/app-url';
 import { locales } from '@/app/lib/i18n/locales';
 
@@ -64,40 +63,41 @@ export default async function LandingPage({
   ];
 
   return (
-    <Box bg="ink.9" mih="100vh">
-      <Box component="header" bg="ink.8" bd="0 0 1px solid var(--mantine-color-ink-6)">
-        <Container size="xl" py="md">
-          <Group justify="space-between" align="center" gap="md">
-            <Group gap="sm" wrap="nowrap" miw={0}>
-              <Image
-                src="/amanoba_logo.png"
-                alt="Amanoba Logo"
-                width={48}
-                height={48}
-                priority
-              />
-              <Stack gap={0} visibleFrom="xs">
-                <Title order={1} size="h4">{t('appName')}</Title>
-                <Text size="sm" c="gray.3">{tLanding('tagline')}</Text>
-              </Stack>
-            </Group>
-
-            <Group gap="sm" justify="flex-end">
-              <Button component={LocaleLink} href="/blog" variant="subtle" color="gray" visibleFrom="sm">
-                Blog
+    <PublicAppShell
+      appName={t('appName')}
+      tagline={tLanding('tagline')}
+      headerActions={(
+        <>
+          <Button component={LocaleLink} href="/blog" variant="subtle" color="gray" visibleFrom="sm">
+            Blog
+          </Button>
+          <Button component={LocaleLink} href="/courses" variant="subtle" color="gray" visibleFrom="sm">
+            {tLanding('viewCourses')}
+          </Button>
+          <LanguageSwitcher />
+          <Button component={LocaleLink} href={session?.user ? '/dashboard' : signInHref} color="amanoba">
+            {session?.user ? t('dashboard') : tAuth('signIn')}
+          </Button>
+        </>
+      )}
+      footer={(
+        <Container size="xl" py="lg">
+          <Group justify="space-between" gap="md">
+            <Text c="gray.3" size="sm">
+              © 2026 {t('appName')}. {tLanding('footerRights')}
+            </Text>
+            <Group gap="md">
+              <Button component={LocaleLink} href="/terms" variant="subtle" color="gray" size="compact-sm">
+                {tLanding('terms')}
               </Button>
-              <Button component={LocaleLink} href="/courses" variant="subtle" color="gray" visibleFrom="sm">
-                {tLanding('viewCourses')}
-              </Button>
-              <LanguageSwitcher />
-              <Button component={LocaleLink} href={session?.user ? '/dashboard' : signInHref} color="amanoba">
-                {session?.user ? t('dashboard') : tAuth('signIn')}
+              <Button component={LocaleLink} href="/privacy" variant="subtle" color="gray" size="compact-sm">
+                {tLanding('privacy')}
               </Button>
             </Group>
           </Group>
         </Container>
-      </Box>
-
+      )}
+    >
       <Container component="main" size="xl" py="xl">
         <Stack gap="xl">
           <Stack align="center" ta="center" gap="lg">
@@ -127,7 +127,9 @@ export default async function LandingPage({
                       <FeatureIcon size={34} />
                     </ThemeIcon>
                     <Stack gap={6}>
-                      <Title order={3} size="h4">{feature.title}</Title>
+                      <Title order={3} size="h4">
+                        {feature.title}
+                      </Title>
                       <Text c="gray.3">{feature.description}</Text>
                     </Stack>
                   </Stack>
@@ -137,24 +139,6 @@ export default async function LandingPage({
           </SimpleGrid>
         </Stack>
       </Container>
-
-      <Box component="footer" bd="1px 0 0 0 solid var(--mantine-color-ink-6)">
-        <Container size="xl" py="lg">
-          <Group justify="space-between" gap="md">
-            <Text c="gray.3" size="sm">
-              © 2026 {t('appName')}. {tLanding('footerRights')}
-            </Text>
-            <Group gap="md">
-              <Button component={LocaleLink} href="/terms" variant="subtle" color="gray" size="compact-sm">
-                {tLanding('terms')}
-              </Button>
-              <Button component={LocaleLink} href="/privacy" variant="subtle" color="gray" size="compact-sm">
-                {tLanding('privacy')}
-              </Button>
-            </Group>
-          </Group>
-        </Container>
-      </Box>
-    </Box>
+    </PublicAppShell>
   );
 }
