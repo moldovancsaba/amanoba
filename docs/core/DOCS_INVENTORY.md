@@ -5,16 +5,16 @@
 
 # Docs Inventory
 
-**Last Updated**: 2026-05-22
+**Last Updated**: 2026-05-23
 **Scope**: `docs/**/*.md` (excluding `docs/_archive/**`)
-**Count**: 101
+**Count**: 102
 
 | Path | Title | Size |
 |------|-------|------|
 | `docs/architecture/ARCHITECTURE_FIX_QUICK_START.md` | ⚡ ARCHITECTURE FIX - ACTION CHECKLIST & QUICK START | 5.0 KB |
 | `docs/architecture/ARCHITECTURE_GAP_ANALYSIS.md` | ARCHITECTURE_GAP_ANALYSIS.md | 8.8 KB |
 | `docs/architecture/ARCHITECTURE.md` | Amanoba Architecture | 39.0 KB |
-| `docs/architecture/layout_grammar.md` | Amanoba Layout Grammar | 13.1 KB |
+| `docs/architecture/layout_grammar.md` | Amanoba Layout Grammar | 13.6 KB |
 | `docs/certification/CERTIFICATE_AB_TEST_DESIGN.md` | Certificate A/B Test Design | 6.4 KB |
 | `docs/certification/CERTIFICATE_CREATION_GUIDE.md` | Certificate Creation Guide | 14.0 KB |
 | `docs/certification/CERTIFICATION_CURRENT_IMPLEMENTATION_ANALYSIS.md` | 🔍 CERTIFICATION SYSTEM - CURRENT IMPLEMENTATION ANALYSIS | 13.9 KB |
@@ -29,9 +29,9 @@
 | `docs/core/CODING_STANDARDS.md` | Amanoba Coding Standards | 4.7 KB |
 | `docs/core/CONTRIBUTING.md` | Contributing to Amanoba | 14.0 KB |
 | `docs/core/CROSS_REPO_DOCS.md` | Cross-Repo Documentation References | 1.7 KB |
-| `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 15.3 KB |
-| `docs/core/DOCS_INDEX.md` | Documentation index | 6.2 KB |
-| `docs/core/DOCS_INVENTORY.md` | Docs Inventory | 9.1 KB |
+| `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 15.5 KB |
+| `docs/core/DOCS_INDEX.md` | Documentation index | 6.4 KB |
+| `docs/core/DOCS_INVENTORY.md` | Docs Inventory | 9.2 KB |
 | `docs/core/DOCS_TRIAGE.md` | Docs Triage | 6.0 KB |
 | `docs/core/ENVIRONMENT_SETUP.md` | Environment Setup Guide | 3.6 KB |
 | `docs/core/LEARNINGS.md` | Amanoba Learnings | 76.8 KB |
@@ -66,16 +66,17 @@
 | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 4.8 KB |
 | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | MVP Factory Project — one-time setup (grant project scope) | 1.2 KB |
 | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Prompt for Next Context Window | 2.8 KB |
-| `docs/HANDOVER.md` | Amanoba — Developer Handover | 92.1 KB |
+| `docs/HANDOVER.md` | Amanoba — Developer Handover | 93.7 KB |
 | `docs/i18n/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB |
 | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB |
 | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB |
 | `docs/i18n/LANGUAGE_DROPDOWN_PROBLEM_LOG.md` | Language dropdown / i18n problem — collected information | 13.1 KB |
 | `docs/product/COURSE_CREATION_PLAYBOOK.md` | Amanoba Course Creation Playbook | 13.4 KB |
-| `docs/product/DESIGN_UPDATE.md` | Design System Adapter Status | 5.9 KB |
+| `docs/product/DESIGN_UPDATE.md` | Design System Adapter Status | 5.7 KB |
 | `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` | Developer Feedback Analysis | 7.2 KB |
 | `docs/product/NEXT_PHASES.md` | Next Phases: Detailed Implementation Plan | 13.6 KB |
 | `docs/product/P3_KNOWN_ISSUES_BACKLOG.md` | P3 Known Issues — Backlog | 2.0 KB |
+| `docs/product/PATTERN_CONTRACT_INVENTORY.md` | Amanoba Pattern Contract Inventory | 4.4 KB |
 | `docs/product/RELEASE_NOTES.md` | Amanoba Release Notes | 173.8 KB |
 | `docs/product/ROADMAP_TASKLIST_SYSTEM_COMPARISON.md` | ROADMAP vs TASKLIST vs System Outline — Comparison | 5.7 KB |
 | `docs/product/ROADMAP.md` | Amanoba Roadmap — Future Vision & Client Benefits | 5.5 KB |

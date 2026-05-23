@@ -14,6 +14,9 @@ import { useTranslations, useLocale } from 'next-intl';
 import { LocaleLink } from '@/components/LocaleLink';
 import { ReferralCard } from '@/components/ReferralCard';
 import { LearnerPageHeader } from '@/app/components/LearnerPageHeader';
+import { CourseCard } from '@/app/components/patterns/CourseCard';
+import { MetricCard } from '@/app/components/patterns/MetricCard';
+import { StateBlock } from '@/app/components/patterns/StateBlock';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 import {
   Alert,
@@ -24,10 +27,8 @@ import {
   Card,
   Container,
   Group,
-  Image,
   Loader,
   Paper,
-  Progress,
   SimpleGrid,
   Stack,
   Text,
@@ -418,12 +419,7 @@ export default function Dashboard() {
     return (
       <Box bg="ink.9" mih="100vh" py="xl">
         <Container size="sm">
-          <Card padding="xl" withBorder>
-            <Group justify="center" gap="sm">
-              <Loader color="amanoba" size="sm" />
-              <Text fw={700}>{t('loading')}</Text>
-            </Group>
-          </Card>
+          <StateBlock kind="loading" title={t('loading')} compact />
         </Container>
       </Box>
     );
@@ -433,32 +429,33 @@ export default function Dashboard() {
     return (
       <Box bg="ink.9" mih="100vh" py="xl">
         <Container size="sm">
-          <Card padding="xl" withBorder>
-            <Stack gap="md" align="center" ta="center">
-              <Alert color="red" w="100%">{t('unableToLoad')}</Alert>
-              <Text c="dimmed">{error}</Text>
-              <Group gap="sm">
+          <StateBlock
+            kind="error"
+            title={t('unableToLoad')}
+            description={error}
+            action={(
                 <Button
-              onClick={() => {
-                setError(null);
-                setLoading(true);
-                fetchPlayerData();
-              }}
+                  onClick={() => {
+                    setError(null);
+                    setLoading(true);
+                    fetchPlayerData();
+                  }}
                   color="amanoba"
                   leftSection={<IconRefresh size={18} />}
-            >
-              {t('retry')}
+                >
+                  {t('retry')}
                 </Button>
+            )}
+            secondaryAction={(
                 <Button
-              onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
+                  onClick={() => signOut({ callbackUrl: `/${locale}/auth/signin` })}
                   variant="default"
                   leftSection={<IconLogout size={18} />}
-            >
-              {tAuth('signOut')}
+                >
+                  {tAuth('signOut')}
                 </Button>
-              </Group>
-            </Stack>
-          </Card>
+            )}
+          />
         </Container>
       </Box>
     );
@@ -502,19 +499,27 @@ export default function Dashboard() {
                 ) : (
                   <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md">
                     {recommendations.map((course) => (
-                      <Card key={course.courseId} component={LocaleLink} href={`/${course.language ?? locale}/courses/${course.courseId}`} padding="md" withBorder>
-                        <Stack gap="sm">
-                          {course.thumbnail ? (
-                            <Image src={course.thumbnail} alt={course.name ?? 'Course'} h={128} fit="cover" radius="md" />
-                          ) : null}
-                          <Title order={3} size="h4" lineClamp={2}>{course.name}</Title>
-                          <Text size="sm" c="dimmed" lineClamp={2}>{course.description}</Text>
-                          <Group justify="space-between">
-                            <Text size="xs" c="dimmed">{course.durationDays} {tCourses('days') || 'days'}</Text>
-                            {course.requiresPremium ? <Badge color="amanoba">{tCommon('premium')}</Badge> : null}
-                          </Group>
-                        </Stack>
-                      </Card>
+                      <CourseCard
+                        key={course.courseId}
+                        title={course.name}
+                        description={course.description}
+                        thumbnail={course.thumbnail}
+                        thumbnailAlt={course.name ?? 'Course'}
+                        fallbackLabel={(course.language ?? locale).toUpperCase()}
+                        compact
+                        badges={course.requiresPremium ? [{ label: tCommon('premium'), color: 'amanoba', variant: 'filled' }] : []}
+                        metrics={course.durationDays ? [{ label: tCourses('days') || 'days', value: course.durationDays }] : []}
+                        primaryAction={(
+                          <Button
+                            component={LocaleLink}
+                            href={`/${course.language ?? locale}/courses/${course.courseId}`}
+                            color="amanoba"
+                            fullWidth
+                          >
+                            {t('browseCourses')}
+                          </Button>
+                        )}
+                      />
                     ))}
                   </SimpleGrid>
                 )}
@@ -537,40 +542,43 @@ export default function Dashboard() {
                 {loadingMyCourses ? (
                   <Group justify="center" py="lg"><Loader color="amanoba" size="sm" /></Group>
                 ) : activeCourses.length === 0 ? (
-                  <Stack align="center" py="lg" gap="md">
-                    <Text c="dimmed">{t('noCoursesEnrolled')}</Text>
-                    <Button component={LocaleLink} href="/courses" color="amanoba">{t('browseCourses')}</Button>
-                  </Stack>
+                  <StateBlock
+                    kind="empty"
+                    title={t('noCoursesEnrolled')}
+                    action={<Button component={LocaleLink} href="/courses" color="amanoba">{t('browseCourses')}</Button>}
+                    compact
+                  />
                 ) : (
                   <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">
                     {activeCourses.map((item) => (
-                      <Card key={item.course.courseId} padding="md" withBorder>
-                        <Stack gap="sm">
-                          <Group justify="space-between" align="flex-start">
-                            <Stack gap={2}>
-                              <Title order={3} size="h4">{item.course.name}</Title>
+                      <CourseCard
+                        key={item.course.courseId}
+                        title={item.course.name}
+                        compact
+                        progress={{
+                          value: item.progress.progressPercentage,
+                          detail: (
+                            <Group justify="space-between" gap="xs">
                               <Text size="xs" c="dimmed">
                                 {courseLabel('dayOf', `Day ${item.progress.currentDay} of ${item.progress.totalDays}`, {
                                   currentDay: item.progress.currentDay,
                                   totalDays: item.progress.totalDays,
                                 })}
                               </Text>
-                            </Stack>
-                            <Badge color="amanoba">{item.progress.progressPercentage}%</Badge>
-                          </Group>
-                          <Progress value={item.progress.progressPercentage} color="amanoba" radius="xl" />
-                          <Group justify="space-between">
-                            <Text size="xs" c="dimmed">
-                              {courseLabel('daysCompleted', `${item.progress.completedDays} days completed`, {
-                                count: item.progress.completedDays,
-                              })}
-                            </Text>
-                            <Button component={LocaleLink} href={getCourseDayHref(item.course, item.progress)} size="xs" variant="subtle" color="amanoba">
-                              {courseLabel('nextLesson', 'Next Lesson')}
-                            </Button>
-                          </Group>
-                        </Stack>
-                      </Card>
+                              <Text size="xs" c="dimmed">
+                                {courseLabel('daysCompleted', `${item.progress.completedDays} days completed`, {
+                                  count: item.progress.completedDays,
+                                })}
+                              </Text>
+                            </Group>
+                          ),
+                        }}
+                        primaryAction={(
+                          <Button component={LocaleLink} href={getCourseDayHref(item.course, item.progress)} color="amanoba" fullWidth>
+                            {courseLabel('nextLesson', 'Next Lesson')}
+                          </Button>
+                        )}
+                      />
                     ))}
                   </SimpleGrid>
                 )}
@@ -603,17 +611,14 @@ export default function Dashboard() {
             ].map((stat) => {
               const StatIcon = stat.icon;
               return (
-                <Card key={stat.label} padding="lg" withBorder>
-                  <Stack gap="sm">
-                    <ThemeIcon color="amanoba" variant="light" size={48} radius="xl">
-                      <StatIcon size={28} />
-                    </ThemeIcon>
-                    <Text size="2rem" fw={800}>{stat.value}</Text>
-                    <Text c="dimmed">{stat.label}</Text>
-                    {typeof stat.progress === 'number' ? <Progress value={stat.progress} color="amanoba" radius="xl" /> : null}
-                    <Text size="xs" c="dimmed">{stat.detail}</Text>
-                  </Stack>
-                </Card>
+                <MetricCard
+                  key={stat.label}
+                  icon={<StatIcon size={28} />}
+                  value={stat.value}
+                  label={stat.label}
+                  detail={stat.detail}
+                  progress={stat.progress}
+                />
               );
             })}
           </SimpleGrid>

@@ -5,10 +5,10 @@
 
 # Docs Canonicalization Map
 
-**Last Updated**: 2026-05-22
+**Last Updated**: 2026-05-23
 **Scope**: `docs/**/*.md` (excluding `docs/_archive/**`)
 
-**Counts**: KEEP=97, MERGE=0, ARCHIVE=4, DELETE=0
+**Counts**: KEEP=98, MERGE=0, ARCHIVE=4, DELETE=0
 
 This is a *proposed* map. Apply moves/deletes only after review.
 
@@ -17,7 +17,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/architecture/ARCHITECTURE_FIX_QUICK_START.md` | ⚡ ARCHITECTURE FIX - ACTION CHECKLIST & QUICK START | 5.0 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/architecture/ARCHITECTURE_GAP_ANALYSIS.md` | ARCHITECTURE_GAP_ANALYSIS.md | 8.8 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/architecture/ARCHITECTURE.md` | Amanoba Architecture | 39.0 KB | — | Listed in DOCS_INDEX.md (core docs section). |
-| KEEP | `docs/architecture/layout_grammar.md` | Amanoba Layout Grammar | 13.1 KB | — | Listed in DOCS_INDEX.md (core docs section). |
+| KEEP | `docs/architecture/layout_grammar.md` | Amanoba Layout Grammar | 13.6 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/certification/CERTIFICATE_AB_TEST_DESIGN.md` | Certificate A/B Test Design | 6.4 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/certification/CERTIFICATE_CREATION_GUIDE.md` | Certificate Creation Guide | 14.0 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/certification/CERTIFICATION_CURRENT_IMPLEMENTATION_ANALYSIS.md` | 🔍 CERTIFICATION SYSTEM - CURRENT IMPLEMENTATION ANALYSIS | 13.9 KB | — | Unclassified; keep pending human review. |
@@ -32,9 +32,9 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/core/CODING_STANDARDS.md` | Amanoba Coding Standards | 4.7 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/core/CONTRIBUTING.md` | Contributing to Amanoba | 14.0 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/core/CROSS_REPO_DOCS.md` | Cross-Repo Documentation References | 1.7 KB | — | Listed in DOCS_INDEX.md (core docs section). |
-| KEEP | `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 15.3 KB | — | Unclassified; keep pending human review. |
-| KEEP | `docs/core/DOCS_INDEX.md` | Documentation index | 6.2 KB | — | Single entry point (canonical docs index). |
-| KEEP | `docs/core/DOCS_INVENTORY.md` | Docs Inventory | 9.1 KB | — | Unclassified; keep pending human review. |
+| KEEP | `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 15.5 KB | — | Unclassified; keep pending human review. |
+| KEEP | `docs/core/DOCS_INDEX.md` | Documentation index | 6.4 KB | — | Single entry point (canonical docs index). |
+| KEEP | `docs/core/DOCS_INVENTORY.md` | Docs Inventory | 9.2 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/DOCS_TRIAGE.md` | Docs Triage | 6.0 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/ENVIRONMENT_SETUP.md` | Environment Setup Guide | 3.6 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/LEARNINGS.md` | Amanoba Learnings | 76.8 KB | — | Listed in DOCS_INDEX.md (core docs section). |
@@ -69,16 +69,17 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 4.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | MVP Factory Project — one-time setup (grant project scope) | 1.2 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Prompt for Next Context Window | 2.8 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
-| KEEP | `docs/HANDOVER.md` | Amanoba — Developer Handover | 92.1 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
+| KEEP | `docs/HANDOVER.md` | Amanoba — Developer Handover | 93.7 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/i18n/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/i18n/LANGUAGE_DROPDOWN_PROBLEM_LOG.md` | Language dropdown / i18n problem — collected information | 13.1 KB | — | Unclassified; keep pending human review. |
 | ARCHIVE | `docs/product/COURSE_CREATION_PLAYBOOK.md` | Amanoba Course Creation Playbook | 13.4 KB | `docs/_archive/reference/` | Process/delivery doc; keep for context but treat as non-canonical. |
-| KEEP | `docs/product/DESIGN_UPDATE.md` | Design System Adapter Status | 5.9 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
+| KEEP | `docs/product/DESIGN_UPDATE.md` | Design System Adapter Status | 5.7 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` | Developer Feedback Analysis | 7.2 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/product/NEXT_PHASES.md` | Next Phases: Detailed Implementation Plan | 13.6 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/product/P3_KNOWN_ISSUES_BACKLOG.md` | P3 Known Issues — Backlog | 2.0 KB | — | Unclassified; keep pending human review. |
+| KEEP | `docs/product/PATTERN_CONTRACT_INVENTORY.md` | Amanoba Pattern Contract Inventory | 4.4 KB | — | Listed in DOCS_INDEX.md (feature/reference section). |
 | KEEP | `docs/product/RELEASE_NOTES.md` | Amanoba Release Notes | 173.8 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/product/ROADMAP_TASKLIST_SYSTEM_COMPARISON.md` | ROADMAP vs TASKLIST vs System Outline — Comparison | 5.7 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/product/ROADMAP.md` | Amanoba Roadmap — Future Vision & Client Benefits | 5.5 KB | — | Listed in DOCS_INDEX.md (core docs section). |

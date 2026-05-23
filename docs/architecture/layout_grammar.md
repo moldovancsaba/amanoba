@@ -1,7 +1,7 @@
 # Amanoba Layout Grammar
 
-**Version**: 1.2
-**Last Updated**: 2026-05-21
+**Version**: 1.3
+**Last Updated**: 2026-05-23
 **Status**: ACTIVE — Single source of truth for structural and layout rules
 
 ---
@@ -109,10 +109,10 @@ Amanoba's local files are the current implementation adapter and migration surfa
 
 1. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` — cross-project design, UI, UX, component contract, and governance SSOT.
 2. `docs/product/DESIGN_UPDATE.md` — Amanoba adapter status, local exceptions, and migration backlog.
-3. `app/design-system.css` — current legacy CSS-variable adapter for brand, semantic, surface, text, border, and external-brand colors.
-4. `tailwind.config.ts` — current legacy Tailwind aliases for those tokens (`brand.*`, `primary.*`, `semantic.*`, `social.*`).
-5. `app/globals.css` — current legacy shared shell/page/panel utility classes.
-6. Shared primitives in `app/components/ui/*`.
+3. `docs/product/PATTERN_CONTRACT_INVENTORY.md` — Amanoba-local implementation inventory for required GDS pattern-service contracts.
+4. `app/lib/ui/mantine-theme.ts` and `app/components/providers/MantineRuntimeProvider.tsx` — current local Mantine theme and root runtime adapter.
+5. `app/components/LearnerPageHeader.tsx` and `app/components/patterns/*` — current approved thin Mantine pattern contracts for learner shell/header, article shell, course cards, metric cards, and state blocks.
+6. `app/globals.css` — narrow global reset, Mantine token bridge, and rich-content prose defaults. It is not product component authority.
 7. Non-CSS token files for server-rendered contexts: `app/lib/constants/color-tokens.ts`, `app/lib/constants/certificate-colors.ts`, `app/lib/constants/app-url.ts`.
 
 **Color tokens**:
@@ -132,15 +132,18 @@ Amanoba's local files are the current implementation adapter and migration surfa
 - **Primary actions**: Accent yellow; hover per design tokens.
 - **Links**: Accent for primary links; grey for secondary.
 
-**Components**: Prefer the shared SSOT contracts. In the current legacy adapter, avoid inline hex for brand/CTA colors; use `brand-accent`, `brand-black`, `brand-darkGrey`, `brand-white`, semantic token classes, or CSS variables from the token source files.
+**Components**: Use Mantine primitives or the approved thin pattern contracts in `app/components/patterns/*`. Avoid inline hex for brand/CTA colors; use the Mantine theme, the active pattern contract, or approved non-CSS token files for server-rendered contexts.
 
 **Hard-coded design rule**: touched UI code must not introduce raw colour literals or generic template palettes (`indigo-*`, `gray-*`, `red-*`, etc.) when a design-system token or shared utility exists. Use `semantic.*`, `brand.*`, `.ds-status-*`, `.ds-button-*`, `.ds-text-*`, or shared primitives instead.
 
-**Shared primitive rule**:
+**Shared pattern-service rule**:
 
-- If a visual pattern is reused, it must go through shared primitives or shared utility classes before page-level duplication grows.
-- `Button` and `Card` variants must remain design-system aligned; page code should not reintroduce generic template palettes into those primitives.
-- New shared primitive planning should align to the Mantine wrapper contracts in `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENT_CONTRACTS.md`.
+- If a visual or workflow pattern is reused, it must go through `docs/product/PATTERN_CONTRACT_INVENTORY.md` and a thin Mantine contract before page-level duplication grows.
+- Repeated course cards use `app/components/patterns/CourseCard.tsx`.
+- Repeated learner/dashboard metrics use `app/components/patterns/MetricCard.tsx`.
+- Repeated loading, empty, error, permission, disabled, and success states use `app/components/patterns/StateBlock.tsx`.
+- Blog/news detail layouts use `app/components/patterns/ArticleShell.tsx`.
+- New shared primitive planning must align to `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PATTERN_SERVICE_MODEL.md`.
 
 **Guardrails (recommended)**:
 

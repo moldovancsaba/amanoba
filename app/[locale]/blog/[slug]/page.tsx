@@ -2,8 +2,6 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import {
   Badge,
-  Button,
-  Container,
   Group,
   Paper,
   Stack,
@@ -11,9 +9,8 @@ import {
   Title,
 } from '@mantine/core';
 import { IconCalendar } from '@tabler/icons-react';
-import { LocaleLink } from '@/components/LocaleLink';
-import Logo from '@/components/Logo';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { ArticleShell } from '@/app/components/patterns/ArticleShell';
 import { APP_URL } from '@/app/lib/constants/app-url';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
 import { getBlogLanguages, getNewsPost, getNewsSlugs } from '@/app/lib/news';
@@ -84,44 +81,15 @@ export default async function BlogPostPage({
   }
 
   return (
-    <>
-      <Paper component="header" bg="ink.8" radius={0} withBorder>
-        <Container size="md" py="md">
-          <Group justify="space-between" align="center" gap="md">
-            <Group gap="md" wrap="nowrap">
-              <Logo size="sm" showText={false} linkTo="/blog" preventShrink />
-              <Stack gap={2}>
-                <Text size="xs" tt="uppercase" fw={800} c="amanoba.5">
-                  {labels.eyebrow}
-                </Text>
-                <Title order={1} size="h3" c="white">
-                  Amanoba Blog
-                </Title>
-              </Stack>
-            </Group>
-            <Group component="nav" gap="xs" justify="flex-end">
-            <LanguageSwitcher />
-            <Button
-              component={LocaleLink}
-              href="/blog"
-              variant="outline"
-              color="gray"
-            >
-              {labels.backToBlog}
-            </Button>
-            <Button
-              component={LocaleLink}
-              href="/dashboard"
-              color="amanoba"
-            >
-              {labels.backDashboard}
-            </Button>
-            </Group>
-          </Group>
-        </Container>
-      </Paper>
-
-      <Container component="main" size="md" py={{ base: 'xl', sm: 56 }}>
+    <ArticleShell
+      eyebrow={labels.eyebrow}
+      title="Amanoba Blog"
+      logoHref="/blog"
+      backHref="/blog"
+      backLabel={labels.backToBlog}
+      dashboardLabel={labels.backDashboard}
+      languageSwitcher={<LanguageSwitcher />}
+    >
         <Paper component="article" withBorder shadow="sm" p={{ base: 'lg', sm: 'xl' }} radius="md">
           <Stack gap="xl">
             <Group gap="sm">
@@ -153,7 +121,6 @@ export default async function BlogPostPage({
             ))}
           </Stack>
         </Paper>
-      </Container>
-    </>
+    </ArticleShell>
   );
 }

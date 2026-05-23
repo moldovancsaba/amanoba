@@ -1,6 +1,6 @@
 # Documentation index
 
-**Last updated**: 2026-05-21
+**Last updated**: 2026-05-23
 **Purpose**: Canonical entrypoint for active Amanoba documentation. Historical phase reports and old handoff snapshots may remain in `docs/`, but the tables below identify current guidance.
 
 **Generated helpers**
@@ -48,6 +48,7 @@
 | **CERTIFICATION_REFERENCE.md** | `docs/certification/CERTIFICATION_REFERENCE.md` | Certification-related reference index. |
 | **DEPLOYMENT.md** | `docs/deployment/DEPLOYMENT.md` | Deployment and runtime operations baseline. |
 | **DESIGN_UPDATE.md** | `docs/product/DESIGN_UPDATE.md` | Amanoba adapter status, local exceptions, and migration backlog under the shared design-system SSOT. |
+| **PATTERN_CONTRACT_INVENTORY.md** | `docs/product/PATTERN_CONTRACT_INVENTORY.md` | Amanoba implementation inventory for GDS pattern-service contracts. |
 | **HANDOFF_MVP_FACTORY_CONTROL.md** | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Board handoff and issue workflow model. |
 | **MVP_FACTORY_PROJECT_SETUP.md** | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | One-time project scope setup for board automation. |
 | **AmanobaAuditDocMapping.md** | `docs/handoff/AmanobaAuditDocMapping.md` | Audit SSOT inventory: board workflow, doc-to-code mapping, and quality gates. |

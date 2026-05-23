@@ -7,28 +7,22 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { useSession } from 'next-auth/react';
 import {
   Alert,
-  Badge,
   Box,
   Button,
-  Card,
   Container,
   Group,
-  Image as MantineImage,
   MultiSelect,
   Paper,
-  Progress,
   SimpleGrid,
   Skeleton,
   Stack,
   Text,
   TextInput,
-  Title,
 } from '@mantine/core';
 import {
   IconAlertTriangle,
@@ -44,6 +38,8 @@ import {
 } from '@tabler/icons-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import { LearnerPageHeader } from '@/app/components/LearnerPageHeader';
+import { CourseCard } from '@/app/components/patterns/CourseCard';
+import { StateBlock } from '@/app/components/patterns/StateBlock';
 import { COURSE_LANGUAGE_OPTIONS, type CourseLanguageCode } from '@/app/lib/constants/course-languages';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 
@@ -136,7 +132,7 @@ function CatalogSkeleton() {
   return (
     <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="lg">
       {[0, 1, 2, 3, 4, 5].map((item) => (
-        <Card key={item} padding="lg">
+        <Paper key={item} p="lg" withBorder>
           <Skeleton height={180} radius="md" mb="md" />
           <Skeleton height={24} width="80%" mb="sm" />
           <Skeleton height={14} width="100%" mb={6} />
@@ -145,7 +141,7 @@ function CatalogSkeleton() {
             <Skeleton height={40} radius="md" />
             <Skeleton height={40} radius="md" />
           </Group>
-        </Card>
+        </Paper>
       ))}
     </SimpleGrid>
   );
@@ -375,23 +371,23 @@ export default function CoursesPage() {
           {loading ? (
             <CatalogSkeleton />
           ) : courses.length === 0 ? (
-            <Card padding="xl">
-              <Stack align="center" gap="sm">
-                <IconBook size={44} />
-                <Title order={2} size="h3">
-                  {t('noCoursesAvailable')}
-                </Title>
-                <Text c="dimmed" ta="center">
-                  Nothing matches the current search and language filters.
-                </Text>
-                <Button variant="outline" onClick={() => {
+            <StateBlock
+              kind="empty"
+              title={t('noCoursesAvailable')}
+              description="Nothing matches the current search and language filters."
+              icon={<IconBook size={34} />}
+              action={(
+                <Button
+                  variant="outline"
+                  onClick={() => {
                   setSearch('');
                   setSelectedLanguages([locale]);
-                }}>
+                  }}
+                >
                   Clear filters
                 </Button>
-              </Stack>
-            </Card>
+              )}
+            />
           ) : (
             <SimpleGrid cols={{ base: 1, md: 2, lg: 3 }} spacing="lg">
               {courses.map((course) => {
@@ -406,144 +402,102 @@ export default function CoursesPage() {
                 const progress = myCourse?.progress.progressPercentage ?? 0;
 
                 return (
-                  <Card key={course._id} padding="lg">
-                    <Card.Section>
-                      {course.thumbnail ? (
-                        <MantineImage
-                          component={Image}
-                          src={course.thumbnail}
-                          alt={course.name}
-                          height={190}
-                          width={640}
-                          fit="cover"
-                        />
-                      ) : (
-                        <Box bg="ink.7" h={190}>
-                          <Stack h="100%" align="center" justify="center" gap="xs">
-                            <IconBook size={38} color="white" />
-                            <Text c="gray.3">{languageLabels.get(course.language as CourseLanguageCode) ?? course.language.toUpperCase()}</Text>
-                          </Stack>
-                        </Box>
-                      )}
-                    </Card.Section>
-
-                    <Stack gap="md" mt="md">
-                      <Group gap="xs">
-                        <Badge variant="light" color="gray">{languageLabels.get(course.language as CourseLanguageCode) ?? course.language.toUpperCase()}</Badge>
-                        <Badge
-                          variant={course.requiresPremium ? 'filled' : 'light'}
-                          color={course.requiresPremium ? 'amanoba' : 'gray'}
-                          leftSection={course.requiresPremium ? <IconStar size={12} /> : undefined}
-                        >
-                          {course.requiresPremium ? courseTexts.premium : courseTexts.free}
-                        </Badge>
-                        <Badge
-                          variant="light"
-                          color={course.certification?.enabled ? 'amanoba' : 'gray'}
-                          leftSection={course.certification?.enabled ? <IconCertificate size={12} /> : undefined}
-                        >
-                          {course.certification?.enabled ? courseTexts.certificate : courseTexts.noCertificate}
-                        </Badge>
-                      </Group>
-
-                      <Stack gap={6}>
-                        <Title order={2} size="h3" lineClamp={2}>
-                          {course.name}
-                        </Title>
-                        <Text c="dimmed" lineClamp={3}>
-                          {course.description}
-                        </Text>
-                      </Stack>
-
-                      <SimpleGrid cols={3} spacing="xs">
-                        <Paper p="sm">
-                          <Text size="xs" c="dimmed">Length</Text>
-                          <Text fw={700}>{course.durationDays} {courseTexts.lessons}</Text>
-                        </Paper>
-                        <Paper p="sm">
-                          <Text size="xs" c="dimmed">Reward</Text>
-                          <Text fw={700}>{course.pointsConfig.completionPoints} {courseTexts.points}</Text>
-                        </Paper>
-                        <Paper p="sm">
-                          <Text size="xs" c="dimmed">Signal</Text>
+                  <CourseCard
+                    key={course._id}
+                    title={course.name}
+                    description={course.description}
+                    thumbnail={course.thumbnail}
+                    thumbnailAlt={course.name}
+                    fallbackLabel={languageLabels.get(course.language as CourseLanguageCode) ?? course.language.toUpperCase()}
+                    badges={[
+                      { label: languageLabels.get(course.language as CourseLanguageCode) ?? course.language.toUpperCase() },
+                      {
+                        label: course.requiresPremium ? courseTexts.premium : courseTexts.free,
+                        color: course.requiresPremium ? 'amanoba' : 'gray',
+                        variant: course.requiresPremium ? 'filled' : 'light',
+                        leftSection: course.requiresPremium ? <IconStar size={12} /> : undefined,
+                      },
+                      {
+                        label: course.certification?.enabled ? courseTexts.certificate : courseTexts.noCertificate,
+                        color: course.certification?.enabled ? 'amanoba' : 'gray',
+                        leftSection: course.certification?.enabled ? <IconCertificate size={12} /> : undefined,
+                      },
+                    ]}
+                    metrics={[
+                      { label: 'Length', value: `${course.durationDays} ${courseTexts.lessons}` },
+                      { label: 'Reward', value: `${course.pointsConfig.completionPoints} ${courseTexts.points}` },
+                      {
+                        label: 'Signal',
+                        value: (
                           <Group gap={4}>
                             <IconThumbUp size={15} />
                             <Text fw={700}>{course.voteAggregate?.score ?? 0}</Text>
                           </Group>
-                        </Paper>
-                      </SimpleGrid>
-
-                      {course.requiresPremium && course.price ? (
-                        <Group gap="xs">
-                          <IconCreditCard size={18} />
-                          <Text fw={700}>{formatPrice(course.price.amount, course.price.currency)}</Text>
-                        </Group>
-                      ) : null}
-
-                      {isEnrolled ? (
-                        <Stack gap={6}>
-                          <Group justify="space-between">
-                            <Text size="sm" fw={700}>Progress</Text>
-                            <Text size="sm" c="dimmed">{Math.round(progress)}%</Text>
+                        ),
+                      },
+                    ]}
+                    progress={isEnrolled ? { label: 'Progress', value: progress } : undefined}
+                    notice={(
+                      <Stack gap="sm">
+                        {course.requiresPremium && course.price ? (
+                          <Group gap="xs">
+                            <IconCreditCard size={18} />
+                            <Text fw={700}>{formatPrice(course.price.amount, course.price.currency)}</Text>
                           </Group>
-                          <Progress value={progress} color="amanoba" radius="xl" />
-                        </Stack>
-                      ) : null}
-
-                      {course.prerequisiteCourses?.length ? (
-                        <Alert
-                          color={prereqBlocked ? 'yellow' : 'gray'}
-                          variant="light"
-                          icon={<IconAlertTriangle size={16} />}
-                          title={prereqBlocked ? 'Prerequisites required' : 'Prerequisites'}
-                        >
-                          <Text size="sm">
-                            {(prereqBlocked ? unmetPrereqs : course.prerequisiteCourses)
-                              .map((prereq) => prereq.name ?? prereq.courseId)
-                              .join(', ')}
-                          </Text>
-                        </Alert>
-                      ) : null}
-
-                      {apiPrereqs.length > 0 ? (
-                        <Alert color="red" variant="light" title="Cannot enrol yet" icon={<IconAlertTriangle size={16} />}>
-                          <Text size="sm">
-                            {apiPrereqs.map((prereq) => prereq.name ?? prereq.courseId).join(', ')}
-                          </Text>
-                        </Alert>
-                      ) : null}
-
-                      <Group grow>
-                        {isEnrolled ? (
-                          <Button
-                            component={LocaleLink}
-                            href={`/${myCourse?.course.language ?? course.language}/courses/${course.courseId}/day/${myCourse?.progress.currentDay || 1}`}
-                            color="amanoba"
-                            leftSection={<IconTrophy size={18} />}
+                        ) : null}
+                        {course.prerequisiteCourses?.length ? (
+                          <Alert
+                            color={prereqBlocked ? 'yellow' : 'gray'}
+                            variant="light"
+                            icon={<IconAlertTriangle size={16} />}
+                            title={prereqBlocked ? 'Prerequisites required' : 'Prerequisites'}
                           >
-                            {courseTexts.continue}
-                          </Button>
-                        ) : (
-                          <Button
-                            color="amanoba"
-                            loading={enrollingCourseId === courseKey}
-                            disabled={Boolean(enrollingCourseId) || prereqBlocked || loadingMyCourses}
-                            onClick={() => void handleEnroll(course)}
-                          >
-                            {courseTexts.enrol}
-                          </Button>
-                        )}
-                        <Button
-                          component={LocaleLink}
-                          href={`/${course.language}/courses/${course.courseId}`}
-                          variant="outline"
-                          color="gray"
-                        >
-                          {courseTexts.view}
-                        </Button>
-                      </Group>
-                    </Stack>
-                  </Card>
+                            <Text size="sm">
+                              {(prereqBlocked ? unmetPrereqs : course.prerequisiteCourses)
+                                .map((prereq) => prereq.name ?? prereq.courseId)
+                                .join(', ')}
+                            </Text>
+                          </Alert>
+                        ) : null}
+                        {apiPrereqs.length > 0 ? (
+                          <Alert color="red" variant="light" title="Cannot enrol yet" icon={<IconAlertTriangle size={16} />}>
+                            <Text size="sm">
+                              {apiPrereqs.map((prereq) => prereq.name ?? prereq.courseId).join(', ')}
+                            </Text>
+                          </Alert>
+                        ) : null}
+                      </Stack>
+                    )}
+                    primaryAction={isEnrolled ? (
+                      <Button
+                        component={LocaleLink}
+                        href={`/${myCourse?.course.language ?? course.language}/courses/${course.courseId}/day/${myCourse?.progress.currentDay || 1}`}
+                        color="amanoba"
+                        leftSection={<IconTrophy size={18} />}
+                      >
+                        {courseTexts.continue}
+                      </Button>
+                    ) : (
+                      <Button
+                        color="amanoba"
+                        loading={enrollingCourseId === courseKey}
+                        disabled={Boolean(enrollingCourseId) || prereqBlocked || loadingMyCourses}
+                        onClick={() => void handleEnroll(course)}
+                      >
+                        {courseTexts.enrol}
+                      </Button>
+                    )}
+                    secondaryAction={(
+                      <Button
+                        component={LocaleLink}
+                        href={`/${course.language}/courses/${course.courseId}`}
+                        variant="outline"
+                        color="gray"
+                      >
+                        {courseTexts.view}
+                      </Button>
+                    )}
+                  />
                 );
               })}
             </SimpleGrid>

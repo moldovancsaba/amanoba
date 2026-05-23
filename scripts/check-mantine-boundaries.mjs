@@ -14,10 +14,18 @@ const allowedLegacyHelpers = new Set([]);
 
 const mantineOnlyFiles = new Set([
   'app/[locale]/page.tsx',
+  'app/[locale]/auth/error/page.tsx',
+  'app/[locale]/courses/page.tsx',
+  'app/[locale]/dashboard/page.tsx',
+  'app/[locale]/my-courses/page.tsx',
   'app/[locale]/blog/[slug]/page.tsx',
   'app/[locale]/news/[slug]/page.tsx',
   'app/components/LearnerPageHeader.tsx',
   'app/components/ThemeToggle.tsx',
+  'app/components/patterns/ArticleShell.tsx',
+  'app/components/patterns/CourseCard.tsx',
+  'app/components/patterns/MetricCard.tsx',
+  'app/components/patterns/StateBlock.tsx',
   'app/components/sign-out-button.tsx',
   'components/CookieConsentBanner.tsx',
   'components/LanguageSwitcher.tsx',

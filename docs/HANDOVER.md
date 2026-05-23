@@ -1170,3 +1170,24 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm test` ✅ pass
 - `npm run docs:check` ✅ pass before this handover append; rerun required before commit
 - `npm run build` ✅ pass
+
+## GDS 2.1 pattern-service alignment slice (2026-05-23)
+
+### What changed
+- Added Amanoba's local GDS pattern inventory at `docs/product/PATTERN_CONTRACT_INVENTORY.md`, aligned to `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` version `2.1.0`.
+- Updated `docs/product/DESIGN_UPDATE.md` and `docs/architecture/layout_grammar.md` so active docs now point to the consolidated GDS files and the new pattern-service model instead of obsolete pre-2.0 GDS documents.
+- Added canonical Mantine-only pattern contracts: `CourseCard`, `MetricCard`, `StateBlock`, and `ArticleShell`.
+- Routed the course catalog, My Courses, dashboard course/progress/metric surfaces, blog/news detail pages, and auth error recovery page through those shared pattern contracts.
+- Tightened `npm run ui:check:mantine` so the newly canonical learner/course/dashboard/auth/article/pattern files are covered by the Mantine-only boundary rules.
+- Removed obsolete unused Radix, Sonner, and Vaul product-UI dependencies from `package.json`/`package-lock.json`.
+- Ran `npm audit fix` non-breaking updates; remaining audit findings require breaking upgrades (`nodemailer`, Next transitive `postcss`, and `uuid`) and were not forced in this slice.
+
+### Verification
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run ui:check:layout` ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm test` ✅ pass
+- `npm run build` ✅ pass
+- `npm audit --omit=dev --audit-level=high` ⚠️ remaining high issue is `nodemailer`; available fix requires breaking upgrade path
