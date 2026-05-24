@@ -1439,3 +1439,14 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:check:mantine` ✅ pass
 - `npm run build` ✅ pass
 
+## GDS admin MetricCard reuse (2026-05-23)
+
+### What changed
+- Migrated admin payments and certificates dashboards from page-local `MetricCard` helpers to the shared `app/components/patterns/MetricCard.tsx` contract.
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run build` ✅ pass
+

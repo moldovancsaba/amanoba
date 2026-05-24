@@ -14,7 +14,7 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | Learner shell / page header | `app/components/LearnerPageHeader.tsx` | Canonical | Used by dashboard, course catalog, My Courses, Practice Hub, Saved Lessons, blog, and news index pages. |
 | Article shell | `app/components/patterns/ArticleShell.tsx` | Canonical | Used by blog/news detail pages. Index pages still use the learner header because they are learner-facing product surfaces. |
 | Product course card | `app/components/patterns/CourseCard.tsx` | Canonical | Used by course catalog, My Courses, dashboard recommendations, and active-course progress cards. |
-| Metric / progress card | `app/components/patterns/MetricCard.tsx` | Canonical | Used by the learner dashboard metric grid. Admin analytics/payment metrics should migrate to this contract where the data shape matches. |
+| Metric / progress card | `app/components/patterns/MetricCard.tsx` | Canonical | Used by learner dashboard, stats, admin rewards, email analytics, payments, and certificates metric grids. |
 | State block | `app/components/patterns/StateBlock.tsx` | Canonical | Used by course catalog, My Courses, and dashboard loading/error/empty/permission states. Remaining route-level states should migrate to this contract. |
 | Course access recovery | `app/components/patterns/CourseAccessRecoveryActions.tsx` + `app/lib/course-access-recovery.ts` | Canonical | Used by protected lesson day and lesson quiz routes for 401/404 recovery (sign-in, back to course, retry). |
 | Admin shell | `app/[locale]/admin/layout.tsx` | Canonical | Mantine `AppShell` with `NavLink`, `ScrollArea`, `Menu`, and Tabler icons. |
