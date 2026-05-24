@@ -23,7 +23,8 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | Data toolbar | `app/components/patterns/DataToolbar.tsx` | Canonical | Admin list filters including analytics and email reporting period controls. |
 | Responsive data view | `app/components/patterns/ResponsiveDataView.tsx` | Canonical | Table on `md+`, card rows on small screens; used across admin list and analytics tables. |
 | Editor shell | `app/[locale]/editor/layout.tsx` | Canonical | Mantine `AppShell` for the editor portal (courses navigation). |
-| Game shell | `app/[locale]/games/**`, `app/components/games/**` | Canonical | Memory and sudoku pages use Mantine shells; game-board internals may remain custom when framed by Mantine cards and state contracts. |
+| Game shell | `app/[locale]/games/**`, `app/components/games/**` | Canonical | Memory and sudoku pages use Mantine shells; board tiles use `GameBoardCard` where flip/highlight behavior applies. |
+| Game board card | `app/components/patterns/GameBoardCard.tsx` | Canonical | Flip tile for memory and other game boards. |
 
 ## Canonical Component Rules
 
@@ -36,7 +37,7 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 
 ## Current Highest-Risk Gaps
 
-1. Game-board flip animations may keep local layout styles inside Mantine-framed surfaces (accepted exception).
+None at this time; game-board flip tiles are covered by `GameBoardCard`.
 
 ## Implementation Sequence
 

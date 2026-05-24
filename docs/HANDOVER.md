@@ -1426,3 +1426,16 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run lint` ✅ pass
 - `npm run ui:check:mantine` ✅ pass
 - `npm run build` ✅ pass
+
+## GDS GameBoardCard (2026-05-23)
+
+### What changed
+- Extracted `GameBoardCard` as the governed Mantine pattern for game-board flip/highlight tiles.
+- Migrated `MemoryGame` card grid to compose `GameBoardCard` instead of page-local `Paper`/`UnstyledButton` flip styling.
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run build` ✅ pass
+

@@ -55,6 +55,7 @@ Local adapter files:
 - `app/components/patterns/PublicAppShell.tsx` — canonical public/marketing page shell.
 - `app/components/patterns/DataToolbar.tsx` — admin list filter toolbar.
 - `app/components/patterns/ResponsiveDataView.tsx` — responsive admin table/card list view (canonical).
+- `app/components/patterns/GameBoardCard.tsx` — canonical flip tile for memory and other game boards.
 - `app/design-system.css` — token-only CSS layer (Phase 6); legacy utility classes removed.
 - `app/components/LessonQuiz.tsx` — Mantine lesson quiz surface (`StateBlock`, notifications).
 - `app/[locale]/games/memory/page.tsx` — Mantine memory game page shell.

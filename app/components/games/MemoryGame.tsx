@@ -13,15 +13,12 @@ import {
   Badge,
   Button,
   Card,
-  Center,
   Group,
   Modal,
-  Paper,
   SimpleGrid,
   Stack,
   Text,
   Title,
-  UnstyledButton,
 } from '@mantine/core';
 import {
   IconBolt,
@@ -32,6 +29,7 @@ import {
   IconTarget,
   IconTrophy,
 } from '@tabler/icons-react';
+import { GameBoardCard } from '@/app/components/patterns/GameBoardCard';
 import { MetricCard } from '@/app/components/patterns/MetricCard';
 import {
   type MemoryDifficulty,
@@ -362,40 +360,24 @@ export default function MemoryGame({
             gameState.flippedCards.length >= 2;
 
           return (
-            <UnstyledButton
+            <GameBoardCard
               key={card.id}
-              onClick={() => handleCardClick(card.id)}
+              face={revealed ? card.value : '?'}
+              revealed={revealed}
+              matched={card.isMatched}
               disabled={disabled}
-              style={{ width: '100%' }}
-            >
-              <Paper
-                withBorder
-                radius="md"
-                p="md"
-                bg={revealed ? 'amanoba.5' : 'dark.6'}
-                style={{
-                  aspectRatio: '1',
-                  opacity: card.isMatched ? 0.55 : 1,
-                  cursor: disabled ? 'not-allowed' : 'pointer',
-                  transition: 'transform 0.25s ease, background-color 0.25s ease, opacity 0.25s ease',
-                  transform: revealed && !card.isMatched ? 'scale(1.02)' : 'scale(1)',
-                }}
-              >
-                <Center h="100%">
-                  <Text size="xl" fw={700}>
-                    {revealed ? card.value : '?'}
-                  </Text>
-                </Center>
-              </Paper>
-            </UnstyledButton>
+              onPress={() => handleCardClick(card.id)}
+            />
           );
         })}
       </SimpleGrid>
 
       <Modal
         opened={gameState.isComplete}
-        onClose={() => undefined}
+        onClose={() => {}}
         withCloseButton={false}
+        closeOnClickOutside={false}
+        closeOnEscape={false}
         centered
         title={null}
       >
