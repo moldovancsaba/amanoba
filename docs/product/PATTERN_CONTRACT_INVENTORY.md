@@ -20,10 +20,10 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | Admin shell | `app/[locale]/admin/layout.tsx` | Canonical | Mantine `AppShell` with `NavLink`, `ScrollArea`, `Menu`, and Tabler icons. |
 | Auth shell | `app/components/patterns/AuthShell.tsx`, `app/[locale]/auth/signin/page.tsx`, `app/[locale]/auth/error/page.tsx` | Canonical | Shared centered auth layout; sign-in and auth error routes compose `AuthShell` with Mantine cards and `StateBlock`. |
 | Public shell | `app/components/patterns/PublicAppShell.tsx`, `app/[locale]/page.tsx`, `app/[locale]/partners/page.tsx` | Canonical | Shared marketing header/footer band; landing and partners compose the shell. |
-| Data toolbar | `app/components/patterns/DataToolbar.tsx` | Pilot | Admin course, player, achievement, and question list filters. |
-| Responsive data view | Admin list pages | Backlog | Table/card responsive layouts still page-local beyond course admin filters. |
+| Data toolbar | `app/components/patterns/DataToolbar.tsx` | Canonical | Admin course, player, achievement, question, vote, payment, quest, challenge, and game list filters. |
+| Responsive data view | `app/components/patterns/ResponsiveDataView.tsx` | Pilot | Table on `md+`, card rows on small screens; used on votes, players, games, and payments. |
 | Editor shell | `app/[locale]/editor/layout.tsx` | Canonical | Mantine `AppShell` for the editor portal (courses navigation). |
-| Game shell | `app/[locale]/games/**`, `app/components/games/**` | Backlog / exception review | Game engine internals may remain custom, but navigation, cards, loading/error states, and chrome must use Mantine contracts. |
+| Game shell | `app/[locale]/games/**`, `app/components/games/**` | Canonical | Memory and sudoku pages use Mantine shells; game-board internals may remain custom when framed by Mantine cards and state contracts. |
 
 ## Canonical Component Rules
 
@@ -36,16 +36,14 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 
 ## Current Highest-Risk Gaps
 
-1. Phase 6 CSS/token deletion (`design-system.css`, transitional globals) remains open.
-3. Memory-game internals still contain local CSS/layout classes. Game-board internals may remain custom only if framed by Mantine shell/state/card contracts.
-4. `ResponsiveDataView` is not extracted yet; extend `DataToolbar` to remaining admin list pages (payments, quests, etc.).
+1. Extend `ResponsiveDataView` to remaining admin tables (rewards, email analytics).
+2. Game-board flip animations may keep local layout styles inside Mantine-framed surfaces.
 
 ## Implementation Sequence
 
 1. Complete learner-facing reuse first: course catalog, dashboard, My Courses, blog/news detail, and route states.
-2. Extract `DataToolbar` and `ResponsiveDataView` for admin list pages.
-4. Migrate leaderboards, stats, onboarding, and game chrome to the state/card/shell contracts.
-5. Tighten `npm run ui:check:mantine` after each group so old variants cannot return.
+2. Extend `ResponsiveDataView` to remaining admin list pages.
+3. Tighten `npm run ui:check:mantine` after each group so old variants cannot return.
 
 ## Verification Commands
 

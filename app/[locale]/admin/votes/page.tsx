@@ -4,18 +4,19 @@
 
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   Badge,
   Group,
   Loader,
   Select,
   Stack,
-  Table,
   Text,
   Title,
 } from '@mantine/core';
 import { IconThumbDown, IconThumbUp } from '@tabler/icons-react';
+import { DataToolbar } from '@/app/components/patterns/DataToolbar';
+import { ResponsiveDataView } from '@/app/components/patterns/ResponsiveDataView';
 import { StateBlock } from '@/app/components/patterns/StateBlock';
 
 interface AggregateRow {
@@ -48,6 +49,74 @@ export default function AdminVotesPage() {
       .finally(() => setLoading(false));
   }, [targetType]);
 
+  const columns = useMemo(
+    () => [
+      {
+        key: 'type',
+        header: 'Type',
+        mobileLabel: 'Type',
+        cell: (row: AggregateRow) => (
+          <Badge variant="light" color="gray">
+            {row.targetType}
+          </Badge>
+        ),
+      },
+      {
+        key: 'target',
+        header: 'Target ID',
+        mobileLabel: 'Target',
+        cell: (row: AggregateRow) => (
+          <Text size="sm" ff="monospace" lineClamp={2}>
+            {row.targetId}
+          </Text>
+        ),
+      },
+      {
+        key: 'sum',
+        header: 'Sum',
+        align: 'right' as const,
+        cell: (row: AggregateRow) => <Text fw={600}>{row.sum}</Text>,
+      },
+      {
+        key: 'up',
+        header: (
+          <Group gap={4} justify="flex-end" wrap="nowrap">
+            <IconThumbUp size={14} /> Up
+          </Group>
+        ),
+        mobileLabel: 'Up',
+        align: 'right' as const,
+        cell: (row: AggregateRow) => (
+          <Text c="green" ta="right">
+            {row.up}
+          </Text>
+        ),
+      },
+      {
+        key: 'down',
+        header: (
+          <Group gap={4} justify="flex-end" wrap="nowrap">
+            <IconThumbDown size={14} /> Down
+          </Group>
+        ),
+        mobileLabel: 'Down',
+        align: 'right' as const,
+        cell: (row: AggregateRow) => (
+          <Text c="yellow" ta="right">
+            {row.down}
+          </Text>
+        ),
+      },
+      {
+        key: 'count',
+        header: 'Count',
+        align: 'right' as const,
+        cell: (row: AggregateRow) => <Text ta="right">{row.count}</Text>,
+      },
+    ],
+    []
+  );
+
   return (
     <Stack gap="lg" maw={1200}>
       <Stack gap={4}>
@@ -57,9 +126,8 @@ export default function AdminVotesPage() {
         </Text>
       </Stack>
 
-      <Group>
+      <DataToolbar title="Filter by type">
         <Select
-          label="Filter by type"
           placeholder="All"
           clearable
           value={targetType}
@@ -69,9 +137,9 @@ export default function AdminVotesPage() {
             { value: 'lesson', label: 'Lesson' },
             { value: 'question', label: 'Question' },
           ]}
-          w={220}
+          w={{ base: '100%', sm: 220 }}
         />
-      </Group>
+      </DataToolbar>
 
       {loading ? (
         <Group gap="sm">
@@ -81,54 +149,15 @@ export default function AdminVotesPage() {
       ) : aggregates.length === 0 ? (
         <StateBlock kind="empty" title="No vote data yet" description="Aggregates appear after learners vote on content." />
       ) : (
-        <Table.ScrollContainer minWidth={640}>
-          <Table striped highlightOnHover withTableBorder withColumnBorders>
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th>Type</Table.Th>
-                <Table.Th>Target ID</Table.Th>
-                <Table.Th ta="right">Sum</Table.Th>
-                <Table.Th ta="right">
-                  <Group gap={4} justify="flex-end" wrap="nowrap">
-                    <IconThumbUp size={14} /> Up
-                  </Group>
-                </Table.Th>
-                <Table.Th ta="right">
-                  <Group gap={4} justify="flex-end" wrap="nowrap">
-                    <IconThumbDown size={14} /> Down
-                  </Group>
-                </Table.Th>
-                <Table.Th ta="right">Count</Table.Th>
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>
-              {aggregates.map((row, index) => (
-                <Table.Tr key={`${row.targetType}-${row.targetId}-${index}`}>
-                  <Table.Td>
-                    <Badge variant="light" color="gray">
-                      {row.targetType}
-                    </Badge>
-                  </Table.Td>
-                  <Table.Td>
-                    <Text size="sm" ff="monospace" lineClamp={1} maw={280}>
-                      {row.targetId}
-                    </Text>
-                  </Table.Td>
-                  <Table.Td ta="right">
-                    <Text fw={600}>{row.sum}</Text>
-                  </Table.Td>
-                  <Table.Td ta="right">
-                    <Text c="green">{row.up}</Text>
-                  </Table.Td>
-                  <Table.Td ta="right">
-                    <Text c="yellow">{row.down}</Text>
-                  </Table.Td>
-                  <Table.Td ta="right">{row.count}</Table.Td>
-                </Table.Tr>
-              ))}
-            </Table.Tbody>
-          </Table>
-        </Table.ScrollContainer>
+        <ResponsiveDataView
+          rows={aggregates}
+          columns={columns}
+          rowKey={(row, index) => `${row.targetType}-${row.targetId}-${index}`}
+          minTableWidth={640}
+          striped
+          withTableBorder
+          withColumnBorders
+        />
       )}
     </Stack>
   );

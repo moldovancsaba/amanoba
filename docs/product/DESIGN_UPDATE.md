@@ -53,7 +53,8 @@ Local adapter files:
 - `app/components/patterns/CourseAccessRecoveryActions.tsx` — canonical sign-in / course / retry recovery actions for protected lesson and quiz routes.
 - `app/components/patterns/AuthShell.tsx` — canonical centered auth/onboarding page shell.
 - `app/components/patterns/PublicAppShell.tsx` — canonical public/marketing page shell.
-- `app/components/patterns/DataToolbar.tsx` — pilot admin list filter toolbar.
+- `app/components/patterns/DataToolbar.tsx` — admin list filter toolbar.
+- `app/components/patterns/ResponsiveDataView.tsx` — responsive admin table/card list view.
 - `app/components/LessonQuiz.tsx` — Mantine lesson quiz surface (`StateBlock`, notifications).
 - `app/[locale]/games/memory/page.tsx` — Mantine memory game page shell.
 - `app/[locale]/admin/layout.tsx` — Mantine `AppShell` admin navigation shell.
@@ -91,7 +92,7 @@ Still pending:
 
 - Game chrome (`MemoryGame`, `LessonQuiz`) now uses Mantine cards, metrics, and Tabler icons.
 - Some older route surfaces still contain legacy local markup in non-game admin pages.
-- `ResponsiveDataView` remains a backlog contract; extend `DataToolbar` across admin lists.
+- Extend `ResponsiveDataView` to remaining admin tables (rewards, email analytics).
 - Some historical release notes and archive documents still describe older local design-system states for audit history.
 - Package dependencies still include legacy UI libraries until the final dependency deletion pass proves they are unused in product UI.
 

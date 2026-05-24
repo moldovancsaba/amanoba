@@ -8,6 +8,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { DataToolbar } from '@/app/components/patterns/DataToolbar';
 import { useLocale, useTranslations } from 'next-intl';
 import {
   Badge,
@@ -104,17 +105,15 @@ export default function AdminQuestsPage() {
         <Text c="dimmed">View and manage quests on the platform</Text>
       </div>
 
-      <Group align="flex-end">
+      <DataToolbar title="Filter quests">
         <TextInput
-          flex={1}
           leftSection={<IconSearch size={18} />}
-          label="Search"
           placeholder="Search quests..."
           value={search}
           onChange={(event) => setSearch(event.currentTarget.value)}
+          w={{ base: '100%', sm: 280 }}
         />
         <Select
-          label="Status"
           value={statusFilter}
           onChange={(value) => setStatusFilter((value as 'all' | 'active' | 'inactive') || 'all')}
           data={[
@@ -122,8 +121,10 @@ export default function AdminQuestsPage() {
             { value: 'active', label: 'Active' },
             { value: 'inactive', label: 'Inactive' },
           ]}
+          w={{ base: '100%', sm: 200 }}
+          allowDeselect={false}
         />
-      </Group>
+      </DataToolbar>
 
       {error ? (
         <Card withBorder>

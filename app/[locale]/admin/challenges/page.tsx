@@ -8,6 +8,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { DataToolbar } from '@/app/components/patterns/DataToolbar';
 import { useTranslations } from 'next-intl';
 import {
   Badge,
@@ -118,16 +119,15 @@ export default function AdminChallengesPage() {
         </div>
       </Group>
 
-      <Group align="flex-end">
+      <DataToolbar title={t('challengesManagement')}>
         <TextInput
           type="date"
-          label={tCommon('date')}
           leftSection={<IconCalendar size={18} />}
           value={dateFilter}
           onChange={(event) => setDateFilter(event.currentTarget.value)}
+          w={{ base: '100%', sm: 200 }}
         />
         <Select
-          label={t('difficulty')}
           value={difficultyFilter}
           onChange={(value) => setDifficultyFilter(value || 'all')}
           data={[
@@ -136,8 +136,10 @@ export default function AdminChallengesPage() {
             { value: 'medium', label: t('medium') },
             { value: 'hard', label: t('hard') },
           ]}
+          w={{ base: '100%', sm: 200 }}
+          allowDeselect={false}
         />
-      </Group>
+      </DataToolbar>
 
       <Stack gap="md">
         {challenges.length === 0 ? (

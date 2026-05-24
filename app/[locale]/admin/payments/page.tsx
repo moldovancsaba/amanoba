@@ -7,9 +7,10 @@
 
 'use client';
 
-import { useState, useEffect, useCallback, type ReactNode } from 'react';
+import { useState, useEffect, useCallback, useMemo, type ReactNode } from 'react';
 import {
   Badge,
+  Box,
   Button,
   Card,
   Group,
@@ -17,16 +18,16 @@ import {
   Modal,
   Pagination,
   Paper,
-  ScrollArea,
   Select,
   SimpleGrid,
   Stack,
-  Table,
   Text,
   TextInput,
   ThemeIcon,
   Title,
 } from '@mantine/core';
+import { DataToolbar } from '@/app/components/patterns/DataToolbar';
+import { ResponsiveDataView } from '@/app/components/patterns/ResponsiveDataView';
 import {
   IconCheck,
   IconDownload,
@@ -213,6 +214,82 @@ export default function AdminPaymentsPage() {
 
   const totalPages = Math.ceil(totalCount / LIMIT);
 
+  const transactionColumns = useMemo(
+    () => [
+      {
+        key: 'date',
+        header: 'Date',
+        mobileLabel: 'Date',
+        cell: (tx: PaymentTransaction) => (
+          <Stack gap={2}>
+            <Text size="sm">{new Date(tx.createdAt).toLocaleDateString()}</Text>
+            <Text size="xs" c="dimmed">
+              {new Date(tx.createdAt).toLocaleTimeString()}
+            </Text>
+          </Stack>
+        ),
+      },
+      {
+        key: 'player',
+        header: 'Player',
+        cell: (tx: PaymentTransaction) => (
+          <Stack gap={2}>
+            <Text size="sm">{tx.playerName}</Text>
+            {tx.playerEmail ? (
+              <Text size="xs" c="dimmed">
+                {tx.playerEmail}
+              </Text>
+            ) : null}
+          </Stack>
+        ),
+      },
+      {
+        key: 'course',
+        header: 'Course',
+        cell: (tx: PaymentTransaction) => <Text size="sm">{tx.courseName || 'N/A'}</Text>,
+      },
+      {
+        key: 'amount',
+        header: 'Amount',
+        cell: (tx: PaymentTransaction) => (
+          <Text size="sm" fw={700}>
+            {formatCurrency(tx.amount, tx.currency)}
+          </Text>
+        ),
+      },
+      {
+        key: 'status',
+        header: 'Status',
+        cell: (tx: PaymentTransaction) => <StatusBadge status={tx.status} />,
+      },
+      {
+        key: 'method',
+        header: 'Payment Method',
+        mobileLabel: 'Method',
+        hideOnMobile: true,
+        cell: (tx: PaymentTransaction) => (
+          <Text size="sm">{formatPaymentMethod(tx.paymentMethod)}</Text>
+        ),
+      },
+      {
+        key: 'actions',
+        header: 'Actions',
+        align: 'right' as const,
+        cell: (tx: PaymentTransaction) => (
+          <Button
+            variant="subtle"
+            size="compact-sm"
+            leftSection={<IconEye size={16} />}
+            onClick={() => setSelectedTransaction(tx)}
+          >
+            View
+          </Button>
+        ),
+      },
+    ],
+    []
+  );
+
   return (
     <Stack gap="lg">
       <Group justify="space-between" align="flex-start">
@@ -278,7 +355,7 @@ export default function AdminPaymentsPage() {
         </Card>
       )}
 
-      <Card padding="md">
+      <DataToolbar title="Filter transactions" layout="stack">
         <SimpleGrid cols={{ base: 1, md: 2, lg: 5 }}>
           <Select
             label="Status"
@@ -312,81 +389,26 @@ export default function AdminPaymentsPage() {
             onChange={(event) => resetToFirstPage(setEndDate, event.currentTarget.value)}
           />
         </SimpleGrid>
-      </Card>
+      </DataToolbar>
 
       <Card padding={0}>
-        <ScrollArea>
-          <Table miw={980} verticalSpacing="sm" highlightOnHover>
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th>Date</Table.Th>
-                <Table.Th>Player</Table.Th>
-                <Table.Th>Course</Table.Th>
-                <Table.Th>Amount</Table.Th>
-                <Table.Th>Status</Table.Th>
-                <Table.Th>Payment Method</Table.Th>
-                <Table.Th>Actions</Table.Th>
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>
-              {loading ? (
-                <Table.Tr>
-                  <Table.Td colSpan={7}>
-                    <Group justify="center" py="xl">
-                      <Loader color="amanobaYellow" />
-                      <Text c="dimmed">Loading transactions...</Text>
-                    </Group>
-                  </Table.Td>
-                </Table.Tr>
-              ) : transactions.length === 0 ? (
-                <Table.Tr>
-                  <Table.Td colSpan={7}>
-                    <Text c="dimmed" ta="center" py="xl">No transactions found</Text>
-                  </Table.Td>
-                </Table.Tr>
-              ) : (
-                transactions.map((tx) => (
-                  <Table.Tr key={tx.id}>
-                    <Table.Td>
-                      <Stack gap={2}>
-                        <Text size="sm">{new Date(tx.createdAt).toLocaleDateString()}</Text>
-                        <Text size="xs" c="dimmed">{new Date(tx.createdAt).toLocaleTimeString()}</Text>
-                      </Stack>
-                    </Table.Td>
-                    <Table.Td>
-                      <Stack gap={2}>
-                        <Text size="sm">{tx.playerName}</Text>
-                        {tx.playerEmail && <Text size="xs" c="dimmed">{tx.playerEmail}</Text>}
-                      </Stack>
-                    </Table.Td>
-                    <Table.Td>
-                      <Text size="sm">{tx.courseName || 'N/A'}</Text>
-                    </Table.Td>
-                    <Table.Td>
-                      <Text size="sm" fw={700}>{formatCurrency(tx.amount, tx.currency)}</Text>
-                    </Table.Td>
-                    <Table.Td>
-                      <StatusBadge status={tx.status} />
-                    </Table.Td>
-                    <Table.Td>
-                      <Text size="sm">{formatPaymentMethod(tx.paymentMethod)}</Text>
-                    </Table.Td>
-                    <Table.Td>
-                      <Button
-                        variant="subtle"
-                        size="compact-sm"
-                        leftSection={<IconEye size={16} />}
-                        onClick={() => setSelectedTransaction(tx)}
-                      >
-                        View
-                      </Button>
-                    </Table.Td>
-                  </Table.Tr>
-                ))
-              )}
-            </Table.Tbody>
-          </Table>
-        </ScrollArea>
+        <Box p="md">
+          <ResponsiveDataView
+            rows={transactions}
+            columns={transactionColumns}
+            rowKey={(tx) => tx.id}
+            minTableWidth={980}
+            loading={loading}
+            loadingState={
+              <Group justify="center" py="xl">
+                <Loader color="amanobaYellow" />
+                <Text c="dimmed">Loading transactions...</Text>
+              </Group>
+            }
+            emptyState={<Text c="dimmed" ta="center" py="xl">No transactions found</Text>}
+            highlightOnHover
+          />
+        </Box>
 
         {totalPages > 1 && (
           <Group justify="space-between" p="md">

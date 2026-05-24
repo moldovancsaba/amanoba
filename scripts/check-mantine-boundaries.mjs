@@ -37,6 +37,7 @@ const mantineOnlyFiles = new Set([
   'app/components/patterns/AuthShell.tsx',
   'app/components/patterns/PublicAppShell.tsx',
   'app/components/patterns/DataToolbar.tsx',
+  'app/components/patterns/ResponsiveDataView.tsx',
   'app/[locale]/editor/layout.tsx',
   'app/[locale]/editor/courses/page.tsx',
   'app/[locale]/editor/courses/[courseId]/page.tsx',

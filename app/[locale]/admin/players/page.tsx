@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { useDebounce } from '@/app/lib/hooks/useDebounce';
@@ -22,13 +22,13 @@ import {
   Select,
   SimpleGrid,
   Stack,
-  Table,
   Text,
   TextInput,
   ThemeIcon,
   Title,
 } from '@mantine/core';
 import { DataToolbar } from '@/app/components/patterns/DataToolbar';
+import { ResponsiveDataView } from '@/app/components/patterns/ResponsiveDataView';
 import {
   IconCheck,
   IconCrown,
@@ -105,6 +105,102 @@ export default function AdminPlayersPage() {
     void fetchPlayers();
   }, [fetchPlayers]);
 
+  const playerColumns = useMemo(
+    () => [
+      {
+        key: 'player',
+        header: t('player'),
+        mobileLabel: t('player'),
+        cell: (player: Player) => (
+          <Group gap="sm" wrap="nowrap">
+            <ThemeIcon color="amanoba" variant="light" radius="xl" size="lg">
+              <IconUsers size={18} />
+            </ThemeIcon>
+            <Stack gap={2}>
+              <Text fw={700}>{player.displayName}</Text>
+              <Text size="xs" c="dimmed">
+                {player._id}
+              </Text>
+            </Stack>
+          </Group>
+        ),
+      },
+      {
+        key: 'email',
+        header: 'Email',
+        cell: (player: Player) => <Text c="dimmed">{player.email || '-'}</Text>,
+      },
+      {
+        key: 'status',
+        header: tCommon('status'),
+        cell: (player: Player) =>
+          player.isActive ? (
+            <Badge color="green" variant="light" leftSection={<IconCheck size={12} />}>
+              {tCommon('active')}
+            </Badge>
+          ) : (
+            <Badge color="gray" variant="light" leftSection={<IconX size={12} />}>
+              {tCommon('inactive')}
+            </Badge>
+          ),
+      },
+      {
+        key: 'type',
+        header: tCommon('type'),
+        cell: (player: Player) =>
+          player.isAnonymous ? (
+            <Badge color="gray" variant="light">
+              GUEST
+            </Badge>
+          ) : player.role === 'admin' ? (
+            <Badge color="violet" variant="light" leftSection={<IconCrown size={12} />}>
+              ADMIN
+            </Badge>
+          ) : (
+            <Badge color="amanoba" variant="light" leftSection={<IconUser size={12} />}>
+              USER
+            </Badge>
+          ),
+      },
+      {
+        key: 'joined',
+        header: t('joined'),
+        cell: (player: Player) => (
+          <Text size="sm">{new Date(player.createdAt).toLocaleDateString('hu-HU')}</Text>
+        ),
+      },
+      {
+        key: 'lastLogin',
+        header: t('lastLogin'),
+        cell: (player: Player) => (
+          <Text size="sm">
+            {player.lastLoginAt
+              ? new Date(player.lastLoginAt).toLocaleDateString('hu-HU')
+              : t('never')}
+          </Text>
+        ),
+      },
+      {
+        key: 'actions',
+        header: tCommon('actions'),
+        align: 'right' as const,
+        hideOnMobile: false,
+        cell: (player: Player) => (
+          <Button
+            component={Link}
+            href={`/${locale}/profile/${player._id}`}
+            variant="subtle"
+            color="amanoba"
+            size="compact-sm"
+          >
+            {t('viewProfile')}
+          </Button>
+        ),
+      },
+    ],
+    [locale, t, tCommon]
+  );
+
   // Only show full-page loader on initial load
   if (initialLoading) {
     return (
@@ -173,84 +269,14 @@ export default function AdminPlayersPage() {
             </Group>
           </Overlay>
         ) : null}
-        <Table.ScrollContainer minWidth={980}>
-          <Table verticalSpacing="md" highlightOnHover>
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th>{t('player')}</Table.Th>
-                <Table.Th>Email</Table.Th>
-                <Table.Th>{tCommon('status')}</Table.Th>
-                <Table.Th>{tCommon('type')}</Table.Th>
-                <Table.Th>{t('joined')}</Table.Th>
-                <Table.Th>{t('lastLogin')}</Table.Th>
-                <Table.Th ta="right">{tCommon('actions')}</Table.Th>
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>
-              {players.length === 0 ? (
-                <Table.Tr>
-                  <Table.Td colSpan={7}>
-                    <Text ta="center" c="dimmed" py="xl">{tCommon('noDataFound')}</Text>
-                  </Table.Td>
-                </Table.Tr>
-              ) : (
-                players.map((player) => (
-                  <Table.Tr key={player._id}>
-                    <Table.Td>
-                      <Group gap="sm" wrap="nowrap">
-                        <ThemeIcon color="amanoba" variant="light" radius="xl" size="lg">
-                          <IconUsers size={18} />
-                        </ThemeIcon>
-                        <Stack gap={2}>
-                          <Text fw={700}>{player.displayName}</Text>
-                          <Text size="xs" c="dimmed">{player._id}</Text>
-                        </Stack>
-                      </Group>
-                    </Table.Td>
-                    <Table.Td>
-                      <Text c="dimmed">{player.email || '-'}</Text>
-                    </Table.Td>
-                    <Table.Td>
-                      {player.isActive ? (
-                        <Badge color="green" variant="light" leftSection={<IconCheck size={12} />}>
-                          {tCommon('active')}
-                        </Badge>
-                      ) : (
-                        <Badge color="gray" variant="light" leftSection={<IconX size={12} />}>
-                          {tCommon('inactive')}
-                        </Badge>
-                      )}
-                    </Table.Td>
-                    <Table.Td>
-                      {player.isAnonymous ? (
-                        <Badge color="gray" variant="light">GUEST</Badge>
-                      ) : player.role === 'admin' ? (
-                        <Badge color="violet" variant="light" leftSection={<IconCrown size={12} />}>ADMIN</Badge>
-                      ) : (
-                        <Badge color="amanoba" variant="light" leftSection={<IconUser size={12} />}>USER</Badge>
-                      )}
-                    </Table.Td>
-                    <Table.Td>
-                      <Text size="sm">{new Date(player.createdAt).toLocaleDateString('hu-HU')}</Text>
-                    </Table.Td>
-                    <Table.Td>
-                      <Text size="sm">
-                        {player.lastLoginAt
-                          ? new Date(player.lastLoginAt).toLocaleDateString('hu-HU')
-                          : t('never')}
-                      </Text>
-                    </Table.Td>
-                    <Table.Td ta="right">
-                      <Button component={Link} href={`/${locale}/profile/${player._id}`} variant="subtle" color="amanoba" size="compact-sm">
-                        {t('viewProfile')}
-                      </Button>
-                    </Table.Td>
-                  </Table.Tr>
-                ))
-              )}
-            </Table.Tbody>
-          </Table>
-        </Table.ScrollContainer>
+        <ResponsiveDataView
+          rows={players}
+          columns={playerColumns}
+          rowKey={(player) => player._id}
+          minTableWidth={980}
+          emptyState={<Text ta="center" c="dimmed" py="xl">{tCommon('noDataFound')}</Text>}
+          highlightOnHover
+        />
       </Paper>
 
       {pagination.pages > 1 ? (

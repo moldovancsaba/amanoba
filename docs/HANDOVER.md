@@ -1370,6 +1370,20 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:check:mantine` ✅ pass
 - `npm run build` ✅ pass
 
+## GDS ResponsiveDataView, DataToolbar, Phase 6 CSS (2026-05-23)
+
+### What changed
+- Added `ResponsiveDataView` and wired admin votes, players, games, and payments lists.
+- Extended `DataToolbar` to votes, payments, quests, challenges, and games.
+- Removed unused transitional `page-*` / `ds-*` utility classes from `app/globals.css`.
+- Removed unused `lucide-react` dependency.
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run build` ✅ pass
+
 ## GDS game chrome + DataToolbar rollout (2026-05-23)
 
 ### What changed

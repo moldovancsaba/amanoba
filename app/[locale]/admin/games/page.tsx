@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import {
@@ -22,7 +22,6 @@ import {
   Paper,
   SimpleGrid,
   Stack,
-  Table,
   Text,
   TextInput,
   ThemeIcon,
@@ -38,6 +37,8 @@ import {
   IconTrash,
 } from '@tabler/icons-react';
 import Image from 'next/image';
+import { DataToolbar } from '@/app/components/patterns/DataToolbar';
+import { ResponsiveDataView } from '@/app/components/patterns/ResponsiveDataView';
 
 interface Game {
   _id: string;
@@ -89,7 +90,7 @@ export default function AdminGamesPage() {
     void fetchGames();
   }, [fetchGames]);
 
-  const toggleGameStatus = async (gameId: string, currentStatus: boolean) => {
+  const toggleGameStatus = useCallback(async (gameId: string, currentStatus: boolean) => {
     try {
       const response = await fetch(`/api/admin/games/${encodeURIComponent(gameId)}`, {
         method: 'PATCH',
@@ -106,7 +107,111 @@ export default function AdminGamesPage() {
       console.error('Failed to toggle game status:', error);
       alert('Failed to update game status. Please try again.');
     }
-  };
+  }, [fetchGames]);
+
+  const gameColumns = useMemo(
+    () => [
+      {
+        key: 'game',
+        header: t('game'),
+        mobileLabel: t('game'),
+        cell: (game: Game) => (
+          <Group gap="sm" wrap="nowrap">
+            {game.thumbnail ? (
+              <Box w={40} h={40}>
+                <MantineImage
+                  component={Image}
+                  src={game.thumbnail}
+                  alt={game.name}
+                  width={40}
+                  height={40}
+                  radius="md"
+                  fit="cover"
+                />
+              </Box>
+            ) : (
+              <ThemeIcon color="amanoba" variant="light" radius="md" size={40}>
+                <IconDeviceGamepad2 size={20} />
+              </ThemeIcon>
+            )}
+            <Stack gap={2}>
+              <Text fw={700}>{game.name}</Text>
+              <Text c="dimmed" size="sm">
+                {game.gameId}
+              </Text>
+            </Stack>
+          </Group>
+        ),
+      },
+      {
+        key: 'type',
+        header: tCommon('type'),
+        cell: (game: Game) => <Text c="dimmed">{game.type}</Text>,
+      },
+      {
+        key: 'status',
+        header: tCommon('status'),
+        cell: (game: Game) => (
+          <Button
+            variant="subtle"
+            color={game.isActive ? 'green' : 'gray'}
+            size="compact-sm"
+            onClick={() => toggleGameStatus(game.gameId, game.isActive)}
+            leftSection={game.isActive ? <IconEye size={14} /> : <IconEyeOff size={14} />}
+          >
+            {game.isActive ? tCommon('active') : tCommon('inactive')}
+          </Button>
+        ),
+      },
+      {
+        key: 'premium',
+        header: tCommon('premium'),
+        cell: (game: Game) =>
+          game.isPremium ? (
+            <Badge color="amanoba">{tCommon('premium')}</Badge>
+          ) : (
+            <Text c="dimmed" size="sm">
+              {tCommon('free')}
+            </Text>
+          ),
+      },
+      {
+        key: 'assessment',
+        header: t('assessment'),
+        cell: (game: Game) =>
+          game.isAssessment ? (
+            <Badge color="cyan" variant="light">
+              {t('assessment')}
+            </Badge>
+          ) : (
+            <Text c="dimmed" size="sm">
+              -
+            </Text>
+          ),
+      },
+      {
+        key: 'actions',
+        header: tCommon('actions'),
+        align: 'right' as const,
+        cell: (game: Game) => (
+          <Group justify="flex-end" gap="xs">
+            <ActionIcon
+              component={Link}
+              href={`/${locale}/admin/games/${game._id}`}
+              variant="default"
+              aria-label={tCommon('edit')}
+            >
+              <IconEdit size={18} />
+            </ActionIcon>
+            <ActionIcon color="red" variant="subtle" aria-label={tCommon('delete')}>
+              <IconTrash size={18} />
+            </ActionIcon>
+          </Group>
+        ),
+      },
+    ],
+    [locale, t, tCommon, toggleGameStatus]
+  );
 
   if (loading) {
     return (
@@ -134,114 +239,25 @@ export default function AdminGamesPage() {
         </Button>
       </Group>
 
-      <TextInput
-        placeholder={t('searchGames')}
-        value={search}
-        onChange={(event) => setSearch(event.currentTarget.value)}
-        leftSection={<IconSearch size={18} />}
-      />
+      <DataToolbar title={t('searchGames')}>
+        <TextInput
+          placeholder={t('searchGames')}
+          value={search}
+          onChange={(event) => setSearch(event.currentTarget.value)}
+          leftSection={<IconSearch size={18} />}
+          w={{ base: '100%', sm: 320 }}
+        />
+      </DataToolbar>
 
-      <Paper withBorder>
-        <Table.ScrollContainer minWidth={900}>
-          <Table verticalSpacing="md" highlightOnHover>
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th>{t('game')}</Table.Th>
-                <Table.Th>{tCommon('type')}</Table.Th>
-                <Table.Th>{tCommon('status')}</Table.Th>
-                <Table.Th>{tCommon('premium')}</Table.Th>
-                <Table.Th>{t('assessment')}</Table.Th>
-                <Table.Th ta="right">{tCommon('actions')}</Table.Th>
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>
-              {games.length === 0 ? (
-                <Table.Tr>
-                  <Table.Td colSpan={6}>
-                    <Text c="dimmed" ta="center" py="xl">{tCommon('noDataFound')}</Text>
-                  </Table.Td>
-                </Table.Tr>
-              ) : (
-                games.map((game) => (
-                  <Table.Tr key={game._id}>
-                    <Table.Td>
-                      <Group gap="sm" wrap="nowrap">
-                        {game.thumbnail ? (
-                          <Box w={40} h={40}>
-                            <MantineImage
-                              component={Image}
-                              src={game.thumbnail}
-                              alt={game.name}
-                              width={40}
-                              height={40}
-                              radius="md"
-                              fit="cover"
-                            />
-                          </Box>
-                        ) : (
-                          <ThemeIcon color="amanoba" variant="light" radius="md" size={40}>
-                            <IconDeviceGamepad2 size={20} />
-                          </ThemeIcon>
-                        )}
-                        <Stack gap={2}>
-                          <Text fw={700}>{game.name}</Text>
-                          <Text c="dimmed" size="sm">{game.gameId}</Text>
-                        </Stack>
-                      </Group>
-                    </Table.Td>
-                    <Table.Td>
-                      <Text c="dimmed">{game.type}</Text>
-                    </Table.Td>
-                    <Table.Td>
-                      <Button
-                        variant="subtle"
-                        color={game.isActive ? 'green' : 'gray'}
-                        size="compact-sm"
-                        onClick={() => toggleGameStatus(game.gameId, game.isActive)}
-                        leftSection={game.isActive ? <IconEye size={14} /> : <IconEyeOff size={14} />}
-                      >
-                        {game.isActive ? tCommon('active') : tCommon('inactive')}
-                      </Button>
-                    </Table.Td>
-                    <Table.Td>
-                      {game.isPremium ? (
-                        <Badge color="amanoba">
-                          {tCommon('premium')}
-                        </Badge>
-                      ) : (
-                        <Text c="dimmed" size="sm">{tCommon('free')}</Text>
-                      )}
-                    </Table.Td>
-                    <Table.Td>
-                      {game.isAssessment ? (
-                        <Badge color="cyan" variant="light">
-                          {t('assessment')}
-                        </Badge>
-                      ) : (
-                        <Text c="dimmed" size="sm">-</Text>
-                      )}
-                    </Table.Td>
-                    <Table.Td ta="right">
-                      <Group justify="flex-end" gap="xs">
-                        <ActionIcon
-                          component={Link}
-                          href={`/${locale}/admin/games/${game._id}`}
-                          variant="default"
-                          aria-label={tCommon('edit')}
-                        >
-                          <IconEdit size={18} />
-                        </ActionIcon>
-                        <ActionIcon color="red" variant="subtle" aria-label={tCommon('delete')}>
-                          <IconTrash size={18} />
-                        </ActionIcon>
-                      </Group>
-                    </Table.Td>
-                  </Table.Tr>
-                ))
-              )}
-            </Table.Tbody>
-          </Table>
-        </Table.ScrollContainer>
+      <Paper withBorder p="md">
+        <ResponsiveDataView
+          rows={games}
+          columns={gameColumns}
+          rowKey={(game) => game._id}
+          minTableWidth={900}
+          emptyState={<Text c="dimmed" ta="center" py="xl">{tCommon('noDataFound')}</Text>}
+          highlightOnHover
+        />
       </Paper>
 
       <SimpleGrid cols={{ base: 1, md: 3 }}>
