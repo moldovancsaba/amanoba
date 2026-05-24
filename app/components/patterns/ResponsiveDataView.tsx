@@ -22,6 +22,7 @@ type ResponsiveDataViewProps<T> = {
   highlightOnHover?: boolean;
   withTableBorder?: boolean;
   withColumnBorders?: boolean;
+  getRowStyle?: (row: T, index: number) => React.CSSProperties | undefined;
 };
 
 function columnAlign(align: ResponsiveColumn<unknown>['align']) {
@@ -45,6 +46,7 @@ export function ResponsiveDataView<T>({
   highlightOnHover = true,
   withTableBorder,
   withColumnBorders,
+  getRowStyle,
 }: ResponsiveDataViewProps<T>) {
   if (loading) {
     return <>{loadingState ?? <Text c="dimmed">Loading…</Text>}</>;
@@ -61,7 +63,7 @@ export function ResponsiveDataView<T>({
       <Box hiddenFrom="md">
         <Stack gap="sm">
           {rows.map((row, index) => (
-            <Card key={rowKey(row, index)} withBorder p="md">
+            <Card key={rowKey(row, index)} withBorder p="md" style={getRowStyle?.(row, index)}>
               <Stack gap="xs">
                 {mobileColumns.map((column) => (
                   <Group key={column.key} justify="space-between" align="flex-start" wrap="nowrap" gap="md">
@@ -96,7 +98,7 @@ export function ResponsiveDataView<T>({
             </Table.Thead>
             <Table.Tbody>
               {rows.map((row, index) => (
-                <Table.Tr key={rowKey(row, index)}>
+                <Table.Tr key={rowKey(row, index)} style={getRowStyle?.(row, index)}>
                   {columns.map((column) => (
                     <Table.Td key={column.key} ta={columnAlign(column.align)}>
                       {column.cell(row)}

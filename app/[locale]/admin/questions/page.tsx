@@ -14,7 +14,7 @@
 
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import {
   ActionIcon,
   Badge,
@@ -28,13 +28,13 @@ import {
   Radio,
   Select,
   Stack,
-  Table,
   Text,
   TextInput,
   Textarea,
   Title,
 } from '@mantine/core';
 import { DataToolbar } from '@/app/components/patterns/DataToolbar';
+import { ResponsiveDataView } from '@/app/components/patterns/ResponsiveDataView';
 import { IconAdjustments, IconCopy, IconEdit, IconHelpCircle, IconPlus, IconSearch, IconTrash, IconX } from '@tabler/icons-react';
 import { QuestionDifficulty, QuestionType, Question } from '@/types/quiz-question';
 
@@ -178,7 +178,7 @@ export default function AdminQuestionsPage() {
     setShowQuestionForm(true);
   };
 
-  const handleEditQuestion = (question: Question) => {
+  const handleEditQuestion = useCallback((question: Question) => {
     setEditingQuestion(question);
     // Convert relatedCourseIds to string array (API may return ObjectIds)
     const raw = question.relatedCourseIds as (string | { toString(): string })[] | undefined;
@@ -199,7 +199,7 @@ export default function AdminQuestionsPage() {
       isActive: question.isActive,
     });
     setShowQuestionForm(true);
-  };
+  }, []);
 
   const handleSaveQuestion = async () => {
     try {
@@ -277,7 +277,7 @@ export default function AdminQuestionsPage() {
     }
   };
 
-  const handleDeleteQuestion = async (questionId: string) => {
+  const handleDeleteQuestion = useCallback(async (questionId: string) => {
     if (!confirm('Are you sure you want to delete this question? This action cannot be undone.')) {
       return;
     }
@@ -298,9 +298,9 @@ export default function AdminQuestionsPage() {
       console.error('Failed to delete question:', error);
       alert('Failed to delete question');
     }
-  };
+  }, [fetchQuestions]);
 
-  const handleToggleActive = async (question: Question) => {
+  const handleToggleActive = useCallback(async (question: Question) => {
     try {
       const response = await fetch(`/api/admin/questions/${question._id}`, {
         method: 'PATCH',
@@ -319,7 +319,7 @@ export default function AdminQuestionsPage() {
       console.error('Failed to toggle question:', error);
       alert('Failed to update question');
     }
-  };
+  }, [fetchQuestions]);
 
   const addHashtag = () => {
     const tag = hashtagInput.trim();
@@ -360,7 +360,7 @@ export default function AdminQuestionsPage() {
     }));
   };
 
-  const toggleQuestionSelection = (questionId: string) => {
+  const toggleQuestionSelection = useCallback((questionId: string) => {
     setSelectedQuestions(prev => {
       const next = new Set(prev);
       if (next.has(questionId)) {
@@ -370,15 +370,15 @@ export default function AdminQuestionsPage() {
       }
       return next;
     });
-  };
+  }, []);
 
-  const toggleAllSelection = () => {
+  const toggleAllSelection = useCallback(() => {
     if (selectedQuestions.size === questions.length) {
       setSelectedQuestions(new Set());
     } else {
       setSelectedQuestions(new Set(questions.map(q => q._id)));
     }
-  };
+  }, [questions, selectedQuestions.size]);
 
   const languageOptions = [
     { value: '', label: 'All Languages' },
@@ -417,6 +417,160 @@ export default function AdminQuestionsPage() {
     if (difficulty === QuestionDifficulty.HARD) return 'orange';
     return 'red';
   };
+
+  const questionColumns = useMemo(
+    () => [
+      {
+        key: 'select',
+        header: (
+          <Checkbox
+            checked={selectedQuestions.size === questions.length && questions.length > 0}
+            onChange={toggleAllSelection}
+          />
+        ),
+        mobileLabel: 'Select',
+        cell: (question: Question) => (
+          <Checkbox
+            checked={selectedQuestions.has(question._id)}
+            onChange={() => toggleQuestionSelection(question._id)}
+          />
+        ),
+      },
+      {
+        key: 'uuid',
+        header: 'UUID',
+        hideOnMobile: true,
+        cell: (question: Question) =>
+          question.uuid ? (
+            <Group gap="xs" maw={260}>
+              <Text size="xs" ff="monospace">
+                {question.uuid}
+              </Text>
+              <ActionIcon
+                onClick={() => {
+                  navigator.clipboard.writeText(question.uuid!);
+                  alert('UUID copied to clipboard!');
+                }}
+                variant="subtle"
+                aria-label="Copy UUID"
+              >
+                <IconCopy size={16} />
+              </ActionIcon>
+            </Group>
+          ) : (
+            <Text size="xs" c="dimmed">
+              No UUID
+            </Text>
+          ),
+      },
+      {
+        key: 'question',
+        header: 'Question',
+        cell: (question: Question) => (
+          <Stack gap={2} maw={420}>
+            <Text size="sm" fw={600} lineClamp={2}>
+              {question.question}
+            </Text>
+            {question.category ? (
+              <Text size="xs" c="dimmed">
+                {question.category}
+              </Text>
+            ) : null}
+          </Stack>
+        ),
+      },
+      {
+        key: 'type',
+        header: 'Type',
+        cell: (question: Question) => (
+          <Badge variant="light">{question.questionType || 'N/A'}</Badge>
+        ),
+      },
+      {
+        key: 'difficulty',
+        header: 'Difficulty',
+        cell: (question: Question) => (
+          <Badge color={difficultyBadgeColor(question.difficulty)}>{question.difficulty}</Badge>
+        ),
+      },
+      {
+        key: 'hashtags',
+        header: 'Hashtags',
+        hideOnMobile: true,
+        cell: (question: Question) => (
+          <Group gap={4} maw={240}>
+            {question.hashtags?.slice(0, 3).map((tag, idx) => (
+              <Badge key={idx} variant="outline">
+                {tag}
+              </Badge>
+            ))}
+            {question.hashtags && question.hashtags.length > 3 ? (
+              <Text size="xs" c="dimmed">
+                +{question.hashtags.length - 3}
+              </Text>
+            ) : null}
+          </Group>
+        ),
+      },
+      {
+        key: 'status',
+        header: 'Status',
+        cell: (question: Question) => (
+          <Badge
+            component="button"
+            onClick={() => void handleToggleActive(question)}
+            color={question.isActive ? 'green' : 'gray'}
+            variant="light"
+          >
+            {question.isActive ? 'Active' : 'Inactive'}
+          </Badge>
+        ),
+      },
+      {
+        key: 'usage',
+        header: 'Usage',
+        hideOnMobile: true,
+        cell: (question: Question) => (
+          <Text size="sm" c="dimmed">
+            {question.showCount} shown, {question.correctCount} correct
+          </Text>
+        ),
+      },
+      {
+        key: 'actions',
+        header: 'Actions',
+        align: 'right' as const,
+        cell: (question: Question) => (
+          <Group gap="xs" justify="flex-end">
+            <ActionIcon
+              onClick={() => handleEditQuestion(question)}
+              variant="subtle"
+              aria-label="Edit question"
+            >
+              <IconEdit size={16} />
+            </ActionIcon>
+            <ActionIcon
+              onClick={() => void handleDeleteQuestion(question._id)}
+              color="red"
+              variant="subtle"
+              aria-label="Delete question"
+            >
+              <IconTrash size={16} />
+            </ActionIcon>
+          </Group>
+        ),
+      },
+    ],
+    [
+      questions,
+      selectedQuestions,
+      toggleAllSelection,
+      toggleQuestionSelection,
+      handleEditQuestion,
+      handleDeleteQuestion,
+      handleToggleActive,
+    ]
+  );
 
   return (
     <Stack gap="xl">
@@ -607,132 +761,15 @@ export default function AdminQuestionsPage() {
           </Stack>
         </Card>
       ) : (
-        <Card withBorder p={0}>
-          <Table.ScrollContainer minWidth={1100}>
-            <Table highlightOnHover verticalSpacing="sm">
-              <Table.Thead>
-                <Table.Tr>
-                  <Table.Th>
-                    <Checkbox
-                      checked={selectedQuestions.size === questions.length && questions.length > 0}
-                      onChange={toggleAllSelection}
-                    />
-                  </Table.Th>
-                  <Table.Th>UUID</Table.Th>
-                  <Table.Th>Question</Table.Th>
-                  <Table.Th>Type</Table.Th>
-                  <Table.Th>Difficulty</Table.Th>
-                  <Table.Th>Hashtags</Table.Th>
-                  <Table.Th>Status</Table.Th>
-                  <Table.Th>Usage</Table.Th>
-                  <Table.Th>Actions</Table.Th>
-                </Table.Tr>
-              </Table.Thead>
-              <Table.Tbody>
-                {questions.map((question) => (
-                  <Table.Tr key={question._id} opacity={question.isActive ? 1 : 0.55}>
-                    <Table.Td>
-                      <Checkbox
-                        checked={selectedQuestions.has(question._id)}
-                        onChange={() => toggleQuestionSelection(question._id)}
-                      />
-                    </Table.Td>
-                    <Table.Td>
-                      {question.uuid ? (
-                        <Group gap="xs" maw={260}>
-                          <Text size="xs" ff="monospace">
-                            {question.uuid}
-                          </Text>
-                          <ActionIcon
-                            onClick={() => {
-                              navigator.clipboard.writeText(question.uuid!);
-                              alert('UUID copied to clipboard!');
-                            }}
-                            variant="subtle"
-                            aria-label="Copy UUID"
-                          >
-                            <IconCopy size={16} />
-                          </ActionIcon>
-                        </Group>
-                      ) : (
-                        <Text size="xs" c="dimmed">No UUID</Text>
-                      )}
-                    </Table.Td>
-                    <Table.Td>
-                      <Stack gap={2} maw={420}>
-                        <Text size="sm" fw={600} lineClamp={2}>
-                          {question.question}
-                        </Text>
-                        {question.category && (
-                          <Text size="xs" c="dimmed">
-                            {question.category}
-                          </Text>
-                        )}
-                      </Stack>
-                    </Table.Td>
-                    <Table.Td>
-                      <Badge variant="light">
-                        {question.questionType || 'N/A'}
-                      </Badge>
-                    </Table.Td>
-                    <Table.Td>
-                      <Badge color={difficultyBadgeColor(question.difficulty)}>
-                        {question.difficulty}
-                      </Badge>
-                    </Table.Td>
-                    <Table.Td>
-                      <Group gap={4} maw={240}>
-                        {question.hashtags?.slice(0, 3).map((tag, idx) => (
-                          <Badge key={idx} variant="outline">
-                            {tag}
-                          </Badge>
-                        ))}
-                        {question.hashtags && question.hashtags.length > 3 && (
-                          <Text size="xs" c="dimmed">
-                            +{question.hashtags.length - 3}
-                          </Text>
-                        )}
-                      </Group>
-                    </Table.Td>
-                    <Table.Td>
-                      <Badge
-                        component="button"
-                        onClick={() => handleToggleActive(question)}
-                        color={question.isActive ? 'green' : 'gray'}
-                        variant="light"
-                      >
-                        {question.isActive ? 'Active' : 'Inactive'}
-                      </Badge>
-                    </Table.Td>
-                    <Table.Td>
-                      <Text size="sm" c="dimmed">
-                      {question.showCount} shown, {question.correctCount} correct
-                      </Text>
-                    </Table.Td>
-                    <Table.Td>
-                      <Group gap="xs">
-                        <ActionIcon
-                          onClick={() => handleEditQuestion(question)}
-                          variant="subtle"
-                          aria-label="Edit question"
-                        >
-                          <IconEdit size={16} />
-                        </ActionIcon>
-                        <ActionIcon
-                          onClick={() => handleDeleteQuestion(question._id)}
-                          color="red"
-                          variant="subtle"
-                          aria-label="Delete question"
-                        >
-                          <IconTrash size={16} />
-                        </ActionIcon>
-                      </Group>
-                    </Table.Td>
-                  </Table.Tr>
-                ))}
-              </Table.Tbody>
-            </Table>
-          </Table.ScrollContainer>
+        <Card withBorder p="md">
+          <ResponsiveDataView
+            rows={questions}
+            columns={questionColumns}
+            rowKey={(question) => question._id}
+            minTableWidth={1100}
+            highlightOnHover
+            getRowStyle={(question) => ({ opacity: question.isActive ? 1 : 0.55 })}
+          />
         </Card>
       )}
 

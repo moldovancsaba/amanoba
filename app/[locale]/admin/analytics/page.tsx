@@ -17,6 +17,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { DataToolbar } from '@/app/components/patterns/DataToolbar';
 import { useQuery } from '@tanstack/react-query';
 import {
   Alert,
@@ -336,9 +337,8 @@ export default function AdminAnalyticsPage() {
           <Text c="dimmed">Comprehensive metrics and insights</Text>
         </div>
 
-        {/* Controls */}
-        <Card withBorder>
-          <Group align="flex-end">
+        <DataToolbar title="Reporting period" layout="stack">
+          <Group align="flex-end" wrap="wrap">
             <Select
               label="Period"
               value={period}
@@ -348,21 +348,24 @@ export default function AdminAnalyticsPage() {
                 { value: 'weekly', label: 'Weekly' },
                 { value: 'monthly', label: 'Monthly' },
               ]}
+              w={{ base: '100%', sm: 180 }}
             />
             <TextInput
               label="Start Date"
               type="date"
               value={dateRange.startDate}
               onChange={(e) => setDateRange({ ...dateRange, startDate: e.currentTarget.value })}
+              w={{ base: '100%', sm: 180 }}
             />
             <TextInput
               type="date"
               label="End Date"
               value={dateRange.endDate}
               onChange={(e) => setDateRange({ ...dateRange, endDate: e.currentTarget.value })}
+              w={{ base: '100%', sm: 180 }}
             />
           </Group>
-        </Card>
+        </DataToolbar>
 
         {/* Error Display */}
         {realtimeError && (

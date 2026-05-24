@@ -1,29 +1,16 @@
 /**
  * Admin Email Analytics Page
- *
- * What: Displays email sent/open/click analytics by type and segment.
- * Why: Enables admins to monitor email engagement.
  */
 
 'use client';
 
-import { useState, useEffect } from 'react';
-import type { ReactNode } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import {
-  Card,
-  Center,
-  Grid,
-  Group,
-  Loader,
-  Select,
-  Stack,
-  Table,
-  Text,
-  ThemeIcon,
-  Title,
-} from '@mantine/core';
+import { Center, Grid, Group, Loader, Select, Stack, Text, ThemeIcon, Title } from '@mantine/core';
 import { IconCursorText, IconEye, IconMail, IconSend } from '@tabler/icons-react';
+import { DataToolbar } from '@/app/components/patterns/DataToolbar';
+import { MetricCard } from '@/app/components/patterns/MetricCard';
+import { ResponsiveDataView, type ResponsiveColumn } from '@/app/components/patterns/ResponsiveDataView';
 
 interface EmailSummary {
   sent: number;
@@ -34,8 +21,7 @@ interface EmailSummary {
   clickRatePct: number;
 }
 
-interface ByTypeRow {
-  type: string;
+interface AnalyticsRow {
   sent: number;
   opened: number;
   clicked: number;
@@ -44,14 +30,12 @@ interface ByTypeRow {
   clickRatePct: number;
 }
 
-interface BySegmentRow {
+interface ByTypeRow extends AnalyticsRow {
+  type: string;
+}
+
+interface BySegmentRow extends AnalyticsRow {
   segment: string;
-  sent: number;
-  opened: number;
-  clicked: number;
-  clicks: number;
-  openRatePct: number;
-  clickRatePct: number;
 }
 
 interface EmailAnalyticsData {
@@ -62,81 +46,36 @@ interface EmailAnalyticsData {
   bySegment: BySegmentRow[];
 }
 
-function MetricCard({
-  icon,
-  label,
-  value,
-  detail,
-}: {
-  icon?: ReactNode;
-  label: string;
-  value: number;
-  detail?: string;
-}) {
-  return (
-    <Card withBorder>
-      <Stack gap={4}>
-        <Group gap="xs" c="dimmed">
-          {icon}
-          <Text size="sm">{label}</Text>
-        </Group>
-        <Text size="xl" fw={700}>
-          {value}
-        </Text>
-        {detail ? <Text size="sm" c="yellow">{detail}</Text> : null}
-      </Stack>
-    </Card>
-  );
-}
-
-function AnalyticsTable<T extends { sent: number; opened: number; clicked: number; clicks: number; openRatePct: number; clickRatePct: number }>({
-  title,
-  label,
-  rows,
-  getKey,
-}: {
-  title: string;
-  label: string;
-  rows: T[];
-  getKey: (row: T) => string;
-}) {
-  if (rows.length === 0) {
-    return null;
-  }
-
-  return (
-    <Stack gap="sm">
-      <Title order={2}>{title}</Title>
-      <Table.ScrollContainer minWidth={760}>
-        <Table striped highlightOnHover withTableBorder withColumnBorders>
-          <Table.Thead>
-            <Table.Tr>
-              <Table.Th>{label}</Table.Th>
-              <Table.Th>Sent</Table.Th>
-              <Table.Th>Opened</Table.Th>
-              <Table.Th>Clicked</Table.Th>
-              <Table.Th>Clicks</Table.Th>
-              <Table.Th>Open %</Table.Th>
-              <Table.Th>Click %</Table.Th>
-            </Table.Tr>
-          </Table.Thead>
-          <Table.Tbody>
-            {rows.map((row) => (
-              <Table.Tr key={getKey(row)}>
-                <Table.Td>{getKey(row)}</Table.Td>
-                <Table.Td>{row.sent}</Table.Td>
-                <Table.Td>{row.opened}</Table.Td>
-                <Table.Td>{row.clicked}</Table.Td>
-                <Table.Td>{row.clicks}</Table.Td>
-                <Table.Td>{row.openRatePct}%</Table.Td>
-                <Table.Td>{row.clickRatePct}%</Table.Td>
-              </Table.Tr>
-            ))}
-          </Table.Tbody>
-        </Table>
-      </Table.ScrollContainer>
-    </Stack>
-  );
+function buildAnalyticsColumns(
+  label: string,
+  getLabel: (row: AnalyticsRow & { type?: string; segment?: string }) => string
+): ResponsiveColumn<AnalyticsRow & { type?: string; segment?: string }>[] {
+  return [
+    {
+      key: 'label',
+      header: label,
+      mobileLabel: label,
+      cell: (row) => <Text fw={600}>{getLabel(row)}</Text>,
+    },
+    { key: 'sent', header: 'Sent', align: 'right', cell: (row) => row.sent },
+    { key: 'opened', header: 'Opened', align: 'right', cell: (row) => row.opened },
+    { key: 'clicked', header: 'Clicked', align: 'right', cell: (row) => row.clicked },
+    { key: 'clicks', header: 'Clicks', align: 'right', cell: (row) => row.clicks },
+    {
+      key: 'openRate',
+      header: 'Open %',
+      mobileLabel: 'Open rate',
+      align: 'right',
+      cell: (row) => `${row.openRatePct}%`,
+    },
+    {
+      key: 'clickRate',
+      header: 'Click %',
+      mobileLabel: 'Click rate',
+      align: 'right',
+      cell: (row) => `${row.clickRatePct}%`,
+    },
+  ];
 }
 
 export default function AdminEmailAnalyticsPage() {
@@ -155,6 +94,15 @@ export default function AdminEmailAnalyticsPage() {
       .catch(() => setData(null))
       .finally(() => setLoading(false));
   }, [days]);
+
+  const typeColumns = useMemo(
+    () => buildAnalyticsColumns('Type', (row) => row.type || ''),
+    []
+  );
+  const segmentColumns = useMemo(
+    () => buildAnalyticsColumns('Segment', (row) => row.segment || ''),
+    []
+  );
 
   if (loading) {
     return (
@@ -177,13 +125,14 @@ export default function AdminEmailAnalyticsPage() {
 
   return (
     <Stack p="md" gap="xl">
-      <Group justify="space-between" align="flex-end">
-        <Group>
-          <ThemeIcon variant="light" size="lg">
-            <IconMail size={22} />
-          </ThemeIcon>
-          <Title order={1}>{t('emailAnalytics')}</Title>
-        </Group>
+      <Group gap="sm">
+        <ThemeIcon variant="light" size="lg">
+          <IconMail size={22} />
+        </ThemeIcon>
+        <Title order={1}>{t('emailAnalytics')}</Title>
+      </Group>
+
+      <DataToolbar title="Reporting period">
         <Select
           value={String(days)}
           onChange={(value) => setDays(Number(value || 30))}
@@ -192,41 +141,70 @@ export default function AdminEmailAnalyticsPage() {
             { value: '30', label: 'Last 30 days' },
             { value: '90', label: 'Last 90 days' },
           ]}
+          w={{ base: '100%', sm: 220 }}
         />
-      </Group>
+      </DataToolbar>
 
       <Text c="dimmed" size="sm">
-        Period: {period.days} days since {new Date(period.since).toLocaleDateString()}.
-        Completion emails only.
+        Period: {period.days} days since {new Date(period.since).toLocaleDateString()}. Completion emails only.
       </Text>
 
       <Grid>
         <Grid.Col span={{ base: 12, sm: 6, lg: 3 }}>
-          <MetricCard icon={<IconSend size={16} />} label="Sent" value={summary.sent} />
+          <MetricCard icon={<IconSend size={22} />} label="Sent" value={summary.sent} color="blue" />
         </Grid.Col>
         <Grid.Col span={{ base: 12, sm: 6, lg: 3 }}>
           <MetricCard
-            icon={<IconEye size={16} />}
+            icon={<IconEye size={22} />}
             label="Opened"
             value={summary.opened}
             detail={`${summary.openRatePct}% open rate`}
+            color="green"
           />
         </Grid.Col>
         <Grid.Col span={{ base: 12, sm: 6, lg: 3 }}>
           <MetricCard
-            icon={<IconCursorText size={16} />}
+            icon={<IconCursorText size={22} />}
             label="Clicked"
             value={summary.clicked}
             detail={`${summary.clickRatePct}% click rate`}
+            color="yellow"
           />
         </Grid.Col>
         <Grid.Col span={{ base: 12, sm: 6, lg: 3 }}>
-          <MetricCard label="Total clicks" value={summary.totalClicks} />
+          <MetricCard label="Total clicks" value={summary.totalClicks} color="amanoba" />
         </Grid.Col>
       </Grid>
 
-      <AnalyticsTable title="By email type" label="Type" rows={byType} getKey={(row) => row.type} />
-      <AnalyticsTable title="By segment" label="Segment" rows={bySegment} getKey={(row) => row.segment} />
+      {byType.length > 0 ? (
+        <Stack gap="sm">
+          <Title order={2}>By email type</Title>
+          <ResponsiveDataView
+            rows={byType}
+            columns={typeColumns}
+            rowKey={(row) => row.type}
+            minTableWidth={760}
+            striped
+            withTableBorder
+            withColumnBorders
+          />
+        </Stack>
+      ) : null}
+
+      {bySegment.length > 0 ? (
+        <Stack gap="sm">
+          <Title order={2}>By segment</Title>
+          <ResponsiveDataView
+            rows={bySegment}
+            columns={segmentColumns}
+            rowKey={(row) => row.segment}
+            minTableWidth={760}
+            striped
+            withTableBorder
+            withColumnBorders
+          />
+        </Stack>
+      ) : null}
 
       {summary.sent === 0 ? (
         <Text c="dimmed" size="sm">

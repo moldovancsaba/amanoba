@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import {
   Card,
@@ -18,7 +18,6 @@ import {
   SimpleGrid,
   Stack,
   Switch,
-  Table,
   Text,
   ThemeIcon,
   Title,
@@ -29,6 +28,7 @@ import {
   IconClock,
   IconUsers,
 } from '@tabler/icons-react';
+import { ResponsiveDataView } from '@/app/components/patterns/ResponsiveDataView';
 
 interface QuestionStats {
   question: string;
@@ -137,6 +137,52 @@ export default function AdminSurveysPage() {
       setSaving(false);
     }
   };
+
+  const recentResponseColumns = useMemo(
+    () => [
+      {
+        key: 'player',
+        header: 'Player',
+        cell: (response: SurveyAnalytics['recentResponses'][number]) => (
+          <Stack gap={2}>
+            <Text size="sm">{response.playerName}</Text>
+            {response.playerEmail ? (
+              <Text c="dimmed" size="xs">
+                {response.playerEmail}
+              </Text>
+            ) : null}
+          </Stack>
+        ),
+      },
+      {
+        key: 'skill',
+        header: 'Skill Level',
+        mobileLabel: 'Skill',
+        cell: (response: SurveyAnalytics['recentResponses'][number]) => (
+          <Text size="sm" tt="capitalize">
+            {response.skillLevel || 'N/A'}
+          </Text>
+        ),
+      },
+      {
+        key: 'time',
+        header: 'Time Spent',
+        cell: (response: SurveyAnalytics['recentResponses'][number]) => (
+          <Text size="sm">
+            {response.timeSpentSeconds ? formatTime(response.timeSpentSeconds) : 'N/A'}
+          </Text>
+        ),
+      },
+      {
+        key: 'completed',
+        header: 'Completed At',
+        cell: (response: SurveyAnalytics['recentResponses'][number]) => (
+          <Text size="sm">{new Date(response.completedAt).toLocaleString()}</Text>
+        ),
+      },
+    ],
+    []
+  );
 
   if (loading) {
     return (
@@ -323,43 +369,13 @@ export default function AdminSurveysPage() {
         <Card withBorder>
           <Stack gap="md">
             <Title order={2} size="h3">Recent Responses</Title>
-            <Table.ScrollContainer minWidth={720}>
-              <Table verticalSpacing="sm" highlightOnHover>
-                <Table.Thead>
-                  <Table.Tr>
-                    <Table.Th>Player</Table.Th>
-                    <Table.Th>Skill Level</Table.Th>
-                    <Table.Th>Time Spent</Table.Th>
-                    <Table.Th>Completed At</Table.Th>
-                  </Table.Tr>
-                </Table.Thead>
-                <Table.Tbody>
-                {analytics.recentResponses.map((response) => (
-                  <Table.Tr key={response.id}>
-                    <Table.Td>
-                      <Text size="sm">{response.playerName}</Text>
-                      {response.playerEmail && (
-                        <Text c="dimmed" size="xs">{response.playerEmail}</Text>
-                      )}
-                    </Table.Td>
-                    <Table.Td>
-                      <Text size="sm" tt="capitalize">{response.skillLevel || 'N/A'}</Text>
-                    </Table.Td>
-                    <Table.Td>
-                      <Text size="sm">
-                      {response.timeSpentSeconds
-                        ? formatTime(response.timeSpentSeconds)
-                        : 'N/A'}
-                      </Text>
-                    </Table.Td>
-                    <Table.Td>
-                      <Text size="sm">{new Date(response.completedAt).toLocaleString()}</Text>
-                    </Table.Td>
-                  </Table.Tr>
-                ))}
-                </Table.Tbody>
-              </Table>
-            </Table.ScrollContainer>
+            <ResponsiveDataView
+              rows={analytics.recentResponses}
+              columns={recentResponseColumns}
+              rowKey={(response) => response.id}
+              minTableWidth={720}
+              highlightOnHover
+            />
           </Stack>
         </Card>
       )}

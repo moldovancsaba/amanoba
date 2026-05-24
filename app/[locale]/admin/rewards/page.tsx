@@ -1,13 +1,10 @@
 /**
  * Admin Rewards Management Page
- * 
- * What: Manage all rewards in the platform
- * Why: Allows admins to view, create, edit, and configure rewards
  */
 
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import {
@@ -15,10 +12,10 @@ import {
   Badge,
   Box,
   Button,
-  Card,
   Group,
   Image as MantineImage,
   Loader,
+  Paper,
   Select,
   SimpleGrid,
   Stack,
@@ -27,14 +24,11 @@ import {
   ThemeIcon,
   Title,
 } from '@mantine/core';
-import {
-  IconEdit,
-  IconGift,
-  IconPlus,
-  IconSearch,
-  IconTrash,
-} from '@tabler/icons-react';
+import { IconEdit, IconGift, IconPlus, IconSearch, IconTrash } from '@tabler/icons-react';
 import Image from 'next/image';
+import { DataToolbar } from '@/app/components/patterns/DataToolbar';
+import { MetricCard } from '@/app/components/patterns/MetricCard';
+import { ResponsiveDataView } from '@/app/components/patterns/ResponsiveDataView';
 
 interface Reward {
   _id: string;
@@ -98,6 +92,111 @@ export default function AdminRewardsPage() {
     void fetchRewards();
   }, [fetchRewards]);
 
+  const rewardColumns = useMemo(
+    () => [
+      {
+        key: 'reward',
+        header: t('rewardsManagement'),
+        mobileLabel: 'Reward',
+        cell: (reward: Reward) => (
+          <Group gap="sm" wrap="nowrap">
+            {reward.media.iconEmoji ? (
+              <Text size="xl" lh={1}>
+                {reward.media.iconEmoji}
+              </Text>
+            ) : reward.media.imageUrl ? (
+              <Box w={40} h={40}>
+                <MantineImage
+                  component={Image}
+                  src={reward.media.imageUrl}
+                  alt={reward.name}
+                  width={40}
+                  height={40}
+                  radius="md"
+                  fit="cover"
+                />
+              </Box>
+            ) : (
+              <ThemeIcon color="pink" variant="light" size={40} radius="md">
+                <IconGift size={20} />
+              </ThemeIcon>
+            )}
+            <Stack gap={2}>
+              <Text fw={700}>{reward.name}</Text>
+              <Badge color="gray" variant="light">
+                {reward.category.replace(/_/g, ' ')}
+              </Badge>
+            </Stack>
+          </Group>
+        ),
+      },
+      {
+        key: 'cost',
+        header: t('cost'),
+        cell: (reward: Reward) => <Text fw={700}>{reward.pointsCost} pont</Text>,
+      },
+      {
+        key: 'type',
+        header: tCommon('type'),
+        cell: (reward: Reward) => <Text tt="capitalize">{reward.type}</Text>,
+      },
+      {
+        key: 'stock',
+        header: t('stock'),
+        hideOnMobile: true,
+        cell: (reward: Reward) =>
+          reward.stock.isLimited ? (
+            <Text size="sm">
+              {reward.stock.currentStock || 0} / {reward.stock.maxStock || 0}
+            </Text>
+          ) : (
+            <Text c="dimmed" size="sm">
+              Unlimited
+            </Text>
+          ),
+      },
+      {
+        key: 'redemptions',
+        header: t('redemptions'),
+        cell: (reward: Reward) => reward.metadata.totalRedemptions,
+      },
+      {
+        key: 'status',
+        header: tCommon('status'),
+        cell: (reward: Reward) => (
+          <Group gap="xs">
+            <Badge color={reward.availability.isActive ? 'green' : 'gray'} variant="light">
+              {reward.availability.isActive ? tCommon('active') : tCommon('inactive')}
+            </Badge>
+            {reward.availability.premiumOnly ? <Badge color="amanoba">Premium</Badge> : null}
+          </Group>
+        ),
+      },
+      {
+        key: 'actions',
+        header: tCommon('actions'),
+        align: 'right' as const,
+        cell: (reward: Reward) => (
+          <Group justify="flex-end" gap="xs">
+            <Button
+              component={Link}
+              href={`/${locale}/admin/rewards/${reward._id}`}
+              variant="default"
+              size="compact-sm"
+              leftSection={<IconEdit size={16} />}
+            >
+              {tCommon('edit')}
+            </Button>
+            <ActionIcon color="red" variant="subtle" aria-label={tCommon('delete')}>
+              <IconTrash size={18} />
+            </ActionIcon>
+          </Group>
+        ),
+      },
+    ],
+    [locale, t, tCommon]
+  );
+
   if (loading) {
     return (
       <Group justify="center" mih={400}>
@@ -124,12 +223,13 @@ export default function AdminRewardsPage() {
         </Button>
       </Group>
 
-      <SimpleGrid cols={{ base: 1, md: 2 }}>
+      <DataToolbar title={t('searchRewards')}>
         <TextInput
           placeholder={t('searchRewards')}
           value={search}
           onChange={(event) => setSearch(event.currentTarget.value)}
           leftSection={<IconSearch size={18} />}
+          w={{ base: '100%', sm: 280 }}
         />
         <Select
           data={[
@@ -144,109 +244,38 @@ export default function AdminRewardsPage() {
           value={categoryFilter}
           onChange={(value) => setCategoryFilter(value || 'all')}
           allowDeselect={false}
+          w={{ base: '100%', sm: 220 }}
         />
-      </SimpleGrid>
+      </DataToolbar>
 
-      <SimpleGrid cols={{ base: 1, md: 2, lg: 3 }}>
-        {rewards.length === 0 ? (
-          <Text c="dimmed" ta="center" py="xl">
-            {tCommon('noDataFound')}
-          </Text>
-        ) : (
-          rewards.map((reward) => (
-            <Card key={reward._id} withBorder>
-              <Stack gap="md">
-                <Group justify="space-between" align="flex-start">
-                  <Group gap="sm" align="flex-start" wrap="nowrap">
-                  {reward.media.iconEmoji ? (
-                    <Text size="2.5rem" lh={1}>{reward.media.iconEmoji}</Text>
-                  ) : reward.media.imageUrl ? (
-                    <Box w={48} h={48}>
-                      <MantineImage
-                        component={Image}
-                        src={reward.media.imageUrl}
-                        alt={reward.name}
-                        width={48}
-                        height={48}
-                        radius="md"
-                        fit="cover"
-                      />
-                    </Box>
-                  ) : (
-                    <ThemeIcon color="pink" variant="light" size={48} radius="md">
-                      <IconGift size={24} />
-                    </ThemeIcon>
-                  )}
-                    <Stack gap={4}>
-                      <Title order={2} size="h4">{reward.name}</Title>
-                      <Badge color="gray" variant="light">{reward.category.replace(/_/g, ' ')}</Badge>
-                    </Stack>
-                  </Group>
-                  {reward.availability.premiumOnly ? <Badge color="amanoba">Premium</Badge> : null}
-                </Group>
-
-                <Text c="dimmed" size="sm">{reward.description}</Text>
-
-                <Stack gap={6}>
-                  <Group justify="space-between">
-                    <Text c="dimmed" size="sm">{t('cost')}:</Text>
-                    <Text size="sm" fw={700}>{reward.pointsCost} pont</Text>
-                  </Group>
-                  <Group justify="space-between">
-                    <Text c="dimmed" size="sm">{tCommon('type')}:</Text>
-                    <Text size="sm" tt="capitalize">{reward.type}</Text>
-                  </Group>
-                  {reward.stock.isLimited ? (
-                    <Group justify="space-between">
-                      <Text c="dimmed" size="sm">{t('stock')}:</Text>
-                      <Text size="sm">
-                      {reward.stock.currentStock || 0} / {reward.stock.maxStock || 0}
-                      </Text>
-                    </Group>
-                  ) : null}
-                  <Group justify="space-between">
-                    <Text c="dimmed" size="sm">{t('redemptions')}:</Text>
-                    <Text size="sm">{reward.metadata.totalRedemptions}</Text>
-                  </Group>
-                </Stack>
-
-                <Group gap="xs">
-                  <Button
-                    component={Link}
-                    href={`/${locale}/admin/rewards/${reward._id}`}
-                    variant="default"
-                    leftSection={<IconEdit size={16} />}
-                    fullWidth
-                  >
-                    {tCommon('edit')}
-                  </Button>
-                  <ActionIcon color="red" variant="subtle" aria-label={tCommon('delete')}>
-                    <IconTrash size={18} />
-                  </ActionIcon>
-                </Group>
-              </Stack>
-            </Card>
-          ))
-        )}
-      </SimpleGrid>
+      <Paper withBorder p="md">
+        <ResponsiveDataView
+          rows={rewards}
+          columns={rewardColumns}
+          rowKey={(reward) => reward._id}
+          minTableWidth={960}
+          emptyState={<Text c="dimmed" ta="center" py="xl">{tCommon('noDataFound')}</Text>}
+          highlightOnHover
+        />
+      </Paper>
 
       <SimpleGrid cols={{ base: 1, md: 4 }}>
-        <Card withBorder>
-          <Text c="dimmed" size="sm">{t('totalRewards')}</Text>
-          <Text size="xl" fw={800}>{rewards.length}</Text>
-        </Card>
-        <Card withBorder>
-          <Text c="dimmed" size="sm">{tCommon('active')}</Text>
-          <Text size="xl" fw={800} c="green">{rewards.filter((r) => r.availability.isActive).length}</Text>
-        </Card>
-        <Card withBorder>
-          <Text c="dimmed" size="sm">{t('totalRedemptions')}</Text>
-          <Text size="xl" fw={800}>{rewards.reduce((sum, r) => sum + r.metadata.totalRedemptions, 0)}</Text>
-        </Card>
-        <Card withBorder>
-          <Text c="dimmed" size="sm">{t('premiumOnly')}</Text>
-          <Text size="xl" fw={800} c="amanoba">{rewards.filter((r) => r.availability.premiumOnly).length}</Text>
-        </Card>
+        <MetricCard label={t('totalRewards')} value={rewards.length} color="amanoba" />
+        <MetricCard
+          label={tCommon('active')}
+          value={rewards.filter((r) => r.availability.isActive).length}
+          color="green"
+        />
+        <MetricCard
+          label={t('totalRedemptions')}
+          value={rewards.reduce((sum, r) => sum + r.metadata.totalRedemptions, 0)}
+          color="blue"
+        />
+        <MetricCard
+          label={t('premiumOnly')}
+          value={rewards.filter((r) => r.availability.premiumOnly).length}
+          color="yellow"
+        />
       </SimpleGrid>
     </Stack>
   );

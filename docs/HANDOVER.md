@@ -1370,6 +1370,21 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:check:mantine` ✅ pass
 - `npm run build` ✅ pass
 
+## GDS admin contracts complete + Phase 6 tokens (2026-05-23)
+
+### What changed
+- Extended `ResponsiveDataView` to rewards, email analytics, certificates, surveys, and questions.
+- Extended `DataToolbar` to analytics reporting controls.
+- Trimmed `app/design-system.css` to token-only layer (removed legacy utility classes).
+- Added memory card flip transitions in `MemoryGame`.
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run build` ✅ pass
+
 ## GDS ResponsiveDataView, DataToolbar, Phase 6 CSS (2026-05-23)
 
 ### What changed

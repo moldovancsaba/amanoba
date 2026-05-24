@@ -7,22 +7,21 @@
 
 'use client';
 
-import { useState, useEffect, useCallback, type ReactNode } from 'react';
+import { useState, useEffect, useCallback, useMemo, type ReactNode } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import {
   Badge,
+  Box,
   Button,
   Card,
   Center,
   Group,
   Loader,
   Pagination,
-  ScrollArea,
   Select,
   SimpleGrid,
   Stack,
-  Table,
   Text,
   TextInput,
   ThemeIcon,
@@ -36,6 +35,8 @@ import {
   IconSearch,
 } from '@tabler/icons-react';
 import { useDebounce } from '@/app/lib/hooks/useDebounce';
+import { DataToolbar } from '@/app/components/patterns/DataToolbar';
+import { ResponsiveDataView } from '@/app/components/patterns/ResponsiveDataView';
 
 interface Certificate {
   _id: string;
@@ -99,6 +100,110 @@ export default function AdminCertificatesPage() {
     void fetchCertificates();
   }, [fetchCertificates]);
 
+  const certificateColumns = useMemo(
+    () => [
+      {
+        key: 'certificate',
+        header: 'Certificate',
+        mobileLabel: 'Certificate',
+        cell: (cert: Certificate) => (
+          <Group gap="sm">
+            <ThemeIcon color="yellow" variant="light" radius="xl">
+              <IconAward size={18} />
+            </ThemeIcon>
+            <Stack gap={2}>
+              <Text size="sm" fw={700}>
+                {cert.certificateId}
+              </Text>
+              <Text size="xs" c="dimmed">
+                {cert.verificationSlug}
+              </Text>
+            </Stack>
+          </Group>
+        ),
+      },
+      {
+        key: 'recipient',
+        header: 'Recipient',
+        cell: (cert: Certificate) => (
+          <Stack gap={2}>
+            <Text size="sm" fw={700}>
+              {cert.recipientName}
+            </Text>
+            <Text size="xs" c="dimmed">
+              {cert.playerId}
+            </Text>
+          </Stack>
+        ),
+      },
+      {
+        key: 'course',
+        header: 'Course',
+        cell: (cert: Certificate) => (
+          <Stack gap={2}>
+            <Text size="sm" fw={700}>
+              {cert.courseTitle}
+            </Text>
+            <Text size="xs" c="dimmed">
+              {cert.courseId}
+            </Text>
+          </Stack>
+        ),
+      },
+      {
+        key: 'score',
+        header: 'Score',
+        cell: (cert: Certificate) => (
+          <Text
+            size="sm"
+            fw={cert.finalExamScorePercentInteger !== undefined ? 700 : undefined}
+            c={cert.finalExamScorePercentInteger !== undefined ? undefined : 'dimmed'}
+          >
+            {cert.finalExamScorePercentInteger !== undefined
+              ? `${cert.finalExamScorePercentInteger}%`
+              : '-'}
+          </Text>
+        ),
+      },
+      {
+        key: 'status',
+        header: tCommon('status'),
+        cell: (cert: Certificate) => <CertificateStatus revoked={Boolean(cert.isRevoked)} />,
+      },
+      {
+        key: 'issued',
+        header: 'Issued',
+        cell: (cert: Certificate) => (
+          <Text size="sm">
+            {new Date(cert.issuedAtISO).toLocaleDateString('hu-HU', {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric',
+            })}
+          </Text>
+        ),
+      },
+      {
+        key: 'actions',
+        header: tCommon('actions'),
+        align: 'right' as const,
+        cell: (cert: Certificate) => (
+          <Button
+            component={Link}
+            href={`/${locale}/certificate/${cert.verificationSlug}`}
+            target="_blank"
+            variant="subtle"
+            size="compact-sm"
+            leftSection={<IconEye size={16} />}
+          >
+            View
+          </Button>
+        ),
+      },
+    ],
+    [locale, tCommon]
+  );
+
   if (initialLoading) {
     return (
       <Center mih={400}>
@@ -129,122 +234,53 @@ export default function AdminCertificatesPage() {
         </Button>
       </Group>
 
-      <Card padding="md">
-        <SimpleGrid cols={{ base: 1, md: 2 }}>
-          <TextInput
-            leftSection={<IconSearch size={18} />}
-            placeholder="Search certificates by ID, name, course, or slug..."
-            value={search}
-            onChange={(event) => {
-              setSearch(event.currentTarget.value);
-              setPagination({ ...pagination, page: 1 });
-            }}
-          />
-          <Select
-            data={[
-              { value: 'all', label: 'All Status' },
-              { value: 'active', label: 'Active Only' },
-              { value: 'revoked', label: 'Revoked Only' },
-            ]}
-            value={filters.status}
-            onChange={(value) => {
-              setFilters({ ...filters, status: value || 'all' });
-              setPagination({ ...pagination, page: 1 });
-            }}
-            allowDeselect={false}
-          />
-        </SimpleGrid>
-      </Card>
+      <DataToolbar title="Search certificates">
+        <TextInput
+          leftSection={<IconSearch size={18} />}
+          placeholder="Search certificates by ID, name, course, or slug..."
+          value={search}
+          onChange={(event) => {
+            setSearch(event.currentTarget.value);
+            setPagination({ ...pagination, page: 1 });
+          }}
+          w={{ base: '100%', sm: 320 }}
+        />
+        <Select
+          data={[
+            { value: 'all', label: 'All Status' },
+            { value: 'active', label: 'Active Only' },
+            { value: 'revoked', label: 'Revoked Only' },
+          ]}
+          value={filters.status}
+          onChange={(value) => {
+            setFilters({ ...filters, status: value || 'all' });
+            setPagination({ ...pagination, page: 1 });
+          }}
+          allowDeselect={false}
+          w={{ base: '100%', sm: 200 }}
+        />
+      </DataToolbar>
 
       <Card padding={0}>
         <Stack gap={0}>
-          {loading && (
+          {loading ? (
             <Group justify="center" p="sm">
               <Loader size="sm" color="amanobaYellow" />
-              <Text size="sm" c="dimmed">Searching...</Text>
+              <Text size="sm" c="dimmed">
+                Searching...
+              </Text>
             </Group>
-          )}
-          <ScrollArea>
-            <Table miw={980} verticalSpacing="sm" highlightOnHover>
-              <Table.Thead>
-                <Table.Tr>
-                  <Table.Th>Certificate</Table.Th>
-                  <Table.Th>Recipient</Table.Th>
-                  <Table.Th>Course</Table.Th>
-                  <Table.Th>Score</Table.Th>
-                  <Table.Th>{tCommon('status')}</Table.Th>
-                  <Table.Th>Issued</Table.Th>
-                  <Table.Th>{tCommon('actions')}</Table.Th>
-                </Table.Tr>
-              </Table.Thead>
-              <Table.Tbody>
-                {certificates.length === 0 ? (
-                  <Table.Tr>
-                    <Table.Td colSpan={7}>
-                      <Text c="dimmed" ta="center" py="xl">{tCommon('noDataFound')}</Text>
-                    </Table.Td>
-                  </Table.Tr>
-                ) : (
-                  certificates.map((cert) => (
-                    <Table.Tr key={cert._id}>
-                      <Table.Td>
-                        <Group gap="sm">
-                          <ThemeIcon color="yellow" variant="light" radius="xl">
-                            <IconAward size={18} />
-                          </ThemeIcon>
-                          <Stack gap={2}>
-                            <Text size="sm" fw={700}>{cert.certificateId}</Text>
-                            <Text size="xs" c="dimmed">{cert.verificationSlug}</Text>
-                          </Stack>
-                        </Group>
-                      </Table.Td>
-                      <Table.Td>
-                        <Stack gap={2}>
-                          <Text size="sm" fw={700}>{cert.recipientName}</Text>
-                          <Text size="xs" c="dimmed">{cert.playerId}</Text>
-                        </Stack>
-                      </Table.Td>
-                      <Table.Td>
-                        <Stack gap={2}>
-                          <Text size="sm" fw={700}>{cert.courseTitle}</Text>
-                          <Text size="xs" c="dimmed">{cert.courseId}</Text>
-                        </Stack>
-                      </Table.Td>
-                      <Table.Td>
-                        <Text size="sm" fw={cert.finalExamScorePercentInteger !== undefined ? 700 : undefined} c={cert.finalExamScorePercentInteger !== undefined ? undefined : 'dimmed'}>
-                          {cert.finalExamScorePercentInteger !== undefined ? `${cert.finalExamScorePercentInteger}%` : '-'}
-                        </Text>
-                      </Table.Td>
-                      <Table.Td>
-                        <CertificateStatus revoked={Boolean(cert.isRevoked)} />
-                      </Table.Td>
-                      <Table.Td>
-                        <Text size="sm">
-                          {new Date(cert.issuedAtISO).toLocaleDateString('hu-HU', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric',
-                          })}
-                        </Text>
-                      </Table.Td>
-                      <Table.Td>
-                        <Button
-                          component={Link}
-                          href={`/${locale}/certificate/${cert.verificationSlug}`}
-                          target="_blank"
-                          variant="subtle"
-                          size="compact-sm"
-                          leftSection={<IconEye size={16} />}
-                        >
-                          View
-                        </Button>
-                      </Table.Td>
-                    </Table.Tr>
-                  ))
-                )}
-              </Table.Tbody>
-            </Table>
-          </ScrollArea>
+          ) : null}
+          <Box p="md">
+            <ResponsiveDataView
+              rows={certificates}
+              columns={certificateColumns}
+              rowKey={(cert) => cert._id}
+              minTableWidth={980}
+              emptyState={<Text c="dimmed" ta="center" py="xl">{tCommon('noDataFound')}</Text>}
+              highlightOnHover
+            />
+          </Box>
         </Stack>
       </Card>
 

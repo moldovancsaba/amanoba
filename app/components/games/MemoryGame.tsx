@@ -377,6 +377,8 @@ export default function MemoryGame({
                   aspectRatio: '1',
                   opacity: card.isMatched ? 0.55 : 1,
                   cursor: disabled ? 'not-allowed' : 'pointer',
+                  transition: 'transform 0.25s ease, background-color 0.25s ease, opacity 0.25s ease',
+                  transform: revealed && !card.isMatched ? 'scale(1.02)' : 'scale(1)',
                 }}
               >
                 <Center h="100%">
