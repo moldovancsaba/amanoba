@@ -49,7 +49,7 @@ Rollback immediately if:
 
 ```bash
 # 1. Navigate to project root
-cd /Users/moldovancsaba/Projects/amanoba
+cd /Users/Shared/Projects/amanoba
 
 # 2. Discard changes to all modified files
 git restore app/api/auth/anonymous/route.ts
@@ -80,7 +80,7 @@ git status
 
 ```bash
 # 1. Navigate to project root
-cd /Users/moldovancsaba/Projects/amanoba
+cd /Users/Shared/Projects/amanoba
 
 # 2. Find the commit hash of the rate limiting implementation
 git log --oneline --grep="rate limit\|Rate limit" -10

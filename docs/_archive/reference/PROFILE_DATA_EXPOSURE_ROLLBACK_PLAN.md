@@ -37,7 +37,7 @@ Rollback immediately if:
 
 ```bash
 # 1. Navigate to project root
-cd /Users/moldovancsaba/Projects/amanoba
+cd /Users/Shared/Projects/amanoba
 
 # 2. Discard changes to players endpoint
 git restore app/api/players/[playerId]/route.ts
@@ -59,7 +59,7 @@ git diff app/api/players/[playerId]/route.ts
 
 ```bash
 # 1. Navigate to project root
-cd /Users/moldovancsaba/Projects/amanoba
+cd /Users/Shared/Projects/amanoba
 
 # 2. Find the commit hash of the fix
 git log --oneline --grep="profile\|Profile data" -10

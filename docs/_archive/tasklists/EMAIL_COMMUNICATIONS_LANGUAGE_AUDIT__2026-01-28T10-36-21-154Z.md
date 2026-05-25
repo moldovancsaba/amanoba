@@ -20,4 +20,4 @@ These flows are **not** currently audited for language integrity end-to-end (fin
 ## Action Items
 - [ ] P0: Localize transactional emails for all supported locales (or gate sending by locale)
 
-Report: `/Users/moldovancsaba/Projects/amanoba/scripts/reports/email-communications-language-audit__2026-01-28T10-36-21-154Z.json`
+Report: `/Users/Shared/Projects/amanoba/scripts/reports/email-communications-language-audit__2026-01-28T10-36-21-154Z.json`

@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import createNextIntlPlugin from 'next-intl/plugin';
+import path from 'node:path';
 
 // What: Next.js configuration for Amanoba platform
 // Why: Provides runtime configuration, headers, and optimizations for the unified game platform
@@ -14,6 +15,8 @@ const gdsResolveAlias = {
   '@gds/core': path.join(gdsRoot, 'gds-core'),
   '@gds/admin': path.join(gdsRoot, 'gds-admin'),
 };
+
+const sharedProjectsRoot = path.resolve(__dirname, '..');
 
 const nextConfig: NextConfig = {
   transpilePackages: ['@gds/theme', '@gds/core', '@gds/admin'],
@@ -29,6 +32,22 @@ const nextConfig: NextConfig = {
   },
   // Enable React strict mode for better development experience
   reactStrictMode: true,
+  transpilePackages: ['@gds/theme', '@gds/core', '@gds/admin'],
+  experimental: {
+    externalDir: true,
+  },
+  turbopack: {
+    root: sharedProjectsRoot,
+    resolveAlias: {
+      '@gds/theme': './GENERAL_DESIGN_SYSTEM/packages/gds-theme/dist/index.mjs',
+      '@gds/core': './GENERAL_DESIGN_SYSTEM/packages/gds-core/dist/index.mjs',
+      '@gds/admin': './GENERAL_DESIGN_SYSTEM/packages/gds-admin/dist/index.mjs',
+      '@mantine/core': './amanoba/node_modules/@mantine/core/esm/index.mjs',
+      '@mantine/hooks': './amanoba/node_modules/@mantine/hooks/esm/index.mjs',
+      '@mantine/modals': './amanoba/node_modules/@mantine/modals/esm/index.mjs',
+      '@mantine/notifications': './amanoba/node_modules/@mantine/notifications/esm/index.mjs',
+    },
+  },
   
   // Why: Enforce TypeScript during build (P1.7). Next 16: eslint option removed; run `npm run lint` in CI.
   typescript: {

@@ -1,7 +1,7 @@
 # Amanoba
 
 **Current Version**: 2.9.49
-**Last Updated**: 2026-05-23
+**Last Updated**: 2026-05-25
 **Status**: Production Stable — SSO-only auth; shared design-system SSOT adopted; Mantine-only UI dependency baseline
 
 ## 🎓 Overview
@@ -47,6 +47,7 @@ Amanoba is transforming into a **unified flexible learning platform** that combi
 - **Database**: MongoDB Atlas with Mongoose 8.18.0
 - **Language**: TypeScript 5
 - **Design/UI/UX SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
+- **Shared upstream repo**: [sovereignsquad/general-design-system](https://github.com/sovereignsquad/general-design-system) (`2.3.2`)
 - **UI Runtime**: Mantine 8.3.18 with shared GDS pattern-service contracts
 - **Styling**: Mantine theme plus narrow global CSS for document defaults, token bridge, and rich lesson prose
 - **Email**: Provider-selectable transport (`EMAIL_PROVIDER=resend|gmail|mailgun`) for lesson delivery and transactional emails
@@ -165,6 +166,10 @@ Math duel on a Sudoku board with AI opponents (3 difficulty levels), ELO ranking
 - [NAMING_GUIDE.md](docs/NAMING_GUIDE.md) — Naming conventions
 - [CONTRIBUTING.md](docs/CONTRIBUTING.md) — Contribution guidelines
 - [layout_grammar.md](docs/layout_grammar.md) — Layout and structure grammar (content, course, UI)
+- [DESIGN_UPDATE.md](docs/product/DESIGN_UPDATE.md) — Amanoba adapter status, migration backlog, and local GDS implementation surface
+- [PATTERN_CONTRACT_INVENTORY.md](docs/product/PATTERN_CONTRACT_INVENTORY.md) — Amanoba implementation inventory for GDS pattern-service contracts
+- [GDS_ADOPTION_MANIFEST.md](docs/product/GDS_ADOPTION_MANIFEST.md) — Local GDS allowlist/banlist, protected surfaces, and validation contract
+- [GDS_EXCEPTION_REGISTER.md](docs/product/GDS_EXCEPTION_REGISTER.md) — Approved UI exception scope, reason, and removal conditions
 
 ## 🔐 Admin Access
 

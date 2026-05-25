@@ -43,7 +43,7 @@ These are the main repo-visible follow-ups that still matter after the May docum
 | Area | Current repo-visible status | Next action |
 |------|-----------------------------|-------------|
 | Broader Practice Hub ideabank | MVP contract/UI/telemetry are shipped, but the broader listening/speaking/mistakes vision is not complete. | Keep Project 12 issue `#749` in Backlog until the next review-mode expansion is prioritized. |
-| Design-system migration | Shared SSOT now lives at `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`; Amanoba still runs on the legacy Tailwind/Radix adapter with heuristic drift in older admin/game/profile/certificate surfaces. | Migrate touched surfaces toward the shared Mantine contract and keep `docs/product/DESIGN_UPDATE.md` current. |
+| Design-system migration | Shared SSOT now lives at `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`; Amanoba's active runtime is Mantine-rooted, but heuristic drift remains in older admin/game/profile/certificate surfaces and transitional CSS support layers. | Migrate touched surfaces toward the shared Mantine contract, keep `docs/product/DESIGN_UPDATE.md` current, and keep shrinking transitional adapters. |
 | Certification templates/defaults | Certificate issuance, verification, entitlement, and template assignment exist; reusable admin-managed defaults/templates remain future work. | Keep as roadmap/backlog until Project 12 prioritizes it. |
 
 ## Delivered Work That Should Not Be Re-Added Here

@@ -421,7 +421,7 @@ The certification system has been successfully delivered in two phases:
 
 ### Delivery Methodology (CRITICAL)
 
-Following `/Users/moldovancsaba/Projects/amanoba/agent_working_loop_canonical_operating_document.md`:
+Following `/Users/Shared/Projects/amanoba/agent_working_loop_canonical_operating_document.md`:
 
 #### 1. Safety First Approach
 - ✅ **Always create rollback plan** before starting
@@ -690,7 +690,7 @@ Before modifying existing files:
 
 ### Emergency Rollback
 ```bash
-cd /Users/moldovancsaba/Projects/amanoba
+cd /Users/Shared/Projects/amanoba
 git reset --hard v2.9.2-rollback-stable
 git push --force origin main
 npm run build  # Verify build passes
@@ -715,7 +715,7 @@ npm run build  # Verify build passes
 
 ### To Continue Work
 1. Read this handover document
-2. Read `/Users/moldovancsaba/Projects/amanoba/agent_working_loop_canonical_operating_document.md`
+2. Read `/Users/Shared/Projects/amanoba/agent_working_loop_canonical_operating_document.md`
 3. Read relevant feature documents in `/docs`
 4. Choose next feature from "What Is NOT Delivered Yet"
 5. Create detailed delivery plan

@@ -37,7 +37,7 @@ Rollback immediately if:
 
 ```bash
 # 1. Navigate to project root
-cd /Users/moldovancsaba/Projects/amanoba
+cd /Users/Shared/Projects/amanoba
 
 # 2. Discard changes to checkout file
 git restore app/api/payments/create-checkout/route.ts
@@ -59,7 +59,7 @@ git diff app/api/payments/create-checkout/route.ts
 
 ```bash
 # 1. Navigate to project root
-cd /Users/moldovancsaba/Projects/amanoba
+cd /Users/Shared/Projects/amanoba
 
 # 2. Find the commit hash of the fix
 git log --oneline --grep="customer_email\|Stripe customer" -10

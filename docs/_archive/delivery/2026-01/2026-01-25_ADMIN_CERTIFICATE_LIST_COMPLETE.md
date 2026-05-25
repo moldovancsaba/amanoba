@@ -87,7 +87,7 @@ Successfully delivered Admin Certificate List feature following safety-first met
 ### Rollback Commands
 ```bash
 # If needed, rollback to before this feature
-cd /Users/moldovancsaba/Projects/amanoba
+cd /Users/Shared/Projects/amanoba
 git log --oneline -5  # Find commit before this feature
 git reset --hard <commit-hash>
 git push --force origin main

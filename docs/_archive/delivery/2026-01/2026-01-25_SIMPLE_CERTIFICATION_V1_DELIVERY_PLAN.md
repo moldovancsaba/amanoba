@@ -26,7 +26,7 @@ This plan delivers a **simple, working certification system V1.0** that displays
 ### Rollback Commands
 ```bash
 # Emergency rollback to stable baseline
-cd /Users/moldovancsaba/Projects/amanoba
+cd /Users/Shared/Projects/amanoba
 git reset --hard v2.9.2-rollback-stable
 git push --force origin main
 npm run build  # Verify build passes
