@@ -240,6 +240,68 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ---
 
+## Pre-upstream GDS convergence board restructure (2026-05-25)
+
+### What changed
+- Created a new Project 12 / `mvp-factory-control` milestone: `Amanoba — Pre-upstream GDS convergence`.
+- Seeded a new production-grade Amanoba GDS planning wave aligned to the current repo state and the canonical issue structure standard from `sovereignsquad/general-design-system#81`:
+  - `#878` `Amanoba: GDS readiness - pre-upstream local convergence program`
+  - `#879` `Amanoba: UI shells - prerender-safe auth public article shell convergence`
+  - `#880` `Amanoba: Learner shell - canonical header and route-shell convergence`
+  - `#881` `Amanoba: Content rendering - rich prose and article body contract hardening`
+  - `#882` `Amanoba: Metrics and states - learner-facing contract completion`
+  - `#883` `Amanoba: Access recovery - gated-route and permission state unification`
+  - `#884` `Amanoba: Course cards - local variant contract extraction`
+  - `#885` `Amanoba: Admin data views - full adapter rollout and mobile safety`
+  - `#886` `Amanoba: Interactive learning chrome - quiz and game shell standardization`
+  - `#887` `Amanoba: Token governance - server-render and chart theme contract`
+  - `#888` `Amanoba: GDS compliance - manifest, exception expiry, and import guard hardening`
+  - `#889` `Amanoba: Upstream handoff - proven GDS gaps and escalation packet`
+- Added labels `initiative:gds-readiness` and `handoff:upstream-gds` in `mvp-factory-control` to make the wave queryable and to isolate the final escalation artifact.
+- Organized the new wave on Project 12 with one clear entry point:
+  - `#879` moved to `Todo (NEXT)`
+  - `#878`, `#880`-`#889` moved to `Backlog (SOONER)`
+- Retired the stale GDS `2.3.0` planning wave `#868`-`#877` by closing each issue with a superseded note and moving their board cards to `Declined (NEVER)`.
+
+### Verification
+- `gh issue list --repo moldovancsaba/mvp-factory-control --state open --label initiative:gds-readiness --limit 100` ✅
+- `gh issue view 878 --repo moldovancsaba/mvp-factory-control` ✅
+- `gh issue view 879 --repo moldovancsaba/mvp-factory-control` ✅
+- `gh issue list --repo moldovancsaba/mvp-factory-control --state closed --search 'Amanoba GDS 2.3.0 in:title' --limit 20` ✅
+
+### Notes
+- This board restructure intentionally separates **product-local convergence** from **future upstream GDS asks**. The final upstream-facing scope now lives in `#889` and is blocked on the completion of `#879`-`#888`.
+
+---
+
+## Canonical board and local-directory correction (2026-05-25)
+
+### What changed
+- Re-confirmed the canonical Amanoba GitHub product board is Project 12: `https://github.com/users/moldovancsaba/projects/12`.
+- Audited current Amanoba issue project membership with `gh issue list --repo moldovancsaba/mvp-factory-control --search 'Amanoba in:title' --state all --json projectItems`.
+- Verified the live Amanoba issues currently resolve to the canonical `{amanoba} - From IDEA to LIVE` board entry; no active Amanoba issue was found attached to another project board that needed migration or removal.
+- Audited the two non-canonical local directories:
+  - `/Users/moldovancsaba/Projects/amanoba-work`
+  - `/Users/moldovancsaba/Projects/amanoba-full`
+- Confirmed `/Users/moldovancsaba/Projects/amanoba-work` was only an older clean checkout whose `HEAD` (`eacb4e8`) is already an ancestor of canonical `/Users/Shared/Projects/amanoba`.
+- Confirmed `/Users/moldovancsaba/Projects/amanoba-full` was only a loose duplicate file copy; `scripts/verify-gds-version.mjs` matched canonical content byte-for-byte.
+- Deleted both non-canonical local directories after verification.
+
+### Verification
+- `gh project view 12 --owner moldovancsaba` ✅
+- `gh issue list --repo moldovancsaba/mvp-factory-control --search 'Amanoba in:title' --state all --json projectItems` ✅
+- `git -C /Users/moldovancsaba/Projects/amanoba-work status -sb` ✅ clean before deletion
+- `git -C /Users/moldovancsaba/Projects/amanoba-work rev-parse HEAD` + merge-base check against canonical `HEAD` ✅ ancestor
+- `cmp -s /Users/moldovancsaba/Projects/amanoba-full/scripts/verify-gds-version.mjs /Users/Shared/Projects/amanoba/scripts/verify-gds-version.mjs` ✅ identical before deletion
+- `test ! -e /Users/moldovancsaba/Projects/amanoba-full` ✅
+- `test ! -e /Users/moldovancsaba/Projects/amanoba-work` ✅
+
+### Notes
+- Canonical local project directory remains `/Users/Shared/Projects/amanoba`.
+- Canonical GitHub product board remains Project 12; board status there is the operational source of truth even when issues live in `moldovancsaba/mvp-factory-control`.
+
+---
+
 ## Dark-mode readability hardening (2026-05-22)
 
 ### What changed
@@ -1638,4 +1700,3 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:gds:check` ✅ pass
 - `npm run ui:check:foundation` ✅ pass
 - `npm run build` ✅ pass
-
