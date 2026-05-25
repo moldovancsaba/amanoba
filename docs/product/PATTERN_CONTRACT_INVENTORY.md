@@ -3,7 +3,7 @@
 **Last Updated**: 2026-05-24
 **Status**: Active local adapter (GDS 2.3.0 packages)
 **Shared SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
-**Aligned GDS Version**: `2.3.2`
+**Aligned GDS Version**: `2.4.3`
 
 This document is Amanoba's local adapter inventory for the GDS pattern service model. It records implementation paths and migration state only.
 
@@ -18,7 +18,7 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | Metric card | `app/components/patterns/gds/MetricCard.tsx` | `@gds/core/MetricCard` (aligned local) | Canonical | Uses `detail`, `progress`, `color` props |
 | Progress card | `app/components/patterns/gds/ProgressCard.tsx` | `@gds/core/ProgressCard` (aligned local) | Canonical | Quest/course progress |
 | State block | `app/components/patterns/gds/StateBlock.tsx` | `@gds/core/StateBlock` (aligned local) | Canonical | `kind` API; error uses Alert |
-| Course access recovery | `CourseAccessRecoveryActions.tsx` | — | Local adapter | Not `AccessSummary` |
+| Course access recovery | `components/patterns/CourseAccessRecoveryActions.tsx` | `@gds/core` `AccessRecoveryPanel` | Thin adapter | Maps course API codes to panel state |
 | Admin shell | `app/[locale]/admin/layout.tsx` | `@gds/admin/AppShell` (optional) | Canonical | Mantine AppShell |
 | Auth shell | `app/components/patterns/gds/AuthShell.tsx` | `@gds/core/AuthShell` (Amanoba variant) | Canonical | Dark `ink.9` layout |
 | Public shell | `app/components/patterns/gds/PublicAppShell.tsx` | `@gds/core/PublicShell` (Amanoba variant) | Canonical | Marketing header band |

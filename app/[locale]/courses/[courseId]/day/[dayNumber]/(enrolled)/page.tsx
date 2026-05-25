@@ -32,7 +32,6 @@ import {
 } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 import {
-  IconAlertTriangle,
   IconArrowLeft,
   IconArrowRight,
   IconAward,
@@ -682,24 +681,14 @@ export default function DailyLessonPage({
       <Box bg="ink.9" mih="100vh" py="xl" dir={dir}>
         <Container size="sm">
           <Card padding="lg">
-            <Stack gap="md">
-              <Alert
-                color={issue.status === 401 ? 'yellow' : 'red'}
-                variant="light"
-                title={issue.title}
-                icon={issue.status === 401 ? <IconLock size={18} /> : <IconAlertTriangle size={18} />}
-              >
-                <Text>{issue.message}</Text>
-              </Alert>
-              <CourseAccessRecoveryActions
-                issue={issue}
-                courseId={courseId}
-                courseLanguage={courseLanguage || displayLang}
-                onRetry={() => void fetchLesson(courseId, dayNumber, { fallbackLanguage: displayLang })}
-                signInHref={`/auth/signin?callbackUrl=${encodeURIComponent(`/${courseLanguage || displayLang}/courses/${courseId}/day/${dayNumber}`)}`}
-                backLabel={getDayPageText('backToCourse', displayLang)}
-              />
-            </Stack>
+            <CourseAccessRecoveryActions
+              issue={issue}
+              courseId={courseId}
+              courseLanguage={courseLanguage || displayLang}
+              onRetry={() => void fetchLesson(courseId, dayNumber, { fallbackLanguage: displayLang })}
+              signInHref={`/auth/signin?callbackUrl=${encodeURIComponent(`/${courseLanguage || displayLang}/courses/${courseId}/day/${dayNumber}`)}`}
+              backLabel={getDayPageText('backToCourse', displayLang)}
+            />
           </Card>
         </Container>
       </Box>

@@ -33,7 +33,6 @@ import {
   IconArrowLeft,
   IconCheck,
   IconCircleCheck,
-  IconLock,
   IconX,
 } from '@tabler/icons-react';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
@@ -529,25 +528,15 @@ export default function LessonQuizPage({
         <Box bg="ink.9" mih="100vh" py="xl" dir={courseLanguage === 'ar' ? 'rtl' : 'ltr'}>
           <Container size="sm">
             <Card padding="lg">
-              <Stack gap="md">
-                <Alert
-                  color={accessIssue.status === 401 ? 'yellow' : 'red'}
-                  variant="light"
-                  title={accessIssue.title}
-                  icon={accessIssue.status === 401 ? <IconLock size={18} /> : <IconAlertTriangle size={18} />}
-                >
-                  <Text>{accessIssue.message}</Text>
-                </Alert>
-                <CourseAccessRecoveryActions
-                  issue={accessIssue}
-                  courseId={courseId}
-                  courseLanguage={courseLanguage || locale}
-                  signInHref={signInHref}
-                  backHref={lessonHref}
-                  backLabel={getQuizPageText('backToLesson', courseLanguage)}
-                  onRetry={() => void loadLessonAndQuestions(courseId, dayNumber, courseLanguage || locale)}
-                />
-              </Stack>
+              <CourseAccessRecoveryActions
+                issue={accessIssue}
+                courseId={courseId}
+                courseLanguage={courseLanguage || locale}
+                signInHref={signInHref}
+                backHref={lessonHref}
+                backLabel={getQuizPageText('backToLesson', courseLanguage)}
+                onRetry={() => void loadLessonAndQuestions(courseId, dayNumber, courseLanguage || locale)}
+              />
             </Card>
           </Container>
         </Box>

@@ -1483,3 +1483,15 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:gds:verify` ✅ pass
 - `npm run build` ✅ pass (`--webpack`)
 
+## GDS 2.4.3 alignment (2026-05-25)
+
+### What changed
+- Aligned `@gds/theme`, `@gds/core`, `@gds/admin` to **2.4.3** (SSOT [general-design-system](https://github.com/sovereignsquad/general-design-system) `main`).
+- `CourseAccessRecoveryActions` now composes `@gds/core` `AccessRecoveryPanel` on lesson/quiz access errors.
+- Adapter docs updated; learner shell remains local per GDS `docs/AMANOBA_BLOCKING_CONTRACTS.md` ([#99](https://github.com/sovereignsquad/general-design-system/issues/99)).
+
+### Verification
+- `npm run gds:import-smoke` ✅ pass
+- `npm run ui:gds:verify` ✅ pass
+- `npm run build` ✅ pass (`--webpack`)
+
