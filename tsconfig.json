@@ -21,6 +21,7 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./*",
@@ -28,6 +29,15 @@
       ],
       "@/lib/*": [
         "./app/lib/*"
+      ],
+      "@gds/theme": [
+        "../GENERAL_DESIGN_SYSTEM/packages/gds-theme/dist/index"
+      ],
+      "@gds/core": [
+        "../GENERAL_DESIGN_SYSTEM/packages/gds-core/dist/index"
+      ],
+      "@gds/admin": [
+        "../GENERAL_DESIGN_SYSTEM/packages/gds-admin/dist/index"
       ]
     },
     "target": "ES2017"

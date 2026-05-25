@@ -1,6 +1,6 @@
 # Documentation index
 
-**Last updated**: 2026-05-23
+**Last updated**: 2026-05-25
 **Purpose**: Canonical entrypoint for active Amanoba documentation. Historical phase reports and old handoff snapshots may remain in `docs/`, but the tables below identify current guidance.
 
 **Generated helpers**
@@ -22,7 +22,8 @@
 | **ARCHITECTURE.md** | `docs/architecture/ARCHITECTURE.md` | System architecture and platform overview. |
 | **layout_grammar.md** | `docs/architecture/layout_grammar.md` | Layout, structure, and documentation conventions. |
 | **CODING_STANDARDS.md** | `docs/core/CODING_STANDARDS.md` | Coding standards, design-token rules, and version/doc alignment rules. |
-| **GENERAL_DESIGN_SYSTEM** | `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` | Cross-project design, UI, UX, component contract, and governance SSOT. |
+| **GENERAL_DESIGN_SYSTEM** | `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` | Cross-project design, UI, UX, component contract, and governance SSOT (working copy). |
+| **general-design-system** | `https://github.com/sovereignsquad/general-design-system` | Portable upstream repository reference for the shared GDS. |
 | **CROSS_REPO_DOCS.md** | `docs/core/CROSS_REPO_DOCS.md` | Portable reference contract for `amanoba` to `amanoba_courses` documentation links. |
 | **TECH_STACK.md** | `docs/core/TECH_STACK.md` | Current framework, infrastructure, provider, and dependency baseline. |
 | **CONTRIBUTING.md** | `docs/core/CONTRIBUTING.md` | Workflow and contributor standards. |
@@ -49,6 +50,8 @@
 | **DEPLOYMENT.md** | `docs/deployment/DEPLOYMENT.md` | Deployment and runtime operations baseline. |
 | **DESIGN_UPDATE.md** | `docs/product/DESIGN_UPDATE.md` | Amanoba adapter status, local exceptions, and migration backlog under the shared design-system SSOT. |
 | **PATTERN_CONTRACT_INVENTORY.md** | `docs/product/PATTERN_CONTRACT_INVENTORY.md` | Amanoba implementation inventory for GDS pattern-service contracts. |
+| **GDS_ADOPTION_MANIFEST.md** | `docs/product/GDS_ADOPTION_MANIFEST.md` | Local GDS adoption contract: allowlist/banlist, protected surfaces, required contract paths, and validation commands. |
+| **GDS_EXCEPTION_REGISTER.md** | `docs/product/GDS_EXCEPTION_REGISTER.md` | Approved local GDS exception scope, reason, and removal conditions. |
 | **HANDOFF_MVP_FACTORY_CONTROL.md** | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Board handoff and issue workflow model. |
 | **MVP_FACTORY_PROJECT_SETUP.md** | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | One-time project scope setup for board automation. |
 | **AmanobaAuditDocMapping.md** | `docs/handoff/AmanobaAuditDocMapping.md` | Audit SSOT inventory: board workflow, doc-to-code mapping, and quality gates. |

@@ -1,0 +1,189 @@
+{
+  "sharedSsotPath": "/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM",
+  "sharedSsotRepoUrl": "https://github.com/sovereignsquad/general-design-system",
+  "alignedGdsVersion": "2.3.2",
+  "alignedGdsDate": "2026-05-25",
+  "localDocs": {
+    "designUpdate": "docs/product/DESIGN_UPDATE.md",
+    "patternInventory": "docs/product/PATTERN_CONTRACT_INVENTORY.md",
+    "adoptionManifest": "docs/product/GDS_ADOPTION_MANIFEST.md",
+    "exceptionRegister": "docs/product/GDS_EXCEPTION_REGISTER.md"
+  },
+  "themeAndProviders": [
+    "app/components/providers/MantineRuntimeProvider.tsx",
+    "app/lib/ui/mantine-theme.ts",
+    "app/lib/ui/amanoba-gds-theme.ts"
+  ],
+  "serverTokenSources": [
+    "app/lib/constants/color-tokens.ts",
+    "app/lib/constants/certificate-colors.ts"
+  ],
+  "legacyCssSupportFiles": [
+    "app/design-system.css",
+    "app/globals.css",
+    "components/CookieConsentBanner.module.css"
+  ],
+  "patternContracts": [
+    {
+      "id": "learner-shell-page-header",
+      "paths": [
+        "app/components/LearnerPageHeader.tsx"
+      ]
+    },
+    {
+      "id": "article-shell",
+      "paths": [
+        "app/components/patterns/ArticleShell.tsx"
+      ]
+    },
+    {
+      "id": "product-course-card",
+      "paths": [
+        "app/components/patterns/CourseCard.tsx"
+      ]
+    },
+    {
+      "id": "metric-progress-card",
+      "paths": [
+        "app/components/patterns/MetricCard.tsx"
+      ]
+    },
+    {
+      "id": "state-block",
+      "paths": [
+        "app/components/patterns/StateBlock.tsx"
+      ]
+    },
+    {
+      "id": "course-access-recovery",
+      "paths": [
+        "components/patterns/CourseAccessRecoveryActions.tsx"
+      ]
+    },
+    {
+      "id": "admin-shell",
+      "paths": [
+        "app/[locale]/admin/layout.tsx"
+      ]
+    },
+    {
+      "id": "auth-shell",
+      "paths": [
+        "app/components/patterns/AuthShell.tsx",
+        "app/[locale]/auth/signin/page.tsx",
+        "app/[locale]/auth/error/page.tsx"
+      ]
+    },
+    {
+      "id": "public-shell",
+      "paths": [
+        "app/components/patterns/PublicAppShell.tsx",
+        "app/[locale]/page.tsx",
+        "app/[locale]/partners/page.tsx"
+      ]
+    },
+    {
+      "id": "data-toolbar",
+      "paths": [
+        "app/components/patterns/DataToolbar.tsx"
+      ]
+    },
+    {
+      "id": "responsive-data-view",
+      "paths": [
+        "app/components/patterns/ResponsiveDataView.tsx"
+      ]
+    },
+    {
+      "id": "editor-shell",
+      "paths": [
+        "app/[locale]/editor/layout.tsx"
+      ]
+    },
+    {
+      "id": "game-shell",
+      "paths": [
+        "app/[locale]/games/memory/page.tsx",
+        "app/components/LessonQuiz.tsx",
+        "app/components/games/MemoryGame.tsx"
+      ]
+    },
+    {
+      "id": "game-board-card",
+      "paths": [
+        "app/components/patterns/GameBoardCard.tsx",
+        "app/components/patterns/gds/GameBoardCard.tsx"
+      ]
+    }
+  ],
+  "mantineOnlyFiles": [
+    "app/[locale]/page.tsx",
+    "app/[locale]/auth/error/page.tsx",
+    "app/[locale]/courses/page.tsx",
+    "app/[locale]/dashboard/page.tsx",
+    "app/[locale]/my-courses/page.tsx",
+    "app/[locale]/blog/[slug]/page.tsx",
+    "app/[locale]/news/[slug]/page.tsx",
+    "app/components/LearnerPageHeader.tsx",
+    "app/components/ThemeToggle.tsx",
+    "app/components/patterns/ArticleShell.tsx",
+    "app/components/patterns/CourseCard.tsx",
+    "app/components/patterns/MetricCard.tsx",
+    "app/components/patterns/StateBlock.tsx",
+    "app/components/sign-out-button.tsx",
+    "components/CookieConsentBanner.tsx",
+    "components/LanguageSwitcher.tsx",
+    "components/Logo.tsx",
+    "app/[locale]/admin/layout.tsx",
+    "app/[locale]/leaderboards/page.tsx",
+    "app/[locale]/stats/page.tsx",
+    "app/[locale]/onboarding/page.tsx",
+    "app/components/patterns/AuthShell.tsx",
+    "app/components/patterns/PublicAppShell.tsx",
+    "app/components/patterns/DataToolbar.tsx",
+    "app/components/patterns/ResponsiveDataView.tsx",
+    "app/[locale]/editor/layout.tsx",
+    "app/[locale]/editor/courses/page.tsx",
+    "app/[locale]/editor/courses/[courseId]/page.tsx",
+    "app/components/LessonQuiz.tsx",
+    "app/[locale]/games/memory/page.tsx"
+  ],
+  "forbiddenImports": [
+    "@radix-ui/",
+    "sonner",
+    "vaul",
+    "@/components/ui/card",
+    "@/components/ui/button",
+    "class-variance-authority",
+    "tailwind-merge"
+  ],
+  "documentedExceptions": [
+    {
+      "id": "rich-lesson-prose-html",
+      "filePaths": [
+        "app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx",
+        "app/[locale]/courses/[courseId]/day/[dayNumber]/view/page.tsx"
+      ]
+    },
+    {
+      "id": "game-board-local-layout",
+      "filePaths": [
+        "app/components/games/MemoryGame.tsx"
+      ]
+    },
+    {
+      "id": "certificate-linkedin-brand-color",
+      "filePaths": [
+        "app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx"
+      ]
+    },
+    {
+      "id": "transitional-global-css-support",
+      "filePaths": [
+        "app/design-system.css",
+        "app/globals.css",
+        "components/CookieConsentBanner.module.css"
+      ]
+    }
+  ]
+}

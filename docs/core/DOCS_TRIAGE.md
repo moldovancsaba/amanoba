@@ -5,9 +5,9 @@
 
 # Docs Triage
 
-**Last Updated**: 2026-05-23
+**Last Updated**: 2026-05-25
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=4, KEEP(unclassified)=60
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=5, KEEP(unclassified)=71
 
 This file is the “what to do next” view derived from `docs/core/DOCS_CANONICAL_MAP.md`.
 
@@ -20,9 +20,10 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 ## ARCHIVE (grouped by target)
 ### docs/_archive/reference/
 - `docs/features/GEO_IMPROVEMENT_PLAN.md` — GEO Improvement Plan — Appearance in AI Chat Results (12.5 KB)
+- `docs/handoff/2026-05-25_RELOCATION_HANDOVER.md` — Amanoba Relocation Handover (14.8 KB)
 - `docs/product/COURSE_CREATION_PLAYBOOK.md` — Amanoba Course Creation Playbook (14.2 KB)
 - `docs/quality/UI_FOUNDATION_AUDIT.md` — UI Foundation Audit (Hard Rules) (1.8 KB)
-- `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` — UI Layout Grammar Audit (4.1 KB)
+- `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` — UI Layout Grammar Audit (4.6 KB)
 
 ## KEEP (needs review)
 - `docs/architecture/ARCHITECTURE_FIX_QUICK_START.md` — ⚡ ARCHITECTURE FIX - ACTION CHECKLIST & QUICK START
@@ -50,6 +51,17 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/features/GOOGLE_ANALYTICS_ENRICHMENT.md` — Google Analytics Enrichment
 - `docs/features/PUBLIC_PROFILE_SCHEMA.md` — Public Profile Schema
 - `docs/handoff/feature_issues/FEATURE_DASHBOARD_MULTI_COURSE_ENROL_P2_3.md` — Feature issue (mvp-factory-control) — Dashboard / multi-course Enrol + prerequisites
+- `docs/handoff/feature_issues/GDS_2_3_ADOPTION_PROGRAM.md` — GDS 2.3.0 Rock-Solid Adoption Program (Amanoba)
+- `docs/handoff/feature_issues/gds-2.3-bodies/00-epic.md` — 00-epic
+- `docs/handoff/feature_issues/gds-2.3-bodies/01-docs.md` — 01-docs
+- `docs/handoff/feature_issues/gds-2.3-bodies/02-packages.md` — 02-packages
+- `docs/handoff/feature_issues/gds-2.3-bodies/03-theme.md` — 03-theme
+- `docs/handoff/feature_issues/gds-2.3-bodies/04-shells.md` — 04-shells
+- `docs/handoff/feature_issues/gds-2.3-bodies/05-metrics-states.md` — 05-metrics-states
+- `docs/handoff/feature_issues/gds-2.3-bodies/06-admin-data.md` — 06-admin-data
+- `docs/handoff/feature_issues/gds-2.3-bodies/07-state-rollout.md` — 07-state-rollout
+- `docs/handoff/feature_issues/gds-2.3-bodies/08-retire-local.md` — 08-retire-local
+- `docs/handoff/feature_issues/gds-2.3-bodies/09-phase6-delete.md` — 09-phase6-delete
 - `docs/handoff/HANDOFF_ARCHITECTURE_FIX_CRITICAL.md` — 📋 COMPREHENSIVE HANDOFF - ARCHITECTURAL GAP DISCOVERY & FIX PLAN
 - `docs/handoff/HANDOFF_DOCUMENT_COMPREHENSIVE.md` — 📋 QUIZ ENHANCEMENT PROJECT - COMPREHENSIVE STATUS & HANDOFF DOCUMENT
 - `docs/i18n/ADMIN_LANGUAGE_SETUP.md` — Admin Language Configuration
@@ -74,17 +86,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/sso/SSO_ENVIRONMENT_VARIABLES.md` — SSO Environment Variables
 - `docs/sso/SSO_FOUNDATION_COMPLETE.md` — SSO Foundation - Phase 1 Complete ✅
 - `docs/sso/SSO_INTEGRATION_REQUIREMENTS.md` — SSO Integration Requirements & Learnings
-- `docs/sso/SSO_MIGRATION_COMPLETE.md` — SSO Migration Complete - Cleanup Guide
-- `docs/sso/SSO_NONCE_FIX_INSTRUCTIONS.md` — SSO Nonce Error - Fix Instructions
-- `docs/sso/SSO_REDIRECT_URIS.md` — SSO Redirect URIs Configuration
-- `docs/sso/SSO_SCOPE_FIX.md` — SSO Scope Error Fix
-- `docs/sso/SSO_TROUBLESHOOTING.md` — SSO Troubleshooting Guide
-- `docs/status/MIGRATION_COMPLETE.md` — Page Migration to [locale] Structure - Complete
-- `docs/status/MIGRATION_PHASE_1_COMPLETE.md` — DATABASE MIGRATION PHASE 1 - FINAL STATUS
-- `docs/status/PHASE_1_COMPLETE.md` — Phase 1 Complete: Foundation & Data Models
-- `docs/status/PHASE_1_EXECUTION_COMPLETE.md` — PHASE 1 EXECUTION COMPLETE
-- `docs/status/PHASE_2_3_COMPLETE.md` — Phase 2 & 3 Complete — Course Builder & Email Automation
-- `docs/status/PROJECT_COMPLETE.md` — 🎉 PROJECT COMPLETE - QUIZ QUALITY AUDIT & ENHANCEMENT
+- … +11 more
 
 ## Next suggested move
 - Review KEEP(unclassified) docs and either promote to canonical sections in `docs/core/DOCS_INDEX.md` or archive.

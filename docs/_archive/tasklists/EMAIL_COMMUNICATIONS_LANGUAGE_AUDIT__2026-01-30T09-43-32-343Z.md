@@ -16,4 +16,4 @@ Mode: **READ-ONLY** (no DB writes)
 ## Action Items
 - [ ] If any locale fails: fix templates until audit passes
 
-Report: `/Users/moldovancsaba/Projects/amanoba/scripts/reports/email-communications-language-audit__2026-01-30T09-43-32-343Z.json`
+Report: `/Users/Shared/Projects/amanoba/scripts/reports/email-communications-language-audit__2026-01-30T09-43-32-343Z.json`

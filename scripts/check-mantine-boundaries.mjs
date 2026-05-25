@@ -10,86 +10,48 @@ const trackedFiles = execFileSync('git', ['ls-files'], { encoding: 'utf8' })
   .filter((file) => /\.(tsx?|jsx?)$/.test(file))
   .filter((file) => existsSync(file));
 
+const gdsManifest = JSON.parse(readFileSync('config/gds-adoption.json', 'utf8'));
+
 const allowedLegacyHelpers = new Set([]);
+const mantineOnlyFiles = new Set(gdsManifest.mantineOnlyFiles ?? []);
 
-const mantineOnlyFiles = new Set([
-  'app/[locale]/page.tsx',
-  'app/[locale]/auth/error/page.tsx',
-  'app/[locale]/courses/page.tsx',
-  'app/[locale]/dashboard/page.tsx',
-  'app/[locale]/my-courses/page.tsx',
-  'app/[locale]/blog/[slug]/page.tsx',
-  'app/[locale]/news/[slug]/page.tsx',
-  'app/components/LearnerPageHeader.tsx',
-  'app/components/ThemeToggle.tsx',
-  'app/components/patterns/ArticleShell.tsx',
-  'app/components/patterns/CourseCard.tsx',
-  'app/components/patterns/MetricCard.tsx',
-  'app/components/patterns/StateBlock.tsx',
-  'app/components/sign-out-button.tsx',
-  'components/CookieConsentBanner.tsx',
-  'components/LanguageSwitcher.tsx',
-  'components/Logo.tsx',
-  'app/[locale]/admin/layout.tsx',
-  'app/[locale]/leaderboards/page.tsx',
-  'app/[locale]/stats/page.tsx',
-  'app/[locale]/onboarding/page.tsx',
-  'app/components/patterns/AuthShell.tsx',
-  'app/components/patterns/PublicAppShell.tsx',
-  'app/components/patterns/DataToolbar.tsx',
-  'app/components/patterns/ResponsiveDataView.tsx',
-  'app/[locale]/editor/layout.tsx',
-  'app/[locale]/editor/courses/page.tsx',
-  'app/[locale]/editor/courses/[courseId]/page.tsx',
-  'app/components/LessonQuiz.tsx',
-  'app/[locale]/games/memory/page.tsx',
-]);
+function escapeRegex(text) {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
-const hardBlockedImports = [
-  {
-    id: 'radix',
-    pattern: /from\s+['"]@radix-ui\//,
-    message: 'Radix primitives are frozen for product UI; use Mantine primitives or thin Mantine wrappers.',
-  },
-  {
-    id: 'sonner',
-    pattern: /from\s+['"]sonner['"]/,
-    message: 'Sonner is frozen for product UI; use Mantine notifications.',
-  },
-  {
-    id: 'vaul',
-    pattern: /from\s+['"]vaul['"]/,
-    message: 'Vaul is frozen for product UI; use Mantine Drawer.',
-  },
-];
+function forbiddenImportMessage(specifier) {
+  switch (specifier) {
+    case '@radix-ui/':
+      return 'Radix primitives are frozen for product UI; use Mantine primitives or thin Mantine wrappers.';
+    case 'sonner':
+      return 'Sonner is frozen for product UI; use Mantine notifications.';
+    case 'vaul':
+      return 'Vaul is frozen for product UI; use Mantine Drawer.';
+    case '@/components/ui/card':
+      return 'Legacy shared Card is frozen; use Mantine Card or a thin Mantine wrapper.';
+    case '@/components/ui/button':
+      return 'Legacy shared Button is frozen; use Mantine Button or a thin Mantine wrapper.';
+    case 'class-variance-authority':
+      return 'CVA is legacy primitive infrastructure; do not use it for new product UI.';
+    case 'tailwind-merge':
+      return 'tailwind-merge is legacy Tailwind adapter infrastructure; do not use it for new product UI.';
+    default:
+      return `Forbidden UI stack import detected: ${specifier}`;
+  }
+}
 
-const legacyPrimitiveImports = [
-  {
-    id: 'legacy-card',
-    pattern: /from\s+['"]@\/components\/ui\/card['"]/,
-    allow: () => false,
-    message: 'Legacy shared Card is frozen; use Mantine Card or a thin Mantine wrapper.',
-  },
-  {
-    id: 'legacy-button',
-    pattern: /from\s+['"]@\/components\/ui\/button['"]/,
-    allow: () => false,
-    message: 'Legacy shared Button is frozen; use Mantine Button or a thin Mantine wrapper.',
-  },
-];
+function importPattern(specifier) {
+  if (specifier.endsWith('/')) {
+    return new RegExp(`from\\s+['"]${escapeRegex(specifier)}`);
+  }
+  return new RegExp(`from\\s+['"]${escapeRegex(specifier)}['"]`);
+}
 
-const helperImports = [
-  {
-    id: 'class-variance-authority',
-    pattern: /from\s+['"]class-variance-authority['"]/,
-    message: 'CVA is legacy primitive infrastructure; keep it only in already-listed legacy adapter files.',
-  },
-  {
-    id: 'tailwind-merge',
-    pattern: /from\s+['"]tailwind-merge['"]/,
-    message: 'tailwind-merge is legacy Tailwind adapter infrastructure; keep it only in already-listed legacy adapter files.',
-  },
-];
+const forbiddenImports = (gdsManifest.forbiddenImports ?? []).map((specifier) => ({
+  id: specifier,
+  pattern: importPattern(specifier),
+  message: forbiddenImportMessage(specifier),
+}));
 
 const findings = [];
 
@@ -119,23 +81,9 @@ const mantineOnlyRules = [
 for (const file of trackedFiles) {
   const source = readFileSync(file, 'utf8');
 
-  for (const rule of hardBlockedImports) {
-    if (rule.pattern.test(source)) {
+  for (const rule of forbiddenImports) {
+    if (rule.pattern.test(source) && !allowedLegacyHelpers.has(file)) {
       findings.push({ file, rule });
-    }
-  }
-
-  for (const rule of legacyPrimitiveImports) {
-    if (rule.pattern.test(source) && !rule.allow(file)) {
-      findings.push({ file, rule });
-    }
-  }
-
-  if (!allowedLegacyHelpers.has(file)) {
-    for (const rule of helperImports) {
-      if (rule.pattern.test(source)) {
-        findings.push({ file, rule });
-      }
     }
   }
 

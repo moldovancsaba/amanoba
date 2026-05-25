@@ -32,6 +32,7 @@ This is the **Brain Boost** every developer must read before touching Amanoba co
 - **Build/release**: `npm run build`, optional release scripts `npm run release:patch|minor|major`.
 - **Seed/rebuild data**: plenty of helpers under `scripts/` (`seed:*`, `repair:stats`, worker launchers, etc.). Always supply `.env.local` where required.
 - **Docs health**: run `npm run docs:check` when touching architecture, flows, or product behavior. These scripts generate the docs inventory (needed for the `docs/product/TASKLIST` discipline).
+- **GDS enforcement**: run `npm run ui:check:gds` when touching shared UI, adapters, pattern contracts, or exceptions.
 
 ## 5. Documentation obligations
 - `docs/HANDOVER.md`: update after every change that affects runtime, process, or status. Append entries (don’t rewrite history).

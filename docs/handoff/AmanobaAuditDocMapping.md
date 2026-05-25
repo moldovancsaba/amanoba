@@ -1,6 +1,6 @@
 # Amanoba Audit: SSOT Inventory
 
-**Last Updated**: 2026-05-20
+**Last Updated**: 2026-05-25
 **Board SSOT**: https://github.com/users/moldovancsaba/projects/12/views/1
 **Issues Repo**: `moldovancsaba/mvp-factory-control`
 **Recent Audit Issues**: `#371`, `#373`, `#374` (Done / closed on 2026-05-20)
@@ -34,7 +34,9 @@ This document maps active Amanoba documentation to the code, scripts, and produc
 | `docs/product/TASKLIST.md` | Reference mirror of current work shape. | Project 12 issues. | Rewritten as a compact mirror; live tasks remain on Project 12. |
 | `docs/product/ROADMAP.md` | Future vision only. | Project 12 roadmap items. | Updated review date and current documentation-quality vision. |
 | `docs/product/RELEASE_NOTES.md` | Shipped changes. | Git history, deployed releases. | Keep for shipped work only; do not store open tasks here. |
-| `docs/product/DESIGN_UPDATE.md` | Amanoba adapter status, shared-SSOT alignment, exceptions, and migration backlog. | `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`, `app/design-system.css`, `tailwind.config.ts`, `app/globals.css`, UI checks. | Current as of May 21; shared SSOT adopted and local Tailwind/Radix adapter still migrating. |
+| `docs/product/DESIGN_UPDATE.md` | Amanoba adapter status, shared-SSOT alignment, exceptions, and migration backlog. | `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`, `https://github.com/sovereignsquad/general-design-system`, `app/design-system.css`, `app/globals.css`, UI checks. | Current as of May 25; shared SSOT aligned to GDS 2.3.2 with both local working-copy and portable upstream references documented. |
+| `docs/product/GDS_ADOPTION_MANIFEST.md` | Local GDS enforcement contract: allowlist/banlist, protected surfaces, required contract paths, and validation commands. | `config/gds-adoption.json`, `scripts/check-gds-adoption.ts`, `scripts/check-mantine-boundaries.mjs`, UI checks. | Current as of May 25; validates that docs, contract paths, and protected-surface scope remain aligned. |
+| `docs/product/GDS_EXCEPTION_REGISTER.md` | Approved local GDS exception scope, user impact, and removal conditions. | `config/gds-adoption.json`, documented exception file paths, `docs/product/DESIGN_UPDATE.md`. | Current as of May 25; exceptions are explicit and machine-checked. |
 
 ## Feature Docs To Keep Current
 
@@ -55,7 +57,7 @@ This document maps active Amanoba documentation to the code, scripts, and produc
 | Cross-repo path portability | Active docs now have a portable `amanoba_courses:process_them/docs/...` convention in `docs/core/CROSS_REPO_DOCS.md`; historical docs may keep original machine-local paths for auditability. | Keep new active docs on the canonical notation and migrate older active references opportunistically. |
 | Historical docs in active folders | Some phase-complete and older handoff documents remain outside `_archive` for link stability. | Do not use them as current implementation guidance; promote/archive in a future docs hygiene pass. |
 | Certification planning docs | Several certification plan variants mention master 30-day pools because they are historical design notes. | Prefer `docs/certification/CERTIFICATION_REFERENCE.md` and runtime code for current truth; archive old variants when certification docs are next in scope. |
-| UI design drift | Hard-rule checks pass, but heuristic drift remains in older admin/game/profile/certificate surfaces and the app is not Mantine-only yet. | Continue migration toward `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`; keep `docs/product/DESIGN_UPDATE.md` updated. |
+| UI design drift | Hard-rule checks pass, but heuristic drift remains in older admin/game/profile/certificate surfaces and the app still carries transitional CSS support layers while the migration finishes. | Continue migration toward `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`; keep `docs/product/DESIGN_UPDATE.md` updated. |
 
 ## Quality Gates For Audit Work
 

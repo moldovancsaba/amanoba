@@ -258,7 +258,7 @@ Created comprehensive 43-task execution plan covering 10 phases over 70 days:
 **Task**: Initialize fresh repository and base files
 
 **Actions Completed**:
-1. ✅ Initialized Git repository at `/Users/moldovancsaba/Projects/amanoba`
+1. ✅ Initialized Git repository at `/Users/Shared/Projects/amanoba`
 2. ✅ Connected remote origin: `https://github.com/moldovancsaba/amanoba.git`
 3. ✅ Created comprehensive `.gitignore`
 4. ✅ Created initial `README.md` with project overview

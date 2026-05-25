@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect, useCallback, useMemo, type ReactNode } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import {
@@ -36,6 +36,7 @@ import {
 } from '@tabler/icons-react';
 import { useDebounce } from '@/app/lib/hooks/useDebounce';
 import { DataToolbar } from '@/app/components/patterns/DataToolbar';
+import { MetricCard } from '@/app/components/patterns/MetricCard';
 import { ResponsiveDataView } from '@/app/components/patterns/ResponsiveDataView';
 
 interface Certificate {
@@ -323,29 +324,5 @@ function CertificateStatus({ revoked }: { revoked: boolean }) {
     <Badge color="red" leftSection={<IconCircleX size={12} />} variant="light">Revoked</Badge>
   ) : (
     <Badge color="green" leftSection={<IconCheck size={12} />} variant="light">Active</Badge>
-  );
-}
-
-function MetricCard({
-  label,
-  value,
-  icon,
-  color,
-}: {
-  label: string;
-  value: string;
-  icon: ReactNode;
-  color: string;
-}) {
-  return (
-    <Card padding="md">
-      <Group justify="space-between">
-        <Stack gap={2}>
-          <Text size="sm" c="dimmed">{label}</Text>
-          <Text size="xl" fw={800}>{value}</Text>
-        </Stack>
-        <ThemeIcon color={color} variant="light">{icon}</ThemeIcon>
-      </Group>
-    </Card>
   );
 }

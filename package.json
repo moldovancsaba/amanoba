@@ -65,9 +65,16 @@
     "ui:check:layout": "node --import tsx scripts/audit-layout-grammar-ui.ts --check",
     "ui:audit:foundation": "node --import tsx scripts/audit-ui-foundation.ts --write",
     "ui:check:foundation": "node --import tsx scripts/audit-ui-foundation.ts --check",
-    "ui:check:mantine": "node scripts/check-mantine-boundaries.mjs"
+    "ui:check:mantine": "node scripts/check-mantine-boundaries.mjs",
+    "gds:import-smoke": "node scripts/gds-import-smoke.mjs",
+    "ui:gds:verify": "node scripts/verify-gds-version.mjs",
+    "ui:check:gds-adoption": "node --import tsx scripts/check-gds-adoption.ts",
+    "ui:check:gds": "npm run ui:check:gds-adoption && npm run ui:check:mantine && npm run ui:check:foundation && npm run ui:check:layout"
   },
   "dependencies": {
+    "@gds/admin": "file:../GENERAL_DESIGN_SYSTEM/packages/gds-admin",
+    "@gds/core": "file:../GENERAL_DESIGN_SYSTEM/packages/gds-core",
+    "@gds/theme": "file:../GENERAL_DESIGN_SYSTEM/packages/gds-theme",
     "@auth/mongodb-adapter": "^3.11.2",
     "@emnapi/runtime": "^1.8.1",
     "@hookform/resolvers": "^3.9.0",

@@ -28,7 +28,7 @@ Replace current verification URL pattern `/certificate/verify/[playerId]/[course
 ### Rollback Commands
 ```bash
 # Emergency rollback to stable baseline
-cd /Users/moldovancsaba/Projects/amanoba
+cd /Users/Shared/Projects/amanoba
 git log --oneline -5  # Find commit before this feature
 git reset --hard <commit-hash>
 git push --force origin main

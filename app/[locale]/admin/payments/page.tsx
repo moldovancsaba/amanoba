@@ -23,10 +23,10 @@ import {
   Stack,
   Text,
   TextInput,
-  ThemeIcon,
   Title,
 } from '@mantine/core';
 import { DataToolbar } from '@/app/components/patterns/DataToolbar';
+import { MetricCard } from '@/app/components/patterns/MetricCard';
 import { ResponsiveDataView } from '@/app/components/patterns/ResponsiveDataView';
 import {
   IconCheck,
@@ -463,33 +463,6 @@ export default function AdminPaymentsPage() {
         )}
       </Modal>
     </Stack>
-  );
-}
-
-function MetricCard({
-  label,
-  value,
-  detail,
-  icon,
-  color,
-}: {
-  label: string;
-  value: string;
-  detail: string;
-  icon: ReactNode;
-  color: string;
-}) {
-  return (
-    <Card padding="lg">
-      <Stack gap="sm">
-        <Group justify="space-between">
-          <Text size="sm" c="dimmed" fw={600}>{label}</Text>
-          <ThemeIcon color={color} variant="light">{icon}</ThemeIcon>
-        </Group>
-        <Text size="xl" fw={800}>{value}</Text>
-        <Text size="xs" c="dimmed">{detail}</Text>
-      </Stack>
-    </Card>
   );
 }
 

@@ -29,7 +29,7 @@ This is the production behavior behind `https://www.amanoba.com/en/auth/signin`.
 ### 1. App-Owned Sign-In Page
 
 File:
-- `/Users/moldovancsaba/Projects/amanoba/app/[locale]/auth/signin/page.tsx`
+- `/Users/Shared/Projects/amanoba/app/[locale]/auth/signin/page.tsx`
 
 Behavior:
 - Reads `callbackUrl` from the query string.
@@ -65,8 +65,8 @@ This keeps the SSO provider choice generic for cases where the user does not wan
 ### 4. Return-To Preservation
 
 Files:
-- `/Users/moldovancsaba/Projects/amanoba/app/api/auth/sso/login/route.ts`
-- `/Users/moldovancsaba/Projects/amanoba/app/api/auth/sso/callback/route.ts`
+- `/Users/Shared/Projects/amanoba/app/api/auth/sso/login/route.ts`
+- `/Users/Shared/Projects/amanoba/app/api/auth/sso/callback/route.ts`
 
 Behavior:
 - Amanoba accepts `returnTo` from the sign-in page.
@@ -104,11 +104,11 @@ Current translation keys:
 - `auth.signInAnotherWay`
 
 Files:
-- `/Users/moldovancsaba/Projects/amanoba/messages/en.json`
-- `/Users/moldovancsaba/Projects/amanoba/messages/en-US.json`
-- `/Users/moldovancsaba/Projects/amanoba/messages/en-GB.json`
-- `/Users/moldovancsaba/Projects/amanoba/messages/hu.json`
-- other locale files in `/Users/moldovancsaba/Projects/amanoba/messages`
+- `/Users/Shared/Projects/amanoba/messages/en.json`
+- `/Users/Shared/Projects/amanoba/messages/en-US.json`
+- `/Users/Shared/Projects/amanoba/messages/en-GB.json`
+- `/Users/Shared/Projects/amanoba/messages/hu.json`
+- other locale files in `/Users/Shared/Projects/amanoba/messages`
 
 ## How Amanoba Uses SSO
 

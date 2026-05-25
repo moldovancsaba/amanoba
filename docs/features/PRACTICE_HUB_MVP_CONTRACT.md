@@ -278,6 +278,6 @@ Why this shape is valid for MVP:
 
 ## Rollback
 
-- Remove `/Users/moldovancsaba/Projects/amanoba/docs/features/PRACTICE_HUB_MVP_CONTRACT.md`
-- Remove the related `#781` entry from `/Users/moldovancsaba/Projects/amanoba/docs/HANDOVER.md`
+- Remove `/Users/Shared/Projects/amanoba/docs/features/PRACTICE_HUB_MVP_CONTRACT.md`
+- Remove the related `#781` entry from `/Users/Shared/Projects/amanoba/docs/HANDOVER.md`
 - Re-run `DOCS_CHECK_INCLUDE_ARCHIVE=1 npm run docs:links:check` to confirm the docs set is back to the prior state

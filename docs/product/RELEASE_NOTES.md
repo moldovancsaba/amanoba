@@ -3109,7 +3109,7 @@ This release represents the completion of the core platform infrastructure, data
 #### ✅ Completed Tasks
 
 **1.1 — Repository Initialization**
-- Initialized fresh Git repository at `/Users/moldovancsaba/Projects/amanoba`
+- Initialized fresh Git repository at `/Users/Shared/Projects/amanoba`
 - Connected remote origin: https://github.com/moldovancsaba/amanoba.git
 - Created `.gitignore` with comprehensive exclusions (82 lines)
 - Created project `README.md` with overview and quickstart (183 lines)
