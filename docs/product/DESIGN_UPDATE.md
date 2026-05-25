@@ -50,7 +50,7 @@ The shared SSOT is managed as its own Git repository. Amanoba references version
 
 Production CI must use the same version pin (npm publish or vendored packages)—document any change in this file before deploy.
 
-**Note:** Amanoba runs **Mantine 8.x**; GDS packages declare Mantine 7 peers. `extendGdsTheme` is validated in `npm run gds:import-smoke`; the Next.js client bundle uses an equivalent `createTheme` in `amanoba-gds-theme.ts` until `@gds/theme` is consumed from a published path Next can resolve (local `file:` links work for Node scripts only). Pattern components live in `patterns/gds/` aligned to GDS contracts.
+**Note:** Amanoba runs **Mantine 8.x**; GDS packages declare Mantine 7 peers. `extendGdsTheme` is validated in `npm run gds:import-smoke`; runtime uses `createTheme` with the same Amanoba token contract until published `@gds/theme` resolves in the Next bundle. `next.config.ts` includes `resolveAlias` for local SSOT paths. Pattern components live in `patterns/gds/`.
 
 ### Pattern implementation paths
 

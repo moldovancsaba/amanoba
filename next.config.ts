@@ -1,13 +1,32 @@
 import type { NextConfig } from "next";
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import createNextIntlPlugin from 'next-intl/plugin';
 
 // What: Next.js configuration for Amanoba platform
 // Why: Provides runtime configuration, headers, and optimizations for the unified game platform
 
 const withNextIntl = createNextIntlPlugin('./i18n.ts');
+const repoRoot = path.dirname(fileURLToPath(import.meta.url));
+const gdsRoot = path.resolve(repoRoot, '../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages');
+const gdsResolveAlias = {
+  '@gds/theme': path.join(gdsRoot, 'gds-theme'),
+  '@gds/core': path.join(gdsRoot, 'gds-core'),
+  '@gds/admin': path.join(gdsRoot, 'gds-admin'),
+};
 
 const nextConfig: NextConfig = {
   transpilePackages: ['@gds/theme', '@gds/core', '@gds/admin'],
+  turbopack: {
+    resolveAlias: gdsResolveAlias,
+  },
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      ...gdsResolveAlias,
+    };
+    return config;
+  },
   // Enable React strict mode for better development experience
   reactStrictMode: true,
   

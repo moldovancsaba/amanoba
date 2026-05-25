@@ -1454,10 +1454,10 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ### What changed
 - Installed `@gds/theme`, `@gds/core`, `@gds/admin` at **2.3.0** (local `file:` SSOT path).
-- Theme authority via `extendGdsTheme` in `app/lib/ui/amanoba-gds-theme.ts`.
+- Theme authority in `app/lib/ui/amanoba-gds-theme.ts` (GDS-aligned tokens; `extendGdsTheme` verified via `gds:import-smoke`).
 - Consolidated pattern implementations under `app/components/patterns/gds/` with stable re-exports at `patterns/*.tsx`.
 - Added `ProgressCard`, `gds:import-smoke`, `ui:gds:verify` guardrails.
-- StateBlock rollout on quests, rewards, saved lessons, email settings.
+- StateBlock rollout on quests, rewards, saved lessons, email settings, and profile loading/error.
 - Updated `docs/product/DESIGN_UPDATE.md` and `docs/product/PATTERN_CONTRACT_INVENTORY.md` to GDS 2.3.0.
 - Program issues: mvp-factory-control **#868** (epic), **#869**–**#877**; GDS upstream **general-design-system#80**.
 

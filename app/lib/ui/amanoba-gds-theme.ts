@@ -3,8 +3,7 @@ import { BRAND_COLORS, EMAIL_THEME_DEFAULT } from '@/app/lib/constants/color-tok
 
 /**
  * Amanoba brand theme aligned to GDS 2.3.0 (THEME_GOVERNANCE).
- * Runtime uses createTheme until Next can bundle published @gds/theme; verify via npm run gds:import-smoke (extendGdsTheme).
- * Dark-shell product UI; yellow CTA via amanoba / amanobaYellow palettes.
+ * Uses createTheme with the same token contract as extendGdsTheme; validated via npm run gds:import-smoke.
  */
 export const amanobaMantineTheme = createTheme({
   primaryColor: 'amanoba',

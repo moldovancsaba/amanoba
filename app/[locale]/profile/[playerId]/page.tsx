@@ -52,6 +52,7 @@ import {
   IconTrophy,
   IconUpload,
 } from '@tabler/icons-react';
+import { StateBlock } from '@/app/components/patterns/StateBlock';
 import PlayerAvatar from '@/components/PlayerAvatar';
 import { locales, type Locale } from '@/app/lib/i18n/locales';
 
@@ -391,12 +392,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
   if (loading) {
     return (
       <Container size="lg" py="xl">
-        <Center mih="60vh">
-          <Group>
-            <Loader color="amanobaYellow" />
-            <Text c="white">Loading profile...</Text>
-          </Group>
-        </Center>
+        <StateBlock kind="loading" title="Loading profile..." />
       </Container>
     );
   }
@@ -404,11 +400,12 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
   if (!playerId) {
     return (
       <Container size="lg" py="xl">
-        <Center mih="60vh">
-          <Alert color="red" icon={<IconAlertTriangle size={18} />} title="Profile not found">
-            The requested profile could not be resolved.
-          </Alert>
-        </Center>
+        <StateBlock
+          kind="error"
+          title="Profile not found"
+          description="The requested profile could not be resolved."
+          icon={<IconAlertTriangle size={28} />}
+        />
       </Container>
     );
   }
