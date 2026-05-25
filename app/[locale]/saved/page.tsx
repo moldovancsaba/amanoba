@@ -3,14 +3,12 @@
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import {
-  Alert,
   Badge,
   Box,
   Button,
   Card,
   Container,
   Group,
-  Loader,
   SimpleGrid,
   Stack,
   Text,
@@ -20,6 +18,7 @@ import {
 import { IconBookmark, IconClock, IconLibrary } from '@tabler/icons-react';
 import { LocaleLink } from '@/components/LocaleLink';
 import { LearnerPageHeader } from '@/app/components/LearnerPageHeader';
+import { StateBlock } from '@/app/components/patterns/StateBlock';
 
 type SavedLessonItem = {
   course: {
@@ -90,44 +89,34 @@ export default function SavedLessonsPage() {
 
       <Container component="main" size="lg" py={{ base: 'lg', sm: 'xl' }}>
         {loading ? (
-          <Card padding="xl" withBorder>
-            <Group justify="center" gap="sm">
-              <Loader color="amanoba" size="sm" />
-              <Text fw={700}>Loading saved lessons...</Text>
-            </Group>
-          </Card>
+          <StateBlock kind="loading" title="Loading saved lessons..." compact />
         ) : error ? (
-          <Card padding="xl" withBorder>
-            <Stack gap="md" align="center">
-              <Alert color="red" w="100%">{error}</Alert>
-              <Button
-                component={LocaleLink}
-              href="/dashboard"
-                color="amanoba"
-            >
-              Return to dashboard
+          <StateBlock
+            kind="error"
+            title="Could not load saved lessons"
+            description={error}
+            action={(
+              <Button component={LocaleLink} href="/dashboard" color="amanoba">
+                Return to dashboard
               </Button>
-            </Stack>
-          </Card>
+            )}
+          />
         ) : savedLessons.length === 0 ? (
-          <Card padding="xl" withBorder>
-            <Stack gap="md" align="center" ta="center">
+          <StateBlock
+            kind="empty"
+            title="No saved lessons yet"
+            description="Save lesson days when you want to come back to them intentionally."
+            icon={(
               <ThemeIcon color="amanoba" variant="light" size={64} radius="xl">
                 <IconLibrary size={34} />
               </ThemeIcon>
-              <Title order={2} size="h3">No saved lessons yet</Title>
-              <Text c="dimmed">
-              Save lesson days when you want to come back to them intentionally.
-              </Text>
-              <Button
-                component={LocaleLink}
-              href="/my-courses"
-                color="amanoba"
-            >
-              Browse my courses
+            )}
+            action={(
+              <Button component={LocaleLink} href="/courses" color="amanoba">
+                Browse courses
               </Button>
-            </Stack>
-          </Card>
+            )}
+          />
         ) : (
           <Stack gap="md">
             {savedLessons.map((item) => (

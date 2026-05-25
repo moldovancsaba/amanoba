@@ -1450,3 +1450,23 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:check:mantine` ✅ pass
 - `npm run build` ✅ pass
 
+## GDS 2.3.0 rock-solid adoption program (2026-05-24)
+
+### What changed
+- Installed `@gds/theme`, `@gds/core`, `@gds/admin` at **2.3.0** (local `file:` SSOT path).
+- Theme authority via `extendGdsTheme` in `app/lib/ui/amanoba-gds-theme.ts`.
+- Consolidated pattern implementations under `app/components/patterns/gds/` with stable re-exports at `patterns/*.tsx`.
+- Added `ProgressCard`, `gds:import-smoke`, `ui:gds:verify` guardrails.
+- StateBlock rollout on quests, rewards, saved lessons, email settings.
+- Updated `docs/product/DESIGN_UPDATE.md` and `docs/product/PATTERN_CONTRACT_INVENTORY.md` to GDS 2.3.0.
+- Program issues: mvp-factory-control **#868** (epic), **#869**–**#877**; GDS upstream **general-design-system#80**.
+
+### Verification
+- `npm run gds:import-smoke` ✅ pass
+- `npm run ui:gds:verify` ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run ui:check:mantine` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run build` ✅ pass
+

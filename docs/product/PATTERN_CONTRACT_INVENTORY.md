@@ -1,54 +1,51 @@
 # Amanoba Pattern Contract Inventory
 
-**Last Updated**: 2026-05-23
-**Status**: Active local adapter
+**Last Updated**: 2026-05-24
+**Status**: Active local adapter (GDS 2.3.0 packages)
 **Shared SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
-**Aligned GDS Version**: `2.2.0`
+**Aligned GDS Version**: `2.3.0`
 
-This document is Amanoba's local adapter inventory for the GDS pattern service model. It records implementation paths and migration state only. The design, UX, component behavior, responsive rules, color-mode rules, and Mantine-only policy remain owned by the shared GDS.
+This document is Amanoba's local adapter inventory for the GDS pattern service model. It records implementation paths and migration state only.
 
 ## Contract Summary
 
-| GDS Contract | Amanoba Implementation | Status | Notes |
-|---|---|---|---|
-| Learner shell / page header | `app/components/LearnerPageHeader.tsx` | Canonical | Used by dashboard, course catalog, My Courses, Practice Hub, Saved Lessons, blog, and news index pages. |
-| Article shell | `app/components/patterns/ArticleShell.tsx` | Canonical | Used by blog/news detail pages. Index pages still use the learner header because they are learner-facing product surfaces. |
-| Product course card | `app/components/patterns/CourseCard.tsx` | Canonical | Used by course catalog, My Courses, dashboard recommendations, and active-course progress cards. |
-| Metric / progress card | `app/components/patterns/MetricCard.tsx` | Canonical | Used by learner dashboard, stats, admin rewards, email analytics, payments, and certificates metric grids. |
-| State block | `app/components/patterns/StateBlock.tsx` | Canonical | Used by course catalog, My Courses, and dashboard loading/error/empty/permission states. Remaining route-level states should migrate to this contract. |
-| Course access recovery | `app/components/patterns/CourseAccessRecoveryActions.tsx` + `app/lib/course-access-recovery.ts` | Canonical | Used by protected lesson day and lesson quiz routes for 401/404 recovery (sign-in, back to course, retry). |
-| Admin shell | `app/[locale]/admin/layout.tsx` | Canonical | Mantine `AppShell` with `NavLink`, `ScrollArea`, `Menu`, and Tabler icons. |
-| Auth shell | `app/components/patterns/AuthShell.tsx`, `app/[locale]/auth/signin/page.tsx`, `app/[locale]/auth/error/page.tsx` | Canonical | Shared centered auth layout; sign-in and auth error routes compose `AuthShell` with Mantine cards and `StateBlock`. |
-| Public shell | `app/components/patterns/PublicAppShell.tsx`, `app/[locale]/page.tsx`, `app/[locale]/partners/page.tsx` | Canonical | Shared marketing header/footer band; landing and partners compose the shell. |
-| Data toolbar | `app/components/patterns/DataToolbar.tsx` | Canonical | Admin list filters including analytics and email reporting period controls. |
-| Responsive data view | `app/components/patterns/ResponsiveDataView.tsx` | Canonical | Table on `md+`, card rows on small screens; used across admin list and analytics tables. |
-| Editor shell | `app/[locale]/editor/layout.tsx` | Canonical | Mantine `AppShell` for the editor portal (courses navigation). |
-| Game shell | `app/[locale]/games/**`, `app/components/games/**` | Canonical | Memory and sudoku pages use Mantine shells; board tiles use `GameBoardCard` where flip/highlight behavior applies. |
-| Game board card | `app/components/patterns/GameBoardCard.tsx` | Canonical | Flip tile for memory and other game boards. |
+| GDS Contract | Amanoba implementation | GDS package | Status | Notes |
+| --- | --- | --- | --- | --- |
+| Theme | `app/lib/ui/amanoba-gds-theme.ts` | `@gds/theme` + `extendGdsTheme` | Canonical | Dark product shell; `theme.other.brand` / `email` |
+| Learner shell / page header | `app/components/LearnerPageHeader.tsx` | — | Local adapter | Until GDS LearnerAppShell (#80) |
+| Article shell | `app/components/patterns/gds/ArticleShell.tsx` | `@gds/core` (aligned local) | Canonical | Re-export at `patterns/ArticleShell.tsx` |
+| Product course card | `app/components/patterns/CourseCard.tsx` | `ProductCard` (future) | Local adapter | Course-specific slots |
+| Metric card | `app/components/patterns/gds/MetricCard.tsx` | `@gds/core/MetricCard` (aligned local) | Canonical | Uses `detail`, `progress`, `color` props |
+| Progress card | `app/components/patterns/gds/ProgressCard.tsx` | `@gds/core/ProgressCard` (aligned local) | Canonical | Quest/course progress |
+| State block | `app/components/patterns/gds/StateBlock.tsx` | `@gds/core/StateBlock` (aligned local) | Canonical | `kind` API; error uses Alert |
+| Course access recovery | `CourseAccessRecoveryActions.tsx` | — | Local adapter | Not `AccessSummary` |
+| Admin shell | `app/[locale]/admin/layout.tsx` | `@gds/admin/AppShell` (optional) | Canonical | Mantine AppShell |
+| Auth shell | `app/components/patterns/gds/AuthShell.tsx` | `@gds/core/AuthShell` (Amanoba variant) | Canonical | Dark `ink.9` layout |
+| Public shell | `app/components/patterns/gds/PublicAppShell.tsx` | `@gds/core/PublicShell` (Amanoba variant) | Canonical | Marketing header band |
+| Data toolbar | `app/components/patterns/gds/DataToolbar.tsx` | `@gds/core/DataToolbar` (aligned local) | Canonical | `layout: inline \| stack` |
+| Responsive data view | `app/components/patterns/gds/ResponsiveDataView.tsx` | `@gds/admin/ResponsiveDataView` (adapter) | Canonical | `rows` + `md` table breakpoint |
+| Editor shell | `app/[locale]/editor/layout.tsx` | `@gds/admin/EditorScaffold` (future) | Canonical | |
+| Game shell | `app/[locale]/games/**` | — | Canonical + exception | Canvas exception |
+| Game board card | `app/components/patterns/gds/GameBoardCard.tsx` | — | Local adapter | Until GDS GameBoardTile |
 
 ## Canonical Component Rules
 
-- Repeated course cards must use `CourseCard`.
-- Repeated learner/dashboard metrics must use `MetricCard`.
-- Loading, empty, error, permission, disabled, and success states must use `StateBlock` unless a local exception is documented here.
-- Blog/news detail pages must use `ArticleShell`.
-- Learner-facing top navigation must use `LearnerPageHeader` until a fuller learner `AppShell` contract replaces it.
-- New page-local shells, cards, metric blocks, and state blocks are not allowed when a canonical contract exists.
+- Import shared patterns from `@/app/components/patterns/*` or `@/app/components/patterns/gds`.
+- Do not duplicate pattern implementations outside `patterns/gds/` except documented local adapters (`CourseCard`, `LearnerPageHeader`, `CourseAccessRecoveryActions`).
+- Loading, empty, error, permission, success on learner routes must use `StateBlock`.
 
 ## Current Highest-Risk Gaps
 
-None at this time; game-board flip tiles are covered by `GameBoardCard`.
-
-## Implementation Sequence
-
-1. Complete learner-facing reuse first: course catalog, dashboard, My Courses, blog/news detail, and route states.
-2. Tighten `npm run ui:check:mantine` after each group so old variants cannot return.
+- GDS **LearnerAppShell** and **course card variant** contracts (coordination: general-design-system #80).
+- Production npm publish path for `@gds/*` (currently `file:` to shared SSOT).
 
 ## Verification Commands
 
+- `npm run ui:gds:verify`
+- `npm run gds:import-smoke`
 - `npm run ui:check:mantine`
 - `npm run ui:check:foundation`
 - `npm run ui:check:layout`
-- `npm run lint`
 - `npm run type-check`
+- `npm run lint`
 - `npm run build`

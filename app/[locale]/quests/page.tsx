@@ -12,21 +12,19 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import {
-  Alert,
   Badge,
   Button,
   Card,
-  Center,
   Container,
   Grid,
   Group,
-  Loader,
   Progress,
   Stack,
   Text,
   ThemeIcon,
   Title,
 } from '@mantine/core';
+import { StateBlock } from '@/app/components/patterns/StateBlock';
 import {
   IconBolt,
   IconChevronLeft,
@@ -125,25 +123,25 @@ export default function QuestsPage() {
 
   if (loading || status === 'loading') {
     return (
-      <Center mih="100vh">
-        <Loader />
-      </Center>
+      <Container size="lg" py="xl">
+        <StateBlock kind="loading" title={tCommon('loading')} />
+      </Container>
     );
   }
 
   if (error) {
     return (
-      <Container size="xs" py="xl">
-        <Card withBorder>
-          <Stack align="center">
-            <Alert color="red" title={t('unableToLoad')}>
-              {error}
-            </Alert>
+      <Container size="lg" py="xl">
+        <StateBlock
+          kind="error"
+          title={t('unableToLoad')}
+          description={error}
+          action={(
             <Button component={LocaleLink} href="/dashboard">
               {tDashboard('backToDashboard')}
             </Button>
-          </Stack>
-        </Card>
+          )}
+        />
       </Container>
     );
   }

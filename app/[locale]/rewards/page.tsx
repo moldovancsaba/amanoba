@@ -9,10 +9,8 @@ import {
   Badge,
   Button,
   Card,
-  Center,
   Container,
   Group,
-  Loader,
   SegmentedControl,
   SimpleGrid,
   Stack,
@@ -20,13 +18,13 @@ import {
   ThemeIcon,
   Title,
 } from '@mantine/core';
+import { StateBlock } from '@/app/components/patterns/StateBlock';
 import {
   IconAlertCircle,
   IconChevronLeft,
   IconCheck,
   IconDiamond,
   IconGift,
-  IconMoodSad,
   IconShoppingCart,
   IconSparkles,
   IconStar,
@@ -125,30 +123,25 @@ export default function RewardsPage() {
 
   if (loading || status === 'loading') {
     return (
-      <Center mih="70vh">
-        <Stack align="center" gap="md">
-          <Loader />
-          <Text size="lg">{tCommon('loading')}</Text>
-        </Stack>
-      </Center>
+      <Container size="lg" py="xl">
+        <StateBlock kind="loading" title={tCommon('loading')} />
+      </Container>
     );
   }
 
   if (error) {
     return (
-      <Container size="sm" py="xl">
-        <Card withBorder p="xl">
-          <Stack align="center" gap="md">
-            <ThemeIcon size="xl" variant="light" color="gray">
-              <IconMoodSad />
-            </ThemeIcon>
-            <Title order={2}>{t('unableToLoad')}</Title>
-            <Text c="dimmed" ta="center">{error}</Text>
-            <Button component={LocaleLink} href="/dashboard" leftSection={<IconChevronLeft size={18} />}>
+      <Container size="lg" py="xl">
+        <StateBlock
+          kind="error"
+          title={t('unableToLoad')}
+          description={error}
+          action={(
+            <Button component={LocaleLink} href="/dashboard">
               {tDashboard('backToDashboard')}
             </Button>
-          </Stack>
-        </Card>
+          )}
+        />
       </Container>
     );
   }

@@ -6,11 +6,9 @@ import {
   Alert,
   Button,
   Card,
-  Center,
   Container,
   Divider,
   Group,
-  Loader,
   NumberInput,
   Select,
   Stack,
@@ -19,6 +17,7 @@ import {
   ThemeIcon,
   Title,
 } from '@mantine/core';
+import { StateBlock } from '@/app/components/patterns/StateBlock';
 import {
   IconCheck,
   IconChevronLeft,
@@ -117,12 +116,9 @@ export default function EmailSettingsPage() {
 
   if (loading) {
     return (
-      <Center mih="70vh">
-        <Stack align="center" gap="md">
-          <Loader />
-          <Text size="lg">Loading...</Text>
-        </Stack>
-      </Center>
+      <Container size="md" py="xl">
+        <StateBlock kind="loading" title="Loading email settings..." />
+      </Container>
     );
   }
 

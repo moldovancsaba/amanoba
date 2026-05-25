@@ -7,6 +7,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
 const nextConfig: NextConfig = {
+  transpilePackages: ['@gds/theme', '@gds/core', '@gds/admin'],
   // Enable React strict mode for better development experience
   reactStrictMode: true,
   
