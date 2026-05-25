@@ -31,13 +31,10 @@
         "./app/lib/*"
       ],
       "@gds/theme": [
-        "../GENERAL_DESIGN_SYSTEM/packages/gds-theme/dist/index"
+        "./app/lib/gds/theme"
       ],
       "@gds/core": [
-        "../GENERAL_DESIGN_SYSTEM/packages/gds-core/dist/index"
-      ],
-      "@gds/admin": [
-        "../GENERAL_DESIGN_SYSTEM/packages/gds-admin/dist/index"
+        "./app/lib/gds/core"
       ]
     },
     "target": "ES2017"

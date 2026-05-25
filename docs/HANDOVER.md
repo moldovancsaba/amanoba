@@ -74,6 +74,27 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ---
 
+## Vercel-safe GDS runtime boundary (2026-05-25)
+
+### What changed
+- Replaced the production app's direct dependency on the sibling `GENERAL_DESIGN_SYSTEM` checkout with repo-local governed shims at `app/lib/gds/theme.ts` and `app/lib/gds/core.tsx`.
+- Cleaned `next.config.ts` so `@gds/theme` and `@gds/core` resolve to those local files during webpack builds instead of to external filesystem paths that do not exist on Vercel.
+- Updated `tsconfig.json` to match the local alias resolution used by the build.
+- Preserved the existing Amanoba pattern entrypoints and theme composition API, so app code still imports `@gds/*` contracts while deployment no longer depends on a sibling repo checkout.
+
+### Why
+- Vercel builds clone only the Amanoba repository. They do not have `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`, so direct runtime imports from `@gds/core` and `@gds/theme` were causing production compilation failures.
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run build` ✅ pass
+
+### Notes
+- The shared GDS checkout remains required for local governance/version tooling (`gds:import-smoke`, compliance validation, version verification) until the upstream packages are published and consumable in CI/CD.
+
+---
+
 ## Local GDS enforcement contract (2026-05-25)
 
 ### What changed

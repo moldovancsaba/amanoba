@@ -1,7 +1,7 @@
 # Design System Adapter Status
 
 **Last Updated**: 2026-05-25
-**Status**: GDS 2.4.3 enforced; Mantine-only runtime; product primitives are `@gds/*`-backed
+**Status**: GDS 2.4.3 enforced; Mantine-only runtime; product primitives use deploy-safe local `@gds/*` adapters
 
 ---
 
@@ -37,7 +37,7 @@ The shared SSOT is managed as its own Git repository: https://github.com/soverei
 
 **Aligned SSOT version/date**: `2.4.3`, 2026-05-25
 **Status**: Mantine-only product UI; GDS packages installed; pattern implementations consolidated under `app/components/patterns/gds/`
-**Current UI foundation**: `@gds/theme` via `extendGdsTheme` in `app/lib/ui/amanoba-gds-theme.ts`, root `MantineRuntimeProvider`, narrowed `globals.css` + token-only `design-system.css`
+**Current UI foundation**: repo-local `@gds/theme` shim via `extendGdsTheme` in `app/lib/ui/amanoba-gds-theme.ts`, root `MantineRuntimeProvider`, narrowed `globals.css` + token-only `design-system.css`
 **Target UI foundation**: Mantine-only contract from the shared SSOT (achieved for product primitives; documented exceptions remain)
 
 ### Package install (local development)
@@ -48,9 +48,9 @@ The shared SSOT is managed as its own Git repository: https://github.com/soverei
 | `@gds/core` | 2.4.3 | `file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-core` |
 | `@gds/admin` | 2.4.3 | `file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-admin` |
 
-Production CI must use the same version pin (npm publish or vendored packages)—document any change in this file before deploy.
+Production runtime does not import the sibling checkout directly. The app resolves `@gds/theme` and `@gds/core` to repo-local governed shims in `app/lib/gds/*` so Vercel builds without `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`. Local governance/version scripts still use the shared checkout and version pin.
 
-**Note:** Amanoba runs **Mantine 8.x**; GDS packages declare Mantine 7 peers. Runtime theme uses `extendGdsTheme` from `@gds/theme`; `gds:import-smoke` uses `@gds/theme/client`. Local `file:` SSOT requires `next build --webpack` and `next.config.ts` `resolveAlias` (Turbopack does not resolve `@gds/*` in the client graph yet). Pattern components live in `patterns/gds/`.
+**Note:** Amanoba runs **Mantine 8.x**; shared GDS packages still declare Mantine 7 peers. Runtime theme uses `extendGdsTheme` through a repo-local alias, and pattern components live in `patterns/gds/`. Local `gds:import-smoke` and compliance/version scripts still rely on the shared SSOT checkout.
 
 ### Pattern implementation paths
 
@@ -61,7 +61,7 @@ Production CI must use the same version pin (npm publish or vendored packages)�
 | Theme | `app/lib/ui/amanoba-gds-theme.ts` → `mantine-theme.ts` |
 | Learner header | `app/components/LearnerPageHeader.tsx` (local until GDS LearnerAppShell) |
 | Course card | `app/components/patterns/CourseCard.tsx` |
-| Course access recovery | `app/components/patterns/gds/CourseAccessRecoveryActions.tsx` → `@gds/core` `AccessRecoveryPanel` |
+| Course access recovery | `app/components/patterns/gds/CourseAccessRecoveryActions.tsx` → local `@gds/core` `AccessRecoveryPanel` shim |
 | Admin shell | `app/[locale]/admin/layout.tsx` |
 | Editor shell | `app/[locale]/editor/layout.tsx` |
 
@@ -83,8 +83,8 @@ Per GDS `EXCEPTION_SURFACES.md` and local needs:
 
 Implemented:
 
-- `@gds/theme` + `extendGdsTheme` for Amanoba brand (dark shell, `amanoba` / `ink` palettes).
-- Pattern barrel under `app/components/patterns/gds/`: **StateBlock**, **MetricCard**, **ProgressCard**, **GameBoardCard**, **CourseAccessRecovery** delegate to `@gds/core`; brand-composition shells documented in `gds-adoption.json`.
+- Repo-local `@gds/theme` shim + `extendGdsTheme` for Amanoba brand (dark shell, `amanoba` / `ink` palettes).
+- Pattern barrel under `app/components/patterns/gds/`: **StateBlock**, **MetricCard**, **ProgressCard**, **GameBoardCard**, **CourseAccessRecovery** delegate to the local `@gds/core` shim; brand-composition shells documented in `gds-adoption.json`.
 - Admin list contracts across admin reporting surfaces.
 - StateBlock on learner routes including quests, rewards, saved lessons, email settings.
 - Guardrails: `npm run ui:check:mantine`, `ui:gds:verify`, `gds:import-smoke`.
