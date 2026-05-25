@@ -1470,3 +1470,16 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:check:foundation` ✅ pass
 - `npm run build` ✅ pass
 
+## GDS 2.3.2 bump and upstream GameBoardTile (2026-05-25)
+
+### What changed
+- Aligned `@gds/theme`, `@gds/core`, `@gds/admin` to **2.3.2** (local SSOT at `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`).
+- Runtime theme uses `extendGdsTheme` from `@gds/theme`; `GameBoardCard` adapts `@gds/core` `GameBoardTile` with `highlightColor="amanoba.5"`.
+- Production build uses `next build --webpack` so local `file:` `@gds/*` resolves in the client graph (Turbopack gap).
+- Upstream GDS: `GameBoardTile`, `docs/AMANOBA_BLOCKING_CONTRACTS.md`, gap §2B refresh, Amanoba appendix in `THEME_GOVERNANCE.md` ([general-design-system#80](https://github.com/sovereignsquad/general-design-system/issues/80)).
+
+### Verification
+- `npm run gds:import-smoke` ✅ pass
+- `npm run ui:gds:verify` ✅ pass
+- `npm run build` ✅ pass (`--webpack`)
+

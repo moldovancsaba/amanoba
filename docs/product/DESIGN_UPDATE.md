@@ -1,7 +1,7 @@
 # Design System Adapter Status
 
-**Last Updated**: 2026-05-24
-**Status**: GDS 2.3.0 adopted; Mantine-only runtime active; `@gds/*` packages wired
+**Last Updated**: 2026-05-25
+**Status**: GDS 2.3.2 adopted; Mantine-only runtime active; `@gds/*` packages wired
 
 ---
 
@@ -26,7 +26,7 @@ Read in this order:
 9. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/THEME_GOVERNANCE.md`
 10. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/EXCEPTION_SURFACES.md`
 
-The shared SSOT is managed as its own Git repository. Amanoba references version **2.3.0** (2026-05-24).
+The shared SSOT is managed as its own Git repository: https://github.com/sovereignsquad/general-design-system. Amanoba references version **2.3.2** (2026-05-25).
 
 ## Project Migration Plan
 
@@ -35,7 +35,7 @@ The shared SSOT is managed as its own Git repository. Amanoba references version
 
 ## Local Adapter
 
-**Aligned SSOT version/date**: `2.3.0`, 2026-05-24
+**Aligned SSOT version/date**: `2.3.2`, 2026-05-25
 **Status**: Mantine-only product UI; GDS packages installed; pattern implementations consolidated under `app/components/patterns/gds/`
 **Current UI foundation**: `@gds/theme` via `extendGdsTheme` in `app/lib/ui/amanoba-gds-theme.ts`, root `MantineRuntimeProvider`, narrowed `globals.css` + token-only `design-system.css`
 **Target UI foundation**: Mantine-only contract from the shared SSOT (achieved for product primitives; documented exceptions remain)
@@ -44,13 +44,13 @@ The shared SSOT is managed as its own Git repository. Amanoba references version
 
 | Package | Version | Path |
 | --- | --- | --- |
-| `@gds/theme` | 2.3.0 | `file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-theme` |
-| `@gds/core` | 2.3.0 | `file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-core` |
-| `@gds/admin` | 2.3.0 | `file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-admin` |
+| `@gds/theme` | 2.3.2 | `file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-theme` |
+| `@gds/core` | 2.3.2 | `file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-core` |
+| `@gds/admin` | 2.3.2 | `file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-admin` |
 
 Production CI must use the same version pin (npm publish or vendored packages)—document any change in this file before deploy.
 
-**Note:** Amanoba runs **Mantine 8.x**; GDS packages declare Mantine 7 peers. `extendGdsTheme` is validated in `npm run gds:import-smoke`; runtime uses `createTheme` with the same Amanoba token contract until published `@gds/theme` resolves in the Next bundle. `next.config.ts` includes `resolveAlias` for local SSOT paths. Pattern components live in `patterns/gds/`.
+**Note:** Amanoba runs **Mantine 8.x**; GDS packages declare Mantine 7 peers. Runtime theme uses `extendGdsTheme` from `@gds/theme`; `gds:import-smoke` uses `@gds/theme/client`. Local `file:` SSOT requires `next build --webpack` and `next.config.ts` `resolveAlias` (Turbopack does not resolve `@gds/*` in the client graph yet). Pattern components live in `patterns/gds/`.
 
 ### Pattern implementation paths
 
@@ -84,7 +84,7 @@ Per GDS `EXCEPTION_SURFACES.md` and local needs:
 Implemented:
 
 - `@gds/theme` + `extendGdsTheme` for Amanoba brand (dark shell, `amanoba` / `ink` palettes).
-- Pattern barrel under `app/components/patterns/gds/` for Auth, Public, Article, Metric, Progress, State, DataToolbar, ResponsiveDataView, GameBoardCard.
+- Pattern barrel under `app/components/patterns/gds/` for Auth, Public, Article, Metric, Progress, State, DataToolbar, ResponsiveDataView, GameBoardCard (thin adapter over `@gds/core` `GameBoardTile`).
 - Admin list contracts across admin reporting surfaces.
 - StateBlock on learner routes including quests, rewards, saved lessons, email settings.
 - Guardrails: `npm run ui:check:mantine`, `ui:gds:verify`, `gds:import-smoke`.

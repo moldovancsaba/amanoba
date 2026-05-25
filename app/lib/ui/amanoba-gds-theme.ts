@@ -1,11 +1,13 @@
-import { createTheme } from '@mantine/core';
+'use client';
+
+import { extendGdsTheme } from '@gds/theme';
 import { BRAND_COLORS, EMAIL_THEME_DEFAULT } from '@/app/lib/constants/color-tokens';
 
 /**
- * Amanoba brand theme aligned to GDS 2.3.0 (THEME_GOVERNANCE).
- * Uses createTheme with the same token contract as extendGdsTheme; validated via npm run gds:import-smoke.
+ * Amanoba brand extension of GDS base theme (THEME_GOVERNANCE).
+ * Consumes `@gds/theme` via local SSOT alias; prefer `/client` when published on npm.
  */
-export const amanobaMantineTheme = createTheme({
+export const amanobaMantineTheme = extendGdsTheme({
   primaryColor: 'amanoba',
   primaryShade: 5,
   defaultRadius: 'md',

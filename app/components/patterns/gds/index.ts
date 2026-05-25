@@ -1,5 +1,5 @@
 /**
- * GDS 2.3.0-aligned pattern barrel. Implementations live here; root `patterns/*.tsx` re-export for stable imports.
+ * GDS 2.3.2-aligned pattern barrel. Implementations live here; root `patterns/*.tsx` re-export for stable imports.
  */
 export { AuthShell } from './AuthShell';
 export { PublicAppShell } from './PublicAppShell';

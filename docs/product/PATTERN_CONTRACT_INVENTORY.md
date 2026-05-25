@@ -3,7 +3,7 @@
 **Last Updated**: 2026-05-24
 **Status**: Active local adapter (GDS 2.3.0 packages)
 **Shared SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
-**Aligned GDS Version**: `2.3.0`
+**Aligned GDS Version**: `2.3.2`
 
 This document is Amanoba's local adapter inventory for the GDS pattern service model. It records implementation paths and migration state only.
 
@@ -26,7 +26,7 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | Responsive data view | `app/components/patterns/gds/ResponsiveDataView.tsx` | `@gds/admin/ResponsiveDataView` (adapter) | Canonical | `rows` + `md` table breakpoint |
 | Editor shell | `app/[locale]/editor/layout.tsx` | `@gds/admin/EditorScaffold` (future) | Canonical | |
 | Game shell | `app/[locale]/games/**` | — | Canonical + exception | Canvas exception |
-| Game board card | `app/components/patterns/gds/GameBoardCard.tsx` | — | Local adapter | Until GDS GameBoardTile |
+| Game board card | `app/components/patterns/gds/GameBoardCard.tsx` | `@gds/core` `GameBoardTile` | Thin adapter | `highlightColor="amanoba.5"` |
 
 ## Canonical Component Rules
 
