@@ -63,6 +63,17 @@ npm run ui:audit:layout
 npm run ui:check:layout
 npm run ui:audit:foundation
 npm run ui:check:foundation
+npm run ui:gds:check
+npm run ui:check:mantine
+```
+
+GDS adoption (product UI must use `@gds/*` primitives via `app/components/patterns/gds/`; see `gds-adoption.json`):
+
+```sh
+npm run ui:gds:verify
+npm run gds:import-smoke
+npm run ui:check:gds-patterns
+npm run ui:gds:compliance
 ```
 
 Background workers:
