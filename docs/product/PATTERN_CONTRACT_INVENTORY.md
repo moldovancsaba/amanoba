@@ -1,7 +1,7 @@
 # Amanoba Pattern Contract Inventory
 
 **Last Updated**: 2026-05-24
-**Status**: Active local adapter (GDS 2.3.0 packages)
+**Status**: GDS 2.4.3 enforced (`gds-adoption.json`)
 **Shared SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
 **Aligned GDS Version**: `2.4.3`
 
@@ -15,10 +15,10 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | Learner shell / page header | `app/components/LearnerPageHeader.tsx` | — | Local adapter | Until GDS LearnerAppShell (#80) |
 | Article shell | `app/components/patterns/gds/ArticleShell.tsx` | `@gds/core` (aligned local) | Canonical | Re-export at `patterns/ArticleShell.tsx` |
 | Product course card | `app/components/patterns/CourseCard.tsx` | `ProductCard` (future) | Local adapter | Course-specific slots |
-| Metric card | `app/components/patterns/gds/MetricCard.tsx` | `@gds/core/MetricCard` (aligned local) | Canonical | Uses `detail`, `progress`, `color` props |
-| Progress card | `app/components/patterns/gds/ProgressCard.tsx` | `@gds/core/ProgressCard` (aligned local) | Canonical | Quest/course progress |
-| State block | `app/components/patterns/gds/StateBlock.tsx` | `@gds/core/StateBlock` (aligned local) | Canonical | `kind` API; error uses Alert |
-| Course access recovery | `components/patterns/CourseAccessRecoveryActions.tsx` | `@gds/core` `AccessRecoveryPanel` | Thin adapter | Maps course API codes to panel state |
+| Metric card | `app/components/patterns/gds/MetricCard.tsx` | `@gds/core` `MetricCard` | Thin adapter | Amanoba `label`/`value`/`detail` aliases |
+| Progress card | `app/components/patterns/gds/ProgressCard.tsx` | `@gds/core` `ProgressCard` | Thin adapter | Quest/course progress |
+| State block | `app/components/patterns/gds/StateBlock.tsx` | `@gds/core` `StateBlock` | Thin adapter | `kind` → `variant` |
+| Course access recovery | `app/components/patterns/gds/CourseAccessRecoveryActions.tsx` | `@gds/core` `AccessRecoveryPanel` | Thin adapter | Maps course API codes to panel state |
 | Admin shell | `app/[locale]/admin/layout.tsx` | `@gds/admin/AppShell` (optional) | Canonical | Mantine AppShell |
 | Auth shell | `app/components/patterns/gds/AuthShell.tsx` | `@gds/core/AuthShell` (Amanoba variant) | Canonical | Dark `ink.9` layout |
 | Public shell | `app/components/patterns/gds/PublicAppShell.tsx` | `@gds/core/PublicShell` (Amanoba variant) | Canonical | Marketing header band |
@@ -31,7 +31,7 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 ## Canonical Component Rules
 
 - Import shared patterns from `@/app/components/patterns/*` or `@/app/components/patterns/gds`.
-- Do not duplicate pattern implementations outside `patterns/gds/` except documented local adapters (`CourseCard`, `LearnerPageHeader`, `CourseAccessRecoveryActions`).
+- Do not duplicate pattern implementations outside `patterns/gds/` except documented adapters in `gds-adoption.json` (`CourseCard`, `LearnerPageHeader`, brand-composition shells).
 - Loading, empty, error, permission, success on learner routes must use `StateBlock`.
 
 ## Current Highest-Risk Gaps
@@ -41,7 +41,10 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 
 ## Verification Commands
 
+- `npm run ui:gds:check`
 - `npm run ui:gds:verify`
+- `npm run ui:check:gds-patterns`
+- `npm run ui:gds:compliance`
 - `npm run gds:import-smoke`
 - `npm run ui:check:mantine`
 - `npm run ui:check:foundation`

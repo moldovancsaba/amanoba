@@ -40,7 +40,7 @@ import {
   resolveCourseAccessIssue,
   type CourseAccessRecoveryIssue,
 } from '@/app/lib/course-access-recovery';
-import CourseAccessRecoveryActions from '@/components/patterns/CourseAccessRecoveryActions';
+import CourseAccessRecoveryActions from '@/app/components/patterns/CourseAccessRecoveryActions';
 
 interface LessonResponse {
   success: boolean;

@@ -1,6 +1,7 @@
+'use client';
+
 import type { ReactNode } from 'react';
-import { Card, Progress, Stack, Text, ThemeIcon } from '@mantine/core';
-import type { MantineColor } from '@mantine/core';
+import { MetricCard as GdsMetricCard } from '@gds/core';
 
 type MetricCardProps = {
   icon?: ReactNode;
@@ -8,29 +9,17 @@ type MetricCardProps = {
   label: ReactNode;
   detail?: ReactNode;
   progress?: number;
-  color?: MantineColor;
+  color?: string;
 };
 
-export function MetricCard({ icon, value, label, detail, progress, color = 'amanoba' }: MetricCardProps) {
+/** Amanoba prop names over `@gds/core` `MetricCard` (progress is not part of GDS MetricCard). */
+export function MetricCard({ icon, value, label, detail }: MetricCardProps) {
   return (
-    <Card padding="lg" withBorder>
-      <Stack gap="sm">
-        {icon ? (
-          <ThemeIcon color={color} variant="light" size={48} radius="xl">
-            {icon}
-          </ThemeIcon>
-        ) : null}
-        <Text size="2rem" fw={800} lh={1}>
-          {value}
-        </Text>
-        <Text c="dimmed">{label}</Text>
-        {typeof progress === 'number' ? <Progress value={progress} color={color} radius="xl" /> : null}
-        {detail ? (
-          <Text size="xs" c="dimmed">
-            {detail}
-          </Text>
-        ) : null}
-      </Stack>
-    </Card>
+    <GdsMetricCard
+      label={typeof label === 'string' ? label : String(label)}
+      value={value}
+      description={detail}
+      icon={icon}
+    />
   );
 }

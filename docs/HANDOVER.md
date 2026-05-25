@@ -1483,6 +1483,19 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:gds:verify` ✅ pass
 - `npm run build` ✅ pass (`--webpack`)
 
+## GDS-only enforcement (2026-05-25)
+
+### What changed
+- Product primitives in `patterns/gds/` delegate to `@gds/core` (`StateBlock`, `MetricCard`, `ProgressCard`, `GameBoardTile`, `AccessRecoveryPanel` adapter).
+- Added `gds-adoption.json`, `ui:check:gds-patterns`, `ui:gds:compliance`, and aggregate `ui:gds:check`.
+- Theme palettes in `AMANOBA_MANTINE_PALETTES`; `amanoba-gds-theme.ts` is an approved token source.
+- `@gds/compliance` and `@gds/eslint-config` from GDS 2.4.3 SSOT.
+
+### Verification
+- `npm run ui:gds:check` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run build` ✅ pass
+
 ## GDS 2.4.3 alignment (2026-05-25)
 
 ### What changed
@@ -1494,4 +1507,17 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run gds:import-smoke` ✅ pass
 - `npm run ui:gds:verify` ✅ pass
 - `npm run build` ✅ pass (`--webpack`)
+
+## GDS-only enforcement (2026-05-25)
+
+### What changed
+- Product primitives in `patterns/gds/` delegate to `@gds/core` (`StateBlock`, `MetricCard`, `ProgressCard`, `GameBoardTile`, `AccessRecoveryPanel` adapter).
+- Added `gds-adoption.json`, `ui:check:gds-patterns`, `ui:gds:compliance`, and aggregate `ui:gds:check`.
+- Theme palettes in `AMANOBA_MANTINE_PALETTES`; `amanoba-gds-theme.ts` is an approved token source.
+- `@gds/compliance` and `@gds/eslint-config` from GDS 2.4.3 SSOT.
+
+### Verification
+- `npm run ui:gds:check` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run build` ✅ pass
 

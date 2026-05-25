@@ -1,5 +1,5 @@
 /**
- * GDS 2.3.2-aligned pattern barrel. Implementations live here; root `patterns/*.tsx` re-export for stable imports.
+ * GDS 2.4.3-aligned pattern barrel. Primitives delegate to `@gds/*`; brand-composition adapters are documented in `gds-adoption.json`.
  */
 export { AuthShell } from './AuthShell';
 export { PublicAppShell } from './PublicAppShell';

@@ -67,11 +67,17 @@
     "ui:check:foundation": "node --import tsx scripts/audit-ui-foundation.ts --check",
     "ui:check:mantine": "node scripts/check-mantine-boundaries.mjs",
     "gds:import-smoke": "node scripts/gds-import-smoke.mjs",
-    "ui:gds:verify": "node scripts/verify-gds-version.mjs"
+    "ui:gds:verify": "node scripts/verify-gds-version.mjs",
+    "ui:check:gds-patterns": "node scripts/check-gds-patterns.mjs",
+    "ui:gds:compliance": "node scripts/gds-compliance-product-ui.mjs",
+    "ui:gds:compliance:manifest": "node scripts/validate-gds-adoption-manifest.mjs",
+    "ui:gds:check": "npm run ui:gds:verify && npm run gds:import-smoke && npm run ui:check:gds-patterns && npm run ui:gds:compliance && npm run ui:gds:compliance:manifest"
   },
   "dependencies": {
     "@gds/admin": "file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-admin",
+    "@gds/compliance": "file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-compliance",
     "@gds/core": "file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-core",
+    "@gds/eslint-config": "file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-eslint-config",
     "@gds/theme": "file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-theme",
     "@auth/mongodb-adapter": "^3.11.2",
     "@emnapi/runtime": "^1.8.1",

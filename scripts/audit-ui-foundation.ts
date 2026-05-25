@@ -159,6 +159,7 @@ function main() {
     'app/globals.css',
     'app/mobile-styles.css',
     'app/lib/ui/mantine-theme.ts',
+    'app/lib/ui/amanoba-gds-theme.ts',
     'app/lib/constants/app-url.ts',
     'app/lib/constants/certificate-colors.ts',
     'app/lib/constants/color-tokens.ts',

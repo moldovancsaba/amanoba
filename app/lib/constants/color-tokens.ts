@@ -69,3 +69,48 @@ export const DEFAULT_BRAND_THEME_COLORS = {
 export const SEMANTIC_COLORS = {
   error: '#ef4444',
 } as const;
+
+/** Mantine palette scales for `extendGdsTheme` (THEME_GOVERNANCE). */
+export const AMANOBA_MANTINE_PALETTES = {
+  amanoba: [
+    '#fff9e6',
+    '#fff0bf',
+    '#ffe38a',
+    '#ffd452',
+    '#ffc421',
+    '#fab908',
+    '#c89100',
+    '#966c00',
+    '#654800',
+    '#332400',
+  ],
+  amanobaYellow: [
+    '#fff9e6',
+    '#fff0bf',
+    '#ffe38a',
+    '#ffd452',
+    '#ffc421',
+    '#fab908',
+    '#c89100',
+    '#966c00',
+    '#654800',
+    '#332400',
+  ],
+  ink: [
+    '#f7f7f7',
+    '#e6e6e6',
+    '#c9c9c9',
+    '#a8a8a8',
+    '#878787',
+    '#686868',
+    '#4f4f4f',
+    '#3a3a3a',
+    '#2d2d2d',
+    '#111111',
+  ],
+} as const;
+
+export const AMANOBA_MANTINE_BASE = {
+  black: '#111111',
+  white: '#f7f7f7',
+} as const;

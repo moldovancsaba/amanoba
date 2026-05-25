@@ -1,7 +1,12 @@
 'use client';
 
 import { extendGdsTheme } from '@gds/theme';
-import { BRAND_COLORS, EMAIL_THEME_DEFAULT } from '@/app/lib/constants/color-tokens';
+import {
+  AMANOBA_MANTINE_BASE,
+  AMANOBA_MANTINE_PALETTES,
+  BRAND_COLORS,
+  EMAIL_THEME_DEFAULT,
+} from '@/app/lib/constants/color-tokens';
 
 /**
  * Amanoba brand extension of GDS base theme (THEME_GOVERNANCE).
@@ -11,8 +16,8 @@ export const amanobaMantineTheme = extendGdsTheme({
   primaryColor: 'amanoba',
   primaryShade: 5,
   defaultRadius: 'md',
-  black: '#111111',
-  white: '#f7f7f7',
+  black: AMANOBA_MANTINE_BASE.black,
+  white: AMANOBA_MANTINE_BASE.white,
   autoContrast: true,
   luminanceThreshold: 0.32,
   fontFamily: 'var(--font-noto-sans), var(--font-inter), system-ui, sans-serif',
@@ -21,42 +26,9 @@ export const amanobaMantineTheme = extendGdsTheme({
     fontWeight: '700',
   },
   colors: {
-    amanoba: [
-      '#fff9e6',
-      '#fff0bf',
-      '#ffe38a',
-      '#ffd452',
-      '#ffc421',
-      '#fab908',
-      '#c89100',
-      '#966c00',
-      '#654800',
-      '#332400',
-    ],
-    amanobaYellow: [
-      '#fff9e6',
-      '#fff0bf',
-      '#ffe38a',
-      '#ffd452',
-      '#ffc421',
-      '#fab908',
-      '#c89100',
-      '#966c00',
-      '#654800',
-      '#332400',
-    ],
-    ink: [
-      '#f7f7f7',
-      '#e6e6e6',
-      '#c9c9c9',
-      '#a8a8a8',
-      '#878787',
-      '#686868',
-      '#4f4f4f',
-      '#3a3a3a',
-      '#2d2d2d',
-      '#111111',
-    ],
+    amanoba: [...AMANOBA_MANTINE_PALETTES.amanoba],
+    amanobaYellow: [...AMANOBA_MANTINE_PALETTES.amanobaYellow],
+    ink: [...AMANOBA_MANTINE_PALETTES.ink],
   },
   other: {
     brand: BRAND_COLORS,

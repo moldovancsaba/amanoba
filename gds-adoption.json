@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "gdsVersion": "2.4.3",
+  "productArchetype": "lms-game",
+  "supportedEntryPoints": [
+    "@gds/theme",
+    "@gds/theme/client",
+    "@gds/theme/server",
+    "@gds/core",
+    "@gds/core/client",
+    "@gds/admin",
+    "@gds/admin/client"
+  ],
+  "requiredContracts": [
+    "extendGdsTheme",
+    "StateBlock",
+    "MetricCard",
+    "ProgressCard",
+    "AccessRecoveryPanel",
+    "GameBoardTile",
+    "AuthShell",
+    "PublicShell",
+    "DataToolbar",
+    "ResponsiveDataView"
+  ],
+  "localAdapters": [
+    {
+      "contract": "LearnerPageHeader",
+      "path": "app/components/LearnerPageHeader.tsx",
+      "status": "active"
+    },
+    {
+      "contract": "CourseCard",
+      "path": "app/components/patterns/CourseCard.tsx",
+      "status": "active"
+    },
+    {
+      "contract": "AuthShell",
+      "path": "app/components/patterns/gds/AuthShell.tsx",
+      "status": "brand-composition"
+    },
+    {
+      "contract": "PublicAppShell",
+      "path": "app/components/patterns/gds/PublicAppShell.tsx",
+      "status": "brand-composition"
+    },
+    {
+      "contract": "ArticleShell",
+      "path": "app/components/patterns/gds/ArticleShell.tsx",
+      "status": "brand-composition"
+    },
+    {
+      "contract": "DataToolbar",
+      "path": "app/components/patterns/gds/DataToolbar.tsx",
+      "status": "brand-composition"
+    },
+    {
+      "contract": "ResponsiveDataView",
+      "path": "app/components/patterns/gds/ResponsiveDataView.tsx",
+      "status": "brand-composition"
+    },
+    {
+      "contract": "CourseAccessRecovery",
+      "path": "app/components/patterns/gds/CourseAccessRecoveryActions.tsx",
+      "status": "active"
+    }
+  ],
+  "approvedExceptions": [
+    {
+      "surface": "Lesson prose HTML",
+      "reason": "Rich lesson content uses TypographyStylesProvider; colors follow dark-shell tokens.",
+      "owner": "amanoba-ui",
+      "reviewDate": "2026-05-25"
+    },
+    {
+      "surface": "Game canvas",
+      "reason": "Non-Mantine game engine rendering; Mantine chrome only around canvas.",
+      "owner": "amanoba-ui",
+      "reviewDate": "2026-05-25"
+    },
+    {
+      "surface": "Email and certificate renders",
+      "reason": "Non-CSS output contexts use color-tokens.ts literals.",
+      "owner": "amanoba-ui",
+      "reviewDate": "2026-05-25"
+    },
+    {
+      "surface": "Recharts",
+      "reason": "Chart palette from CHART_THEME in color-tokens.ts.",
+      "owner": "amanoba-ui",
+      "reviewDate": "2026-05-25"
+    },
+    {
+      "surface": "Lesson markdown editor",
+      "dependency": "@/components/ui/markdown-editor",
+      "allowImports": ["@/components/ui/markdown-editor"],
+      "reason": "TipTap lesson editor scaffold until GDS editor contract ships; Mantine-chrome only around editor island.",
+      "owner": "amanoba-ui",
+      "reviewDate": "2026-05-25"
+    }
+  ],
+  "migrationStatus": "enforced",
+  "owner": "amanoba-ui",
+  "lastReviewedAt": "2026-05-25"
+}
