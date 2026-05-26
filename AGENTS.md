@@ -16,6 +16,7 @@ If the task touches GitHub Project 12 workflow or board field updates, also read
 
 ## 2. Repo Workflow
 
+- **Canonical local checkout:** `/Users/Shared/Projects/amanoba` (do not use `~/Projects/amanoba`; that path was a mistaken duplicate and must not be recreated).
 - The work-tracking SSOT is the MVP Factory board, not this repo.
 - Amanoba work items live in `moldovancsaba/mvp-factory-control`.
 - Start each session with `git fetch origin && git status -sb` to confirm the latest baseline.

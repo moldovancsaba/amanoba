@@ -1,5 +1,5 @@
-const mongo = await import('/Users/moldovancsaba/Projects/amanoba/app/lib/mongodb.ts');
-const courseMod = await import('/Users/moldovancsaba/Projects/amanoba/app/lib/models/course.ts');
+const mongo = await import('/Users/Shared/Projects/amanoba/app/lib/mongodb.ts');
+const courseMod = await import('/Users/Shared/Projects/amanoba/app/lib/models/course.ts');
 const connectDB = mongo.default || mongo;
 const Course = courseMod.default || courseMod;
 await connectDB();

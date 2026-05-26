@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-dotenv.config({ path: '/Users/moldovancsaba/Projects/amanoba/.env.local' });
+dotenv.config({ path: '/Users/Shared/Projects/amanoba/.env.local' });
 const mongo = await import('./app/lib/mongodb.ts');
 const courseMod = await import('./app/lib/models/course.ts');
 const connectDB = mongo.default;

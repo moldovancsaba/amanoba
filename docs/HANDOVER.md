@@ -325,9 +325,10 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - Re-confirmed the canonical Amanoba GitHub product board is Project 12: `https://github.com/users/moldovancsaba/projects/12`.
 - Audited current Amanoba issue project membership with `gh issue list --repo moldovancsaba/mvp-factory-control --search 'Amanoba in:title' --state all --json projectItems`.
 - Verified the live Amanoba issues currently resolve to the canonical `{amanoba} - From IDEA to LIVE` board entry; no active Amanoba issue was found attached to another project board that needed migration or removal.
-- Audited the two non-canonical local directories:
+- Audited non-canonical local directories (see also **Remove mistaken `~/Projects/amanoba` duplicate** below):
   - `/Users/moldovancsaba/Projects/amanoba-work`
   - `/Users/moldovancsaba/Projects/amanoba-full`
+  - `/Users/moldovancsaba/Projects/amanoba` (removed 2026-05-26)
 - Confirmed `/Users/moldovancsaba/Projects/amanoba-work` was only an older clean checkout whose `HEAD` (`eacb4e8`) is already an ancestor of canonical `/Users/Shared/Projects/amanoba`.
 - Confirmed `/Users/moldovancsaba/Projects/amanoba-full` was only a loose duplicate file copy; `scripts/verify-gds-version.mjs` matched canonical content byte-for-byte.
 - Deleted both non-canonical local directories after verification.
@@ -1728,7 +1729,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - Added `app/lib/gds/` to foundation audit and GDS compliance token allowlists (Vercel-safe `@gds/*` shims).
 - `gds:import-smoke` exercises the repo-local `@gds/theme` shim (matches `next.config.ts`; no built GDS `dist/` on fresh `file:` installs).
 
-### Verification (local clone at `~/Projects/amanoba` + sibling `~/Projects/GENERAL_DESIGN_SYSTEM`)
+### Verification (canonical clone at `/Users/Shared/Projects/amanoba` + sibling `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`)
 - `npm install` ✅ pass
 - `npm run ui:gds:check` ✅ pass
 - `npm run ui:check:foundation` ✅ pass
@@ -1758,3 +1759,17 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:gds:check` ✅ pass
 - `npm run ui:check:foundation` ✅ pass
 - `npm run build` ✅ pass
+
+## Remove mistaken `~/Projects/amanoba` duplicate (2026-05-26)
+
+### What changed
+- Re-confirmed canonical local checkout is `/Users/Shared/Projects/amanoba` only.
+- Verified `/Users/moldovancsaba/Projects/amanoba` was an agent-created duplicate at `a50e220`, two commits behind canonical `origin/main` (`897feb9`); no unique commits to merge.
+- Moved verification logs from `~/Projects/amanoba-verify*.log` into `logs/verification/` (gitignored).
+- Fixed scratch scripts (`.tmp_find_ai_agency_courses.mjs`, `.codex-course-langs.mjs`) to reference the canonical path.
+- Documented the rule in `AGENTS.md` and deleted `/Users/moldovancsaba/Projects/amanoba`.
+
+### Verification
+- `git -C /Users/Shared/Projects/amanoba status -sb` ✅ on `main` aligned with `origin/main`
+- `git -C /Users/moldovancsaba/Projects/amanoba rev-parse HEAD` ✅ ancestor of canonical before deletion
+- `test ! -e /Users/moldovancsaba/Projects/amanoba` ✅

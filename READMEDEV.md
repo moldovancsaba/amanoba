@@ -3,6 +3,7 @@
 This is the **Brain Boost** every developer must read before touching Amanoba code. It collects the repeatable rituals, SSOT rules, and quality gates that keep this repo aligned with the project board (`mvp-factory-control`) and the production reality documented under `docs/status/PRODUCTION_STATUS.md`.
 
 ## 1. Brain Boost ritual (start every work session)
+0. Work only from the canonical checkout: `/Users/Shared/Projects/amanoba` (not `~/Projects/amanoba`).
 1. `git fetch origin && git status -sb` to ensure you are working on the latest baseline.
 2. Confirm the active SSOT card:
    - Issues live only in `moldovancsaba/mvp-factory-control`.
