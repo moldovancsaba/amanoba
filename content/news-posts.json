@@ -1,5 +1,574 @@
 [
   {
+    "slug": "2026-05-26-amanoba-shipped-a-smoother-learning-flow-across-courses-practice-and-saved-lessons",
+    "publishedAt": "2026-05-26",
+    "updatedAt": "2026-05-26",
+    "source": "amanoba-news",
+    "translations": {
+      "hu": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "en": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "ar": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "hi": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "id": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "pt": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "vi": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "tr": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "bg": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "pl": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "ru": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "sw": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "zh": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "es": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "fr": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "bn": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      },
+      "ur": {
+        "headline": "Amanoba shipped a smoother learning flow across courses, practice, and saved lessons",
+        "summary": "Over the last week, Amanoba shipped a cleaner learner journey: clearer course entry and quiz flows, a more actionable Practice Hub and Saved Lessons library, and steadier dashboard, profile, rewards, and game surfaces.",
+        "body": [
+          {
+            "heading": "Course pages are clearer from enrolment to completion",
+            "paragraphs": [
+              "The course catalog and course detail pages were refreshed so it is easier to scan courses, compare premium and certificate access, and continue from the right lesson day. Learners now get stronger loading and empty states, clearer enrolment actions, and more consistent course cards and call-to-action layout across desktop and mobile.",
+              "Inside courses, the daily lesson page, lesson quiz flow, and final certification exam were also tightened up. Quiz requirements are explained more directly, supportive retry messaging is clearer, and progression controls are more consistent when moving between reading, quiz, and exam steps."
+            ]
+          },
+          {
+            "heading": "Practice and review are easier to resume intentionally",
+            "paragraphs": [
+              "The Practice Hub now presents explainable next-step recommendations based on real course progress, including continue-next, quiz recovery, and stale-refresh paths. Instead of a generic review area, learners now see more actionable ways to pick up unfinished or aging study sessions.",
+              "Saved Lessons also became a more focused review library. Learners can open a saved lesson directly, jump back into the course from the right resume point, and understand at a glance whether a saved lesson is already completed or still worth revisiting."
+            ]
+          },
+          {
+            "heading": "Account, community, and game surfaces feel more consistent",
+            "paragraphs": [
+              "The learner dashboard, sign-in flow, course discussion, study groups, profile, quests, rewards, and email settings pages all received UI consistency work during this release window. The practical effect is steadier navigation, more readable states, and fewer one-off interaction patterns across the app.",
+              "The Memory Match game was also brought onto the same refreshed interface layer, so difficulty selection, in-game controls, and completion feedback now feel closer to the rest of Amanoba instead of behaving like a separate mini-app."
+            ]
+          },
+          {
+            "heading": "More reliable delivery for the refreshed UI",
+            "paragraphs": [
+              "Amanoba also shipped production-safe runtime changes behind the scenes so the refreshed design-system surfaces load more reliably on Vercel-backed builds. Learners should notice this as steadier availability of the updated shells and state components across blog, saved lessons, quests, rewards, profile, and related screens rather than as a separate feature toggle."
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
     "slug": "2026-05-21-steadier-lessons-memory-game-design-foundation",
     "publishedAt": "2026-05-21",
     "updatedAt": "2026-05-21",
