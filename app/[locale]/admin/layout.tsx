@@ -1,5 +1,5 @@
 /**
- * Admin dashboard layout — Mantine AppShell with governed navigation.
+ * Admin dashboard layout — `@doneisbetter/gds-admin` AppShell with Amanoba navigation.
  */
 
 'use client';
@@ -10,21 +10,18 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { useSession, signOut } from 'next-auth/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { AppShell } from '@doneisbetter/gds-admin/client';
 import {
-  AppShell,
   Avatar,
   Box,
-  Burger,
   Divider,
   Group,
   Menu,
   NavLink,
-  ScrollArea,
   Stack,
   Text,
   UnstyledButton,
 } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
 import {
   IconAward,
   IconBook,
@@ -94,8 +91,6 @@ export default function AdminLayout({
   const { data: session } = useSession();
   const t = useTranslations('admin');
   const pathname = usePathname();
-  const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
-  const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
   const [version, setVersion] = useState('2.7.0');
   const [isEditorOnly, setIsEditorOnly] = useState<boolean | null>(null);
 
@@ -142,125 +137,95 @@ export default function AdminLayout({
     ? `/${locale}/profile/${session.user.id}`
     : `/${locale}/dashboard`;
 
+  const primaryNavigation = (
+    <Stack gap={4}>
+      <UnstyledButton component={Link} href={`/${locale}/admin`} mb="xs">
+        <Group gap="sm" wrap="nowrap">
+          <Logo size="sm" showText={false} linkTo="" preventShrink />
+          <Stack gap={0}>
+            <Text fw={700} c="white" size="sm">
+              Amanoba
+            </Text>
+            <Text size="xs" c="dimmed">
+              Admin Panel
+            </Text>
+          </Stack>
+        </Group>
+      </UnstyledButton>
+      {navigationItems.map((item) => {
+        const fullPath = `/${locale}${item.href}`;
+        const isActive = pathname === fullPath || pathname.startsWith(`${fullPath}/`);
+        const Icon = item.icon;
+
+        return (
+          <NavLink
+            key={item.href}
+            component={Link}
+            href={fullPath}
+            label={t(item.key)}
+            leftSection={<Icon size={18} stroke={1.75} />}
+            active={isActive}
+            color="amanoba"
+            variant="light"
+          />
+        );
+      })}
+    </Stack>
+  );
+
+  const headerActions = (
+      <Menu position="bottom-end" withinPortal>
+        <Menu.Target>
+          <UnstyledButton>
+            <Group gap="sm" wrap="nowrap">
+              <Stack gap={0} visibleFrom="sm" align="flex-end">
+                <Text size="sm" fw={600} c="white">
+                  {session?.user?.name || session?.user?.email || t('adminUser')}
+                </Text>
+                <Text size="xs" c="dimmed">
+                  {isEditorOnly ? t('editor') : t('administrator')}
+                </Text>
+              </Stack>
+              <Avatar color="gray" radius="xl" size={40}>
+                <IconCrown size={22} />
+              </Avatar>
+            </Group>
+          </UnstyledButton>
+        </Menu.Target>
+        <Menu.Dropdown>
+          <Menu.Item
+            component={Link}
+            href={profileHref}
+            leftSection={<IconUser size={16} />}
+          >
+            {t('profile')}
+          </Menu.Item>
+          <Menu.Item
+            leftSection={<IconLogout size={16} />}
+            onClick={async () => {
+              await signOut({ redirect: false });
+              router.push(`/${locale}/auth/signin`);
+            }}
+          >
+            {t('logout')}
+          </Menu.Item>
+          <Divider />
+          <Menu.Label>
+            v{version} | Admin Mode
+          </Menu.Label>
+        </Menu.Dropdown>
+      </Menu>
+  );
+
   return (
     <QueryClientProvider client={queryClient}>
       <AppShell
-        header={{ height: 64 }}
-        navbar={{
-          width: 260,
-          breakpoint: 'sm',
-          collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
-        }}
-        padding="md"
-        bg="ink.9"
+        logoText="Amanoba"
+        headerContext="Admin Panel"
+        primaryNavigation={primaryNavigation}
+        headerActions={headerActions}
       >
-        <AppShell.Navbar p="md" bg="ink.8">
-          <AppShell.Section mb="md">
-            <UnstyledButton component={Link} href={`/${locale}/admin`}>
-              <Group gap="sm" wrap="nowrap">
-                <Logo size="sm" showText={false} linkTo="" preventShrink />
-                <Stack gap={0}>
-                  <Text fw={700} c="white" size="sm">
-                    Amanoba
-                  </Text>
-                  <Text size="xs" c="dimmed">
-                    Admin Panel
-                  </Text>
-                </Stack>
-              </Group>
-            </UnstyledButton>
-          </AppShell.Section>
-
-          <AppShell.Section grow component={ScrollArea} scrollbarSize={6}>
-            <Stack gap={4}>
-              {navigationItems.map((item) => {
-                const fullPath = `/${locale}${item.href}`;
-                const isActive =
-                  pathname === fullPath || pathname.startsWith(`${fullPath}/`);
-                const Icon = item.icon;
-
-                return (
-                  <NavLink
-                    key={item.href}
-                    component={Link}
-                    href={fullPath}
-                    label={t(item.key)}
-                    leftSection={<Icon size={18} stroke={1.75} />}
-                    active={isActive}
-                    color="amanoba"
-                    variant="light"
-                    onClick={() => {
-                      if (mobileOpened) toggleMobile();
-                    }}
-                  />
-                );
-              })}
-            </Stack>
-          </AppShell.Section>
-        </AppShell.Navbar>
-
-        <AppShell.Header bg="ink.8">
-          <Group h="100%" px="md" justify="space-between">
-            <Burger
-              opened={mobileOpened}
-              onClick={toggleMobile}
-              hiddenFrom="sm"
-              size="sm"
-              color="gray.3"
-            />
-            <Burger
-              opened={desktopOpened}
-              onClick={toggleDesktop}
-              visibleFrom="sm"
-              size="sm"
-              color="gray.3"
-            />
-
-            <Menu position="bottom-end" withinPortal>
-              <Menu.Target>
-                <UnstyledButton>
-                  <Group gap="sm" wrap="nowrap">
-                    <Stack gap={0} visibleFrom="sm" align="flex-end">
-                      <Text size="sm" fw={600} c="white">
-                        {session?.user?.name || session?.user?.email || t('adminUser')}
-                      </Text>
-                      <Text size="xs" c="dimmed">
-                        {isEditorOnly ? t('editor') : t('administrator')}
-                      </Text>
-                    </Stack>
-                    <Avatar color="gray" radius="xl" size={40}>
-                      <IconCrown size={22} />
-                    </Avatar>
-                  </Group>
-                </UnstyledButton>
-              </Menu.Target>
-              <Menu.Dropdown>
-                <Menu.Item
-                  component={Link}
-                  href={profileHref}
-                  leftSection={<IconUser size={16} />}
-                >
-                  {t('profile')}
-                </Menu.Item>
-                <Menu.Item
-                  leftSection={<IconLogout size={16} />}
-                  onClick={async () => {
-                    await signOut({ redirect: false });
-                    router.push(`/${locale}/auth/signin`);
-                  }}
-                >
-                  {t('logout')}
-                </Menu.Item>
-                <Divider />
-                <Menu.Label>
-                  v{version} | Admin Mode
-                </Menu.Label>
-              </Menu.Dropdown>
-            </Menu>
-          </Group>
-        </AppShell.Header>
-
-        <AppShell.Main bg="ink.9">{children}</AppShell.Main>
+        {children}
       </AppShell>
     </QueryClientProvider>
   );

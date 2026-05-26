@@ -5,7 +5,7 @@ import { Group } from '@mantine/core';
 import {
   StateBlock as GdsStateBlock,
   type StateBlockVariant,
-} from '@gds/core';
+} from '@doneisbetter/gds-core/client';
 
 export type StateBlockKind = StateBlockVariant;
 
@@ -19,7 +19,7 @@ type StateBlockProps = {
   compact?: boolean;
 };
 
-/** Amanoba API (`kind`) over canonical `@gds/core` `StateBlock` (`variant`). */
+/** Amanoba API (`kind`) over canonical `@doneisbetter/gds-core` `StateBlock` (`variant`). */
 export function StateBlock({
   kind,
   title,

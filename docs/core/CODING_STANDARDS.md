@@ -1,7 +1,7 @@
 # Amanoba Coding Standards
 
 **Version**: 1.0
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-05-26
 **Status**: ACTIVE
 
 ---
@@ -24,10 +24,10 @@ This document defines the coding rules that apply when changing Amanoba applicat
 
 ## 3. UI and design system
 
-- `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` is the working-copy design, UI, UX, component contract, and governance SSOT, with portable upstream reference at `https://github.com/sovereignsquad/general-design-system`. If local Amanoba docs or code comments conflict with the shared GDS, update the local material; do not fork the design rules.
+- `https://github.com/sovereignsquad/general-design-system` is the design, UI, UX, component contract, and governance SSOT. If local Amanoba docs or code comments conflict with the shared GDS, update the local material; do not fork the design rules.
 - Amanoba's UI dependency baseline is Mantine-only. `app/design-system.css`, `app/globals.css`, and non-CSS token files are narrow implementation support for document defaults, rich content, and server-rendered outputs; they are not product component authority.
-- Target UI foundation is the shared Mantine contract defined in `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`. New UI must use Mantine primitives and thin project wrappers instead of Tailwind/Radix-specific patterns.
-- The Amanoba migration plan is `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECTS/AMANOBA_MANTINE_REFACTOR.md`; use it for sequencing, legacy freeze rules, allowed exceptions, and done criteria.
+- Target UI foundation is the shared Mantine contract defined in the GDS repo. New UI must use Mantine primitives and thin project wrappers instead of Tailwind/Radix-specific patterns.
+- The Amanoba migration plan is `PROJECTS/AMANOBA_MANTINE_REFACTOR.md` in the GDS repo; use it for sequencing, legacy freeze rules, allowed exceptions, and done criteria.
 - The local adoption contract lives in `docs/product/GDS_ADOPTION_MANIFEST.md` and `gds-adoption.json`. Update both when protected surfaces, banned stacks, or required contract paths change.
 - Approved exceptions must be registered in `docs/product/GDS_EXCEPTION_REGISTER.md`; undocumented exceptions are not allowed.
 - Transitional CSS class contracts are allowed only while legacy surfaces are being converted; do not add new Tailwind utility class usage or Tailwind dependencies.

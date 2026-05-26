@@ -1,5 +1,5 @@
 /**
- * GDS 2.5.1-aligned pattern barrel. Primitives delegate to `@gds/*`; brand-composition adapters are documented in `gds-adoption.json`.
+ * GDS 2.6.1-aligned pattern barrel. Primitives delegate to `@doneisbetter/*`; brand-composition adapters are in `gds-adoption.json`.
  */
 export { AuthShell } from './AuthShell';
 export { PublicAppShell } from './PublicAppShell';

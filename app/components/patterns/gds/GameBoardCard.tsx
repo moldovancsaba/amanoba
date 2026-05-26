@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { GameBoardTile } from '@gds/core';
+import { GameBoardTile } from '@doneisbetter/gds-core/client';
 
 type GameBoardCardProps = {
   face: ReactNode;

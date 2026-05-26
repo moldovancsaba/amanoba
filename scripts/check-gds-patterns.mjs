@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Ensures `app/components/patterns/gds/*` are GDS-backed (import @gds/*) except
+ * Ensures `app/components/patterns/gds/*` are GDS-backed (import @doneisbetter/*) except
  * documented brand-composition adapters listed in gds-adoption.json.
  */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
@@ -39,11 +39,11 @@ for (const file of files) {
   if (brandComposition.has(file)) {
     continue;
   }
-  if (!/from\s+['"]@gds\//.test(source)) {
-    findings.push(`${path}: must import from @gds/* (GDS-only pattern layer)`);
+  if (!/from\s+['"]@doneisbetter\//.test(source)) {
+    findings.push(`${path}: must import from @doneisbetter/* (GDS-only pattern layer)`);
   }
-  if (/<(?:Card|Alert|Table|Loader|Title)\b/.test(source) && !/from\s+['"]@gds\//.test(source)) {
-    findings.push(`${path}: reimplements GDS primitives with raw Mantine instead of @gds/*`);
+  if (/<(?:Card|Alert|Table|Loader|Title)\b/.test(source) && !/from\s+['"]@doneisbetter\//.test(source)) {
+    findings.push(`${path}: reimplements GDS primitives with raw Mantine instead of @doneisbetter/*`);
   }
 }
 

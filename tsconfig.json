@@ -29,12 +29,6 @@
       ],
       "@/lib/*": [
         "./app/lib/*"
-      ],
-      "@gds/theme": [
-        "./app/lib/gds/theme"
-      ],
-      "@gds/core": [
-        "./app/lib/gds/core"
       ]
     },
     "target": "ES2017"

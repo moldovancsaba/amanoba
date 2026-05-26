@@ -1,6 +1,10 @@
+import { readFileSync } from 'node:fs';
 import { defineConfig, globalIgnores } from 'eslint/config';
+import { createGdsConfig, resolveAllowedImports } from '@doneisbetter/gds-eslint-config';
 import nextConfig from 'eslint-config-next';
 import tseslint from 'typescript-eslint';
+
+const manifest = JSON.parse(readFileSync(new URL('./gds-adoption.json', import.meta.url), 'utf8'));
 
 export default defineConfig([
   globalIgnores([
@@ -13,12 +17,12 @@ export default defineConfig([
     '*.config.js',
     '*.config.ts',
   ]),
-  // Apply minimal rules to config file so Next’s calculateConfigForFile(eslint.config.mjs) sees the plugin (file must not be globally ignored)
   {
     files: ['eslint.config.mjs'],
     languageOptions: { globals: { defineConfig: 'readonly', globalIgnores: 'readonly' } },
     rules: { '@typescript-eslint/no-unused-vars': 'off', '@typescript-eslint/no-require-imports': 'off' },
   },
+  ...createGdsConfig({ allowedImports: resolveAllowedImports(manifest) }),
   ...nextConfig,
   {
     files: ['**/*.{ts,tsx,mts,cts}'],
@@ -52,13 +56,26 @@ export default defineConfig([
       'react-hooks/gating': 'off',
     },
   },
-  // Scripts and public: disable strict rules so one-off scripts don't block build
   {
     files: ['scripts/**/*.ts', 'scripts/**/*.js', 'public/**/*.js'],
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-require-imports': 'off',
+      'gds/no-raw-design-values': 'off',
+      'gds/no-forbidden-ui-imports': 'off',
+    },
+  },
+  {
+    files: [
+      'app/lib/constants/**',
+      'app/lib/ui/**',
+      'app/design-system.css',
+      'app/globals.css',
+      'app/mobile-styles.css',
+    ],
+    rules: {
+      'gds/no-raw-design-values': 'off',
     },
   },
 ]);

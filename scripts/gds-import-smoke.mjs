@@ -1,14 +1,5 @@
 #!/usr/bin/env node
-/**
- * Smoke-test extendGdsTheme using the same repo-local @gds/theme shim as Next.js (next.config.ts).
- * Does not require a built GDS sibling checkout (no dist/client.mjs on fresh file: installs).
- */
-import { pathToFileURL } from 'node:url';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const { extendGdsTheme } = await import(pathToFileURL(join(root, 'app/lib/gds/theme.ts')).href);
+import { extendGdsTheme } from '@doneisbetter/gds-theme/server';
 
 const theme = extendGdsTheme({
   colors: {
@@ -33,4 +24,4 @@ if (!theme?.colors) {
   process.exit(1);
 }
 
-console.log('✅ @gds/theme extendGdsTheme smoke passed (repo-local shim)');
+console.log('✅ @doneisbetter/gds-theme extendGdsTheme smoke passed');

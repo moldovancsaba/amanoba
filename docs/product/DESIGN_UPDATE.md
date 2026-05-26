@@ -1,13 +1,13 @@
 # Design System Adapter Status
 
-**Last Updated**: 2026-05-25
-**Status**: GDS 2.5.1 enforced; Mantine-only runtime; product primitives use deploy-safe local `@gds/*` adapters
+**Last Updated**: 2026-05-26
+**Status**: GDS 2.6.1 enforced via `@doneisbetter/*` release assets; thin local adapters only
 
 ---
 
 ## Current Truth
 
-`/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` is the single source of truth for Amanoba design, UI, UX, component contracts, and design-system governance.
+The public GDS repository is the single source of truth for Amanoba design, UI, UX, component contracts, and design-system governance.
 
 Amanoba's in-repo files describe the current implementation adapter only. They do not override the shared SSOT.
 
@@ -15,42 +15,64 @@ Amanoba's in-repo files describe the current implementation adapter only. They d
 
 Read in this order:
 
-1. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/README.md`
-2. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/FOUNDATION.md`
-3. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENTS_AND_PATTERNS.md`
-4. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PATTERN_SERVICE_MODEL.md`
-5. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/SERVICE_BACKBONE_IMPLEMENTATION_PLAN.md`
-6. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/GOVERNANCE_AND_ADOPTION.md`
-7. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECTS/PORTFOLIO_ADOPTION_MATRIX.md`
-8. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPATIBILITY_AND_RELEASES.md`
-9. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/THEME_GOVERNANCE.md`
-10. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/EXCEPTION_SURFACES.md`
+1. `README.md`
+2. `COMPATIBILITY_AND_RELEASES.md`
+3. `ADOPTION_AND_MIGRATION_PLAYBOOK.md`
+4. `COMPLIANCE_TOOLKIT.md`
+5. `VERIFIED_CONSUMER_INSTALL_PROOF.md`
+6. `FOUNDATION.md`
+7. `COMPONENTS_AND_PATTERNS.md`
+8. `PATTERN_SERVICE_MODEL.md`
+9. `THEME_GOVERNANCE.md`
+10. `EXCEPTION_SURFACES.md`
 
-The shared SSOT is managed as its own Git repository: https://github.com/sovereignsquad/general-design-system. Amanoba references version **2.5.1** (2026-05-25).
+The shared SSOT is managed as its own Git repository: https://github.com/sovereignsquad/general-design-system. Amanoba consumes the **`@doneisbetter/*`** package line at version **2.6.1** (2026-05-26) through the approved GitHub release assets until npm publication is live.
 
 ## Project Migration Plan
 
-- `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PROJECTS/AMANOBA_MANTINE_REFACTOR.md`
+- `PROJECTS/AMANOBA_MANTINE_REFACTOR.md` in the shared GDS repo
 - Delivery program: `docs/handoff/feature_issues/GDS_2_3_ADOPTION_PROGRAM.md` (mvp-factory-control **#868**–**#877**)
 
 ## Local Adapter
 
-**Aligned SSOT version/date**: `2.5.1`, 2026-05-25
-**Status**: Mantine-only product UI; GDS packages installed; pattern implementations consolidated under `app/components/patterns/gds/`
-**Current UI foundation**: repo-local `@gds/theme` shim via `extendGdsTheme` in `app/lib/ui/amanoba-gds-theme.ts`, root `MantineRuntimeProvider`, narrowed `globals.css` + token-only `design-system.css`
-**Target UI foundation**: Mantine-only contract from the shared SSOT (achieved for product primitives; documented exceptions remain)
+**Aligned SSOT version/date**: `2.6.1`, 2026-05-26
+**Status**: Mantine-only product UI; `@doneisbetter/*` from GitHub release assets; pattern implementations under `app/components/patterns/gds/`
+**Current UI foundation**: `extendGdsTheme` from `@doneisbetter/gds-theme/server` in `app/lib/ui/amanoba-gds-theme.ts`; root `GdsProvider` via `MantineRuntimeProvider`; token-only `design-system.css` + `globals.css`
+**Target UI foundation**: direct package consumption per [ADOPTION_AND_MIGRATION_PLAYBOOK](https://github.com/sovereignsquad/general-design-system/blob/main/ADOPTION_AND_MIGRATION_PLAYBOOK.md) (achieved for primitives; documented exceptions remain)
 
-### Package install (local development)
+### Package install
 
-| Package | Version | Path |
-| --- | --- | --- |
-| `@gds/theme` | 2.5.1 | `file:../GENERAL_DESIGN_SYSTEM/packages/gds-theme` |
-| `@gds/core` | 2.5.1 | `file:../GENERAL_DESIGN_SYSTEM/packages/gds-core` |
-| `@gds/admin` | 2.5.1 | `file:../GENERAL_DESIGN_SYSTEM/packages/gds-admin` |
+**Canonical future registry target:**
 
-Production runtime does not import the sibling checkout directly. The app resolves `@gds/theme` and `@gds/core` to repo-local governed shims in `app/lib/gds/*` so Vercel builds without `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`. Local governance/version scripts still use the shared checkout and version pin.
+```sh
+npm install @doneisbetter/gds-theme @doneisbetter/gds-core @doneisbetter/gds-admin
+npm install -D @doneisbetter/gds-eslint-config @doneisbetter/gds-compliance
+```
 
-**Note:** Amanoba runs **Mantine 8.x**; shared GDS packages still declare Mantine 7 peers. Runtime theme uses `extendGdsTheme` through a repo-local alias, and pattern components live in `patterns/gds/`. Local `gds:import-smoke` and compliance/version scripts still rely on the shared SSOT checkout.
+**Current supported install path (until npm publication is live):**
+
+```sh
+npm install \
+  https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-theme-2.6.1.tgz \
+  https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-core-2.6.1.tgz \
+  https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-admin-2.6.1.tgz
+
+npm install -D \
+  https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-eslint-config-2.6.1.tgz \
+  https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-compliance-2.6.1.tgz
+```
+
+| Package | Role |
+| --- | --- |
+| `@doneisbetter/gds-theme` | `GdsProvider`, `extendGdsTheme` (`/client`, `/server`) |
+| `@doneisbetter/gds-core` | StateBlock, MetricCard, ProgressCard, GameBoardTile, AccessRecoveryPanel (`/client`, `/server`) |
+| `@doneisbetter/gds-admin` | Admin/operational surfaces (`/client`, `/server`) |
+| `@doneisbetter/gds-compliance` | Manifest validation and drift checks (dev) |
+| `@doneisbetter/gds-eslint-config` | Shared lint rules (dev) |
+
+Do **not** use legacy `@gds/*` names or sibling `file:` links in CI/production paths.
+
+**Note:** The upstream verified consumer baseline for GDS 2.6.1 is Next `15.5.18`, React `19.2.0`, and Mantine `8.3.6`. Amanoba currently runs Next `16.2.6`, React `19.2.6`, and Mantine `8.3.18`, so local build verification is required on every upgrade. Use documented `/client` and `/server` entrypoints only.
 
 ### Pattern implementation paths
 
@@ -61,7 +83,7 @@ Production runtime does not import the sibling checkout directly. The app resolv
 | Theme | `app/lib/ui/amanoba-gds-theme.ts` → `mantine-theme.ts` |
 | Learner header | `app/components/LearnerPageHeader.tsx` (local until GDS LearnerAppShell) |
 | Course card | `app/components/patterns/CourseCard.tsx` |
-| Course access recovery | `app/components/patterns/gds/CourseAccessRecoveryActions.tsx` → local `@gds/core` `AccessRecoveryPanel` shim |
+| Course access recovery | `app/components/patterns/gds/CourseAccessRecoveryActions.tsx` → `@doneisbetter/gds-core/client` `AccessRecoveryPanel` |
 | Admin shell | `app/[locale]/admin/layout.tsx` |
 | Editor shell | `app/[locale]/editor/layout.tsx` |
 
@@ -83,8 +105,8 @@ Per GDS `EXCEPTION_SURFACES.md` and local needs:
 
 Implemented:
 
-- Repo-local `@gds/theme` shim + `extendGdsTheme` for Amanoba brand (dark shell, `amanoba` / `ink` palettes).
-- Pattern barrel under `app/components/patterns/gds/`: **StateBlock**, **MetricCard**, **ProgressCard**, **GameBoardCard**, **CourseAccessRecovery** delegate to the local `@gds/core` shim; brand-composition shells documented in `gds-adoption.json`.
+- `@doneisbetter/gds-theme/server` + `extendGdsTheme` for Amanoba brand (dark shell, `amanoba` / `ink` palettes).
+- Pattern barrel under `app/components/patterns/gds/`: **StateBlock**, **MetricCard**, **ProgressCard**, **GameBoardCard**, **CourseAccessRecovery** delegate to `@doneisbetter/gds-core/client`; brand-composition shells documented in `gds-adoption.json`.
 - Admin list contracts across admin reporting surfaces.
 - StateBlock on learner routes including quests, rewards, saved lessons, email settings.
 - Guardrails: `npm run ui:check:mantine`, `ui:gds:verify`, `gds:import-smoke`.
@@ -98,8 +120,8 @@ Remaining (documented in `gds-adoption.json`, not duplicate GDS primitives):
 
 ## GDS-only enforcement
 
-- Machine-readable adoption contract: `gds-adoption.json` (version **2.5.1**).
-- `app/components/patterns/gds/*` must import `@gds/*` except registered `brand-composition` adapters.
+- Machine-readable adoption contract: `gds-adoption.json` (version **2.6.1**).
+- `app/components/patterns/gds/*` must import `@doneisbetter/*` except registered `brand-composition` adapters.
 - No Tailwind/Radix/sonner/vaul/`@/components/ui/*` as product UI authority.
 - Theme palettes live in `app/lib/constants/color-tokens.ts`; runtime uses `extendGdsTheme` only.
 
@@ -107,7 +129,7 @@ Remaining (documented in `gds-adoption.json`, not duplicate GDS primitives):
 
 - Do not add new design rules to Amanoba docs when they belong in GDS.
 - Do not reimplement GDS primitives (MetricCard, StateBlock, etc.) with raw Mantine in product code.
-- New repeated shells/cards/states must use `@gds/*` via `patterns/gds` or be registered in `gds-adoption.json`.
+- New repeated shells/cards/states must use `@doneisbetter/*` via `patterns/gds` or be registered in `gds-adoption.json`.
 
 ## Validation Commands
 

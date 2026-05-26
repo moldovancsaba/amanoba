@@ -1,8 +1,8 @@
 # Amanoba GDS Exception Register
 
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-05-26
 **Status**: Active
-**Shared SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
+**Shared SSOT**: [sovereignsquad/general-design-system](https://github.com/sovereignsquad/general-design-system)
 
 This register records the narrow UI exceptions that are currently allowed while Amanoba completes the Mantine-only migration. An exception is valid only when it has:
 

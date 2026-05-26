@@ -1,15 +1,14 @@
 {
   "schemaVersion": 1,
-  "gdsVersion": "2.5.1",
+  "gdsVersion": "2.6.1",
   "productArchetype": "lms-game",
   "supportedEntryPoints": [
-    "@gds/theme",
-    "@gds/theme/client",
-    "@gds/theme/server",
-    "@gds/core",
-    "@gds/core/client",
-    "@gds/admin",
-    "@gds/admin/client"
+    "@doneisbetter/gds-theme/client",
+    "@doneisbetter/gds-theme/server",
+    "@doneisbetter/gds-core/client",
+    "@doneisbetter/gds-core/server",
+    "@doneisbetter/gds-admin/client",
+    "@doneisbetter/gds-admin/server"
   ],
   "requiredContracts": [
     "extendGdsTheme",
@@ -63,6 +62,11 @@
       "contract": "CourseAccessRecovery",
       "path": "app/components/patterns/gds/CourseAccessRecoveryActions.tsx",
       "status": "active"
+    },
+    {
+      "contract": "AdminAppShell",
+      "path": "app/[locale]/admin/layout.tsx",
+      "status": "active"
     }
   ],
   "approvedExceptions": [
@@ -70,25 +74,25 @@
       "surface": "Lesson prose HTML",
       "reason": "Rich lesson content uses TypographyStylesProvider; colors follow dark-shell tokens.",
       "owner": "amanoba-ui",
-      "reviewDate": "2026-05-25"
+      "reviewDate": "2026-05-26"
     },
     {
       "surface": "Game canvas",
       "reason": "Non-Mantine game engine rendering; Mantine chrome only around canvas.",
       "owner": "amanoba-ui",
-      "reviewDate": "2026-05-25"
+      "reviewDate": "2026-05-26"
     },
     {
       "surface": "Email and certificate renders",
       "reason": "Non-CSS output contexts use color-tokens.ts literals.",
       "owner": "amanoba-ui",
-      "reviewDate": "2026-05-25"
+      "reviewDate": "2026-05-26"
     },
     {
       "surface": "Recharts",
       "reason": "Chart palette from CHART_THEME in color-tokens.ts.",
       "owner": "amanoba-ui",
-      "reviewDate": "2026-05-25"
+      "reviewDate": "2026-05-26"
     },
     {
       "surface": "Lesson markdown editor",
@@ -96,10 +100,28 @@
       "allowImports": ["@/components/ui/markdown-editor"],
       "reason": "TipTap lesson editor scaffold until GDS editor contract ships; Mantine-chrome only around editor island.",
       "owner": "amanoba-ui",
-      "reviewDate": "2026-05-25"
+      "reviewDate": "2026-05-26"
     }
   ],
+  "compliance": {
+    "documentationPaths": [
+      "README.md",
+      "READMEDEV.md",
+      "AGENTS.md",
+      "docs/product/DESIGN_UPDATE.md",
+      "docs/product/GDS_ADOPTION_MANIFEST.md"
+    ],
+    "staleDocumentationReferences": [
+      "@gds/theme",
+      "@gds/core",
+      "@gds/admin",
+      "file:../GENERAL_DESIGN_SYSTEM/packages",
+      "/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM"
+    ],
+    "protectedSurfacePaths": ["app/lib/ui", "app/components/patterns/gds"],
+    "bannedImports": ["@gds/theme", "@gds/core", "@gds/admin", "@gds/compliance", "@gds/eslint-config"]
+  },
   "migrationStatus": "enforced",
   "owner": "amanoba-ui",
-  "lastReviewedAt": "2026-05-25"
+  "lastReviewedAt": "2026-05-26"
 }

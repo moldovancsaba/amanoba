@@ -2,7 +2,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { validateManifest } from '@gds/compliance';
+import { validateManifest } from '@doneisbetter/gds-compliance';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const manifest = JSON.parse(readFileSync(join(root, 'gds-adoption.json'), 'utf8'));

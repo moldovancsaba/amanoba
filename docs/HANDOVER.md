@@ -1773,3 +1773,39 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `git -C /Users/Shared/Projects/amanoba status -sb` ✅ on `main` aligned with `origin/main`
 - `git -C /Users/moldovancsaba/Projects/amanoba rev-parse HEAD` ✅ ancestor of canonical before deletion
 - `test ! -e /Users/moldovancsaba/Projects/amanoba` ✅
+
+## GDS `@doneisbetter/*` package migration (2026-05-26)
+
+### What changed
+- Replaced legacy `@gds/*` and repo-local `app/lib/gds/*` shims with **`@doneisbetter/*` 2.6.1** (GitHub release tarballs until npm publish).
+- Root runtime: **`GdsProvider`** (`@doneisbetter/gds-theme/client`) + **`extendGdsTheme`** (`@doneisbetter/gds-theme/server`).
+- Pattern adapters: `@doneisbetter/gds-core/client`; admin shell: `@doneisbetter/gds-admin/client` `AppShell`.
+- Governance: `@doneisbetter/gds-compliance`, `@doneisbetter/gds-eslint-config`, `ui:check:no-legacy-gds-imports`.
+- Removed webpack aliases to local GDS mirrors.
+
+### Verification
+- `npm run ui:gds:check` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run build` ✅ pass
+- `npm run lint` ✅ pass (with GDS eslint rules)
+
+## GDS 2.6.1 release-asset install contract correction (2026-05-26)
+
+### What changed
+- Replaced the temporary sibling `file:` installs for `@doneisbetter/gds-theme`, `@doneisbetter/gds-core`, `@doneisbetter/gds-admin`, `@doneisbetter/gds-eslint-config`, and `@doneisbetter/gds-compliance` with the approved public GitHub release tarballs from `gds-v2.6.1`.
+- Removed the sibling-bootstrap install behavior from `package.json` (`gds:ensure-sibling`, `postinstall`) so CI/Vercel and fresh clones no longer imply a local `GENERAL_DESIGN_SYSTEM` checkout requirement.
+- Removed stale `@gds/*` path aliases from `tsconfig.json`.
+- Corrected active docs to state the actual consumer contract: canonical future registry source is npm, current supported install source is the 2.6.1 GitHub release assets.
+
+### Why
+- The new upstream package line is `@doneisbetter/*`, and the approved temporary install source before npm publication is the public 2.6.1 release assets. Sibling `file:` installs are explicitly not allowed for CI or Vercel flows.
+
+### Verification
+- `npm run ui:gds:verify`
+- `npm run gds:import-smoke`
+- `npm run ui:check:gds-adoption`
+- `npm run build`
+
+### Notes
+- Upstream verified consumer baseline remains Next `15.5.18`, React `19.2.0`, and Mantine `8.3.6`. Amanoba runs a newer consumer stack, so local build verification remains mandatory on each GDS upgrade.
