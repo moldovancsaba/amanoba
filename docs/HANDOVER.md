@@ -95,6 +95,30 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ---
 
+## Project 12 board sync cleanup (2026-05-26)
+
+### What changed
+- Audited the canonical Amanoba GitHub Project 12 board against the current `amanoba` `main` branch and repo documentation.
+- Closed stale issues that were already delivered in code and/or already marked `Done` on the board:
+  - `#106`, `#107`, `#108` (lesson quiz governance slices)
+  - `#19` (course achievements: new achievement types)
+  - `#822`, `#823`, `#824`, `#825`, `#826`, `#827`, `#828`, `#829` (course UX Mantine hardening parent and child slices)
+- Moved those same cards to Project 12 `Done` where they were still sitting in `Review (ALMOST)`.
+- Left `#2` open; repo history still records it as a partial delivery that needs a final acceptance review rather than a blind close.
+
+### Verification
+- Queried Project 12 issue/card state through `gh issue list` / `gh issue view` with project metadata.
+- Verified representative results after mutation:
+  - `#822` -> `CLOSED`, Project 12 `Done`
+  - `#824` -> `CLOSED`, Project 12 `Done`
+  - `#829` -> `CLOSED`, Project 12 `Done`
+  - `#106` -> `CLOSED`, Project 12 `Done`
+
+### Notes
+- Remaining open `Review (ALMOST)` items on the Amanoba board after this cleanup are not all safe to auto-close. In particular, `#2` still has explicit repo-side evidence that only a partial slice was delivered.
+
+---
+
 ## Local GDS enforcement contract (2026-05-25)
 
 ### What changed
