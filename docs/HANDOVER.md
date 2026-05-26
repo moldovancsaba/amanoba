@@ -1697,6 +1697,19 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run ui:check:foundation` ✅ pass
 - `npm run build` ✅ pass
 
+## GDS 2.5.1 alignment + fresh-clone verification (2026-05-25)
+
+### What changed
+- Bumped GDS version pin to **2.5.1** in `gds-adoption.json`, `scripts/verify-gds-version.mjs`, and adapter docs.
+- Added `app/lib/gds/` to foundation audit and GDS compliance token allowlists (Vercel-safe `@gds/*` shims).
+- `gds:import-smoke` exercises the repo-local `@gds/theme` shim (matches `next.config.ts`; no built GDS `dist/` on fresh `file:` installs).
+
+### Verification (local clone at `~/Projects/amanoba` + sibling `~/Projects/GENERAL_DESIGN_SYSTEM`)
+- `npm install` ✅ pass
+- `npm run ui:gds:check` ✅ pass
+- `npm run ui:check:foundation` ✅ pass
+- `npm run build` ✅ pass
+
 ## GDS 2.4.3 alignment (2026-05-25)
 
 ### What changed

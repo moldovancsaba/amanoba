@@ -4,7 +4,7 @@
 **Status**: Active local enforcement contract
 **Shared SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
 **Shared Upstream Repo**: [sovereignsquad/general-design-system](https://github.com/sovereignsquad/general-design-system)
-**Aligned GDS Version**: `2.4.3`
+**Aligned GDS Version**: `2.5.1`
 **Aligned GDS Date**: `2026-05-25`
 **Machine-readable source**: `gds-adoption.json`
 

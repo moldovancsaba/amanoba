@@ -1,7 +1,7 @@
 # Design System Adapter Status
 
 **Last Updated**: 2026-05-25
-**Status**: GDS 2.4.3 enforced; Mantine-only runtime; product primitives use deploy-safe local `@gds/*` adapters
+**Status**: GDS 2.5.1 enforced; Mantine-only runtime; product primitives use deploy-safe local `@gds/*` adapters
 
 ---
 
@@ -26,7 +26,7 @@ Read in this order:
 9. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/THEME_GOVERNANCE.md`
 10. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/EXCEPTION_SURFACES.md`
 
-The shared SSOT is managed as its own Git repository: https://github.com/sovereignsquad/general-design-system. Amanoba references version **2.4.3** (2026-05-25).
+The shared SSOT is managed as its own Git repository: https://github.com/sovereignsquad/general-design-system. Amanoba references version **2.5.1** (2026-05-25).
 
 ## Project Migration Plan
 
@@ -35,7 +35,7 @@ The shared SSOT is managed as its own Git repository: https://github.com/soverei
 
 ## Local Adapter
 
-**Aligned SSOT version/date**: `2.4.3`, 2026-05-25
+**Aligned SSOT version/date**: `2.5.1`, 2026-05-25
 **Status**: Mantine-only product UI; GDS packages installed; pattern implementations consolidated under `app/components/patterns/gds/`
 **Current UI foundation**: repo-local `@gds/theme` shim via `extendGdsTheme` in `app/lib/ui/amanoba-gds-theme.ts`, root `MantineRuntimeProvider`, narrowed `globals.css` + token-only `design-system.css`
 **Target UI foundation**: Mantine-only contract from the shared SSOT (achieved for product primitives; documented exceptions remain)
@@ -44,9 +44,9 @@ The shared SSOT is managed as its own Git repository: https://github.com/soverei
 
 | Package | Version | Path |
 | --- | --- | --- |
-| `@gds/theme` | 2.4.3 | `file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-theme` |
-| `@gds/core` | 2.4.3 | `file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-core` |
-| `@gds/admin` | 2.4.3 | `file:../../../Shared/Projects/GENERAL_DESIGN_SYSTEM/packages/gds-admin` |
+| `@gds/theme` | 2.5.1 | `file:../GENERAL_DESIGN_SYSTEM/packages/gds-theme` |
+| `@gds/core` | 2.5.1 | `file:../GENERAL_DESIGN_SYSTEM/packages/gds-core` |
+| `@gds/admin` | 2.5.1 | `file:../GENERAL_DESIGN_SYSTEM/packages/gds-admin` |
 
 Production runtime does not import the sibling checkout directly. The app resolves `@gds/theme` and `@gds/core` to repo-local governed shims in `app/lib/gds/*` so Vercel builds without `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`. Local governance/version scripts still use the shared checkout and version pin.
 
@@ -98,7 +98,7 @@ Remaining (documented in `gds-adoption.json`, not duplicate GDS primitives):
 
 ## GDS-only enforcement
 
-- Machine-readable adoption contract: `gds-adoption.json` (version **2.4.3**).
+- Machine-readable adoption contract: `gds-adoption.json` (version **2.5.1**).
 - `app/components/patterns/gds/*` must import `@gds/*` except registered `brand-composition` adapters.
 - No Tailwind/Radix/sonner/vaul/`@/components/ui/*` as product UI authority.
 - Theme palettes live in `app/lib/constants/color-tokens.ts`; runtime uses `extendGdsTheme` only.

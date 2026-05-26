@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "gdsVersion": "2.4.3",
+  "gdsVersion": "2.5.1",
   "productArchetype": "lms-game",
   "supportedEntryPoints": [
     "@gds/theme",

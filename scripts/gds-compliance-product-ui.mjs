@@ -14,6 +14,7 @@ const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
 const TOKEN_PATH_PREFIXES = [
   'app/lib/constants/',
   'app/lib/ui/',
+  'app/lib/gds/',
   'app/design-system.css',
   'app/globals.css',
 ];

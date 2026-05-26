@@ -1,9 +1,9 @@
 # Amanoba Pattern Contract Inventory
 
 **Last Updated**: 2026-05-25
-**Status**: GDS 2.4.3 enforced (`gds-adoption.json`)
+**Status**: GDS 2.5.1 enforced (`gds-adoption.json`)
 **Shared SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
-**Aligned GDS Version**: `2.4.3`
+**Aligned GDS Version**: `2.5.1`
 
 This document is Amanoba's local adapter inventory for the GDS pattern service model. It records implementation paths and migration state only.
 
