@@ -19,7 +19,7 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | Progress card | `app/components/patterns/gds/ProgressCard.tsx` | `@doneisbetter/gds-core/client` `ProgressCard` | Thin adapter | Quest/course progress |
 | State block | `app/components/patterns/gds/StateBlock.tsx` | `@doneisbetter/gds-core/client` `StateBlock` | Thin adapter | `kind` → `variant` |
 | Course access recovery | `app/components/patterns/gds/CourseAccessRecoveryActions.tsx` | `@doneisbetter/gds-core/client` `AccessRecoveryPanel` | Thin adapter | Maps course API codes to panel state |
-| Admin shell | `app/[locale]/admin/layout.tsx` | `@doneisbetter/gds-admin/AppShell` (optional) | Canonical | Mantine AppShell |
+| Admin shell | `app/[locale]/admin/layout.tsx` | `@doneisbetter/gds-admin/client` `AppShell` | Active | GDS admin shell + Amanoba nav |
 | Auth shell | `app/components/patterns/gds/AuthShell.tsx` | `@doneisbetter/gds-core/AuthShell` (Amanoba variant) | Canonical | Dark `ink.9` layout |
 | Public shell | `app/components/patterns/gds/PublicAppShell.tsx` | `@doneisbetter/gds-core/PublicShell` (Amanoba variant) | Canonical | Marketing header band |
 | Data toolbar | `app/components/patterns/gds/DataToolbar.tsx` | `@doneisbetter/gds-core/DataToolbar` (aligned local) | Canonical | `layout: inline \| stack` |

@@ -44,6 +44,7 @@ export default defineConfig([
       'gds/no-raw-design-values': 'off',
       'gds/no-forbidden-ui-imports': 'off',
     },
+  },
   {
     files: ['**/*.{ts,tsx,mts,cts}'],
     plugins: {
