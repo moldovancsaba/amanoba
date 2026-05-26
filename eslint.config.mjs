@@ -5,6 +5,7 @@ import nextConfig from 'eslint-config-next';
 import tseslint from 'typescript-eslint';
 
 const manifest = JSON.parse(readFileSync(new URL('./gds-adoption.json', import.meta.url), 'utf8'));
+const gdsPluginConfig = createGdsConfig({ allowedImports: resolveAllowedImports(manifest) })[0];
 
 export default defineConfig([
   globalIgnores([
@@ -22,8 +23,17 @@ export default defineConfig([
     languageOptions: { globals: { defineConfig: 'readonly', globalIgnores: 'readonly' } },
     rules: { '@typescript-eslint/no-unused-vars': 'off', '@typescript-eslint/no-require-imports': 'off' },
   },
-  ...createGdsConfig({ allowedImports: resolveAllowedImports(manifest) }),
   ...nextConfig,
+  {
+    files: ['app/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}'],
+    ignores: [
+      'app/lib/constants/**',
+      'app/lib/ui/**',
+      'app/components/patterns/gds/**',
+    ],
+    plugins: gdsPluginConfig.plugins,
+    rules: gdsPluginConfig.rules,
+  },
   {
     files: ['**/*.{ts,tsx,mts,cts}'],
     plugins: {
@@ -57,25 +67,11 @@ export default defineConfig([
     },
   },
   {
-    files: ['scripts/**/*.ts', 'scripts/**/*.js', 'public/**/*.js'],
+    files: ['scripts/**/*.{ts,js,mjs,cjs}', 'public/**/*.js'],
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-require-imports': 'off',
-      'gds/no-raw-design-values': 'off',
-      'gds/no-forbidden-ui-imports': 'off',
-    },
-  },
-  {
-    files: [
-      'app/lib/constants/**',
-      'app/lib/ui/**',
-      'app/design-system.css',
-      'app/globals.css',
-      'app/mobile-styles.css',
-    ],
-    rules: {
-      'gds/no-raw-design-values': 'off',
     },
   },
 ]);
