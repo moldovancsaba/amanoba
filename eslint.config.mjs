@@ -32,8 +32,18 @@ export default defineConfig([
       'app/components/patterns/gds/**',
     ],
     plugins: gdsPluginConfig.plugins,
-    rules: gdsPluginConfig.rules,
+    rules: {
+      ...gdsPluginConfig.rules,
+      'gds/no-raw-design-values': 'warn',
+    },
   },
+  {
+    files: ['app/lib/email/**/*.{ts,tsx}'],
+    plugins: gdsPluginConfig.plugins,
+    rules: {
+      'gds/no-raw-design-values': 'off',
+      'gds/no-forbidden-ui-imports': 'off',
+    },
   {
     files: ['**/*.{ts,tsx,mts,cts}'],
     plugins: {
