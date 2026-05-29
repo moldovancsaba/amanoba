@@ -31,8 +31,8 @@ import {
   Text,
   TextInput,
   Textarea,
-  Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { DataToolbar } from '@/app/components/patterns/DataToolbar';
 import { ResponsiveDataView } from '@/app/components/patterns/ResponsiveDataView';
 import { IconAdjustments, IconCopy, IconEdit, IconHelpCircle, IconPlus, IconSearch, IconTrash, IconX } from '@tabler/icons-react';
@@ -574,21 +574,18 @@ export default function AdminQuestionsPage() {
 
   return (
     <Stack gap="xl">
-      {/* Header */}
-      <Group justify="space-between" align="flex-start">
-        <div>
-          <Title order={1}>Quiz Questions</Title>
-          <Text c="dimmed">
-            Manage and organize quiz questions across all courses
-          </Text>
-        </div>
-        <Button
-          onClick={handleCreateQuestion}
-          leftSection={<IconPlus size={18} />}
-        >
-          Create Question
-        </Button>
-      </Group>
+      <AdminPageHeader
+        title="Quiz Questions"
+        description="Manage and organize quiz questions across all courses"
+        primaryAction={
+          <Button
+            onClick={handleCreateQuestion}
+            leftSection={<IconPlus size={18} />}
+          >
+            Create Question
+          </Button>
+        }
+      />
 
       {/* Filters Panel */}
       {showFilters && (

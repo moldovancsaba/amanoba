@@ -25,8 +25,8 @@ import {
   Text,
   TextInput,
   ThemeIcon,
-  Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import {
   IconEdit,
   IconEye,
@@ -224,20 +224,20 @@ export default function AdminGamesPage() {
 
   return (
     <Stack gap="lg">
-      <Group justify="space-between" align="flex-start">
-        <Stack gap={4}>
-          <Title order={1}>{t('gamesManagement')}</Title>
-          <Text c="dimmed">{t('gamesDescription')}</Text>
-        </Stack>
-        <Button
-          component={Link}
-          href={`/${locale}/admin/games/new`}
-          color="amanoba"
-          leftSection={<IconPlus size={18} />}
-        >
-          {t('addGame')}
-        </Button>
-      </Group>
+      <AdminPageHeader
+        title={t('gamesManagement')}
+        description={t('gamesDescription')}
+        primaryAction={
+          <Button
+            component={Link}
+            href={`/${locale}/admin/games/new`}
+            color="amanoba"
+            leftSection={<IconPlus size={18} />}
+          >
+            {t('addGame')}
+          </Button>
+        }
+      />
 
       <DataToolbar title={t('searchGames')}>
         <TextInput

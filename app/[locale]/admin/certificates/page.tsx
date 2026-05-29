@@ -25,8 +25,8 @@ import {
   Text,
   TextInput,
   ThemeIcon,
-  Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import {
   IconAward,
   IconCheck,
@@ -218,22 +218,22 @@ export default function AdminCertificatesPage() {
 
   return (
     <Stack gap="lg">
-      <Group justify="space-between" align="flex-start">
-        <Stack gap={4}>
-          <Title order={1} c="white">Certificates Management</Title>
-          <Text c="gray.4">View, search, and manage all certificates</Text>
-        </Stack>
-        <Button
-          component="a"
-          href="https://github.com/moldovancsaba/amanoba/blob/main/docs/CERTIFICATE_CREATION_GUIDE.md"
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="default"
-          leftSection={<IconAward size={18} />}
-        >
-          Certificate Creation Guide
-        </Button>
-      </Group>
+      <AdminPageHeader
+        title="Certificates Management"
+        description="View, search, and manage all certificates"
+        primaryAction={
+          <Button
+            component="a"
+            href="https://github.com/moldovancsaba/amanoba/blob/main/docs/CERTIFICATE_CREATION_GUIDE.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="default"
+            leftSection={<IconAward size={18} />}
+          >
+            Certificate Creation Guide
+          </Button>
+        }
+      />
 
       <DataToolbar title="Search certificates">
         <TextInput

@@ -22,8 +22,8 @@ import {
   Text,
   TextInput,
   ThemeIcon,
-  Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { IconEdit, IconGift, IconPlus, IconSearch, IconTrash } from '@tabler/icons-react';
 import Image from 'next/image';
 import { DataToolbar } from '@/app/components/patterns/DataToolbar';
@@ -208,20 +208,20 @@ export default function AdminRewardsPage() {
 
   return (
     <Stack gap="lg">
-      <Group justify="space-between" align="flex-start">
-        <Stack gap={4}>
-          <Title order={1}>{t('rewardsManagement')}</Title>
-          <Text c="dimmed">{t('rewardsDescription')}</Text>
-        </Stack>
-        <Button
-          component={Link}
-          href={`/${locale}/admin/rewards/new`}
-          color="amanoba"
-          leftSection={<IconPlus size={18} />}
-        >
-          {t('addReward')}
-        </Button>
-      </Group>
+      <AdminPageHeader
+        title={t('rewardsManagement')}
+        description={t('rewardsDescription')}
+        primaryAction={
+          <Button
+            component={Link}
+            href={`/${locale}/admin/rewards/new`}
+            color="amanoba"
+            leftSection={<IconPlus size={18} />}
+          >
+            {t('addReward')}
+          </Button>
+        }
+      />
 
       <DataToolbar title={t('searchRewards')}>
         <TextInput

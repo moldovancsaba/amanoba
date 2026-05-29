@@ -11,7 +11,7 @@
 - **Repository**: `moldovancsaba/amanoba`
 - **Framework**: Next.js 16.2.6 App Router
 - **Runtime UI system**: Mantine-only baseline with shared GDS pattern contracts
-- **Design/UI/UX SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
+- **Design/UI/UX SSOT**: `https://github.com/sovereignsquad/general-design-system`
 - **Database**: MongoDB Atlas via Mongoose
 - **Auth**: SSO-only registered-user flow through `sso.doneisbetter.com`, with anonymous learner/game access where supported
 - **Routing guard**: `proxy.ts` with NextAuth edge auth and next-intl locale routing
@@ -37,7 +37,7 @@ Read in this order:
 - Do not reintroduce Tailwind, Radix, Sonner, Vaul, or local design-system wrappers.
 - Do not add page-local hard-coded colors, spacing scales, or mode-specific readability hacks.
 - Use Mantine primitives and the shared pattern contracts before creating new UI structure.
-- Keep `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` as the design SSOT.
+- Keep `https://github.com/sovereignsquad/general-design-system` as the design SSOT.
 - Keep `docs/HANDOVER.md` current when behavior, commands, dependencies, architecture, or process changes.
 - Run the relevant quality gates before claiming completion.
 

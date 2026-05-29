@@ -1,5 +1,9 @@
 import type { ReactNode } from 'react';
-import { Box, Card, Group, Stack, Table, Text } from '@mantine/core';
+import {
+  ResponsiveDataView as GdsResponsiveDataView,
+  type DataTableColumn,
+} from '@doneisbetter/gds-admin/client';
+import { Box, Card, Group, Stack, Text } from '@mantine/core';
 
 export type ResponsiveColumn<T> = {
   key: string;
@@ -10,7 +14,7 @@ export type ResponsiveColumn<T> = {
   align?: 'left' | 'center' | 'right';
 };
 
-type ResponsiveDataViewProps<T> = {
+type ResponsiveDataViewProps<T extends object> = {
   rows: T[];
   columns: ResponsiveColumn<T>[];
   rowKey: (row: T, index: number) => string;
@@ -31,85 +35,88 @@ function columnAlign(align: ResponsiveColumn<unknown>['align']) {
   return 'left' as const;
 }
 
-/**
- * Admin list contract: card rows on small screens, scrollable table from `md` up.
- */
-export function ResponsiveDataView<T>({
-  rows,
+function columnLabel(header: ReactNode, key: string): string {
+  if (typeof header === 'string') return header;
+  if (typeof header === 'number') return String(header);
+  return key;
+}
+
+function toGdsColumns<T extends object>(
+  columns: ResponsiveColumn<T>[]
+): DataTableColumn<T & Record<string, unknown>>[] {
+  return columns.map((column) => ({
+    key: column.key,
+    label: columnLabel(column.header, column.key),
+    render: (row) => column.cell(row),
+  }));
+}
+
+function DefaultMobileCard<T extends object>({
+  row,
   columns,
-  rowKey,
-  minTableWidth = 640,
-  emptyState,
-  loading = false,
-  loadingState,
-  striped,
-  highlightOnHover = true,
-  withTableBorder,
-  withColumnBorders,
-  getRowStyle,
-}: ResponsiveDataViewProps<T>) {
-  if (loading) {
-    return <>{loadingState ?? <Text c="dimmed">Loading…</Text>}</>;
-  }
-
-  if (rows.length === 0) {
-    return emptyState ? <>{emptyState}</> : <Text c="dimmed">No data found</Text>;
-  }
-
+  style,
+}: {
+  row: T;
+  columns: ResponsiveColumn<T>[];
+  style?: React.CSSProperties;
+}) {
   const mobileColumns = columns.filter((column) => !column.hideOnMobile);
 
   return (
-    <>
-      <Box hiddenFrom="md">
-        <Stack gap="sm">
-          {rows.map((row, index) => (
-            <Card key={rowKey(row, index)} withBorder p="md" style={getRowStyle?.(row, index)}>
-              <Stack gap="xs">
-                {mobileColumns.map((column) => (
-                  <Group key={column.key} justify="space-between" align="flex-start" wrap="nowrap" gap="md">
-                    <Text size="sm" c="dimmed" maw="40%">
-                      {column.mobileLabel ?? column.header}
-                    </Text>
-                    <Box style={{ textAlign: columnAlign(column.align), flex: 1 }}>{column.cell(row)}</Box>
-                  </Group>
-                ))}
-              </Stack>
-            </Card>
-          ))}
-        </Stack>
-      </Box>
+    <Card withBorder p="md" style={style}>
+      <Stack gap="xs">
+        {mobileColumns.map((column) => (
+          <Group key={column.key} justify="space-between" align="flex-start" wrap="nowrap" gap="md">
+            <Text size="sm" c="dimmed" maw="40%">
+              {column.mobileLabel ?? column.header}
+            </Text>
+            <Box style={{ textAlign: columnAlign(column.align), flex: 1 }}>{column.cell(row)}</Box>
+          </Group>
+        ))}
+      </Stack>
+    </Card>
+  );
+}
 
-      <Box visibleFrom="md">
-        <Table.ScrollContainer minWidth={minTableWidth}>
-          <Table
-            striped={striped}
-            highlightOnHover={highlightOnHover}
-            withTableBorder={withTableBorder}
-            withColumnBorders={withColumnBorders}
-          >
-            <Table.Thead>
-              <Table.Tr>
-                {columns.map((column) => (
-                  <Table.Th key={column.key} ta={columnAlign(column.align)}>
-                    {column.header}
-                  </Table.Th>
-                ))}
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>
-              {rows.map((row, index) => (
-                <Table.Tr key={rowKey(row, index)} style={getRowStyle?.(row, index)}>
-                  {columns.map((column) => (
-                    <Table.Td key={column.key} ta={columnAlign(column.align)}>
-                      {column.cell(row)}
-                    </Table.Td>
-                  ))}
-                </Table.Tr>
-              ))}
-            </Table.Tbody>
-          </Table>
-        </Table.ScrollContainer>
-      </Box>
-    </>
+/**
+ * Admin list contract — delegates table/card responsive layout to `@doneisbetter/gds-admin`.
+ * Preserves Amanoba column API (`header` / `cell`, mobile labels) for existing admin pages.
+ */
+export function ResponsiveDataView<T extends object>({
+  rows,
+  columns,
+  rowKey,
+  emptyState,
+  loading = false,
+  loadingState,
+  getRowStyle,
+}: ResponsiveDataViewProps<T>) {
+  if (loading && loadingState) {
+    return <>{loadingState}</>;
+  }
+
+  if (!loading && rows.length === 0 && emptyState) {
+    return <>{emptyState}</>;
+  }
+
+  const gdsRows = rows as Array<T & Record<string, unknown>>;
+
+  return (
+    <GdsResponsiveDataView
+      data={gdsRows}
+      columns={toGdsColumns(columns)}
+      loading={loading}
+      getRowKey={(row, index) => rowKey(row, index)}
+      emptyTitle="No data found"
+      emptyDescription="Try changing filters or create a new record."
+      emptyAction={emptyState}
+      renderCard={(row, index) => (
+        <DefaultMobileCard
+          row={row as T}
+          columns={columns}
+          style={getRowStyle?.(row as T, index)}
+        />
+      )}
+    />
   );
 }

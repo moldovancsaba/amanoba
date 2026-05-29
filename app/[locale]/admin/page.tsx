@@ -26,6 +26,7 @@ import {
   ThemeIcon,
   Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import {
   IconActivity,
   IconAlertTriangle,
@@ -147,10 +148,10 @@ export default function AdminDashboardPage() {
   return (
     <Container size="xl" py="xl">
       <Stack gap="lg">
-        <Stack gap={4}>
-          <Title order={1} c="white">{t('dashboardTitle')}</Title>
-          <Text c="gray.4">{t('dashboardDescription')}</Text>
-        </Stack>
+        <AdminPageHeader
+          title={t('dashboardTitle')}
+          description={t('dashboardDescription')}
+        />
 
         <SimpleGrid cols={{ base: 1, md: 2, lg: 4 }}>
           <StatCard

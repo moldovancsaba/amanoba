@@ -1,6 +1,6 @@
 # Amanoba Task List
 
-**Last Updated**: 2026-05-21
+**Last Updated**: 2026-05-28
 **Status**: Reference mirror only. The live work-tracking source of truth is the [Amanoba Project 12 board](https://github.com/users/moldovancsaba/projects/12/views/1) and issues in `moldovancsaba/mvp-factory-control`.
 
 ---
@@ -16,7 +16,13 @@ Use this file to understand the current high-level backlog shape from inside the
 
 ## Current Execution Lane
 
-No assigned Amanoba issue is in `Todo (NEXT)` or `In Progress (NOW)` as of the 2026-05-20 Project 12 reconciliation.
+**Completed program (2026-05-28):** [Doc SSOT + GDS Closure](../handoff/feature_issues/DOC_SSOT_GDS_CLOSURE_PROGRAM.md) — issues [#890](https://github.com/moldovancsaba/mvp-factory-control/issues/890)–[#903](https://github.com/moldovancsaba/mvp-factory-control/issues/903) delivered in repo except [#900](https://github.com/moldovancsaba/mvp-factory-control/issues/900) (adapter shipped; upstream [GDS#80](https://github.com/sovereignsquad/general-design-system/issues/80) still open).
+
+| Status | Next action |
+|--------|-------------|
+| **No active NOW/NEXT** | Pick the next card from [Project 12](https://github.com/users/moldovancsaba/projects/12/views/1) |
+
+Prior GDS adoption program (#868–#877) is complete; see `docs/HANDOVER.md`.
 
 Recently closed / Done on Project 12:
 
@@ -43,7 +49,7 @@ These are the main repo-visible follow-ups that still matter after the May docum
 | Area | Current repo-visible status | Next action |
 |------|-----------------------------|-------------|
 | Broader Practice Hub ideabank | MVP contract/UI/telemetry are shipped, but the broader listening/speaking/mistakes vision is not complete. | Keep Project 12 issue `#749` in Backlog until the next review-mode expansion is prioritized. |
-| Design-system migration | Shared SSOT now lives at `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`; Amanoba's active runtime is Mantine-rooted, but heuristic drift remains in older admin/game/profile/certificate surfaces and transitional CSS support layers. | Migrate touched surfaces toward the shared Mantine contract, keep `docs/product/DESIGN_UPDATE.md` current, and keep shrinking transitional adapters. |
+| Design-system migration | Shared SSOT now lives at `https://github.com/sovereignsquad/general-design-system`; Amanoba's active runtime is Mantine-rooted, but heuristic drift remains in older admin/game/profile/certificate surfaces and transitional CSS support layers. | Migrate touched surfaces toward the shared Mantine contract, keep `docs/product/DESIGN_UPDATE.md` current, and keep shrinking transitional adapters. |
 | Certification templates/defaults | Certificate issuance, verification, entitlement, and template assignment exist; reusable admin-managed defaults/templates remain future work. | Keep as roadmap/backlog until Project 12 prioritizes it. |
 
 ## Delivered Work That Should Not Be Re-Added Here

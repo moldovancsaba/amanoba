@@ -25,12 +25,12 @@
   "localAdapters": [
     {
       "contract": "LearnerPageHeader",
-      "path": "app/components/LearnerPageHeader.tsx",
-      "status": "active"
+      "path": "app/components/patterns/gds/LearnerShellAdapter.tsx",
+      "status": "brand-composition"
     },
     {
       "contract": "CourseCard",
-      "path": "app/components/patterns/CourseCard.tsx",
+      "path": "app/components/patterns/gds/CourseCard.tsx",
       "status": "active"
     },
     {
@@ -56,7 +56,17 @@
     {
       "contract": "ResponsiveDataView",
       "path": "app/components/patterns/gds/ResponsiveDataView.tsx",
-      "status": "brand-composition"
+      "status": "active"
+    },
+    {
+      "contract": "AdminPageHeader",
+      "path": "app/components/patterns/gds/AdminPageHeader.tsx",
+      "status": "active"
+    },
+    {
+      "contract": "EditorAppShell",
+      "path": "app/[locale]/editor/layout.tsx",
+      "status": "active"
     },
     {
       "contract": "CourseAccessRecovery",

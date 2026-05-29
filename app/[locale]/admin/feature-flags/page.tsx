@@ -20,6 +20,7 @@ import {
   Text,
   Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { IconDeviceFloppy, IconRefresh } from '@tabler/icons-react';
 
 interface FeatureFlags {
@@ -133,15 +134,15 @@ export default function AdminFeatureFlagsPage() {
 
   return (
     <Stack gap="xl">
-      <Group justify="space-between" align="flex-start">
-        <div>
-          <Title order={1}>Feature Flags</Title>
-          <Text c="dimmed">Control which features are enabled on amanoba.com</Text>
-        </div>
-        <Button variant="default" leftSection={<IconRefresh size={18} />} onClick={fetchFeatureFlags}>
-          Refresh
-        </Button>
-      </Group>
+      <AdminPageHeader
+        title="Feature Flags"
+        description="Control which features are enabled on amanoba.com"
+        primaryAction={
+          <Button variant="default" leftSection={<IconRefresh size={18} />} onClick={fetchFeatureFlags}>
+            Refresh
+          </Button>
+        }
+      />
 
       <Card withBorder>
         <Stack gap="md">

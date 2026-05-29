@@ -28,14 +28,16 @@ interface MarkdownEditorProps {
   content: string;
   onChange: (content: string) => void;
   placeholder?: string;
-  minHeight?: string;
+  minHeight?: number | string;
 }
+
+const DEFAULT_MIN_HEIGHT = 300;
 
 export default function MarkdownEditor({
   content,
   onChange,
   placeholder = 'Write your content in **Markdown** (headings, lists, **bold**, *italic*, [links](url))…',
-  minHeight = '300px',
+  minHeight = DEFAULT_MIN_HEIGHT,
 }: MarkdownEditorProps) {
   const [activeTab, setActiveTab] = useState<'edit' | 'preview'>('edit');
   const hasConvertedLegacy = useRef(false);

@@ -12,8 +12,8 @@ import {
   Select,
   Stack,
   Text,
-  Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { IconThumbDown, IconThumbUp } from '@tabler/icons-react';
 import { DataToolbar } from '@/app/components/patterns/DataToolbar';
 import { ResponsiveDataView } from '@/app/components/patterns/ResponsiveDataView';
@@ -119,12 +119,10 @@ export default function AdminVotesPage() {
 
   return (
     <Stack gap="lg" maw={1200}>
-      <Stack gap={4}>
-        <Title order={1}>Vote aggregates</Title>
-        <Text c="dimmed" size="sm">
-          Course, lesson, and question votes (up/down). Vote reset on lesson update when content changes.
-        </Text>
-      </Stack>
+      <AdminPageHeader
+        title="Vote aggregates"
+        description="Course, lesson, and question votes (up/down). Vote reset on lesson update when content changes."
+      />
 
       <DataToolbar title="Filter by type">
         <Select

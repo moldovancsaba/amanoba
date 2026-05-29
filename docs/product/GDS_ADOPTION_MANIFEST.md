@@ -50,9 +50,9 @@ Use it to answer:
 
 These are the current local implementation paths for the required GDS pattern-service families:
 
-- Learner shell / page header: `app/components/LearnerPageHeader.tsx`
+- Learner shell / page header: `app/components/patterns/gds/LearnerShellAdapter.tsx` (stable import remains `app/components/LearnerPageHeader.tsx`)
 - Article shell: `app/components/patterns/ArticleShell.tsx`
-- Product course card: `app/components/patterns/CourseCard.tsx`
+- Product course card: `app/components/patterns/gds/CourseCard.tsx` (stable import remains `app/components/patterns/CourseCard.tsx`)
 - Metric / progress card: `app/components/patterns/MetricCard.tsx`
 - State block: `app/components/patterns/StateBlock.tsx`
 - Course access recovery: `components/patterns/CourseAccessRecoveryActions.tsx`
@@ -65,7 +65,7 @@ These are the current local implementation paths for the required GDS pattern-se
 - Game shell: `app/[locale]/games/memory/page.tsx`, `app/components/LessonQuiz.tsx`, `app/components/games/MemoryGame.tsx`
 - Game board card: `app/components/patterns/GameBoardCard.tsx`, `app/components/patterns/gds/GameBoardCard.tsx`
 
-The canonical inventory remains [PATTERN_CONTRACT_INVENTORY.md](/Users/Shared/Projects/amanoba/docs/product/PATTERN_CONTRACT_INVENTORY.md).
+The canonical inventory remains [PATTERN_CONTRACT_INVENTORY.md](./PATTERN_CONTRACT_INVENTORY.md).
 
 ## Protected Mantine-Only Surfaces
 
@@ -126,7 +126,7 @@ The following files are currently treated as protected Mantine-only surfaces and
 
 ## Exceptions
 
-All approved exceptions must be registered in [GDS_EXCEPTION_REGISTER.md](/Users/Shared/Projects/amanoba/docs/product/GDS_EXCEPTION_REGISTER.md).
+All approved exceptions must be registered in [GDS_EXCEPTION_REGISTER.md](./GDS_EXCEPTION_REGISTER.md).
 
 Current exception ids:
 

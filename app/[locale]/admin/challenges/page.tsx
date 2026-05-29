@@ -24,6 +24,7 @@ import {
   ThemeIcon,
   Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { IconCalendar, IconTarget } from '@tabler/icons-react';
 
 interface Challenge {
@@ -112,12 +113,10 @@ export default function AdminChallengesPage() {
 
   return (
     <Stack gap="xl">
-      <Group justify="space-between" align="flex-start">
-        <div>
-          <Title order={1}>{t('challengesManagement')}</Title>
-          <Text c="dimmed">{t('challengesDescription')}</Text>
-        </div>
-      </Group>
+      <AdminPageHeader
+        title={t('challengesManagement')}
+        description={t('challengesDescription')}
+      />
 
       <DataToolbar title={t('challengesManagement')}>
         <TextInput

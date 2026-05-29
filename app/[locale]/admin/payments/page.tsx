@@ -25,6 +25,7 @@ import {
   TextInput,
   Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { DataToolbar } from '@/app/components/patterns/DataToolbar';
 import { MetricCard } from '@/app/components/patterns/MetricCard';
 import { ResponsiveDataView } from '@/app/components/patterns/ResponsiveDataView';
@@ -292,20 +293,20 @@ export default function AdminPaymentsPage() {
 
   return (
     <Stack gap="lg">
-      <Group justify="space-between" align="flex-start">
-        <Stack gap={4}>
-          <Title order={1} c="white">Payment Dashboard</Title>
-          <Text c="gray.4">View all transactions and revenue analytics</Text>
-        </Stack>
-        <Group>
-          <Button variant="default" leftSection={<IconDownload size={18} />} onClick={exportToCSV}>
-            Export CSV
-          </Button>
-          <Button leftSection={<IconRefresh size={18} />} onClick={() => void fetchPayments()}>
-            Refresh
-          </Button>
-        </Group>
-      </Group>
+      <AdminPageHeader
+        title="Payment Dashboard"
+        description="View all transactions and revenue analytics"
+        secondaryActions={
+          <>
+            <Button variant="default" leftSection={<IconDownload size={18} />} onClick={exportToCSV}>
+              Export CSV
+            </Button>
+            <Button leftSection={<IconRefresh size={18} />} onClick={() => void fetchPayments()}>
+              Refresh
+            </Button>
+          </>
+        }
+      />
 
       {analytics && (
         <SimpleGrid cols={{ base: 1, md: 2, lg: 4 }}>

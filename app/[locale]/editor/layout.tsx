@@ -1,5 +1,5 @@
 /**
- * Editor portal layout — Mantine AppShell for course editors.
+ * Editor portal layout — `@doneisbetter/gds-admin` AppShell with Amanoba navigation.
  */
 
 'use client';
@@ -9,21 +9,19 @@ import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
+import { AppShell } from '@doneisbetter/gds-admin/client';
 import {
-  AppShell,
+  Avatar,
   Box,
-  Burger,
   Center,
   Group,
   Loader,
   Menu,
   NavLink,
-  ScrollArea,
   Stack,
   Text,
   UnstyledButton,
 } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
 import { IconBook, IconLogout, IconUser } from '@tabler/icons-react';
 import Logo from '@/components/Logo';
 
@@ -33,7 +31,6 @@ export default function EditorLayout({ children }: { children: React.ReactNode }
   const pathname = usePathname();
   const { data: session, status } = useSession();
   const [canAccessEditor, setCanAccessEditor] = useState<boolean | null>(null);
-  const [opened, { toggle }] = useDisclosure();
 
   useEffect(() => {
     if (status === 'loading') return;
@@ -70,78 +67,74 @@ export default function EditorLayout({ children }: { children: React.ReactNode }
     );
   }
 
+  const primaryNavigation = (
+    <Stack gap={4}>
+      <UnstyledButton component={Link} href={coursesHref} mb="xs">
+        <Group gap="sm" wrap="nowrap">
+          <Logo size="sm" showText={false} linkTo="" preventShrink />
+          <Stack gap={0}>
+            <Text fw={700} c="white" size="sm">
+              Amanoba Editor
+            </Text>
+            <Text size="xs" c="dimmed">
+              Course portal
+            </Text>
+          </Stack>
+        </Group>
+      </UnstyledButton>
+      <NavLink
+        component={Link}
+        href={coursesHref}
+        label="Courses"
+        leftSection={<IconBook size={18} />}
+        active={isCoursesActive}
+        color="amanoba"
+        variant="light"
+      />
+    </Stack>
+  );
+
+  const headerActions = (
+    <Menu position="bottom-end" withinPortal>
+      <Menu.Target>
+        <UnstyledButton>
+          <Group gap="sm" wrap="nowrap">
+            <Stack gap={0} visibleFrom="sm" align="flex-end">
+              <Text size="sm" fw={600}>
+                {session?.user?.email || session?.user?.name || 'Editor'}
+              </Text>
+              <Text size="xs" c="dimmed">
+                Editor
+              </Text>
+            </Stack>
+            <Avatar color="gray" radius="xl" size={40}>
+              <IconUser size={22} />
+            </Avatar>
+          </Group>
+        </UnstyledButton>
+      </Menu.Target>
+      <Menu.Dropdown>
+        <Menu.Item
+          leftSection={<IconLogout size={16} />}
+          onClick={async () => {
+            await signOut({ redirect: false });
+            router.push(`/${locale}/auth/signin`);
+          }}
+        >
+          Sign out
+        </Menu.Item>
+      </Menu.Dropdown>
+    </Menu>
+  );
+
   return (
     <AppShell
-      header={{ height: 64 }}
-      navbar={{ width: 240, breakpoint: 'sm', collapsed: { mobile: !opened } }}
-      padding="md"
-      bg="ink.9"
+      logoText="Amanoba Editor"
+      headerContext="Course portal"
+      primaryNavigation={primaryNavigation}
+      headerActions={headerActions}
     >
-      <AppShell.Navbar p="md" bg="ink.8">
-        <AppShell.Section mb="md">
-          <UnstyledButton component={Link} href={coursesHref}>
-            <Group gap="sm">
-              <Logo size="sm" showText={false} linkTo="" preventShrink />
-              <Stack gap={0}>
-                <Text fw={700} c="white" size="sm">
-                  Amanoba Editor
-                </Text>
-                <Text size="xs" c="dimmed">
-                  Course portal
-                </Text>
-              </Stack>
-            </Group>
-          </UnstyledButton>
-        </AppShell.Section>
-        <AppShell.Section grow component={ScrollArea}>
-          <NavLink
-            component={Link}
-            href={coursesHref}
-            label="Courses"
-            leftSection={<IconBook size={18} />}
-            active={isCoursesActive}
-            color="amanoba"
-            variant="light"
-            onClick={() => {
-              if (opened) toggle();
-            }}
-          />
-        </AppShell.Section>
-      </AppShell.Navbar>
-
-      <AppShell.Header bg="ink.8">
-        <Group h="100%" px="md" justify="space-between">
-          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" color="gray.3" />
-          <Text fw={600} visibleFrom="sm">
-            Editor portal
-          </Text>
-          <Menu position="bottom-end" withinPortal>
-            <Menu.Target>
-              <UnstyledButton>
-                <Group gap="xs">
-                  <IconUser size={18} />
-                  <Text size="sm" c="dimmed" visibleFrom="sm">
-                    {session?.user?.email || session?.user?.name || 'Editor'}
-                  </Text>
-                </Group>
-              </UnstyledButton>
-            </Menu.Target>
-            <Menu.Dropdown>
-              <Menu.Item
-                leftSection={<IconLogout size={16} />}
-                onClick={async () => {
-                  await signOut({ redirect: false });
-                  router.push(`/${locale}/auth/signin`);
-                }}
-              >
-                Sign out
-              </Menu.Item>
-            </Menu.Dropdown>
-          </Menu>
-        </Group>
-      </AppShell.Header>
-
-      <AppShell.Main bg="ink.9">{children}</AppShell.Main>
+      {children}
     </AppShell>
   );
 }

@@ -7,7 +7,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
@@ -36,6 +36,8 @@ import {
   ThemeIcon,
   Title,
 } from '@mantine/core';
+import { ContentOpsActionBar, ContentOpsSection } from '@doneisbetter/gds-admin/client';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { modals } from '@mantine/modals';
 import { notifications } from '@mantine/notifications';
 import Image from 'next/image';
@@ -171,6 +173,10 @@ interface Game {
 
 type CourseFeatureFlag = 'discussionEnabled' | 'leaderboardEnabled' | 'studyGroupsEnabled';
 
+function serializeCourseSnapshot(course: Course | null) {
+  return course ? JSON.stringify(course) : '';
+}
+
 export default function CourseEditorPage({
   params,
 }: {
@@ -197,11 +203,13 @@ export default function CourseEditorPage({
   } | null>(null);
   const [syncActionLoading, setSyncActionLoading] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [savingCourse, setSavingCourse] = useState(false);
   const [editorNames, setEditorNames] = useState<Record<string, string>>({});
   const [editorSearch, setEditorSearch] = useState('');
   const [editorSearchResults, setEditorSearchResults] = useState<Array<{ _id: string; displayName?: string; email?: string }>>([]);
   const [editorSearching, setEditorSearching] = useState(false);
   const [_addingEditor, _setAddingEditor] = useState(false);
+  const courseSnapshotRef = useRef('');
   const resolvedLanguageOptions = course
     ? [
         ...(!COURSE_LANGUAGE_OPTIONS.some((option) => option.code === course.language)
@@ -301,6 +309,7 @@ export default function CourseEditorPage({
       const data = await response.json();
       if (data.success) {
         setCourse(data.course);
+        courseSnapshotRef.current = serializeCourseSnapshot(data.course);
       }
     } catch (error) {
       console.error('Failed to fetch course:', error);
@@ -338,6 +347,7 @@ export default function CourseEditorPage({
     if (!course) return;
 
     try {
+      setSavingCourse(true);
       const response = await fetch(`/api/admin/courses/${course.courseId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
@@ -348,6 +358,7 @@ export default function CourseEditorPage({
         const data = await response.json();
         if (data.success && data.course) {
           setCourse(data.course);
+          courseSnapshotRef.current = serializeCourseSnapshot(data.course);
         }
         notifications.show({ color: 'green', title: 'Course saved', message: 'The course settings are up to date.' });
       } else {
@@ -357,6 +368,8 @@ export default function CourseEditorPage({
     } catch (error) {
       console.error('Failed to save course:', error);
       notifications.show({ color: 'red', title: 'Could not save course', message: 'Failed to save course' });
+    } finally {
+      setSavingCourse(false);
     }
   };
 
@@ -373,6 +386,7 @@ export default function CourseEditorPage({
       if (response.ok) {
         const data = await response.json();
         setCourse(data.course);
+        courseSnapshotRef.current = serializeCourseSnapshot(data.course);
         notifications.show({ color: 'green', title: data.course?.isActive ? 'Course published' : 'Course set to draft', message: 'Course visibility was updated.' });
       } else {
         const data = await response.json().catch(() => ({}));
@@ -511,7 +525,7 @@ export default function CourseEditorPage({
             <ThemeIcon size={56} radius="xl" color="red">
               <IconX size={30} />
             </ThemeIcon>
-            <Title order={1} size="h3" c="white">Course not found</Title>
+            <AdminPageHeader title="Course not found" />
             <Button component={Link} href={`/${locale}/admin/courses`} leftSection={<IconArrowLeft size={16} />}>
               Back to courses
             </Button>
@@ -521,55 +535,59 @@ export default function CourseEditorPage({
     );
   }
 
+  const isCourseDirty = serializeCourseSnapshot(course) !== courseSnapshotRef.current;
+
   return (
     <Container size="xl" py="xl">
       <Stack gap="lg">
-      <Group justify="space-between" align="flex-start">
-        <Group align="flex-start">
-          <ActionIcon component={Link} href={`/${locale}/admin/courses`} variant="default" size="lg" aria-label="Back to courses">
-            <IconArrowLeft size={20} />
-          </ActionIcon>
-          <Stack gap={4}>
-            <Title order={1} size="h2" c="white">{course.name}</Title>
-            <Text c="gray.4">Course Editor - Manage flexible lessons</Text>
-          </Stack>
-        </Group>
-        <Group justify="flex-end">
-          <Select
-            aria-label="Question import mode"
-            value={importQuestionMode}
-            onChange={(value) => setImportQuestionMode((value || 'add') as 'add' | 'overwrite')}
-            disabled={importing}
-            allowDeselect={false}
-            data={[
-              { value: 'add', label: 'Questions: Add Only' },
-              { value: 'overwrite', label: 'Questions: Overwrite' },
-            ]}
+      <Group align="flex-start" wrap="nowrap">
+        <ActionIcon component={Link} href={`/${locale}/admin/courses`} variant="default" size="lg" aria-label="Back to courses">
+          <IconArrowLeft size={20} />
+        </ActionIcon>
+        <Box style={{ flex: 1 }}>
+          <AdminPageHeader
+            title={course.name}
+            description="Course Editor - Manage flexible lessons"
+            secondaryActions={
+              <>
+                <Select
+                  aria-label="Question import mode"
+                  value={importQuestionMode}
+                  onChange={(value) => setImportQuestionMode((value || 'add') as 'add' | 'overwrite')}
+                  disabled={importing}
+                  allowDeselect={false}
+                  data={[
+                    { value: 'add', label: 'Questions: Add Only' },
+                    { value: 'overwrite', label: 'Questions: Overwrite' },
+                  ]}
+                />
+                <Button variant="default" leftSection={<IconDownload size={16} />} onClick={handleExportCourse}>
+                  Export
+                </Button>
+                <FileButton onChange={handleImportCourse} accept=".json">
+                  {(props) => (
+                    <Button {...props} loading={importing} leftSection={<IconFileUpload size={16} />}>
+                      Import
+                    </Button>
+                  )}
+                </FileButton>
+                <Button
+                  variant="default"
+                  leftSection={<IconEye size={16} />}
+                  onClick={() => window.open(`/${locale}/courses/${course.courseId}`, '_blank')}
+                >
+                  Preview
+                </Button>
+                <Button color={course.isActive ? 'green' : 'gray'} onClick={handleToggleActive}>
+                  {course.isActive ? 'Published' : 'Draft'}
+                </Button>
+                <Button leftSection={<IconDeviceFloppy size={16} />} onClick={handleSaveCourse} loading={savingCourse} disabled={!isCourseDirty}>
+                  Save Course
+                </Button>
+              </>
+            }
           />
-          <Button variant="default" leftSection={<IconDownload size={16} />} onClick={handleExportCourse}>
-            Export
-          </Button>
-          <FileButton onChange={handleImportCourse} accept=".json">
-            {(props) => (
-              <Button {...props} loading={importing} leftSection={<IconFileUpload size={16} />}>
-                Import
-              </Button>
-            )}
-          </FileButton>
-          <Button
-            variant="default"
-            leftSection={<IconEye size={16} />}
-            onClick={() => window.open(`/${locale}/courses/${course.courseId}`, '_blank')}
-          >
-            Preview
-          </Button>
-          <Button color={course.isActive ? 'green' : 'gray'} onClick={handleToggleActive}>
-            {course.isActive ? 'Published' : 'Draft'}
-          </Button>
-          <Button leftSection={<IconDeviceFloppy size={16} />} onClick={handleSaveCourse}>
-            Save Course
-          </Button>
-        </Group>
+        </Box>
       </Group>
 
       <Card padding="lg">
@@ -613,8 +631,13 @@ export default function CourseEditorPage({
       </Card>
 
       <Card padding="lg">
+        <ContentOpsSection
+          id="course-info"
+          title="Course Information"
+          description="Core learner-facing course metadata, pricing, thumbnail, and editor assignment."
+          action={isCourseDirty ? <Badge color="yellow" variant="light">Unsaved changes</Badge> : <Badge color="green" variant="light">Saved</Badge>}
+        >
         <Stack gap="md">
-          <Title order={2} size="h3">Course Information</Title>
           <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">
             <TextInput label="Course Name" value={course.name} onChange={(event) => setCourse({ ...course, name: event.currentTarget.value })} />
             <Select
@@ -719,6 +742,7 @@ export default function CourseEditorPage({
                           if (r.ok) {
                             const data = await r.json();
                             setCourse(data.course);
+                            courseSnapshotRef.current = serializeCourseSnapshot(data.course);
                             notifications.show({ color: 'green', title: 'Editor removed', message: 'Course editor access was updated.' });
                           } else {
                             const err = await r.json();
@@ -800,6 +824,7 @@ export default function CourseEditorPage({
                                 if (r.ok) {
                                   const data = await r.json();
                                   setCourse(data.course);
+                                  courseSnapshotRef.current = serializeCourseSnapshot(data.course);
                                   setEditorSearchResults([]);
                                   setEditorSearch('');
                                   notifications.show({ color: 'green', title: 'Editor added', message: 'Course editor access was updated.' });
@@ -873,6 +898,7 @@ export default function CourseEditorPage({
             </SimpleGrid>
           )}
         </Stack>
+        </ContentOpsSection>
       </Card>
 
       <Card padding="lg">
@@ -1554,6 +1580,23 @@ export default function CourseEditorPage({
           </SimpleGrid>
         </Stack>
       </Card>
+
+      <Box pos="sticky" bottom={0} style={{ zIndex: 20 }}>
+        <ContentOpsActionBar
+          dirty={isCourseDirty}
+          saving={savingCourse}
+          status={(
+            <Text size="sm" c={isCourseDirty ? 'yellow.2' : 'dimmed'}>
+              {isCourseDirty ? 'Course settings have unsaved changes.' : 'Course settings are saved.'}
+            </Text>
+          )}
+          primaryAction={(
+            <Button leftSection={<IconDeviceFloppy size={16} />} onClick={handleSaveCourse} loading={savingCourse} disabled={!isCourseDirty}>
+              Save Course
+            </Button>
+          )}
+        />
+      </Box>
 
       {/* Lesson Form Modal (not used for child courses) */}
       {showLessonForm && courseId && course && !course.parentCourseId && (

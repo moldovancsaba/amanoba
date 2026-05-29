@@ -22,7 +22,7 @@
 | **ARCHITECTURE.md** | `docs/architecture/ARCHITECTURE.md` | System architecture and platform overview. |
 | **layout_grammar.md** | `docs/architecture/layout_grammar.md` | Layout, structure, and documentation conventions. |
 | **CODING_STANDARDS.md** | `docs/core/CODING_STANDARDS.md` | Coding standards, design-token rules, and version/doc alignment rules. |
-| **GENERAL_DESIGN_SYSTEM** | `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` | Cross-project design, UI, UX, component contract, and governance SSOT (working copy). |
+| **GENERAL_DESIGN_SYSTEM** | `https://github.com/sovereignsquad/general-design-system` | Cross-project design, UI, UX, component contract, and governance SSOT. |
 | **general-design-system** | `https://github.com/sovereignsquad/general-design-system` | Portable upstream repository reference for the shared GDS. |
 | **CROSS_REPO_DOCS.md** | `docs/core/CROSS_REPO_DOCS.md` | Portable reference contract for `amanoba` to `amanoba_courses` documentation links. |
 | **TECH_STACK.md** | `docs/core/TECH_STACK.md` | Current framework, infrastructure, provider, and dependency baseline. |

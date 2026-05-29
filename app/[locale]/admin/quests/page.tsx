@@ -24,6 +24,7 @@ import {
   ThemeIcon,
   Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { IconAward, IconListDetails, IconSearch } from '@tabler/icons-react';
 
 interface Quest {
@@ -100,10 +101,10 @@ export default function AdminQuestsPage() {
 
   return (
     <Stack gap="xl">
-      <div>
-        <Title order={1}>Quest Management</Title>
-        <Text c="dimmed">View and manage quests on the platform</Text>
-      </div>
+      <AdminPageHeader
+        title="Quest Management"
+        description="View and manage quests on the platform"
+      />
 
       <DataToolbar title="Filter quests">
         <TextInput

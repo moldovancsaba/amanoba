@@ -12,32 +12,34 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | GDS Contract | Amanoba implementation | GDS package | Status | Notes |
 | --- | --- | --- | --- | --- |
 | Theme | `app/lib/ui/amanoba-gds-theme.ts` | `@doneisbetter/gds-theme/server` + `extendGdsTheme` | Canonical | Dark product shell; `theme.other.brand` / `email` |
-| Learner shell / page header | `app/components/LearnerPageHeader.tsx` | — | Local adapter | Until GDS LearnerAppShell (#80) |
+| Learner shell / page header | `app/components/patterns/gds/LearnerShellAdapter.tsx` | — | Local adapter | Stable import remains `app/components/LearnerPageHeader.tsx`; direct shared shell blocked by GDS #80 |
 | Article shell | `app/components/patterns/gds/ArticleShell.tsx` | `@doneisbetter/gds-core` (brand-composition adapter) | Canonical | Re-export at `patterns/ArticleShell.tsx` |
-| Product course card | `app/components/patterns/CourseCard.tsx` | `ProductCard` (future) | Local adapter | Course-specific slots |
+| Product course card | `app/components/patterns/gds/CourseCard.tsx` | `@doneisbetter/gds-core/client` `PublicProductCard` | Thin adapter | Stable import remains `app/components/patterns/CourseCard.tsx` |
 | Metric card | `app/components/patterns/gds/MetricCard.tsx` | `@doneisbetter/gds-core/client` `MetricCard` | Thin adapter | Amanoba `label`/`value`/`detail` aliases |
 | Progress card | `app/components/patterns/gds/ProgressCard.tsx` | `@doneisbetter/gds-core/client` `ProgressCard` | Thin adapter | Quest/course progress |
 | State block | `app/components/patterns/gds/StateBlock.tsx` | `@doneisbetter/gds-core/client` `StateBlock` | Thin adapter | `kind` → `variant` |
 | Course access recovery | `app/components/patterns/gds/CourseAccessRecoveryActions.tsx` | `@doneisbetter/gds-core/client` `AccessRecoveryPanel` | Thin adapter | Maps course API codes to panel state |
 | Admin shell | `app/[locale]/admin/layout.tsx` | `@doneisbetter/gds-admin/client` `AppShell` | Active | GDS admin shell + Amanoba nav |
+| Admin page header | `app/components/patterns/gds/AdminPageHeader.tsx` | `@doneisbetter/gds-admin/client` `PageHeader` | Active | All admin routes with list/detail titles |
 | Auth shell | `app/components/patterns/gds/AuthShell.tsx` | `@doneisbetter/gds-core/AuthShell` (Amanoba variant) | Canonical | Dark `ink.9` layout |
 | Public shell | `app/components/patterns/gds/PublicAppShell.tsx` | `@doneisbetter/gds-core/PublicShell` (Amanoba variant) | Canonical | Marketing header band |
 | Data toolbar | `app/components/patterns/gds/DataToolbar.tsx` | `@doneisbetter/gds-core/DataToolbar` (aligned local) | Canonical | `layout: inline \| stack` |
-| Responsive data view | `app/components/patterns/gds/ResponsiveDataView.tsx` | `@doneisbetter/gds-admin/ResponsiveDataView` (adapter) | Canonical | `rows` + `md` table breakpoint |
-| Editor shell | `app/[locale]/editor/layout.tsx` | `@doneisbetter/gds-admin/EditorScaffold` (future) | Canonical | |
+| Responsive data view | `app/components/patterns/gds/ResponsiveDataView.tsx` | `@doneisbetter/gds-admin/client` `ResponsiveDataView` | Active | Thin adapter: Amanoba `rows`/`columns` API |
+| Editor shell | `app/[locale]/editor/layout.tsx` | `@doneisbetter/gds-admin/client` `AppShell` | Active | Course editor portal nav |
+| Editor lesson scaffold | `app/[locale]/editor/courses/.../lessons/[lessonId]/page.tsx` | `@doneisbetter/gds-admin/client` `EditorScaffold` + `ContentOpsActionBar` | Active | Form + sticky save bar |
 | Game shell | `app/[locale]/games/**` | — | Canonical + exception | Canvas exception |
 | Game board card | `app/components/patterns/gds/GameBoardCard.tsx` | `@doneisbetter/gds-core/client` `GameBoardTile` | Thin adapter | `highlightColor="amanoba.5"` |
 
 ## Canonical Component Rules
 
 - Import shared patterns from `@/app/components/patterns/*` or `@/app/components/patterns/gds`.
-- Do not duplicate pattern implementations outside `patterns/gds/` except documented adapters in `gds-adoption.json` (`CourseCard`, `LearnerPageHeader`, brand-composition shells).
+- Do not duplicate pattern implementations outside `patterns/gds/` except documented stable re-exports and brand-composition adapters in `gds-adoption.json`.
 - Loading, empty, error, permission, success on learner routes must use `StateBlock`.
 
 ## Current Highest-Risk Gaps
 
-- GDS **LearnerAppShell** and **course card variant** contracts (coordination: general-design-system #80).
-- npm registry publication is still pending. Amanoba now uses the approved 2.6.1 GitHub release tarballs instead of sibling `file:` links.
+- GDS **LearnerAppShell** contract remains open upstream (coordination: general-design-system #80).
+- npm registry publication is now live. Amanoba uses `@doneisbetter/*@2.6.1` from npm instead of sibling `file:` links or GitHub release tarballs.
 
 ## Verification Commands
 

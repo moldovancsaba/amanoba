@@ -9,4 +9,5 @@ export { ProgressCard } from './ProgressCard';
 export { StateBlock } from './StateBlock';
 export { DataToolbar } from './DataToolbar';
 export { ResponsiveDataView, type ResponsiveColumn } from './ResponsiveDataView';
+export { AdminPageHeader, type AdminPageHeaderProps, type PageHeaderOverflowAction } from './AdminPageHeader';
 export { GameBoardCard } from './GameBoardCard';

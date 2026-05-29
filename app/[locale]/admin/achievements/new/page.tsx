@@ -34,6 +34,7 @@ import {
   Title,
   Tooltip,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { IconArrowLeft, IconDeviceFloppy, IconHelpCircle, IconTrophy } from '@tabler/icons-react';
 
 interface Game {
@@ -265,23 +266,19 @@ export default function NewAchievementPage() {
 
   return (
     <Stack gap="xl">
-      <Group justify="space-between" align="flex-start">
-        <Group align="flex-start">
-          <ActionIcon
-            component={Link}
-            href={`/${locale}/admin/achievements`}
-            variant="default"
-            aria-label="Back to achievements"
-          >
-            <IconArrowLeft size={18} />
-          </ActionIcon>
-          <div>
-            <Title order={1}>{t('createAchievement') || 'Create Achievement'}</Title>
-            <Text c="dimmed">
-              {t('createAchievementDescription') || 'Add a new achievement to the system'}
-            </Text>
-          </div>
-        </Group>
+      <Group align="flex-start" wrap="nowrap">
+        <ActionIcon
+          component={Link}
+          href={`/${locale}/admin/achievements`}
+          variant="default"
+          aria-label="Back to achievements"
+        >
+          <IconArrowLeft size={18} />
+        </ActionIcon>
+        <AdminPageHeader
+          title={t('createAchievement') || 'Create Achievement'}
+          description={t('createAchievementDescription') || 'Add a new achievement to the system'}
+        />
       </Group>
 
       {error ? (

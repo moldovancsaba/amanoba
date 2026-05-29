@@ -34,6 +34,7 @@ import {
   Title,
   Tooltip,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import {
   IconArrowLeft,
   IconHelpCircle,
@@ -425,16 +426,14 @@ export default function EditAchievementPage() {
   return (
     <Container size="md" py="xl">
       <Stack gap="lg">
-        <Group justify="space-between" align="flex-start">
-          <Group gap="md" wrap="nowrap">
-            <ActionIcon component={Link} href={`/${locale}/admin/achievements`} variant="default" size="lg" aria-label="Back to achievements">
-              <IconArrowLeft size={20} />
-            </ActionIcon>
-            <Stack gap={4}>
-              <Title order={1}>{t('editAchievement') || 'Edit Achievement'}</Title>
-              <Text c="dimmed">{t('editAchievementDescription') || 'Update achievement details'}</Text>
-            </Stack>
-          </Group>
+        <Group align="flex-start" wrap="nowrap">
+          <ActionIcon component={Link} href={`/${locale}/admin/achievements`} variant="default" size="lg" aria-label="Back to achievements">
+            <IconArrowLeft size={20} />
+          </ActionIcon>
+          <AdminPageHeader
+            title={t('editAchievement') || 'Edit Achievement'}
+            description={t('editAchievementDescription') || 'Update achievement details'}
+          />
         </Group>
 
         {error ? (

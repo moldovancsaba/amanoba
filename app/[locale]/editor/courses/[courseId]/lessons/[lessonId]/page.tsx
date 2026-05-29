@@ -4,7 +4,11 @@ import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
-import { Alert, Anchor, Badge, Box, Button, Group, Loader, Paper, Stack, Text, Textarea, TextInput, Title } from '@mantine/core';
+import {
+  ContentOpsActionBar,
+  EditorScaffold,
+} from '@doneisbetter/gds-admin/client';
+import { Alert, Anchor, Badge, Box, Button, Group, Loader, Paper, Stack, Text, Textarea, TextInput } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 import { IconArrowLeft, IconDeviceFloppy, IconListCheck } from '@tabler/icons-react';
 import MarkdownEditor from '@/components/ui/markdown-editor';
@@ -104,118 +108,142 @@ export default function EditorLessonPage() {
     }
   }
 
-  return (
-    <Stack gap="md">
-      <Group gap="xs">
-        <Anchor component={Link} size="xs" c="gray.4" href={`/${locale}/editor/courses`}>
-          Courses
-        </Anchor>
-        <Text size="xs" c="gray.5">/</Text>
-        <Anchor component={Link} size="xs" c="gray.4" href={`/${locale}/editor/courses/${encodeURIComponent(courseId)}`}>
-          {courseId}
-        </Anchor>
-        <Text size="xs" c="gray.5">/ {lessonId}</Text>
+  const breadcrumbs = (
+    <>
+      <Anchor component={Link} size="sm" href={`/${locale}/editor/courses`}>
+        Courses
+      </Anchor>
+      <Anchor component={Link} size="sm" href={`/${locale}/editor/courses/${encodeURIComponent(courseId)}`}>
+        {courseId}
+      </Anchor>
+      <Text size="sm" c="dimmed">
+        {lessonId}
+      </Text>
+    </>
+  );
+
+  if (loading) {
+    return (
+      <Group>
+        <Loader color="amanobaYellow" size="sm" />
+        <Text size="sm" c="gray.3">
+          Loading...
+        </Text>
       </Group>
+    );
+  }
 
-      {loading && (
-        <Group>
-          <Loader color="amanobaYellow" size="sm" />
-          <Text size="sm" c="gray.3">Loading...</Text>
-        </Group>
-      )}
-      {error && <Alert color="red">{error}</Alert>}
+  if (error) {
+    return <Alert color="red">{error}</Alert>;
+  }
 
-      {!loading && lesson && (
-        <>
-          <Group justify="space-between" align="flex-start">
+  if (!lesson) {
+    return (
+      <Box>
+        <Text c="gray.4">Lesson not found.</Text>
+      </Box>
+    );
+  }
+
+  return (
+    <>
+    <EditorScaffold
+      header={
+        <Stack gap="xs">
+          <Group gap="xs">{breadcrumbs}</Group>
+          <Group justify="space-between" align="flex-start" wrap="wrap">
             <Stack gap={4}>
-              <Title order={1} size="h3" c="white">
+              <Text fw={700} size="xl" c="white">
                 Day {String(lesson.dayNumber).padStart(2, '0')}: {title || lessonId}
-              </Title>
+              </Text>
               <Badge color={lesson.isActive ? 'green' : 'gray'}>{lesson.isActive ? 'Published' : 'Draft'}</Badge>
             </Stack>
-
-            <Group>
-              <Button
-                variant="default"
-                leftSection={<IconArrowLeft size={16} />}
-                onClick={() => router.back()}
-              >
-                Back
-              </Button>
-              <Button
-                disabled={!dirty || saving}
-                loading={saving}
-                onClick={save}
-                leftSection={<IconDeviceFloppy size={16} />}
-              >
-                {dirty ? 'Save' : 'Saved'}
-              </Button>
-            </Group>
+            <Button
+              variant="default"
+              leftSection={<IconArrowLeft size={16} />}
+              onClick={() => router.back()}
+            >
+              Back
+            </Button>
           </Group>
-
-          <Stack gap="md">
-            <Paper withBorder radius="md" p="md" bg="dark.8">
-              <TextInput
-                label="Lesson title"
-                value={title}
-                onChange={(event) => setTitle(event.currentTarget.value)}
-              />
-            </Paper>
-
-            <Paper withBorder radius="md" p="md" bg="dark.8">
-              <Stack gap="xs">
-                <Text size="sm" fw={600} c="gray.2">Lesson content (Markdown)</Text>
-                <MarkdownEditor content={content} onChange={setContent} placeholder="Write lesson content in Markdown..." />
-              </Stack>
-            </Paper>
-
-            <Paper withBorder radius="md" p="md" bg="dark.8">
-              <Button
-                type="button"
-                onClick={() => setShowQuizManager(true)}
-                fullWidth
-                leftSection={<IconListCheck size={16} />}
-              >
-                Manage Quiz Questions
-              </Button>
-            </Paper>
-
-            <Paper withBorder radius="md" p="md" bg="dark.8">
-              <TextInput
-                label="Email subject"
-                value={emailSubject}
-                onChange={(event) => setEmailSubject(event.currentTarget.value)}
-              />
-            </Paper>
-
-            <Paper withBorder radius="md" p="md" bg="dark.8">
-              <Textarea
-                label="Email body (Markdown)"
-                value={emailBody}
-                onChange={(event) => setEmailBody(event.currentTarget.value)}
-                autosize
-                minRows={8}
-                styles={{ input: { fontFamily: 'var(--mantine-font-family-monospace)' } }}
-              />
-            </Paper>
-          </Stack>
-
-          {showQuizManager && (
-            <QuizManagerModal
-              courseId={courseId}
-              lessonId={lessonId}
-              onClose={() => setShowQuizManager(false)}
-              variant="dark"
+        </Stack>
+      }
+      form={
+        <Stack gap="md">
+          <Paper withBorder radius="md" p="md" bg="dark.8">
+            <TextInput
+              label="Lesson title"
+              value={title}
+              onChange={(event) => setTitle(event.currentTarget.value)}
             />
-          )}
-        </>
-      )}
-      {!loading && !lesson && !error ? (
-        <Box>
-          <Text c="gray.4">Lesson not found.</Text>
-        </Box>
-      ) : null}
-    </Stack>
+          </Paper>
+
+          <Paper withBorder radius="md" p="md" bg="dark.8">
+            <Stack gap="xs">
+              <Text size="sm" fw={600} c="gray.2">
+                Lesson content (Markdown)
+              </Text>
+              <MarkdownEditor content={content} onChange={setContent} placeholder="Write lesson content in Markdown..." />
+            </Stack>
+          </Paper>
+
+          <Paper withBorder radius="md" p="md" bg="dark.8">
+            <Button
+              type="button"
+              onClick={() => setShowQuizManager(true)}
+              fullWidth
+              leftSection={<IconListCheck size={16} />}
+            >
+              Manage Quiz Questions
+            </Button>
+          </Paper>
+
+          <Paper withBorder radius="md" p="md" bg="dark.8">
+            <TextInput
+              label="Email subject"
+              value={emailSubject}
+              onChange={(event) => setEmailSubject(event.currentTarget.value)}
+            />
+          </Paper>
+
+          <Paper withBorder radius="md" p="md" bg="dark.8">
+            <Textarea
+              label="Email body (Markdown)"
+              value={emailBody}
+              onChange={(event) => setEmailBody(event.currentTarget.value)}
+              autosize
+              minRows={8}
+              styles={{ input: { fontFamily: 'var(--mantine-font-family-monospace)' } }}
+            />
+          </Paper>
+        </Stack>
+      }
+      footer={
+        <ContentOpsActionBar
+          dirty={dirty}
+          saving={saving}
+          primaryAction={
+            <Button
+              disabled={!dirty || saving}
+              loading={saving}
+              onClick={() => void save()}
+              leftSection={<IconDeviceFloppy size={16} />}
+            >
+              {dirty ? 'Save lesson' : 'Saved'}
+            </Button>
+          }
+        />
+      }
+      stickyFooter
+    />
+    {showQuizManager ? (
+      <QuizManagerModal
+        courseId={courseId}
+        lessonId={lessonId}
+        onClose={() => setShowQuizManager(false)}
+        variant="dark"
+      />
+    ) : null}
+    </>
   );
 }

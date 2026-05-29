@@ -38,11 +38,18 @@ export default defineConfig([
     },
   },
   {
-    files: ['app/lib/email/**/*.{ts,tsx}'],
+    files: ['app/lib/email/**/*.{ts,tsx}', 'app/api/email/**/*.{ts,tsx}'],
     plugins: gdsPluginConfig.plugins,
     rules: {
       'gds/no-raw-design-values': 'off',
       'gds/no-forbidden-ui-imports': 'off',
+    },
+  },
+  {
+    files: ['app/components/ui/markdown-editor.tsx'],
+    plugins: gdsPluginConfig.plugins,
+    rules: {
+      'gds/no-raw-design-values': 'off',
     },
   },
   {

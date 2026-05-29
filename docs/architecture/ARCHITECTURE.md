@@ -8,7 +8,7 @@
 
 ## System Overview
 
-Amanoba is a unified flexible learning platform built on Next.js 16.2.6 (App Router) that combines multi-game infrastructure with a course, quiz, and certification platform. The architecture follows a monolithic serverless design optimized for Vercel deployment with MongoDB Atlas for persistence and the shared `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` SSOT for design, UI, UX, and component contracts.
+Amanoba is a unified flexible learning platform built on Next.js 16.2.6 (App Router) that combines multi-game infrastructure with a course, quiz, and certification platform. The architecture follows a monolithic serverless design optimized for Vercel deployment with MongoDB Atlas for persistence and the shared `https://github.com/sovereignsquad/general-design-system` SSOT for design, UI, UX, and component contracts.
 
 ### Core Principles
 
@@ -18,7 +18,7 @@ Amanoba is a unified flexible learning platform built on Next.js 16.2.6 (App Rou
 4. **Type-Safe**: Full TypeScript coverage with strict mode enabled
 5. **Security-First**: Rate limiting, input validation, XSS protection, and anti-cheat on all endpoints
 6. **Reuse via discriminator**: Same feature in 2+ places = one model, one API, one component; discriminator (e.g. `targetType`) selects context. See **docs/product/VOTING_AND_REUSE_PATTERN.md** (unified voting and how to reuse features).
-7. **Shared design-system first**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` is the design/UI/UX SSOT. Amanoba's UI dependency baseline is Mantine-only; do not reintroduce Tailwind, Radix, hard-coded template palettes, or page-local design systems in touched surfaces.
+7. **Shared design-system first**: `https://github.com/sovereignsquad/general-design-system` is the design/UI/UX SSOT. Amanoba's UI dependency baseline is Mantine-only; do not reintroduce Tailwind, Radix, hard-coded template palettes, or page-local design systems in touched surfaces.
 
 ### Lesson quiz governance
 
@@ -33,7 +33,7 @@ Amanoba is a unified flexible learning platform built on Next.js 16.2.6 (App Rou
 ### Frontend
 - **Framework**: Next.js 16.2.6 (App Router)
 - **Language**: TypeScript 5
-- **Design/UI/UX SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
+- **Design/UI/UX SSOT**: `https://github.com/sovereignsquad/general-design-system`
 - **Styling**: Mantine theme plus narrow global CSS for document defaults, token bridge, and rich lesson prose
 - **UI Components**: Mantine primitives and thin project pattern contracts aligned to the shared GDS
 - **Animation**: Framer Motion 10.18.0

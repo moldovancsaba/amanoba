@@ -5,9 +5,9 @@
 
 # Docs Triage
 
-**Last Updated**: 2026-05-26
+**Last Updated**: 2026-05-29
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=5, KEEP(unclassified)=71
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=5, KEEP(unclassified)=75
 
 This file is the “what to do next” view derived from `docs/core/DOCS_CANONICAL_MAP.md`.
 
@@ -42,6 +42,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/core/ENVIRONMENT_SETUP.md` — Environment Setup Guide
 - `docs/core/NAMING_GUIDE.md` — Amanoba Naming Guide
 - `docs/core/OLLAMA_TASKLIST_FOR_AGENT.md` — Ollama setup task list (for agent)
+- `docs/core/PROJECT_STATE.md` — Amanoba Project State
 - `docs/core/templates/FEATURE_TEMPLATE.md` — YYYY-MM-DD Feature Title
 - `docs/COURSE_PACKAGE_FORMAT.md` — Course Package Format
 - `docs/deployment/STRIPE_VERCEL_SETUP.md` — Stripe Setup Guide for Vercel
@@ -50,6 +51,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/features/BUY_PREMIUM_FIX_STATUS.md` — Buy Premium Fix - Status Report
 - `docs/features/GOOGLE_ANALYTICS_ENRICHMENT.md` — Google Analytics Enrichment
 - `docs/features/PUBLIC_PROFILE_SCHEMA.md` — Public Profile Schema
+- `docs/handoff/feature_issues/DOC_SSOT_GDS_CLOSURE_PROGRAM.md` — Amanoba Doc SSOT + GDS Closure Program
 - `docs/handoff/feature_issues/FEATURE_DASHBOARD_MULTI_COURSE_ENROL_P2_3.md` — Feature issue (mvp-factory-control) — Dashboard / multi-course Enrol + prerequisites
 - `docs/handoff/feature_issues/GDS_2_3_ADOPTION_PROGRAM.md` — GDS 2.3.0 Rock-Solid Adoption Program (Amanoba)
 - `docs/handoff/feature_issues/gds-2.3-bodies/00-epic.md` — 00-epic
@@ -68,6 +70,8 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` — 📑 INDEX: Language Separation Project - Complete Documentation
 - `docs/i18n/LANGUAGE_DROPDOWN_PROBLEM_LOG.md` — Language dropdown / i18n problem — collected information
 - `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` — Developer Feedback Analysis
+- `docs/product/GDS_ACCESSIBILITY_VERIFICATION.md` — GDS Accessibility Verification
+- `docs/product/LEARNER_SHELL_MIGRATION.md` — Learner Shell Migration
 - `docs/product/NEXT_PHASES.md` — Next Phases: Detailed Implementation Plan
 - `docs/product/P3_KNOWN_ISSUES_BACKLOG.md` — P3 Known Issues — Backlog
 - `docs/product/ROADMAP_TASKLIST_SYSTEM_COMPARISON.md` — ROADMAP vs TASKLIST vs System Outline — Comparison
@@ -82,11 +86,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/sso/enable_sso.md` — SSO Integration Guide (Amanoba)
 - `docs/sso/SSO_ALIGNMENT_ANALYSIS.md` — SSO Alignment Analysis & Refactoring Plan
 - `docs/sso/SSO_CLIENT_ID_UPDATE.md` — SSO Client ID Update
-- `docs/sso/SSO_CLIENT_SIDE_INSTRUCTIONS.md` — SSO Client-Side Instructions for Amanoba Agent
-- `docs/sso/SSO_ENVIRONMENT_VARIABLES.md` — SSO Environment Variables
-- `docs/sso/SSO_FOUNDATION_COMPLETE.md` — SSO Foundation - Phase 1 Complete ✅
-- `docs/sso/SSO_INTEGRATION_REQUIREMENTS.md` — SSO Integration Requirements & Learnings
-- … +11 more
+- … +15 more
 
 ## Next suggested move
 - Review KEEP(unclassified) docs and either promote to canonical sections in `docs/core/DOCS_INDEX.md` or archive.

@@ -13,7 +13,7 @@
 - **TypeScript**: 5.9.3
 
 ### Styling & Design
-- **Design/UI/UX SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`
+- **Design/UI/UX SSOT**: `https://github.com/sovereignsquad/general-design-system`
 - **Shared upstream repo**: `https://github.com/sovereignsquad/general-design-system`
 - **Target UI foundation**: Mantine-only shared contract; Amanoba uses the root Mantine runtime and shared pattern-service contracts.
 - **@mantine/core**: 8.3.18
@@ -26,7 +26,7 @@
 
 ### UI Components
 - **Current runtime**: Mantine root runtime plus shared pattern-service contracts.
-- **Target adapter**: Mantine primitives and thin project wrappers aligned to `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENTS_AND_PATTERNS.md`.
+- **Target adapter**: Mantine primitives and thin project wrappers aligned to the upstream GDS components and patterns guidance.
 - **Local GDS adoption contract**: `gds-adoption.json`, `docs/product/GDS_ADOPTION_MANIFEST.md`, and `docs/product/GDS_EXCEPTION_REGISTER.md`
 - **lucide-react**: 0.462.0 (icons)
 

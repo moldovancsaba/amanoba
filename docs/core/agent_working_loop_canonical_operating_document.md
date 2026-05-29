@@ -3,7 +3,7 @@
 **Project**: Amanoba (unified flexible learning platform)
 **Roles**: Sultan = Product Owner; Agent = AI Developer
 **Scope**: This document is the **project-specific** rulebook for the Amanoba codebase. All paths, docs, and rules refer to this repository.
-**Last agent sync:** 2026-05-20 (active documentation refresh, 17-locale alignment, production status cleanup).
+**Last agent sync:** 2026-05-28 (Doc SSOT refresh, learner/course GDS closure, admin content ops follow-through).
 
 **Unified knowledge center:** A copy of the Amanoba agent operating document, updated for project/board management (MVP Factory Board, handoff, RULES, SETUP, SYNC), is stored in the [mvp-factory-control](https://github.com/moldovancsaba/mvp-factory-control) repo as [agent-operating-document-amanoba.md](https://github.com/moldovancsaba/mvp-factory-control/blob/main/docs/agent-operating-document-amanoba.md). Use that doc for project-related agentic rules and how Amanoba ties into the board; use this doc for full amanoba repo detail (layout grammar, course/quiz SSOT, auth, etc.).
 
@@ -35,7 +35,7 @@
 
 Do this when you are **starting fresh** (new session, new task, or no prior context):
 
-1. **Read `docs/core/amanoba_codex_brain_dump.md`** — current job and where we left off (so you can continue the actual job if resuming).
+1. **Read `docs/core/PROJECT_STATE.md`** — current repo snapshot, generated truth block, and required gates.
 2. **Read this document** at least: this Reminder, “How to come back to the loop”, and “Ground Zero Prerequisite”.
 3. **Read `docs/product/TASKLIST.md`** — that is your list of actionable tasks. Pick the next open item.
 4. **Read `docs/product/ROADMAP.md`** (skim or full) for context — why we are building what we are building.
@@ -43,7 +43,7 @@ Do this when you are **starting fresh** (new session, new task, or no prior cont
 6. **If the work touches courses, quizzes, or content quality:** Read the SSOT set in “Mandatory Documentation for Course/Quiz Quality Work” in this document.
 7. **Define your rollback plan** before making changes: identify current baseline (e.g. `git log -1 --oneline`), exact rollback steps, and how you will verify rollback.
 8. **Then start** with the next logical step. If anything is unclear, ask the user. Never assume.
-9. **Before ending a session or after significant progress:** Update **`docs/core/amanoba_codex_brain_dump.md`** (what changed, what’s next, and any open decisions).
+9. **Before ending a session or after significant progress:** Update **`docs/core/amanoba_codex_brain_dump.md`** as a pointer-only continuity note and refresh **`docs/core/PROJECT_STATE.md`** when repo-state facts changed.
 
 ---
 
@@ -51,10 +51,10 @@ Do this when you are **starting fresh** (new session, new task, or no prior cont
 
 Do this when you **lose context** (brain reset, new turn, or “where was I?”):
 
-1. **Re-anchor (brain dump first):** Read **`docs/core/amanoba_codex_brain_dump.md`** — current job, where we left off, open decisions (what we’re doing, and the restore checklist. Then read the **Reminder** block above and **Ground Zero Prerequisite** (rollback plan). Treat this doc as the active rulebook from this moment.
+1. **Re-anchor (project state first):** Read **`docs/core/PROJECT_STATE.md`** for the current repo snapshot and generated truth block, then read **`docs/core/amanoba_codex_brain_dump.md`** for the short restore pointers. Then read the **Reminder** block above and **Ground Zero Prerequisite** (rollback plan). Treat this doc as the active rulebook from this moment.
 2. **Re-orient:** Open **`docs/product/TASKLIST.md`** — what is the next open task? Open **`docs/product/RELEASE_NOTES.md`** (top entries) to see what was last delivered.
 3. **Re-scope:** If you were in the middle of something, re-read the task text and any linked feature doc or playbook. Run `git status` and `git log -3 --oneline` to see what was in progress.
-4. **Re-apply rules:** Documentation = code (update docs when you change code). Single-place rule (done → RELEASE_NOTES only; remove from TASKLIST). Layout/structure → **`docs/architecture/layout_grammar.md`**. **Brain dump:** Update **`docs/core/amanoba_codex_brain_dump.md`** at end of session or after significant progress.
+4. **Re-apply rules:** Documentation = code (update docs when you change code). Single-place rule (done → RELEASE_NOTES only; remove from TASKLIST). Layout/structure → **`docs/architecture/layout_grammar.md`**. **Project state + brain dump:** Refresh **`docs/core/PROJECT_STATE.md`** when repo-state facts change and keep **`docs/core/amanoba_codex_brain_dump.md`** pointer-only.
 5. **Then continue:** Proceed with the next logical step. If anything is not 100% clear, ask the user. Never assume. Never proceed on uncertainty.
 
 ---
@@ -124,7 +124,7 @@ Documentation system:
 - Feature/handover documents are referenced from TASKLIST, ROADMAP, RELEASE_NOTES, LEARNINGS, and architecture docs as needed.
 - Feature documents are updated as work progresses
 
-**Layout grammar (mandatory for structure and layout):** When the task involves content structure, course/lesson/quiz layout, UI/page layout, or documentation structure, read and follow **`docs/architecture/layout_grammar.md`** — the single source of truth for project layout grammar (project and doc layout, CCS structure, lesson and quiz structure, UI adapter layout, API and locale layout, language rules). For design, UI, UX, and component contracts, read **`/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`** first; Amanoba's local UI files are an adapter, not the design authority. For course/quiz quality and pipelines, the SSOT set below still applies. Use `docs/core/CROSS_REPO_DOCS.md` for the portable cross-repo reference convention.
+**Layout grammar (mandatory for structure and layout):** When the task involves content structure, course/lesson/quiz layout, UI/page layout, or documentation structure, read and follow **`docs/architecture/layout_grammar.md`** — the single source of truth for project layout grammar (project and doc layout, CCS structure, lesson and quiz structure, UI adapter layout, API and locale layout, language rules). For design, UI, UX, and component contracts, read **`https://github.com/sovereignsquad/general-design-system`** first; Amanoba's local UI files are an adapter, not the design authority. For course/quiz quality and pipelines, the SSOT set below still applies. Use `docs/core/CROSS_REPO_DOCS.md` for the portable cross-repo reference convention.
 
 “If it’s not documented, it’s not done.”
 
@@ -382,6 +382,7 @@ TEAM:
 2. **During work**: Update feature document in `/docs` as you go
 3. **Before commit**: Update TASKLIST.md, RELEASE_NOTES.md, ARCHITECTURE.md if needed
 4. **After commit**: Verify build passes, no warnings/errors
+5. **For shared UI or doc-truth changes**: Run `npm run ui:gds:check` and `npm run docs:truth:check`
 
 ### File Locations
 

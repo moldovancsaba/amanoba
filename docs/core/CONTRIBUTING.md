@@ -403,11 +403,11 @@ Requires explicit instruction. Includes:
 
 ### Design System
 
-- **SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` governs design, UI, UX, component contracts, and design-system governance.
+- **SSOT**: `https://github.com/sovereignsquad/general-design-system` governs design, UI, UX, component contracts, and design-system governance.
 - **Current adapter**: Amanoba uses Mantine primitives, shared pattern contracts, and narrow local CSS support while remaining legacy surfaces are converted.
 - **Target foundation**: Mantine-only shared contract with thin project wrappers.
 - **Colors and spacing**: Use current adapter tokens only while the migration is active; do not add new raw values or generic template palettes.
-- **Components**: New reusable component planning must follow `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/COMPONENTS_AND_PATTERNS.md`.
+- **Components**: New reusable component planning must follow the upstream GDS components and patterns guidance.
 - **Animations**: Use predefined classes (`.animate-points`, `.animate-achievement`, etc.) only where they fit the shared motion rules.
 
 ### Accessibility
@@ -420,7 +420,7 @@ Requires explicit instruction. Includes:
 ### Responsive Design
 
 - **Mobile First**: Design for small screens, enhance for larger
-- **Breakpoints**: Use the current adapter breakpoints while migrating; new responsive rules must follow `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/FOUNDATION.md`.
+- **Breakpoints**: Use the current adapter breakpoints while migrating; new responsive rules must follow the upstream GDS foundation guidance.
 - **Touch Targets**: Minimum 44x44px for interactive elements
 
 ---

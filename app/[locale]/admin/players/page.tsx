@@ -25,8 +25,8 @@ import {
   Text,
   TextInput,
   ThemeIcon,
-  Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { DataToolbar } from '@/app/components/patterns/DataToolbar';
 import { ResponsiveDataView } from '@/app/components/patterns/ResponsiveDataView';
 import {
@@ -213,10 +213,10 @@ export default function AdminPlayersPage() {
 
   return (
     <Stack gap="lg">
-      <Stack gap={4}>
-        <Title order={1}>{t('playersManagement')}</Title>
-        <Text c="dimmed">{t('playersDescription')}</Text>
-      </Stack>
+      <AdminPageHeader
+        title={t('playersManagement')}
+        description={t('playersDescription')}
+      />
 
       <DataToolbar title={t('searchPlayers')}>
         <TextInput

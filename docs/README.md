@@ -6,7 +6,7 @@ This documentation is organized into domain folders. Treat this file and `docs/c
 
 - `docs/core/DOCS_INDEX.md` - high-level index and reading order
 - `docs/architecture/layout_grammar.md` - structural and UI grammar source of truth
-- `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` - cross-project design, UI, and UX SSOT
+- `https://github.com/sovereignsquad/general-design-system` - cross-project design, UI, and UX SSOT
 - `docs/core/ENVIRONMENT_SETUP.md` - canonical environment variable and setup guide
 - `docs/deployment/DEPLOYMENT.md` - canonical deployment runbook (push to `origin/main` -> auto deploy)
 - `docs/product/ROADMAP.md` - long-term vision

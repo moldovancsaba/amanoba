@@ -2,7 +2,7 @@
 
 This document is the single-stop operational snapshot for Amanoba. Keep it current whenever the system behavior, process, or board status changes. Append entries instead of rewriting history.
 
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-05-28
 **Current Product Version**: 2.9.49 (per `package.json` and `README.md`)
 **Status**: Production stable, SSO-only auth, daily lessons + gamified learning live.
 
@@ -71,6 +71,36 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 1. Scope `#749` into concrete Practice Hub mode slices before implementation; keep it Backlog until prioritized.
 2. Keep wiki release notes grouped by ISO UTC date for public-facing releases.
 3. Keep `docs/HANDOVER.md` appended whenever runtime behavior, process, production status, or board state changes.
+
+---
+
+<!-- docs-truth: ignore:start historical handover chronology -->
+
+## GDS npm package cutover (2026-05-26)
+
+### What changed
+- Switched Amanoba off the temporary `gds-v2.6.1` GitHub release-asset install URLs and onto the live npm package line:
+  - `@doneisbetter/gds-theme@2.6.1`
+  - `@doneisbetter/gds-core@2.6.1`
+  - `@doneisbetter/gds-admin@2.6.1`
+  - `@doneisbetter/gds-eslint-config@2.6.1`
+  - `@doneisbetter/gds-compliance@2.6.1`
+- Updated the active repo contract so new work treats npm as the only approved consumer source for GDS packages (`AGENTS.md`, `README.md`, `docs/product/DESIGN_UPDATE.md`, `docs/product/PATTERN_CONTRACT_INVENTORY.md`).
+- Tightened `scripts/check-gds-adoption.ts` so the adoption gate now requires the npm-published `2.6.1` package declarations instead of the previous release-asset URLs.
+- Fixed an existing type/lint break in `app/[locale]/admin/payments/page.tsx` by restoring the missing Mantine `Title` import.
+
+### Why
+- The temporary GitHub release-asset install path was only a bridge until npm publication. With the canonical package namespace now live on npm, the product repo should consume the published packages directly so local, CI, and Vercel builds all resolve the same artifact source.
+
+### Verification
+- `npm install` ✅ pass
+- `npm run ui:gds:check` ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run build` ✅ pass
+
+### Notes
+- `npm run type-check` still depends on the generated `.next/types` tree in this repo. A stale or half-generated `.next` can still produce transient `TS6053` noise until a clean build regenerates those files. The final green verification here was run after `rm -rf .next && npm run build`.
 
 ---
 
@@ -1774,6 +1804,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `git -C /Users/moldovancsaba/Projects/amanoba rev-parse HEAD` ✅ ancestor of canonical before deletion
 - `test ! -e /Users/moldovancsaba/Projects/amanoba` ✅
 
+<!-- Superseded: this section records the temporary pre-npm bridge only; current consumer truth is npm-backed `@doneisbetter/*` plus `PROJECT_STATE.md`. -->
 ## GDS `@doneisbetter/*` package migration (2026-05-26)
 
 ### What changed
@@ -1790,6 +1821,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run build` ✅ pass
 - `npm run lint` ✅ pass (with GDS eslint rules)
 
+<!-- Superseded: GitHub release-asset guidance is historical only and must not be reused for current installs. -->
 ## GDS 2.6.1 release-asset install contract correction (2026-05-26)
 
 ### What changed
@@ -1809,3 +1841,48 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ### Notes
 - Upstream verified consumer baseline remains Next `15.5.18`, React `19.2.0`, and Mantine `8.3.6`. Amanoba runs a newer consumer stack, so local build verification remains mandatory on each GDS upgrade.
+
+## GDS admin/editor surface adoption (2026-05-26)
+
+### What changed
+- `ResponsiveDataView` adapter now delegates to `@doneisbetter/gds-admin/client` while preserving Amanoba column props for existing admin list pages.
+- Added `AdminPageHeader` (`PageHeader`) and migrated all `app/[locale]/admin/**` page titles off ad-hoc `Title order={1}` bands.
+- Editor portal layout uses GDS `AppShell`; lesson editor uses `EditorScaffold` + `ContentOpsActionBar`.
+- ESLint: disabled `gds/no-raw-design-values` for `app/api/email/**` and `markdown-editor.tsx`; markdown editor default min height is numeric (no `px` string literal).
+
+### Verification
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm run ui:gds:check` ✅ pass
+- `npm run build` ✅ pass
+
+### Notes
+- Superseded: install is `@doneisbetter/*@2.6.1` from npm (see `package.json` and `docs/product/DESIGN_UPDATE.md`).
+
+## Doc SSOT + GDS closure issue program (2026-05-28)
+
+- Created milestone `mvp-factory-control#2` for the Documentation SSOT reconciliation + remaining GDS closure lane.
+- Created 14 independently executable issues `#890`-`#903`, assigned them to Project 12, and wrote the local program index at `docs/handoff/feature_issues/DOC_SSOT_GDS_CLOSURE_PROGRAM.md`.
+- Project status plan: `#890` in `Todo (NEXT)`; `#891`-`#899`, `#901`-`#903` in `Backlog (SOONER)`; `#900` in `IDEABANK (SOMEDAY)` pending `general-design-system#80`.
+<!-- docs-truth: ignore:end -->
+
+## Doc SSOT + GDS closure implementation delivered (2026-05-28)
+
+### What changed
+
+- Added `docs/core/PROJECT_STATE.md` and `scripts/docs/refresh-project-state.mjs`, then wired `npm run docs:project-state:refresh` into the repo workflow.
+- Added `scripts/docs/check-doc-truth.mjs`, wired `npm run docs:truth:check` into `docs:check`, and aligned continuity docs around `PROJECT_STATE.md`.
+- Added `app/components/patterns/gds/LearnerShellAdapter.tsx`, moved the learner-shell contract there, and documented the blocked shared-shell migration in `docs/product/LEARNER_SHELL_MIGRATION.md`.
+- Moved `CourseCard` onto `@doneisbetter/gds-core/client` `PublicProductCard` in `app/components/patterns/gds/CourseCard.tsx`.
+- Added `ContentOpsSection` + sticky `ContentOpsActionBar` dirty/save affordances to `app/[locale]/admin/courses/[courseId]/page.tsx`.
+- Added `docs/product/GDS_ACCESSIBILITY_VERIFICATION.md` and `scripts/ui/check-gds-accessibility-matrix.mjs`.
+- Updated `docs/status/PRODUCTION_STATUS.md`, `docs/product/RELEASE_NOTES.md`, and the closure program doc so issues `#890`-`#903` now reflect delivered repo state where implemented.
+
+### Verification
+
+- `npm run docs:project-state:refresh`
+- `npm run docs:truth:check`
+- `npm run type-check`
+- `npm run lint`
+- `npm run ui:gds:check`
+- `npm run build`

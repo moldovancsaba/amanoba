@@ -6,8 +6,9 @@
 
 import { useMemo, useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { Center, Grid, Group, Loader, Select, Stack, Text, ThemeIcon, Title } from '@mantine/core';
-import { IconCursorText, IconEye, IconMail, IconSend } from '@tabler/icons-react';
+import { Center, Grid, Loader, Select, Stack, Text, Title } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
+import { IconCursorText, IconEye, IconSend } from '@tabler/icons-react';
 import { DataToolbar } from '@/app/components/patterns/DataToolbar';
 import { MetricCard } from '@/app/components/patterns/MetricCard';
 import { ResponsiveDataView, type ResponsiveColumn } from '@/app/components/patterns/ResponsiveDataView';
@@ -115,8 +116,10 @@ export default function AdminEmailAnalyticsPage() {
   if (!data) {
     return (
       <Stack p="md">
-        <Title order={1}>{t('emailAnalytics')}</Title>
-        <Text c="dimmed">Failed to load email analytics.</Text>
+        <AdminPageHeader
+          title={t('emailAnalytics')}
+          description="Failed to load email analytics."
+        />
       </Stack>
     );
   }
@@ -125,12 +128,7 @@ export default function AdminEmailAnalyticsPage() {
 
   return (
     <Stack p="md" gap="xl">
-      <Group gap="sm">
-        <ThemeIcon variant="light" size="lg">
-          <IconMail size={22} />
-        </ThemeIcon>
-        <Title order={1}>{t('emailAnalytics')}</Title>
-      </Group>
+      <AdminPageHeader title={t('emailAnalytics')} />
 
       <DataToolbar title="Reporting period">
         <Select

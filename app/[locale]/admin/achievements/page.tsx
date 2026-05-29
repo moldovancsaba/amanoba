@@ -25,6 +25,7 @@ import {
   TextInput,
   Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import {
   IconEdit,
   IconPlus,
@@ -136,20 +137,20 @@ export default function AdminAchievementsPage() {
 
   return (
     <Stack gap="lg">
-      <Group justify="space-between" align="flex-start">
-        <Stack gap={4}>
-          <Title order={1}>{t('achievementsManagement')}</Title>
-          <Text c="dimmed">{t('achievementsDescription')}</Text>
-        </Stack>
-        <Button
-          component={Link}
-          href={`/${locale}/admin/achievements/new`}
-          color="amanoba"
-          leftSection={<IconPlus size={18} />}
-        >
-          {t('addAchievement')}
-        </Button>
-      </Group>
+      <AdminPageHeader
+        title={t('achievementsManagement')}
+        description={t('achievementsDescription')}
+        primaryAction={
+          <Button
+            component={Link}
+            href={`/${locale}/admin/achievements/new`}
+            color="amanoba"
+            leftSection={<IconPlus size={18} />}
+          >
+            {t('addAchievement')}
+          </Button>
+        }
+      />
 
       <DataToolbar title={t('searchAchievements')}>
         <TextInput

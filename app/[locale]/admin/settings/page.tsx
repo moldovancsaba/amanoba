@@ -30,6 +30,7 @@ import {
   ThemeIcon,
   Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { notifications } from '@mantine/notifications';
 import {
   IconAward,
@@ -310,10 +311,10 @@ export default function AdminSettingsPage() {
 
   return (
     <Stack gap="lg">
-      <Stack gap={4}>
-        <Title order={1} c="white">{t('settingsTitle')}</Title>
-        <Text c="gray.4">{t('settingsDescription')}</Text>
-      </Stack>
+      <AdminPageHeader
+        title={t('settingsTitle')}
+        description={t('settingsDescription')}
+      />
 
       <SettingsCard icon={<IconSettings size={22} />} title={t('generalSettings')}>
         <SimpleGrid cols={{ base: 1, md: 2 }}>

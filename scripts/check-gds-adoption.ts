@@ -72,12 +72,16 @@ function main() {
   requireIncludes(packageJson, '"ui:gds:check"', findings, 'package.json');
   requireIncludes(packageJson, '@doneisbetter/gds-theme', findings, 'package.json');
   requireIncludes(packageJson, '@doneisbetter/gds-core', findings, 'package.json');
-  requireIncludes(packageJson, 'releases/download/gds-v2.6.1', findings, 'package.json');
+  requireIncludes(packageJson, '"@doneisbetter/gds-theme": "2.6.1"', findings, 'package.json');
+  requireIncludes(packageJson, '"@doneisbetter/gds-core": "2.6.1"', findings, 'package.json');
+  requireIncludes(packageJson, '"@doneisbetter/gds-admin": "2.6.1"', findings, 'package.json');
+  requireIncludes(packageJson, '"@doneisbetter/gds-eslint-config": "2.6.1"', findings, 'package.json');
+  requireIncludes(packageJson, '"@doneisbetter/gds-compliance": "2.6.1"', findings, 'package.json');
   if (packageJson.includes('@gds/')) {
     findings.push('package.json: remove legacy @gds/* dependencies; use @doneisbetter/* only');
   }
   if (packageJson.includes('file:../GENERAL_DESIGN_SYSTEM/packages/')) {
-    findings.push('package.json: remove sibling file: GDS installs; use approved release asset tarballs until npm publication is live');
+    findings.push('package.json: remove sibling file: GDS installs; use npm-published @doneisbetter/* packages');
   }
 
   for (const adapter of manifest.localAdapters ?? []) {

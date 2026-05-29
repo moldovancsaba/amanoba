@@ -265,7 +265,7 @@ GET /api/analytics?startDate=2025-01-01&endDate=2025-01-31&granularity=day
 
 ### Mantine And Pattern Contracts
 
-**Design authority**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` governs design, UI, UX, and component contracts. Amanoba's UI dependency baseline is Mantine-only.
+**Design authority**: `https://github.com/sovereignsquad/general-design-system` governs design, UI, UX, and component contracts. Amanoba's UI dependency baseline is Mantine-only.
 
 **Component Names**: Use domain-specific PascalCase for shared Mantine wrappers and pattern contracts. Avoid names that imply a second design system.
 

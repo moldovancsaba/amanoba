@@ -59,7 +59,9 @@
     "docs:triage": "node --import tsx scripts/docs/generate-docs-triage.ts",
     "docs:refresh": "npm run docs:inventory && npm run docs:canonical-map && npm run docs:triage",
     "docs:links:check": "node scripts/docs/check-doc-links.mjs",
-    "docs:check": "npm run docs:refresh && node scripts/docs/check-generated-docs.mjs && npm run docs:links:check",
+    "docs:project-state:refresh": "node scripts/docs/refresh-project-state.mjs",
+    "docs:truth:check": "node scripts/docs/check-doc-truth.mjs",
+    "docs:check": "npm run docs:refresh && node scripts/docs/check-generated-docs.mjs && npm run docs:links:check && npm run docs:project-state:refresh && npm run docs:truth:check",
     "release-notes:wiki:export": "node --import tsx scripts/docs/export-release-notes-wiki.ts",
     "ui:audit:layout": "node --import tsx scripts/audit-layout-grammar-ui.ts --write",
     "ui:check:layout": "node --import tsx scripts/audit-layout-grammar-ui.ts --check",
@@ -72,15 +74,16 @@
     "ui:gds:compliance": "node scripts/gds-compliance-product-ui.mjs",
     "ui:gds:compliance:manifest": "node scripts/validate-gds-adoption-manifest.mjs",
     "ui:gds:check": "npm run ui:gds:verify && npm run ui:check:no-legacy-gds-imports && npm run gds:import-smoke && npm run ui:check:gds-patterns && npm run ui:gds:compliance && npm run ui:gds:compliance:manifest",
+    "ui:check:gds-a11y": "node scripts/ui/check-gds-accessibility-matrix.mjs",
     "ui:check:no-legacy-gds-imports": "node scripts/check-no-legacy-gds-imports.mjs",
     "ui:check:gds-adoption": "node --import tsx scripts/check-gds-adoption.ts",
-    "ui:check:gds": "npm run ui:check:gds-adoption && npm run ui:gds:check && npm run ui:check:mantine && npm run ui:check:foundation && npm run ui:check:layout"
+    "ui:check:gds": "npm run ui:check:gds-adoption && npm run ui:gds:check && npm run ui:check:gds-a11y && npm run ui:check:mantine && npm run ui:check:foundation && npm run ui:check:layout"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.2",
-    "@doneisbetter/gds-admin": "https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-admin-2.6.1.tgz",
-    "@doneisbetter/gds-core": "https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-core-2.6.1.tgz",
-    "@doneisbetter/gds-theme": "https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-theme-2.6.1.tgz",
+    "@doneisbetter/gds-admin": "2.6.1",
+    "@doneisbetter/gds-core": "2.6.1",
+    "@doneisbetter/gds-theme": "2.6.1",
     "@emnapi/runtime": "^1.8.1",
     "@hookform/resolvers": "^3.9.0",
     "@mantine/core": "^8.3.18",
@@ -136,8 +139,8 @@
     "zod": "^4.1.11"
   },
   "devDependencies": {
-    "@doneisbetter/gds-compliance": "https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-compliance-2.6.1.tgz",
-    "@doneisbetter/gds-eslint-config": "https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-eslint-config-2.6.1.tgz",
+    "@doneisbetter/gds-compliance": "2.6.1",
+    "@doneisbetter/gds-eslint-config": "2.6.1",
     "@types/turndown": "^5.0.6",
     "@types/web-push": "^3.6.3",
     "eslint": "^9",

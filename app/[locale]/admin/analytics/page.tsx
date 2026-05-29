@@ -34,6 +34,7 @@ import {
   ThemeIcon,
   Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { IconRefresh } from '@tabler/icons-react';
 import {
   LineChart,
@@ -317,10 +318,10 @@ export default function AdminAnalyticsPage() {
   if (brandIdError || !brandId) {
     return (
       <Stack gap="xl">
-        <div>
-          <Title order={1}>Analytics Dashboard</Title>
-          <Text c="dimmed">Comprehensive metrics and insights</Text>
-        </div>
+        <AdminPageHeader
+          title="Analytics Dashboard"
+          description="Comprehensive metrics and insights"
+        />
         <Alert color="red" title={brandIdError || 'Failed to load brand information'}>
           <Button leftSection={<IconRefresh size={18} />} onClick={() => window.location.reload()}>
             Refresh Page
@@ -332,10 +333,10 @@ export default function AdminAnalyticsPage() {
 
   return (
     <Stack gap="xl">
-        <div>
-          <Title order={1}>Analytics Dashboard</Title>
-          <Text c="dimmed">Comprehensive metrics and insights</Text>
-        </div>
+        <AdminPageHeader
+          title="Analytics Dashboard"
+          description="Comprehensive metrics and insights"
+        />
 
         <DataToolbar title="Reporting period" layout="stack">
           <Group align="flex-end" wrap="wrap">

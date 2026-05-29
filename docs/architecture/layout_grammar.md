@@ -101,13 +101,13 @@ See `amanoba_courses:process_them/docs/COURSE_BUILDING_RULES.md` and `amanoba_co
 
 ## 6. UI and design layout
 
-**Design/UI/UX SSOT**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`.
+**Design/UI/UX SSOT**: `https://github.com/sovereignsquad/general-design-system`.
 
 Amanoba's local files are the current implementation adapter and migration surface. They must follow the shared SSOT; they do not redefine design, component, or UX rules.
 
 **Authority order**:
 
-1. `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` — cross-project design, UI, UX, component contract, and governance SSOT.
+1. `https://github.com/sovereignsquad/general-design-system` — cross-project design, UI, UX, component contract, and governance SSOT.
 2. `docs/product/DESIGN_UPDATE.md` — Amanoba adapter status, local exceptions, and migration backlog.
 3. `docs/product/PATTERN_CONTRACT_INVENTORY.md` — Amanoba-local implementation inventory for required GDS pattern-service contracts.
 4. `app/lib/ui/mantine-theme.ts` and `app/components/providers/MantineRuntimeProvider.tsx` — current local Mantine theme and root runtime adapter.
@@ -143,7 +143,7 @@ Amanoba's local files are the current implementation adapter and migration surfa
 - Repeated learner/dashboard metrics use `app/components/patterns/MetricCard.tsx`.
 - Repeated loading, empty, error, permission, disabled, and success states use `app/components/patterns/StateBlock.tsx`.
 - Blog/news detail layouts use `app/components/patterns/ArticleShell.tsx`.
-- New shared primitive planning must align to `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM/PATTERN_SERVICE_MODEL.md`.
+- New shared primitive planning must align to the upstream GDS pattern-service model documentation.
 
 **Guardrails (recommended)**:
 
@@ -198,4 +198,4 @@ All other locale files remain in their native language (no British/US split). Na
 ---
 
 **Maintained by**: Amanoba team
-**Cross-references**: `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM`, `COURSE_BUILDING_RULES.md`, `CODING_STANDARDS.md`, `DESIGN_UPDATE.md`, `NAMING_GUIDE.md`, `QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, `VOTING_AND_REUSE_PATTERN.md`, `ARCHITECTURE.md`, `2026_course_quality_prompt.md`, canonical CCS under `docs/canonical/`.
+**Cross-references**: `https://github.com/sovereignsquad/general-design-system`, `COURSE_BUILDING_RULES.md`, `CODING_STANDARDS.md`, `DESIGN_UPDATE.md`, `NAMING_GUIDE.md`, `QUIZ_QUALITY_PIPELINE_PLAYBOOK.md`, `VOTING_AND_REUSE_PATTERN.md`, `ARCHITECTURE.md`, `2026_course_quality_prompt.md`, canonical CCS under `docs/canonical/`.

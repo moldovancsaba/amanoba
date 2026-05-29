@@ -1,7 +1,7 @@
 # Design System Adapter Status
 
 **Last Updated**: 2026-05-26
-**Status**: GDS 2.6.1 enforced via `@doneisbetter/*` release assets; thin local adapters only
+**Status**: GDS 2.6.1 enforced via `@doneisbetter/*` from npm; thin local adapters only
 
 ---
 
@@ -26,7 +26,7 @@ Read in this order:
 9. `THEME_GOVERNANCE.md`
 10. `EXCEPTION_SURFACES.md`
 
-The shared SSOT is managed as its own Git repository: https://github.com/sovereignsquad/general-design-system. Amanoba consumes the **`@doneisbetter/*`** package line at version **2.6.1** (2026-05-26) through the approved GitHub release assets until npm publication is live.
+The shared SSOT is managed as its own Git repository: https://github.com/sovereignsquad/general-design-system. Amanoba consumes the **`@doneisbetter/*`** package line at version **2.6.1** (2026-05-26) from npm.
 
 ## Project Migration Plan
 
@@ -36,30 +36,17 @@ The shared SSOT is managed as its own Git repository: https://github.com/soverei
 ## Local Adapter
 
 **Aligned SSOT version/date**: `2.6.1`, 2026-05-26
-**Status**: Mantine-only product UI; `@doneisbetter/*` from GitHub release assets; pattern implementations under `app/components/patterns/gds/`
+**Status**: Mantine-only product UI; `@doneisbetter/*` from npm; pattern implementations under `app/components/patterns/gds/`
 **Current UI foundation**: `extendGdsTheme` from `@doneisbetter/gds-theme/server` in `app/lib/ui/amanoba-gds-theme.ts`; root `GdsProvider` via `MantineRuntimeProvider`; token-only `design-system.css` + `globals.css`
 **Target UI foundation**: direct package consumption per [ADOPTION_AND_MIGRATION_PLAYBOOK](https://github.com/sovereignsquad/general-design-system/blob/main/ADOPTION_AND_MIGRATION_PLAYBOOK.md) (achieved for primitives; documented exceptions remain)
 
 ### Package install
 
-**Canonical future registry target:**
+**Canonical install path:**
 
 ```sh
-npm install @doneisbetter/gds-theme @doneisbetter/gds-core @doneisbetter/gds-admin
-npm install -D @doneisbetter/gds-eslint-config @doneisbetter/gds-compliance
-```
-
-**Current supported install path (until npm publication is live):**
-
-```sh
-npm install \
-  https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-theme-2.6.1.tgz \
-  https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-core-2.6.1.tgz \
-  https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-admin-2.6.1.tgz
-
-npm install -D \
-  https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-eslint-config-2.6.1.tgz \
-  https://github.com/sovereignsquad/general-design-system/releases/download/gds-v2.6.1/doneisbetter-gds-compliance-2.6.1.tgz
+npm install @doneisbetter/gds-theme@2.6.1 @doneisbetter/gds-core@2.6.1 @doneisbetter/gds-admin@2.6.1
+npm install -D @doneisbetter/gds-eslint-config@2.6.1 @doneisbetter/gds-compliance@2.6.1
 ```
 
 | Package | Role |
@@ -81,8 +68,8 @@ Do **not** use legacy `@gds/*` names or sibling `file:` links in CI/production p
 | GDS pattern barrel | `app/components/patterns/gds/index.ts` |
 | Stable imports | `app/components/patterns/*.tsx` (re-export from `gds/`) |
 | Theme | `app/lib/ui/amanoba-gds-theme.ts` → `mantine-theme.ts` |
-| Learner header | `app/components/LearnerPageHeader.tsx` (local until GDS LearnerAppShell) |
-| Course card | `app/components/patterns/CourseCard.tsx` |
+| Learner header | `app/components/patterns/gds/LearnerShellAdapter.tsx` (stable import stays `app/components/LearnerPageHeader.tsx`) |
+| Course card | `app/components/patterns/gds/CourseCard.tsx` (stable import stays `app/components/patterns/CourseCard.tsx`) |
 | Course access recovery | `app/components/patterns/gds/CourseAccessRecoveryActions.tsx` → `@doneisbetter/gds-core/client` `AccessRecoveryPanel` |
 | Admin shell | `app/[locale]/admin/layout.tsx` |
 | Editor shell | `app/[locale]/editor/layout.tsx` |
@@ -113,8 +100,8 @@ Implemented:
 
 Remaining (documented in `gds-adoption.json`, not duplicate GDS primitives):
 
-- **Learner shell** — `LearnerPageHeader` until second product proves shared LMS chrome ([#99](https://github.com/sovereignsquad/general-design-system/issues/99)).
-- **Course card variants** — `CourseCard` until GDS ships catalog/enrolled/progress/admin variants.
+- **Learner shell** — `LearnerShellAdapter` keeps the swap boundary stable until GDS ships the learner shell contract ([#80](https://github.com/sovereignsquad/general-design-system/issues/80)).
+- **Course card variants** — `CourseCard` now maps to GDS `PublicProductCard`; richer course-specific variants can still be promoted upstream later.
 - **Brand-composition shells** — `AuthShell`, `PublicAppShell`, `ArticleShell`, `DataToolbar`, `ResponsiveDataView` (Amanoba dark marketing / admin row API).
 - Residual `className` on layout/fonts/prose (documented exceptions only).
 

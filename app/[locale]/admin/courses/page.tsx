@@ -35,6 +35,7 @@ import {
   Title,
   Tooltip,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { modals } from '@mantine/modals';
 import { notifications } from '@mantine/notifications';
 import {
@@ -437,35 +438,35 @@ export default function AdminCoursesPage() {
   return (
     <Container size="xl" py="xl">
       <Stack gap="lg">
-        <Group justify="space-between" align="flex-start">
-          <Stack gap={4}>
-            <Title order={1} c="white">Course Management</Title>
-            <Text c="gray.4">Create and manage flexible learning courses.</Text>
-          </Stack>
-          <Group justify="flex-end">
-            <Select
-              aria-label="Question import mode"
-              value={importQuestionMode}
-              onChange={(value) => setImportQuestionMode((value || 'add') as 'add' | 'overwrite')}
-              disabled={importing}
-              allowDeselect={false}
-              data={[
-                { value: 'add', label: 'Questions: Add Only' },
-                { value: 'overwrite', label: 'Questions: Overwrite' },
-              ]}
-            />
-            <FileButton onChange={handleImportCourse} accept=".json">
-              {(props) => (
-                <Button {...props} loading={importing} leftSection={<IconUpload size={16} />}>
-                  Import
-                </Button>
-              )}
-            </FileButton>
-            <Button component={Link} href={`/${locale}/admin/courses/new`} leftSection={<IconPlus size={16} />}>
-              Create Course
-            </Button>
-          </Group>
-        </Group>
+        <AdminPageHeader
+          title="Course Management"
+          description="Create and manage flexible learning courses."
+          secondaryActions={
+            <>
+              <Select
+                aria-label="Question import mode"
+                value={importQuestionMode}
+                onChange={(value) => setImportQuestionMode((value || 'add') as 'add' | 'overwrite')}
+                disabled={importing}
+                allowDeselect={false}
+                data={[
+                  { value: 'add', label: 'Questions: Add Only' },
+                  { value: 'overwrite', label: 'Questions: Overwrite' },
+                ]}
+              />
+              <FileButton onChange={handleImportCourse} accept=".json">
+                {(props) => (
+                  <Button {...props} loading={importing} leftSection={<IconUpload size={16} />}>
+                    Import
+                  </Button>
+                )}
+              </FileButton>
+              <Button component={Link} href={`/${locale}/admin/courses/new`} leftSection={<IconPlus size={16} />}>
+                Create Course
+              </Button>
+            </>
+          }
+        />
 
         <Group>
           <Button

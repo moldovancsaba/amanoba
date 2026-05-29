@@ -1,6 +1,6 @@
 # Production Status
 
-**Last Updated**: 2026-05-20
+**Last Updated**: 2026-05-28
 **Status**: Production stable; GitHub push to `origin/main` deploys through Vercel.
 
 ---
@@ -21,7 +21,7 @@ Reference:
 
 After each production push:
 
-1. Confirm latest commit SHA is deployed.
+1. Confirm latest deploy SHA matches the intended `origin/main` commit.
 2. Verify baseline routes:
    - `/`
    - `/robots.txt`
@@ -34,19 +34,19 @@ After each production push:
 
 ## Last Recorded Production Verification
 
-Latest recorded verification in this repo: **2026-05-20 20:56 CEST** during the foundation hardening pass.
+Latest recorded verification in this repo: **2026-05-28** during the post-GDS/documentation closure reconciliation pass.
 
-Verified routes:
+Verified baseline routes:
 
 - `/` — 200, redirected to `/hu`
 - `/robots.txt` — 200
 - `/sitemap.xml` — 200
+- `/en/auth/signin` — 200
 - `/en/courses` — 200
 - `/en/blog` — 200
 - `/en/news` — 200
 - `/en/practice` — 200
 - `/en/saved` — 200
-- `/en/auth/signin` — 200
 - `/en/editor/courses` — 200 after anonymous redirect to `/en/auth/signin?callbackUrl=%2Fen%2Feditor%2Fcourses`
 
 Confirmed production content:
@@ -54,6 +54,7 @@ Confirmed production content:
 - Public blog/news routes are reachable.
 - Protected editor route redirects anonymous users to localized sign-in.
 - Baseline course, practice, saved-lessons, sitemap, and robots routes are reachable.
+- Post-GDS verification is pending the next production deploy SHA confirmation; treat the route list above as the current baseline smoke set until that deploy is logged.
 
 ---
 

@@ -28,6 +28,7 @@ import {
   TextInput,
   Title,
 } from '@mantine/core';
+import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { notifications } from '@mantine/notifications';
 import { IconArrowLeft, IconBook, IconCertificate, IconChecklist, IconDeviceFloppy, IconSettings } from '@tabler/icons-react';
 import { getStripeMinimum, getFormattedMinimum, meetsStripeMinimum } from '@/app/lib/utils/stripe-minimums';
@@ -125,7 +126,7 @@ export default function NewCoursePage() {
 
   return (
     <Stack gap="lg">
-      <Group gap="md">
+      <Group gap="md" align="flex-start" wrap="nowrap">
         <Button
           component="a"
           href={`/${locale}/admin/courses`}
@@ -134,10 +135,10 @@ export default function NewCoursePage() {
         >
           Back
         </Button>
-        <Stack gap={2}>
-          <Title order={1} c="white">Create New Course</Title>
-          <Text c="gray.4">Set up basic course information</Text>
-        </Stack>
+        <AdminPageHeader
+          title="Create New Course"
+          description="Set up basic course information"
+        />
       </Group>
 
       <Card padding="lg">
