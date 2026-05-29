@@ -1886,3 +1886,22 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run lint`
 - `npm run ui:gds:check`
 - `npm run build`
+
+## Deep tech audit W0 security delivery (2026-05-29)
+
+### What changed
+
+- Added audit program under `docs/audit/` with route inventory, production smoke, register, and remediation waves.
+- Added `scripts/audit/*` and npm scripts: `audit:routes`, `audit:production-smoke`, `audit:run`, `audit:admin-guards`.
+- Added `.github/workflows/quality-gates.yml` (type-check, test, lint, ui:gds:check, build on PR/push).
+- Fixed admin API guards: feature-flags PATCH, leaderboards GET, apply-quiz-defaults POST (deprecated 410).
+- Session-bound game sessions (`start`/`complete`) and referrals (GET/POST); anonymous signup calls `processReferralSignup` directly.
+- Extracted `app/lib/referrals/process-referral-signup.ts` for shared referral signup logic.
+
+### Verification
+
+- `npm run audit:admin-guards`
+- `npm run type-check`
+- `npm test`
+- `npm run build`
+- `npm run audit:production-smoke` (post-deploy)

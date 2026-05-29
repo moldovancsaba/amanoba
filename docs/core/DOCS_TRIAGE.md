@@ -7,7 +7,7 @@
 
 **Last Updated**: 2026-05-29
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=5, KEEP(unclassified)=75
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=5, KEEP(unclassified)=81
 
 This file is the “what to do next” view derived from `docs/core/DOCS_CANONICAL_MAP.md`.
 
@@ -28,6 +28,12 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 ## KEEP (needs review)
 - `docs/architecture/ARCHITECTURE_FIX_QUICK_START.md` — ⚡ ARCHITECTURE FIX - ACTION CHECKLIST & QUICK START
 - `docs/architecture/ARCHITECTURE_GAP_ANALYSIS.md` — ARCHITECTURE_GAP_ANALYSIS.md
+- `docs/audit/generated/PRODUCTION_SMOKE.md` — Production smoke — https://www.amanoba.com
+- `docs/audit/generated/ROUTE_INVENTORY.md` — Generated Route Inventory
+- `docs/audit/README.md` — Tech Audit
+- `docs/audit/TECH_AUDIT_JOURNEY_MATRIX.md` — Tech Audit Journey Matrix
+- `docs/audit/TECH_AUDIT_REGISTER.md` — Tech Audit Register
+- `docs/audit/TECH_AUDIT_REMEDIATION_PROGRAM.md` — Tech Audit Remediation Program
 - `docs/certification/CERTIFICATE_AB_TEST_DESIGN.md` — Certificate A/B Test Design
 - `docs/certification/CERTIFICATE_CREATION_GUIDE.md` — Certificate Creation Guide
 - `docs/certification/CERTIFICATION_CURRENT_IMPLEMENTATION_ANALYSIS.md` — 🔍 CERTIFICATION SYSTEM - CURRENT IMPLEMENTATION ANALYSIS
@@ -80,13 +86,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/quality/PHASE_1_AUDIT_WORKSHEET.md` — PHASE 1 EXECUTION AUDIT WORKSHEET
 - `docs/quality/PHASE_2_AUDIT_TRACKER.md` — PHASE 2 AUDIT - COURSES 2-8
 - `docs/quality/QUALITY_SECURED_PROCESSING_COMPLETE.md` — ✅ Quality-Secured Processing - COMPLETE
-- `docs/quality/QUALITY_SECURED_SYSTEM_COMPLETE.md` — 🔒 Quality-Secured Question Generation System - COMPLETE
-- `docs/README.md` — Amanoba Docs
-- `docs/seo/SEO_SITEMAP_SUBMISSION.md` — Sitemap submission (GSC and Bing)
-- `docs/sso/enable_sso.md` — SSO Integration Guide (Amanoba)
-- `docs/sso/SSO_ALIGNMENT_ANALYSIS.md` — SSO Alignment Analysis & Refactoring Plan
-- `docs/sso/SSO_CLIENT_ID_UPDATE.md` — SSO Client ID Update
-- … +15 more
+- … +21 more
 
 ## Next suggested move
 - Review KEEP(unclassified) docs and either promote to canonical sections in `docs/core/DOCS_INDEX.md` or archive.

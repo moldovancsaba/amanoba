@@ -78,6 +78,8 @@ export async function GET(request: NextRequest) {
 export async function PATCH(request: NextRequest) {
   try {
     const session = await auth();
+    const adminCheck = requireAdmin(request, session);
+    if (adminCheck) return adminCheck;
     if (!session?.user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }

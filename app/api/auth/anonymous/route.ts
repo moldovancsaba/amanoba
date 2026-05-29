@@ -11,10 +11,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import connectDB from '@/lib/mongodb';
 import { getRandomGuestUsername, createAnonymousPlayer } from '@/lib/utils/anonymous-auth';
+import { processReferralSignup } from '@/lib/referrals/process-referral-signup';
 import { logAuthEvent } from '@/lib/analytics';
 import logger from '@/lib/logger';
 import { checkRateLimit, authRateLimiter } from '@/lib/security';
-import { getAuthBaseUrl } from '@/app/lib/constants/app-url';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -51,21 +51,15 @@ export async function POST(req: NextRequest) {
     // Process referral code if present and player is new
     if (isNew && referralCode && player._id) {
       try {
-        const baseUrl = getAuthBaseUrl();
-        const referralResponse = await fetch(`${baseUrl}/api/referrals`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            referredPlayerId: (player._id as mongoose.Types.ObjectId).toString(),
-            referralCode,
-          }),
+        const result = await processReferralSignup({
+          referredPlayerId: (player._id as mongoose.Types.ObjectId).toString(),
+          referralCode,
         });
-        
-        if (referralResponse.ok) {
+
+        if (result.success) {
           logger.info({ playerId: player._id, referralCode }, 'Referral processed successfully for new anonymous player');
         } else {
-          const errorData = await referralResponse.json();
-          logger.warn({ playerId: player._id, referralCode, error: errorData.error }, 'Failed to process referral code');
+          logger.warn({ playerId: player._id, referralCode, error: result.error }, 'Failed to process referral code');
         }
       } catch (referralError) {
         // Don't fail signup if referral processing fails

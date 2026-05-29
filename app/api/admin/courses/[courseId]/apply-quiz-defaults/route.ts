@@ -6,12 +6,18 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { auth } from '@/auth';
 import { logger } from '@/lib/logger';
+import { requireAdmin } from '@/lib/rbac';
 
 export async function POST(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: Promise<{ courseId: string }> }
 ) {
+  const session = await auth();
+  const adminCheck = requireAdmin(request, session);
+  if (adminCheck) return adminCheck;
+
   const { courseId } = await params;
   logger.info({ courseId }, 'Deprecated apply-quiz-defaults endpoint called');
   return NextResponse.json(

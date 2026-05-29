@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import mongoose, { Document } from 'mongoose';
+import { auth } from '@/auth';
 import connectToDatabase from '@/lib/mongodb';
 import logger from '@/lib/logger';
+import { getPlayerIdFromSession, requireAuth } from '@/lib/rbac';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -13,7 +15,7 @@ import type { IGame } from '@/lib/models/game';
 // Why: Validate incoming request data to ensure type safety and data integrity
 // What: Zod schema for starting a new game session
 const StartSessionSchema = z.object({
-  playerId: z.string().min(1, 'Player ID is required'),
+  playerId: z.string().min(1, 'Player ID is required').optional(),
   gameId: z.string().min(1, 'Game ID or key is required'), // Accepts Game._id, Game.gameId (e.g., QUIZZZ), or route key (e.g., quizzz)
   brandId: z.string().optional(), // If omitted, derived from player.brandId
   difficulty: z.string().optional(), // Flexible difficulty string (EASY, MEDIUM, HARD, EXPERT, AI_LEVEL_1, etc.)
@@ -38,18 +40,37 @@ const StartSessionSchema = z.object({
  */
 export async function POST(request: NextRequest) {
   try {
+    const session = await auth();
+    const authCheck = requireAuth(request, session);
+    if (authCheck) return authCheck;
+
+    const sessionPlayerId = getPlayerIdFromSession(session);
+    if (!sessionPlayerId) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     // Why: Parse and validate the request body
     const body = await request.json();
     const validatedData = StartSessionSchema.parse(body);
+
+    if (validatedData.playerId && validatedData.playerId !== sessionPlayerId) {
+      logger.warn(
+        { sessionPlayerId, requestedPlayerId: validatedData.playerId },
+        'Game session start rejected: playerId mismatch'
+      );
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    }
+
+    const playerId = sessionPlayerId;
 
     // Why: Connect to database before any operations
     await connectToDatabase();
 
 // Why: Verify that the player exists
-    const player = await Player.findById(validatedData.playerId);
+    const player = await Player.findById(playerId);
 
     if (!player) {
-      logger.warn({ playerId: validatedData.playerId }, 'Player not found');
+      logger.warn({ playerId }, 'Player not found');
       return NextResponse.json(
         { error: 'Player not found' },
         { status: 404 }
@@ -175,7 +196,7 @@ export async function POST(request: NextRequest) {
 
     // Why: Use the session manager to handle all gamification logic
     const sessionId = await startGameSession({
-      playerId: new mongoose.Types.ObjectId(validatedData.playerId),
+      playerId: new mongoose.Types.ObjectId(playerId),
       gameId: (game._id as mongoose.Types.ObjectId),
       brandId: brandObjectId as mongoose.Types.ObjectId,
     });
@@ -183,7 +204,7 @@ export async function POST(request: NextRequest) {
     logger.info(
       {
         sessionId,
-        playerId: validatedData.playerId,
+        playerId,
         gameId: validatedData.gameId,
       },
       'Game session started successfully'

@@ -29,14 +29,16 @@
 - `npm run lint`
 - `npm run ui:gds:check`
 - `npm run build`
+- `npm run audit:production-smoke` (post-deploy or weekly)
+- `npm run audit:admin-guards` (after admin API changes)
 
 ## Generated Snapshot
 
 <!-- gds-project-state:generated:start -->
-- Generated at: `2026-05-29T08:56:21.328Z`
+- Generated at: `2026-05-29T17:59:32.589Z`
 - Package version: `2.9.49`
 - Git branch: `main`
-- Git HEAD: `6627d49` (`6627d49888e675def0b284130da7f5914d349484`)
+- Git HEAD: `9163aaa` (`9163aaadaddf30c539169ae83554c1025e3be171`)
 - Git worktree state: `dirty`
 - GDS version: `2.6.1`
 - GDS migration status: `enforced`

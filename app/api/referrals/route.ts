@@ -1,49 +1,47 @@
 /**
  * Referral System API
- * 
+ *
  * Handles referral code generation, tracking, and reward distribution.
  * Players can invite friends and earn rewards when referrals sign up and play.
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { auth } from '@/auth';
+import mongoose from 'mongoose';
 import connectDB from '@/lib/mongodb';
-import {
-  Player,
-  ReferralTracking,
-  PointsWallet,
-  PointsTransaction,
-} from '@/lib/models';
+import { Player, ReferralTracking } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { getAuthBaseUrl } from '@/app/lib/constants/app-url';
+import { getPlayerIdFromSession, requireAdmin, requireAuth } from '@/lib/rbac';
+import { processReferralSignup } from '@/lib/referrals/process-referral-signup';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-import mongoose from 'mongoose';
 
 /**
- * GET /api/referrals?playerId=xxx
- * 
- * Get referral dashboard data for a player:
- * - Referral code
- * - List of referred players
- * - Pending and completed rewards
- * - Total referrals count
+ * GET /api/referrals
+ *
+ * Get referral dashboard data for the authenticated player.
  */
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
-    const playerId = searchParams.get('playerId');
+    const session = await auth();
+    const authCheck = requireAuth(request, session);
+    if (authCheck) return authCheck;
 
+    const playerId = getPlayerIdFromSession(session);
     if (!playerId) {
-      return NextResponse.json(
-        { success: false, error: 'Player ID is required' },
-        { status: 400 }
-      );
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const { searchParams } = new URL(request.url);
+    const requestedPlayerId = searchParams.get('playerId');
+    if (requestedPlayerId && requestedPlayerId !== playerId) {
+      return NextResponse.json({ success: false, error: 'Forbidden' }, { status: 403 });
     }
 
     await connectDB();
 
-    // Get player
     const player = await Player.findById(playerId);
     if (!player) {
       return NextResponse.json(
@@ -54,16 +52,13 @@ export async function GET(request: NextRequest) {
     type PlayerWithDisplayName = { displayName?: string };
     const playerDoc = player as PlayerWithDisplayName;
 
-    // Generate referral code based on player ID (consistent)
     const referralCode = generateReferralCode(playerDoc.displayName ?? 'Player', playerId);
 
-    // Get all referrals by this player
     const referrals = await ReferralTracking.find({ referrerId: playerId })
       .populate('refereeId', 'displayName profilePicture createdAt')
       .sort({ 'metadata.createdAt': -1 })
       .lean();
 
-    // Calculate stats
     const totalReferrals = referrals.length;
     const pendingRewards = referrals.filter((r: { status?: string }) => r.status === 'pending').length;
     const completedRewards = referrals.filter((r: { status?: string }) => r.status === 'completed' || r.status === 'rewarded').length;
@@ -72,7 +67,6 @@ export async function GET(request: NextRequest) {
       0
     );
 
-    // Format referral data (type populated lean result)
     type PopulatedReferee = { _id?: unknown; displayName?: string; profilePicture?: string; createdAt?: Date };
     type ReferralRow = { _id?: unknown; refereeId?: PopulatedReferee; status?: string; rewards?: { referrerPoints?: number }; metadata?: { createdAt?: Date; completedAt?: Date } };
     const referralData = referrals.map((ref: ReferralRow) => ({
@@ -122,153 +116,44 @@ export async function GET(request: NextRequest) {
 
 /**
  * POST /api/referrals
- * 
- * Create a referral tracking entry when a new player signs up with a referral code.
- * Called during player registration process.
- * 
- * Body:
- * - referredPlayerId: ID of the new player
- * - referralCode: Referral code used during signup
+ *
+ * Create referral tracking when the authenticated player signs up with a referral code.
  */
 export async function POST(request: NextRequest) {
-  const session = await mongoose.startSession();
-  session.startTransaction();
-
   try {
+    const session = await auth();
+    const authCheck = requireAuth(request, session);
+    if (authCheck) return authCheck;
+
+    const sessionPlayerId = getPlayerIdFromSession(session);
+    if (!sessionPlayerId) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
     const body = await request.json();
     const { referredPlayerId, referralCode } = body;
 
-    if (!referredPlayerId || !referralCode) {
-      await session.abortTransaction();
+    if (referredPlayerId && referredPlayerId !== sessionPlayerId) {
+      return NextResponse.json({ success: false, error: 'Forbidden' }, { status: 403 });
+    }
+
+    const result = await processReferralSignup({
+      referredPlayerId: sessionPlayerId,
+      referralCode,
+    });
+
+    if (!result.success) {
       return NextResponse.json(
-        { success: false, error: 'Missing required fields' },
-        { status: 400 }
+        { success: false, error: result.error },
+        { status: result.status }
       );
     }
-
-    await connectDB();
-
-    // Find referrer by extracting player ID from code
-    const extractedPlayerId = extractPlayerIdFromCode(referralCode);
-    const referrer = await Player.findById(extractedPlayerId).session(session);
-    if (!referrer) {
-      await session.abortTransaction();
-      return NextResponse.json(
-        { success: false, error: 'Invalid referral code' },
-        { status: 404 }
-      );
-    }
-
-    // Check if referral already exists
-    const existing = await ReferralTracking.findOne({
-      refereeId: referredPlayerId, // Use refereeId to match model schema
-    }).session(session);
-
-    if (existing) {
-      await session.abortTransaction();
-      return NextResponse.json(
-        { success: false, error: 'Player already referred' },
-        { status: 400 }
-      );
-    }
-
-    // Create referral tracking entry
-    // Note: Model uses 'refereeId' not 'referredPlayerId'
-    const referralTracking = await ReferralTracking.create(
-      [
-        {
-          referrerId: referrer._id,
-          refereeId: referredPlayerId, // Use refereeId to match model schema
-          referralCode,
-          status: 'pending',
-          completionCriteria: {
-            meetsRequirements: true, // Auto-complete on signup for simplicity
-          },
-          rewards: {
-            referrerPoints: 500, // Set reward amount
-            refereePoints: 0,
-            referrerBonusXP: 0,
-            refereeBonusXP: 0,
-          },
-          metadata: {
-            referrerDisplayName: referrer.displayName,
-            createdAt: new Date(),
-          },
-        },
-      ],
-      { session }
-    );
-
-    // Auto-complete and reward on signup
-    const REFERRAL_REWARD = 500;
-    const referrerWallet = await PointsWallet.findOne({
-      playerId: referrer._id,
-    }).session(session);
-
-    if (referrerWallet) {
-      const balanceBefore = referrerWallet.currentBalance;
-      referrerWallet.currentBalance += REFERRAL_REWARD;
-      referrerWallet.lifetimeEarned += REFERRAL_REWARD;
-      await referrerWallet.save({ session });
-
-      // Create points transaction
-      await PointsTransaction.create(
-        [
-          {
-            playerId: referrer._id,
-            walletId: referrerWallet._id,
-            type: 'earn',
-            amount: REFERRAL_REWARD,
-            balanceBefore,
-            balanceAfter: referrerWallet.currentBalance,
-            source: {
-              type: 'referral',
-              referenceId: referralTracking[0]._id,
-              description: 'Referral reward',
-            },
-            metadata: {
-              createdAt: new Date(),
-            },
-          },
-        ],
-        { session }
-      );
-
-      // Update referral status to completed
-      referralTracking[0].status = 'completed';
-      referralTracking[0].rewards.referrerPoints = REFERRAL_REWARD;
-      referralTracking[0].rewards.rewardedAt = new Date();
-      referralTracking[0].metadata.completedAt = new Date();
-      await referralTracking[0].save({ session });
-
-      logger.info(
-        {
-          referrerId: referrer._id,
-          referredPlayerId,
-          referralId: referralTracking[0]._id,
-          reward: REFERRAL_REWARD,
-        },
-        'Referral auto-completed and rewarded on signup'
-      );
-    }
-
-    await session.commitTransaction();
-
-    logger.info(
-      {
-        referrerId: referrer._id,
-        referredPlayerId,
-        referralCode,
-      },
-      'Referral tracking created'
-    );
 
     return NextResponse.json({
       success: true,
-      referralId: referralTracking[0]._id,
+      referralId: result.referralId,
     });
   } catch (error) {
-    await session.abortTransaction();
     logger.error({ error }, 'Failed to create referral tracking');
 
     return NextResponse.json(
@@ -278,27 +163,28 @@ export async function POST(request: NextRequest) {
       },
       { status: 500 }
     );
-  } finally {
-    session.endSession();
   }
 }
 
 /**
- * PUT /api/referrals/[referralId]/complete
- * 
- * Complete a referral and distribute rewards.
- * Called when referred player reaches milestone (e.g., plays 5 games).
+ * PUT /api/referrals
+ *
+ * Complete a referral and distribute rewards (admin-only).
  */
 export async function PUT(request: NextRequest) {
-  const session = await mongoose.startSession();
-  session.startTransaction();
+  const session = await auth();
+  const adminCheck = requireAdmin(request, session);
+  if (adminCheck) return adminCheck;
+
+  const dbSession = await mongoose.startSession();
+  dbSession.startTransaction();
 
   try {
     const body = await request.json();
     const { referralId } = body;
 
     if (!referralId) {
-      await session.abortTransaction();
+      await dbSession.abortTransaction();
       return NextResponse.json(
         { success: false, error: 'Referral ID is required' },
         { status: 400 }
@@ -307,13 +193,12 @@ export async function PUT(request: NextRequest) {
 
     await connectDB();
 
-    // Get referral tracking
-    const referralTracking = await ReferralTracking.findById(referralId).session(
-      session
-    );
+    const { ReferralTracking, PointsWallet, PointsTransaction } = await import('@/lib/models');
+
+    const referralTracking = await ReferralTracking.findById(referralId).session(dbSession);
 
     if (!referralTracking) {
-      await session.abortTransaction();
+      await dbSession.abortTransaction();
       return NextResponse.json(
         { success: false, error: 'Referral not found' },
         { status: 404 }
@@ -321,21 +206,20 @@ export async function PUT(request: NextRequest) {
     }
 
     if (referralTracking.status === 'completed') {
-      await session.abortTransaction();
+      await dbSession.abortTransaction();
       return NextResponse.json(
         { success: false, error: 'Referral already completed' },
         { status: 400 }
       );
     }
 
-    // Award points to referrer
-    const REFERRAL_REWARD = 500; // Points for successful referral
+    const REFERRAL_REWARD = 500;
     const wallet = await PointsWallet.findOne({
       playerId: referralTracking.referrerId,
-    }).session(session);
+    }).session(dbSession);
 
     if (!wallet) {
-      await session.abortTransaction();
+      await dbSession.abortTransaction();
       return NextResponse.json(
         { success: false, error: 'Referrer wallet not found' },
         { status: 404 }
@@ -345,9 +229,8 @@ export async function PUT(request: NextRequest) {
     const balanceBefore = wallet.currentBalance;
     wallet.currentBalance += REFERRAL_REWARD;
     wallet.lifetimeEarned += REFERRAL_REWARD;
-    await wallet.save({ session });
+    await wallet.save({ session: dbSession });
 
-    // Create points transaction
     await PointsTransaction.create(
       [
         {
@@ -367,17 +250,16 @@ export async function PUT(request: NextRequest) {
           },
         },
       ],
-      { session }
+      { session: dbSession }
     );
 
-    // Update referral tracking
     referralTracking.status = 'completed';
     referralTracking.rewards.referrerPoints = REFERRAL_REWARD;
     referralTracking.rewards.rewardedAt = new Date();
     referralTracking.metadata.completedAt = new Date();
-    await referralTracking.save({ session });
+    await referralTracking.save({ session: dbSession });
 
-    await session.commitTransaction();
+    await dbSession.commitTransaction();
 
     logger.info(
       {
@@ -393,7 +275,7 @@ export async function PUT(request: NextRequest) {
       reward: REFERRAL_REWARD,
     });
   } catch (error) {
-    await session.abortTransaction();
+    await dbSession.abortTransaction();
     logger.error({ error }, 'Failed to complete referral');
 
     return NextResponse.json(
@@ -404,33 +286,18 @@ export async function PUT(request: NextRequest) {
       { status: 500 }
     );
   } finally {
-    session.endSession();
+    dbSession.endSession();
   }
 }
 
-/**
- * Generate consistent referral code based on display name and player ID
- */
 function generateReferralCode(displayName: string, playerId: string): string {
-  // Create base from display name (first 3-4 chars)
   const base = displayName
     .toUpperCase()
     .replace(/[^A-Z0-9]/g, '')
     .slice(0, 4)
     .padEnd(4, 'X');
 
-  // Use last 4 chars of player ID for consistency
   const suffix = playerId.slice(-4).toUpperCase();
 
   return `${base}${suffix}`;
-}
-
-/**
- * Extract player ID from referral code
- */
-function extractPlayerIdFromCode(referralCode: string): string {
-  // Extract last 4 characters (simplified - in production use better encoding)
-  const suffix = referralCode.slice(-4).toLowerCase();
-  // Return as-is for now - proper implementation would reverse-engineer the full ID
-  return suffix;
 }

@@ -184,17 +184,14 @@ export async function POST(request: NextRequest) {
  * What: Returns information about leaderboard freshness
  * Why: Helps admins identify which leaderboards need recalculation
  */
-export async function GET() {
+export async function GET(request: NextRequest) {
   const startTime = Date.now();
 
   try {
-    // Auth check
     const session = await auth();
-    if (!session) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
+    const adminCheck = requireAdmin(request, session);
+    if (adminCheck) {
+      return adminCheck;
     }
 
     const { LeaderboardEntry } = await import('@/lib/models');

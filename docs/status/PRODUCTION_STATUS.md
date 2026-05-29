@@ -1,6 +1,6 @@
 # Production Status
 
-**Last Updated**: 2026-05-28
+**Last Updated**: 2026-05-29
 **Status**: Production stable; GitHub push to `origin/main` deploys through Vercel.
 
 ---
@@ -34,7 +34,7 @@ After each production push:
 
 ## Last Recorded Production Verification
 
-Latest recorded verification in this repo: **2026-05-28** during the post-GDS/documentation closure reconciliation pass.
+Latest recorded verification in this repo: **2026-05-29** during the deep tech audit W0 security pass (pre-deploy).
 
 Verified baseline routes:
 
@@ -49,12 +49,9 @@ Verified baseline routes:
 - `/en/saved` — 200
 - `/en/editor/courses` — 200 after anonymous redirect to `/en/auth/signin?callbackUrl=%2Fen%2Feditor%2Fcourses`
 
-Confirmed production content:
+Automated production smoke (2026-05-29): 14/14 HTML routes OK; 9/9 anonymous API auth checks OK on `https://www.amanoba.com`.
 
-- Public blog/news routes are reachable.
-- Protected editor route redirects anonymous users to localized sign-in.
-- Baseline course, practice, saved-lessons, sitemap, and robots routes are reachable.
-- Post-GDS verification is pending the next production deploy SHA confirmation; treat the route list above as the current baseline smoke set until that deploy is logged.
+**Pending after next deploy:** Log Vercel production SHA here and rerun `npm run audit:production-smoke` to confirm session-bound API changes (AUDIT-012).
 
 ---
 

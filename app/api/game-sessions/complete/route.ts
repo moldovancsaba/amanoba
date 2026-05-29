@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import mongoose from 'mongoose';
+import { auth } from '@/auth';
 import connectToDatabase from '@/lib/mongodb';
 import logger from '@/lib/logger';
+import { getPlayerIdFromSession, requireAuth } from '@/lib/rbac';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -50,6 +52,15 @@ const CompleteSessionSchema = z.object({
  */
 export async function POST(request: NextRequest) {
   try {
+    const authSession = await auth();
+    const authCheck = requireAuth(request, authSession);
+    if (authCheck) return authCheck;
+
+    const sessionPlayerId = getPlayerIdFromSession(authSession);
+    if (!sessionPlayerId) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     // Why: Parse and validate the request body
     const body = await request.json();
     const validatedData = CompleteSessionSchema.parse(body);
@@ -61,9 +72,9 @@ export async function POST(request: NextRequest) {
     try { await ensureDailyChallengesForToday(); } catch {}
 
     // Why: Verify that the session exists and is still in progress
-    const session = await PlayerSession.findById(validatedData.sessionId);
+    const playerSession = await PlayerSession.findById(validatedData.sessionId);
 
-    if (!session) {
+    if (!playerSession) {
       logger.warn({ sessionId: validatedData.sessionId }, 'Session not found');
       return NextResponse.json(
         { error: 'Session not found' },
@@ -71,9 +82,17 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (session.status !== 'in_progress') {
+    if (String(playerSession.playerId) !== sessionPlayerId) {
       logger.warn(
-        { sessionId: validatedData.sessionId, status: session.status },
+        { sessionId: validatedData.sessionId, sessionPlayerId, ownerPlayerId: playerSession.playerId },
+        'Game session complete rejected: player mismatch'
+      );
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    }
+
+    if (playerSession.status !== 'in_progress') {
+      logger.warn(
+        { sessionId: validatedData.sessionId, status: playerSession.status },
         'Session is not in progress'
       );
       return NextResponse.json(
@@ -95,10 +114,10 @@ export async function POST(request: NextRequest) {
     
     // Why: Get actual game data to determine maxScore and other config
     const { Game } = await import('@/lib/models');
-    const game = await Game.findById(session.gameId);
+    const game = await Game.findById(playerSession.gameId);
     
     if (!game) {
-      logger.error({ gameId: session.gameId }, 'Game not found for session');
+      logger.error({ gameId: playerSession.gameId }, 'Game not found for session');
       return NextResponse.json(
         { error: 'Game not found' },
         { status: 404 }
@@ -157,7 +176,7 @@ export async function POST(request: NextRequest) {
     logger.info(
       {
         sessionId: validatedData.sessionId,
-        playerId: session.playerId,
+        playerId: playerSession.playerId,
         isWin: validatedData.isWin,
         pointsEarned: result.rewards.points,
         xpEarned: result.rewards.xp,

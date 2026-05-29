@@ -63,8 +63,7 @@ export function ReferralCard() {
       if (!session?.user?.id) return;
 
       try {
-        const playerId = (session.user as { id: string }).id;
-        const response = await fetch(`/api/referrals?playerId=${playerId}`);
+        const response = await fetch('/api/referrals');
         
         if (response.ok) {
           const data = await response.json();

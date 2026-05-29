@@ -1,10 +1,25 @@
 # Amanoba Release Notes
 
 **Current Version**: 2.9.49
-**Last Updated**: 2026-05-28
+**Last Updated**: 2026-05-29
 
 **Rule:** Each task exists in exactly one place.
 **Canonical archive:** https://github.com/moldovancsaba/amanoba/wiki. This repo file is retained as a local mirror and migration seed; dated wiki pages use `Release-Notes-YYYY-MM-DDT00-00-00.000Z`.
+
+---
+
+## [v2.9.51-audit] — 2026-05-29 🔒 Deep tech audit W0 security
+
+**Status**: Delivered in repo (pending production deploy SHA log)
+**Type**: Security, Quality, Operations
+
+- **Audit program:** Added `docs/audit/` register, journey matrix, remediation waves, and generated route/production smoke artifacts under `docs/audit/generated/`.
+- **Audit automation:** Added `scripts/audit/*` plus npm scripts `audit:routes`, `audit:production-smoke`, `audit:run`, and `audit:admin-guards`.
+- **CI hardening:** Added `.github/workflows/quality-gates.yml` so PRs run type-check, test, lint, ui:gds:check, and build.
+- **Admin API guards:** Fixed missing `requireAdmin` on feature-flags PATCH, leaderboards GET, and apply-quiz-defaults POST.
+- **Session-bound player APIs:** Game session start/complete and referral GET/POST now require authenticated session player; anonymous signup uses shared `processReferralSignup` helper.
+
+**Verification:** `npm run audit:admin-guards`, `npm run type-check`, `npm test`, `npm run build`.
 
 ---
 
