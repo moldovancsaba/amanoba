@@ -1,51 +1,57 @@
 #!/usr/bin/env node
-import { spawnSync } from 'node:child_process';
-import { dirname, join } from 'node:path';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const scanRoots = ['app', 'components', 'scripts'];
-const ignoredGlobs = [
-  '!node_modules/**',
-  '!.next/**',
-  '!scripts/check-no-legacy-gds-imports.mjs',
-  '!scripts/check-gds-adoption.ts',
-  '!scripts/create-gds-23-issues.sh',
-];
+const ignoredDirs = new Set(['node_modules', '.next', 'dist']);
+const sourceExt = new Set(['.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.css', '.md']);
+const ignoredFiles = new Set([
+  'scripts/check-no-legacy-gds-imports.mjs',
+  'scripts/check-gds-adoption.ts',
+  'scripts/create-gds-23-issues.sh',
+]);
+const legacyPattern = /@gds\//;
+
+function walk(dir, files = []) {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const abs = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      if (ignoredDirs.has(entry.name)) continue;
+      walk(abs, files);
+      continue;
+    }
+    if (!sourceExt.has(entry.name.slice(entry.name.lastIndexOf('.')))) continue;
+    files.push(abs);
+  }
+  return files;
+}
+
+const findings = [];
 
 for (const scanRoot of scanRoots) {
-  const result = spawnSync(
-    'rg',
-    ['@gds/', join(root, scanRoot), ...ignoredGlobs.flatMap((glob) => ['--glob', glob])],
-    { encoding: 'utf8' },
-  );
+  const absRoot = join(root, scanRoot);
+  for (const file of walk(absRoot)) {
+    const rel = relative(root, file);
+    if (ignoredFiles.has(rel.replace(/\\/g, '/'))) continue;
 
-  if (result.error?.code === 'ENOENT') {
-    console.error('ripgrep (rg) is required for ui:check:no-legacy-gds-imports');
-    process.exit(1);
-  }
+    const content = readFileSync(file, 'utf8');
+    if (!legacyPattern.test(content)) continue;
 
-  // rg exit 1 with no output = no matches (success)
-  if (result.status === 0 && result.stdout.trim()) {
-    console.error('Legacy @gds/* imports or references found (use @doneisbetter/* only):');
-    console.error(result.stdout.trim());
-    process.exit(1);
+    const lines = content.split('\n');
+    for (let i = 0; i < lines.length; i += 1) {
+      if (legacyPattern.test(lines[i])) {
+        findings.push(`${rel}:${i + 1}:${lines[i].trim()}`);
+      }
+    }
   }
+}
 
-  if (result.status !== 0 && result.status !== 1) {
-    console.error(`rg failed for ${scanRoot}:`, result.stderr || result.stdout);
-    process.exit(1);
-  }
-
-  if (result.status === 0 && !result.stdout.trim()) {
-    continue;
-  }
-
-  if (result.status === 1 && result.stdout.trim()) {
-    console.error('Legacy @gds/* imports or references found (use @doneisbetter/* only):');
-    console.error(result.stdout.trim());
-    process.exit(1);
-  }
+if (findings.length) {
+  console.error('Legacy @gds/* imports or references found (use @doneisbetter/* only):');
+  console.error(findings.join('\n'));
+  process.exit(1);
 }
 
 console.log('✅ No legacy @gds/* imports in app/, components/, or scripts/');
