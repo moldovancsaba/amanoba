@@ -5,7 +5,6 @@ import {
   Container,
   Divider,
   Group,
-  List as MantineList,
   Paper,
   Stack,
   Text,
@@ -665,12 +664,13 @@ const termsContent: Record<string, TermsContent> = {
 (termsContent as Record<string, TermsContent>).sw = termsContent.en;
 
 function LegalList({ items, ordered }: { items: string[]; ordered?: boolean }) {
+  const ListTag = ordered ? "ol" : "ul";
   return (
-    <MantineList type={ordered ? "ordered" : "unordered"} spacing="xs">
+    <Text component={ListTag} pl="xl" my="xs" style={{ gap: '8px', display: 'flex', flexDirection: 'column' }}>
       {items.map((item, idx) => (
-        <MantineList.Item key={idx}>{item}</MantineList.Item>
+        <li key={idx}>{item}</li>
       ))}
-    </MantineList>
+    </Text>
   );
 }
 

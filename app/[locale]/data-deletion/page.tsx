@@ -10,7 +10,6 @@ import {
   Container,
   Divider,
   Group,
-  List,
   Paper,
   Stack,
   Text,
@@ -45,15 +44,15 @@ export default async function DataDeletionPage({
           <Stack component="section" gap="sm">
             <Title order={2}>What Data Will Be Deleted</Title>
             <Text>When you request account deletion, the following data will be permanently removed:</Text>
-            <List spacing="xs">
-              <List.Item><strong>Account Information:</strong> Email address, display name, SSO identifier</List.Item>
-              <List.Item><strong>Profile Data:</strong> Avatar, bio, preferences, settings</List.Item>
-              <List.Item><strong>Game Progress:</strong> Scores, achievements, levels, streaks</List.Item>
-              <List.Item><strong>Rewards:</strong> Points balance, unlocked rewards, redemption history</List.Item>
-              <List.Item><strong>Social Data:</strong> Referral codes, friend connections, if applicable</List.Item>
-              <List.Item><strong>Session History:</strong> Game play sessions and activity logs</List.Item>
-              <List.Item><strong>Communications:</strong> Support tickets and correspondence</List.Item>
-            </List>
+            <ul style={{ paddingLeft: "24px", margin: "8px 0", display: "flex", flexDirection: "column", gap: "8px" }}>
+              <li><strong>Account Information:</strong> Email address, display name, SSO identifier</li>
+              <li><strong>Profile Data:</strong> Avatar, bio, preferences, settings</li>
+              <li><strong>Game Progress:</strong> Scores, achievements, levels, streaks</li>
+              <li><strong>Rewards:</strong> Points balance, unlocked rewards, redemption history</li>
+              <li><strong>Social Data:</strong> Referral codes, friend connections, if applicable</li>
+              <li><strong>Session History:</strong> Game play sessions and activity logs</li>
+              <li><strong>Communications:</strong> Support tickets and correspondence</li>
+            </ul>
           </Stack>
 
           <Stack component="section" gap="sm">
@@ -61,12 +60,12 @@ export default async function DataDeletionPage({
             <Text>
               In accordance with legal and business requirements, we may retain certain information for a limited time:
             </Text>
-            <List spacing="xs">
-              <List.Item><strong>Transaction Records:</strong> Payment history for premium subscriptions required for tax/accounting purposes</List.Item>
-              <List.Item><strong>Legal Compliance:</strong> Data required to comply with legal obligations or resolve disputes</List.Item>
-              <List.Item><strong>Security Logs:</strong> Anonymized security and fraud prevention data</List.Item>
-              <List.Item><strong>Aggregated Analytics:</strong> Anonymized, non-identifiable usage statistics</List.Item>
-            </List>
+            <ul style={{ paddingLeft: "24px", margin: "8px 0", display: "flex", flexDirection: "column", gap: "8px" }}>
+              <li><strong>Transaction Records:</strong> Payment history for premium subscriptions required for tax/accounting purposes</li>
+              <li><strong>Legal Compliance:</strong> Data required to comply with legal obligations or resolve disputes</li>
+              <li><strong>Security Logs:</strong> Anonymized security and fraud prevention data</li>
+              <li><strong>Aggregated Analytics:</strong> Anonymized, non-identifiable usage statistics</li>
+            </ul>
             <Text>Any retained data will be anonymized and cannot be used to identify you personally.</Text>
           </Stack>
 
@@ -83,11 +82,11 @@ export default async function DataDeletionPage({
                 </Text>
                 <Text size="sm">Subject: &quot;Data Deletion Request&quot;</Text>
                 <Text>Include in your email:</Text>
-                <List spacing={4}>
-                  <List.Item>Your registered email address</List.Item>
-                  <List.Item>Your Amanoba username/display name</List.Item>
-                  <List.Item>Confirmation that you want to permanently delete your account</List.Item>
-                </List>
+                <ul style={{ paddingLeft: "24px", margin: "4px 0", display: "flex", flexDirection: "column", gap: "4px" }}>
+                  <li>Your registered email address</li>
+                  <li>Your Amanoba username/display name</li>
+                  <li>Confirmation that you want to permanently delete your account</li>
+                </ul>
               </Stack>
             </Paper>
 
@@ -126,12 +125,12 @@ export default async function DataDeletionPage({
           <Stack component="section" gap="sm">
             <Title order={2}>Important Notes</Title>
             <Paper withBorder p="md">
-              <List spacing="sm">
-                <List.Item><strong>Irreversible:</strong> Data deletion is permanent and cannot be undone after the 7-day grace period</List.Item>
-                <List.Item><strong>New Account:</strong> If you sign up again, you will start fresh with no previous data</List.Item>
-                <List.Item><strong>Premium Subscriptions:</strong> Active subscriptions will be cancelled, with no refunds for partial periods</List.Item>
-                <List.Item><strong>Third-Party Data:</strong> Data shared with SSO or other third-party services must be managed through those platforms</List.Item>
-              </List>
+              <ul style={{ paddingLeft: "24px", margin: "8px 0", display: "flex", flexDirection: "column", gap: "12px" }}>
+                <li><strong>Irreversible:</strong> Data deletion is permanent and cannot be undone after the 7-day grace period</li>
+                <li><strong>New Account:</strong> If you sign up again, you will start fresh with no previous data</li>
+                <li><strong>Premium Subscriptions:</strong> Active subscriptions will be cancelled, with no refunds for partial periods</li>
+                <li><strong>Third-Party Data:</strong> Data shared with SSO or other third-party services must be managed through those platforms</li>
+              </ul>
             </Paper>
           </Stack>
 
@@ -164,10 +163,10 @@ export default async function DataDeletionPage({
               This Data Deletion Policy is part of our commitment to protecting your privacy. For more
               information about how we handle your data, please review our:
             </Text>
-            <List spacing={4}>
-              <List.Item><Anchor href={`/${locale}/privacy`}>Privacy Policy</Anchor></List.Item>
-              <List.Item><Anchor href={`/${locale}/terms`}>Terms of Service</Anchor></List.Item>
-            </List>
+            <ul style={{ paddingLeft: "24px", margin: "8px 0", display: "flex", flexDirection: "column", gap: "8px" }}>
+              <li><Anchor href={`/${locale}/privacy`}>Privacy Policy</Anchor></li>
+              <li><Anchor href={`/${locale}/terms`}>Terms of Service</Anchor></li>
+            </ul>
           </Stack>
 
           <Divider />
