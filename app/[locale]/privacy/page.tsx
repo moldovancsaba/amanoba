@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 import {
   Anchor,
   Container,
@@ -439,13 +439,13 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
 
         <Divider />
         <Group justify="center">
-            <Anchor component={Link} href={`/${locale}`}>
+            <Anchor href={`/${locale}`}>
               {content.footer.home}
             </Anchor>
-            <Anchor component={Link} href={`/${locale}/terms`}>
+            <Anchor href={`/${locale}/terms`}>
               {content.footer.terms}
             </Anchor>
-            <Anchor component={Link} href={`/${locale}/data-deletion`}>
+            <Anchor href={`/${locale}/data-deletion`}>
               {content.footer.dataDeletion}
             </Anchor>
         </Group>

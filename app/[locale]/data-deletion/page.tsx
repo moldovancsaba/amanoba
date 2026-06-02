@@ -3,7 +3,7 @@
  * Public page - no authentication required
  */
 
-import Link from 'next/link';
+
 import {
   Anchor,
   Button,
@@ -165,16 +165,16 @@ export default async function DataDeletionPage({
               information about how we handle your data, please review our:
             </Text>
             <List spacing={4}>
-              <List.Item><Anchor component={Link} href={`/${locale}/privacy`}>Privacy Policy</Anchor></List.Item>
-              <List.Item><Anchor component={Link} href={`/${locale}/terms`}>Terms of Service</Anchor></List.Item>
+              <List.Item><Anchor href={`/${locale}/privacy`}>Privacy Policy</Anchor></List.Item>
+              <List.Item><Anchor href={`/${locale}/terms`}>Terms of Service</Anchor></List.Item>
             </List>
           </Stack>
 
           <Divider />
           <Group justify="center">
-            <Button component={Link} href={`/${locale}`} variant="subtle" color="gray">Back to Home</Button>
-            <Button component={Link} href={`/${locale}/privacy`} variant="subtle" color="gray">Privacy Policy</Button>
-            <Button component={Link} href={`/${locale}/terms`} variant="subtle" color="gray">Terms of Service</Button>
+            <Button component="a" href={`/${locale}`} variant="subtle" color="gray">Back to Home</Button>
+            <Button component="a" href={`/${locale}/privacy`} variant="subtle" color="gray">Privacy Policy</Button>
+            <Button component="a" href={`/${locale}/terms`} variant="subtle" color="gray">Terms of Service</Button>
           </Group>
         </Stack>
       </Paper>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 import {
   Alert,
   Anchor,
@@ -742,13 +742,13 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
 
         <Divider />
         <Group justify="center">
-            <Anchor component={Link} href={`/${locale}`}>
+            <Anchor href={`/${locale}`}>
               {content.footer.home}
             </Anchor>
-            <Anchor component={Link} href={`/${locale}/privacy`}>
+            <Anchor href={`/${locale}/privacy`}>
               {content.footer.privacy}
             </Anchor>
-            <Anchor component={Link} href={`/${locale}/data-deletion`}>
+            <Anchor href={`/${locale}/data-deletion`}>
               {content.footer.dataDeletion}
             </Anchor>
         </Group>
