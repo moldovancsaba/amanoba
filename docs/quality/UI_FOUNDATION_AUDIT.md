@@ -1,6 +1,6 @@
 # UI Foundation Audit (Hard Rules)
 
-**Generated at**: 2026-05-26T12:52:54.622Z
+**Generated at**: 2026-06-25T14:34:05.713Z
 
 This report enforces **hard UI foundation rules** derived from `/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM` and the Amanoba adapter rules in `docs/architecture/layout_grammar.md`.
 Goal: a rock-solid, maintainable UI foundation by preventing **raw color literals** (hex/rgb/hsl) from leaking into UI/output code, except in explicit token, adapter, or asset sources.
@@ -14,7 +14,7 @@ This is intentionally stricter than `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` (w
 
 ## Summary
 
-- Files scanned: **378**
+- Files scanned: **385**
 - Findings (blockers): **0**
 
 ### Findings by rule

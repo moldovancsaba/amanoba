@@ -5,7 +5,7 @@
 
 # Docs Inventory
 
-**Last Updated**: 2026-05-29
+**Last Updated**: 2026-06-25
 **Scope**: `docs/**/*.md` (excluding `docs/_archive/**`)
 **Count**: 126
 
@@ -13,7 +13,7 @@
 |------|-------|------|
 | `docs/architecture/ARCHITECTURE_FIX_QUICK_START.md` | ⚡ ARCHITECTURE FIX - ACTION CHECKLIST & QUICK START | 5.0 KB |
 | `docs/architecture/ARCHITECTURE_GAP_ANALYSIS.md` | ARCHITECTURE_GAP_ANALYSIS.md | 8.8 KB |
-| `docs/architecture/ARCHITECTURE.md` | Amanoba Architecture | 38.9 KB |
+| `docs/architecture/ARCHITECTURE.md` | Amanoba Architecture | 39.7 KB |
 | `docs/architecture/layout_grammar.md` | Amanoba Layout Grammar | 13.6 KB |
 | `docs/audit/generated/PRODUCTION_SMOKE.md` | Production smoke — https://www.amanoba.com | 2.0 KB |
 | `docs/audit/generated/ROUTE_INVENTORY.md` | Generated Route Inventory | 8.2 KB |
@@ -83,15 +83,15 @@
 | `docs/handoff/HANDOFF_ARCHITECTURE_FIX_CRITICAL.md` | 📋 COMPREHENSIVE HANDOFF - ARCHITECTURAL GAP DISCOVERY & FIX PLAN | 17.4 KB |
 | `docs/handoff/HANDOFF_CONTEXT_WINDOW_2026-02-12.md` | Handover Snapshot — 2026-02-12 | 9.9 KB |
 | `docs/handoff/HANDOFF_DOCUMENT_COMPREHENSIVE.md` | 📋 QUIZ ENHANCEMENT PROJECT - COMPREHENSIVE STATUS & HANDOFF DOCUMENT | 15.6 KB |
-| `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 4.8 KB |
+| `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 5.2 KB |
 | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | MVP Factory Project — one-time setup (grant project scope) | 1.2 KB |
 | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Prompt for Next Context Window | 2.8 KB |
-| `docs/HANDOVER.md` | Amanoba — Developer Handover | 132.0 KB |
+| `docs/HANDOVER.md` | Amanoba — Developer Handover | 138.5 KB |
 | `docs/i18n/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB |
 | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB |
 | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB |
 | `docs/i18n/LANGUAGE_DROPDOWN_PROBLEM_LOG.md` | Language dropdown / i18n problem — collected information | 13.1 KB |
-| `docs/product/COURSE_CREATION_PLAYBOOK.md` | Amanoba Course Creation Playbook | 14.2 KB |
+| `docs/product/COURSE_CREATION_PLAYBOOK.md` | Amanoba Course Creation Playbook | 17.7 KB |
 | `docs/product/DESIGN_UPDATE.md` | Design System Adapter Status | 6.8 KB |
 | `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` | Developer Feedback Analysis | 7.2 KB |
 | `docs/product/GDS_ACCESSIBILITY_VERIFICATION.md` | GDS Accessibility Verification | 2.1 KB |

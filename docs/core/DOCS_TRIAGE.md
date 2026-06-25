@@ -5,7 +5,7 @@
 
 # Docs Triage
 
-**Last Updated**: 2026-05-29
+**Last Updated**: 2026-06-25
 
 **Counts**: DELETE=0, MERGE=0, ARCHIVE=5, KEEP(unclassified)=81
 
@@ -21,7 +21,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 ### docs/_archive/reference/
 - `docs/features/GEO_IMPROVEMENT_PLAN.md` — GEO Improvement Plan — Appearance in AI Chat Results (12.5 KB)
 - `docs/handoff/2026-05-25_RELOCATION_HANDOVER.md` — Amanoba Relocation Handover (14.8 KB)
-- `docs/product/COURSE_CREATION_PLAYBOOK.md` — Amanoba Course Creation Playbook (14.2 KB)
+- `docs/product/COURSE_CREATION_PLAYBOOK.md` — Amanoba Course Creation Playbook (17.7 KB)
 - `docs/quality/UI_FOUNDATION_AUDIT.md` — UI Foundation Audit (Hard Rules) (1.8 KB)
 - `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` — UI Layout Grammar Audit (4.6 KB)
 
