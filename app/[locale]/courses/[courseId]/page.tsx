@@ -109,6 +109,7 @@ interface EntitlementStatus {
   priceMoney?: { amount: number; currency: string } | null;
   pricePoints?: number | null;
   poolCount: number;
+  questionLimit?: number;
 }
 
 interface Lesson {
@@ -962,7 +963,8 @@ export default function CourseDetailPage({
   const renderCertificationBlock = () => {
     if (!course || !entitlement) return null;
     const completed = Boolean(enrollment?.progress?.isCompleted);
-    const poolOk = entitlement.certificationEnabled && entitlement.poolCount >= 50;
+    const questionLimit = entitlement.questionLimit ?? 50;
+    const poolOk = entitlement.certificationEnabled && entitlement.poolCount >= questionLimit;
     const entitlementRequired = entitlement.entitlementRequired ?? true;
     const hasAccess = entitlement.entitlementOwned || !entitlementRequired;
 
@@ -998,7 +1000,7 @@ export default function CourseDetailPage({
       cta = (
         <Button
           component={LocaleLink}
-          href={`/courses/${courseId}/final-exam`}
+          href={`/${course.language}/courses/${courseId}/final-exam`}
           color="amanoba"
           leftSection={<IconCertificate size={18} />}
         >
@@ -1107,6 +1109,29 @@ export default function CourseDetailPage({
     if (!course) return null;
 
     if (enrollment?.enrolled) {
+      const completed = Boolean(enrollment.progress?.isCompleted);
+      const questionLimit = entitlement?.questionLimit ?? 50;
+      const certificationReady =
+        completed &&
+        entitlement?.certificationEnabled &&
+        entitlement.poolCount >= questionLimit &&
+        (entitlement.entitlementOwned || !(entitlement.entitlementRequired ?? true));
+
+      if (certificationReady) {
+        return (
+          <Button
+            component={LocaleLink}
+            href={`/${course.language}/courses/${courseId}/final-exam`}
+            color="amanoba"
+            size={size}
+            fullWidth={fullWidth}
+            leftSection={<IconCertificate size={18} />}
+          >
+            {getCourseDetailText('startFinalExam')}
+          </Button>
+        );
+      }
+
       return (
         <Button
           component={LocaleLink}

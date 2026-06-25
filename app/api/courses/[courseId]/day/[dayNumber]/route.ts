@@ -62,7 +62,15 @@ export async function GET(
 
     const { totalDays } = await resolveCourseLength(course);
     if (isNaN(day) || day < 1 || day > totalDays) {
-      return NextResponse.json({ error: 'Invalid day number' }, { status: 400 });
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Invalid day number',
+          code: 'INVALID_DAY_NUMBER',
+          totalDays,
+        },
+        { status: 400 }
+      );
     }
 
     // Get player
@@ -289,7 +297,15 @@ export async function POST(
 
     const { totalDays } = await resolveCourseLength(course);
     if (isNaN(day) || day < 1 || day > totalDays) {
-      return NextResponse.json({ error: 'Invalid day number' }, { status: 400 });
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Invalid day number',
+          code: 'INVALID_DAY_NUMBER',
+          totalDays,
+        },
+        { status: 400 }
+      );
     }
 
     // Get progress or auto-enroll for testing

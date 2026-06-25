@@ -103,6 +103,16 @@ export function resolveCourseAccessIssue(
     };
   }
 
+  if (code === 'INVALID_DAY_NUMBER' || payload.error === 'Invalid day number') {
+    return {
+      status,
+      code: 'INVALID_DAY_NUMBER',
+      title: copy.failedToLoadLesson,
+      message: copy.failedToLoad,
+      action: 'course',
+    };
+  }
+
   if (code === 'LESSON_LOCKED' && typeof payload.continueDay === 'number') {
     return {
       status: 403,
@@ -137,5 +147,6 @@ function inferCode(status: number, error?: string): string {
   if (status === 401 || error === 'Unauthorized') return 'SIGN_IN_REQUIRED';
   if (status === 404 && error === 'Course not found') return 'COURSE_NOT_FOUND';
   if (status === 404 && error === 'Lesson not found') return 'LESSON_NOT_FOUND';
+  if (status === 400 && error === 'Invalid day number') return 'INVALID_DAY_NUMBER';
   return 'UNKNOWN';
 }
