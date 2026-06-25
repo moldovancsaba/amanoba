@@ -4,6 +4,7 @@ import connectDB from '@/lib/mongodb';
 import { Course, FinalExamAttempt, QuizQuestion } from '@/lib/models';
 import { finalizeFinalExamAttempt } from '@/lib/certification/final-exam-finalize';
 import { buildThreeOptions } from '@/lib/quiz-questions';
+import { getMapLikeValue, setMapLikeValue } from '@/lib/map-like';
 import mongoose from 'mongoose';
 
 export const runtime = 'nodejs';
@@ -22,6 +23,12 @@ export async function POST(request: NextRequest) {
 
   if (!attemptId || !questionId || selectedIndex === undefined) {
     return NextResponse.json({ success: false, error: 'attemptId, questionId, selectedIndex required' }, { status: 400 });
+  }
+  if (!mongoose.isValidObjectId(attemptId) || !mongoose.isValidObjectId(questionId)) {
+    return NextResponse.json({ success: false, error: 'Invalid attempt or question id' }, { status: 400 });
+  }
+  if (!Number.isInteger(selectedIndex) || selectedIndex < 0 || selectedIndex > 2) {
+    return NextResponse.json({ success: false, error: 'selectedIndex must be 0, 1, or 2' }, { status: 400 });
   }
 
   await connectDB();
@@ -63,11 +70,11 @@ export async function POST(request: NextRequest) {
 
   // Grade: prefer 3-option display index when stored; fallback to legacy 4-option order
   let isCorrect: boolean;
-  const storedCorrectIndex = attempt.correctIndexInDisplayByQuestion?.[questionId];
+  const storedCorrectIndex = getMapLikeValue<number>(attempt.correctIndexInDisplayByQuestion, questionId);
   if (typeof storedCorrectIndex === 'number' && storedCorrectIndex >= 0 && storedCorrectIndex <= 2) {
     isCorrect = selectedIndex === storedCorrectIndex;
-  } else if (attempt.answerOrderByQuestion?.[questionId] && typeof (question as { correctIndex?: number }).correctIndex === 'number') {
-    const optionOrder = attempt.answerOrderByQuestion[questionId];
+  } else if (getMapLikeValue<number[]>(attempt.answerOrderByQuestion, questionId) && typeof (question as { correctIndex?: number }).correctIndex === 'number') {
+    const optionOrder = getMapLikeValue<number[]>(attempt.answerOrderByQuestion, questionId) ?? [];
     const chosenOriginalIndex = optionOrder[selectedIndex];
     isCorrect = chosenOriginalIndex === (question as { correctIndex: number }).correctIndex;
   } else {
@@ -122,10 +129,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: false, error: 'Next question invalid' }, { status: 500 });
     }
     const nextCorrectIndex = nextThree.options.indexOf(nextThree.correctAnswerValue);
-    if (!attempt.correctIndexInDisplayByQuestion) {
-      attempt.correctIndexInDisplayByQuestion = {};
-    }
-    attempt.correctIndexInDisplayByQuestion[nextQuestionId] = nextCorrectIndex;
+    const nextCorrectIndexByQuestion = setMapLikeValue(
+      attempt.correctIndexInDisplayByQuestion,
+      nextQuestionId,
+      nextCorrectIndex
+    );
+    attempt.correctIndexInDisplayByQuestion = nextCorrectIndexByQuestion instanceof Map
+      ? Object.fromEntries(nextCorrectIndexByQuestion.entries())
+      : nextCorrectIndexByQuestion;
     attempt.markModified('correctIndexInDisplayByQuestion');
     nextQuestionPayload = {
       questionId: nextQuestionId,

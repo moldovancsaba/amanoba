@@ -3,6 +3,7 @@
  */
 
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import {
   Box,
@@ -10,6 +11,7 @@ import {
   Card,
   Container,
   Grid,
+  GridCol,
   Group,
   Paper,
   Stack,
@@ -21,8 +23,6 @@ import { IconArrowLeft } from '@tabler/icons-react';
 import { getPublicLessonData } from '@/app/lib/public-lesson';
 import { contentToHtml } from '@/app/lib/lesson-content';
 import { APP_URL } from '@/app/lib/constants/app-url';
-import { LocaleLink } from '@/components/LocaleLink';
-import Logo from '@/components/Logo';
 
 interface ViewPageProps {
   params: Promise<{ locale: string; courseId: string; dayNumber: string }>;
@@ -77,9 +77,8 @@ export default async function PublicLessonViewPage({ params }: ViewPageProps) {
       <Paper component="header" bg="ink.8" radius={0} withBorder>
         <Container size="lg" py="md">
           <Group gap="md" wrap="nowrap">
-            <Logo size="sm" showText={false} linkTo="/" preventShrink />
             <Button
-              component={LocaleLink}
+              component="a"
               href={`/${locale}/courses/${courseId}`}
               variant="subtle"
               color="gray"
@@ -87,13 +86,22 @@ export default async function PublicLessonViewPage({ params }: ViewPageProps) {
             >
               Back to Course
             </Button>
+            <Box component="a" href={`/${locale}`} display="inline-flex" ml="auto">
+              <Image
+                src="/amanoba_logo.png"
+                alt="Amanoba"
+                width={32}
+                height={32}
+                priority
+              />
+            </Box>
           </Group>
         </Container>
       </Paper>
 
       <Container size="lg" py="xl">
         <Grid gutter="xl">
-          <Grid.Col span={{ base: 12, lg: 8 }}>
+          <GridCol span={{ base: 12, lg: 8 }}>
             <Stack gap="lg">
               <Card padding="lg" withBorder>
                 <Title order={1} size="h2" style={{ overflowWrap: 'anywhere' }}>
@@ -114,9 +122,9 @@ export default async function PublicLessonViewPage({ params }: ViewPageProps) {
                 </TypographyStylesProvider>
               </Card>
             </Stack>
-          </Grid.Col>
+          </GridCol>
 
-          <Grid.Col span={{ base: 12, lg: 4 }}>
+          <GridCol span={{ base: 12, lg: 4 }}>
             <Card padding="lg" withBorder pos={{ base: 'relative', lg: 'sticky' }} top={{ lg: 16 }}>
               <Stack gap="md">
                 <Title order={2} size="h4">
@@ -127,7 +135,7 @@ export default async function PublicLessonViewPage({ params }: ViewPageProps) {
                   progress, and earn a certificate.
                 </Text>
                 <Button
-                  component={LocaleLink}
+                  component="a"
                   href={`/${locale}/courses/${courseId}`}
                   color="amanoba"
                   fullWidth
@@ -139,7 +147,7 @@ export default async function PublicLessonViewPage({ params }: ViewPageProps) {
                 </Text>
               </Stack>
             </Card>
-          </Grid.Col>
+          </GridCol>
         </Grid>
       </Container>
     </Box>
