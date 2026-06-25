@@ -10,6 +10,7 @@ import {
   Player,
 } from '@/lib/models';
 import { resolveTemplateVariantAtIssue } from '@/lib/certification';
+import { resolveCourseLength } from '@/lib/course-helpers';
 import { checkAndUnlockCourseAchievements } from '@/lib/gamification';
 import { logger } from '@/lib/logger';
 import crypto from 'crypto';
@@ -74,13 +75,14 @@ export async function POST(request: NextRequest) {
   }).lean();
 
   const enrolled = !!progress;
+  const { totalDays } = await resolveCourseLength(course);
   const allLessonsCompleted = !requireAllLessons || (enrolled && progress &&
-    (progress.completedDays?.length || 0) >= (course.durationDays || 0));
+    (progress.completedDays?.length || 0) >= totalDays);
 
   // Check if all quizzes are passed (assessmentResults has entries for all days)
   const assessmentResultsMap = (progress?.assessmentResults ?? new Map()) as Map<string, unknown>;
-  const allQuizzesPassed = !requireAllQuizzes || (enrolled && course.durationDays > 0 &&
-    Array.from({ length: course.durationDays }, (_, i) => (i + 1).toString())
+  const allQuizzesPassed = !requireAllQuizzes || (enrolled && totalDays > 0 &&
+    Array.from({ length: totalDays }, (_, i) => (i + 1).toString())
       .every((dayStr) => assessmentResultsMap.has(dayStr)));
 
   // Certificate is eligible only if ALL requirements are met

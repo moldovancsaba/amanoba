@@ -33,6 +33,7 @@ import {
   Certificate,
 } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { resolveCourseLength } from '@/lib/course-helpers';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -129,7 +130,7 @@ export async function GET(
 
     // Check if all lessons are completed
     const completedDays = progress?.completedDays || [];
-    const durationDays = course.durationDays || 0;
+    const { totalDays: durationDays } = await resolveCourseLength(course);
     const allLessonsCompleted = completedDays.length >= durationDays;
 
     // Check if all quizzes are passed

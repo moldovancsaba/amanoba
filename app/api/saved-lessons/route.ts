@@ -10,6 +10,7 @@ import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, CourseProgress, Lesson, Player, SavedLesson } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { resolveCourseLength } from '@/lib/course-helpers';
 
 async function resolveAuthedPlayer() {
   const session = await auth();
@@ -68,9 +69,17 @@ export async function GET(request: NextRequest) {
 
     const publicCourseIds = Array.from(new Set(savedLessons.map((item) => item.courseId)));
     const courses = await Course.find({ courseId: { $in: publicCourseIds } })
-      .select('courseId name language durationDays thumbnail description')
+      .select('courseId name language durationDays thumbnail description parentCourseId selectedLessonIds ccsId')
       .lean();
     const courseMap = new Map(courses.map((course) => [course.courseId, course]));
+    const courseLengthMap = new Map(
+      await Promise.all(
+        courses.map(async (course) => {
+          const { totalDays } = await resolveCourseLength(course);
+          return [course.courseId, totalDays] as const;
+        })
+      )
+    );
     const courseObjectIdMap = new Map(
       courses.map((course) => [course.courseId, String(course._id)])
     );
@@ -108,7 +117,7 @@ export async function GET(request: NextRequest) {
           const lesson = lessonMap.get(`${courseObjectId}:${item.lessonDay}`);
           const progress = progressMap.get(courseObjectId);
           const completedDays = Array.isArray(progress?.completedDays) ? progress.completedDays : [];
-          const safeDurationDays = Math.max(course.durationDays || 1, 1);
+          const safeDurationDays = Math.max(courseLengthMap.get(course.courseId) || course.durationDays || 1, 1);
           const resumeDay = Math.min(Math.max(progress?.currentDay || item.lessonDay, 1), safeDurationDays);
 
           return {
@@ -118,7 +127,7 @@ export async function GET(request: NextRequest) {
               description: course.description,
               language: course.language,
               thumbnail: course.thumbnail,
-              durationDays: course.durationDays,
+              durationDays: safeDurationDays,
             },
             lesson: {
               dayNumber: item.lessonDay,

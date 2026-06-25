@@ -71,6 +71,7 @@
     "audit:production-smoke": "node scripts/audit/production-smoke.mjs",
     "audit:run": "node scripts/audit/run-tech-audit.mjs --production",
     "audit:admin-guards": "node scripts/audit/check-admin-api-guards.mjs",
+    "audit:course-flow": "tsx --env-file=.env.local scripts/audit-course-flow-integrity.ts",
     "release-notes:wiki:export": "node --import tsx scripts/docs/export-release-notes-wiki.ts",
     "ui:audit:layout": "node --import tsx scripts/audit-layout-grammar-ui.ts --write",
     "ui:check:layout": "node --import tsx scripts/audit-layout-grammar-ui.ts --check",
