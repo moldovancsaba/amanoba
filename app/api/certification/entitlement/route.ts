@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, CertificateEntitlement } from '@/lib/models';
-import { getCertificationPoolCount, resolvePoolCourse } from '@/lib/certification';
+import { getCertificationPoolCount, getCertQuestionLimit, resolvePoolCourse } from '@/lib/certification';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -28,7 +28,8 @@ export async function GET(request: NextRequest) {
 
   const poolCount = await getCertificationPoolCount(courseIdParam);
   const certificationEnabled = Boolean(course.certification?.enabled);
-  const available = certificationEnabled && poolCount >= 50;
+  const questionLimit = getCertQuestionLimit(course);
+  const available = certificationEnabled && poolCount >= questionLimit;
 
   const priceMoney = course.certification?.priceMoney || null;
   const pricePoints = course.certification?.pricePoints ?? null;
@@ -54,6 +55,7 @@ export async function GET(request: NextRequest) {
     data: {
       certificationEnabled,
       poolCount,
+      questionLimit,
       certificationAvailable: available,
       entitlementOwned: Boolean(entitlement),
       entitlementRequired,

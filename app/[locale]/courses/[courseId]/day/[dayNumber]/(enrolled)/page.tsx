@@ -37,9 +37,13 @@ import {
   IconAward,
   IconBookmark,
   IconBookmarkFilled,
+  IconCertificate,
   IconCircleCheck,
   IconDeviceGamepad2,
+  IconHome2,
   IconLock,
+  IconShare3,
+  IconUser,
 } from '@tabler/icons-react';
 import { useSearchParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
@@ -119,6 +123,12 @@ const dayPageTranslations: Record<string, Record<string, string>> = {
     mustPassQuiz: 'يجب اجتياز الاختبار أولًا',
     failedToComplete: 'فشل إكمال الدرس',
     failedToLoadLesson: 'فشل تحميل الدرس',
+    courseCompleteTitle: 'اكتمل مسار الدورة',
+    courseCompleteMessage: 'أكملت آخر درس. تابع إلى الاختبار النهائي لإصدار الشهادة عند النجاح.',
+    startFinalExam: 'ابدأ الاختبار النهائي',
+    courseHome: 'صفحة الدورة',
+    viewProfile: 'الملف الشخصي',
+    shareCourse: 'مشاركة الدورة',
   },
   hu: {
     loadingLesson: 'Lecke betöltése...',
@@ -146,6 +156,12 @@ const dayPageTranslations: Record<string, Record<string, string>> = {
     mustPassQuiz: 'A lecke befejezéséhez át kell menned a quiz-en.',
     failedToComplete: 'Nem sikerült befejezni a leckét',
     failedToLoadLesson: 'Nem sikerült betölteni a leckét',
+    courseCompleteTitle: 'A kurzus tanulási része kész',
+    courseCompleteMessage: 'Elérted az utolsó lecke végét. Indítsd el a záróvizsgát, és sikeres teljesítés után megkapod a tanúsítványt.',
+    startFinalExam: 'Záróvizsga indítása',
+    courseHome: 'Kurzus főoldal',
+    viewProfile: 'Profil',
+    shareCourse: 'Kurzus megosztása',
   },
   en: {
     loadingLesson: 'Loading lesson...',
@@ -176,6 +192,12 @@ const dayPageTranslations: Record<string, Record<string, string>> = {
     saveLesson: 'Save lesson',
     removeSavedLesson: 'Remove saved lesson',
     savingLesson: 'Saving...',
+    courseCompleteTitle: 'Course learning path completed',
+    courseCompleteMessage: 'You finished the final lesson. Start the final exam now; passing it will unlock your certificate and sharing page.',
+    startFinalExam: 'Start Final Exam',
+    courseHome: 'Course Home',
+    viewProfile: 'Profile',
+    shareCourse: 'Share Course',
   },
   ru: {
     loadingLesson: 'Загрузка урока...',
@@ -203,6 +225,12 @@ const dayPageTranslations: Record<string, Record<string, string>> = {
     mustPassQuiz: 'Нужно пройти квиз, чтобы завершить урок.',
     failedToComplete: 'Не удалось завершить урок',
     failedToLoadLesson: 'Не удалось загрузить урок',
+    courseCompleteTitle: 'Учебная часть курса завершена',
+    courseCompleteMessage: 'Вы завершили последний урок. Начните финальный экзамен; после успешной сдачи откроется сертификат.',
+    startFinalExam: 'Начать финальный экзамен',
+    courseHome: 'Страница курса',
+    viewProfile: 'Профиль',
+    shareCourse: 'Поделиться курсом',
   },
   pt: {
     loadingLesson: 'Carregando aula...',
@@ -726,6 +754,36 @@ export default function DailyLessonPage({
   const playerId = (session?.user as { id?: string; playerId?: string } | undefined)?.playerId
     ?? (session?.user as { id?: string } | undefined)?.id
     ?? null;
+  const isFinalLessonCompleted = lesson.isCompleted && !navigation?.next;
+  const courseHref = `/${courseLanguage}/courses/${courseId}`;
+  const finalExamHref = `/${courseLanguage}/courses/${courseId}/final-exam`;
+  const profileHref = playerId ? `/${courseLanguage}/profile/${playerId}` : `/${courseLanguage}/dashboard`;
+
+  const handleShareCourse = async () => {
+    if (typeof window === 'undefined') return;
+
+    const shareUrl = `${window.location.origin}${courseHref}`;
+    const shareTitle = lesson.title;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: shareTitle,
+          text: getDayPageText('courseCompleteMessage', courseLanguage),
+          url: shareUrl,
+        });
+        return;
+      } catch (error) {
+        if ((error as DOMException).name === 'AbortError') return;
+      }
+    }
+
+    await navigator.clipboard?.writeText(shareUrl);
+    notifications.show({
+      color: 'green',
+      title: getDayPageText('shareCourse', courseLanguage),
+      message: shareUrl,
+    });
+  };
 
   const handleStartAssessment = async () => {
     try {
@@ -771,7 +829,7 @@ export default function DailyLessonPage({
               <Logo size="sm" showText={false} linkTo={session?.user ? "/dashboard" : "/"} />
               <Button
                 component={LocaleLink}
-                href={`/${courseLanguage}/courses/${courseId}`}
+                href={courseHref}
                 variant="subtle"
                 color="gray"
                 leftSection={<IconArrowLeft size={18} />}
@@ -910,6 +968,65 @@ export default function DailyLessonPage({
               )}
               </Stack>
             </Card>
+
+            {isFinalLessonCompleted ? (
+              <Card padding="xl" radius="md" withBorder>
+                <Stack gap="md">
+                  <Group gap="sm" align="flex-start" wrap="nowrap">
+                    <ThemeIcon color="green" variant="light" radius="xl">
+                      <IconCertificate size={22} />
+                    </ThemeIcon>
+                    <Stack gap={4}>
+                      <Title order={2} size="h3">
+                        {getDayPageText('courseCompleteTitle', courseLanguage)}
+                      </Title>
+                      <Text c="dimmed">
+                        {getDayPageText('courseCompleteMessage', courseLanguage)}
+                      </Text>
+                    </Stack>
+                  </Group>
+
+                  <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm">
+                    <Button
+                      component={LocaleLink}
+                      href={finalExamHref}
+                      color="amanoba"
+                      leftSection={<IconCertificate size={18} />}
+                      fullWidth
+                    >
+                      {getDayPageText('startFinalExam', courseLanguage)}
+                    </Button>
+                    <Button
+                      component={LocaleLink}
+                      href={profileHref}
+                      variant="default"
+                      leftSection={<IconUser size={18} />}
+                      fullWidth
+                    >
+                      {getDayPageText('viewProfile', courseLanguage)}
+                    </Button>
+                    <Button
+                      component={LocaleLink}
+                      href={courseHref}
+                      variant="default"
+                      leftSection={<IconHome2 size={18} />}
+                      fullWidth
+                    >
+                      {getDayPageText('courseHome', courseLanguage)}
+                    </Button>
+                    <Button
+                      onClick={() => void handleShareCourse()}
+                      variant="outline"
+                      color="amanoba"
+                      leftSection={<IconShare3 size={18} />}
+                      fullWidth
+                    >
+                      {getDayPageText('shareCourse', courseLanguage)}
+                    </Button>
+                  </SimpleGrid>
+                </Stack>
+              </Card>
+            ) : null}
 
             <Card padding="xl" radius="md" withBorder>
               <TypographyStylesProvider

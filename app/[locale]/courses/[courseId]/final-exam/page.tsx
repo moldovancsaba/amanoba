@@ -30,9 +30,11 @@ import {
 import {
   IconAlertTriangle,
   IconArrowLeft,
+  IconCertificate,
   IconCircleCheck,
   IconRefresh,
   IconRosetteDiscountCheck,
+  IconShare3,
   IconShieldCheck,
   IconX,
 } from '@tabler/icons-react';
@@ -47,6 +49,7 @@ interface EntitlementResp {
   priceMoney?: { amount: number; currency: string } | null;
   pricePoints?: number | null;
   poolCount: number;
+  questionLimit?: number;
 }
 
 interface QuestionPayload {
@@ -78,13 +81,15 @@ const finalExamTranslations: Record<string, Record<string, string>> = {
     refreshStatus: 'تحديث الحالة',
     backToCourseButton: 'العودة إلى الدورة',
     examDescription: 'لديك وصول. الامتحان جلسة واحدة، 50 سؤالًا عشوائيًا. المغادرة تلغي التقدم.',
+    viewCertificate: 'عرض الشهادة',
+    shareCertificate: 'مشاركة الشهادة',
   },
   hu: {
     loadingCourse: 'Kurzus betöltése...',
     signInToEnroll: 'Kérjük, jelentkezz be a tanúsítványos vizsgához való hozzáféréshez.',
     finalExamTitle: 'Végső tanúsítványos vizsga',
     certificationUnavailable: 'A tanúsítvány nem elérhető',
-    certificationPoolMessage: 'Kérdéskészlet mérete: {{poolCount}}. A tanúsítvány le van tiltva, amíg a készletnek legalább 50 kérdése nincs.',
+    certificationPoolMessage: 'Kérdéskészlet mérete: {{poolCount}}. A tanúsítvány le van tiltva, amíg a készletben legalább {{questionLimit}} kérdés nincs.',
     backToCourse: 'Vissza a kurzusra',
     certificationAccess: 'Tanúsítvány hozzáférés beszerzése',
     certificationPriceLine: 'Ár: {{price}} | Pontok: {{points}}',
@@ -97,14 +102,16 @@ const finalExamTranslations: Record<string, Record<string, string>> = {
     score: 'Eredmény',
     refreshStatus: 'Állapot frissítése',
     backToCourseButton: 'Vissza a kurzusra',
-    examDescription: 'Van hozzáférésed. A vizsga egy ülés, 50 véletlenszerű kérdés. A kilépés elveti a haladást.',
+    examDescription: 'Van hozzáférésed. A vizsga egy ülés, {{questionLimit}} véletlenszerű kérdés. A kilépés elveti a haladást.',
+    viewCertificate: 'Tanúsítvány megtekintése',
+    shareCertificate: 'Tanúsítvány megosztása',
   },
   en: {
     loadingCourse: 'Loading course...',
     signInToEnroll: 'Please sign in to access the certification exam.',
     finalExamTitle: 'Final Certification Exam',
     certificationUnavailable: 'Certification unavailable',
-    certificationPoolMessage: 'Pool size: {{poolCount}}. Certification is disabled until the pool has at least 50 questions.',
+    certificationPoolMessage: 'Pool size: {{poolCount}}. Certification is disabled until the pool has at least {{questionLimit}} questions.',
     backToCourse: 'Back to course',
     certificationAccess: 'Get certification access',
     certificationPriceLine: 'Price: {{price}} | Points: {{points}}',
@@ -117,14 +124,16 @@ const finalExamTranslations: Record<string, Record<string, string>> = {
     score: 'Score',
     refreshStatus: 'Refresh status',
     backToCourseButton: 'Back to course',
-    examDescription: 'You have access. The exam is one sitting, 50 randomized questions. Leaving discards progress.',
+    examDescription: 'You have access. The exam is one sitting, {{questionLimit}} randomized questions. Leaving discards progress.',
+    viewCertificate: 'View Certificate',
+    shareCertificate: 'Share Certificate',
   },
   ru: {
     loadingCourse: 'Загрузка курса...',
     signInToEnroll: 'Пожалуйста, войдите, чтобы получить доступ к экзамену на сертификацию.',
     finalExamTitle: 'Финальный экзамен на сертификацию',
     certificationUnavailable: 'Сертификация недоступна',
-    certificationPoolMessage: 'Размер пула вопросов: {{poolCount}}. Сертификация отключена, пока в пуле не будет хотя бы 50 вопросов.',
+    certificationPoolMessage: 'Размер пула вопросов: {{poolCount}}. Сертификация отключена, пока в пуле не будет хотя бы {{questionLimit}} вопросов.',
     backToCourse: 'Назад к курсу',
     certificationAccess: 'Получить доступ к сертификации',
     certificationPriceLine: 'Цена: {{price}} | Баллы: {{points}}',
@@ -137,7 +146,9 @@ const finalExamTranslations: Record<string, Record<string, string>> = {
     score: 'Результат',
     refreshStatus: 'Обновить статус',
     backToCourseButton: 'Назад к курсу',
-    examDescription: 'У вас есть доступ. Экзамен - одна сессия, 50 случайных вопросов. Выход отменяет прогресс.',
+    examDescription: 'У вас есть доступ. Экзамен - одна сессия, {{questionLimit}} случайных вопросов. Выход отменяет прогресс.',
+    viewCertificate: 'Открыть сертификат',
+    shareCertificate: 'Поделиться сертификатом',
   },
   pt: {
     loadingCourse: 'Carregando curso...',
@@ -327,8 +338,12 @@ export default function FinalExamPage() {
   const [attemptId, setAttemptId] = useState<string | null>(null);
   const [question, setQuestion] = useState<QuestionPayload | null>(null);
   const [submitting, setSubmitting] = useState(false);
-  const [result, setResult] = useState<{ score?: number; passed?: boolean } | null>(null);
+  const [result, setResult] = useState<{ score?: number; passed?: boolean; certificateUpdated?: boolean } | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const playerId = (session?.user as { id?: string; playerId?: string } | undefined)?.playerId
+    ?? (session?.user as { id?: string } | undefined)?.id
+    ?? null;
+  const certificateHref = playerId ? `/${courseLanguage}/profile/${playerId}/certificate/${courseId}` : `/${courseLanguage}/courses/${courseId}`;
 
   const loadEntitlement = useCallback(async () => {
     setLoadingEnt(true);
@@ -427,7 +442,11 @@ export default function FinalExamPage() {
         });
         const submitData = await submitRes.json();
         if (!submitRes.ok || !submitData.success) throw new Error(submitData.error || 'Submit failed');
-        setResult({ score: submitData.data.scorePercentInteger, passed: submitData.data.passed });
+        setResult({
+          score: submitData.data.scorePercentInteger,
+          passed: submitData.data.passed,
+          certificateUpdated: submitData.data.certificateUpdated,
+        });
         setQuestion(null);
       } else {
         setQuestion(data.data.nextQuestion);
@@ -449,6 +468,26 @@ export default function FinalExamPage() {
     setAttemptId(null);
     setQuestion(null);
     setResult(null);
+  };
+
+  const shareCertificate = async () => {
+    if (typeof window === 'undefined') return;
+
+    const shareUrl = `${window.location.origin}${certificateHref}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: getFinalExamText('viewCertificate', courseLanguage),
+          text: getFinalExamText('passed', courseLanguage),
+          url: shareUrl,
+        });
+        return;
+      } catch (error) {
+        if ((error as DOMException).name === 'AbortError') return;
+      }
+    }
+
+    await navigator.clipboard?.writeText(shareUrl);
   };
 
   if (status === 'loading' || loadingEnt) {
@@ -492,6 +531,7 @@ export default function FinalExamPage() {
   const unavailable = !ent?.certificationEnabled || !ent?.certificationAvailable;
   const entitlementRequired = ent?.entitlementRequired ?? true;
   const canStart = !unavailable && (!entitlementRequired || Boolean(ent?.entitlementOwned));
+  const questionLimit = ent?.questionLimit ?? 50;
   const questionProgress = question
     ? Math.min(100, ((question.index + 1) / Math.max(question.total, 1)) * 100)
     : 0;
@@ -535,7 +575,10 @@ export default function FinalExamPage() {
               <Stack gap="md">
                 <Title order={2} size="h3" c="white">{getFinalExamText('certificationUnavailable', courseLanguage)}</Title>
                 <Text c="gray.3">
-            {getFinalExamText('certificationPoolMessage', courseLanguage, { poolCount: ent?.poolCount ?? 0 })}
+            {getFinalExamText('certificationPoolMessage', courseLanguage, {
+              poolCount: ent?.poolCount ?? 0,
+              questionLimit,
+            })}
                 </Text>
                 <Button
                   variant="outline"
@@ -578,7 +621,9 @@ export default function FinalExamPage() {
       {canStart && !question && !result && (
             <Card padding="xl" withBorder>
               <Stack gap="md">
-                <Text c="dimmed">{getFinalExamText('examDescription', courseLanguage)}</Text>
+                <Text c="dimmed">
+                  {getFinalExamText('examDescription', courseLanguage, { questionLimit })}
+                </Text>
                 <Button
                   loading={submitting}
             onClick={startExam}
@@ -639,7 +684,27 @@ export default function FinalExamPage() {
               {result.score}%
                 </Text>
                 <Text c="dimmed">{getFinalExamText('score', courseLanguage)}</Text>
-                <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm" w="100%">
+                {result.passed && result.certificateUpdated ? (
+                  <Button
+                    onClick={() => router.push(certificateHref)}
+                    color="amanoba"
+                    leftSection={<IconCertificate size={18} />}
+                    fullWidth
+                  >
+                    {getFinalExamText('viewCertificate', courseLanguage)}
+                  </Button>
+                ) : null}
+                <SimpleGrid cols={{ base: 1, sm: result.passed && result.certificateUpdated ? 3 : 2 }} spacing="sm" w="100%">
+                  {result.passed && result.certificateUpdated ? (
+                    <Button
+                      onClick={() => void shareCertificate()}
+                      variant="outline"
+                      color="amanoba"
+                      leftSection={<IconShare3 size={18} />}
+                    >
+                      {getFinalExamText('shareCertificate', courseLanguage)}
+                    </Button>
+                  ) : null}
                   <Button
                 onClick={() => {
                   setResult(null);
