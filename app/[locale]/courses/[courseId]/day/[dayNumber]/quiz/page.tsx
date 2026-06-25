@@ -41,6 +41,7 @@ import {
   type CourseAccessRecoveryIssue,
 } from '@/app/lib/course-access-recovery';
 import CourseAccessRecoveryActions from '@/app/components/patterns/CourseAccessRecoveryActions';
+import CourseAnswerOption from '@/components/CourseAnswerOption';
 
 interface LessonResponse {
   success: boolean;
@@ -633,26 +634,14 @@ export default function LessonQuizPage({
 
             <Stack gap="sm">
             {currentQuestion.options.map((option: string, idx: number) => (
-                <Button
+              <CourseAnswerOption
                 key={idx}
                 disabled={answering}
                 onClick={() => handleAnswer(option, idx)}
-                  variant="default"
-                  color="gray"
-                  justify="flex-start"
-                  fullWidth
-                  mih={56}
-                  styles={{
-                    label: {
-                      whiteSpace: 'normal',
-                      textAlign: courseLanguage === 'ar' ? 'right' : 'left',
-                      width: '100%',
-                      lineHeight: 1.45,
-                    },
-                  }}
+                isRtl={courseLanguage === 'ar'}
               >
                 {option}
-                </Button>
+              </CourseAnswerOption>
             ))}
             </Stack>
 

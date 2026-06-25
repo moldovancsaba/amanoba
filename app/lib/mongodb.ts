@@ -11,11 +11,6 @@
 import mongoose from 'mongoose';
 import { logger } from './logger';
 
-// MongoDB URI from environment variables
-// Why: Centralized configuration via environment variables, not hardcoded
-const MONGODB_URI = process.env.MONGODB_URI;
-const DB_NAME = process.env.DB_NAME || 'amanoba';
-
 /**
  * Global cache for Mongoose connection
  * 
@@ -50,6 +45,8 @@ if (!global.mongoose) {
  */
 async function connectDB(): Promise<typeof mongoose> {
   const start = Date.now();
+  const MONGODB_URI = process.env.MONGODB_URI;
+  const DB_NAME = process.env.DB_NAME || 'amanoba';
 
   if (!MONGODB_URI) {
     const msg = 'MONGODB_URI is not defined. Set it in your environment (.env.local or platform env).';

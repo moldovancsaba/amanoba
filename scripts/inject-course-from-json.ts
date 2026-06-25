@@ -151,6 +151,17 @@ async function main() {
   if (courseInfo.language !== undefined && courseInfo.language !== null) courseSet.language = String(courseInfo.language);
   else if (!existingCourse) courseSet.language = 'hu';
   if (courseInfo.thumbnail !== undefined && courseInfo.thumbnail !== null) courseSet.thumbnail = String(courseInfo.thumbnail);
+  if (
+    courseInfo.price != null &&
+    typeof courseInfo.price === 'object' &&
+    typeof (courseInfo.price as { amount?: unknown }).amount === 'number' &&
+    typeof (courseInfo.price as { currency?: unknown }).currency === 'string'
+  ) {
+    courseSet.price = {
+      amount: (courseInfo.price as { amount: number }).amount,
+      currency: (courseInfo.price as { currency: string }).currency,
+    };
+  }
   if (!existingCourse) courseSet.brandId = brand._id;
 
   const course = await Course.findOneAndUpdate(

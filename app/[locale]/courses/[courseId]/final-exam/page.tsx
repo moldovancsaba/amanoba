@@ -36,6 +36,7 @@ import {
   IconShieldCheck,
   IconX,
 } from '@tabler/icons-react';
+import CourseAnswerOption from '@/components/CourseAnswerOption';
 
 interface EntitlementResp {
   certificationEnabled: boolean;
@@ -607,25 +608,14 @@ export default function FinalExamPage() {
                 <Text c="white" size="lg" fw={700} lh={1.5}>{question.question}</Text>
                 <Stack gap="sm">
             {question.options.map((opt, idx) => (
-                    <Button
+              <CourseAnswerOption
                 key={idx}
-                      loading={submitting}
+                disabled={submitting}
                 onClick={() => answer(idx)}
-                      variant="default"
-                      justify="flex-start"
-                      fullWidth
-                      mih={52}
-                      styles={{
-                        label: {
-                          whiteSpace: 'normal',
-                          textAlign: courseLanguage === 'ar' ? 'right' : 'left',
-                          width: '100%',
-                          lineHeight: 1.45,
-                        },
-                      }}
+                isRtl={courseLanguage === 'ar'}
               >
                 {opt}
-                    </Button>
+              </CourseAnswerOption>
             ))}
                 </Stack>
               </Stack>

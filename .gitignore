@@ -90,3 +90,5 @@ tsx
 # QA pipeline outputs (generated)
 scripts/reports/
 scripts/quiz-backups/
+.env*
+docs/course-ai/

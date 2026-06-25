@@ -1,0 +1,66 @@
+.option {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 56px !important;
+  height: auto !important;
+  max-height: none !important;
+  padding: 14px 18px !important;
+  border: 1px solid var(--mantine-color-dark-4) !important;
+  border-radius: var(--mantine-radius-md) !important;
+  background: var(--mantine-color-dark-6) !important;
+  color: var(--mantine-color-gray-0) !important;
+  text-align: left !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  cursor: pointer;
+  box-sizing: border-box !important;
+  touch-action: manipulation;
+}
+
+.option:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+.option:focus-visible {
+  outline: 2px solid var(--mantine-color-amanoba-5, #fab908);
+  outline-offset: 3px;
+}
+
+.rtl {
+  text-align: right !important;
+}
+
+.label {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: inherit !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 1.48 !important;
+  letter-spacing: 0 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+  text-overflow: clip !important;
+}
+
+@media (max-width: 480px) {
+  .option {
+    padding: 13px 14px !important;
+  }
+
+  .label {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
+}

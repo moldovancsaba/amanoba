@@ -1,7 +1,7 @@
 # Amanoba Course Creation Playbook
 
 **Status**: ACTIVE
-**Last updated**: 2026-05-21
+**Last updated**: 2026-06-24
 
 This playbook collects the current information required to create, upload, seed, certify, and QA an Amanoba course. It reflects the current flexible-course implementation: courses are no longer fixed to 30 lessons.
 
@@ -17,6 +17,16 @@ This playbook collects the current information required to create, upload, seed,
 - **Certificates**: set `course.certification.enabled = true`, configure eligibility rules, final-exam rules, pricing/entitlement if needed, and certificate template IDs.
 - **Upload/import**: Admin UI uses a single JSON course package. API also accepts ZIP for backward compatibility.
 - **Seeding**: use `npx tsx --env-file=.env.local scripts/inject-course-from-json.ts <course-export.json>` for JSON packages, or course-specific seed scripts when they exist.
+- **Local AI autopilot**: use `npm run course:ai:create` to draft an import-ready package from a brief, or `npm run course:ai:maintain` to generate a maintenance plan for a live course. The create flow can also `--apply` and then run the existing quiz-generation pipeline.
+- **Weekly content-fix autopilot**: use `npm run course:ai:content-fix` for a local preview bundle, or add `--apply` to audit the oldest modified course, create or refresh fix issues in `mvp-factory-control`, and move them to Project 12 `CONTENT fix`.
+
+### Weekly content-fix automation
+
+- The weekly audit targets the oldest modified course first, so stale content gets attention before freshly edited courses.
+- It groups findings into GitHub issues for lesson content, quiz quality, certification/final-exam sanity, and structural cleanup.
+- Dry runs now write a preview manifest plus one markdown and one JSON draft per planned issue under `docs/course-ai/content-fix/preview/`.
+- The Project 12 board needs a `CONTENT fix` status option, which the autopilot will create if it is missing.
+- For fully automated runs, use a self-hosted runner or local machine that can reach MongoDB, GitHub CLI auth, and the Ollama local model endpoint.
 
 ## Course Record
 
@@ -64,7 +74,9 @@ Lesson content grammar:
 - Introduction: context and why it matters.
 - Main content: concepts and procedures aligned to the canonical course spec.
 - Summary: short recap.
-- Action items: concrete next steps.
+- `Student tasks`: concrete learner work that can be completed after the lesson.
+- `Useful external sources`: 2-4 topic-relevant links students can use for deeper reading, standards, or evidence.
+- `Bibliography`: source list for the references used in the lesson. Use real sources only; do not fabricate citations or URLs.
 
 Authoring quality rules:
 
@@ -72,6 +84,7 @@ Authoring quality rules:
 - Keep lesson, email subject, and email body in the same language.
 - Target 20-30 minutes of reading/work.
 - Make every lesson specific, actionable, and grounded in the course outcome.
+- Do not publish lessons that lack visible learner tasks, useful external sources, or bibliography/references.
 - Do not rely on old fixed 30-day assumptions.
 
 ## Quiz Rules
@@ -102,7 +115,9 @@ Question authoring minimum:
 - Minimum 5 application questions.
 - Minimum 2 critical-thinking questions recommended.
 - Each question should be standalone, scenario-based, and grounded in the lesson.
-- Use plausible educational distractors; avoid throwaway wrong answers.
+- Hard final-exam portability rule: do not mention `Day N`, `Lesson N`, the lesson title, "this lesson", "as described in the lesson", or any local context that disappears when the same question appears in the final certification exam.
+- Use plausible educational distractors that a real trainee might choose. Never use joke, lazy, unrelated, obviously dumb, or generic productivity answers such as "effort fixes it", "more tasks closed is enough", "do nothing", or "ignore constraints".
+- For trainer/professional courses, answer choices must stay inside the professional domain: client safety, scope, screening, anatomy, cueing, apparatus setup, progression/regression, documentation, ethics, and business practice as relevant.
 
 Question data formats:
 
@@ -325,6 +340,32 @@ Operational requirements:
 - Back up or export the target course before overwrite/import.
 - After import, run course and quiz audits before publishing.
 
+## Local AI Workflow
+
+The local AI flow is split into two safe stages:
+
+1. Draft an import-ready course package with local AI.
+2. Finalize the course with the repo's existing deterministic tooling.
+
+Recommended commands:
+
+```sh
+# Draft a package only
+npm run course:ai:create -- --topic "AI for customer support" --language en --days 7
+
+# Draft, import, and generate quiz coverage
+npm run course:ai:create -- --topic "AI for customer support" --language en --days 7 --apply
+
+# Review a live course and generate a maintenance plan
+npm run course:ai:maintain -- --course-id AI_30_NAP
+```
+
+Notes:
+
+- Generated courses are saved as draft content first (`course.isActive = false`).
+- Quiz questions are still filled by `scripts/process-course-questions-generic.ts`, so the existing quality gate remains the source of truth.
+- Maintenance mode is low-risk by default: it proposes actions and only auto-applies safe fixes such as child-course resync, duration sync, and question regeneration when coverage is low.
+
 ## Publishing Checklist
 
 Before publishing:
@@ -336,6 +377,8 @@ Before publishing:
 - Lesson content follows the required structure.
 - Course and lessons are in the same language.
 - Each lesson has at least 7 quality-approved questions.
+- Quiz questions do not contain day names, lesson numbers, lesson-title fragments, or lesson-only references; they must work in the final exam without surrounding context.
+- Wrong answers are plausible domain mistakes, not throwaway/dumb answers.
 - `course.lessonQuizPolicy` is set intentionally.
 - Certification is disabled if not ready.
 - If certification is enabled, the final-exam pool has enough active course-specific questions.
@@ -355,4 +398,3 @@ npx tsx --env-file=.env.local scripts/audit-full-quiz-system.ts
 ```
 
 Use targeted commands when full DB audits are too expensive, but do not publish without checking the touched course and its quiz pools.
-

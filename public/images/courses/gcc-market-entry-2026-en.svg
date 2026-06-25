@@ -1,0 +1,29 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#0B1512"/>
+  <path d="M0 0H1280V720H0V0Z" fill="url(#bg)"/>
+  <path d="M804 86C989 88 1138 198 1184 356C1238 544 1062 688 860 664C664 641 565 512 596 351C621 222 670 84 804 86Z" fill="#D8A449" opacity=".16"/>
+  <path d="M98 572C232 484 387 459 557 498C717 535 865 531 1011 465C1097 426 1179 412 1280 430V720H0V648C26 622 59 598 98 572Z" fill="#123A32" opacity=".8"/>
+  <path d="M0 522C165 453 312 438 442 477C618 530 774 520 910 445C1044 372 1165 359 1280 401V720H0V522Z" fill="#174A3F" opacity=".72"/>
+  <circle cx="1038" cy="188" r="72" fill="#F3C766" opacity=".9"/>
+  <path d="M190 168H802C840 168 871 199 871 237V477C871 515 840 546 802 546H190C152 546 121 515 121 477V237C121 199 152 168 190 168Z" fill="#0F211D" fill-opacity=".72" stroke="#D8A449" stroke-opacity=".38" stroke-width="2"/>
+  <path d="M236 473C329 395 429 357 536 358C643 359 743 395 836 467" stroke="#F3C766" stroke-width="8" stroke-linecap="round" opacity=".75"/>
+  <path d="M260 434C346 383 438 358 536 358C634 358 726 383 812 434" stroke="#F3C766" stroke-width="4" stroke-linecap="round" opacity=".45"/>
+  <path d="M536 358V258" stroke="#F3C766" stroke-width="5" stroke-linecap="round"/>
+  <path d="M471 292L536 258L601 292" stroke="#F3C766" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M330 411L297 356L362 356" stroke="#F3C766" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+  <path d="M744 411L777 356L712 356" stroke="#F3C766" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+  <text x="173" y="265" fill="#FFF5D6" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="700">Entering the GCC Market</text>
+  <text x="176" y="322" fill="#F3C766" font-family="Verdana, sans-serif" font-size="26" font-weight="700" letter-spacing="4">B2B MARKET ENTRY MINI-COURSE</text>
+  <text x="176" y="388" fill="#EAF3EA" font-family="Verdana, sans-serif" font-size="25">Culture • Negotiation • Requirements</text>
+  <text x="176" y="431" fill="#C7D8D1" font-family="Verdana, sans-serif" font-size="21">Saudi Arabia • UAE • Qatar • Bahrain • Kuwait • Oman</text>
+  <path d="M925 522H1128" stroke="#F3C766" stroke-width="10" stroke-linecap="round"/>
+  <path d="M925 555H1088" stroke="#F3C766" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+  <text x="925" y="491" fill="#FFF5D6" font-family="Verdana, sans-serif" font-size="30" font-weight="700">3-day practical path</text>
+  <defs>
+    <linearGradient id="bg" x1="103" y1="45" x2="1118" y2="714" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E2A25"/>
+      <stop offset=".52" stop-color="#163C34"/>
+      <stop offset="1" stop-color="#A97B34"/>
+    </linearGradient>
+  </defs>
+</svg>

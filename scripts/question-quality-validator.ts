@@ -167,6 +167,10 @@ const META_DISTRACTOR_PATTERNS: Array<{ label: string; re: RegExp }> = [
   // EN (generic)
   { label: 'EN: wait for someone else', re: /\b(wait|waiting)\b.*\b(someone else|others)\b/i },
   { label: 'EN: just read / not apply', re: /\bjust\b.*\bread\b.*\bnot\b.*\b(apply|implement)\b/i },
+  { label: 'EN: willpower fixes everything', re: /\bwillpower\b.*\b(effort\s+fixes|fixes\s+everything|minimal\s+risk)\b/i },
+  { label: 'EN: activity volume as sufficient outcome', re: /\b(more\s+tasks\s+(closed|done|touched)|activity\s+volume)\b.*\b(enough|on\s+its\s+own|sufficient)\b/i },
+  { label: 'EN: ignore constraints', re: /\bconstraints?\b.*\b(can\s+be\s+ignored|do\s+not\s+matter|optional)\b/i },
+  { label: 'EN: speed over quality', re: /\bspeed\b.*\b(primary|only|main)\b.*\bquality\b.*\b(later|optional|low\s+risk)\b/i },
 ];
 
 /**
@@ -174,6 +178,11 @@ const META_DISTRACTOR_PATTERNS: Array<{ label: string; re: RegExp }> = [
  * This is intentionally broad and language-agnostic.
  */
 const LESSON_REFERENCE_TOKENS: Array<{ label: string; re: RegExp }> = [
+  // Final exams reuse lesson questions, so any local lesson/day reference is disallowed.
+  { label: 'EN: day number reference', re: /\bday\s*\d+\b/i },
+  { label: 'EN: lesson number reference', re: /\blesson\s*\d+\b/i },
+  { label: 'EN: this/current lesson', re: /\b(this|current|previous|next)\s+lesson\b/i },
+  { label: 'EN: in/from lesson', re: /\b(in|from)\s+lesson\b/i },
   // EN: avoid explicit “in/as described in the lesson” references (do not ban the word "lesson" alone)
   { label: 'EN: in/as described in the lesson', re: /\b(in|from|as)\s+(described\s+in\s+)?the\s+lesson\b/i },
   { label: 'EN: described/discussed in the lesson', re: /\b(described|discussed)\s+in\s+the\s+lesson\b/i },
@@ -253,6 +262,40 @@ function hasChecklistSnippet(question: string) {
   if (!quoted) return false;
   const inside = quoted[1];
   return /✅/.test(inside) || /\.\.\./.test(inside);
+}
+
+function normalizeTitleForComparison(text: string) {
+  return String(text || '')
+    .toLowerCase()
+    .replace(/\b(day|lesson)\s*\d+\s*[:.-]?\s*/gi, '')
+    .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function containsLessonTitleCrutch(question: string, lessonTitle?: string) {
+  const title = normalizeTitleForComparison(String(lessonTitle || ''));
+  if (title.length < 12) return false;
+  const q = normalizeTitleForComparison(question);
+  if (!q) return false;
+  if (q.includes(title)) return true;
+
+  const titleTokens = title
+    .split(/\s+/)
+    .filter(t => t.length >= 5 && !['lesson', 'course', 'training', 'purpose'].includes(t));
+  if (titleTokens.length < 3) return false;
+
+  let longestRun = 0;
+  let currentRun = 0;
+  for (const token of titleTokens) {
+    if (q.includes(token)) {
+      currentRun++;
+      longestRun = Math.max(longestRun, currentRun);
+    } else {
+      currentRun = 0;
+    }
+  }
+  return longestRun >= 3;
 }
 
 function languageScriptCheck(language: string, text: string): string | null {
@@ -351,6 +394,14 @@ export function validateQuestionQuality(
   if (hasChecklistSnippet(question)) {
     errors.push(
       'Question quotes a checklist/snippet (e.g., ✅ or …). This is fuzzy and not standalone. Rewrite as a concrete scenario question.'
+    );
+  }
+
+  // 0.2b Disallow lesson-title crutches. Lesson quizzes are reused in final exams where the
+  // learner will not see local day/lesson context.
+  if (containsLessonTitleCrutch(question, lessonTitle)) {
+    errors.push(
+      'Question includes the lesson title or a title fragment. Rewrite as a standalone scenario that can appear in the final exam without lesson/day context.'
     );
   }
 

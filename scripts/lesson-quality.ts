@@ -2,6 +2,9 @@ export type LessonQualityIssue =
   | 'TOO_SHORT'
   | 'NO_CLEAR_DEFINITIONS'
   | 'NO_ACTIONABLE_STEPS'
+  | 'NO_STUDENT_TASKS'
+  | 'NO_EXTERNAL_SOURCES'
+  | 'NO_BIBLIOGRAPHY'
   | 'NO_EXAMPLES'
   | 'NO_CONTRASTS_GOOD_BAD'
   | 'NO_METRICS_OR_CRITERIA'
@@ -19,6 +22,9 @@ export interface LessonQualityResult {
     hasGoodBadContrast: boolean;
     hasMetricsOrCriteria: boolean;
     hasDefinitionsOrComparisons: boolean;
+    hasStudentTasks: boolean;
+    hasExternalSources: boolean;
+    hasBibliography: boolean;
   };
   refineTemplate: {
     addDefinitionSection: boolean;
@@ -182,6 +188,15 @@ export function assessLessonQuality(params: {
     'का मतलब',
     'अंतर',
   ]);
+  const hasStudentTasks =
+    /^##\s+(student tasks|practice assignment|action items|action lab|field assignment)\b/im.test(params.content) ||
+    hasAny(lower, ['student tasks', 'practice assignment', 'action lab', 'field assignment']);
+  const hasExternalSources =
+    /^##\s+(useful external sources|external sources|read more|further reading)\b/im.test(params.content) ||
+    hasAny(lower, ['useful external sources', 'external sources', 'read more', 'further reading']);
+  const hasBibliography =
+    /^##\s+(bibliography|sources used|references)\b/im.test(params.content) ||
+    hasAny(lower, ['bibliography', 'sources used', 'references']);
 
   // Very rough language mismatch heuristic: if lesson language is non-en but content is mostly ASCII
   const nonAsciiCount = (clean.match(/[^\x00-\x7F]/g) || []).length;
@@ -193,6 +208,9 @@ export function assessLessonQuality(params: {
   if (charCount < 900 || wordCount < 160) issues.push('TOO_SHORT');
   if (!hasDefinitionsOrComparisons) issues.push('NO_CLEAR_DEFINITIONS');
   if (!hasNumberedSteps && !hasBullets) issues.push('NO_ACTIONABLE_STEPS');
+  if (!hasStudentTasks) issues.push('NO_STUDENT_TASKS');
+  if (!hasExternalSources) issues.push('NO_EXTERNAL_SOURCES');
+  if (!hasBibliography) issues.push('NO_BIBLIOGRAPHY');
   if (!hasExamples) issues.push('NO_EXAMPLES');
   if (!hasGoodBadContrast) issues.push('NO_CONTRASTS_GOOD_BAD');
   if (!hasMetricsOrCriteria) issues.push('NO_METRICS_OR_CRITERIA');
@@ -204,6 +222,9 @@ export function assessLessonQuality(params: {
     TOO_SHORT: 25,
     NO_CLEAR_DEFINITIONS: 15,
     NO_ACTIONABLE_STEPS: 15,
+    NO_STUDENT_TASKS: 15,
+    NO_EXTERNAL_SOURCES: 10,
+    NO_BIBLIOGRAPHY: 10,
     NO_EXAMPLES: 15,
     NO_CONTRASTS_GOOD_BAD: 10,
     NO_METRICS_OR_CRITERIA: 15,
@@ -232,6 +253,9 @@ export function assessLessonQuality(params: {
       hasGoodBadContrast,
       hasMetricsOrCriteria,
       hasDefinitionsOrComparisons,
+      hasStudentTasks,
+      hasExternalSources,
+      hasBibliography,
     },
     refineTemplate,
   };

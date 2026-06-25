@@ -1,0 +1,86 @@
+name: Course Content Fix Weekly
+
+on:
+  schedule:
+    # GitHub Actions cron is UTC-only. These two triggers, combined with the
+    # Budapest gate step below, keep the job aligned with Tuesday/Friday 15:00
+    # Europe/Budapest across daylight-saving changes.
+    - cron: '0 13 * * 2,5'
+    - cron: '0 14 * * 2,5'
+  workflow_dispatch:
+    inputs:
+      course_id:
+        description: 'Optional course override'
+        required: false
+        type: string
+      apply:
+        description: 'Apply GitHub issue and board updates'
+        required: false
+        default: true
+        type: boolean
+
+jobs:
+  audit_and_sync:
+    runs-on: self-hosted
+    env:
+      LLM_PROVIDER: ollama
+      OLLAMA_BASE_URL: http://127.0.0.1:11434
+      OLLAMA_MODEL: llama3.2
+      MVP_PROJECT_OWNER: moldovancsaba
+      MVP_PROJECT_NUMBER: '12'
+      MVP_REPO: mvp-factory-control
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Gate on Budapest 15:00
+        id: gate
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          SHOULD_RUN=$(node <<'NODE'
+          const now = new Date();
+          const parts = new Intl.DateTimeFormat('en-GB', {
+            timeZone: 'Europe/Budapest',
+            weekday: 'short',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false,
+          }).formatToParts(now);
+          const map = Object.fromEntries(parts.filter((part) => part.type !== 'literal').map((part) => [part.type, part.value]));
+          const shouldRun = ['Tue', 'Fri'].includes(map.weekday) && Number(map.hour) === 15 && Number(map.minute) === 0;
+          console.log(`Budapest time: ${map.weekday} ${map.hour}:${map.minute}`);
+          process.stdout.write(shouldRun ? 'true' : 'false');
+          NODE
+          )
+          echo "should_run=$SHOULD_RUN" >> "$GITHUB_OUTPUT"
+
+      - name: Run content-fix autopilot
+        if: steps.gate.outputs.should_run == 'true'
+        shell: bash
+        run: |
+          set --
+          if [ -n "${{ inputs.course_id }}" ]; then
+            set -- "$@" --course-id "${{ inputs.course_id }}"
+          fi
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.apply }}" = "true" ]; then
+            set -- "$@" --apply
+          fi
+          npm run course:ai:content-fix -- "$@"
+
+      - name: Skip note
+        if: steps.gate.outputs.should_run != 'true'
+        run: echo "Skipped because it is not 15:00 in Europe/Budapest."

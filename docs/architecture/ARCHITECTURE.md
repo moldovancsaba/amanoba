@@ -1,7 +1,7 @@
 # Amanoba Architecture
 
 **Version**: 2.9.49
-**Last Updated**: 2026-05-23
+**Last Updated**: 2026-06-24
 **Status**: Active — production course platform with SSO-only auth, gamified learning, content voting, certificate flows, and a shared design-system SSOT with Mantine-only UI dependency baseline
 
 ---
@@ -19,6 +19,14 @@ Amanoba is a unified flexible learning platform built on Next.js 16.2.6 (App Rou
 5. **Security-First**: Rate limiting, input validation, XSS protection, and anti-cheat on all endpoints
 6. **Reuse via discriminator**: Same feature in 2+ places = one model, one API, one component; discriminator (e.g. `targetType`) selects context. See **docs/product/VOTING_AND_REUSE_PATTERN.md** (unified voting and how to reuse features).
 7. **Shared design-system first**: `https://github.com/sovereignsquad/general-design-system` is the design/UI/UX SSOT. Amanoba's UI dependency baseline is Mantine-only; do not reintroduce Tailwind, Radix, hard-coded template palettes, or page-local design systems in touched surfaces.
+
+### Operational automation
+
+- **Local AI course automation** lives in `app/lib/ai/` and `scripts/course-ai-autopilot.ts`.
+- **Creation flow**: local AI drafts an import-ready package, then the existing importer and question-generation scripts finalize the course.
+- **Maintenance flow**: local AI produces a plan from a live course snapshot, and low-risk fixes can be applied with the repo's existing resync, duration sync, and question-generation tools.
+- **Weekly content-fix flow**: `scripts/course-content-fix-autopilot.ts` audits the oldest modified course, writes a local preview bundle in dry-run mode, turns findings into `mvp-factory-control` issues, and moves them to Project 12 `CONTENT fix`.
+- **Quiz authority remains deterministic** through `course.lessonQuizPolicy` and the current question pipelines; the AI layer suggests and drafts, it does not replace the established quality gates.
 
 ### Lesson quiz governance
 

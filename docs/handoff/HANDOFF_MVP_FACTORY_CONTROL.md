@@ -60,11 +60,13 @@ When an agent is asked to "Create a Feature issue in mvp-factory-control using t
 
 Project 12 currently exposes the standard GitHub Projects **Status** field only:
 
-`IDEABANK (SOMEDAY)` → `Roadmap (LATER)` → `Backlog (SOONER)` → `Todo (NEXT)` → `In Progress (NOW)` → `Review (ALMOST)` → `Done` / `Declined (NEVER)`.
+`IDEABANK (SOMEDAY)` → `Roadmap (LATER)` → `Backlog (SOONER)` → `Todo (NEXT)` → `In Progress (NOW)` → `Review (ALMOST)` → `CONTENT fix` → `Done` / `Declined (NEVER)`.
 
 Agent/Product/Type/Priority values are still useful context, but on the current Project 12 board they are represented through issue labels or older project views, not Project 12 fields.
 
 - **Work starts when:** Status is set to **Todo (NEXT)** or advanced to **In Progress (NOW)**.
+- **Content-fix lane:** weekly course-audit automation moves content issues into **CONTENT fix** until the course is ready to re-verify.
+- **Dry-run review:** the content-fix autopilot writes local preview artifacts under `docs/course-ai/content-fix/preview/` before it touches GitHub, so humans can inspect the proposed issue set first.
 - **Managing from this repo:** Run **`MVP_PROJECT_NUMBER=12 ./scripts/mvp-factory-set-project-fields.sh ISSUE_NUMBER --status "Backlog (SOONER)"`** or another Status value. The script skips fields that do not exist on the selected project. **One-time:** grant project scope: see **docs/handoff/MVP_FACTORY_PROJECT_SETUP.md** (`gh auth refresh -h github.com -s read:project,project`).
 
 ### Current task (P2 #3) on the board

@@ -4659,6 +4659,742 @@ function getLanguageTemplates(language: string, title: string): LanguageTemplate
   };
 }
 
+function generatePilatesTrainerQuestionsEN(day: number, title: string, content: string, courseId: string, needed: number): ContentBasedQuestion[] {
+  const normalizedCourseId = String(courseId || '').toLowerCase();
+  const titleLower = String(title || '').toLowerCase();
+  const contentLower = String(content || '').replace(/<[^>]+>/g, ' ').toLowerCase();
+  const topicText = `${titleLower} ${contentLower}`;
+  const baseTags = [`#day${day}`, '#en', ...(normalizedCourseId ? [`#course-${normalizedCourseId}`] : []), '#pilates'];
+  const tags = (type: QuizQuestionType, diff: QuestionDifficulty) => [
+    ...baseTags,
+    diff === QuestionDifficulty.HARD ? '#advanced' : '#intermediate',
+    type === QuizQuestionType.APPLICATION ? '#application' : '#critical-thinking',
+  ];
+
+  const make = (p: {
+    question: string;
+    correct: string;
+    distractors: [string, string, string];
+    difficulty: QuestionDifficulty;
+    questionType: QuizQuestionType;
+    seed: string;
+  }): ContentBasedQuestion => {
+    const optionsRaw: [string, string, string, string] = [p.correct, ...p.distractors];
+    const shuffled = shuffleOptionsWithCorrectIndex({ correct: p.correct, options: optionsRaw, seed: p.seed });
+    return {
+      question: p.question,
+      options: shuffled.options,
+      correctIndex: shuffled.correctIndex,
+      difficulty: p.difficulty,
+      category: 'Course Specific',
+      questionType: p.questionType,
+      hashtags: tags(p.questionType, p.difficulty),
+    };
+  };
+
+  const includesAny = (...needles: string[]) => needles.some(n => topicText.includes(n));
+  const topic = (() => {
+    if (includesAny('scope', 'ethic', 'professional standard', 'method', 'principle')) return 'scope';
+    if (includesAny('history', 'evidence', 'method logic')) return 'method';
+    if (includesAny('anatomy', 'spine', 'pelvis', 'rib cage', 'shoulder', 'hip', 'foot')) return 'anatomy';
+    if (includesAny('breath', 'diaphragm', 'pressure', 'powerhouse', 'core')) return 'breath';
+    if (includesAny('screen', 'intake', 'red flag', 'baseline')) return 'screening';
+    if (includesAny('posture', 'alignment', 'dynamic control')) return 'alignment';
+    if (includesAny('motor learning', 'cue', 'feedback', 'demonstration')) return 'cueing';
+    if (includesAny('mat', 'pre-pilates', 'hundred', 'roll-up', 'spine stretch')) return 'mat';
+    if (includesAny('reformer', 'spring', 'carriage', 'footbar', 'straps')) return 'reformer';
+    if (includesAny('cadillac', 'trapeze', 'push-through', 'roll-down bar')) return 'cadillac';
+    if (includesAny('chair', 'wunda', 'pedal')) return 'chair';
+    if (includesAny('barrel', 'spine corrector', 'arc')) return 'barrel';
+    if (includesAny('prop', 'small equipment', 'home adaptation', 'remote')) return 'props';
+    if (includesAny('older adult', 'desk worker', 'beginner', 'special population')) return 'special-populations';
+    if (includesAny('hypermobility', 'osteoporosis', 'back pain', 'referral', 'contraindication')) return 'risk';
+    if (includesAny('pregnancy', 'postpartum', 'pelvic floor')) return 'pregnancy';
+    if (includesAny('programming science', 'adaptation', 'load', 'recovery', 'progression')) return 'programming-science';
+    if (includesAny('private session', 'client journey', 'progress notes', 'outcome tracking', 'assessment')) return 'client-journey';
+    if (includesAny('group class', 'level management', 'mixed levels', 'room management')) return 'group-class';
+    if (includesAny('hands-on', 'consent', 'tactile', 'communication')) return 'consent';
+    if (includesAny('practicum', 'observation', 'correction', 'demonstration')) return 'practicum';
+    if (includesAny('business', 'trial class', 'pricing', 'offer', 'professional launch')) return 'business';
+    if (includesAny('online', 'hybrid', 'camera', 'asynchronous')) return 'online';
+    if (includesAny('exam readiness', 'certification', 'capstone', 'complete pilates session')) return 'exam';
+    return 'general';
+  })();
+
+  const banks: Record<string, Array<Omit<Parameters<typeof make>[0], 'seed'>>> = {
+    scope: [
+      {
+        question: 'A new client asks for pain diagnosis and a guaranteed medical outcome before starting Pilates training. What is the most professional response?',
+        correct: 'Clarify that Pilates training supports movement education and conditioning, collect relevant safety information, and refer medical diagnosis or treatment claims to a licensed clinician.',
+        distractors: [
+          'Give a confident diagnosis based on posture and promise that the exercise plan will resolve the pain quickly.',
+          'Avoid intake questions so the client feels trusted, then use a demanding full-body session to test tolerance.',
+          'Tell the client that Pilates principles replace medical care when the trainer has enough experience with similar cases.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'A trainee memorizes exercise names but cannot explain why an exercise fits a client goal. What professional ability is still missing?',
+        correct: 'The trainee must connect principles, client needs, safety constraints, and progression choices into a clear teaching rationale.',
+        distractors: [
+          'The trainee only needs a larger exercise list because professional judgment comes automatically from memorization.',
+          'The trainee should make every session faster and more advanced so clients notice intensity before rationale.',
+          'The trainee should copy a fixed classical sequence for every client because individual goals make programming less consistent.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    method: [
+      {
+        question: 'A teacher wants to honor classical Pilates while using modern exercise evidence. Which decision best balances both responsibilities?',
+        correct: 'Keep the movement principles and repertoire logic, then adapt dosage, cueing, and progression using current evidence and each client’s response.',
+        distractors: [
+          'Reject modern screening and load management because classical exercise names are enough for safe programming.',
+          'Remove all classical references and teach only generic fitness drills so the method becomes more scientific.',
+          'Use advanced choreography early because historical exercises must be performed exactly before any modification.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'A client asks why Pilates emphasizes controlled precision instead of simply doing more repetitions. What answer is most accurate?',
+        correct: 'Controlled precision helps organize breathing, alignment, load distribution, and motor learning so repetitions build usable movement quality.',
+        distractors: [
+          'Precision mainly makes classes look elegant; strength and coordination depend only on repetition count.',
+          'Precision is useful only for dancers, while general clients should prioritize speed and fatigue.',
+          'Controlled movement is unnecessary when equipment resistance is low because low load cannot reinforce poor patterns.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    anatomy: [
+      {
+        question: 'During supine core work, a client repeatedly flares the ribs and loses pelvic control. What coaching focus is most useful first?',
+        correct: 'Reduce the challenge and coach rib-pelvis organization with breathing so the spine and pelvis stay controlled before adding load.',
+        distractors: [
+          'Add ankle weights immediately because more resistance usually forces the abdominals to organize better.',
+          'Ignore rib position if the client can complete the repetitions, because completion matters more than control.',
+          'Move straight to a faster sequence so momentum carries the client through the difficult range.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'A trainer sees knee collapse during standing work and only cues the kneecap. What broader movement relationship should be assessed?',
+        correct: 'Check foot tripod, hip control, pelvis position, and load tolerance because knee tracking is influenced by the whole lower-chain strategy.',
+        distractors: [
+          'Focus only on the knee joint because hip and foot mechanics are unrelated once the client is standing.',
+          'Cue the client to lock the knees harder so the joint cannot drift during the exercise.',
+          'Increase speed and range first because alignment problems usually disappear when the client stops thinking.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    breath: [
+      {
+        question: 'A client holds their breath and bears down during abdominal work. What correction best protects pressure management and control?',
+        correct: 'Regress the exercise, cue a steady exhale with lateral rib expansion, and rebuild the movement without breath-holding or bearing down.',
+        distractors: [
+          'Ask the client to brace harder and hold the breath because pressure always improves spinal stability.',
+          'Continue the same variation because breath-holding is harmless if the client feels the abdominals working.',
+          'Switch to only stretching because any abdominal effort is unsafe when breathing coordination is imperfect.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'Why can breath strategy change the quality of core training in Pilates?',
+        correct: 'Breathing affects rib position, diaphragm-pelvic floor coordination, intra-abdominal pressure, and the client’s ability to control movement under load.',
+        distractors: [
+          'Breathing matters only for relaxation, not for strength, pressure, or movement mechanics.',
+          'Breathing should always be forced into one rigid pattern regardless of the exercise or client response.',
+          'Breath timing is mainly decorative language and does not influence the way a client controls the trunk.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    screening: [
+      {
+        question: 'Before the first session, a client reports unexplained dizziness and recent worsening back pain. What should the trainer do?',
+        correct: 'Pause demanding exercise, document the information, recommend medical clearance, and offer only safe education within scope if appropriate.',
+        distractors: [
+          'Proceed with a standard beginner class because dizziness usually improves once the client warms up.',
+          'Avoid documenting symptoms so the client does not feel labeled before training begins.',
+          'Use a strong reformer session to identify the exact movement that causes the medical issue.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'A trainer skips baseline measures because the client says they only want to “feel better.” What is the biggest coaching risk?',
+        correct: 'Progress becomes hard to verify, regressions may be missed, and programming decisions drift toward preference instead of evidence from the client.',
+        distractors: [
+          'There is no meaningful risk because subjective feelings are always more accurate than movement observations.',
+          'The only risk is slower paperwork; baseline information does not affect exercise choice or safety.',
+          'Skipping measures improves personalization because the trainer can improvise without constraints.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    alignment: [
+      {
+        question: 'A client can hold a “perfect” static posture but loses control during transitions. What should the trainer prioritize?',
+        correct: 'Train dynamic alignment during movement, using regressions and feedback that keep control under realistic changing positions.',
+        distractors: [
+          'Keep drilling static posture only because movement control automatically follows once the pose looks correct.',
+          'Increase choreography complexity because mistakes during transitions prove the client needs harder material.',
+          'Tell the client to maintain one fixed spinal shape in all exercises, regardless of the movement demand.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'Why is “neutral versus imprint” not a one-size-fits-all decision in Pilates teaching?',
+        correct: 'The choice depends on control, load, exercise goal, symptoms, and whether the client can organize the pelvis and ribs without compensation.',
+        distractors: [
+          'Neutral is always advanced and imprint is always wrong, so trainers should never adapt the choice.',
+          'Imprint is always safer because flattening the back removes all spinal load and eliminates compensation.',
+          'The choice is cosmetic only; pelvic position has no meaningful effect on trunk strategy or exercise difficulty.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    cueing: [
+      {
+        question: 'A client becomes confused after receiving five corrections at once. What cueing strategy should the trainer use next?',
+        correct: 'Choose one priority cue, let the client attempt it, observe the result, and add feedback only after the movement response is clear.',
+        distractors: [
+          'Give more anatomical detail immediately so the client has enough information to fix every error at once.',
+          'Stop demonstrating entirely because confused clients should solve the coordination problem alone.',
+          'Switch to a harder variation so the client has less time to overthink the instructions.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'Why might an external cue work better than a body-part cue for some Pilates clients?',
+        correct: 'An external cue can direct attention to the task outcome, reducing over-control and helping the client organize the movement more naturally.',
+        distractors: [
+          'External cues are always superior, so anatomy-based cues should never be used with any client.',
+          'External cues work because they hide mistakes from the client rather than improving movement organization.',
+          'Body-part cues fail only because clients lack motivation; cue choice has little effect on motor learning.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    mat: [
+      {
+        question: 'A beginner loses pelvic control during a mat abdominal series. Which progression choice is most appropriate?',
+        correct: 'Return to a smaller range or supported variation, rebuild breath and pelvis control, then progress only when quality is repeatable.',
+        distractors: [
+          'Continue into the full series because beginners need exposure to advanced repertoire as early as possible.',
+          'Add speed so the client spends less time in the difficult position and can finish the set.',
+          'Remove all abdominal work permanently because one control loss means mat Pilates is not suitable.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'What makes mat work a useful teaching laboratory for Pilates trainers?',
+        correct: 'Mat work reveals whether the client can organize breath, alignment, control, and transitions without relying on apparatus feedback.',
+        distractors: [
+          'Mat work is useful mainly because it requires no professional programming decisions or regressions.',
+          'Mat work is only a warm-up and cannot show meaningful information about control or coordination.',
+          'Mat work should always be faster than apparatus work because there are no springs to manage.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    reformer: [
+      {
+        question: 'A client’s carriage slams on the return phase during reformer footwork. What should the trainer adjust first?',
+        correct: 'Coach controlled eccentric return, check spring load and footbar setup, and reduce tempo or range until the carriage stays quiet.',
+        distractors: [
+          'Add springs immediately because heavier resistance always makes carriage control easier and safer.',
+          'Ignore the sound if the client feels leg work, because carriage noise is only an equipment issue.',
+          'Move to jumping variations so the client learns control from a more athletic challenge.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'Why can a lighter spring feel harder than a heavier spring in some reformer exercises?',
+        correct: 'Less spring assistance can demand more stabilizing control, smoother timing, and better management of the moving carriage.',
+        distractors: [
+          'Lighter springs are always easier because the muscles produce less force in every reformer exercise.',
+          'Spring choice affects only comfort, not stability, timing, or movement control.',
+          'Heavier springs are always more advanced because load is the only variable that changes difficulty.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    cadillac: [
+      {
+        question: 'A client uses the push-through bar but loses shoulder organization near end range. What is the safest teaching choice?',
+        correct: 'Reduce range, confirm setup and spring direction, cue scapular control, and keep the movement within a range the client can manage.',
+        distractors: [
+          'Encourage the client to push deeper because the Cadillac is designed to force greater range safely.',
+          'Move the springs randomly until the exercise feels harder, because challenge is the main goal.',
+          'Ignore shoulder position if the bar path looks smooth, because the apparatus controls joint mechanics automatically.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'What is a key professional advantage of assisted range work on the Cadillac?',
+        correct: 'It can provide support and feedback while the trainer controls setup, spring assistance, range, and client safety boundaries.',
+        distractors: [
+          'It eliminates the need for screening because assistance makes all ranges appropriate for all clients.',
+          'It is mainly useful for showing impressive flexibility, not for controlled strength or mobility education.',
+          'It should always replace active control work because supported movement is automatically more effective.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    chair: [
+      {
+        question: 'A client struggles to control the pedal return on the Wunda Chair. Which coaching response is best?',
+        correct: 'Lower the complexity, choose spring settings that support control, and coach smooth pedal timing before adding balance or range.',
+        distractors: [
+          'Use the lightest possible spring immediately because unstable pedal feedback is always better for learning.',
+          'Add an unsupported standing variation because balance challenge will automatically improve pedal control.',
+          'Let the pedal snap back if the client completes the repetitions, because the return phase is not part of the exercise.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'Why does chair work often reveal asymmetry and load-management issues quickly?',
+        correct: 'The small base, pedal feedback, and unilateral options demand precise control of balance, trunk organization, and force timing.',
+        distractors: [
+          'Chair work hides asymmetry because the pedal does most of the balancing work for the client.',
+          'Asymmetry on the chair is irrelevant because only mat exercises show meaningful movement patterns.',
+          'The chair is mainly for advanced choreography, so trainers should not use it for assessment clues.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    barrel: [
+      {
+        question: 'A client feels pinching during spinal extension over a barrel. What adjustment best protects quality and comfort?',
+        correct: 'Reduce range, support the client, check rib-pelvis control, and choose an extension variation that distributes movement more evenly.',
+        distractors: [
+          'Push deeper into extension because barrel work is meant to overcome discomfort and stiffness.',
+          'Ask the client to hold the breath so the trunk becomes rigid enough to tolerate the position.',
+          'Ignore the symptom if flexibility improves, because short-term range is the main outcome.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'What should guide barrel programming more than the desire for a dramatic shape?',
+        correct: 'Client goal, spinal tolerance, breath control, hip mobility, and whether the range improves movement without symptoms or compensation.',
+        distractors: [
+          'The deepest visible curve should guide programming because dramatic range proves the session is effective.',
+          'Every client should use the same barrel sequence so comparison between clients is easier.',
+          'If an exercise looks impressive, it does not need regression, support, or symptom monitoring.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    props: [
+      {
+        question: 'A home client has no reformer but needs feedback for leg alignment and core control. Which adaptation is most professional?',
+        correct: 'Use simple props such as a band, ball, wall, or towel to create clear feedback while preserving the exercise goal and safety constraints.',
+        distractors: [
+          'Skip the goal entirely because Pilates training is ineffective without studio apparatus.',
+          'Ask the client to buy every apparatus before continuing, regardless of budget or space.',
+          'Use random household objects to make the session entertaining even if the feedback does not match the movement goal.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'What separates a useful prop adaptation from a gimmick?',
+        correct: 'A useful prop clarifies alignment, resistance, support, or feedback for a specific goal; a gimmick adds novelty without improving the movement decision.',
+        distractors: [
+          'A prop is useful whenever it makes the exercise look more complex, even if the goal becomes unclear.',
+          'Props should be avoided because they always reduce body awareness and professional teaching quality.',
+          'A prop adaptation is successful only when it makes the exercise harder than the apparatus version.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    'special-populations': [
+      {
+        question: 'An older adult is anxious about balance during standing Pilates work. What plan best builds confidence safely?',
+        correct: 'Use support, smaller ranges, slower transitions, clear exit options, and progressive balance challenges based on observed control.',
+        distractors: [
+          'Remove all standing work permanently because balance anxiety means the client cannot improve safely.',
+          'Start with unsupported single-leg work so the client learns confidence through immediate challenge.',
+          'Focus only on flexibility because strength and balance progressions are too risky for older adults.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'Why should special-population programming avoid both overprotection and overchallenge?',
+        correct: 'The trainer must respect risk while still giving appropriate stimulus, autonomy, and measurable progression toward the client’s functional goals.',
+        distractors: [
+          'Overprotection is always safest because reduced challenge guarantees long-term function and confidence.',
+          'Overchallenge is best because special populations need intensity before technique or screening matters.',
+          'Programming decisions should be based mainly on age labels rather than individual response and goals.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    risk: [
+      {
+        question: 'A client with osteoporosis history wants loaded spinal flexion because it feels familiar. What is the safest professional response?',
+        correct: 'Screen and respect medical guidance, avoid high-risk loaded flexion when contraindicated, and choose safer strength and posture options within scope.',
+        distractors: [
+          'Allow loaded flexion if the client requests it because client preference overrides contraindication management.',
+          'Use fast flexion repetitions to build tolerance because bones adapt best when movement is sudden.',
+          'Avoid all exercise permanently because an osteoporosis history makes Pilates programming impossible.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'A hypermobile client can reach large ranges easily but reports poor control afterward. What programming risk should the trainer manage?',
+        correct: 'Large passive range may mask insufficient strength and proprioceptive control, so programming should emphasize controlled range, stability, and recovery response.',
+        distractors: [
+          'Hypermobility means the client is automatically advanced and should always train at end range.',
+          'Flexibility is the only meaningful goal, so control complaints are not relevant if range improves.',
+          'The trainer should avoid strength work because hypermobile clients only need stretching.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    pregnancy: [
+      {
+        question: 'A postpartum client reports heaviness and pressure during core exercises. What should the trainer do?',
+        correct: 'Regress the exercise, monitor pressure symptoms, coordinate breath and load carefully, and refer to an appropriate clinician when symptoms persist or worsen.',
+        distractors: [
+          'Increase abdominal intensity because pressure symptoms mean the core is simply weak and needs overload.',
+          'Ignore the symptom if pain is absent because heaviness is not relevant to Pilates programming.',
+          'Use breath-holding to create more trunk stiffness during every repetition.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'Why does pregnancy and postpartum programming require more than exercise substitution lists?',
+        correct: 'The trainer must consider screening, positioning, fatigue, pressure management, pelvic floor symptoms, medical guidance, and the client’s current response.',
+        distractors: [
+          'A fixed list is enough because every pregnant or postpartum client has the same tolerance and goals.',
+          'Only abdominal appearance matters, so pressure symptoms and fatigue can be ignored if form looks good.',
+          'Medical guidance is unnecessary because Pilates exercises are low impact by default.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    'programming-science': [
+      {
+        question: 'A client wants faster progress, but performance drops and soreness lasts several days after each session. What programming change is most appropriate?',
+        correct: 'Adjust load, volume, and recovery, then progress gradually using the client’s performance and symptom response as feedback.',
+        distractors: [
+          'Increase intensity every session because soreness always proves the adaptation stimulus is working.',
+          'Keep the same workload and blame motivation because recovery does not affect Pilates adaptation.',
+          'Remove all challenge until the client never feels effort, because any fatigue blocks progress.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'Why is progressive overload still relevant in Pilates trainer education?',
+        correct: 'Clients adapt when stimulus is specific and progressed appropriately, whether the variable is range, resistance, tempo, complexity, control, or endurance.',
+        distractors: [
+          'Pilates does not use overload because it is only about flexibility and relaxation.',
+          'Overload means adding springs or repetitions only; tempo, range, and control do not count.',
+          'Progression should be random so the body cannot predict the session and adaptation is guaranteed.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    'client-journey': [
+      {
+        question: 'A private client has a clear goal but no notes from previous sessions. What system best supports professional continuity?',
+        correct: 'Record baseline, session focus, client response, homework, and next-step decisions so programming can progress coherently.',
+        distractors: [
+          'Rely on memory because written notes make sessions feel less personal and slow down creativity.',
+          'Change the session theme every time so the client experiences variety before measurable progress.',
+          'Track only attendance because exercise response and homework do not influence future programming.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'Why are outcome notes valuable even when a client mainly wants an enjoyable session?',
+        correct: 'They help the trainer connect enjoyment with measurable progress, safety signals, retention, and better decisions over the client journey.',
+        distractors: [
+          'Outcome notes are only needed for injured clients and have no value for general fitness clients.',
+          'Enjoyment and progress cannot be tracked together, so the trainer must choose one or the other.',
+          'Notes mainly protect the trainer from thinking about programming because the template decides everything.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    'group-class': [
+      {
+        question: 'A mixed-level class includes beginners and experienced clients. What teaching plan best protects quality?',
+        correct: 'Use a clear class theme, teach a base version, offer purposeful progressions/regressions, and manage transitions so everyone trains the same goal safely.',
+        distractors: [
+          'Teach only the hardest version because beginners can copy advanced clients and learn faster.',
+          'Teach four unrelated sequences at once so every client gets a completely separate class.',
+          'Avoid options because choices confuse learners more than unsafe or inappropriate difficulty.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'What is the main risk of designing group classes around novelty instead of a training theme?',
+        correct: 'The class may feel entertaining but lose progression, coherent cueing, level management, and measurable improvement.',
+        distractors: [
+          'Novelty always produces better motor learning because repeated themes make clients stop adapting.',
+          'A theme matters only in private sessions; group clients cannot progress through coherent goals.',
+          'The only risk is boredom, not safety or learning quality, because Pilates movements are low risk.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    consent: [
+      {
+        question: 'A trainer wants to use a tactile assist with a client they do not know well. What is the professional sequence?',
+        correct: 'Explain the purpose, ask clear consent, offer a non-touch alternative, respect the response, and continue checking comfort.',
+        distractors: [
+          'Use the assist without discussion because professional trainers know when touch is helpful.',
+          'Ask once during enrollment and assume that consent covers every future assist in every session.',
+          'Avoid explaining the assist because too much information may make the client refuse.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'Why is consent part of teaching quality rather than only a legal formality?',
+        correct: 'Consent supports trust, autonomy, trauma-aware communication, and better learning because the client can participate safely and honestly.',
+        distractors: [
+          'Consent mainly protects branding; it does not affect client learning, confidence, or communication.',
+          'Consent is unnecessary when touch improves alignment because the technical result matters most.',
+          'Consent should be avoided because asking questions makes the trainer look uncertain.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    practicum: [
+      {
+        question: 'During teaching practice, a trainee demonstrates beautifully but misses client compensation. What should improve first?',
+        correct: 'The trainee should observe one or two priority control points, pause when needed, and correct based on the client’s actual movement response.',
+        distractors: [
+          'The trainee should demonstrate more often because performance quality is more important than observation.',
+          'The trainee should keep the class moving no matter what because stopping interrupts flow and professionalism.',
+          'The trainee should correct every visible detail at once so the client receives complete information.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'What makes a correction effective during a supervised Pilates practicum?',
+        correct: 'It is timely, specific, tied to the exercise goal, understandable to the client, and verified by an improved movement attempt.',
+        distractors: [
+          'It uses sophisticated anatomical language so the supervisor knows the trainee studied the material.',
+          'It is delivered as often as possible because more corrections always create faster learning.',
+          'It focuses on what looks wrong without checking whether the client can actually change the movement.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    business: [
+      {
+        question: 'A new trainer designs a trial class for prospective clients. What should the session prove?',
+        correct: 'It should show safety, clear teaching, an appropriate starting point, client-specific value, and a realistic next step without overpromising outcomes.',
+        distractors: [
+          'It should exhaust the client so they believe the trainer is advanced and buy a package immediately.',
+          'It should avoid screening because business success depends on speed more than intake or trust.',
+          'It should guarantee transformation in one session because confident claims are the strongest sales tool.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'Why do professional policies matter for a Pilates trainer’s business quality?',
+        correct: 'Policies clarify expectations around scope, scheduling, payment, cancellations, safety, and communication so trust is not rebuilt from scratch every session.',
+        distractors: [
+          'Policies mainly make the business feel strict and should be hidden until a client breaks a rule.',
+          'Policies are unnecessary when clients like the trainer because personal warmth solves operational issues.',
+          'Policies should promise guaranteed results so clients understand the trainer is accountable.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    online: [
+      {
+        question: 'In an online Pilates session, the client’s camera angle hides the pelvis and feet. What should the trainer do?',
+        correct: 'Adjust the camera setup, simplify the exercise, use clear safety boundaries, and choose movements the trainer can observe well enough to coach.',
+        distractors: [
+          'Continue with complex choreography because experienced trainers can infer hidden alignment from upper-body movement.',
+          'Ask the client to move faster so visual details matter less and the session feels energetic.',
+          'Avoid giving safety instructions because online clients are responsible for all setup and risk decisions.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'What is the biggest coaching difference in hybrid or remote Pilates delivery?',
+        correct: 'The trainer must design for limited observation, home equipment variability, clear instructions, and conservative progression when safety cues are harder to verify.',
+        distractors: [
+          'Remote teaching is identical to studio teaching because verbal cues replace all observation and setup checks.',
+          'Online sessions should always be harder to compensate for the lack of apparatus.',
+          'Hybrid programming should ignore home constraints because clients can improvise equipment safely.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    exam: [
+      {
+        question: 'A certification candidate can name many exercises but cannot build a safe 50-minute session from intake data. What exam-readiness gap remains?',
+        correct: 'They need integrated programming skill: goal selection, warm-up, main sequence, regressions, cueing priorities, safety checks, and progression logic.',
+        distractors: [
+          'They mainly need more exercise names because a larger repertoire automatically creates session structure.',
+          'They should focus on selling packages because certification depends more on business confidence than teaching decisions.',
+          'They should memorize one fixed sequence and use it for every client to avoid errors during assessment.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'What distinguishes certificate-level readiness from simply completing the course material?',
+        correct: 'Readiness means the trainee can apply theory, safety, apparatus setup, cueing, documentation, and ethical boundaries under realistic teaching conditions.',
+        distractors: [
+          'Readiness means the trainee watched all lessons and can repeat the titles of each topic accurately.',
+          'Readiness is mostly confidence; safety decisions and documentation can be learned after certification.',
+          'Readiness depends on performing advanced exercises, even if teaching choices and client adaptation are weak.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+    universal: [
+      {
+        question: 'A client completes an exercise but compensates through the neck and shoulders. What should the trainer do before progressing?',
+        correct: 'Reduce the challenge, clarify the target action, cue breath and shoulder organization, and progress only after the client can repeat the movement with better control.',
+        distractors: [
+          'Progress immediately because completing the exercise proves the client is ready for the next variation.',
+          'Tell the client to relax without changing load, setup, or cueing because compensation is only a mindset issue.',
+          'Add more repetitions so fatigue teaches the client to stop using the neck and shoulders.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'A client reports discomfort that increases with each repetition. Which professional decision best fits a safe Pilates session?',
+        correct: 'Stop or regress the movement, ask clarifying symptom questions within scope, document the response, and refer out if the pattern suggests medical concern.',
+        distractors: [
+          'Finish the set because discomfort during Pilates usually means the correct muscles are waking up.',
+          'Distract the client with faster tempo so they focus less on the symptom and more on flow.',
+          'Replace documentation with reassurance because writing symptoms down may make the client anxious.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'A trainer gives a technically correct cue, but the client movement gets worse. What is the best next step?',
+        correct: 'Change the cue or exercise constraint based on the observed response, because effectiveness is judged by the client’s movement, not by cue sophistication.',
+        distractors: [
+          'Repeat the same cue louder because correct information eventually works if the client concentrates.',
+          'Move to a harder exercise because poor response means the client needs a bigger challenge.',
+          'Stop observing and continue the planned sequence because one cue failure should not affect programming.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+      {
+        question: 'A class plan looks elegant on paper but leaves no room for regression, setup checks, or client feedback. What is the main quality problem?',
+        correct: 'The plan prioritizes choreography over teachability, so safety, adaptation, and learning may fail when real clients respond differently than expected.',
+        distractors: [
+          'The plan is stronger because fixed choreography removes the need for trainer judgment during class.',
+          'The only problem is marketing; clients care about variety more than setup, feedback, or adaptation.',
+          'The plan should be faster so there is less time for clients to notice uncertainty or setup issues.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+      {
+        question: 'A client asks why an exercise was made easier. Which explanation best supports learning and trust?',
+        correct: 'Explain that the regression preserves the training goal while improving control, safety, and readiness for the next progression.',
+        distractors: [
+          'Say it was easier because the client is not strong enough, then continue without explaining the training goal.',
+          'Avoid explaining regressions because clients may feel disappointed if they know the exercise was modified.',
+          'Tell the client easier versions are mostly filler and will be skipped once they memorize the sequence.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+    ],
+    general: [
+      {
+        question: 'A client performs a Pilates exercise with visible effort but poor control. What should the trainer do first?',
+        correct: 'Clarify the exercise goal, reduce complexity or load, and coach the client toward repeatable control before increasing challenge.',
+        distractors: [
+          'Praise completion and keep progressing because effort is more important than movement organization.',
+          'Add a harder variation so the client adapts quickly to professional-level difficulty.',
+          'Stop the exercise permanently because poor control once means the client is unsuitable for Pilates.',
+        ],
+        difficulty: QuestionDifficulty.MEDIUM,
+        questionType: QuizQuestionType.APPLICATION,
+      },
+      {
+        question: 'Why should a Pilates trainer connect every exercise choice to a client goal and safety constraint?',
+        correct: 'That connection turns repertoire into professional programming, making progression, regression, and outcomes easier to explain and verify.',
+        distractors: [
+          'Goals and constraints slow the session down; professional trainers should rely primarily on intuition.',
+          'Exercise choice does not need rationale when the movement belongs to the Pilates repertoire.',
+          'A client goal matters only at the first session and should not influence daily teaching decisions.',
+        ],
+        difficulty: QuestionDifficulty.HARD,
+        questionType: QuizQuestionType.CRITICAL_THINKING,
+      },
+    ],
+  };
+
+  const selected = banks[topic] || banks.general;
+  const pool = [
+    ...selected,
+    ...banks.universal,
+    ...(topic === 'general' ? [] : banks.general),
+  ].slice(0, Math.max(needed, 10));
+  return pool.map((q, index) =>
+    make({
+      ...q,
+      seed: `${courseId}::pilates::${day}::${topic}::${index}`,
+    })
+  );
+}
+
 /**
  * Generate content-based questions from lesson content
  */
@@ -4714,6 +5450,17 @@ export function generateContentBasedQuestions(
   if (String(language || '').toLowerCase() === 'en' && String(courseId || '') === 'GEO_SHOPIFY_30_EN' && day === 9) {
     const pool = generateGeoShopify30Day9QuestionsEN(day, title, courseId);
     return pool.slice(0, Math.max(needed, 9));
+  }
+
+  // Special-case: Pilates trainer courses need trainee-oriented, domain-specific questions.
+  // The generic EN generator is intentionally not used because final exams reuse lesson questions
+  // and generic title-based stems/distractors become confusing outside local lesson context.
+  if (
+    String(language || '').toLowerCase() === 'en' &&
+    String(courseId || '').includes('PILATES_TRAINER')
+  ) {
+    const pool = generatePilatesTrainerQuestionsEN(day, title, content, courseId, needed);
+    return pool.slice(0, Math.max(needed, 10));
   }
 
   const sanitizeSnippet = (input: string) =>
@@ -4811,6 +5558,7 @@ export function generateContentBasedQuestions(
     if (courseId.includes('GEO')) tags.push('#geo');
     if (courseId.includes('SHOPIFY')) tags.push('#shopify');
     if (courseId.includes('PRODUCTIVITY')) tags.push('#productivity');
+    if (courseId.includes('PILATES')) tags.push('#pilates');
     if (courseId.includes('SALES')) tags.push('#sales');
     if (courseId.includes('AI')) tags.push('#ai');
     if (diff === QuestionDifficulty.EASY) tags.push('#beginner');

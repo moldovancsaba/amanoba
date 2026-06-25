@@ -58,7 +58,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 ## Known issues / risks
 - Legacy lesson quiz fields (`quizMaxWrongAllowed`, `defaultLessonQuizQuestionCount`, `lesson.quizConfig`) still exist for import/export and old payload compatibility; runtime authority is `course.lessonQuizPolicy`.
 - Historical docs may still contain absolute `amanoba_courses` paths for auditability. Active docs should use `amanoba_courses:process_them/docs/...` per `docs/core/CROSS_REPO_DOCS.md`.
-- Project 12 currently uses the standard Status field; richer Product/Agent/Type/Priority metadata remains on issue labels or older MVP Factory project views.
+- Project 12 currently uses the standard Status field; richer Product/Agent/Type/Priority metadata remains on issue labels or older MVP Factory project views, and content audit work now has a dedicated `CONTENT fix` status option.
 
 ## Quick verification commands (run before marking work done)
 - `npm run lint` (ESLint 9 + Next.js config).
@@ -75,6 +75,52 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 ---
 
 <!-- docs-truth: ignore:start historical handover chronology -->
+
+## Pilates quiz hard-rule update (2026-06-24)
+
+### What changed
+- Tightened the quiz quality validator so lesson quizzes cannot contain day numbers, lesson numbers, lesson-title crutches, or "this lesson" references. This is required because lesson questions are reused in final certification exams without local lesson context.
+- Added rejection patterns for silly/generic distractors such as willpower/effort fixes, "more tasks closed is enough", ignored constraints, and speed-over-quality answers.
+- Routed both Pilates trainer courses through a Pilates-specific question generator with domain-relevant trainee scenarios covering screening, anatomy, breath/core pressure, alignment, cueing, mat/reformer/apparatus, special populations, programming, consent, online teaching, business practice, and exam readiness.
+- Updated the mobile lesson quiz answer buttons so long answer text wraps and remains visible instead of clipping inside the answer box.
+- Updated the weekly content-fix autopilot checklist and course creation playbook with the hard final-exam portability and plausible-distractor rules.
+
+### Validation status
+- Regenerated `PROFESSIONAL_PILATES_TRAINER_2026_EN` with 56 active course-specific questions across 7 lessons; validator scan found 0 invalid questions and 0 banned pattern hits.
+- Regenerated `MASTERCLASS_PILATES_TRAINER_2026_EN` with 240 active course-specific questions across 30 lessons; validator scan found 0 invalid questions and 0 banned pattern hits.
+- `npm run type-check` ✅ pass
+- `npx eslint --no-warn-ignored scripts/content-based-question-generator.ts scripts/question-quality-validator.ts scripts/course-content-fix-autopilot.ts app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx` ✅ pass
+- `npm run build` ✅ pass
+
+## Pilates lesson tasks and bibliography enrichment (2026-06-24)
+
+### What changed
+- Enriched all active Pilates lessons with visible `Student tasks`, `Useful external sources`, and `Bibliography` sections.
+- Updated `PROFESSIONAL_PILATES_TRAINER_2026_EN`: 7/7 active lessons now include concrete learner tasks, external links, and bibliography.
+- Updated `MASTERCLASS_PILATES_TRAINER_2026_EN`: 30/30 active lessons now include concrete learner tasks, external links, and bibliography.
+- Sources include Pilates Method Alliance / National Pilates Certification scope guidance, ACSM screening and physical activity guidance, ACOG pregnancy/postpartum exercise guidance, NSCA/NASM professional references, and PubMed/PMC evidence for Pilates/core stability topics.
+- Added `scripts/enrich-pilates-lessons-sources-tasks.ts` as the idempotent backup-first enrichment utility.
+- Tightened the course AI creation prompt, lesson quality audit, weekly content-fix acceptance checks, and course playbook so future lessons should not ship without learner tasks, useful external sources, and bibliography.
+
+### Validation
+- Database verification found 0 Pilates lessons missing `Student tasks`, `Useful external sources`, or `Bibliography`.
+
+## GCC market-entry mini-course (2026-06-25)
+
+### What changed
+- Created `GCC_MARKET_ENTRY_2026_EN` as a free, active, 3-day English course: `Entering the GCC Market: B2B Introduction`.
+- Added the course cover image at `public/images/courses/gcc-market-entry-2026-en.svg`.
+- Added `scripts/seed-gcc-market-entry-2026-en.ts` and `npm run seed:gcc-market-entry-2026-en` so the course can be recreated consistently.
+- Course lessons cover: GCC beachhead selection and market-entry thesis; cultural characteristics and negotiation with GCC business owners; legal, partner, procurement, and operating-model requirements for B2B products/services.
+- Each lesson includes `Student tasks`, `Useful external sources`, and `Bibliography`.
+- Course has 21 active course-specific quiz questions and certification enabled with a 15-question final exam.
+
+### Validation
+- Database verification: 3 active lessons, 21 active questions, 0 missing required lesson sections, 0 invalid quiz questions.
+- Lesson quality scan: all 3 lessons scored 100/100.
+- `npx eslint --no-warn-ignored scripts/seed-gcc-market-entry-2026-en.ts` ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run build` ✅ pass
 
 ## GDS npm package cutover (2026-05-26)
 
@@ -1905,3 +1951,38 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm test`
 - `npm run build`
 - `npm run audit:production-smoke` (post-deploy)
+
+## Local AI course autopilot foundation (2026-06-24)
+
+### What changed
+
+- Added `app/lib/ai/local-llm.ts` as a reusable Ollama-first chat client with JSON mode support and OpenAI fallback for compatibility.
+- Added `app/lib/ai/course-automation.ts` to generate import-ready course packages and maintenance plans from local AI prompts.
+- Added `scripts/course-ai-autopilot.ts` for `create` and `maintain` flows that draft packages, optionally import them, and re-run the existing quiz-generation pipeline.
+- Added `npm run course:ai:create` and `npm run course:ai:maintain` script entry points.
+- Documented the local AI course workflow in `docs/product/COURSE_CREATION_PLAYBOOK.md` and the architecture notes in `docs/architecture/ARCHITECTURE.md`.
+
+### Verification
+
+- `npm run type-check` ✅ pass
+- `npm run lint -- app/lib/ai/local-llm.ts app/lib/ai/course-automation.ts scripts/course-ai-autopilot.ts` ✅ pass
+- `npm run build` ✅ pass
+
+## Weekly content-fix autopilot (2026-06-24)
+
+### What changed
+
+- Added `scripts/course-content-fix-autopilot.ts` to audit the oldest modified course, group lesson / quiz / certification / structure issues, and turn those findings into GitHub issues.
+- Added `npm run course:ai:content-fix` as the operator entry point for the weekly audit-and-sync loop.
+- Added dry-run preview output for the content-fix autopilot so each proposed issue now lands as a local markdown and JSON draft before any GitHub write happens.
+- Added `.github/workflows/course-content-fix-weekly.yml` as the schedule-ready runner definition for Tuesday and Friday at 3 PM Europe/Budapest time, with a local-time gate to handle UTC cron drift.
+- Extended the Project 12 Status field with a dedicated `CONTENT fix` option so content issues can sit in their own lane until they are rechecked.
+- Updated the course playbook and board handoff notes so the content-fix lane is documented alongside the existing course creation and maintenance flows.
+
+### Verification
+
+- `npm run type-check` ✅ pass
+- `npm run lint -- app/lib/ai/course-automation.ts scripts/course-content-fix-autopilot.ts` ✅ pass
+- `npm run build` ✅ pass
+- `npm run course:ai:content-fix` with no `--apply` now produces preview artifacts under `docs/course-ai/content-fix/preview/` before any GitHub sync
+- `npm run course:ai:content-fix` ✅ starts cleanly, then stops with an explicit `MONGODB_URI` error in this workspace because the runtime secret is not present here
