@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Course, FinalExamAttempt, QuizQuestion } from '@/lib/models';
+import { finalizeFinalExamAttempt } from '@/lib/certification/final-exam-finalize';
 import { buildThreeOptions } from '@/lib/quiz-questions';
 import mongoose from 'mongoose';
 
@@ -28,6 +29,20 @@ export async function POST(request: NextRequest) {
   const attempt = await FinalExamAttempt.findOne({ _id: attemptId, playerId: session.user.id });
   if (!attempt) {
     return NextResponse.json({ success: false, error: 'Attempt not found' }, { status: 404 });
+  }
+
+  if (attempt.status === 'GRADED') {
+    const result = await finalizeFinalExamAttempt(attemptId, session.user.id);
+    return NextResponse.json({
+      success: true,
+      data: {
+        correct: false,
+        nextQuestion: null,
+        completed: true,
+        result,
+        passed: result.passed,
+      },
+    });
   }
 
   if (attempt.status !== 'IN_PROGRESS') {
@@ -77,7 +92,6 @@ export async function POST(request: NextRequest) {
 
   const answeredCount = Math.max(answers.length, currentQuestionIndex + 1);
   const wrongCount = Math.max(0, answers.length - attempt.correctCount);
-  const totalQuestions = attempt.questionOrder.length;
 
   // Immediate fail: course-level max error % exceeded (e.g. 10% = fail as soon as error rate > 10%)
   let immediateFail = false;
@@ -91,11 +105,6 @@ export async function POST(request: NextRequest) {
     const currentErrorPercent = (wrongCount / answeredCount) * 100;
     if (currentErrorPercent > maxErrorPercent) {
       immediateFail = true;
-      attempt.status = 'GRADED';
-      attempt.passed = false;
-      attempt.submittedAtISO = new Date().toISOString();
-      attempt.scorePercentRaw = totalQuestions > 0 ? (attempt.correctCount / totalQuestions) * 100 : 0;
-      attempt.scorePercentInteger = Math.round(attempt.scorePercentRaw);
     }
   }
 
@@ -129,13 +138,18 @@ export async function POST(request: NextRequest) {
 
   await attempt.save();
 
+  const result = nextQuestionPayload === null
+    ? await finalizeFinalExamAttempt(attemptId, session.user.id)
+    : null;
+
   return NextResponse.json({
     success: true,
     data: {
       correct: isCorrect,
       nextQuestion: nextQuestionPayload,
       completed: nextQuestionPayload === null,
-      passed: immediateFail ? false : undefined,
+      passed: result?.passed ?? (immediateFail ? false : undefined),
+      result,
     },
   });
 }

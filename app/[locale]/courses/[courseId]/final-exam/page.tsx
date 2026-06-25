@@ -60,6 +60,12 @@ interface QuestionPayload {
   total: number;
 }
 
+interface FinalExamResultPayload {
+  scorePercentInteger: number;
+  passed: boolean;
+  certificateUpdated: boolean;
+}
+
 // Static translations for final exam page - keyed by COURSE LANGUAGE
 const finalExamTranslations: Record<string, Record<string, string>> = {
   ar: {
@@ -416,6 +422,29 @@ export default function FinalExamPage() {
     }
   };
 
+  const applyExamResult = (resultData: FinalExamResultPayload) => {
+    setResult({
+      score: resultData.scorePercentInteger,
+      passed: resultData.passed,
+      certificateUpdated: resultData.certificateUpdated,
+    });
+    setQuestion(null);
+  };
+
+  const submitAttempt = async (): Promise<FinalExamResultPayload> => {
+    const submitRes = await fetch('/api/certification/final-exam/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ attemptId }),
+    });
+    const submitData = await submitRes.json();
+    if (!submitRes.ok || !submitData.success) {
+      throw new Error(submitData.error || 'Submit failed');
+    }
+
+    return submitData.data;
+  };
+
   const answer = async (selectedIndex: number) => {
     if (!attemptId || !question) return;
     setSubmitting(true);
@@ -434,20 +463,8 @@ export default function FinalExamPage() {
       if (!res.ok || !data.success) throw new Error(data.error || 'Answer failed');
 
       if (data.data.completed) {
-        // Submit to finalize
-        const submitRes = await fetch('/api/certification/final-exam/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ attemptId }),
-        });
-        const submitData = await submitRes.json();
-        if (!submitRes.ok || !submitData.success) throw new Error(submitData.error || 'Submit failed');
-        setResult({
-          score: submitData.data.scorePercentInteger,
-          passed: submitData.data.passed,
-          certificateUpdated: submitData.data.certificateUpdated,
-        });
-        setQuestion(null);
+        const resultData = data.data.result ?? await submitAttempt();
+        applyExamResult(resultData);
       } else {
         setQuestion(data.data.nextQuestion);
       }
