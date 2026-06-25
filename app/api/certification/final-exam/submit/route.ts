@@ -37,9 +37,6 @@ export async function POST(request: NextRequest) {
   if (!attempt) {
     return NextResponse.json({ success: false, error: 'Attempt not found' }, { status: 404 });
   }
-  if (attempt.status !== 'IN_PROGRESS') {
-    return NextResponse.json({ success: false, error: 'Attempt not in progress' }, { status: 400 });
-  }
 
   const total = attempt.questionOrder.length || 50;
   const correctCount = attempt.correctCount;
@@ -50,6 +47,28 @@ export async function POST(request: NextRequest) {
   const player = await Player.findById(session.user.id).lean();
   if (!course || !player) {
     return NextResponse.json({ success: false, error: 'Course or player not found' }, { status: 404 });
+  }
+
+  type DocWithId = { _id: { toString(): string } };
+  const existing = await Certificate.findOne({
+    playerId: (player as DocWithId)._id.toString(),
+    courseId: course.courseId,
+    isRevoked: { $ne: true },
+  });
+
+  if (attempt.status === 'GRADED') {
+    return NextResponse.json({
+      success: true,
+      data: {
+        scorePercentInteger: attempt.scorePercentInteger ?? scorePercentInteger,
+        passed: Boolean(attempt.passed),
+        certificateUpdated: Boolean(existing),
+      },
+    });
+  }
+
+  if (attempt.status !== 'IN_PROGRESS') {
+    return NextResponse.json({ success: false, error: 'Attempt not in progress' }, { status: 400 });
   }
 
   // Dynamic pass rule: course.certification.passThresholdPercent (default 50)
@@ -88,12 +107,7 @@ export async function POST(request: NextRequest) {
   // Certificate is eligible only if ALL requirements are met
   const certificateEligible = enrolled && allLessonsCompleted && allQuizzesPassed && passed;
 
-  type DocWithId = { _id: { toString(): string } };
-  const existing = await Certificate.findOne({
-    playerId: (player as DocWithId)._id.toString(),
-    courseId: course.courseId,
-  });
-
+  let certificateUpdated = Boolean(existing);
   if (certificateEligible) {
     // All requirements met - issue or update certificate
     if (existing) {
@@ -103,6 +117,7 @@ export async function POST(request: NextRequest) {
       existing.revokedAtISO = undefined;
       existing.revokedReason = undefined;
       await existing.save();
+      certificateUpdated = true;
     } else {
       // A/B: resolve template variant at issue (course + global fallback, stable hash)
       const globalSettings = await CertificationSettings.findOne({ key: 'global' }).lean();
@@ -132,6 +147,7 @@ export async function POST(request: NextRequest) {
         isRevoked: false,
         isPublic: true,
       });
+      certificateUpdated = true;
     }
   } else if (existing) {
     // Requirements not met - revoke certificate if it exists
@@ -143,6 +159,7 @@ export async function POST(request: NextRequest) {
       ? 'requirements_not_met' 
       : 'score_below_threshold';
     await existing.save();
+    certificateUpdated = false;
   }
 
   // Check course achievements (e.g. Perfect Assessment for 100% on final exam)
@@ -169,7 +186,7 @@ export async function POST(request: NextRequest) {
     data: {
       scorePercentInteger,
       passed,
-      certificateUpdated: passed || Boolean(existing),
+      certificateUpdated,
     },
   });
 }
