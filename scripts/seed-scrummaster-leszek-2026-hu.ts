@@ -442,6 +442,7 @@ async function main() {
         xpConfig: { completionXP: 500, lessonXP: 25 },
         certification: {
           enabled: true,
+          templateId: 'default_v1',
           // IMPORTANT: no pricePoints / priceMoney => entitlementRequired=false (free certificate access policy)
         },
       },
@@ -524,4 +525,3 @@ main().catch((err) => {
   console.error('❌ Seed failed:', err);
   process.exit(1);
 });
-

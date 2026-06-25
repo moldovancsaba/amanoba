@@ -287,6 +287,7 @@ async function main() {
       premiumIncludesCertification: false,
       requireAllLessonsCompleted: true,
       requireAllQuizzesPassed: true,
+      templateId: 'default_v1',
     },
     lessonQuizPolicy: {
       enabled: true,
