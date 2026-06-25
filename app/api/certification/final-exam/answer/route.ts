@@ -35,7 +35,8 @@ export async function POST(request: NextRequest) {
   }
 
   // Validate question membership
-  if (!attempt.questionIds.includes(questionId)) {
+  const currentQuestionIndex = attempt.questionOrder.indexOf(questionId);
+  if (!attempt.questionIds.includes(questionId) || currentQuestionIndex === -1) {
     return NextResponse.json({ success: false, error: 'Question not part of attempt' }, { status: 400 });
   }
 
@@ -57,20 +58,25 @@ export async function POST(request: NextRequest) {
   } else {
     isCorrect = false;
   }
-  if (isCorrect) {
+  const answers = Array.isArray(attempt.answers) ? attempt.answers : [];
+  const alreadyAnswered = answers.some((answer) => answer.questionId === questionId);
+  if (isCorrect && !alreadyAnswered) {
     attempt.correctCount += 1;
   }
 
   // Store answer
-  attempt.answers = attempt.answers || [];
-  attempt.answers.push({
-    questionId,
-    selectedIndex,
-    isCorrect,
-  });
+  if (!alreadyAnswered) {
+    answers.push({
+      questionId,
+      selectedIndex,
+      isCorrect,
+    });
+    attempt.answers = answers;
+    attempt.markModified('answers');
+  }
 
-  const answeredCount = attempt.answers.length;
-  const wrongCount = answeredCount - attempt.correctCount;
+  const answeredCount = Math.max(answers.length, currentQuestionIndex + 1);
+  const wrongCount = Math.max(0, answers.length - attempt.correctCount);
   const totalQuestions = attempt.questionOrder.length;
 
   // Immediate fail: course-level max error % exceeded (e.g. 10% = fail as soon as error rate > 10%)
@@ -95,8 +101,9 @@ export async function POST(request: NextRequest) {
 
   // Determine next question (3 options per question via buildThreeOptions)
   let nextQuestionPayload = null;
-  if (!immediateFail && answeredCount < attempt.questionOrder.length) {
-    const nextQuestionId = attempt.questionOrder[answeredCount];
+  const nextQuestionIndex = currentQuestionIndex + 1;
+  if (!immediateFail && nextQuestionIndex < attempt.questionOrder.length) {
+    const nextQuestionId = attempt.questionOrder[nextQuestionIndex];
     const nextQuestion = await QuizQuestion.findById(new mongoose.Types.ObjectId(nextQuestionId)).lean();
     if (!nextQuestion) {
       return NextResponse.json({ success: false, error: 'Next question not found' }, { status: 500 });
@@ -110,11 +117,12 @@ export async function POST(request: NextRequest) {
       attempt.correctIndexInDisplayByQuestion = {};
     }
     attempt.correctIndexInDisplayByQuestion[nextQuestionId] = nextCorrectIndex;
+    attempt.markModified('correctIndexInDisplayByQuestion');
     nextQuestionPayload = {
       questionId: nextQuestionId,
       question: nextQuestion.question,
       options: nextThree.options,
-      index: answeredCount,
+      index: nextQuestionIndex,
       total: attempt.questionOrder.length,
     };
   }
