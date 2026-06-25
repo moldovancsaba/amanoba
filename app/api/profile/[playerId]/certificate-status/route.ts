@@ -34,6 +34,7 @@ import {
 } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { resolveCourseLength } from '@/lib/course-helpers';
+import { hasAssessmentResultsForEveryDay } from '@/lib/course-progress-assessment-results';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -133,12 +134,10 @@ export async function GET(
     const { totalDays: durationDays } = await resolveCourseLength(course);
     const allLessonsCompleted = completedDays.length >= durationDays;
 
-    // Check if all quizzes are passed
-    // assessmentResults is a Map<string, ObjectId> where key is dayNumber as string
-    const assessmentResults = (progress?.assessmentResults ?? new Map()) as unknown as Map<string, unknown>;
-    const allQuizzesPassed = durationDays > 0 && 
-      Array.from({ length: durationDays }, (_, i) => (i + 1).toString())
-        .every((dayStr) => assessmentResults.has(dayStr));
+    const allQuizzesPassed = hasAssessmentResultsForEveryDay(
+      progress?.assessmentResults,
+      durationDays
+    );
 
     // Check final exam status
     // FinalExamAttempt.courseId is ObjectId reference to Course._id

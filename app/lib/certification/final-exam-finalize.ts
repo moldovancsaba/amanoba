@@ -10,6 +10,7 @@ import {
 } from '@/lib/models';
 import { resolveTemplateVariantAtIssue } from '@/lib/certification';
 import { resolveCourseLength } from '@/lib/course-helpers';
+import { hasAssessmentResultsForEveryDay } from '@/lib/course-progress-assessment-results';
 import { checkAndUnlockCourseAchievements } from '@/lib/gamification';
 import { logger } from '@/lib/logger';
 
@@ -78,10 +79,8 @@ export async function finalizeFinalExamAttempt(
   const allLessonsCompleted = !requireAllLessons || (enrolled && progress &&
     (progress.completedDays?.length || 0) >= totalDays);
 
-  const assessmentResultsMap = (progress?.assessmentResults ?? new Map()) as Map<string, unknown>;
-  const allQuizzesPassed = !requireAllQuizzes || (enrolled && totalDays > 0 &&
-    Array.from({ length: totalDays }, (_, i) => (i + 1).toString())
-      .every((dayStr) => assessmentResultsMap.has(dayStr)));
+  const allQuizzesPassed = !requireAllQuizzes || (enrolled &&
+    hasAssessmentResultsForEveryDay(progress?.assessmentResults, totalDays));
 
   const certificateEligible = enrolled && allLessonsCompleted && allQuizzesPassed && passed;
   let certificateUpdated = Boolean(existing);

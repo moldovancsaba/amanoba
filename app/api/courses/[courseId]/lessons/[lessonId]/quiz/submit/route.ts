@@ -15,6 +15,10 @@ import { logger } from '@/lib/logger';
 import mongoose from 'mongoose';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 import { resolveCourseQuizPolicy } from '@/lib/course-quiz-policy';
+import {
+  hasAssessmentResultForDay,
+  setAssessmentResultForDay,
+} from '@/lib/course-progress-assessment-results';
 import { updateDailyLearningStreak } from '@/lib/gamification';
 import { updateFriendStreaksForLearningAction } from '@/lib/friend-streaks';
 import { logStreakEvent } from '@/app/lib/analytics/event-logger';
@@ -209,12 +213,15 @@ export async function POST(
             // Since AssessmentResult requires gameId/sessionId which quizzes don't have,
             // we'll use a placeholder ObjectId to mark completion
             const assessmentResults = progress.assessmentResults || new Map();
-            if (!assessmentResults.has(dayNumberStr)) {
+            if (!hasAssessmentResultForDay(assessmentResults, dayNumberStr)) {
               // Create a placeholder ObjectId to mark quiz completion
               // This is a simple way to track without requiring full AssessmentResult
               const placeholderId = new mongoose.Types.ObjectId();
-              assessmentResults.set(dayNumberStr, placeholderId);
-              progress.assessmentResults = assessmentResults;
+              progress.assessmentResults = setAssessmentResultForDay(
+                assessmentResults,
+                dayNumberStr,
+                placeholderId
+              ) as Map<string, mongoose.Types.ObjectId>;
               await progress.save();
               
               logger.info({
