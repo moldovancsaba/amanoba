@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import logger from '@/lib/logger';
 import { Quest, PlayerQuestProgress } from '@/lib/models/quest';
+import { getMapLikeValue } from '@/lib/map-like';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -76,7 +77,7 @@ export async function GET(request: NextRequest) {
         stepNumber: step.stepNumber,
         description: step.description,
         isCompleted: stepsCompleted.includes(step.stepNumber),
-        completedAt: progress?.stepsProgress?.get(step.stepNumber)?.completedAt || null,
+        completedAt: getMapLikeValue(progress?.stepsProgress, step.stepNumber)?.completedAt || null,
       }));
 
       return {

@@ -29,6 +29,7 @@ import { validateLessonTextLanguageIntegrity } from '@/app/lib/quality/language-
 import { getEmailTransport } from './transports';
 import { contentToHtml } from '@/app/lib/lesson-content';
 import { EMAIL_THEME_DEFAULT } from '@/app/lib/constants/color-tokens';
+import { getMapLikeValue, type MapLike } from '@/lib/map-like';
 
 /**
  * Email Configuration
@@ -70,6 +71,22 @@ function normalizeLocale(candidate: unknown, fallback: unknown): Locale {
   const fb = String(fallback || '').toLowerCase();
   if (locales.includes(fb as Locale)) return fb as Locale;
   return 'en';
+}
+
+type CourseTranslation = { name?: string; description?: string };
+type LessonTranslation = {
+  title?: string;
+  content?: string;
+  emailSubject?: string;
+  emailBody?: string;
+};
+
+function getCourseTranslation(translations: MapLike<CourseTranslation>, locale: Locale) {
+  return getMapLikeValue(translations, locale);
+}
+
+function getLessonTranslation(translations: MapLike<LessonTranslation>, locale: Locale) {
+  return getMapLikeValue(translations, locale);
 }
 
 function scrubForLanguageIntegrity(text: string, exemptStrings?: Array<string | null | undefined>) {
@@ -215,20 +232,20 @@ export async function sendLessonEmail(
     let courseName = course.name;
 
     // Check for translations
-    if (emailLocale !== lesson.language && lesson.translations?.has(emailLocale)) {
-      const translation = lesson.translations.get(emailLocale);
+    if (emailLocale !== lesson.language) {
+      const translation = getLessonTranslation(lesson.translations, emailLocale);
       if (translation) {
-        emailSubject = translation.emailSubject;
-        emailBody = translation.emailBody;
-        lessonTitle = translation.title;
-        lessonContent = translation.content;
+        emailSubject = translation.emailSubject ?? emailSubject;
+        emailBody = translation.emailBody ?? emailBody;
+        lessonTitle = translation.title ?? lessonTitle;
+        lessonContent = translation.content ?? lessonContent;
       }
     }
 
-    if (emailLocale !== course.language && course.translations?.has(emailLocale)) {
-      const translation = course.translations.get(emailLocale);
+    if (emailLocale !== course.language) {
+      const translation = getCourseTranslation(course.translations, emailLocale);
       if (translation) {
-        courseName = translation.name;
+        courseName = translation.name ?? courseName;
       }
     }
 
@@ -357,9 +374,9 @@ export async function sendWelcomeEmail(
     const emailLocale = normalizeLocale(player.locale, course.language || 'en');
 
     let courseName = course.name;
-    if (emailLocale !== course.language && course.translations?.has(emailLocale)) {
-      const translation = course.translations.get(emailLocale);
-      if (translation) courseName = translation.name;
+    if (emailLocale !== course.language) {
+      const translation = getCourseTranslation(course.translations, emailLocale);
+      if (translation?.name) courseName = translation.name;
     }
 
     const messageId = generateSecureToken(16);
@@ -446,9 +463,9 @@ export async function sendCompletionEmail(
     const emailLocale = normalizeLocale(player.locale, course.language || 'en');
 
     let courseName = course.name;
-    if (emailLocale !== course.language && course.translations?.has(emailLocale)) {
-      const translation = course.translations.get(emailLocale);
-      if (translation) courseName = translation.name;
+    if (emailLocale !== course.language) {
+      const translation = getCourseTranslation(course.translations, emailLocale);
+      if (translation?.name) courseName = translation.name;
     }
 
     // P2 Email Automation: upsell — recommend 3 courses (exclude the one just completed)
@@ -557,9 +574,9 @@ export async function sendReminderEmail(
     const emailLocale = normalizeLocale(player.locale, course.language || 'en');
 
     let courseName = course.name;
-    if (emailLocale !== course.language && course.translations?.has(emailLocale)) {
-      const translation = course.translations.get(emailLocale);
-      if (translation) courseName = translation.name;
+    if (emailLocale !== course.language) {
+      const translation = getCourseTranslation(course.translations, emailLocale);
+      if (translation?.name) courseName = translation.name;
     }
 
     const courseSlug = typeof course.courseId === 'string' ? course.courseId : null;
@@ -695,10 +712,10 @@ export async function sendPaymentConfirmationEmail(
 
     // Get course name
     let courseName = course?.name || 'Premium Access';
-    if (course && emailLocale !== course.language && course.translations?.has(emailLocale)) {
-      const translation = course.translations.get(emailLocale);
+    if (course && emailLocale !== course.language) {
+      const translation = getCourseTranslation(course.translations, emailLocale);
       if (translation) {
-        courseName = translation.name;
+        courseName = translation.name ?? courseName;
       }
     }
 

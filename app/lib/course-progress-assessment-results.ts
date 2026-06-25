@@ -1,33 +1,19 @@
+import {
+  getMapLikeValue,
+  hasMapLikeKey,
+  setMapLikeValue,
+  type MapLike,
+} from '@/lib/map-like';
+
 type AssessmentResultsLike =
-  | Map<string, unknown>
-  | Record<string, unknown>
-  | Array<[string, unknown]>
-  | null
-  | undefined;
+  | MapLike
+  | Array<[string, unknown]>;
 
 export function hasAssessmentResultForDay(
   assessmentResults: AssessmentResultsLike,
   dayNumber: number | string
 ): boolean {
-  if (!assessmentResults) {
-    return false;
-  }
-
-  const dayKey = String(dayNumber);
-
-  if (assessmentResults instanceof Map) {
-    return assessmentResults.has(dayKey);
-  }
-
-  if (Array.isArray(assessmentResults)) {
-    return assessmentResults.some(([key]) => String(key) === dayKey);
-  }
-
-  if (typeof assessmentResults === 'object') {
-    return Object.prototype.hasOwnProperty.call(assessmentResults, dayKey);
-  }
-
-  return false;
+  return hasMapLikeKey(assessmentResults, String(dayNumber));
 }
 
 export function hasAssessmentResultsForEveryDay(
@@ -42,20 +28,13 @@ export function setAssessmentResultForDay(
   assessmentResults: AssessmentResultsLike,
   dayNumber: number | string,
   value: unknown
-): Map<string, unknown> | Record<string, unknown> {
-  const dayKey = String(dayNumber);
+): Map<string | number, unknown> | Record<string, unknown> {
+  return setMapLikeValue(assessmentResults, String(dayNumber), value);
+}
 
-  if (assessmentResults instanceof Map) {
-    assessmentResults.set(dayKey, value);
-    return assessmentResults;
-  }
-
-  if (assessmentResults && typeof assessmentResults === 'object' && !Array.isArray(assessmentResults)) {
-    assessmentResults[dayKey] = value;
-    return assessmentResults;
-  }
-
-  const nextAssessmentResults = new Map<string, unknown>();
-  nextAssessmentResults.set(dayKey, value);
-  return nextAssessmentResults;
+export function getAssessmentResultForDay(
+  assessmentResults: AssessmentResultsLike,
+  dayNumber: number | string
+): unknown {
+  return getMapLikeValue(assessmentResults, String(dayNumber));
 }

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import { PlayerProgression } from '@/lib/models';
 import logger from '@/lib/logger';
+import { getMapLikeValue } from '@/lib/map-like';
 
 /**
  * GET /api/players/[playerId]/rank
@@ -24,7 +25,7 @@ export async function GET(
     }
 
     const gameKey = 'MADOKU';
-    const stats = (progression.gameSpecificStats as Map<string, unknown>).get?.(gameKey) as Record<string, unknown> || {};
+    const stats = getMapLikeValue<Record<string, unknown>>(progression.gameSpecificStats, gameKey) || {};
     const elo: number = typeof stats.elo === 'number' ? stats.elo : 1200;
 
     // Total players with an ELO entry for Madoku

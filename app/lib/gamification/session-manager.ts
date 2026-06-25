@@ -47,6 +47,7 @@ import {
   type ChallengeProgressContext,
 } from './daily-challenge-tracker';
 import logger from '../logger';
+import { getMapLikeValue, setMapLikeValue } from '@/lib/map-like';
 
 /**
  * Interface: Session Start Input
@@ -397,7 +398,7 @@ export async function completeGameSession(
     if (isMadoku && !isGhost) {
       // Get current ELO or initialize to 1200
       const gameKey = (game as { gameId?: string }).gameId || String(game._id);
-      const currentStats = progression.gameSpecificStats.get(gameKey) || {
+      const currentStats = getMapLikeValue(progression.gameSpecificStats, gameKey) || {
         gamesPlayed: 0,
         wins: 0,
         losses: 0,
@@ -423,7 +424,11 @@ export async function completeGameSession(
       
       // Update game-specific stats with new ELO
       currentStats.elo = newElo;
-      progression.gameSpecificStats.set(gameKey, currentStats);
+      progression.gameSpecificStats = setMapLikeValue(
+        progression.gameSpecificStats,
+        gameKey,
+        currentStats
+      ) as typeof progression.gameSpecificStats;
       
       logger.info(
         {

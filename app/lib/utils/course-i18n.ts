@@ -6,6 +6,7 @@
  */
 
 import type { Locale } from '@/app/lib/i18n/locales';
+import { getMapLikeValue } from '@/lib/map-like';
 
 type TranslationsMap =
   | Map<string, { name: string; description: string }>
@@ -24,11 +25,7 @@ function getTranslation(
   translations: TranslationsMap,
   locale: Locale
 ): { name: string; description: string } | undefined {
-  if (!translations) return undefined;
-  if (translations instanceof Map) {
-    return translations.get(locale);
-  }
-  return (translations as Record<string, { name: string; description: string }>)[locale];
+  return getMapLikeValue(translations, locale);
 }
 
 /**
