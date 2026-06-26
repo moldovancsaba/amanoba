@@ -43,7 +43,7 @@
 | `docs/core/LEARNINGS.md` | Amanoba Learnings | 76.8 KB |
 | `docs/core/NAMING_GUIDE.md` | Amanoba Naming Guide | 10.8 KB |
 | `docs/core/OLLAMA_TASKLIST_FOR_AGENT.md` | Ollama setup task list (for agent) | 5.7 KB |
-| `docs/core/PROJECT_STATE.md` | Amanoba Project State | 2.7 KB |
+| `docs/core/PROJECT_STATE.md` | Amanoba Project State | 2.8 KB |
 | `docs/core/TECH_STACK.md` | Technology Stack | 4.1 KB |
 | `docs/core/templates/FEATURE_TEMPLATE.md` | YYYY-MM-DD Feature Title | 247 B |
 | `docs/core/WARP.DEV_AI_CONVERSATION.md` | Amanoba Development Planning Log | 17.1 KB |

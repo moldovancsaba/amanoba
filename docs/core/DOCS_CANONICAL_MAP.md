@@ -46,7 +46,7 @@ This is a *proposed* map. Apply moves/deletes only after review.
 | KEEP | `docs/core/LEARNINGS.md` | Amanoba Learnings | 76.8 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/core/NAMING_GUIDE.md` | Amanoba Naming Guide | 10.8 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/OLLAMA_TASKLIST_FOR_AGENT.md` | Ollama setup task list (for agent) | 5.7 KB | — | Unclassified; keep pending human review. |
-| KEEP | `docs/core/PROJECT_STATE.md` | Amanoba Project State | 2.7 KB | — | Unclassified; keep pending human review. |
+| KEEP | `docs/core/PROJECT_STATE.md` | Amanoba Project State | 2.8 KB | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/TECH_STACK.md` | Technology Stack | 4.1 KB | — | Listed in DOCS_INDEX.md (core docs section). |
 | KEEP | `docs/core/templates/FEATURE_TEMPLATE.md` | YYYY-MM-DD Feature Title | 247 B | — | Unclassified; keep pending human review. |
 | KEEP | `docs/core/WARP.DEV_AI_CONVERSATION.md` | Amanoba Development Planning Log | 17.1 KB | — | Reference notes (kept but not canonical). |
