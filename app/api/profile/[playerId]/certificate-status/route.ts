@@ -152,25 +152,27 @@ export async function GET(
     const finalExamPassed = !!finalExamAttempt?.passed;
     const finalExamScore = finalExamAttempt?.scorePercentInteger || null;
 
-    // Certificate is eligible if all requirements are met
-    const certificateEligible = enrolled && 
-      allLessonsCompleted && 
-      allQuizzesPassed && 
-      finalExamPassed;
+    // Fetch certificate record independently. Older course progress can have incomplete
+    // assessment maps, but an issued non-revoked certificate is the durable source of truth.
+    const certificate = await Certificate.findOne({
+      playerId,
+      courseId,
+      isRevoked: { $ne: true },
+    }).lean();
+    const hasIssuedCertificate = Boolean(certificate);
+    const certificateEligible =
+      hasIssuedCertificate ||
+      (enrolled &&
+        allLessonsCompleted &&
+        allQuizzesPassed &&
+        finalExamPassed);
+    const verificationSlug = certificate?.verificationSlug ?? null;
+    const designTemplateId = certificate?.designTemplateId ?? null;
 
-    // Fetch certificate record if it exists to get verificationSlug and designTemplateId (A/B variant)
-    let verificationSlug: string | null = null;
-    let designTemplateId: string | null = null;
-    if (certificateEligible) {
-      const certificate = await Certificate.findOne({
-        playerId,
-        courseId,
-        isRevoked: { $ne: true },
-      }).lean();
-      if (certificate) {
-        verificationSlug = certificate.verificationSlug;
-        designTemplateId = certificate.designTemplateId ?? null;
-      }
+    if (certificate?.finalExamScorePercentInteger != null && finalExamScore == null) {
+      // Keep legacy/profile displays useful even when the final exam attempt was pruned
+      // or stored before the current attempt model stabilized.
+      logger.info({ playerId, courseId }, 'Using certificate score as final exam score fallback');
     }
 
     logger.info({
@@ -191,8 +193,9 @@ export async function GET(
         allLessonsCompleted,
         allQuizzesPassed,
         finalExamPassed,
-        finalExamScore,
+        finalExamScore: finalExamScore ?? certificate?.finalExamScorePercentInteger ?? null,
         certificateEligible,
+        hasIssuedCertificate,
         courseTitle: course.name || course.courseId,
         playerName: player.displayName || 'Unknown',
         verificationSlug, // Include verificationSlug if certificate exists

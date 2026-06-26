@@ -24,6 +24,7 @@ import mongoose from 'mongoose';
 import connectDB from '@/lib/mongodb';
 import { CourseProgress } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { resolveCourseLength } from '@/lib/course-helpers';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -55,22 +56,39 @@ export async function GET(
     const progressList = await CourseProgress.find({
       playerId: new mongoose.Types.ObjectId(playerId),
     })
-      .populate('courseId', 'courseId name language')
+      .populate('courseId', 'courseId name language durationDays parentCourseId selectedLessonIds ccsId')
       .sort({ startedAt: -1 })
       .lean();
 
     // Transform to simple course list (populate returns courseId, name, language)
-    type PopulatedCourse = { _id?: unknown; name?: string; courseId?: string; language?: string };
-    const courses = progressList
-      .map((progress) => {
+    type PopulatedCourse = {
+      _id?: unknown;
+      name?: string;
+      courseId?: string;
+      language?: string;
+      durationDays?: number;
+      parentCourseId?: string;
+      selectedLessonIds?: string[];
+      ccsId?: string;
+    };
+    const courses = (await Promise.all(progressList
+      .map(async (progress) => {
         const course = progress.courseId as PopulatedCourse | null | undefined;
         if (!course) return null;
+        const { totalDays } = await resolveCourseLength(course);
+        const completedDays = Array.isArray(progress.completedDays) ? progress.completedDays.length : 0;
+        const isCompleted =
+          String(progress.status || '').toUpperCase() === 'COMPLETED' ||
+          (totalDays > 0 && completedDays >= totalDays);
         return {
           courseId: course.courseId ?? (course._id != null ? String(course._id) : undefined),
           title: course.name ?? course.courseId ?? 'Unknown Course',
           language: course.language ?? 'en',
+          completedDays,
+          totalDays,
+          isCompleted,
         };
-      })
+      })))
       .filter((course) => course !== null);
 
     logger.info({ playerId, courseCount: courses.length }, 'Enrolled courses fetched');

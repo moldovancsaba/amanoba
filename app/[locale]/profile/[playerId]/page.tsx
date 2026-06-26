@@ -40,11 +40,9 @@ import {
   IconAward,
   IconCalendar,
   IconCheck,
-  IconClock,
   IconCoin,
   IconCreditCard,
   IconDeviceFloppy,
-  IconFlame,
   IconLink,
   IconSettings,
   IconTarget,
@@ -127,17 +125,6 @@ interface ProfileWallet {
   lifetimeSpent: number;
 }
 
-interface ProfileActivity {
-  gameIcon?: unknown;
-  gameName?: string;
-  outcome?: string;
-  score?: number;
-  pointsEarned?: number;
-  createdAt?: string;
-  playedAt?: string;
-  duration?: number;
-}
-
 interface ProfileData {
   player?: ProfilePlayer;
   progression?: ProfileProgression;
@@ -145,7 +132,6 @@ interface ProfileData {
   achievements?: ProfileAchievements;
   streaks?: ProfileStreaks;
   wallet?: ProfileWallet;
-  recentActivity?: ProfileActivity[];
 }
 
 interface CertificateItem {
@@ -153,6 +139,15 @@ interface CertificateItem {
   courseTitle?: string;
   verificationSlug?: string | null;
   score?: number | null;
+}
+
+interface EnrolledCourseItem {
+  courseId: string;
+  title?: string;
+  language?: string;
+  completedDays?: number;
+  totalDays?: number;
+  isCompleted?: boolean;
 }
 
 interface PaymentTx {
@@ -169,7 +164,7 @@ interface PaymentTx {
   stripePaymentIntentId?: string;
 }
 
-type ProfileTab = 'overview' | 'achievements' | 'activity' | 'payments' | 'settings';
+type ProfileTab = 'overview' | 'certificates' | 'achievements' | 'payments' | 'settings';
 
 export default function ProfilePage({ params }: { params: Promise<{ playerId: string }> }) {
   const { data: session } = useSession();
@@ -184,6 +179,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
   const [activeTab, setActiveTab] = useState<ProfileTab>('overview');
   const [paymentData, setPaymentData] = useState<PaymentTx[] | null>(null);
   const [paymentLoading, setPaymentLoading] = useState(false);
+  const [enrolledCoursesData, setEnrolledCoursesData] = useState<EnrolledCourseItem[]>([]);
   const [certificatesData, setCertificatesData] = useState<CertificateItem[]>([]);
   const [certificatesLoading, setCertificatesLoading] = useState(false);
   const [editDisplayName, setEditDisplayName] = useState('');
@@ -271,8 +267,11 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
         const coursesRes = await fetch(`/api/profile/${playerId}/courses`);
         const coursesData = await coursesRes.json();
 
-        if (coursesData.success && coursesData.courses.length > 0) {
-          const certificatePromises = coursesData.courses.map(async (course: { courseId: string; title?: string }) => {
+        const courses = (coursesData.success ? coursesData.courses || [] : []) as EnrolledCourseItem[];
+        setEnrolledCoursesData(courses);
+
+        if (courses.length > 0) {
+          const certificatePromises = courses.map(async (course) => {
             try {
               const statusRes = await fetch(`/api/profile/${playerId}/certificate-status?courseId=${encodeURIComponent(course.courseId)}`);
               const statusData = await statusRes.json();
@@ -291,8 +290,10 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
             }
           });
 
-          const certificates = (await Promise.all(certificatePromises)).filter((certificate): certificate is CertificateItem => certificate !== null);
+          const certificates = (await Promise.all(certificatePromises)).filter(Boolean) as CertificateItem[];
           setCertificatesData(certificates);
+        } else {
+          setCertificatesData([]);
         }
       } catch (error) {
         console.error('Failed to fetch certificates:', error);
@@ -383,8 +384,8 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
 
   const profileTabs = [
     { value: 'overview', label: 'Overview', icon: IconTrendingUp },
+    { value: 'certificates', label: 'Certificates', icon: IconAward },
     { value: 'achievements', label: 'Achievements', icon: IconTrophy },
-    { value: 'activity', label: 'Activity', icon: IconClock },
     ...(isOwnProfile ? [{ value: 'payments', label: 'Payments', icon: IconCreditCard }] : []),
     ...(isOwnProfile ? [{ value: 'settings', label: 'Profile settings', icon: IconSettings }] : []),
   ] as const;
@@ -415,6 +416,8 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
     ? Math.min(100, Math.max(0, ((progression.currentXP ?? 0) / (progression.xpToNextLevel || 1)) * 100))
     : 0;
   const achievementProgress = profileData?.achievements?.progress ?? 0;
+  const completedCoursesCount = enrolledCoursesData.filter((course) => course.isCompleted).length;
+  const lessonsCompletedCount = enrolledCoursesData.reduce((sum, course) => sum + (course.completedDays || 0), 0);
   const selectedLanguage = (profileData?.player?.locale && locales.includes(profileData.player.locale as Locale)
     ? profileData.player.locale
     : locale) as Locale;
@@ -448,7 +451,7 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
         {profileData && (
           <>
             <Card padding="lg">
-              <Group align="flex-start" gap="lg" wrap="nowrap">
+              <Group align="flex-start" gap="lg" wrap="wrap">
                 <PlayerAvatar
                   playerId={profileData.player?.id ?? ''}
                   displayName={profileData.player?.displayName ?? 'Unknown'}
@@ -458,18 +461,17 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                   size="xl"
                   clickable={false}
                 />
-                <Stack gap="md" flex={1}>
+                <Stack gap="md" flex={1} miw={0}>
                   <Group gap="sm" align="center">
                     <Title order={2}>{profileData.player?.displayName || 'Unknown Player'}</Title>
                     {profileData.player?.isPremium && <Badge color="amanobaYellow">Premium</Badge>}
                   </Group>
                   <Text size="xl" fw={700}>{profileData.progression?.title || 'Rookie'}</Text>
-                  <SimpleGrid cols={{ base: 2, md: 5 }}>
+                  <SimpleGrid cols={{ base: 1, xs: 2, md: 4 }}>
                     {[
                       ['Level', profileData.progression?.level || 1],
-                      ['Games Played', profileData.statistics?.totalGamesPlayed || 0],
-                      ['Win Rate', `${profileData.statistics?.winRate || 0}%`],
-                      ['Achievements', `${profileData.achievements?.unlocked || 0}/${profileData.achievements?.total || 0}`],
+                      ['Completed courses', completedCoursesCount],
+                      ['Lessons completed', lessonsCompletedCount],
                       ['Certificates', certificatesData.length],
                     ].map(([label, value]) => (
                       <Paper key={label} withBorder radius="md" p="sm">
@@ -507,8 +509,8 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
               <Tabs.Panel value="overview" pt="lg">
                 <Stack gap="lg">
                   <SimpleGrid cols={{ base: 1, md: 2 }}>
-                    <MetricCard icon={<IconFlame size={22} />} title="Win Streak" subtitle="Current winning streak" current={profileData.streaks?.win?.current || 0} best={profileData.streaks?.win?.longest || 0} />
-                    <MetricCard icon={<IconCalendar size={22} />} title="Daily Streak" subtitle="Consecutive login days" current={profileData.streaks?.daily?.current || 0} best={profileData.streaks?.daily?.longest || 0} />
+                    <MetricCard icon={<IconAward size={22} />} title="Certificates" subtitle="Shareable credentials earned" current={certificatesData.length} best={completedCoursesCount} bestLabel="Completed courses" />
+                    <MetricCard icon={<IconCalendar size={22} />} title="Learning progress" subtitle="Lessons completed across courses" current={lessonsCompletedCount} best={enrolledCoursesData.length} bestLabel="Courses enrolled" />
                   </SimpleGrid>
                   <SimpleGrid cols={{ base: 1, md: 2 }}>
                     {profileData.wallet && (
@@ -528,11 +530,16 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                       <Stack gap="md">
                         <Group>
                           <ThemeIcon color="blue" variant="light"><IconTarget size={20} /></ThemeIcon>
-                          <Title order={3} size="h4">Performance</Title>
+                          <Title order={3} size="h4">Completed courses</Title>
                         </Group>
-                        <KeyValue label="Highest Score" value={profileData.statistics?.highestScore?.toLocaleString() || '0'} />
-                        <KeyValue label="Perfect Games" value={String(profileData.statistics?.perfectGames || 0)} />
-                        <KeyValue label="Avg Session" value={profileData.statistics?.averageSessionTime ? `${Math.round(profileData.statistics.averageSessionTime / 60)}m` : '0m'} />
+                        {enrolledCoursesData.filter((course) => course.isCompleted).slice(0, 4).map((course) => (
+                          <KeyValue
+                            key={course.courseId}
+                            label={course.title || course.courseId}
+                            value={`${course.completedDays || course.totalDays || 0}/${course.totalDays || course.completedDays || 0}`}
+                          />
+                        ))}
+                        {completedCoursesCount === 0 ? <Text c="dimmed">No completed courses yet.</Text> : null}
                       </Stack>
                     </Card>
                   </SimpleGrid>
@@ -553,6 +560,25 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                     }}
                   />
                 </Stack>
+              </Tabs.Panel>
+
+              <Tabs.Panel value="certificates" pt="lg">
+                <CertificatesCard
+                  certificates={certificatesData}
+                  loading={certificatesLoading}
+                  locale={locale}
+                  playerId={playerId}
+                  copiedId={certificateLinkCopiedId}
+                  onCopy={(cert) => {
+                    if (!cert.verificationSlug) return;
+                    const url = `${window.location.origin}/${locale}/certificate/${cert.verificationSlug}`;
+                    navigator.clipboard.writeText(url).then(() => {
+                      setCertificateLinkCopiedId(cert.courseId);
+                      setTimeout(() => setCertificateLinkCopiedId(null), 2000);
+                      notifications.show({ color: 'green', title: 'Link copied', message: 'Certificate verification link copied.' });
+                    });
+                  }}
+                />
               </Tabs.Panel>
 
               <Tabs.Panel value="achievements" pt="lg">
@@ -590,39 +616,6 @@ export default function ProfilePage({ params }: { params: Promise<{ playerId: st
                         </Paper>
                       )}
                     </SimpleGrid>
-                  </Stack>
-                </Card>
-              </Tabs.Panel>
-
-              <Tabs.Panel value="activity" pt="lg">
-                <Card padding="lg">
-                  <Stack gap="md">
-                    <Title order={2} size="h3">Recent Activity</Title>
-                    {profileData.recentActivity && profileData.recentActivity.length > 0 ? (
-                      profileData.recentActivity.map((activity, index) => (
-                        <Paper key={`${activity.createdAt ?? activity.playedAt ?? index}`} withBorder radius="md" p="md">
-                          <Group justify="space-between" align="center">
-                            <Group>
-                              <ThemeIcon size={44} color="amanobaYellow" variant="light">
-                                <Text>{activity.gameIcon != null ? String(activity.gameIcon) : '🎮'}</Text>
-                              </ThemeIcon>
-                              <Stack gap={2}>
-                                <Text fw={700}>{activity.gameName}</Text>
-                                <Text size="sm" c="dimmed">
-                                  {activity.outcome === 'win' ? 'Victory' : activity.outcome === 'loss' ? 'Defeat' : 'Draw'} · Score: {activity.score ?? 0} · +{activity.pointsEarned ?? 0} points
-                                </Text>
-                              </Stack>
-                            </Group>
-                            <Stack gap={2} align="flex-end">
-                              <Text size="sm" c="dimmed">{new Date(activity.playedAt ?? activity.createdAt ?? 0).toLocaleDateString()}</Text>
-                              <Text size="xs" c="dimmed">{Math.round((activity.duration ?? 0) / 60)}m {(activity.duration ?? 0) % 60}s</Text>
-                            </Stack>
-                          </Group>
-                        </Paper>
-                      ))
-                    ) : (
-                      <Text c="dimmed">No recent activity.</Text>
-                    )}
                   </Stack>
                 </Card>
               </Tabs.Panel>
@@ -749,12 +742,14 @@ function MetricCard({
   subtitle,
   current,
   best,
+  bestLabel = 'Best',
 }: {
   icon: ReactNode;
   title: string;
   subtitle: string;
   current: number;
   best: number;
+  bestLabel?: string;
 }) {
   return (
     <Card withBorder padding="lg">
@@ -772,7 +767,7 @@ function MetricCard({
             <Text size="xl" fw={800}>{current}</Text>
           </Stack>
           <Stack gap={0}>
-            <Text size="sm" c="dimmed">Best</Text>
+            <Text size="sm" c="dimmed">{bestLabel}</Text>
             <Text size="xl" fw={800}>{best}</Text>
           </Stack>
         </SimpleGrid>

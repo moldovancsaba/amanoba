@@ -1515,7 +1515,7 @@ export default function CourseDetailPage({
                         <Stack gap="xs">
                           <Text size="sm">
                             {getCourseDetailText('dayOf', {
-                              currentDay: enrollment.progress.currentDay,
+                              currentDay: Math.min(enrollment.progress.currentDay, course.durationDays),
                               totalDays: course.durationDays,
                             })}
                           </Text>
@@ -1557,7 +1557,7 @@ export default function CourseDetailPage({
                       <Text fw={700} size="sm" lineClamp={1}>{course.name}</Text>
                 {enrollment?.progress && (
                         <Text size="xs" c="dimmed" lineClamp={1}>
-                    {getCourseDetailText('dayOf', { currentDay: enrollment.progress.currentDay, totalDays: course.durationDays })} • {getCourseDetailText('daysCompleted', { count: enrollment.progress.completedDays })}
+                    {getCourseDetailText('dayOf', { currentDay: Math.min(enrollment.progress.currentDay, course.durationDays), totalDays: course.durationDays })} • {getCourseDetailText('daysCompleted', { count: enrollment.progress.completedDays })}
                         </Text>
                 )}
                 {prereqBlocked && (

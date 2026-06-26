@@ -71,7 +71,10 @@ export async function GET(request: NextRequest) {
       const completedDaysArray = Array.isArray(progress.completedDays) ? progress.completedDays : [];
       const completedDays = completedDaysArray.length;
       const { totalDays } = await resolveCourseLength(course ?? null);
-      const progressPercentage = totalDays > 0 ? (completedDays / totalDays) * 100 : 0;
+      const progressPercentage = totalDays > 0 ? Math.min(100, (completedDays / totalDays) * 100) : 0;
+      const isCompleted =
+        String(progress.status || '').toUpperCase() === 'COMPLETED' ||
+        (totalDays > 0 && completedDays >= totalDays);
 
       // Calculate correct currentDay based on completed days
       const correctCurrentDay = calculateCurrentLessonDay(completedDaysArray, totalDays);
@@ -97,7 +100,7 @@ export async function GET(request: NextRequest) {
           completedDays,
           totalDays,
           progressPercentage: Math.round(progressPercentage),
-          isCompleted: progress.status === 'COMPLETED',
+          isCompleted,
           startedAt: progress.startedAt,
           lastAccessedAt: progress.lastAccessedAt,
         },

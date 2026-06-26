@@ -38,6 +38,7 @@ import {
 } from '@mantine/core';
 import {
   IconBook,
+  IconCertificate,
   IconChartBar,
   IconDiamond,
   IconFlame,
@@ -143,6 +144,12 @@ function getCourseDayHref(course: {
     ? safeTotalDays
     : Math.min(Math.max(progress.currentDay || 1, 1), safeTotalDays);
   return `/${course.language}/courses/${course.courseId}/day/${requestedDay}`;
+}
+
+function getCompletedCourseHref(course: { courseId: string; language: string }, playerId?: string | null) {
+  return playerId
+    ? `/${course.language}/profile/${playerId}/certificate/${course.courseId}`
+    : `/${course.language}/courses/${course.courseId}`;
 }
 
 export default function Dashboard() {
@@ -463,7 +470,9 @@ export default function Dashboard() {
 
   const { player, progression, wallet, streaks, achievementStats, courseStats } = playerData;
   const xpProgress = progression ? (progression.currentXP / progression.xpToNextLevel) * 100 : 0;
-  const activeCourses = myCourses.filter((course) => !course.progress.isCompleted);
+  const dashboardUser = session?.user as { id?: string; playerId?: string } | undefined;
+  const dashboardPlayerId = dashboardUser?.playerId || dashboardUser?.id || player.id;
+  const visibleCourses = myCourses.slice(0, 6);
   const pendingFriendInvite = friendStreaks.find((item) => item.status === 'pending');
   const activeFriendStreaks = friendStreaks.filter((item) => item.status === 'active');
   const courseLabel = (key: string, fallback: string, values?: Record<string, string | number>) => {
@@ -541,7 +550,7 @@ export default function Dashboard() {
                 </Group>
                 {loadingMyCourses ? (
                   <Group justify="center" py="lg"><Loader color="amanoba" size="sm" /></Group>
-                ) : activeCourses.length === 0 ? (
+                ) : visibleCourses.length === 0 ? (
                   <StateBlock
                     kind="empty"
                     title={t('noCoursesEnrolled')}
@@ -550,18 +559,21 @@ export default function Dashboard() {
                   />
                 ) : (
                   <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">
-                    {activeCourses.map((item) => (
+                    {visibleCourses.map((item) => {
+                      const completed = item.progress.isCompleted || item.progress.completedDays >= item.progress.totalDays;
+                      return (
                       <CourseCard
                         key={item.course.courseId}
                         title={item.course.name}
                         compact
+                        badges={completed ? [{ label: 'Completed', color: 'green', variant: 'light' }] : []}
                         progress={{
                           value: item.progress.progressPercentage,
                           detail: (
                             <Group justify="space-between" gap="xs">
                               <Text size="xs" c="dimmed">
-                                {courseLabel('dayOf', `Day ${item.progress.currentDay} of ${item.progress.totalDays}`, {
-                                  currentDay: item.progress.currentDay,
+                                {completed ? 'Course completed' : courseLabel('dayOf', `Day ${item.progress.currentDay} of ${item.progress.totalDays}`, {
+                                  currentDay: Math.min(item.progress.currentDay, item.progress.totalDays),
                                   totalDays: item.progress.totalDays,
                                 })}
                               </Text>
@@ -574,12 +586,19 @@ export default function Dashboard() {
                           ),
                         }}
                         primaryAction={(
-                          <Button component={LocaleLink} href={getCourseDayHref(item.course, item.progress)} color="amanoba" fullWidth>
-                            {courseLabel('nextLesson', 'Next Lesson')}
+                          <Button
+                            component={LocaleLink}
+                            href={completed ? getCompletedCourseHref(item.course, dashboardPlayerId) : getCourseDayHref(item.course, item.progress)}
+                            color="amanoba"
+                            leftSection={completed ? <IconCertificate size={18} /> : undefined}
+                            fullWidth
+                          >
+                            {completed ? 'View Certificate' : courseLabel('nextLesson', 'Next Lesson')}
                           </Button>
                         )}
                       />
-                    ))}
+                    );
+                    })}
                   </SimpleGrid>
                 )}
               </Stack>
@@ -607,7 +626,7 @@ export default function Dashboard() {
               { icon: IconBook, value: progression?.level || 1, label: t('learningLevel'), detail: `${progression.currentXP} / ${progression.xpToNextLevel} ${t('learningPoints')}`, progress: xpProgress },
               { icon: IconDiamond, value: wallet?.currentBalance.toLocaleString() || 0, label: t('points'), detail: `${t('earned')}: ${wallet.lifetimeEarned.toLocaleString()} • ${t('spent')}: ${wallet.lifetimeSpent.toLocaleString()}` },
               { icon: IconTrophy, value: `${achievementStats.unlocked}/${achievementStats.total}`, label: t('achievements'), detail: `${achievementStats.percentage}% ${t('complete')}`, progress: achievementStats.percentage },
-              { icon: IconChartBar, value: courseStats?.quizzesCompleted || 0, label: t('assessmentsCompleted'), detail: courseStats ? `${courseStats.lessonsCompleted} ${t('lessonsCompleted')} • ${courseStats.coursesEnrolled} ${t('coursesEnrolled')}` : '' },
+              { icon: IconChartBar, value: courseStats?.coursesCompleted || 0, label: 'Courses completed', detail: courseStats ? `${courseStats.lessonsCompleted} ${t('lessonsCompleted')} • ${courseStats.coursesEnrolled} ${t('coursesEnrolled')}` : '' },
             ].map((stat) => {
               const StatIcon = stat.icon;
               return (

@@ -129,6 +129,22 @@ function formatPrice(amount: number, currency: string): string {
   return formatter.format(normalized === 'HUF' ? amount : amount / 100);
 }
 
+function getCatalogCourseActionHref(course: Course, myCourse?: MyCourseProgress) {
+  const language = myCourse?.course.language ?? course.language;
+  if (!myCourse) return `/${language}/courses/${course.courseId}`;
+
+  const totalDays = Math.max(myCourse.progress.totalDays || course.durationDays || 1, 1);
+  const completed = myCourse.progress.isCompleted || myCourse.progress.completedDays >= totalDays;
+  if (completed) {
+    return course.certification?.enabled
+      ? `/${language}/courses/${course.courseId}/final-exam`
+      : `/${language}/courses/${course.courseId}`;
+  }
+
+  const currentDay = Math.min(Math.max(myCourse.progress.currentDay || 1, 1), totalDays);
+  return `/${language}/courses/${course.courseId}/day/${currentDay}`;
+}
+
 function CatalogSkeleton() {
   return (
     <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="lg">
@@ -472,11 +488,13 @@ export default function CoursesPage() {
                     primaryAction={isEnrolled ? (
                       <Button
                         component={LocaleLink}
-                        href={`/${myCourse?.course.language ?? course.language}/courses/${course.courseId}/day/${myCourse?.progress.currentDay || 1}`}
+                        href={getCatalogCourseActionHref(course, myCourse)}
                         color="amanoba"
                         leftSection={<IconTrophy size={18} />}
                       >
-                        {courseTexts.continue}
+                        {(myCourse?.progress.isCompleted || ((myCourse?.progress.completedDays ?? 0) >= (myCourse?.progress.totalDays ?? course.durationDays)))
+                          ? (course.certification?.enabled ? courseTexts.certificate : courseTexts.view)
+                          : courseTexts.continue}
                       </Button>
                     ) : (
                       <Button

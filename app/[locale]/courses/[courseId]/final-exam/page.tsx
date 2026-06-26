@@ -32,10 +32,12 @@ import {
   IconArrowLeft,
   IconCertificate,
   IconCircleCheck,
+  IconHome,
   IconRefresh,
   IconRosetteDiscountCheck,
   IconShare3,
   IconShieldCheck,
+  IconUser,
   IconX,
 } from '@tabler/icons-react';
 import CourseAnswerOption from '@/components/CourseAnswerOption';
@@ -350,6 +352,7 @@ export default function FinalExamPage() {
     ?? (session?.user as { id?: string } | undefined)?.id
     ?? null;
   const certificateHref = playerId ? `/${courseLanguage}/profile/${playerId}/certificate/${courseId}` : `/${courseLanguage}/courses/${courseId}`;
+  const profileHref = playerId ? `/${courseLanguage}/profile/${playerId}` : `/${courseLanguage}/dashboard`;
 
   const loadEntitlement = useCallback(async () => {
     setLoadingEnt(true);
@@ -701,7 +704,7 @@ export default function FinalExamPage() {
               {result.score}%
                 </Text>
                 <Text c="dimmed">{getFinalExamText('score', courseLanguage)}</Text>
-                {result.passed && result.certificateUpdated ? (
+                {result.passed ? (
                   <Button
                     onClick={() => router.push(certificateHref)}
                     color="amanoba"
@@ -711,8 +714,8 @@ export default function FinalExamPage() {
                     {getFinalExamText('viewCertificate', courseLanguage)}
                   </Button>
                 ) : null}
-                <SimpleGrid cols={{ base: 1, sm: result.passed && result.certificateUpdated ? 3 : 2 }} spacing="sm" w="100%">
-                  {result.passed && result.certificateUpdated ? (
+                <SimpleGrid cols={{ base: 1, sm: result.passed ? 2 : 1, md: result.passed ? 4 : 2 }} spacing="sm" w="100%">
+                  {result.passed ? (
                     <Button
                       onClick={() => void shareCertificate()}
                       variant="outline"
@@ -723,18 +726,34 @@ export default function FinalExamPage() {
                     </Button>
                   ) : null}
                   <Button
-                onClick={() => {
-                  setResult(null);
-                  loadEntitlement();
-                }}
-                    color="amanoba"
-                    leftSection={<IconRefresh size={18} />}
-              >
-                {getFinalExamText('refreshStatus', courseLanguage)}
+                    onClick={() => router.push(profileHref)}
+                    variant="default"
+                    leftSection={<IconUser size={18} />}
+                  >
+                    Profile
                   </Button>
                   <Button
-                onClick={() => router.push(`/${courseLanguage}/courses/${courseId}`)}
+                    onClick={() => router.push(`/${courseLanguage}/courses`)}
                     variant="default"
+                    leftSection={<IconHome size={18} />}
+                  >
+                    Courses
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      setResult(null);
+                      loadEntitlement();
+                    }}
+                    variant="subtle"
+                    color="gray"
+                    leftSection={<IconRefresh size={18} />}
+                  >
+                    {getFinalExamText('refreshStatus', courseLanguage)}
+                  </Button>
+                  <Button
+                    onClick={() => router.push(`/${courseLanguage}/courses/${courseId}`)}
+                    variant="subtle"
+                    color="gray"
               >
                 {getFinalExamText('backToCourseButton', courseLanguage)}
                   </Button>
