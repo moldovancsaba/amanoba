@@ -35,11 +35,11 @@
 ## Generated Snapshot
 
 <!-- gds-project-state:generated:start -->
-- Generated at: `2026-06-26T03:05:42.395Z`
+- Generated at: `2026-06-26T07:13:38.430Z`
 - Package version: `2.9.49`
 - Git branch: `main`
-- Git HEAD: `3df3f795` (`3df3f795eb07cae6fd804586c3280c2a8dd01f27`)
-- Git worktree state: `clean`
+- Git HEAD: `0015fa7a` (`0015fa7ade81ecfaad95406d94597a10fd77a64e`)
+- Git worktree state: `dirty`
 - GDS version: `2.6.1`
 - GDS migration status: `enforced`
 - Product archetype: `lms-game`

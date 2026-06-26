@@ -78,6 +78,29 @@ type TopicPlan = {
   prompts?: string[];
 };
 
+const CORE_SOURCES = [
+  {
+    label: 'OpenAI prompt engineering guide',
+    url: 'https://platform.openai.com/docs/guides/prompt-engineering',
+    use: 'Prompt structure, iteration, constraints, and evaluation habits.',
+  },
+  {
+    label: 'NIST AI Risk Management Framework',
+    url: 'https://www.nist.gov/itl/ai-risk-management-framework',
+    use: 'Risk framing, governance language, and verification mindset.',
+  },
+  {
+    label: 'OWASP Top 10 for Large Language Model Applications',
+    url: 'https://owasp.org/www-project-top-10-for-large-language-model-applications/',
+    use: 'Practical AI safety risks such as prompt injection, leakage, and insecure output handling.',
+  },
+  {
+    label: 'Google People + AI Guidebook',
+    url: 'https://pair.withgoogle.com/guidebook/',
+    use: 'Human-centered AI design, user control, feedback, and failure modes.',
+  },
+];
+
 function baseMetrics() {
   return [
     'Measurable: You can say whether the output is correct/complete (pass/fail or a score).',
@@ -759,6 +782,14 @@ function buildLessonHtml(params: { day: number; title: string; plan: TopicPlan }
   const { day, title, plan } = params;
   const defs = plan.definitions.map((d) => `${d.term}: ${d.def}`);
   const pitfalls = plan.pitfalls.map((p) => `Pitfall: ${p.pitfall} Fix: ${p.fix}`);
+  const studentTasks = [
+    `Apply the workflow to one real work task related to ${title.toLowerCase()}.`,
+    'Create a small artifact: prompt, checklist, rubric, table, draft, or decision note.',
+    'Run one quality check and record what changed after the check.',
+    'Write a 3-sentence reflection: what worked, what failed, and what you will reuse.',
+  ];
+  const usefulSources = CORE_SOURCES.map((source) => `${source.label}: ${source.url} — ${source.use}`);
+  const bibliography = CORE_SOURCES.map((source) => `${source.label}. ${source.url}`);
 
   return (
     `<h1>${escapeHtml(`AI 30-Day — Day ${day}`)}</h1>\n` +
@@ -779,7 +810,13 @@ function buildLessonHtml(params: { day: number; title: string; plan: TopicPlan }
     ul(plan.metrics) +
     `<h2>Common mistakes + fixes</h2>\n` +
     ul(pitfalls) +
-    (plan.prompts?.length ? `<h2>Practice prompts</h2>\n${ul(plan.prompts)}` : '')
+    (plan.prompts?.length ? `<h2>Practice prompts</h2>\n${ul(plan.prompts)}` : '') +
+    `<h2>Student tasks</h2>\n` +
+    ol(studentTasks) +
+    `<h2>Useful external sources</h2>\n` +
+    ul(usefulSources) +
+    `<h2>Bibliography</h2>\n` +
+    ul(bibliography)
   );
 }
 
@@ -974,4 +1011,3 @@ main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
-

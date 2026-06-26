@@ -1,0 +1,10 @@
+{
+  "backedUpAt": "2026-06-26T07:11:35.564Z",
+  "courseId": "AI_30_DAY_EN",
+  "lessonId": "AI_30_DAY_EN_DAY_01",
+  "dayNumber": 1,
+  "title": "Understanding AI as a Tool",
+  "content": "## Learning goal\nTo understand the basics of AI and its applications.\n\n## Who\nAnyone interested in learning about AI and its applications.\n\n## What\nAI is a tool that can process and analyze large amounts of data to make predictions and decisions. It is not magic; it reads text only.\n\n## Where\nThis lesson can be used in various settings, such as in business, healthcare, and education.\n\n## When\nThe best time to learn about AI is when you are interested in its applications and want to understand its basics.\n\n## Why it matters\nAI doesn’t know your intent; it reads text only. You own decisions and QA; AI does not accept liability. Good input → better output; iteration is normal.\n\n## How\n1. **See AI as a tool that needs clear input and QA.**\n2. **Spot risky use cases.**\n3. **Draft your AI use map.**\n\n## Guided exercise\n1. List 3 tasks to accelerate with AI.\n2. For each: what you expect, what risk you see.\n3. Note if sensitive data appears; plan to anonymize.\n\n## Independent exercise\nList 5 tasks you won’t give to AI (passwords, critical decisions, sensitive clients) and what you’ll do instead (human review, manual step).\n\n## Self-check\n- [ ] AI use map written.\n- [ ] Do-not-use list created.\n- [ ] You can explain why QA is mandatory.\n\n## Bibliography (sources used)\n- [OpenAI Usage Policies](https://openai.com/policies/usage-policies)\n- [One Useful Thing (Ethan Mollick)](https://www.oneusefulthing.org)\n\n## Read more (optional)",
+  "emailSubject": "Understanding AI as a Tool",
+  "emailBody": "## Today\nShort localized summary with one clear call to open the lesson.\n\nAI 30-Day – Day 1\n\nOpen the lesson to learn how to use AI effectively and avoid common pitfalls."
+}
