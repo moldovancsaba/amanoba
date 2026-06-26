@@ -5,7 +5,7 @@
 
 # Docs Inventory
 
-**Last Updated**: 2026-06-25
+**Last Updated**: 2026-06-26
 **Scope**: `docs/**/*.md` (excluding `docs/_archive/**`)
 **Count**: 126
 

@@ -5,7 +5,7 @@
 
 # Docs Canonicalization Map
 
-**Last Updated**: 2026-06-25
+**Last Updated**: 2026-06-26
 **Scope**: `docs/**/*.md` (excluding `docs/_archive/**`)
 
 **Counts**: KEEP=121, MERGE=0, ARCHIVE=5, DELETE=0
