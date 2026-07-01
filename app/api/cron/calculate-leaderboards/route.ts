@@ -12,6 +12,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { calculateAllLeaderboards } from '@/lib/gamification/leaderboard-calculator';
 import connectDB from '@/lib/mongodb';
 import logger from '@/lib/logger';
+import { verifyCronAuth } from '@/lib/cron-auth';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -26,17 +27,9 @@ export const dynamic = 'force-dynamic';
  */
 export async function POST(request: NextRequest) {
   try {
-    // Security: Verify cron secret (if provided)
-    const authHeader = request.headers.get('authorization');
-    const cronSecret = process.env.CRON_SECRET;
-    
-    if (cronSecret && authHeader !== `Bearer ${cronSecret}`) {
-      logger.warn('Unauthorized cron job attempt');
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
+    // Security: fail-closed cron auth (AUDIT-009)
+    const unauthorized = verifyCronAuth(request, 'calculate-leaderboards');
+    if (unauthorized) return unauthorized;
 
     logger.info('Starting leaderboard calculation cron job');
 

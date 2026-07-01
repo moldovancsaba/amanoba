@@ -14,7 +14,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { headers } from 'next/headers';
+import { verifyCronAuth } from '../../../lib/cron-auth';
 import {
   aggregateActiveUsers,
   aggregateGameSessions,
@@ -46,27 +46,9 @@ export async function POST(request: NextRequest) {
   const startTime = Date.now();
 
   try {
-    // Verify authorization
-    const headersList = await headers();
-    const authHeader = headersList.get('authorization');
-    const expectedToken = process.env.CRON_SECRET || 'dev-cron-secret';
-
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      logger.warn('Analytics cron: Missing or invalid authorization header');
-      return NextResponse.json(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
-
-    const token = authHeader.substring(7);
-    if (token !== expectedToken) {
-      logger.warn('Analytics cron: Invalid token');
-      return NextResponse.json(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
+    // Security: fail-closed cron auth (AUDIT-009)
+    const unauthorized = verifyCronAuth(request, 'analytics-snapshot');
+    if (unauthorized) return unauthorized;
 
     // Parse query params
     const { searchParams } = new URL(request.url);

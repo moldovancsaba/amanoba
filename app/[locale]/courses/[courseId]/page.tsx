@@ -27,6 +27,7 @@ import {
   Group,
   Paper,
   Progress,
+  SegmentedControl,
   SimpleGrid,
   Skeleton,
   Stack,
@@ -149,6 +150,7 @@ export default function CourseDetailPage({
   const [thumbnailError, setThumbnailError] = useState(false);
   const [leaderboardEntries, setLeaderboardEntries] = useState<Array<{ rank: number; score: number; player?: { displayName?: string } | null }>>([]);
   const [leaderboardLoading, setLeaderboardLoading] = useState(false);
+  const [leaderboardMetric, setLeaderboardMetric] = useState<'course_points' | 'course_consistency'>('course_points');
   const [completedCourseIds, setCompletedCourseIds] = useState<string[]>([]);
   const [unmetPrereqsFromEnroll, setUnmetPrereqsFromEnroll] = useState<Array<{ courseId: string; name?: string }>>([]);
 
@@ -175,6 +177,7 @@ export default function CourseDetailPage({
       pointsReward: 'Pontok',
       days: 'nap',
       points: 'pont',
+      consistency: 'Következetesség',
       enrolled: 'Beiratkozott',
       backToCourses: 'Vissza a kurzusokhoz',
       failedToEnroll: 'Nem sikerült beiratkozni a kurzusra',
@@ -241,6 +244,7 @@ export default function CourseDetailPage({
       pointsReward: 'Points',
       days: 'days',
       points: 'points',
+      consistency: 'Consistency',
       enrolled: 'Enrolled',
       backToCourses: 'Back to Courses',
       failedToEnroll: 'Failed to enroll in course',
@@ -921,7 +925,7 @@ export default function CourseDetailPage({
     if (!courseId) return;
     let cancelled = false;
     setLeaderboardLoading(true);
-    fetch(`/api/leaderboards/course/${encodeURIComponent(courseId)}?period=all_time&metric=course_points&limit=10`, { cache: 'no-store' })
+    fetch(`/api/leaderboards/course/${encodeURIComponent(courseId)}?period=all_time&metric=${leaderboardMetric}&limit=10`, { cache: 'no-store' })
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
         if (cancelled || !data?.entries) return;
@@ -930,7 +934,7 @@ export default function CourseDetailPage({
       .catch(() => { if (!cancelled) setLeaderboardEntries([]); })
       .finally(() => { if (!cancelled) setLeaderboardLoading(false); });
     return () => { cancelled = true; };
-  }, [courseId]);
+  }, [courseId, leaderboardMetric]);
 
   const formatCurrency = (amount: number, currency: string): string => {
     const formatter = new Intl.NumberFormat(
@@ -1369,6 +1373,15 @@ export default function CourseDetailPage({
                     </ThemeIcon>
                     <Title order={2} size="h3">{getCourseDetailText('courseLeaderboard') || 'Course leaderboard'}</Title>
                   </Group>
+                  <SegmentedControl
+                    size="xs"
+                    value={leaderboardMetric}
+                    onChange={(v) => setLeaderboardMetric(v as 'course_points' | 'course_consistency')}
+                    data={[
+                      { label: getCourseDetailText('points') || 'Points', value: 'course_points' },
+                      { label: getCourseDetailText('consistency') || 'Consistency', value: 'course_consistency' },
+                    ]}
+                  />
                   {leaderboardLoading ? (
                     <Text c="dimmed" ta="center" py="md">{getCourseDetailText('loading')}</Text>
                   ) : leaderboardEntries.length === 0 ? (
@@ -1380,7 +1393,11 @@ export default function CourseDetailPage({
                           <Group gap="md" wrap="nowrap">
                             <Text w={32} fw={800}>{entry.rank}</Text>
                             <Text flex={1} fw={600} truncate>{entry.player?.displayName ?? '—'}</Text>
-                            <Badge color="amanoba" variant="light">{entry.score} {getCourseDetailText('points') || 'pts'}</Badge>
+                            <Badge color="amanoba" variant="light">
+                              {leaderboardMetric === 'course_consistency'
+                                ? `${entry.score}%`
+                                : `${entry.score} ${getCourseDetailText('points') || 'pts'}`}
+                            </Badge>
                           </Group>
                         </Paper>
                       ))}

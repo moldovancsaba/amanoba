@@ -40,7 +40,8 @@ export interface ILeaderboardEntry extends Document {
     | 'win_rate'
     | 'elo'
     | 'course_points'
-    | 'course_completion_speed';
+    | 'course_completion_speed'
+    | 'course_consistency';
   rank: number;
   previousRank?: number;
   value: number; // The metric value (e.g., total score, win count)
@@ -96,7 +97,7 @@ const LeaderboardEntrySchema = new Schema<ILeaderboardEntry>(
           'score', 'wins', 'points', 'xp', 'streak', 'accuracy', // Legacy values
           'points_balance', 'points_lifetime', 'xp_total', 'level', // Current wallet/progression metrics
           'win_streak', 'daily_streak', 'games_won', 'win_rate', 'elo', // Competitive metrics
-          'course_points', 'course_completion_speed' // Course-specific (points earned in course; days to complete)
+          'course_points', 'course_completion_speed', 'course_consistency' // Course-specific (points; days to complete; no-missed-days %)
         ],
         message: 'Metric must be valid',
       },

@@ -17,6 +17,7 @@ import {
   updateDailyLearningStreak,
 } from '@/lib/gamification';
 import { updateFriendStreaksForLearningAction } from '@/lib/friend-streaks';
+import { recalculateCourseLeaderboards } from '@/lib/gamification/leaderboard-calculator';
 import { logStreakEvent } from '@/app/lib/analytics/event-logger';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 import { calculateCurrentLessonDay, resolveCourseLength, resolveLessonForChildDay } from '@/lib/course-helpers';
@@ -408,6 +409,15 @@ export async function POST(
       }
 
       await progress.save();
+
+      // Keep course leaderboards (points, speed, consistency) current on each completion.
+      // Non-fatal: leaderboard failures must never block lesson completion.
+      try {
+        await recalculateCourseLeaderboards(courseId);
+      } catch (leaderboardError) {
+        logger.warn({ error: leaderboardError, courseId }, 'Course leaderboard recalculation failed after lesson completion');
+      }
+
       learningStreak = await updateDailyLearningStreak(
         player._id as mongoose.Types.ObjectId
       );

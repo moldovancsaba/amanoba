@@ -31,7 +31,8 @@ export type LeaderboardType =
   | 'win_rate'           // Win percentage
   | 'elo'                // Madoku ELO rating
   | 'course_points'      // Points earned in course (CourseProgress.totalPointsEarned)
-  | 'course_completion_speed'; // Days to complete course (lower = faster)
+  | 'course_completion_speed' // Days to complete course (lower = faster)
+  | 'course_consistency'; // % of reached lessons completed with no gaps (no missed days)
 
 /**
  * Time Period Types
@@ -120,6 +121,10 @@ export async function calculateLeaderboard(
       case 'course_completion_speed':
         if (!courseId) throw new Error('courseId required for course_completion_speed leaderboard');
         rankings = await calculateCourseCompletionSpeedLeaderboard(courseId, limit);
+        break;
+      case 'course_consistency':
+        if (!courseId) throw new Error('courseId required for course_consistency leaderboard');
+        rankings = await calculateCourseConsistencyLeaderboard(courseId, limit);
         break;
       default:
         throw new Error(`Unknown leaderboard type: ${type}`);
@@ -369,6 +374,65 @@ async function calculateCourseCompletionSpeedLeaderboard(
   withDays.sort((a, b) => a.value - b.value);
   const limited = withDays.slice(0, limit);
   return limited.map((entry, index) => ({ ...entry, rank: index + 1 }));
+}
+
+/**
+ * Consistency percentage for a course: completed lessons / furthest lesson reached, 0-100.
+ * Pure + exported so it can be unit-tested without a database.
+ */
+export function courseConsistencyPct(completedDays: number[]): number {
+  if (!completedDays || completedDays.length === 0) return 0;
+  const span = Math.max(...completedDays);
+  if (span <= 0) return 0;
+  return Math.round((completedDays.length / span) * 100);
+}
+
+/**
+ * Course Consistency Leaderboard ("no missed days")
+ *
+ * Consistency = completed lessons / furthest lesson reached, as a 0-100 percentage.
+ * A learner who completed days [1,2,3,4,5] scores 100; one who skipped day 3
+ * (completed [1,2,4,5]) scores 80. Ties are broken by volume (more lessons ranks higher),
+ * so a fully-consistent learner deep in the course outranks one who just started.
+ * Uses only CourseProgress.completedDays, so it needs no extra tracking fields.
+ */
+async function calculateCourseConsistencyLeaderboard(
+  courseIdStr: string,
+  limit: number = 100
+): Promise<Array<{ playerId: string; value: number; rank: number }>> {
+  const course = await Course.findOne({ courseId: courseIdStr.toUpperCase() }).lean();
+  if (!course) return [];
+  const courseObjectId = (course as { _id: unknown })._id;
+  const progressList = await CourseProgress.find({ courseId: courseObjectId }).lean();
+
+  const scored = progressList
+    .map((p) => {
+      const completed = ((p as { completedDays?: number[] }).completedDays) ?? [];
+      if (completed.length === 0) return null;
+      return { playerId: String((p as { playerId: unknown }).playerId), value: courseConsistencyPct(completed), count: completed.length };
+    })
+    .filter((x): x is { playerId: string; value: number; count: number } => x != null);
+
+  // Sort by consistency %, then by number of lessons completed as a tiebreaker.
+  scored.sort((a, b) => (b.value - a.value) || (b.count - a.count));
+  return scored.slice(0, limit).map((entry, index) => ({
+    playerId: entry.playerId,
+    value: entry.value,
+    rank: index + 1,
+  }));
+}
+
+/**
+ * Recalculate all course-scoped leaderboards for one course.
+ * Called after a learner completes a lesson so course boards stay current.
+ * ponytail: recomputes the whole course board per completion (course-scoped, indexed,
+ * limit 100 — cheap at MVP scale). Move to the job queue if course cohorts get large.
+ */
+export async function recalculateCourseLeaderboards(courseIdStr: string): Promise<void> {
+  const metrics: LeaderboardType[] = ['course_points', 'course_completion_speed', 'course_consistency'];
+  for (const type of metrics) {
+    await calculateLeaderboard({ type, period: 'all_time', courseId: courseIdStr });
+  }
 }
 
 /**

@@ -6,17 +6,25 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
 import { Game } from '@/lib/models';
 import { logger } from '@/lib/logger';
+import { requireAdminOrEditor } from '@/lib/rbac';
 
 /**
  * GET /api/games
- * 
- * What: Get list of all games
+ *
+ * What: Get list of all games (game catalog for admin/editor tooling).
+ * Why: Only admin/editor surfaces consume this (achievement builder, course editor);
+ *      gate it so internal game metadata is not publicly enumerable. (AUDIT-010)
  */
-export async function GET(_request: NextRequest) {
+export async function GET(request: NextRequest) {
   try {
+    const session = await auth();
+    const denied = await requireAdminOrEditor(request, session);
+    if (denied) return denied;
+
     await connectDB();
 
     const games = await Game.find({ isActive: true })

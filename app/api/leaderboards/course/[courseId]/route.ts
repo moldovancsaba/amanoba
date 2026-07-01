@@ -31,7 +31,10 @@ export async function GET(
     };
     const period = periodMap[periodParam] || 'all_time';
     const metricParam = (searchParams.get('metric') || 'course_points').toString().toLowerCase();
-    const metric = metricParam === 'course_completion_speed' ? 'course_completion_speed' : 'course_points';
+    const allowedMetrics = ['course_points', 'course_completion_speed', 'course_consistency'] as const;
+    const metric = (allowedMetrics as readonly string[]).includes(metricParam)
+      ? (metricParam as (typeof allowedMetrics)[number])
+      : 'course_points';
     const limit = Math.min(parseInt(searchParams.get('limit') || '100', 10), 500);
     const playerId = searchParams.get('playerId');
 

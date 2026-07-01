@@ -9,9 +9,9 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { headers } from 'next/headers';
 import { sendDailyLessons } from '@/lib/courses/email-scheduler';
 import { logger } from '@/lib/logger';
+import { verifyCronAuth } from '@/lib/cron-auth';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -26,18 +26,9 @@ export const dynamic = 'force-dynamic';
  */
 export async function POST(request: NextRequest) {
   try {
-    // Security: Verify cron secret
-    const headersList = await headers();
-    const authHeader = headersList.get('authorization');
-    const cronSecret = process.env.CRON_SECRET;
-
-    if (cronSecret && authHeader !== `Bearer ${cronSecret}`) {
-      logger.warn('Unauthorized daily lesson email cron job attempt');
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
+    // Security: fail-closed cron auth (AUDIT-009)
+    const unauthorized = verifyCronAuth(request, 'send-daily-lessons');
+    if (unauthorized) return unauthorized;
 
     logger.info('Starting daily lesson email cron job');
 
