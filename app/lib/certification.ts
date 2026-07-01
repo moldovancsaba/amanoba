@@ -68,6 +68,38 @@ export function mapDesignTemplateIdToRender(designTemplateId: string): Certifica
   return 'default'; // default_v1 and any other ID use default layout
 }
 
+export interface RenderTemplateResolution {
+  baseLayout: CertificateRenderTemplateId;
+  accent?: string;
+  primary?: string;
+  secondary?: string;
+}
+
+/**
+ * Resolve a designTemplateId to a render layout + optional theme colors.
+ * If a library CertificateTemplate (#10) matches the id, use its baseLayout/colors;
+ * otherwise fall back to the built-in default/minimal mapping (backward compatible).
+ */
+export async function resolveRenderTemplate(designTemplateId: string): Promise<RenderTemplateResolution> {
+  try {
+    await connectDB();
+    const { CertificateTemplate } = await import('./models');
+    const tpl = await CertificateTemplate.findOne({ key: String(designTemplateId).toLowerCase() }).lean();
+    if (tpl) {
+      const t = tpl as { baseLayout?: string; themeColors?: { accent?: string; primary?: string; secondary?: string } };
+      return {
+        baseLayout: t.baseLayout === 'minimal' ? 'minimal' : 'default',
+        accent: t.themeColors?.accent,
+        primary: t.themeColors?.primary,
+        secondary: t.themeColors?.secondary,
+      };
+    }
+  } catch {
+    // fall through to built-in mapping
+  }
+  return { baseLayout: mapDesignTemplateIdToRender(designTemplateId) };
+}
+
 type CourseCert = {
   templateId?: string;
   templateVariantIds?: string[];

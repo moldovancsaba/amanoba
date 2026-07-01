@@ -15,7 +15,7 @@ import { Certificate, Course, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { CERT_COLORS_DEFAULT, type CertColors } from '@/app/lib/constants/certificate-colors';
 import { getCertificateStrings, formatCertificateDate } from '@/app/lib/constants/certificate-strings';
-import { mapDesignTemplateIdToRender } from '@/lib/certification';
+import { resolveRenderTemplate } from '@/lib/certification';
 import { SEMANTIC_COLORS } from '@/app/lib/constants/color-tokens';
 
 export const runtime = 'nodejs';
@@ -113,9 +113,17 @@ export async function GET(
     const locale = localeParam || (course as { language?: string })?.language || 'en';
     const strings = getCertificateStrings(locale);
     const issuedDate = formatCertificateDate(new Date(certificate.issuedAtISO), locale);
-    // Use certificate.designTemplateId (variant assigned at issue) so each cert renders with its variant
-    const templateId: TemplateId = mapDesignTemplateIdToRender(certificate.designTemplateId);
+    // Use certificate.designTemplateId (variant assigned at issue) so each cert renders with its variant.
+    // A library template (#10) supplies base layout + colors; else fall back to built-in mapping.
+    const rt = await resolveRenderTemplate(certificate.designTemplateId);
+    const templateId: TemplateId = rt.baseLayout;
     const isMinimal = templateId === 'minimal';
+    const isHex = (v?: string) => !!v && /^#[0-9a-fA-F]{6}$/.test(v);
+    if (isHex(rt.accent)) {
+      certColors = { ...certColors, border: rt.accent!, accent: rt.accent!, titleGradientEnd: rt.accent!, borderMuted: `${rt.accent}4D` };
+    }
+    if (isHex(rt.primary)) certColors = { ...certColors, bgStart: rt.primary! };
+    if (isHex(rt.secondary)) certColors = { ...certColors, bgMid: rt.secondary! };
 
     logger.info({ slug, variant, locale, templateId }, 'Certificate image by slug');
 

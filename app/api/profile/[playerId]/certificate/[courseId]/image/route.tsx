@@ -23,7 +23,7 @@ import {
   Brand,
   Certificate,
 } from '@/lib/models';
-import { mapDesignTemplateIdToRender } from '@/lib/certification';
+import { resolveRenderTemplate } from '@/lib/certification';
 import { logger } from '@/lib/logger';
 import { CERT_COLORS_DEFAULT, type CertColors } from '@/app/lib/constants/certificate-colors';
 import { getCertificateStrings, formatCertificateDate } from '@/app/lib/constants/certificate-strings';
@@ -126,12 +126,19 @@ export async function GET(
     const issuedDate = certificate?.issuedAtISO
       ? formatCertificateDate(new Date(certificate.issuedAtISO), locale)
       : formatCertificateDate(new Date(), locale);
-    // Use certificate.designTemplateId when issued cert exists (A/B variant); else course template for preview
-    const templateId: TemplateId = certificate?.designTemplateId
-      ? mapDesignTemplateIdToRender(certificate.designTemplateId)
-      : ((course as { certification?: { templateId?: string } }).certification?.templateId as TemplateId) === 'minimal'
-        ? 'minimal'
-        : 'default';
+    // Use certificate.designTemplateId when issued cert exists (library/A/B variant);
+    // else the course's assigned template for preview. Library templates (#10) supply
+    // base layout + colors; otherwise fall back to the built-in mapping.
+    const applyTemplateColors = (rt: { accent?: string; primary?: string; secondary?: string }) => {
+      const isHex = (v?: string) => !!v && /^#[0-9a-fA-F]{6}$/.test(v);
+      if (isHex(rt.accent)) certColors = { ...certColors, border: rt.accent!, accent: rt.accent!, titleGradientEnd: rt.accent!, borderMuted: `${rt.accent}4D` };
+      if (isHex(rt.primary)) certColors = { ...certColors, bgStart: rt.primary! };
+      if (isHex(rt.secondary)) certColors = { ...certColors, bgMid: rt.secondary! };
+    };
+    const designId = certificate?.designTemplateId || (course as { certification?: { templateId?: string } }).certification?.templateId;
+    const rt = designId ? await resolveRenderTemplate(designId) : { baseLayout: 'default' as const };
+    const templateId: TemplateId = rt.baseLayout;
+    applyTemplateColors(rt);
 
     // Generate certificate ID
     const certificateId = `${playerId.slice(-8)}-${courseId.slice(-8)}`.toUpperCase();

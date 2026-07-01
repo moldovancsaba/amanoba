@@ -50,6 +50,7 @@ export { default as Certificate, type ICertificate } from './certificate';
 export { default as CertificateEntitlement, type ICertificateEntitlement } from './certificate-entitlement';
 export { default as FinalExamAttempt, type IFinalExamAttempt } from './final-exam-attempt';
 export { default as CertificationSettings, type ICertificationSettings } from './certification-settings';
+export { default as CertificateTemplate, type ICertificateTemplate, type CertificateBaseLayout } from './certificate-template';
 
 // Anonymous Auth Models (2)
 export { AnonymousNameWord, type IAnonymousNameWord } from './anonymous-name-word';
