@@ -20,6 +20,9 @@ import mongoose from 'mongoose';
 import connectDB, { getConnectionState } from '@/app/lib/mongodb';
 import { QuizQuestion, QuestionDifficulty, Course } from '@/app/lib/models';
 import { buildQuizOptions } from '@/app/lib/quiz-questions';
+import { resolveAdaptiveDifficulty } from '@/app/lib/games/adaptive-difficulty';
+import { auth } from '@/auth';
+import { getPlayerIdFromSession } from '@/app/lib/rbac';
 import logger from '@/app/lib/logger';
 
 export const runtime = 'nodejs';
@@ -30,7 +33,8 @@ export const dynamic = 'force-dynamic';
  * Why: Type-safe validation of request parameters
  */
 const QuerySchema = z.object({
-  difficulty: z.enum(['EASY', 'MEDIUM', 'HARD', 'EXPERT']).optional(),
+  // ADAPTIVE (general mode): server picks a tier from the learner's recent accuracy.
+  difficulty: z.enum(['EASY', 'MEDIUM', 'HARD', 'EXPERT', 'ADAPTIVE']).optional(),
   count: z.string().transform(Number).pipe(z.number().min(1).max(50)),
   exclude: z.string().optional(), // comma-separated ids to exclude
   runId: z.string().optional(),   // unique per-game id for debugging/variance
@@ -100,6 +104,11 @@ export async function GET(request: NextRequest) {
 
     const { difficulty, count, exclude, runId, lessonId, courseId, shownAnswerCount } = validation.data;
 
+    // Concrete tier actually used for selection. For difficulty=ADAPTIVE this is resolved
+    // from the learner's recent performance below.
+    let effectiveDifficulty: 'EASY' | 'MEDIUM' | 'HARD' | 'EXPERT' | undefined;
+    const isAdaptive = difficulty === 'ADAPTIVE';
+
     // Parse exclude ids (robust handling of invalid IDs)
     const excludeIds = (exclude ? exclude.split(',') : [])
       .map(id => id?.trim())
@@ -163,8 +172,9 @@ export async function GET(request: NextRequest) {
           }
         }
       }
-      // In lesson mode, difficulty is optional (can be any difficulty)
-      if (difficulty) {
+      // In lesson mode, difficulty is optional (ADAPTIVE is ignored here — lessons pull any tier)
+      if (difficulty && !isAdaptive) {
+        effectiveDifficulty = difficulty;
         matchStage.difficulty = difficulty as QuestionDifficulty;
       }
     } else {
@@ -182,7 +192,15 @@ export async function GET(request: NextRequest) {
           { status: 400 }
         );
       }
-      matchStage.difficulty = difficulty as QuestionDifficulty;
+      if (isAdaptive) {
+        // Resolve difficulty from the signed-in learner's recent accuracy (anonymous => MEDIUM).
+        const session = await auth();
+        const playerId = getPlayerIdFromSession(session);
+        effectiveDifficulty = await resolveAdaptiveDifficulty(playerId);
+      } else {
+        effectiveDifficulty = difficulty;
+      }
+      matchStage.difficulty = effectiveDifficulty as QuestionDifficulty;
     }
 
     if (excludeIds.length > 0) {
@@ -339,7 +357,8 @@ export async function GET(request: NextRequest) {
         data: {
           questions: responseQuestions,
           meta: {
-            difficulty,
+            difficulty: effectiveDifficulty ?? difficulty,
+            adaptive: isAdaptive,
             count: responseQuestions.length,
             requestedCount: count,
             shownAnswerCount: effectiveShownAnswerCount,

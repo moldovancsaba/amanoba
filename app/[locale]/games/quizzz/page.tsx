@@ -27,7 +27,7 @@ import {
   Title,
 } from '@mantine/core';
 
-type Difficulty = 'EASY' | 'MEDIUM' | 'HARD' | 'EXPERT';
+type Difficulty = 'EASY' | 'MEDIUM' | 'HARD' | 'EXPERT' | 'ADAPTIVE';
 
 interface Question {
   id: string;
@@ -84,6 +84,16 @@ const DIFFICULTY_CONFIGS: Record<Difficulty, DifficultyConfig> = {
     requiredLevel: 10,
     isPremium: true,
   },
+  // Adaptive keeps a fixed game frame (10 questions / 12s); the SERVER varies which
+  // difficulty tier of questions it serves based on the learner's recent accuracy (#13).
+  ADAPTIVE: {
+    timePerQuestion: 12,
+    questionCount: 10,
+    minCorrect: 6,
+    pointsMultiplier: 1.5,
+    requiredLevel: 1,
+    isPremium: false,
+  },
 };
 
 // Why: Question count per difficulty level
@@ -92,6 +102,7 @@ const QUESTION_COUNTS: Record<Difficulty, number> = {
   MEDIUM: 10,
   HARD: 10,
   EXPERT: 15,
+  ADAPTIVE: 10,
 };
 
 // Why: Removed hardcoded questions - now fetched from database via API
@@ -606,7 +617,7 @@ export default function QuizzzGame() {
             <Stack gap="sm">
               <Title order={3}>Select Difficulty:</Title>
               <SimpleGrid cols={{ base: 2, md: 4 }}>
-                {(['EASY', 'MEDIUM', 'HARD', 'EXPERT'] as Difficulty[]).map(diff => {
+                {(['EASY', 'MEDIUM', 'HARD', 'EXPERT', 'ADAPTIVE'] as Difficulty[]).map(diff => {
                   const diffConfig = DIFFICULTY_CONFIGS[diff];
                   const isLocked = diffConfig.isPremium && !isPremium;
                   const isSelected = difficulty === diff;
