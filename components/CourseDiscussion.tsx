@@ -27,7 +27,7 @@ import {
 } from '@mantine/core';
 import { modals } from '@mantine/modals';
 import { notifications } from '@mantine/notifications';
-import { IconMessageCircle, IconSend, IconTrash } from '@tabler/icons-react';
+import { IconMessageCircle, IconSend, IconTrash, IconFlag } from '@tabler/icons-react';
 import ContentVoteWidget from '@/components/ContentVoteWidget';
 
 interface Post {
@@ -164,6 +164,31 @@ export default function CourseDiscussion({
     });
   };
 
+  const handleReport = (postId: string) => {
+    modals.openConfirmModal({
+      title: 'Report post',
+      children: <Text size="sm">Report this post to moderators?</Text>,
+      labels: { confirm: 'Report', cancel: 'Cancel' },
+      confirmProps: { color: 'orange' },
+      onConfirm: async () => {
+        try {
+          const res = await fetch(`/api/courses/${encodeURIComponent(courseId)}/discussion/${postId}/report`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({}),
+          });
+          notifications.show(
+            res.ok
+              ? { color: 'green', message: 'Reported. Thank you.' }
+              : { color: 'red', message: 'Could not submit report.' }
+          );
+        } catch {
+          notifications.show({ color: 'red', message: 'Could not submit report.' });
+        }
+      },
+    });
+  };
+
   const isAdmin = (session?.user as { role?: string } | undefined)?.role === 'admin';
   const playerId = (session?.user as { id?: string; playerId?: string } | undefined)?.playerId || (session?.user as { id?: string } | undefined)?.id;
 
@@ -232,18 +257,32 @@ export default function CourseDiscussion({
                         mt="xs"
                       />
                     </Stack>
-                    {(playerId && (String(post.authorId) === String(playerId)) || isAdmin) && (
-                      <Tooltip label="Delete">
-                        <ActionIcon
-                          color="red"
-                          variant="subtle"
-                          onClick={() => confirmDelete(post._id)}
-                          aria-label="Delete post"
-                        >
-                          <IconTrash size={16} />
-                        </ActionIcon>
-                      </Tooltip>
-                    )}
+                    <Group gap={4} wrap="nowrap">
+                      {playerId && String(post.authorId) !== String(playerId) && (
+                        <Tooltip label="Report">
+                          <ActionIcon
+                            color="orange"
+                            variant="subtle"
+                            onClick={() => handleReport(post._id)}
+                            aria-label="Report post"
+                          >
+                            <IconFlag size={16} />
+                          </ActionIcon>
+                        </Tooltip>
+                      )}
+                      {(playerId && (String(post.authorId) === String(playerId)) || isAdmin) && (
+                        <Tooltip label="Delete">
+                          <ActionIcon
+                            color="red"
+                            variant="subtle"
+                            onClick={() => confirmDelete(post._id)}
+                            aria-label="Delete post"
+                          >
+                            <IconTrash size={16} />
+                          </ActionIcon>
+                        </Tooltip>
+                      )}
+                    </Group>
                   </Group>
                   {session?.user && (
                     <>

@@ -9,7 +9,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import { auth } from '@/auth';
 import connectDB from '@/lib/mongodb';
-import { DiscussionPost, Course } from '@/lib/models';
+import { DiscussionPost, Course, Notification } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
 
@@ -142,6 +142,26 @@ export async function POST(
 
     const populated = await DiscussionPost.findById(post._id).populate('author', 'displayName').lean();
     const authorDisplayName = (populated?.author as { displayName?: string })?.displayName ?? 'Anonymous';
+
+    // #28: notify the parent post's author when someone replies (not on self-reply).
+    if (parentPostId) {
+      try {
+        const parent = await DiscussionPost.findById(parentPostId).select('author lessonId').lean();
+        const parentAuthorId = (parent as { author?: mongoose.Types.ObjectId } | null)?.author;
+        if (parentAuthorId && String(parentAuthorId) !== String(authorId)) {
+          await Notification.create({
+            recipient: parentAuthorId,
+            type: 'discussion_reply',
+            title: `${authorDisplayName} replied to your post`,
+            body: postBody.slice(0, 200),
+            link: `/courses/${courseIdUpper}${lessonId ? `?lessonId=${encodeURIComponent(lessonId)}` : ''}`,
+            refId: String(post._id),
+          });
+        }
+      } catch (notifyError) {
+        logger.warn({ error: notifyError, postId: post._id }, 'Failed to create reply notification');
+      }
+    }
 
     logger.info({ courseId: courseIdUpper, postId: post._id, authorId: playerId }, 'Discussion post created');
 

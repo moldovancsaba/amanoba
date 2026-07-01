@@ -109,6 +109,8 @@ export { default as ContentVote, type IContentVote, type VoteTargetType } from '
 
 // Community (Discussion forums, Study groups)
 export { default as DiscussionPost, type IDiscussionPost } from './discussion-post';
+export { default as DiscussionReport, type IDiscussionReport, type DiscussionReportStatus } from './discussion-report';
+export { default as Notification, type INotification, type NotificationType } from './notification';
 export { default as StudyGroup, type IStudyGroup } from './study-group';
 export { default as StudyGroupMembership, type IStudyGroupMembership, type StudyGroupRole } from './study-group-membership';
 
