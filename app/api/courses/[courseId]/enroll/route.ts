@@ -11,6 +11,7 @@ import connectDB from '@/lib/mongodb';
 import { Course, CourseProgress, Player, CourseProgressStatus } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
+import { upsertMailerLiteSubscriber } from '@/lib/email/mailerlite';
 
 /**
  * POST /api/courses/[courseId]/enroll
@@ -113,6 +114,15 @@ export async function POST(
     });
 
     await progress.save();
+
+    // #17: best-effort ESP subscriber sync (no-op unless MailerLite is configured).
+    if (player.email) {
+      void upsertMailerLiteSubscriber({
+        email: player.email,
+        name: player.displayName,
+        fields: { last_enrolled_course: String(course.courseId ?? course._id) },
+      }).catch(() => {});
+    }
 
     logger.info(
       { courseId, playerId: (player as { _id: { toString(): string } })._id.toString() },
