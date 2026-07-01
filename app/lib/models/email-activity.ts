@@ -18,6 +18,8 @@ export interface IEmailActivity extends Document {
   brandId: mongoose.Types.ObjectId;
   emailType: EmailType;
   segment?: EmailSegment;
+  experimentId?: string; // A/B experiment key, e.g. 'welcome_subject_v1'
+  variant?: 'A' | 'B'; // Which variant was sent (for A/B analytics)
   courseId?: string;
   lessonDay?: number;
   sentAt: Date;
@@ -60,6 +62,8 @@ const EmailActivitySchema = new Schema<IEmailActivity>(
       default: undefined,
       index: true,
     },
+    experimentId: { type: String, default: undefined, index: true },
+    variant: { type: String, enum: ['A', 'B'], default: undefined },
     courseId: { type: String },
     lessonDay: { type: Number },
     sentAt: {
@@ -78,6 +82,7 @@ const EmailActivitySchema = new Schema<IEmailActivity>(
 EmailActivitySchema.index({ brandId: 1, sentAt: -1 });
 EmailActivitySchema.index({ emailType: 1, sentAt: -1 });
 EmailActivitySchema.index({ segment: 1, sentAt: -1 });
+EmailActivitySchema.index({ experimentId: 1, variant: 1, sentAt: -1 });
 
 const EmailActivity: Model<IEmailActivity> =
   mongoose.models.EmailActivity ||

@@ -27,6 +27,7 @@ import {
 import { getCourseRecommendations } from '@/app/lib/course-recommendations';
 import { validateLessonTextLanguageIntegrity } from '@/app/lib/quality/language-integrity';
 import { getEmailTransport } from './transports';
+import { pickEmailVariant } from './ab-test';
 import { contentToHtml } from '@/app/lib/lesson-content';
 import { EMAIL_THEME_DEFAULT } from '@/app/lib/constants/color-tokens';
 import { getMapLikeValue, type MapLike } from '@/lib/map-like';
@@ -380,7 +381,12 @@ export async function sendWelcomeEmail(
     }
 
     const messageId = generateSecureToken(16);
-    const subject = renderWelcomeEmailSubject({ locale: emailLocale, courseName });
+    // A/B test (#11): variant B personalizes the subject with the learner's name.
+    // Deterministic per learner so re-sends never flip the variant.
+    const experimentId = 'welcome_subject_v1';
+    const variant = pickEmailVariant(String(player._id), experimentId);
+    const baseSubject = renderWelcomeEmailSubject({ locale: emailLocale, courseName });
+    const subject = variant === 'B' ? `${player.displayName} — ${baseSubject}` : baseSubject;
     let body = renderWelcomeEmailHtml({
       locale: emailLocale,
       playerName: player.displayName,
@@ -419,6 +425,8 @@ export async function sendWelcomeEmail(
         playerId: player._id,
         brandId,
         emailType: 'welcome',
+        experimentId,
+        variant,
         courseId: typeof course.courseId === 'string' ? course.courseId : undefined,
         sentAt: new Date(),
       }).catch((err) => logger.warn({ err, messageId }, 'EmailActivity create failed'));

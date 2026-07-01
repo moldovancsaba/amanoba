@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
     since.setDate(since.getDate() - days);
 
     const activities = await EmailActivity.find({ sentAt: { $gte: since } })
-      .select('emailType segment sentAt openedAt clickedAt clickCount')
+      .select('emailType segment experimentId variant sentAt openedAt clickedAt clickCount')
       .lean();
 
     const total = activities.length;
@@ -40,23 +40,34 @@ export async function GET(request: NextRequest) {
     const clicked = activities.filter((a) => a.clickedAt).length;
     const totalClicks = activities.reduce((sum, a) => sum + (a.clickCount || 0), 0);
 
-    const byType: Record<string, { sent: number; opened: number; clicked: number; clicks: number }> = {};
-    const bySegment: Record<string, { sent: number; opened: number; clicked: number; clicks: number }> = {};
+    type Bucket = { sent: number; opened: number; clicked: number; clicks: number };
+    const byType: Record<string, Bucket> = {};
+    const bySegment: Record<string, Bucket> = {};
+    // A/B analytics (#11): experimentId -> variant (A/B) -> bucket
+    const byExperiment: Record<string, Record<string, Bucket>> = {};
+
+    const bump = (b: Bucket, a: (typeof activities)[number]) => {
+      b.sent += 1;
+      if (a.openedAt) b.opened += 1;
+      if (a.clickedAt) b.clicked += 1;
+      b.clicks += a.clickCount || 0;
+    };
 
     for (const a of activities) {
       const type = a.emailType || 'unknown';
       if (!byType[type]) byType[type] = { sent: 0, opened: 0, clicked: 0, clicks: 0 };
-      byType[type].sent += 1;
-      if (a.openedAt) byType[type].opened += 1;
-      if (a.clickedAt) byType[type].clicked += 1;
-      byType[type].clicks += a.clickCount || 0;
+      bump(byType[type], a);
 
       const seg = a.segment || 'unknown';
       if (!bySegment[seg]) bySegment[seg] = { sent: 0, opened: 0, clicked: 0, clicks: 0 };
-      bySegment[seg].sent += 1;
-      if (a.openedAt) bySegment[seg].opened += 1;
-      if (a.clickedAt) bySegment[seg].clicked += 1;
-      bySegment[seg].clicks += a.clickCount || 0;
+      bump(bySegment[seg], a);
+
+      if (a.experimentId && a.variant) {
+        if (!byExperiment[a.experimentId]) byExperiment[a.experimentId] = {};
+        const variants = byExperiment[a.experimentId];
+        if (!variants[a.variant]) variants[a.variant] = { sent: 0, opened: 0, clicked: 0, clicks: 0 };
+        bump(variants[a.variant], a);
+      }
     }
 
     const openRate = total > 0 ? Math.round((opened / total) * 100) : 0;
@@ -86,6 +97,15 @@ export async function GET(request: NextRequest) {
         ...v,
         openRatePct: v.sent > 0 ? Math.round((v.opened / v.sent) * 100) : 0,
         clickRatePct: v.sent > 0 ? Math.round((v.clicked / v.sent) * 100) : 0,
+      })),
+      byExperiment: Object.entries(byExperiment).map(([experimentId, variants]) => ({
+        experimentId,
+        variants: Object.entries(variants).map(([variant, v]) => ({
+          variant,
+          ...v,
+          openRatePct: v.sent > 0 ? Math.round((v.opened / v.sent) * 100) : 0,
+          clickRatePct: v.sent > 0 ? Math.round((v.clicked / v.sent) * 100) : 0,
+        })),
       })),
     });
   } catch (error) {
