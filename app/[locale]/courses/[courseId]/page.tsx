@@ -151,6 +151,7 @@ export default function CourseDetailPage({
   const [leaderboardEntries, setLeaderboardEntries] = useState<Array<{ rank: number; score: number; player?: { displayName?: string } | null }>>([]);
   const [leaderboardLoading, setLeaderboardLoading] = useState(false);
   const [leaderboardMetric, setLeaderboardMetric] = useState<'course_points' | 'course_consistency'>('course_points');
+  const [liveSessions, setLiveSessions] = useState<Array<{ _id: string; title: string; description?: string; joinUrl: string; scheduledStartAt: string; status: string }>>([]);
   const [completedCourseIds, setCompletedCourseIds] = useState<string[]>([]);
   const [unmetPrereqsFromEnroll, setUnmetPrereqsFromEnroll] = useState<Array<{ courseId: string; name?: string }>>([]);
 
@@ -178,6 +179,9 @@ export default function CourseDetailPage({
       days: 'nap',
       points: 'pont',
       consistency: 'Következetesség',
+      liveSessions: 'Élő alkalmak',
+      joinSession: 'Csatlakozás',
+      liveNow: 'Most élő',
       enrolled: 'Beiratkozott',
       backToCourses: 'Vissza a kurzusokhoz',
       failedToEnroll: 'Nem sikerült beiratkozni a kurzusra',
@@ -245,6 +249,9 @@ export default function CourseDetailPage({
       days: 'days',
       points: 'points',
       consistency: 'Consistency',
+      liveSessions: 'Live sessions',
+      joinSession: 'Join',
+      liveNow: 'Live now',
       enrolled: 'Enrolled',
       backToCourses: 'Back to Courses',
       failedToEnroll: 'Failed to enroll in course',
@@ -936,6 +943,19 @@ export default function CourseDetailPage({
     return () => { cancelled = true; };
   }, [courseId, leaderboardMetric]);
 
+  useEffect(() => {
+    if (!courseId) return;
+    let cancelled = false;
+    fetch(`/api/courses/${encodeURIComponent(courseId)}/live-sessions`, { cache: 'no-store' })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (cancelled || !data?.sessions) return;
+        setLiveSessions(data.sessions);
+      })
+      .catch(() => { if (!cancelled) setLiveSessions([]); });
+    return () => { cancelled = true; };
+  }, [courseId]);
+
   const formatCurrency = (amount: number, currency: string): string => {
     const formatter = new Intl.NumberFormat(
       currency === 'huf' ? 'hu-HU' : currency === 'eur' ? 'de-DE' : currency === 'gbp' ? 'en-GB' : 'en-US',
@@ -1363,6 +1383,44 @@ export default function CourseDetailPage({
                 </SimpleGrid>
               </Stack>
             </Card>
+
+            {liveSessions.length > 0 && (
+              <Card padding="xl" radius="md" withBorder>
+                <Stack gap="md">
+                  <Group gap="sm">
+                    <ThemeIcon color="amanoba" variant="light" radius="md">
+                      <IconCalendar size={20} />
+                    </ThemeIcon>
+                    <Title order={2} size="h3">{getCourseDetailText('liveSessions') || 'Live sessions'}</Title>
+                  </Group>
+                  <Stack gap="xs">
+                    {liveSessions.map((s) => (
+                      <Paper key={s._id} p="sm" radius="md" withBorder>
+                        <Group gap="md" wrap="nowrap" justify="space-between">
+                          <div style={{ minWidth: 0 }}>
+                            <Text fw={600} truncate>{s.title}</Text>
+                            <Text size="sm" c="dimmed">
+                              {new Date(s.scheduledStartAt).toLocaleString()}
+                              {s.status === 'live' ? ` · ${getCourseDetailText('liveNow') || 'Live now'}` : ''}
+                            </Text>
+                          </div>
+                          <Button
+                            component="a"
+                            href={s.joinUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            size="xs"
+                            color="amanoba"
+                          >
+                            {getCourseDetailText('joinSession') || 'Join'}
+                          </Button>
+                        </Group>
+                      </Paper>
+                    ))}
+                  </Stack>
+                </Stack>
+              </Card>
+            )}
 
             {(course?.leaderboardEnabled ?? true) && (
               <Card padding="xl" radius="md" withBorder>

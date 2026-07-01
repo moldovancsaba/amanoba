@@ -91,6 +91,7 @@ export { default as CCS, type ICCS, type IRelatedDocument } from './ccs';
 export { default as Course, type ICourse } from './course';
 export { default as Lesson, type ILesson } from './lesson';
 export { default as CourseProgress, type ICourseProgress, CourseProgressStatus } from './course-progress';
+export { default as LiveSession, type ILiveSession, type LiveSessionProvider, type LiveSessionStatus } from './live-session';
 export { default as AssessmentResult, type IAssessmentResult } from './assessment-result';
 
 // Translation Model (1)
