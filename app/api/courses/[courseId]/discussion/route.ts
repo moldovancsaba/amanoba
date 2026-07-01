@@ -12,6 +12,7 @@ import connectDB from '@/lib/mongodb';
 import { DiscussionPost, Course, Notification } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import { checkRateLimit, apiRateLimiter } from '@/lib/security';
+import { sendPushToPlayer } from '@/lib/push/send-push';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -149,14 +150,22 @@ export async function POST(
         const parent = await DiscussionPost.findById(parentPostId).select('author lessonId').lean();
         const parentAuthorId = (parent as { author?: mongoose.Types.ObjectId } | null)?.author;
         if (parentAuthorId && String(parentAuthorId) !== String(authorId)) {
+          const link = `/courses/${courseIdUpper}${lessonId ? `?lessonId=${encodeURIComponent(lessonId)}` : ''}`;
           await Notification.create({
             recipient: parentAuthorId,
             type: 'discussion_reply',
             title: `${authorDisplayName} replied to your post`,
             body: postBody.slice(0, 200),
-            link: `/courses/${courseIdUpper}${lessonId ? `?lessonId=${encodeURIComponent(lessonId)}` : ''}`,
+            link,
             refId: String(post._id),
           });
+          // Best-effort browser push (no-op if VAPID unconfigured or no subscriptions).
+          void sendPushToPlayer(parentAuthorId, {
+            title: `${authorDisplayName} replied to your post`,
+            body: postBody.slice(0, 120),
+            url: link,
+            tag: 'discussion_reply',
+          }).catch(() => {});
         }
       } catch (notifyError) {
         logger.warn({ error: notifyError, postId: post._id }, 'Failed to create reply notification');

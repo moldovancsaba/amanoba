@@ -8,6 +8,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { LocaleLink } from '@/components/LocaleLink';
 import { Badge, Button, Card, Container, Group, Stack, Text, Title } from '@mantine/core';
+import PushOptIn from '@/components/pwa/PushOptIn';
 
 interface NotificationItem {
   _id: string;
@@ -66,7 +67,10 @@ export default function NotificationsPage() {
       <Stack gap="lg">
         <Group justify="space-between">
           <Title order={1}>Notifications {unread > 0 && <Badge color="amanoba">{unread}</Badge>}</Title>
-          {unread > 0 && <Button variant="light" size="xs" onClick={markAllRead}>Mark all read</Button>}
+          <Group gap="xs">
+            <PushOptIn />
+            {unread > 0 && <Button variant="light" size="xs" onClick={markAllRead}>Mark all read</Button>}
+          </Group>
         </Group>
 
         {loading ? (
