@@ -32,7 +32,7 @@ Run in this order after context loss:
 - Use `PROJECT_STATE.md` for repo version, GDS version, git HEAD, required contracts, and current gate commands.
 - Do not infer release, deployment, or board status from old handoff sections without checking the current docs and code.
 - Historical handoff snapshots and dated issue-program bodies are background material only.
-- The active GDS consumer contract is `@doneisbetter/*` plus `gds-adoption.json`.
+- The active GDS consumer contract is `@sovereignsquad/*` plus `gds-adoption.json`.
 - The active work-tracking truth remains Project 12 and `moldovancsaba/mvp-factory-control`.
 
 ## Minimal Commands

@@ -1,11 +1,11 @@
 # Amanoba GDS Adoption Manifest
 
-**Last Updated**: 2026-05-26
+**Last Updated**: 2026-07-03
 **Status**: Active local enforcement contract
 **Shared SSOT**: [sovereignsquad/general-design-system](https://github.com/sovereignsquad/general-design-system)
 **Shared Upstream Repo**: [sovereignsquad/general-design-system](https://github.com/sovereignsquad/general-design-system)
-**Aligned GDS Version**: `2.6.1`
-**Aligned GDS Date**: `2026-05-26`
+**Aligned GDS Version**: `3.9.0`
+**Aligned GDS Date**: `2026-07-03`
 **Machine-readable source**: `gds-adoption.json`
 
 This document defines Amanoba's local GDS adoption contract in a generally reusable form: one shared SSOT, one local adapter map, one exceptions register, one allowlist/banlist, and one validation entrypoint.

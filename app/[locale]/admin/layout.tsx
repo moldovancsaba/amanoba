@@ -1,5 +1,5 @@
 /**
- * Admin dashboard layout — `@doneisbetter/gds-admin` AppShell with Amanoba navigation.
+ * Admin dashboard layout — `@sovereignsquad/gds-admin` AppShell with Amanoba navigation.
  */
 
 'use client';
@@ -10,7 +10,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { useSession, signOut } from 'next-auth/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { AppShell } from '@doneisbetter/gds-admin/client';
+import { AppShell } from '@sovereignsquad/gds-admin/client';
 import {
   Avatar,
   Box,

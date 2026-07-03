@@ -3,12 +3,12 @@ import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const expected = process.env.GDS_VERSION_EXPECTED ?? '2.6.1';
+const expected = process.env.GDS_VERSION_EXPECTED ?? '3.9.0';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const pkgs = [
-  '@doneisbetter/gds-theme',
-  '@doneisbetter/gds-core',
-  '@doneisbetter/gds-admin',
+  '@sovereignsquad/gds-theme',
+  '@sovereignsquad/gds-core',
+  '@sovereignsquad/gds-admin',
 ];
 
 for (const name of pkgs) {
@@ -26,4 +26,4 @@ if (manifest.gdsVersion !== expected) {
   process.exit(1);
 }
 
-console.log(`✅ @doneisbetter/* packages aligned at ${expected}`);
+console.log(`✅ @sovereignsquad/* packages aligned at ${expected}`);

@@ -5,7 +5,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { validateManifest } from '@doneisbetter/gds-compliance';
+import { validateManifest } from '@sovereignsquad/gds-compliance';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const manifestPath = join(root, 'gds-adoption.json');
@@ -78,7 +78,7 @@ for (const scanRoot of SCAN_ROOTS) {
           rule: 'forbidden-import',
           severity: 'error',
           file: rel,
-          message: `Forbidden UI import (${source}); use @doneisbetter/* or Mantine via GDS patterns.`,
+          message: `Forbidden UI import (${source}); use @sovereignsquad/* or Mantine via GDS patterns.`,
         });
       }
     }

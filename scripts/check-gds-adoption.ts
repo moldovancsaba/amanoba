@@ -70,18 +70,18 @@ function main() {
   requireIncludes(packageJson, '"ui:check:gds-adoption"', findings, 'package.json');
   requireIncludes(packageJson, '"ui:check:gds"', findings, 'package.json');
   requireIncludes(packageJson, '"ui:gds:check"', findings, 'package.json');
-  requireIncludes(packageJson, '@doneisbetter/gds-theme', findings, 'package.json');
-  requireIncludes(packageJson, '@doneisbetter/gds-core', findings, 'package.json');
-  requireIncludes(packageJson, '"@doneisbetter/gds-theme": "2.6.1"', findings, 'package.json');
-  requireIncludes(packageJson, '"@doneisbetter/gds-core": "2.6.1"', findings, 'package.json');
-  requireIncludes(packageJson, '"@doneisbetter/gds-admin": "2.6.1"', findings, 'package.json');
-  requireIncludes(packageJson, '"@doneisbetter/gds-eslint-config": "2.6.1"', findings, 'package.json');
-  requireIncludes(packageJson, '"@doneisbetter/gds-compliance": "2.6.1"', findings, 'package.json');
+  requireIncludes(packageJson, '@sovereignsquad/gds-theme', findings, 'package.json');
+  requireIncludes(packageJson, '@sovereignsquad/gds-core', findings, 'package.json');
+  requireIncludes(packageJson, '"@sovereignsquad/gds-theme": "3.9.0"', findings, 'package.json');
+  requireIncludes(packageJson, '"@sovereignsquad/gds-core": "3.9.0"', findings, 'package.json');
+  requireIncludes(packageJson, '"@sovereignsquad/gds-admin": "3.9.0"', findings, 'package.json');
+  requireIncludes(packageJson, '"@sovereignsquad/gds-eslint-config": "3.9.0"', findings, 'package.json');
+  requireIncludes(packageJson, '"@sovereignsquad/gds-compliance": "3.9.0"', findings, 'package.json');
   if (packageJson.includes('@gds/')) {
-    findings.push('package.json: remove legacy @gds/* dependencies; use @doneisbetter/* only');
+    findings.push('package.json: remove legacy @gds/* dependencies; use @sovereignsquad/* only');
   }
   if (packageJson.includes('file:../GENERAL_DESIGN_SYSTEM/packages/')) {
-    findings.push('package.json: remove sibling file: GDS installs; use npm-published @doneisbetter/* packages');
+    findings.push('package.json: remove sibling file: GDS installs; use npm-published @sovereignsquad/* packages');
   }
 
   for (const adapter of manifest.localAdapters ?? []) {

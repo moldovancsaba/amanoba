@@ -2,7 +2,7 @@
 
 This document is the single-stop operational snapshot for Amanoba. Keep it current whenever the system behavior, process, or board status changes. Append entries instead of rewriting history.
 
-**Last Updated**: 2026-05-28
+**Last Updated**: 2026-07-03
 **Current Product Version**: 2.9.49 (per `package.json` and `README.md`)
 **Status**: Production stable, SSO-only auth, daily lessons + gamified learning live.
 
@@ -76,6 +76,24 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 <!-- docs-truth: ignore:start historical handover chronology -->
 
+## Sovereign Squad GDS migration (2026-07-03)
+
+### What changed
+- Migrated Amanoba from the old GDS npm scope to the canonical `@sovereignsquad/*` scope at `3.9.0`.
+- Updated the root runtime provider, theme adapter, admin/editor shells, GDS-backed pattern adapters, GDS smoke/compliance scripts, package manifests, and active GDS documentation to use the Sovereign Squad package line.
+- Updated `gds-adoption.json` to declare GDS `3.9.0` and the `@sovereignsquad/*` `/client` and `/server` entrypoints.
+- Removed the obsolete `vite-tsconfig-paths` test helper after Vite/Vitest exposed a native `resolve.tsconfigPaths` replacement, keeping test output warning-free.
+- Added an `esbuild@0.28.1` override while refreshing dependencies so `npm audit` returns zero vulnerabilities.
+
+### Validation
+- `npm audit` ✅ 0 vulnerabilities
+- `npm run ui:gds:check` ✅ pass
+- `npm run ui:check:gds` ✅ pass
+- `npm run type-check` ✅ pass
+- `npm run lint` ✅ pass
+- `npm test` ✅ pass, 18 files / 51 tests
+- `npm run build` ✅ pass
+
 ## Pilates quiz hard-rule update (2026-06-24)
 
 ### What changed
@@ -126,11 +144,11 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 
 ### What changed
 - Switched Amanoba off the temporary `gds-v2.6.1` GitHub release-asset install URLs and onto the live npm package line:
-  - `@doneisbetter/gds-theme@2.6.1`
-  - `@doneisbetter/gds-core@2.6.1`
-  - `@doneisbetter/gds-admin@2.6.1`
-  - `@doneisbetter/gds-eslint-config@2.6.1`
-  - `@doneisbetter/gds-compliance@2.6.1`
+  - `@sovereignsquad/gds-theme@2.6.1`
+  - `@sovereignsquad/gds-core@2.6.1`
+  - `@sovereignsquad/gds-admin@2.6.1`
+  - `@sovereignsquad/gds-eslint-config@2.6.1`
+  - `@sovereignsquad/gds-compliance@2.6.1`
 - Updated the active repo contract so new work treats npm as the only approved consumer source for GDS packages (`AGENTS.md`, `README.md`, `docs/product/DESIGN_UPDATE.md`, `docs/product/PATTERN_CONTRACT_INVENTORY.md`).
 - Tightened `scripts/check-gds-adoption.ts` so the adoption gate now requires the npm-published `2.6.1` package declarations instead of the previous release-asset URLs.
 - Fixed an existing type/lint break in `app/[locale]/admin/payments/page.tsx` by restoring the missing Mantine `Title` import.
@@ -1850,14 +1868,14 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `git -C /Users/moldovancsaba/Projects/amanoba rev-parse HEAD` ✅ ancestor of canonical before deletion
 - `test ! -e /Users/moldovancsaba/Projects/amanoba` ✅
 
-<!-- Superseded: this section records the temporary pre-npm bridge only; current consumer truth is npm-backed `@doneisbetter/*` plus `PROJECT_STATE.md`. -->
-## GDS `@doneisbetter/*` package migration (2026-05-26)
+<!-- Superseded: this section records the temporary pre-npm bridge only; current consumer truth is npm-backed `@sovereignsquad/*` plus `PROJECT_STATE.md`. -->
+## GDS `@sovereignsquad/*` package migration (2026-05-26)
 
 ### What changed
-- Replaced legacy `@gds/*` and repo-local `app/lib/gds/*` shims with **`@doneisbetter/*` 2.6.1** (GitHub release tarballs until npm publish).
-- Root runtime: **`GdsProvider`** (`@doneisbetter/gds-theme/client`) + **`extendGdsTheme`** (`@doneisbetter/gds-theme/server`).
-- Pattern adapters: `@doneisbetter/gds-core/client`; admin shell: `@doneisbetter/gds-admin/client` `AppShell`.
-- Governance: `@doneisbetter/gds-compliance`, `@doneisbetter/gds-eslint-config`, `ui:check:no-legacy-gds-imports`.
+- Replaced legacy `@gds/*` and repo-local `app/lib/gds/*` shims with **`@sovereignsquad/*` 2.6.1** (GitHub release tarballs until npm publish).
+- Root runtime: **`GdsProvider`** (`@sovereignsquad/gds-theme/client`) + **`extendGdsTheme`** (`@sovereignsquad/gds-theme/server`).
+- Pattern adapters: `@sovereignsquad/gds-core/client`; admin shell: `@sovereignsquad/gds-admin/client` `AppShell`.
+- Governance: `@sovereignsquad/gds-compliance`, `@sovereignsquad/gds-eslint-config`, `ui:check:no-legacy-gds-imports`.
 - Removed webpack aliases to local GDS mirrors.
 
 ### Verification
@@ -1871,13 +1889,13 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 ## GDS 2.6.1 release-asset install contract correction (2026-05-26)
 
 ### What changed
-- Replaced the temporary sibling `file:` installs for `@doneisbetter/gds-theme`, `@doneisbetter/gds-core`, `@doneisbetter/gds-admin`, `@doneisbetter/gds-eslint-config`, and `@doneisbetter/gds-compliance` with the approved public GitHub release tarballs from `gds-v2.6.1`.
+- Replaced the temporary sibling `file:` installs for `@sovereignsquad/gds-theme`, `@sovereignsquad/gds-core`, `@sovereignsquad/gds-admin`, `@sovereignsquad/gds-eslint-config`, and `@sovereignsquad/gds-compliance` with the approved public GitHub release tarballs from `gds-v2.6.1`.
 - Removed the sibling-bootstrap install behavior from `package.json` (`gds:ensure-sibling`, `postinstall`) so CI/Vercel and fresh clones no longer imply a local `GENERAL_DESIGN_SYSTEM` checkout requirement.
 - Removed stale `@gds/*` path aliases from `tsconfig.json`.
 - Corrected active docs to state the actual consumer contract: canonical future registry source is npm, current supported install source is the 2.6.1 GitHub release assets.
 
 ### Why
-- The new upstream package line is `@doneisbetter/*`, and the approved temporary install source before npm publication is the public 2.6.1 release assets. Sibling `file:` installs are explicitly not allowed for CI or Vercel flows.
+- The new upstream package line is `@sovereignsquad/*`, and the approved temporary install source before npm publication is the public 2.6.1 release assets. Sibling `file:` installs are explicitly not allowed for CI or Vercel flows.
 
 ### Verification
 - `npm run ui:gds:verify`
@@ -1891,7 +1909,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 ## GDS admin/editor surface adoption (2026-05-26)
 
 ### What changed
-- `ResponsiveDataView` adapter now delegates to `@doneisbetter/gds-admin/client` while preserving Amanoba column props for existing admin list pages.
+- `ResponsiveDataView` adapter now delegates to `@sovereignsquad/gds-admin/client` while preserving Amanoba column props for existing admin list pages.
 - Added `AdminPageHeader` (`PageHeader`) and migrated all `app/[locale]/admin/**` page titles off ad-hoc `Title order={1}` bands.
 - Editor portal layout uses GDS `AppShell`; lesson editor uses `EditorScaffold` + `ContentOpsActionBar`.
 - ESLint: disabled `gds/no-raw-design-values` for `app/api/email/**` and `markdown-editor.tsx`; markdown editor default min height is numeric (no `px` string literal).
@@ -1903,7 +1921,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run build` ✅ pass
 
 ### Notes
-- Superseded: install is `@doneisbetter/*@2.6.1` from npm (see `package.json` and `docs/product/DESIGN_UPDATE.md`).
+- Superseded: install is `@sovereignsquad/*@2.6.1` from npm (see `package.json` and `docs/product/DESIGN_UPDATE.md`).
 
 ## Doc SSOT + GDS closure issue program (2026-05-28)
 
@@ -1919,7 +1937,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - Added `docs/core/PROJECT_STATE.md` and `scripts/docs/refresh-project-state.mjs`, then wired `npm run docs:project-state:refresh` into the repo workflow.
 - Added `scripts/docs/check-doc-truth.mjs`, wired `npm run docs:truth:check` into `docs:check`, and aligned continuity docs around `PROJECT_STATE.md`.
 - Added `app/components/patterns/gds/LearnerShellAdapter.tsx`, moved the learner-shell contract there, and documented the blocked shared-shell migration in `docs/product/LEARNER_SHELL_MIGRATION.md`.
-- Moved `CourseCard` onto `@doneisbetter/gds-core/client` `PublicProductCard` in `app/components/patterns/gds/CourseCard.tsx`.
+- Moved `CourseCard` onto `@sovereignsquad/gds-core/client` `PublicProductCard` in `app/components/patterns/gds/CourseCard.tsx`.
 - Added `ContentOpsSection` + sticky `ContentOpsActionBar` dirty/save affordances to `app/[locale]/admin/courses/[courseId]/page.tsx`.
 - Added `docs/product/GDS_ACCESSIBILITY_VERIFICATION.md` and `scripts/ui/check-gds-accessibility-matrix.mjs`.
 - Updated `docs/status/PRODUCTION_STATUS.md`, `docs/product/RELEASE_NOTES.md`, and the closure program doc so issues `#890`-`#903` now reflect delivered repo state where implemented.

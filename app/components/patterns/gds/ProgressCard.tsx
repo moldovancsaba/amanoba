@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { ProgressCard as GdsProgressCard } from '@doneisbetter/gds-core/client';
+import { ProgressCard as GdsProgressCard } from '@sovereignsquad/gds-core/client';
 
 type ProgressCardProps = {
   label: ReactNode;
@@ -13,7 +13,7 @@ type ProgressCardProps = {
   color?: string;
 };
 
-/** Amanoba prop aliases over `@doneisbetter/gds-core` `ProgressCard`. */
+/** Amanoba prop aliases over `@sovereignsquad/gds-core` `ProgressCard`. */
 export function ProgressCard({
   label,
   value,

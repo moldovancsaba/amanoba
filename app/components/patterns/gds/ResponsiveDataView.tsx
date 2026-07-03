@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import {
   ResponsiveDataView as GdsResponsiveDataView,
   type DataTableColumn,
-} from '@doneisbetter/gds-admin/client';
+} from '@sovereignsquad/gds-admin/client';
 import { Box, Card, Group, Stack, Text } from '@mantine/core';
 
 export type ResponsiveColumn<T> = {
@@ -79,7 +79,7 @@ function DefaultMobileCard<T extends object>({
 }
 
 /**
- * Admin list contract — delegates table/card responsive layout to `@doneisbetter/gds-admin`.
+ * Admin list contract — delegates table/card responsive layout to `@sovereignsquad/gds-admin`.
  * Preserves Amanoba column API (`header` / `cell`, mobile labels) for existing admin pages.
  */
 export function ResponsiveDataView<T extends object>({

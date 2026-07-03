@@ -4,7 +4,7 @@ import {
   AccessRecoveryPanel,
   type AccessRecoveryAction,
   type AccessRecoveryState,
-} from '@doneisbetter/gds-core/client';
+} from '@sovereignsquad/gds-core/client';
 import type { CourseAccessRecoveryIssue } from '@/app/lib/course-access-recovery';
 
 type CourseAccessRecoveryActionsProps = {

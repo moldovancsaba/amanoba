@@ -1,7 +1,7 @@
 # Amanoba
 
 **Current Version**: 2.9.49
-**Last Updated**: 2026-05-25
+**Last Updated**: 2026-07-03
 **Status**: Production Stable — SSO-only auth; shared design-system SSOT adopted; Mantine-only UI dependency baseline
 
 ## 🎓 Overview
@@ -47,7 +47,7 @@ Amanoba is transforming into a **unified flexible learning platform** that combi
 - **Database**: MongoDB Atlas with Mongoose 8.18.0
 - **Language**: TypeScript 5
 - **Design/UI/UX SSOT**: [sovereignsquad/general-design-system](https://github.com/sovereignsquad/general-design-system)
-- **Consumed GDS release line**: `2.6.1` via `@doneisbetter/*` from npm
+- **Consumed GDS release line**: `3.9.0` via `@sovereignsquad/*` from npm
 - **UI Runtime**: Mantine 8.3.18 with shared GDS pattern-service contracts
 - **Styling**: Mantine theme plus narrow global CSS for document defaults, token bridge, and rich lesson prose
 - **Email**: Provider-selectable transport (`EMAIL_PROVIDER=resend|gmail|mailgun`) for lesson delivery and transactional emails

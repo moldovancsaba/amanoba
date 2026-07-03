@@ -36,7 +36,7 @@ import {
   ThemeIcon,
   Title,
 } from '@mantine/core';
-import { ContentOpsActionBar, ContentOpsSection } from '@doneisbetter/gds-admin/client';
+import { ContentOpsActionBar, ContentOpsSection } from '@sovereignsquad/gds-admin/client';
 import { AdminPageHeader } from '@/app/components/patterns/AdminPageHeader';
 import { modals } from '@mantine/modals';
 import { notifications } from '@mantine/notifications';

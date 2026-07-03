@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Badge, Box, Group, Image as MantineImage, Progress, Stack, Text } from '@mantine/core';
 import type { MantineColor } from '@mantine/core';
 import { IconBook } from '@tabler/icons-react';
-import { PublicProductCard } from '@doneisbetter/gds-core/client';
+import { PublicProductCard } from '@sovereignsquad/gds-core/client';
 
 type CourseMetric = {
   label: ReactNode;

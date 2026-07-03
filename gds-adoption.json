@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "gdsVersion": "2.6.1",
+  "gdsVersion": "3.9.0",
   "productArchetype": "lms-game",
   "supportedEntryPoints": [
-    "@doneisbetter/gds-theme/client",
-    "@doneisbetter/gds-theme/server",
-    "@doneisbetter/gds-core/client",
-    "@doneisbetter/gds-core/server",
-    "@doneisbetter/gds-admin/client",
-    "@doneisbetter/gds-admin/server"
+    "@sovereignsquad/gds-theme/client",
+    "@sovereignsquad/gds-theme/server",
+    "@sovereignsquad/gds-core/client",
+    "@sovereignsquad/gds-core/server",
+    "@sovereignsquad/gds-admin/client",
+    "@sovereignsquad/gds-admin/server"
   ],
   "requiredContracts": [
     "extendGdsTheme",

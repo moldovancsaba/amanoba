@@ -5,9 +5,9 @@
 
 # Docs Triage
 
-**Last Updated**: 2026-06-26
+**Last Updated**: 2026-07-03
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=5, KEEP(unclassified)=81
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=5, KEEP(unclassified)=82
 
 This file is the “what to do next” view derived from `docs/core/DOCS_CANONICAL_MAP.md`.
 
@@ -78,6 +78,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` — Developer Feedback Analysis
 - `docs/product/GDS_ACCESSIBILITY_VERIFICATION.md` — GDS Accessibility Verification
 - `docs/product/LEARNER_SHELL_MIGRATION.md` — Learner Shell Migration
+- `docs/product/MOBILE_STRATEGY.md` — Mobile Strategy & Scope (#12)
 - `docs/product/NEXT_PHASES.md` — Next Phases: Detailed Implementation Plan
 - `docs/product/P3_KNOWN_ISSUES_BACKLOG.md` — P3 Known Issues — Backlog
 - `docs/product/ROADMAP_TASKLIST_SYSTEM_COMPARISON.md` — ROADMAP vs TASKLIST vs System Outline — Comparison
@@ -85,8 +86,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/quality/CODE_REVIEW_FINDINGS.md` — Code Review: Boolean Filter Logic Issues
 - `docs/quality/PHASE_1_AUDIT_WORKSHEET.md` — PHASE 1 EXECUTION AUDIT WORKSHEET
 - `docs/quality/PHASE_2_AUDIT_TRACKER.md` — PHASE 2 AUDIT - COURSES 2-8
-- `docs/quality/QUALITY_SECURED_PROCESSING_COMPLETE.md` — ✅ Quality-Secured Processing - COMPLETE
-- … +21 more
+- … +22 more
 
 ## Next suggested move
 - Review KEEP(unclassified) docs and either promote to canonical sections in `docs/core/DOCS_INDEX.md` or archive.

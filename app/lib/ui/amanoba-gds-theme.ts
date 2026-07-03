@@ -1,4 +1,4 @@
-import { extendGdsTheme } from '@doneisbetter/gds-theme/server';
+import { extendGdsTheme } from '@sovereignsquad/gds-theme/server';
 import {
   AMANOBA_MANTINE_BASE,
   AMANOBA_MANTINE_PALETTES,
@@ -8,7 +8,7 @@ import {
 
 /**
  * Amanoba brand extension of GDS base theme (THEME_GOVERNANCE).
- * Brand extension via `@doneisbetter/gds-theme/server` (THEME_GOVERNANCE).
+ * Brand extension via `@sovereignsquad/gds-theme/server` (THEME_GOVERNANCE).
  */
 export const amanobaMantineTheme = extendGdsTheme({
   primaryColor: 'amanoba',

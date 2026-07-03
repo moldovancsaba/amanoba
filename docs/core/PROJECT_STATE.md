@@ -7,7 +7,7 @@
 
 - Canonical repo: `amanoba` product repo only; do not rely on sibling or duplicate local clones as truth.
 - Work tracking SSOT: Project 12 + `moldovancsaba/mvp-factory-control`.
-- GDS consumer contract: use published `@doneisbetter/*` packages, governed by `gds-adoption.json`.
+- GDS consumer contract: use published `@sovereignsquad/*` packages, governed by `gds-adoption.json`.
 - Documentation SSOT: `PROJECT_STATE.md` for current state, `docs/HANDOVER.md` for chronology, `docs/product/RELEASE_NOTES.md` for delivered work only.
 - Production deploy path: push to `origin/main`; GitHub triggers the Vercel production deploy.
 
@@ -35,21 +35,21 @@
 ## Generated Snapshot
 
 <!-- gds-project-state:generated:start -->
-- Generated at: `2026-06-26T07:13:38.430Z`
+- Generated at: `2026-07-03T11:01:47.041Z`
 - Package version: `2.9.49`
-- Git branch: `main`
-- Git HEAD: `0015fa7a` (`0015fa7ade81ecfaad95406d94597a10fd77a64e`)
+- Git branch: `sentinel-squad/gds-sovereignsquad-migration`
+- Git HEAD: `6b525fb2` (`6b525fb226ce17adcb08ce947d889f924b772fbf`)
 - Git worktree state: `dirty`
-- GDS version: `2.6.1`
+- GDS version: `3.9.0`
 - GDS migration status: `enforced`
 - Product archetype: `lms-game`
 - Supported GDS entry points:
-- `@doneisbetter/gds-theme/client`
-- `@doneisbetter/gds-theme/server`
-- `@doneisbetter/gds-core/client`
-- `@doneisbetter/gds-core/server`
-- `@doneisbetter/gds-admin/client`
-- `@doneisbetter/gds-admin/server`
+- `@sovereignsquad/gds-theme/client`
+- `@sovereignsquad/gds-theme/server`
+- `@sovereignsquad/gds-core/client`
+- `@sovereignsquad/gds-core/server`
+- `@sovereignsquad/gds-admin/client`
+- `@sovereignsquad/gds-admin/server`
 - Required GDS contracts:
 - `extendGdsTheme`
 - `StateBlock`

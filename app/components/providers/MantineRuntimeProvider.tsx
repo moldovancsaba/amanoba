@@ -1,6 +1,6 @@
 'use client';
 
-import { GdsProvider } from '@doneisbetter/gds-theme/client';
+import { GdsProvider } from '@sovereignsquad/gds-theme/client';
 import type { ReactNode } from 'react';
 import { amanobaMantineTheme } from '@/app/lib/ui/mantine-theme';
 
