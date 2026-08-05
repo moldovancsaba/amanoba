@@ -1986,3 +1986,37 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run build` ✅ pass
 - `npm run course:ai:content-fix` with no `--apply` now produces preview artifacts under `docs/course-ai/content-fix/preview/` before any GitHub sync
 - `npm run course:ai:content-fix` ✅ starts cleanly, then stops with an explicit `MONGODB_URI` error in this workspace because the runtime secret is not present here
+
+## Cloud Agent environment setup and learning baseline (2026-08-05)
+
+### What changed
+
+- Cloud Agent completed comprehensive learning session on Amanoba platform.
+- Installed Vercel CLI locally (v58.5.1) as dev dependency.
+- Created `.env.local` from `.env.local.example` template (awaiting production secrets).
+- Generated comprehensive learning documentation:
+  - `AMANOBA_LEARNING_SUMMARY.md` — Complete platform knowledge baseline (22 sections covering architecture, development, deployment, course system, documentation standards, and operational procedures)
+  - `DEVELOPMENT_ENVIRONMENT_STATUS.md` — Environment readiness checklist and setup status
+- Documented Vercel CLI authentication requirement for environment variable pull.
+- Verified TypeScript compilation passes (`npm run type-check` ✅)
+- Confirmed all 916 dependencies installed successfully.
+- Repository synced with `origin/main`, no uncommitted changes.
+
+### Status
+
+**Development environment**: Partially ready
+- ✅ Code analysis and offline development ready (lint, type-check, test, docs:check)
+- ⚠️ Application runtime requires environment variables (MONGODB_URI, AUTH_SECRET, SSO credentials, EMAIL_PROVIDER credentials)
+- ⚠️ Vercel CLI awaiting user authentication at https://vercel.com/oauth/device?user_code=QGJQ-SZQR
+
+**Next steps**:
+1. User authenticates Vercel CLI (visit auth URL above)
+2. Pull environment variables: `npx vercel env pull .env.local`
+3. Start development server: `npm run dev`
+
+### Verification
+
+- `npm run type-check` ✅ pass
+- Dependencies installed ✅ 916 packages
+- Git status ✅ clean, synced with origin/main
+- Learning documentation ✅ generated and saved
