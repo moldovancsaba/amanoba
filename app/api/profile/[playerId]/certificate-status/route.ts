@@ -139,17 +139,24 @@ export async function GET(
       durationDays
     );
 
-    // Check final exam status
+    // Check if course requires final exam for certification
+    // If certification is enabled but no entitlement config exists, treat as no-exam-required
+    const requiresFinalExam = course.certification?.enabled === true;
+    
+    // Check final exam status only if required
     // FinalExamAttempt.courseId is ObjectId reference to Course._id
-    const finalExamAttempt = await FinalExamAttempt.findOne({
-      playerId: new mongoose.Types.ObjectId(playerId),
-      courseId: course._id,
-      status: 'GRADED',
-    })
-      .sort({ submittedAtISO: -1 }) // Get most recent attempt
-      .lean();
+    let finalExamAttempt = null;
+    if (requiresFinalExam) {
+      finalExamAttempt = await FinalExamAttempt.findOne({
+        playerId: new mongoose.Types.ObjectId(playerId),
+        courseId: course._id,
+        status: 'GRADED',
+      })
+        .sort({ submittedAtISO: -1 }) // Get most recent attempt
+        .lean();
+    }
 
-    const finalExamPassed = !!finalExamAttempt?.passed;
+    const finalExamPassed = requiresFinalExam ? !!finalExamAttempt?.passed : true; // Pass by default if no exam required
     const finalExamScore = finalExamAttempt?.scorePercentInteger || null;
 
     // Fetch certificate record independently. Older course progress can have incomplete
@@ -160,12 +167,20 @@ export async function GET(
       isRevoked: { $ne: true },
     }).lean();
     const hasIssuedCertificate = Boolean(certificate);
+    
+    // Certificate is eligible if:
+    // 1. Already issued (durable source of truth), OR
+    // 2. All requirements met:
+    //    - Enrolled
+    //    - All lessons completed
+    //    - All quizzes passed (if course has quizzes)
+    //    - Final exam passed (if course requires final exam)
     const certificateEligible =
       hasIssuedCertificate ||
       (enrolled &&
         allLessonsCompleted &&
-        allQuizzesPassed &&
-        finalExamPassed);
+        (course.lessonQuizPolicy?.enabled === true ? allQuizzesPassed : true) && // Only check quizzes if enabled
+        finalExamPassed); // Already true if no exam required
     const verificationSlug = certificate?.verificationSlug ?? null;
     const designTemplateId = certificate?.designTemplateId ?? null;
 

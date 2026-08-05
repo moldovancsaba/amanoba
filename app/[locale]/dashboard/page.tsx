@@ -567,12 +567,12 @@ export default function Dashboard() {
                         title={item.course.name}
                         compact
                         badges={completed ? [{ label: 'Completed', color: 'green', variant: 'light' }] : []}
-                        progress={{
+                        progress={completed ? undefined : {
                           value: item.progress.progressPercentage,
                           detail: (
                             <Group justify="space-between" gap="xs">
                               <Text size="xs" c="dimmed">
-                                {completed ? 'Course completed' : courseLabel('dayOf', `Day ${item.progress.currentDay} of ${item.progress.totalDays}`, {
+                                {courseLabel('dayOf', `Day ${item.progress.currentDay} of ${item.progress.totalDays}`, {
                                   currentDay: Math.min(item.progress.currentDay, item.progress.totalDays),
                                   totalDays: item.progress.totalDays,
                                 })}
@@ -596,6 +596,16 @@ export default function Dashboard() {
                             {completed ? 'View Certificate' : courseLabel('nextLesson', 'Next Lesson')}
                           </Button>
                         )}
+                        secondaryAction={completed ? (
+                          <Button
+                            component={LocaleLink}
+                            href={`/${item.course.language}/courses/${item.course.courseId}`}
+                            variant="default"
+                            fullWidth
+                          >
+                            Back to course
+                          </Button>
+                        ) : undefined}
                       />
                     );
                     })}
