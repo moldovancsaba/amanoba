@@ -441,21 +441,22 @@ export function enforceCourseQuality(
   let blockedQuestions = 0;
 
   // Enforce lesson quality
-  for (const lesson of lessons) {
-    const lessonResult = enforceLessonQuality(lesson, { level, ...options });
-    lessonResults.push({
-      ...lessonResult,
-      lessonId: lesson.lessonId || 'unknown',
-    });
+      for (const lesson of lessons) {
+        const lessonResult = enforceLessonQuality(lesson, { level, ...options });
+        lessonResults.push({
+          ...lessonResult,
+          lessonId: lesson.lessonId || 'unknown',
+        });
 
-    totalLessons++;
-    totalQualityScore += lessonResult.validation.qualityScore;
+        totalLessons++;
+        const lessonScore = 'qualityScore' in lessonResult.validation ? lessonResult.validation.qualityScore : 0;
+        totalQualityScore += lessonScore;
 
-    if (lessonResult.allowed) {
-      passedLessons++;
-    } else {
-      blockedLessons++;
-    }
+        if (lessonResult.allowed) {
+          passedLessons++;
+        } else {
+          blockedLessons++;
+        }
 
     // Enforce quiz question quality for this lesson
     if (lesson.quizQuestions && lesson.quizQuestions.length > 0) {
@@ -469,16 +470,17 @@ export function enforceCourseQuality(
           expectedLanguage: options.expectedLanguage || lesson.language,
         });
 
-        questionResults[lessonId].push(questionResult);
+            questionResults[lessonId].push(questionResult);
 
-        totalQuestions++;
-        totalQualityScore += questionResult.validation.qualityScore;
+            totalQuestions++;
+            const questionScore = 'qualityScore' in questionResult.validation ? questionResult.validation.qualityScore : 0;
+            totalQualityScore += questionScore;
 
-        if (questionResult.allowed) {
-          passedQuestions++;
-        } else {
-          blockedQuestions++;
-        }
+            if (questionResult.allowed) {
+              passedQuestions++;
+            } else {
+              blockedQuestions++;
+            }
       }
 
       // Validate quiz distribution for this lesson

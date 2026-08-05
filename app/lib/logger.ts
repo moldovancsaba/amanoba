@@ -27,22 +27,22 @@ interface LogData {
 
 interface Logger {
   trace(msg: string): void;
-  trace(data: LogData, msg: string): void;
+  trace(data: LogData, msg?: string): void;
   trace(msg: string, data: LogData): void;
   debug(msg: string): void;
-  debug(data: LogData, msg: string): void;
+  debug(data: LogData, msg?: string): void;
   debug(msg: string, data: LogData): void;
   info(msg: string): void;
-  info(data: LogData, msg: string): void;
+  info(data: LogData, msg?: string): void;
   info(msg: string, data: LogData): void;
   warn(msg: string): void;
-  warn(data: LogData, msg: string): void;
+  warn(data: LogData, msg?: string): void;
   warn(msg: string, data: LogData): void;
   error(msg: string | unknown): void;
-  error(data: LogData, msg: string): void;
+  error(data: LogData, msg?: string): void;
   error(msg: string, data: LogData): void;
   fatal(msg: string): void;
-  fatal(data: LogData, msg: string): void;
+  fatal(data: LogData, msg?: string): void;
   fatal(msg: string, data: LogData): void;
   child(context: Record<string, unknown>): Logger;
 }
@@ -59,8 +59,16 @@ function createSimpleLogger(context: Record<string, unknown> = {}): Logger {
 
   const log = (level: string, ...args: unknown[]) => {
     const [first, second] = args;
-    const msg: string = typeof first === 'string' ? first : (typeof second === 'string' ? second : '');
-    const data = typeof first === 'object' && first !== null ? (first as LogData) : undefined;
+    let msg: string = '';
+    let data: LogData | undefined;
+    
+    if (typeof first === 'string') {
+      msg = first;
+      data = typeof second === 'object' && second !== null ? (second as LogData) : undefined;
+    } else if (typeof first === 'object' && first !== null) {
+      data = first as LogData;
+      msg = typeof second === 'string' ? second : '';
+    }
     
     const formatted = formatMessage(level, msg, data);
     

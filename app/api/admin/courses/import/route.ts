@@ -214,30 +214,30 @@ export async function POST(request: NextRequest) {
       });
 
       // Collect detailed error information for response
-      const blockedLessons = qualityResult.lessons
-        .filter((l) => !l.allowed)
-        .map((l) => ({
-          lessonId: l.lessonId,
-          reason: l.enforcement.reason,
-          qualityScore: l.validation.qualityScore,
-          errors: l.validation.errors.slice(0, 3), // Top 3 errors per lesson
-          missingSections: l.validation.details?.missingSections?.slice(0, 5) || [],
-        }));
+          const blockedLessons = qualityResult.lessons
+            .filter((l) => !l.allowed)
+            .map((l) => ({
+              lessonId: l.lessonId,
+              reason: l.enforcement.reason,
+              qualityScore: 'qualityScore' in l.validation ? l.validation.qualityScore : 0,
+              errors: l.validation.errors.slice(0, 3), // Top 3 errors per lesson
+              missingSections: (l.validation.details && 'missingSections' in l.validation.details) ? l.validation.details.missingSections?.slice(0, 5) || [] : [],
+            }));
 
-      const blockedQuestions = Object.entries(qualityResult.questions)
-        .flatMap(([lessonId, qs]) =>
-          qs
-            .filter((q) => !q.allowed)
-            .map((q, idx) => ({
-              lessonId,
-              questionNumber: idx + 1,
-              reason: q.enforcement.reason,
-              qualityScore: q.validation.qualityScore,
-              errors: q.validation.errors.slice(0, 2), // Top 2 errors per question
-              forbiddenPatterns: q.validation.details?.forbiddenPatterns?.slice(0, 3) || [],
-            }))
-        )
-        .slice(0, 10); // Limit to first 10 blocked questions for response size
+          const blockedQuestions = Object.entries(qualityResult.questions)
+            .flatMap(([lessonId, qs]) =>
+              qs
+                .filter((q) => !q.allowed)
+                .map((q, idx) => ({
+                  lessonId,
+                  questionNumber: idx + 1,
+                  reason: q.enforcement.reason,
+                  qualityScore: 'qualityScore' in q.validation ? q.validation.qualityScore : 0,
+                  errors: q.validation.errors.slice(0, 2), // Top 2 errors per question
+                  forbiddenPatterns: (q.validation.details && 'forbiddenPatterns' in q.validation.details) ? q.validation.details.forbiddenPatterns?.slice(0, 3) || [] : [],
+                }))
+            )
+            .slice(0, 10); // Limit to first 10 blocked questions for response size
 
       return NextResponse.json(
         {
