@@ -12,7 +12,7 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | GDS Contract | Amanoba implementation | GDS package | Status | Notes |
 | --- | --- | --- | --- | --- |
 | Theme | `app/lib/ui/amanoba-gds-theme.ts` | `@doneisbetter/gds-theme/server` + `extendGdsTheme` | Canonical | Dark product shell; `theme.other.brand` / `email` |
-| Learner shell / page header | `app/components/patterns/gds/LearnerShellAdapter.tsx` | — | Local adapter | Stable import remains `app/components/LearnerPageHeader.tsx`; direct shared shell blocked by GDS #80 |
+| Learner shell / page header | `app/components/patterns/gds/LearnerShellAdapter.tsx` | — | Local adapter | Stable import: `app/components/LearnerPageHeader.tsx`; client-only (session hooks); dashboard/courses/my-courses/saved/practice/stats/leaderboards/blog/news; GDS #80 blocks upstream |
 | Auth shell | `app/components/patterns/gds/AuthShell.tsx` | `@doneisbetter/gds-core` (brand-composition adapter) | Canonical | Re-export at `patterns/AuthShell.tsx`; server-safe; signin/error/onboarding routes |
 | Public shell | `app/components/patterns/gds/PublicAppShell.tsx` | `@doneisbetter/gds-core` (brand-composition adapter) | Canonical | Re-export at `patterns/PublicAppShell.tsx`; server-safe; landing/partners routes |
 | Article shell | `app/components/patterns/gds/ArticleShell.tsx` | `@doneisbetter/gds-core` (brand-composition adapter) | Canonical | Re-export at `patterns/ArticleShell.tsx`; server-safe; blog/news routes |

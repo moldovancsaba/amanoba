@@ -30,6 +30,26 @@ import {
 import Logo from '@/components/Logo';
 import { LocaleLink } from '@/components/LocaleLink';
 
+/**
+ * Props for {@link LearnerPageHeader} and {@link LearnerShellAdapter}.
+ * 
+ * @property {string} title - Page title displayed prominently in header (e.g., "Dashboard", "My Courses")
+ * @property {string} subtitle - Descriptive subtitle or tagline below title
+ * @property {ReactNode} [icon] - Optional icon displayed before title (wrapped in ThemeIcon)
+ * @property {() => void} [onRefresh] - Optional refresh callback (triggers data reload)
+ * @property {ReactNode} [actions] - Optional additional action buttons (desktop only)
+ * 
+ * @example
+ * ```tsx
+ * <LearnerPageHeader
+ *   title="Dashboard"
+ *   subtitle="Your learning progress"
+ *   icon={<IconDashboard size={20} />}
+ *   onRefresh={() => refetch()}
+ *   actions={<Button>Custom Action</Button>}
+ * />
+ * ```
+ */
 export type LearnerPageHeaderProps = {
   title: string;
   subtitle: string;
@@ -48,9 +68,57 @@ const learnerNavItems = [
 ];
 
 /**
- * Thin Amanoba learner-shell adapter.
- * Keep the public `LearnerPageHeader` contract stable while GDS issue #80 blocks
- * the direct LearnerAppShell/LearnerShell swap in the shared package.
+ * Canonical learner shell adapter with header, navigation, and user actions.
+ * 
+ * **Contract**: Provides consistent learner experience across all core learner routes.
+ * 
+ * **Server/Client Safety**: ⚠️ Client-only (uses hooks: useSession, signOut, useState, useEffect)
+ * 
+ * **Consuming Routes**:
+ * - `/[locale]/dashboard` - User dashboard with stats and progress
+ * - `/[locale]/courses` - Course catalog
+ * - `/[locale]/my-courses` - Enrolled courses
+ * - `/[locale]/saved` - Saved lessons
+ * - `/[locale]/practice` - Practice hub
+ * - `/[locale]/stats` - User statistics
+ * - `/[locale]/leaderboards` - Leaderboards
+ * - `/[locale]/blog` - Blog index
+ * - `/[locale]/news` - News index
+ * 
+ * **Slots**:
+ * - `icon` (optional): Page-specific icon before title
+ * - `title` (required): Page title (h1)
+ * - `subtitle` (required): Supporting text below title
+ * - `actions` (optional): Custom action buttons (desktop only)
+ * - `onRefresh` (optional): Refresh callback (adds refresh button)
+ * 
+ * **Navigation**:
+ * - Desktop: Horizontal button navigation bar
+ * - Mobile: Collapsed into hamburger menu
+ * - Fixed items: Dashboard, Blog, Courses, My Courses, Practice, Saved
+ * - Dynamic items: Profile, Admin (if admin), Editor (if editor), Sign Out
+ * 
+ * **Accessibility**:
+ * - Semantic `<header>` landmark
+ * - Logo link to dashboard
+ * - Keyboard-navigable menu and buttons
+ * - Mobile menu accessible via icon button with aria-label
+ * - Focus order: logo → title → actions → nav → menu
+ * 
+ * **Performance**: Client-only due to session hooks, fetches admin access on mount
+ * 
+ * **Mobile Behavior**:
+ * - Actions hidden below md breakpoint
+ * - Navigation collapsed into menu
+ * - Menu triggered by IconDots button
+ * 
+ * @param props - {@link LearnerPageHeaderProps}
+ * @returns Learner shell header with navigation
+ * 
+ * @see {@link LearnerPageHeader} for public export
+ * @remarks
+ * This adapter keeps the public `LearnerPageHeader` contract stable while GDS issue #80
+ * blocks direct LearnerAppShell/LearnerShell swap in the shared package.
  */
 export function LearnerShellAdapter({ title, subtitle, icon, onRefresh, actions }: LearnerPageHeaderProps) {
   const locale = useLocale();
@@ -195,6 +263,31 @@ export function LearnerShellAdapter({ title, subtitle, icon, onRefresh, actions 
   );
 }
 
+/**
+ * Public learner page header contract (canonical export).
+ * 
+ * **Contract**: Stable import path for learner shell/header composition.
+ * 
+ * **Server/Client Safety**: ⚠️ Client-only (delegates to LearnerShellAdapter)
+ * 
+ * **Consuming Routes**: See {@link LearnerShellAdapter} for complete list
+ * 
+ * **Usage**: Always import from `@/app/components/LearnerPageHeader` (stable re-export)
+ * 
+ * @param props - {@link LearnerPageHeaderProps}
+ * @returns Learner shell header via {@link LearnerShellAdapter}
+ * 
+ * @example
+ * ```tsx
+ * import { LearnerPageHeader } from '@/app/components/LearnerPageHeader';
+ * 
+ * <LearnerPageHeader
+ *   title="Dashboard"
+ *   subtitle="Your learning progress"
+ *   icon={<IconDashboard size={20} />}
+ * />
+ * ```
+ */
 export function LearnerPageHeader(props: LearnerPageHeaderProps) {
   return <LearnerShellAdapter {...props} />;
 }

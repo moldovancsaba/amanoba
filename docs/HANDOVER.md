@@ -2204,3 +2204,40 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - #880 — Learner shell convergence (can proceed with auth/public/article pattern)
 - #881 — Content rendering hardening (can reference ArticleShell pattern)
 - #888 — GDS compliance hardening (shell contracts now explicit)
+
+## Issue #880: Learner shell convergence - canonical header contract (2026-08-05)
+
+### What changed
+
+- Canonicalized learner shell/header contract with explicit TypeScript documentation
+- Added comprehensive JSDoc to `LearnerShellAdapter` and `LearnerPageHeader`
+- Documented consuming routes (dashboard, courses, my-courses, saved, practice, stats, leaderboards, blog, news)
+- Confirmed client-only status (uses session hooks, admin access fetch)
+- Documented navigation structure (desktop horizontal, mobile hamburger)
+- Updated `PATTERN_CONTRACT_INVENTORY.md` with learner shell consuming routes
+
+### Contract documentation added
+
+**LearnerPageHeader / LearnerShellAdapter**:
+- Props: `title`, `subtitle`, `icon?`, `onRefresh?`, `actions?`
+- Server/client: ⚠️ Client-only (useSession, signOut, useState, useEffect)
+- Routes: 9 learner routes (dashboard, courses, my-courses, saved, practice, stats, leaderboards, blog, news)
+- Navigation: Dashboard, Blog, Courses, My Courses, Practice, Saved + dynamic (Profile, Admin, Editor, Sign Out)
+- Accessibility: Semantic header, keyboard nav, mobile menu with aria-label
+- Mobile: Actions hidden <md, navigation in hamburger menu
+
+### Status
+
+**Learner shell contract**: ✅ Fully documented
+- TypeScript props explicitly typed and exported
+- Server/client safety documented (client-only)
+- All 9 consuming routes verified
+- Navigation structure documented
+- Accessibility requirements specified
+- Mobile behavior documented
+
+**Quality gates**: Pending verification
+
+**Documentation**: ✅ Updated
+- `PATTERN_CONTRACT_INVENTORY.md` — Learner shell with consuming routes
+- `HANDOVER.md` — #880 implementation entry
