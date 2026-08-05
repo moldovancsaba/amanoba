@@ -8,6 +8,7 @@
 import connectDB from '../app/lib/mongodb';
 import { Course, Lesson, QuizQuestion, CourseProgress, Certificate, CertificateEntitlement, Brand } from '../app/lib/models';
 import { QuestionDifficulty, QuestionType } from '../app/lib/models/quiz-question';
+import { getRandomThumbnail } from '../app/lib/course-thumbnail-pool';
 
 async function resetCourses() {
   console.log('🧹 Starting course database reset...\n');
@@ -60,13 +61,17 @@ async function resetCourses() {
     const courseId = 'AI_DUMMIES_1DAY_EN';
     const language = 'en';
 
+    // Get random thumbnail from pool (deterministic based on courseId)
+    const thumbnail = getRandomThumbnail(courseId);
+    console.log(`   📸 Selected thumbnail: ${thumbnail}\n`);
+
     const course = await Course.create({
       brandId: brand._id,
       courseId,
       name: 'AI for dummies in a day',
       description: 'A friendly 1-day introduction to AI for complete beginners. Learn what AI is, how it works, and how to use it in your daily life without any technical background.',
       language,
-      // thumbnail: null, // Omit to use brand default thumbnail
+      thumbnail, // Random thumbnail from pool
       durationDays: 1,
       isActive: true,
       requiresPremium: false,
