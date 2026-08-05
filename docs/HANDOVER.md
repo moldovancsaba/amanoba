@@ -2807,3 +2807,82 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - **Compliance**: Enforced via 11-check suite
 - **Upstream clarity**: 3 actionable gaps vs 8 resolved locally
 - **Documentation**: Comprehensive contract inventory and handoff materials
+
+---
+
+## 2026-08-05: GDS Upgrade to 3.14.17 with @sovereignsquad Namespace
+
+**Context**: User explicitly requested upgrade to GDS 3.14.17 from GitHub release, replacing the npm-published 2.6.1 version.
+
+**Changes**:
+
+1. **Package Namespace Migration** (BREAKING):
+   - Old: `@doneisbetter/gds-*` → New: `@sovereignsquad/gds-*`
+   - Version: `2.6.1` → `3.14.17`
+   - Source: GitHub release tarballs (not yet published to npm)
+
+2. **Dependencies Added**:
+   - `@mantine/dates@9.2.2` (new GDS 3.14.17 peer dependency)
+   - `dayjs` (peer for `@mantine/dates`)
+
+3. **Mantine Version Updated**:
+   - `@mantine/core`, `@mantine/hooks`, `@mantine/modals`, `@mantine/notifications`: upgraded to `9.2.2`
+   - Reason: GDS 3.14.17 requires Mantine 9.2.x (verified consumer line: React 19 + Mantine 8.3.x or 9.2.x)
+
+4. **Mantine 9 API Migrations**:
+   - `Grid`: `gutter` prop → `gap`
+   - `Collapse`: `in` prop → `expanded`
+   - `TypographyStylesProvider` → `Box` with `mantine-typography-styles` class (component removed in Mantine 9)
+
+5. **Codebase Updates**:
+   - All imports: `@doneisbetter/*` → `@sovereignsquad/*` (43 files)
+   - All documentation: version references updated to `3.14.17`
+   - All scripts: package namespace updated
+   - `gds-adoption.json`: `gdsVersion` and `bannedImports` updated
+   - `scripts/verify-gds-version.mjs`: default version and package names updated
+   - `scripts/check-gds-adoption.ts`: URL-based install detection added
+
+6. **Files Modified** (43 total):
+   - Source code: 18 files (adapters, layouts, pages, providers)
+   - Documentation: 13 files (handover, design update, inventory, etc.)
+   - Scripts: 7 files (compliance, verification, adoption checks)
+   - Config: 3 files (package.json, gds-adoption.json, lock file)
+   - Components: 2 files (CookieConsentBanner, CourseStudyGroups)
+
+**Verification**:
+- ✅ Type checking: passed
+- ✅ Linting: passed
+- ✅ All GDS compliance checks: passed (11 checks)
+- ✅ Production build: successful
+- ✅ Quality gates: all passing
+
+**Installation Method**:
+```bash
+# Runtime packages
+npm install https://github.com/sovereignsquad/general-design-system/releases/download/gds-v3.14.17/sovereignsquad-gds-theme-3.14.17.tgz
+npm install https://github.com/sovereignsquad/general-design-system/releases/download/gds-v3.14.17/sovereignsquad-gds-core-3.14.17.tgz
+npm install https://github.com/sovereignsquad/general-design-system/releases/download/gds-v3.14.17/sovereignsquad-gds-admin-3.14.17.tgz
+
+# Dev packages
+npm install -D https://github.com/sovereignsquad/general-design-system/releases/download/gds-v3.14.17/sovereignsquad-gds-a11y-3.14.17.tgz
+npm install -D https://github.com/sovereignsquad/general-design-system/releases/download/gds-v3.14.17/sovereignsquad-gds-eslint-config-3.14.17.tgz
+npm install -D https://github.com/sovereignsquad/general-design-system/releases/download/gds-v3.14.17/sovereignsquad-gds-compliance-3.14.17.tgz
+
+# Peer dependencies
+npm install @mantine/dates dayjs
+npm install @mantine/core@9.2.2 @mantine/hooks@9.2.2 @mantine/modals@9.2.2 @mantine/notifications@9.2.2
+```
+
+**Reference**:
+- GitHub Release: https://github.com/sovereignsquad/general-design-system/releases/tag/gds-v3.14.17
+- Install Instructions: [INSTALL_FROM_RELEASE_ASSETS.md](https://github.com/sovereignsquad/general-design-system/releases/download/gds-v3.14.17/INSTALL_FROM_RELEASE_ASSETS.md)
+
+**Impact**:
+- **Namespace**: All GDS references now use `@sovereignsquad/*`
+- **Version tracking**: All docs, scripts, and manifests reference `3.14.17`
+- **Mantine API**: Codebase now uses Mantine 9.2 API
+- **Compliance**: All checks updated to validate new namespace and version
+- **Future upgrades**: Once 3.14.17 is published to npm, can migrate from GitHub URLs to npm versioned installs
+
+**Git Commit**: `222fccb7` (main branch)  
+**Pushed**: 2026-08-05
