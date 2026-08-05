@@ -110,6 +110,7 @@ npm run dev
 | [AMANOBA_LEARNING_SUMMARY.md](AMANOBA_LEARNING_SUMMARY.md) | Complete knowledge baseline (22 sections) |
 | [COURSE_SYSTEM_AND_CUSTOMER_JOURNEY.md](COURSE_SYSTEM_AND_CUSTOMER_JOURNEY.md) | Course system deep dive (1,025 lines) |
 | [COURSE_LEARNING_SESSION_SUMMARY.md](COURSE_LEARNING_SESSION_SUMMARY.md) | Course learning session summary |
+| [COURSE_RESET_AND_CREATION_SUMMARY.md](COURSE_RESET_AND_CREATION_SUMMARY.md) | "AI for dummies in a day" course creation |
 | [DEVELOPMENT_ENVIRONMENT_STATUS.md](DEVELOPMENT_ENVIRONMENT_STATUS.md) | Environment checklist |
 | [ENVIRONMENT_READY_CHECKLIST.md](ENVIRONMENT_READY_CHECKLIST.md) | Comprehensive ready checklist |
 | [WHAT_IS_NEXT.md](WHAT_IS_NEXT.md) | Next steps guide for development |
@@ -384,6 +385,39 @@ npm run content:validate:strict -- --dir ./courses
 # Validate single lesson
 npm run content:validate -- --lesson lesson.json
 ```
+
+## 🎓 Course Database Reset and Creation
+
+**[Course Reset and Creation Summary](COURSE_RESET_AND_CREATION_SUMMARY.md)** - First quality-validated course:
+
+**Admin Endpoint**: `POST /api/admin/courses/reset-and-create-ai-dummies`
+- Safely cleans all existing courses and related data
+- Creates "AI for dummies in a day" (1-day rapid course)
+- Fully quality-validated against STRICT standards
+- Returns detailed response with course info and deletion counts
+
+**Course: "AI for dummies in a day"**:
+- **Course ID**: `AI_DUMMIES_1DAY_EN`
+- **Duration**: 1 day (rapid introduction)
+- **Target**: Complete beginners with no technical background
+- **Lesson**: Full 5W1H structure (13 sections, deliverable, exercises, bibliography)
+- **Quiz**: 7 quality-validated questions (standalone, application/critical-thinking)
+- **Certification**: Enabled, free access
+
+**Usage**:
+```bash
+# Via API (on Vercel deployment)
+curl -X POST https://your-deployment-url.vercel.app/api/admin/courses/reset-and-create-ai-dummies \
+  -H "Authorization: Bearer YOUR_ADMIN_TOKEN" \
+  -H "Content-Type: application/json"
+```
+
+**Testing Flow**:
+1. Call the endpoint with admin credentials
+2. Navigate to the platform
+3. Enroll in "AI for dummies in a day"
+4. Test lesson content, quiz, and certification
+5. Verify profile and certificate sharing
 
 ---
 
