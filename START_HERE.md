@@ -342,6 +342,28 @@ git push -u origin <branch-name>
 
 ---
 
+## 📈 Progressive Course Generation Strategy
+
+Three comprehensive planning documents for automated, data-driven course generation:
+
+1. **[Progressive Course Strategy](docs/product/PROGRESSIVE_COURSE_STRATEGY.md)** - Complete strategy for automated course generation
+2. **[Implementation Roadmap](docs/product/PROGRESSIVE_COURSE_IMPLEMENTATION_ROADMAP.md)** - 20-week phased rollout plan
+3. **[Executive Summary](PROGRESSIVE_COURSE_GENERATION_EXECUTIVE_SUMMARY.md)** - Decision-ready overview for leadership
+
+## 🏗️ Content Creator Infrastructure
+
+**[Content Creator Repository Knowledge](CONTENT_CREATOR_REPOSITORY_KNOWLEDGE.md)** - Complete understanding of the `amanoba_courses` repository:
+
+- **Trinity Architecture**: Three-role AI pipeline (Drafter → Writer → Judge)
+- **Quality Control System**: Automated lesson and quiz improvement
+- **Sovereign Course Creator**: Complete pipeline from topic to live publish
+- **Local-First Runtime**: MLX models with Ollama fallback
+- **Course Standards**: 5W1H structure, outcome-first, Markdown-first
+- **Package Format**: v2 JSON import/export specification
+- **Integration Points**: How the automated strategy maps to existing infrastructure
+
+---
+
 ## 🎉 You're Ready!
 
 Everything you need is documented. Start with:
@@ -349,7 +371,8 @@ Everything you need is documented. Start with:
 2. ✅ [ENVIRONMENT_READY_CHECKLIST.md](ENVIRONMENT_READY_CHECKLIST.md) — Complete ready checklist
 3. ✅ [AMANOBA_LEARNING_SUMMARY.md](AMANOBA_LEARNING_SUMMARY.md) — Complete knowledge base (22 sections)
 4. ✅ [COURSE_SYSTEM_AND_CUSTOMER_JOURNEY.md](COURSE_SYSTEM_AND_CUSTOMER_JOURNEY.md) — Course system deep dive
-5. ✅ [READMEDEV.md](READMEDEV.md) — Daily brain boost
+5. ✅ [CONTENT_CREATOR_REPOSITORY_KNOWLEDGE.md](CONTENT_CREATOR_REPOSITORY_KNOWLEDGE.md) — Content creator infrastructure
+6. ✅ [READMEDEV.md](READMEDEV.md) — Daily brain boost
 
 **Happy coding!** 🚀
 
