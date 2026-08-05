@@ -120,6 +120,14 @@ Or manually fill in `.env.local` with production values for:
 
 ## Quick Start Guide (After Secrets Available)
 
+### IMPORTANT: Cloud Agent Environment
+
+**This is a Cloud Agent environment** - localhost is not accessible to the user.
+
+**All testing must happen via Vercel preview deployments.**
+
+See **[CLOUD_AGENT_DEPLOYMENT_WORKFLOW.md](CLOUD_AGENT_DEPLOYMENT_WORKFLOW.md)** for complete workflow.
+
 ### 1. Verify Environment
 
 ```bash
@@ -127,13 +135,25 @@ Or manually fill in `.env.local` with production values for:
 cat .env.local | grep -E "^(MONGODB_URI|AUTH_SECRET|SSO_CLIENT_ID|EMAIL_PROVIDER)="
 ```
 
-### 2. Start Development Server
+### 2. Development Workflow
 
 ```bash
-npm run dev
-```
+# Create branch
+git checkout -b sentinel-squad/<feature-name>
 
-Server starts at: http://localhost:3000
+# Make changes
+# ...
+
+# Run quality gates
+npm run lint && npm run type-check && npm test
+
+# Push to preview (triggers Vercel preview deployment)
+git add -A
+git commit -m "descriptive message"
+git push origin sentinel-squad/<feature-name>
+
+# Test on Vercel preview URL (not localhost)
+```
 
 ### 3. Run Quality Gates
 

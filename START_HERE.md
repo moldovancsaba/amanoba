@@ -31,7 +31,9 @@ If you're new to Amanoba or returning after a break, **start here**:
 
 ## 🚀 Quick Start
 
-### If Environment Is Ready (Secrets Configured)
+### Cloud Agent Environment (No Localhost)
+
+**IMPORTANT**: This is a Cloud Agent environment. Testing happens via Vercel preview deployments, not localhost.
 
 ```bash
 # 1. Sync with latest
@@ -40,12 +42,22 @@ git fetch origin && git status -sb
 # 2. Check for assigned work
 gh issue list --repo moldovancsaba/mvp-factory-control --state open --assignee "@me" --search "amanoba" --limit 10
 
-# 3. Start development server
-npm run dev
+# 3. Create feature branch
+git checkout -b sentinel-squad/<feature-name>
 
-# 4. Open browser
-# Visit: http://localhost:3000
+# 4. Make changes and run quality gates
+npm run lint && npm run type-check && npm test
+
+# 5. Push to preview branch (triggers Vercel preview deployment)
+git add -A
+git commit -m "descriptive message"
+git push origin sentinel-squad/<feature-name>
+
+# 6. Test on Vercel preview URL
+# Preview URL format: https://amanoba-<branch>-moldovan.vercel.app
 ```
+
+**See [CLOUD_AGENT_DEPLOYMENT_WORKFLOW.md](CLOUD_AGENT_DEPLOYMENT_WORKFLOW.md) for complete workflow.**
 
 ### If Environment Needs Setup
 
