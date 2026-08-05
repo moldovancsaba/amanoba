@@ -2020,3 +2020,53 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - Dependencies installed ✅ 916 packages
 - Git status ✅ clean, synced with origin/main
 - Learning documentation ✅ generated and saved
+
+## Course system deep learning and environment completion (2026-08-05)
+
+### What changed
+
+- Completed Vercel CLI authentication and project linking to `moldovan/workspace`.
+- Successfully pulled environment variables from Vercel (7.2KB `.env.local` downloaded).
+- Development server started successfully (Next.js 16.2.6 with Turbopack, ready in 236ms).
+- Documented **no localhost constraint** for Cloud Agent environment (all testing via Vercel preview deployments).
+- Created comprehensive course system documentation:
+  - `COURSE_SYSTEM_AND_CUSTOMER_JOURNEY.md` (1,025 lines) — Complete guide covering course structure, database storage, customer journey (discovery → enrollment → learning → completion → certification → sharing), progress tracking, certification system, profile system with privacy controls, public sharing for LinkedIn/social media, database schema, API endpoints, and key business rules
+  - `COURSE_LEARNING_SESSION_SUMMARY.md` (467 lines) — Learning session summary with key insights, architecture patterns, quick reference tables
+  - `CLOUD_AGENT_DEPLOYMENT_WORKFLOW.md` — Preview-based testing workflow (no localhost access)
+- Analyzed course/lesson/progress/certificate/player models and customer-facing pages.
+- Verified environment fully functional: database connected, authentication configured, all 17 locales available.
+
+### Key insights documented
+
+1. **Quiz governance**: Runtime authority is `course.lessonQuizPolicy` (NOT `lesson.quizConfig`, which is compatibility-only).
+2. **Certificate sharing**: Unique `verificationSlug` for public URLs, owner controls privacy, LinkedIn-ready with OpenGraph tags.
+3. **Profile visibility**: Two-level privacy (profile + section-level granular control).
+4. **Course building**: Follow Canonical Course Specs (CCS) in `docs/canonical/`, language integrity enforced (email fields must be in-language).
+5. **Customer journey**: Discovery → Enrollment → Learning (lessons + quizzes) → Completion → Certification (eligibility → purchase → exam → issue) → Public sharing.
+6. **Testing workflow**: All user-facing testing via Vercel preview deployments (localhost not accessible in Cloud Agent environment).
+
+### Status
+
+**Development environment**: ✅ Fully ready
+- ✅ Vercel CLI authenticated and linked
+- ✅ Environment variables pulled (MONGODB_URI, AUTH_SECRET, SSO, EMAIL_PROVIDER all configured)
+- ✅ Development server running (http://localhost:3000, not accessible to user but functional for builds)
+- ✅ Code analysis ready (lint, type-check, test, docs:check)
+- ✅ Course system knowledge complete and documented
+- ✅ Testing workflow documented (Vercel preview deployments)
+
+**Next steps for development work**:
+1. Create feature branch: `git checkout -b sentinel-squad/<feature-name>`
+2. Make changes and run quality gates locally
+3. Push to preview branch (triggers Vercel preview deployment)
+4. Test on Vercel preview URL: `https://amanoba-<branch>-moldovan.vercel.app`
+5. Merge to main after preview testing complete
+
+### Verification
+
+- `npm run type-check` ✅ pass
+- `npx vercel link` ✅ linked to `moldovan/workspace`
+- `npx vercel env pull` ✅ 7.2KB environment variables downloaded
+- `npm run dev` ✅ started successfully (Next.js 16.2.6, Turbopack, ready in 236ms)
+- Environment variables verified ✅ MONGODB_URI, AUTH_SECRET, SSO_CLIENT_ID, EMAIL_PROVIDER present
+- Documentation generated ✅ course system, customer journey, Cloud Agent workflow
