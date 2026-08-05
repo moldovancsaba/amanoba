@@ -2498,3 +2498,59 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - `HANDOVER.md` — #881 implementation entry
 
 **Note**: This issue focused on contract documentation and verification rather than implementation changes. The existing rendering patterns are confirmed safe, accessible, and explicitly documented.
+
+## Issue #886: Interactive learning chrome - quiz and game shell standardization (2026-08-05)
+
+### What changed
+
+- Documented interactive learning chrome contracts in PATTERN_CONTRACT_INVENTORY
+- Confirmed governed chrome patterns:
+  - **Quiz chrome**: Mantine Card/Stack/Progress/Button composition
+  - **Game chrome**: Mantine + GDS (MetricCard/Modal) composition
+  - **Game board card**: Local component (part of engine exception boundary)
+- Verified exception boundaries: Quiz answer selection and game board/engine logic are local exceptions
+- Confirmed accessibility: Progress indicators, result modals, keyboard-navigable actions
+- Updated PATTERN_CONTRACT_INVENTORY with interactive learning entries
+
+### Contract documentation added
+
+**Quiz chrome** (lesson quiz):
+- Implementation: Mantine Card/Stack/Progress/Button primitives
+- Routes: Lesson quiz pages (`app/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page.tsx`)
+- Chrome: Progress HUD (question X/Y), question cards, result modals, navigation buttons
+- Exception: Answer selection component (`CourseAnswerOption`) and quiz logic are local
+- Server/client: ⚠️ Client-only ('use client')
+- Accessibility: Progress text, keyboard navigation, result states with icons + text
+- Result states: Correct (green check + supportive message), Retry (supportive message), Complete (modal with score)
+
+**Game chrome** (memory game, etc.):
+- Implementation: Mantine Card/MetricCard/Modal/Button + GDS MetricCard
+- Routes: Game pages (`app/[locale]/games/memory/page.tsx`, etc.)
+- Chrome: HUD (time, moves, score via MetricCard), difficulty selector, pause/play buttons, result modal
+- Exception: Game board (`GameBoardCard` grid) and engine logic (`lib/games/memory-engine.ts`) are documented exceptions
+- Server/client: ⚠️ Client-only ('use client')
+- Accessibility: Metric labels, pause button, result modal with score summary
+- Result states: Complete modal with score, stats, rewards, retry/exit actions
+
+**Game board card**:
+- Implementation: `app/components/patterns/GameBoardCard.tsx` (Mantine Card)
+- Usage: Memory game cards (click/flip interactions)
+- Exception boundary: Part of game engine exception (flip animations, match logic)
+- Server/client: ⚠️ Client-only
+- Accessibility: Click interactions, visual feedback (colors/icons)
+
+### Status
+
+**Interactive learning chrome contracts**: ✅ Fully documented
+- Quiz and game chrome patterns identified and documented
+- Exception boundaries explicit (answer selection, game board/engine)
+- Accessibility confirmed (progress text, keyboard nav, non-color indicators)
+- Server/client safety documented (all client-only)
+
+**Quality gates**: Pending verification
+
+**Documentation**: ✅ Updated
+- `PATTERN_CONTRACT_INVENTORY.md` — Interactive learning chrome entries
+- `HANDOVER.md` — #886 implementation entry
+
+**Note**: This issue focused on contract documentation and exception boundary clarification. The existing quiz/game chrome patterns are confirmed governed (GDS/Mantine), with explicit local exceptions for answer selection and game engine internals.

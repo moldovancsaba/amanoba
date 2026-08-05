@@ -27,6 +27,9 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | Responsive data view | `app/components/patterns/gds/ResponsiveDataView.tsx` | `@doneisbetter/gds-admin/client` `ResponsiveDataView` | GDS-backed adapter | All admin lists (players/payments/certificates/courses/etc.); desktop table + mobile cards; client-only |
 | Rich lesson prose | Mantine `TypographyStylesProvider` | Mantine primitive | Local exception | Lesson routes (enrolled/view); wraps `dangerouslySetInnerHTML` with sanitized HTML; dark-mode safe typography; documented exception for rich content |
 | Article/blog body | Mantine Stack/Text/Title | Mantine primitives | Mantine composition | Blog/news detail pages; structured paragraph rendering; no HTML injection; server-safe |
+| Quiz chrome (lesson) | Mantine Card/Stack/Progress/Button | Mantine primitives | Mantine composition | Lesson quiz pages; progress HUD, question cards, result modals; answer selection is local component; client-only |
+| Game chrome (memory, etc.) | Mantine Card/MetricCard/Modal/Button | Mantine + GDS primitives | Mantine/GDS composition | Game pages; HUD (time/moves/score), result modals, difficulty controls; game board/engine is documented exception; client-only |
+| Game board card | `app/components/patterns/GameBoardCard.tsx` | Mantine Card | Local component | Memory game cards; click/flip interactions; part of game engine exception boundary |
 | Data toolbar | `app/components/patterns/gds/DataToolbar.tsx` | `@doneisbetter/gds-core/DataToolbar` (aligned local) | Canonical | `layout: inline \| stack` |
 | Responsive data view | `app/components/patterns/gds/ResponsiveDataView.tsx` | `@doneisbetter/gds-admin/client` `ResponsiveDataView` | Active | Thin adapter: Amanoba `rows`/`columns` API |
 | Editor shell | `app/[locale]/editor/layout.tsx` | `@doneisbetter/gds-admin/client` `AppShell` | Active | Course editor portal nav |
