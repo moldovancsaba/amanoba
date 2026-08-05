@@ -2203,6 +2203,7 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 **Enabled issues**:
 - #880 — Learner shell convergence (can proceed with auth/public/article pattern)
 - #881 — Content rendering hardening (can reference ArticleShell pattern)
+- #882 — Metrics/states convergence (can proceed with MetricCard/StateBlock/ProgressCard pattern)
 - #888 — GDS compliance hardening (shell contracts now explicit)
 
 ## Issue #880: Learner shell convergence - canonical header contract (2026-08-05)
@@ -2241,3 +2242,56 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 **Documentation**: ✅ Updated
 - `PATTERN_CONTRACT_INVENTORY.md` — Learner shell with consuming routes
 - `HANDOVER.md` — #880 implementation entry
+
+## Issue #882: Metrics and states convergence - canonical contracts (2026-08-05)
+
+### What changed
+
+- Canonicalized metric, progress, and state block contracts with comprehensive JSDoc
+- Added detailed documentation to `MetricCard`, `ProgressCard`, and `StateBlock` GDS adapters
+- Documented consuming routes and usage patterns for all three components
+- Confirmed GDS backing (`@doneisbetter/gds-core/client`)
+- Created stable re-export for `ProgressCard` (`app/components/patterns/ProgressCard.tsx`)
+- Exported `StateBlockKind` type from stable re-export
+- Updated `PATTERN_CONTRACT_INVENTORY.md` with detailed usage notes
+
+### Contract documentation added
+
+**MetricCard**:
+- Props: `icon?`, `value`, `label`, `detail?`, `progress?`, `color?`
+- Server/client: ⚠️ Client-only (GDS client component)
+- Routes: dashboard, stats, profile (XP, points, level, streak metrics)
+- GDS: `@doneisbetter/gds-core/client` `MetricCard`
+- Usage: Value-first summary surfaces
+
+**ProgressCard**:
+- Props: `label`, `value`, `progress`, `progressLabel?`, `detail?`, `action?`, `color?`
+- Server/client: ⚠️ Client-only (GDS client component)
+- Routes: dashboard, my-courses, profile (course/lesson progress)
+- GDS: `@doneisbetter/gds-core/client` `ProgressCard`
+- Usage: Progress bar + action, bounded [0, 100]
+
+**StateBlock**:
+- Props: `kind`, `title`, `description?`, `icon?`, `action?`, `secondaryAction?`, `compact?`
+- Server/client: ⚠️ Client-only (GDS client component)
+- Routes: All learner routes (loading, empty, error states)
+- GDS: `@doneisbetter/gds-core/client` `StateBlock`
+- Variants: 7 (loading, empty, error, info, success, warning, permission)
+- Layout: full-page (centered) or compact (inline/section)
+
+### Status
+
+**Metric/Progress/State contracts**: ✅ Fully documented
+- TypeScript props explicitly typed and exported
+- Server/client safety documented (all client-only)
+- All consuming routes verified
+- GDS backing confirmed
+- Usage patterns and variants documented
+- Accessibility requirements specified
+- Mobile behavior documented
+
+**Quality gates**: Pending verification
+
+**Documentation**: ✅ Updated
+- `PATTERN_CONTRACT_INVENTORY.md` — Metric/Progress/State with routes and usage
+- `HANDOVER.md` — #882 implementation entry

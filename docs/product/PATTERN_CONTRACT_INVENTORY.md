@@ -17,9 +17,9 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | Public shell | `app/components/patterns/gds/PublicAppShell.tsx` | `@doneisbetter/gds-core` (brand-composition adapter) | Canonical | Re-export at `patterns/PublicAppShell.tsx`; server-safe; landing/partners routes |
 | Article shell | `app/components/patterns/gds/ArticleShell.tsx` | `@doneisbetter/gds-core` (brand-composition adapter) | Canonical | Re-export at `patterns/ArticleShell.tsx`; server-safe; blog/news routes |
 | Product course card | `app/components/patterns/gds/CourseCard.tsx` | `@doneisbetter/gds-core/client` `PublicProductCard` | Thin adapter | Stable import remains `app/components/patterns/CourseCard.tsx` |
-| Metric card | `app/components/patterns/gds/MetricCard.tsx` | `@doneisbetter/gds-core/client` `MetricCard` | Thin adapter | Amanoba `label`/`value`/`detail` aliases |
-| Progress card | `app/components/patterns/gds/ProgressCard.tsx` | `@doneisbetter/gds-core/client` `ProgressCard` | Thin adapter | Quest/course progress |
-| State block | `app/components/patterns/gds/StateBlock.tsx` | `@doneisbetter/gds-core/client` `StateBlock` | Thin adapter | `kind` → `variant` |
+| Metric card | `app/components/patterns/gds/MetricCard.tsx` | `@doneisbetter/gds-core/client` `MetricCard` | GDS-backed adapter | Stable: `app/components/patterns/MetricCard.tsx`; dashboard/stats/profile; value-first metrics; client-only |
+| Progress card | `app/components/patterns/gds/ProgressCard.tsx` | `@doneisbetter/gds-core/client` `ProgressCard` | GDS-backed adapter | Stable: `app/components/patterns/ProgressCard.tsx`; dashboard/my-courses/profile; progress bar + action; client-only |
+| State block | `app/components/patterns/gds/StateBlock.tsx` | `@doneisbetter/gds-core/client` `StateBlock` | GDS-backed adapter | Stable: `app/components/patterns/StateBlock.tsx`; 7 variants (loading/empty/error/info/success/warning/permission); all learner routes; client-only |
 | Course access recovery | `app/components/patterns/gds/CourseAccessRecoveryActions.tsx` | `@doneisbetter/gds-core/client` `AccessRecoveryPanel` | Thin adapter | Maps course API codes to panel state |
 | Admin shell | `app/[locale]/admin/layout.tsx` | `@doneisbetter/gds-admin/client` `AppShell` | Active | GDS admin shell + Amanoba nav |
 | Admin page header | `app/components/patterns/gds/AdminPageHeader.tsx` | `@doneisbetter/gds-admin/client` `PageHeader` | Active | All admin routes with list/detail titles |
