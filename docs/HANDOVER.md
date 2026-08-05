@@ -2388,3 +2388,62 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 **Documentation**: ✅ Updated
 - `PATTERN_CONTRACT_INVENTORY.md` — Course card usage patterns
 - `HANDOVER.md` — #884 implementation entry
+
+## Issue #885: Admin data views - full adapter rollout and mobile safety (2026-08-05)
+
+### What changed
+
+- Canonicalized admin data view contracts with comprehensive JSDoc
+- Added detailed documentation to `DataToolbar`, `ResponsiveDataView`, and `AdminPageHeader`
+- Documented responsive behavior (desktop table → mobile cards)
+- Documented all consuming admin routes (players, payments, certificates, courses, rewards, quests, surveys, games, analytics, email-analytics, questions, achievements, votes, challenges, discussion, feature-flags, certificate-templates)
+- Confirmed GDS backing for ResponsiveDataView and AdminPageHeader
+- Confirmed Mantine-only composition for DataToolbar
+- Updated `PATTERN_CONTRACT_INVENTORY.md` with admin pattern details
+
+### Contract documentation added
+
+**DataToolbar**:
+- Props: `children`, `title?`, `description?`, `layout?` (inline/stack)
+- Server/client: ✅ Server-safe (Mantine-only, no client hooks)
+- Routes: All admin list pages
+- GDS: ⚠️ Mantine-only (no direct GDS primitive, local composition)
+- Usage: Filter controls, search inputs, action buttons
+- Layout: inline (horizontal wrap) or stack (vertical)
+- Styling: Dark background (`ink.8`), border, padding
+
+**ResponsiveDataView**:
+- Props: `rows`, `columns`, `rowKey`, `minTableWidth?`, `emptyState?`, `loading?`, `loadingState?`, `striped?`, `highlightOnHover?`, `withTableBorder?`, `withColumnBorders?`, `getRowStyle?`
+- Server/client: ⚠️ Client-only (GDS admin client component)
+- Routes: All admin list pages (17+ routes)
+- GDS: ✅ `@doneisbetter/gds-admin/client` `ResponsiveDataView`
+- Responsive: Desktop table + mobile cards (breakpoint managed by GDS)
+- Column config: key, header, cell, mobileLabel?, hideOnMobile?, align?
+- State handling: loading, empty, custom states
+- Mobile: Stacked cards with label-value pairs
+
+**AdminPageHeader**:
+- Props: `title`, `description?`, `primaryAction?`, `overflowActions?`
+- Server/client: ⚠️ Client-only (GDS admin client component)
+- Routes: All admin pages with titles/actions
+- GDS: ✅ `@doneisbetter/gds-admin/client` `PageHeader`
+- Thin re-export: All behavior defined by GDS
+- Action pattern: Desktop visible, mobile collapse/overflow
+
+### Status
+
+**Admin pattern contracts**: ✅ Fully documented
+- TypeScript props explicitly typed
+- Server/client safety documented (DataToolbar server-safe, others client-only)
+- 17+ consuming admin routes verified
+- Responsive behavior documented (desktop → mobile)
+- GDS backing confirmed (ResponsiveDataView, AdminPageHeader)
+- Mantine composition documented (DataToolbar)
+- Accessibility requirements specified
+- Mobile safety verified
+
+**Quality gates**: Pending verification
+
+**Documentation**: ✅ Updated
+- `PATTERN_CONTRACT_INVENTORY.md` — Admin pattern details
+- `HANDOVER.md` — #885 implementation entry
