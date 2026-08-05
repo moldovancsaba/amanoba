@@ -5,9 +5,9 @@
 
 # Docs Inventory
 
-**Last Updated**: 2026-06-26
+**Last Updated**: 2026-08-05
 **Scope**: `docs/**/*.md` (excluding `docs/_archive/**`)
-**Count**: 126
+**Count**: 127
 
 | Path | Title | Size |
 |------|-------|------|
@@ -35,7 +35,7 @@
 | `docs/core/CODING_STANDARDS.md` | Amanoba Coding Standards | 5.0 KB |
 | `docs/core/CONTRIBUTING.md` | Contributing to Amanoba | 14.0 KB |
 | `docs/core/CROSS_REPO_DOCS.md` | Cross-Repo Documentation References | 1.7 KB |
-| `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 18.9 KB |
+| `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 19.0 KB |
 | `docs/core/DOCS_INDEX.md` | Documentation index | 6.9 KB |
 | `docs/core/DOCS_INVENTORY.md` | Docs Inventory | 11.3 KB |
 | `docs/core/DOCS_TRIAGE.md` | Docs Triage | 6.1 KB |
@@ -86,7 +86,7 @@
 | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 5.2 KB |
 | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | MVP Factory Project — one-time setup (grant project scope) | 1.2 KB |
 | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Prompt for Next Context Window | 2.8 KB |
-| `docs/HANDOVER.md` | Amanoba — Developer Handover | 138.5 KB |
+| `docs/HANDOVER.md` | Amanoba — Developer Handover | 143.6 KB |
 | `docs/i18n/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB |
 | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB |
 | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB |
@@ -98,6 +98,7 @@
 | `docs/product/GDS_ADOPTION_MANIFEST.md` | Amanoba GDS Adoption Manifest | 6.6 KB |
 | `docs/product/GDS_EXCEPTION_REGISTER.md` | Amanoba GDS Exception Register | 2.9 KB |
 | `docs/product/LEARNER_SHELL_MIGRATION.md` | Learner Shell Migration | 1.5 KB |
+| `docs/product/MOBILE_STRATEGY.md` | Mobile Strategy & Scope (#12) | 3.3 KB |
 | `docs/product/NEXT_PHASES.md` | Next Phases: Detailed Implementation Plan | 13.6 KB |
 | `docs/product/P3_KNOWN_ISSUES_BACKLOG.md` | P3 Known Issues — Backlog | 2.0 KB |
 | `docs/product/PATTERN_CONTRACT_INVENTORY.md` | Amanoba Pattern Contract Inventory | 4.4 KB |
