@@ -30,6 +30,8 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | Quiz chrome (lesson) | Mantine Card/Stack/Progress/Button | Mantine primitives | Mantine composition | Lesson quiz pages; progress HUD, question cards, result modals; answer selection is local component; client-only |
 | Game chrome (memory, etc.) | Mantine Card/MetricCard/Modal/Button | Mantine + GDS primitives | Mantine/GDS composition | Game pages; HUD (time/moves/score), result modals, difficulty controls; game board/engine is documented exception; client-only |
 | Game board card | `app/components/patterns/GameBoardCard.tsx` | Mantine Card | Local component | Memory game cards; click/flip interactions; part of game engine exception boundary |
+| Amanoba GDS theme | `app/lib/ui/amanoba-gds-theme.ts` | `@doneisbetter/gds-theme/server` | Brand extension | Runtime theme authority; extends GDS base theme with Amanoba palettes/brand; server-safe |
+| Server token bridge | `app/lib/constants/color-tokens.ts` | Raw literals | Token governance | Non-CSS contexts (email, OG, charts, games); BRAND_COLORS, EMAIL_THEME, CHART_THEME, GAME_AI_PERSONAS, AMANOBA_MANTINE_PALETTES; server-safe |
 | Data toolbar | `app/components/patterns/gds/DataToolbar.tsx` | `@doneisbetter/gds-core/DataToolbar` (aligned local) | Canonical | `layout: inline \| stack` |
 | Responsive data view | `app/components/patterns/gds/ResponsiveDataView.tsx` | `@doneisbetter/gds-admin/client` `ResponsiveDataView` | Active | Thin adapter: Amanoba `rows`/`columns` API |
 | Editor shell | `app/[locale]/editor/layout.tsx` | `@doneisbetter/gds-admin/client` `AppShell` | Active | Course editor portal nav |

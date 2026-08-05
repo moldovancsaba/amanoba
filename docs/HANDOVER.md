@@ -2554,3 +2554,75 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - `HANDOVER.md` — #886 implementation entry
 
 **Note**: This issue focused on contract documentation and exception boundary clarification. The existing quiz/game chrome patterns are confirmed governed (GDS/Mantine), with explicit local exceptions for answer selection and game engine internals.
+
+## Issue #887: Token governance - server-render and chart theme contract (2026-08-05)
+
+### What changed
+
+- Documented token governance contracts in PATTERN_CONTRACT_INVENTORY
+- Confirmed two-tier token authority:
+  - **Runtime theme**: `app/lib/ui/amanoba-gds-theme.ts` (GDS extension)
+  - **Server token bridge**: `app/lib/constants/color-tokens.ts` (raw literals)
+- Verified server-render safety: Both theme and token bridge are server-safe
+- Confirmed token usage contexts:
+  - Runtime: Mantine components, CSS variables
+  - Server: Emails, OG images, charts, game personas
+- Updated PATTERN_CONTRACT_INVENTORY with token governance entries
+
+### Contract documentation added
+
+**Amanoba GDS theme** (runtime authority):
+- Implementation: `app/lib/ui/amanoba-gds-theme.ts`
+- GDS backing: `@doneisbetter/gds-theme/server` `extendGdsTheme`
+- Palettes: `amanoba` (yellow brand), `amanobaYellow`, `ink` (grays)
+- Brand colors: `BRAND_COLORS` (black/white/darkGrey/accent/ctaText)
+- Email theme: `EMAIL_THEME_DEFAULT` (CTA, body, muted, borders, backgrounds)
+- Component defaults: Text (gray.2), Title (white), Anchor (amanoba.5), Button/ActionIcon (md radius/size)
+- Server/client: ✅ Server-safe (extendGdsTheme)
+
+**Server token bridge** (non-CSS contexts):
+- Implementation: `app/lib/constants/color-tokens.ts`
+- Purpose: Raw color literals for contexts without CSS variables
+- Contexts:
+  - **Emails**: `EMAIL_THEME_DEFAULT` (HTML strings)
+  - **OG images**: `BRAND_COLORS` (next/og ImageResponse)
+  - **Charts**: `CHART_THEME` (Recharts palette, grid/axis/tooltip)
+  - **Games**: `GAME_AI_PERSONAS` (AI opponent colors by difficulty)
+- Exports:
+  - `BRAND_COLORS`: Core brand palette (black, white, darkGrey, accent, ctaText)
+  - `EMAIL_THEME_DEFAULT`: Email-specific colors and styles
+  - `CHART_THEME`: Chart palette (5 series colors), grid/axis/tooltip styles
+  - `GAME_AI_PERSONAS`: AI opponent colors by difficulty level (1-3)
+  - `AMANOBA_MANTINE_PALETTES`: Mantine palette scales (amanoba, amanobaYellow, ink)
+  - `AMANOBA_MANTINE_BASE`: Mantine base colors (black, white)
+- Server/client: ✅ Server-safe (const exports)
+
+### Token governance contract
+
+**Two-tier authority**:
+1. **Runtime theme** (`amanoba-gds-theme.ts`): CSS variables, Mantine components, browser rendering
+2. **Server token bridge** (`color-tokens.ts`): Non-CSS contexts (email, OG, charts, games)
+
+**Alignment**:
+- Both tier use same source palettes (`AMANOBA_MANTINE_PALETTES`)
+- `EMAIL_THEME_DEFAULT` stored in `color-tokens.ts`, referenced in theme as `theme.other.email`
+- `BRAND_COLORS` stored in `color-tokens.ts`, referenced in theme as `theme.other.brand`
+
+**Exception status**: Server token bridge is documented local necessity (non-CSS contexts require raw literals)
+
+### Status
+
+**Token governance contracts**: ✅ Fully documented
+- Two-tier token authority identified and documented
+- Runtime theme (GDS extension) confirmed
+- Server token bridge (raw literals) confirmed
+- Token usage contexts explicit (runtime vs server)
+- Server-render safety confirmed (both server-safe)
+
+**Quality gates**: Pending verification
+
+**Documentation**: ✅ Updated
+- `PATTERN_CONTRACT_INVENTORY.md` — Token governance entries
+- `HANDOVER.md` — #887 implementation entry
+
+**Note**: This issue focused on contract documentation and token authority clarification. The existing two-tier token governance is confirmed well-structured, server-safe, and explicitly documented.
