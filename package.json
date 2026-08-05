@@ -91,9 +91,6 @@
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.2",
-    "@doneisbetter/gds-admin": "2.6.1",
-    "@doneisbetter/gds-core": "2.6.1",
-    "@doneisbetter/gds-theme": "2.6.1",
     "@emnapi/runtime": "^1.8.1",
     "@hookform/resolvers": "^3.9.0",
     "@mantine/core": "^9.2.2",
@@ -154,8 +151,6 @@
     "zod": "^4.1.11"
   },
   "devDependencies": {
-    "@doneisbetter/gds-compliance": "2.6.1",
-    "@doneisbetter/gds-eslint-config": "2.6.1",
     "@sovereignsquad/gds-a11y": "https://github.com/sovereignsquad/general-design-system/releases/download/gds-v3.14.17/sovereignsquad-gds-a11y-3.14.17.tgz",
     "@sovereignsquad/gds-compliance": "https://github.com/sovereignsquad/general-design-system/releases/download/gds-v3.14.17/sovereignsquad-gds-compliance-3.14.17.tgz",
     "@sovereignsquad/gds-eslint-config": "https://github.com/sovereignsquad/general-design-system/releases/download/gds-v3.14.17/sovereignsquad-gds-eslint-config-3.14.17.tgz",
@@ -175,7 +170,7 @@
     "nanoid": "^3.3.8",
     "baseline-browser-mapping": "^2.9.0",
     "next": {
-      "postcss": "8.5.15"
+      "postcss": "8.5.25"
     }
   }
 }

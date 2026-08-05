@@ -1,0 +1,88 @@
+/**
+ * Utility classes for common layout patterns
+ * Use sparingly - prefer Mantine props when possible
+ */
+
+/* Flex utilities */
+.flexOne {
+  flex: 1;
+}
+
+.flexOneMinWidth {
+  flex: 1;
+  min-width: 0;
+}
+
+.minWidthZero {
+  min-width: 0;
+}
+
+.minWidth200 {
+  min-width: 200px;
+}
+
+/* Z-index utilities */
+.zIndex20 {
+  z-index: 20;
+}
+
+.zIndex40 {
+  z-index: 40;
+}
+
+/* Text utilities */
+.overflowWrapAnywhere {
+  overflow-wrap: anywhere;
+}
+
+.textDecorationNone {
+  text-decoration: none;
+}
+
+.colorInherit {
+  color: inherit;
+}
+
+/* Display utilities */
+.overflowHidden {
+  overflow: hidden;
+}
+
+/* Margin utilities */
+.marginTop2 {
+  margin-top: 2px;
+}
+
+/* Layout - Flex Column List */
+.flexColumnList {
+  display: flex;
+  flex-direction: column;
+  padding-left: 24px;
+  margin: 8px 0;
+  gap: 8px;
+}
+
+.flexColumnListSm {
+  display: flex;
+  flex-direction: column;
+  padding-left: 24px;
+  margin: 4px 0;
+  gap: 4px;
+}
+
+.flexColumnListMd {
+  display: flex;
+  flex-direction: column;
+  padding-left: 24px;
+  margin: 8px 0;
+  gap: 12px;
+}
+
+/* Certificate color swatch */
+.certificateColorSwatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid var(--mantine-color-gray-4);
+  display: inline-block;
+}
