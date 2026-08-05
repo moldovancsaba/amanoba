@@ -3447,3 +3447,70 @@ curl -X POST https://your-deployment-url.vercel.app/api/admin/courses/reset-and-
 - ❌ "Self check double list looks ugly" → ✅ Fixed with improved CSS
 - ❌ "Why do I have final exam option if no final exam" → ✅ Button now hidden when certification disabled
 
+---
+
+## 2026-08-05 — Certificate Eligibility & Dashboard Layout Fixes
+
+**What Changed**: Fixed certificate showing "Requirements Not Met" despite course completion, and fixed View Certificate button overlapping text on dashboard
+
+**Why**: Certificate API was incorrectly requiring final exam pass for all courses, and dashboard layout was too cramped for completed courses
+
+**User Issues Reported**:
+1. **Screenshot 1**: Certificate page showing "REQUIREMENTS NOT MET" warning despite course completion
+2. **Screenshot 2**: "View Certificate" button covering "COMPLETED" badge and progress text on dashboard
+3. **Conflicting states**: Dashboard shows certificate available but certificate page says requirements not met
+
+**Changes Made**:
+
+1. **Certificate Eligibility Logic** (`app/api/profile/[playerId]/certificate-status/route.ts`):
+   - Made final exam requirement conditional based on course configuration
+   - Only require final exam pass if course actually has certification enabled with exam requirement
+   - Only require quiz passes if course has quiz policy enabled
+   - Default to "exam passed" for courses without final exam requirement
+   - Allow completion-based certificates for simple/short courses
+   - Fixed logic: `certificateEligible = hasIssuedCertificate || (enrolled && allLessonsCompleted && (quizPolicy ? allQuizzesPassed : true) && finalExamPassed)`
+
+2. **Dashboard Course Card Layout** (`app/[locale]/dashboard/page.tsx`):
+   - Removed progress bar entirely for completed courses (was showing 100% unnecessarily)
+   - Removed detailed progress text for completed courses (was causing height overflow)
+   - Added "Back to course" as secondary action for completed courses
+   - Kept "Completed" badge visible without overlap
+   - Cleaner, more spacious layout for completed course cards
+
+**Files Modified**:
+- `app/api/profile/[playerId]/certificate-status/route.ts` — Conditional final exam and quiz requirements
+- `app/[locale]/dashboard/page.tsx` — Remove progress bar for completed courses, add secondary action
+
+**Impact**:
+- ✅ Certificates now issue correctly for courses completed without final exam
+- ✅ Certificate page shows "Valid Certificate" instead of "Requirements Not Met" 
+- ✅ Dashboard completed courses display cleanly without button overlap
+- ✅ "View Certificate" button no longer covers "COMPLETED" badge or progress text
+- ✅ Better UX for simple/short courses (1-day courses, introductory courses, etc.)
+- ✅ Supports flexible course design: with/without quizzes, with/without final exams
+
+**Certificate Eligibility Rules (Updated)**:
+
+A certificate is eligible if:
+1. **Already issued** (Certificate document exists and not revoked) - durable source of truth, OR
+2. **All of the following**:
+   - Enrolled in course (CourseProgress exists)
+   - All lessons completed (completedDays >= totalDays)
+   - All quizzes passed (only if `course.lessonQuizPolicy.enabled === true`)
+   - Final exam passed (only if course requires final exam for certification)
+
+**No Breaking Changes**:
+- API response structure unchanged (same fields)
+- Backwards compatible with courses that do have final exams
+- Dashboard layout improvements don't affect in-progress courses
+
+**Quality Gates**:
+- ✅ TypeScript: No new errors
+- ✅ Certificate API logic tested with conditional requirements
+- ✅ Dashboard layout tested with completed courses
+
+**User Feedback Addressed**:
+- ❌ Screenshot 1: "REQUIREMENTS NOT MET" → ✅ Now shows "Valid Certificate"
+- ❌ Screenshot 2: Button covering text → ✅ Clean layout with proper spacing
+- ❌ Conflicting states → ✅ Consistent certificate eligibility across all pages
+
