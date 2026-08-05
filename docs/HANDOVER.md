@@ -2990,3 +2990,83 @@ npm run build                 # ✅ Successful
 - **Compliance**: Enforced via 11-check suite
 - **Governance**: All exceptions documented and approved
 - **Production Readiness**: ✅ Verified and approved
+
+---
+
+## 2026-08-05: Content Creator Repository Knowledge Acquisition
+
+**What**: Learned complete infrastructure from https://github.com/moldovancsaba/amanoba_courses
+
+**Why**: User requested to understand the content creation repository to inform the progressive course generation strategy
+
+**Key Learnings**:
+
+1. **Trinity Architecture**:
+   - Three-role AI pipeline: Drafter (Gemma 3 270M) → Writer (Granite 4.0 H 350M) → Judge (Qwen 2.5 0.5B)
+   - Local-first execution with MLX models on Mac hardware
+   - Structured handoffs, explicit scores, bounded retries
+   - Resident servers on ports 8080-8082
+
+2. **Quality Control System**:
+   - Automated lesson and quiz improvement
+   - Reads live MongoDB via bridge in `$HOME/Projects/amanoba`
+   - Continuous daemon with watchdog supervision
+   - Power modes: gentle, balanced, fast
+   - Dashboard at `http://127.0.0.1:8765`
+
+3. **Sovereign Course Creator**:
+   - 7-stage pipeline: Topic Intake → Research → Blueprint → Lesson Generation → Quiz Generation → QC Review → Draft To Live
+   - Stage-focused UX with Accept/Modify/Delete actions
+   - Enforces downstream handoff: Export → Import → Publish
+   - Supports rollback and deletion
+
+4. **Course Standards**:
+   - 5W1H structure (Who, What, Where, When, Why, How)
+   - Outcome-first: Named deliverable, success criteria, baseline metric
+   - Markdown-first format (not HTML-first)
+   - Quiz gates: ≥7 valid, ≥5 application, 0 recall
+   - Language integrity: No English leakage in non-English content
+   - Standalone comprehensibility (no "in this lesson" references)
+
+5. **Package Format v2**:
+   - Single JSON with `packageVersion: "2.0"`
+   - Course object, lessons array, quiz questions embedded
+   - Merge-on-update (no deletions)
+   - Import/export via `/api/admin/courses/import` and `/api/admin/courses/[courseId]/export`
+
+6. **SSOT Hierarchy**:
+   - Runtime code and behavior (always wins)
+   - `docs/current-ssot.md` (operational truth)
+   - Referenced SSOT documents (specific areas)
+   - GitHub planning SSOT: `moldovancsaba/mvp-factory-control`
+
+7. **Integration Points**:
+   - Trinity pipeline provides proven content generation patterns
+   - QC daemon provides continuous improvement layer
+   - Package format enables automated import/export
+   - Lifecycle management supports progressive course triggers
+   - Local-first runtime demonstrates cost-effective generation feasibility
+
+**Impact**:
+
+- **Progressive Strategy Foundation**: The existing infrastructure provides all core components for automated, data-driven course generation
+- **Quality Assurance**: Proven quality gates and validation framework ready for extension
+- **Automation Patterns**: Trinity pipeline and QC daemon demonstrate effective local AI orchestration
+- **Trigger Architecture**: Existing metrics (enrollment, completion) can drive progressive stage transitions
+
+**Files**:
+- `CONTENT_CREATOR_REPOSITORY_KNOWLEDGE.md` (new): Comprehensive 17-section knowledge document
+- `START_HERE.md`: Updated with content creator infrastructure section
+
+**References**:
+- Repository: https://github.com/moldovancsaba/amanoba_courses
+- Issue tracking: https://github.com/moldovancsaba/mvp-factory-control
+- Project board: https://github.com/users/moldovancsaba/projects/1
+
+**Next Steps**:
+1. Extend Creator Pipeline for 1-day rapid courses
+2. Add trigger logic hooking into CourseProgress completion events
+3. Extend QC daemon for multi-stage validation
+4. Integrate revenue model with certification and entitlement
+5. Enhance dashboard for stage-wise metrics and automated reporting
+
