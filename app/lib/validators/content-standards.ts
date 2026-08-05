@@ -281,7 +281,7 @@ export function validateLesson(lesson: Partial<LessonValidatorInput>): LessonVal
   // 1. Schema Validation
   const schemaResult = LessonValidatorSchema.safeParse(lesson);
   if (!schemaResult.success) {
-    errors.push(...schemaResult.error.errors.map((e) => `${e.path.join('.')}: ${e.message}`));
+    errors.push(...schemaResult.error.errors.map((e) => `${e.path?.join('.') || 'root'}: ${e.message}`));
     qualityScore -= 30;
   }
 
@@ -521,7 +521,7 @@ export function validateQuizQuestion(
   // 1. Schema Validation
   const schemaResult = QuizQuestionValidatorSchema.safeParse(question);
   if (!schemaResult.success) {
-    errors.push(...schemaResult.error.errors.map((e) => `${e.path.join('.')}: ${e.message}`));
+    errors.push(...schemaResult.error.errors.map((e) => `${e.path?.join('.') || 'root'}: ${e.message}`));
     qualityScore -= 30;
   }
 

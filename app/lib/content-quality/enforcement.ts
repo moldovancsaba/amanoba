@@ -181,13 +181,13 @@ export function enforceLessonQuality(
   if (validation.warnings.length > 0) {
     suggestions.push('Warnings:', ...validation.warnings);
   }
-  if (!validation.details.contentQuality.hasDeliverable) {
+  if (validation.details?.contentQuality && !validation.details.contentQuality.hasDeliverable) {
     suggestions.push('✓ Add a clear **Deliverable:** that names the artifact the learner will create');
   }
-  if (!validation.details.contentQuality.hasExercises) {
+  if (validation.details?.contentQuality && !validation.details.contentQuality.hasExercises) {
     suggestions.push('✓ Include all three exercise types: Guided exercise, Independent exercise, Self-check');
   }
-  if (validation.details.missingSections.length > 0) {
+  if (validation.details?.missingSections && validation.details.missingSections.length > 0) {
     suggestions.push(`✓ Add missing sections: ${validation.details.missingSections.slice(0, 5).join(', ')}`);
   }
 
@@ -314,15 +314,15 @@ export function enforceQuizQuestionQuality(
   if (validation.warnings.length > 0) {
     suggestions.push('Warnings:', ...validation.warnings);
   }
-  if (!validation.details.standaloneComprehensible) {
+  if (validation.details && !validation.details.standaloneComprehensible) {
     suggestions.push('✓ Remove context-dependent phrases: "in this lesson", "Day X", "as mentioned", etc.');
     suggestions.push('✓ Rewrite as a complete, standalone scenario that can be understood without the lesson');
   }
-  if (!validation.details.naturalLanguage) {
+  if (validation.details && !validation.details.naturalLanguage) {
     suggestions.push('✓ Use natural scenario language: "A builder says...", "You must choose...", etc.');
     suggestions.push('✓ Avoid administrative openings like "The goal is..." or "The main risk is..."');
   }
-  if (!validation.details.plausibleDistractors) {
+  if (validation.details && !validation.details.plausibleDistractors) {
     suggestions.push('✓ Make wrong answers plausible - they should be reasonable but incorrect, not silly');
   }
 

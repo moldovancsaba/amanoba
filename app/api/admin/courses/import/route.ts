@@ -22,6 +22,7 @@ import mongoose from 'mongoose';
 import { contentToMarkdown } from '@/lib/lesson-content';
 import { normalizeCourseDurationDays } from '@/lib/course-helpers';
 import { buildCourseQuizPolicyPackageFields } from '@/lib/course-quiz-policy';
+import { enforceCourseQuality, EnforcementLevel } from '@/lib/content-quality/enforcement';
 
 const VALID_QUESTION_TYPES = new Set(Object.values(QuizQuestionType));
 function normalizeQuestionType(value: unknown): string | undefined {
@@ -165,6 +166,117 @@ export async function POST(request: NextRequest) {
     const { course: courseInfo, lessons: lessonsRaw = [] } = courseData;
     const lessons: PackageLesson[] = Array.isArray(lessonsRaw) ? lessonsRaw : [];
     const courseId = courseInfo.courseId;
+
+    // ============================================================================
+    // CONTENT QUALITY ENFORCEMENT (Rock-Solid Foundation)
+    // ============================================================================
+    // Run comprehensive content quality validation before any database operations
+    // This prevents inconsistent, dummy, or low-quality content from entering the platform
+    
+    const enforcementLevel = EnforcementLevel.STRICT; // Always use STRICT for imports
+    const expectedLanguage = (courseInfo.language as string) || 'en';
+    
+    logger.info({
+      type: 'content_quality_enforcement_start',
+      courseId,
+      totalLessons: lessons.length,
+      enforcementLevel,
+      expectedLanguage,
+      context: 'course_import',
+    });
+
+    const qualityResult = enforceCourseQuality(lessons, {
+      level: enforcementLevel,
+      context: 'api_import',
+      enforcedBy: session.user.email || session.user.name || 'admin',
+      expectedLanguage,
+    });
+
+    // Log quality enforcement result
+    logger.info({
+      type: 'content_quality_enforcement_result',
+      courseId,
+      allowed: qualityResult.allowed,
+      summary: qualityResult.summary,
+      overallQualityScore: qualityResult.summary.overallQualityScore,
+    });
+
+    // If quality gates not met, reject the import with detailed feedback
+    if (!qualityResult.allowed) {
+      logger.warn({
+        type: 'course_import_blocked_quality',
+        courseId,
+        reason: 'Content does not meet quality gates',
+        summary: qualityResult.summary,
+        blockedLessons: qualityResult.summary.blockedLessons,
+        blockedQuestions: qualityResult.summary.blockedQuestions,
+        recommendations: qualityResult.recommendations,
+      });
+
+      // Collect detailed error information for response
+      const blockedLessons = qualityResult.lessons
+        .filter((l) => !l.allowed)
+        .map((l) => ({
+          lessonId: l.lessonId,
+          reason: l.enforcement.reason,
+          qualityScore: l.validation.qualityScore,
+          errors: l.validation.errors.slice(0, 3), // Top 3 errors per lesson
+          missingSections: l.validation.details?.missingSections?.slice(0, 5) || [],
+        }));
+
+      const blockedQuestions = Object.entries(qualityResult.questions)
+        .flatMap(([lessonId, qs]) =>
+          qs
+            .filter((q) => !q.allowed)
+            .map((q, idx) => ({
+              lessonId,
+              questionNumber: idx + 1,
+              reason: q.enforcement.reason,
+              qualityScore: q.validation.qualityScore,
+              errors: q.validation.errors.slice(0, 2), // Top 2 errors per question
+              forbiddenPatterns: q.validation.details?.forbiddenPatterns?.slice(0, 3) || [],
+            }))
+        )
+        .slice(0, 10); // Limit to first 10 blocked questions for response size
+
+      return NextResponse.json(
+        {
+          error: 'Course content does not meet quality gates',
+          message:
+            'The course content has been rejected due to quality issues. Please review and fix all errors before importing.',
+          qualitySummary: {
+            totalLessons: qualityResult.summary.totalLessons,
+            passedLessons: qualityResult.summary.passedLessons,
+            blockedLessons: qualityResult.summary.blockedLessons,
+            totalQuestions: qualityResult.summary.totalQuestions,
+            passedQuestions: qualityResult.summary.passedQuestions,
+            blockedQuestions: qualityResult.summary.blockedQuestions,
+            overallQualityScore: qualityResult.summary.overallQualityScore.toFixed(1),
+          },
+          recommendations: qualityResult.recommendations,
+          blockedLessons,
+          blockedQuestions,
+          documentation: {
+            workflow: '/docs/agents/CONTENT_CREATION_WORKFLOW.md',
+            summary: '/CONTENT_CREATION_REFACTORING_SUMMARY.md',
+            hint: 'Review forbidden patterns, ensure 5W1H structure, make quiz questions standalone',
+          },
+        },
+        { status: 400 }
+      );
+    }
+
+    // Quality gates passed - log success and proceed with import
+    logger.info({
+      type: 'content_quality_enforcement_passed',
+      courseId,
+      overallQualityScore: qualityResult.summary.overallQualityScore,
+      message: 'All content passed quality gates - proceeding with import',
+    });
+
+    // ============================================================================
+    // END CONTENT QUALITY ENFORCEMENT
+    // ============================================================================
 
     const existingCourse = await Course.findOne({ courseId });
     if (existingCourse && !overwrite) {
