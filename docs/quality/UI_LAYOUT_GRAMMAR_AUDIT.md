@@ -1,6 +1,6 @@
 # UI Layout Grammar Audit
 
-**Generated at**: 2026-05-23T19:26:12.189Z
+**Generated at**: 2026-08-05T12:55:56.774Z
 
 This report scans tracked UI code (`app/**`, `components/**`) for **layout-grammar / design-token** drift. It is a *heuristic* scan: it finds likely violations, then humans decide which are intentional.
 
@@ -11,28 +11,44 @@ This report scans tracked UI code (`app/**`, `components/**`) for **layout-gramm
 
 ## Summary
 
-- Files scanned: **226**
+- Files scanned: **270**
 
 ### Findings by area
 | Group | Findings |
 | --- | --- |
-| app | 3 |
+| app | 26 |
+| admin | 7 |
 
 ### Findings by severity
 | Severity | Findings |
 | --- | --- |
-| info | 3 |
+| info | 33 |
 
 ### Top patterns (most frequent)
 | Pattern | Severity | Findings |
 | --- | --- | --- |
-| Inline style={{...}} in components/pages | info | 3 |
+| Inline style={{...}} in components/pages | info | 33 |
 
 ### Top files (most findings)
 | File | Group | Findings |
 | --- | --- | --- |
-| `app/[locale]/courses/[courseId]/page.tsx` | app | 2 |
+| `app/[locale]/data-deletion/page.tsx` | app | 5 |
+| `app/[locale]/onboarding/page.tsx` | app | 5 |
+| `app/[locale]/courses/[courseId]/page.tsx` | app | 3 |
+| `app/[locale]/leaderboards/page.tsx` | app | 3 |
+| `app/[locale]/admin/certificate-templates/page.tsx` | admin | 2 |
+| `app/[locale]/admin/courses/[courseId]/page.tsx` | admin | 2 |
+| `app/[locale]/notifications/page.tsx` | app | 2 |
+| `app/components/LessonQuiz.tsx` | app | 2 |
+| `app/[locale]/admin/courses/[courseId]/live-sessions/page.tsx` | admin | 1 |
+| `app/[locale]/admin/courses/page.tsx` | admin | 1 |
+| `app/[locale]/admin/discussion/page.tsx` | admin | 1 |
+| `app/[locale]/courses/[courseId]/day/[dayNumber]/view/page.tsx` | app | 1 |
 | `app/[locale]/courses/page.tsx` | app | 1 |
+| `app/[locale]/editor/courses/page.tsx` | app | 1 |
+| `app/[locale]/privacy/page.tsx` | app | 1 |
+| `app/[locale]/terms/page.tsx` | app | 1 |
+| `app/components/patterns/gds/ResponsiveDataView.tsx` | app | 1 |
 
 ## Rules checked (what counts as a “defect”)
 
@@ -57,9 +73,39 @@ Use this section to spot-check; the totals above are the authoritative counts.
 
 | Where | Pattern | Matches |
 | --- | --- | --- |
-| `app/[locale]/courses/[courseId]/page.tsx:1270` | Inline style={{...}} in components/pages | `style={{` |
-| `app/[locale]/courses/[courseId]/page.tsx:1279` | Inline style={{...}} in components/pages | `style={{` |
-| `app/[locale]/courses/page.tsx:332` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/certificate-templates/page.tsx:130` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/certificate-templates/page.tsx:138` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/courses/[courseId]/live-sessions/page.tsx:150` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/courses/[courseId]/page.tsx:547` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/courses/[courseId]/page.tsx:1584` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/courses/page.tsx:498` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/admin/discussion/page.tsx:101` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/day/[dayNumber]/view/page.tsx:106` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/page.tsx:1319` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/page.tsx:1328` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/[courseId]/page.tsx:1400` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/courses/page.tsx:348` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/data-deletion/page.tsx:47` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/data-deletion/page.tsx:63` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/data-deletion/page.tsx:85` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/data-deletion/page.tsx:128` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/data-deletion/page.tsx:166` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/editor/courses/page.tsx:99` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/leaderboards/page.tsx:267` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/leaderboards/page.tsx:306` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/leaderboards/page.tsx:308` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/notifications/page.tsx:86` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/notifications/page.tsx:96` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/onboarding/page.tsx:263` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/onboarding/page.tsx:267` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/onboarding/page.tsx:293` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/onboarding/page.tsx:304` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/onboarding/page.tsx:381` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/privacy/page.tsx:376` | Inline style={{...}} in components/pages | `style={{` |
+| `app/[locale]/terms/page.tsx:669` | Inline style={{...}} in components/pages | `style={{` |
+| `app/components/LessonQuiz.tsx:226` | Inline style={{...}} in components/pages | `style={{` |
+| `app/components/LessonQuiz.tsx:259` | Inline style={{...}} in components/pages | `style={{` |
+| `app/components/patterns/gds/ResponsiveDataView.tsx:114` | Inline style={{...}} in components/pages | `style={{` |
 
 ## Actionable next steps (recommended)
 
