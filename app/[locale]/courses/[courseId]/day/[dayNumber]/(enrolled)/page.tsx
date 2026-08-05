@@ -476,6 +476,7 @@ export default function DailyLessonPage({
   const [isSavedLesson, setIsSavedLesson] = useState(false);
   const [savingLesson, setSavingLesson] = useState(false);
   const [accessIssue, setAccessIssue] = useState<LessonAccessIssue>(null);
+  const [certificationEnabled, setCertificationEnabled] = useState(false);
   const searchParams = useSearchParams();
   const locale = useLocale(); // URL locale (e.g. /hu/ → 'hu') for fallback when lesson not found before courseLanguage is set
 
@@ -493,6 +494,11 @@ export default function DailyLessonPage({
         // Store course language for UI translations
         if (data.courseLanguage) {
           setCourseLanguage(data.courseLanguage);
+        }
+        
+        // Store certification status
+        if (typeof data.certificationEnabled === 'boolean') {
+          setCertificationEnabled(data.certificationEnabled);
         }
 
         setLesson(data.lesson);
@@ -985,16 +991,18 @@ export default function DailyLessonPage({
                     </Stack>
                   </Group>
 
-                  <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="sm">
-                    <Button
-                      component={LocaleLink}
-                      href={finalExamHref}
-                      color="amanoba"
-                      leftSection={<IconCertificate size={18} />}
-                      fullWidth
-                    >
-                      {getDayPageText('startFinalExam', courseLanguage)}
-                    </Button>
+                  <SimpleGrid cols={{ base: 1, sm: certificationEnabled ? 2 : 3 }} spacing="sm">
+                    {certificationEnabled && (
+                      <Button
+                        component={LocaleLink}
+                        href={finalExamHref}
+                        color="amanoba"
+                        leftSection={<IconCertificate size={18} />}
+                        fullWidth
+                      >
+                        {getDayPageText('startFinalExam', courseLanguage)}
+                      </Button>
+                    )}
                     <Button
                       component={LocaleLink}
                       href={profileHref}

@@ -241,6 +241,7 @@ export async function GET(
         totalDays,
       },
       courseLanguage: course.language,
+      certificationEnabled: course.certification?.enabled ?? false,
       quizPolicy: {
         ...policy,
         enabled: quizEnabled,

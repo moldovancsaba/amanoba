@@ -125,6 +125,31 @@ h3 {
   color: var(--lesson-prose-text, currentColor);
 }
 
+/* Fix nested lists in self-check sections */
+.lesson-prose li > ul,
+.lesson-prose li > ol {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  padding-left: 1.2em;
+}
+
+.lesson-prose li > ul > li:last-child,
+.lesson-prose li > ol > li:last-child {
+  margin-bottom: 0;
+}
+
+/* Fix checkbox list styling (used in self-check sections) */
+.lesson-prose input[type="checkbox"] {
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+.lesson-prose li:has(> input[type="checkbox"]) {
+  list-style-type: none;
+  margin-left: -1.4em;
+  padding-left: 1.4em;
+}
+
 .lesson-prose a {
   color: var(--lesson-prose-link, var(--cta-bg));
   text-decoration-thickness: 0.08em;

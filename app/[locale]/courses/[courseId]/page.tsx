@@ -986,6 +986,12 @@ export default function CourseDetailPage({
 
   const renderCertificationBlock = () => {
     if (!course || !entitlement) return null;
+    
+    // Don't render certification block if certification is disabled for this course
+    if (!entitlement.certificationEnabled) {
+      return null;
+    }
+    
     const completed = Boolean(enrollment?.progress?.isCompleted);
     const questionLimit = entitlement.questionLimit ?? 50;
     const poolOk = entitlement.certificationEnabled && entitlement.poolCount >= questionLimit;
@@ -995,9 +1001,7 @@ export default function CourseDetailPage({
     let statusLabel = getCourseDetailText('certificationUnavailable');
     let cta: ReactNode = null;
 
-    if (!entitlement.certificationEnabled) {
-      statusLabel = getCourseDetailText('certificationUnavailable');
-    } else if (!poolOk) {
+    if (!poolOk) {
       statusLabel = getCourseDetailText('certificationUnavailablePool', { poolCount: entitlement.poolCount });
     } else if (!completed) {
       statusLabel = getCourseDetailText('completeCourseForCertification');
