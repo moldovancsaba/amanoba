@@ -2626,3 +2626,67 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - `HANDOVER.md` — #887 implementation entry
 
 **Note**: This issue focused on contract documentation and token authority clarification. The existing two-tier token governance is confirmed well-structured, server-safe, and explicitly documented.
+
+## Issue #888: GDS compliance - manifest, exception expiry, and import guard hardening (2026-08-05)
+
+### What changed
+
+- Verified GDS compliance status via comprehensive check suite
+- Confirmed GDS adoption manifest (`gds-adoption.json`) valid and complete
+- Verified 11 local adapters documented and compliant
+- Verified 5 approved exceptions documented with review dates
+- Verified banned imports enforcement (no legacy `@gds/*` imports)
+- Verified GDS package alignment (all `@doneisbetter/*` at 2.6.1)
+- Documented compliance verification in HANDOVER
+
+### GDS compliance verification results
+
+**Compliance check suite** (`npm run ui:check:gds`): ✅ All checks passed
+1. ✅ `ui:check:gds-adoption` — GDS adoption check passed
+2. ✅ `ui:gds:verify` — `@doneisbetter/*` packages aligned at 2.6.1
+3. ✅ `ui:check:no-legacy-gds-imports` — No legacy `@gds/*` imports
+4. ✅ `gds:import-smoke` — `extendGdsTheme` smoke passed
+5. ✅ `ui:check:gds-patterns` — 13 files, 5 brand-composition exceptions verified
+6. ✅ `ui:gds:compliance` — GDS product UI compliance passed (2.6.1)
+7. ✅ `ui:gds:compliance:manifest` — `gds-adoption.json` valid for GDS 2.6.1
+8. ✅ `ui:check:gds-a11y` — GDS accessibility matrix covers required surfaces
+9. ✅ `ui:check:mantine` — Mantine boundary check passed
+10. ✅ `ui:check:foundation` — UI foundation check passed (no blocker findings)
+11. ✅ `ui:check:layout` — UI layout grammar check passed (no blocker findings)
+
+**GDS adoption manifest** (`gds-adoption.json`):
+- Schema version: 1
+- GDS version: 2.6.1
+- Product archetype: `lms-game`
+- Supported entry points: 6 (`@doneisbetter/gds-{theme,core,admin}/{client,server}`)
+- Required contracts: 10 (extendGdsTheme, StateBlock, MetricCard, ProgressCard, AccessRecoveryPanel, GameBoardTile, AuthShell, PublicShell, DataToolbar, ResponsiveDataView)
+- Local adapters: 11 documented (LearnerPageHeader, CourseCard, AuthShell, PublicAppShell, ArticleShell, DataToolbar, ResponsiveDataView, AdminPageHeader, EditorAppShell, CourseAccessRecovery, AdminAppShell)
+- Approved exceptions: 5 (Lesson prose HTML, Game canvas, Email/certificate renders, Recharts, Lesson markdown editor)
+- Migration status: `enforced`
+- Last reviewed: 2026-05-26
+
+**Compliance status**: ✅ **Enforced and passing**
+- No legacy `@gds/*` imports
+- No banned import violations
+- All local adapters documented
+- All exceptions documented with review dates
+- Package versions aligned at GDS 2.6.1
+- Accessibility matrix complete
+- Foundation and layout grammar verified
+
+### Status
+
+**GDS compliance**: ✅ Verified and passing
+- 11-check compliance suite passed
+- Manifest valid and complete
+- 11 local adapters documented
+- 5 approved exceptions documented
+- Banned imports enforced
+- Package alignment verified (2.6.1)
+
+**Quality gates**: ✅ Verified (compliance checks are quality gates)
+
+**Documentation**: ✅ Updated
+- `HANDOVER.md` — #888 compliance verification entry
+
+**Note**: This issue focused on compliance verification. All existing compliance mechanisms are confirmed passing, enforced, and up-to-date. No remediation required.
