@@ -2295,3 +2295,51 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 **Documentation**: ✅ Updated
 - `PATTERN_CONTRACT_INVENTORY.md` — Metric/Progress/State with routes and usage
 - `HANDOVER.md` — #882 implementation entry
+
+## Issue #883: Access recovery - gated-route and permission state unification (2026-08-05)
+
+### What changed
+
+- Canonicalized course access recovery contract with comprehensive JSDoc
+- Added detailed documentation to `CourseAccessRecoveryActions` GDS adapter
+- Documented 7 access issue states and their recovery actions
+- Documented GDS AccessRecoveryState mapping logic
+- Confirmed consuming routes (lesson and quiz access pages)
+- Updated `PATTERN_CONTRACT_INVENTORY.md` with recovery taxonomy
+
+### Contract documentation added
+
+**CourseAccessRecoveryActions**:
+- Props: `issue`, `courseId`, `courseLanguage`, `signInHref`, `backLabel`, `backHref?`, `onRetry?`
+- Server/client: ⚠️ Client-only (GDS client component, window.location)
+- Routes: 2 (enrolled lesson page, quiz page)
+- GDS: `@doneisbetter/gds-core/client` `AccessRecoveryPanel`
+- Access issue taxonomy (7 states):
+  - `SIGN_IN_REQUIRED` (401) → 'signin' action
+  - `COURSE_NOT_FOUND` (404) → 'course' action
+  - `LESSON_NOT_FOUND` (404) → 'course' action
+  - `INVALID_DAY_NUMBER` → 'course' action
+  - `LESSON_LOCKED` (403) → 'continue' action
+  - `NETWORK_ERROR` (0) → 'retry' action
+  - Other → 'retry' or 'course' based on status
+- State mapping to GDS: 401/signin→unauthenticated, 403→forbidden, 404→missing, other→unavailable
+- Action priority: continue > signin > retry > none
+- Always compact layout, title/message pre-localized
+
+### Status
+
+**Access recovery contract**: ✅ Fully documented
+- TypeScript props explicitly typed
+- Server/client safety documented (client-only)
+- 2 consuming routes verified (lesson + quiz)
+- 7 access issue states documented
+- State mapping logic explicit
+- Action priority and navigation documented
+- Accessibility via GDS
+- Mobile behavior (compact layout)
+
+**Quality gates**: Pending verification
+
+**Documentation**: ✅ Updated
+- `PATTERN_CONTRACT_INVENTORY.md` — Access recovery taxonomy
+- `HANDOVER.md` — #883 implementation entry
