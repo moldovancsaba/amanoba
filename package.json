@@ -87,7 +87,11 @@
     "ui:check:gds-a11y": "node scripts/ui/check-gds-accessibility-matrix.mjs",
     "ui:check:no-legacy-gds-imports": "node scripts/check-no-legacy-gds-imports.mjs",
     "ui:check:gds-adoption": "node --import tsx scripts/check-gds-adoption.ts",
-    "ui:check:gds": "npm run ui:check:gds-adoption && npm run ui:gds:check && npm run ui:check:gds-a11y && npm run ui:check:mantine && npm run ui:check:foundation && npm run ui:check:layout"
+    "ui:check:gds": "npm run ui:check:gds-adoption && npm run ui:gds:check && npm run ui:check:gds-a11y && npm run ui:check:mantine && npm run ui:check:foundation && npm run ui:check:layout",
+    "content:validate": "tsx scripts/validate-content-quality.ts",
+    "content:validate:strict": "tsx scripts/validate-content-quality.ts --strict",
+    "content:validate:moderate": "tsx scripts/validate-content-quality.ts --moderate",
+    "content:check": "npm run content:validate:strict"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.2",
@@ -156,6 +160,7 @@
     "@sovereignsquad/gds-eslint-config": "https://github.com/sovereignsquad/general-design-system/releases/download/gds-v3.14.17/sovereignsquad-gds-eslint-config-3.14.17.tgz",
     "@types/turndown": "^5.0.6",
     "@types/web-push": "^3.6.3",
+    "commander": "^15.0.0",
     "eslint": "^9",
     "eslint-config-next": "^16.2.6",
     "pino-pretty": "^13.1.2",
