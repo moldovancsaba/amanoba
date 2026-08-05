@@ -6,7 +6,7 @@
  */
 
 import connectDB from '../app/lib/mongodb';
-import { Course, Lesson, QuizQuestion, CourseProgress, Certificate, CertificateEntitlement } from '../app/lib/models';
+import { Course, Lesson, QuizQuestion, CourseProgress, Certificate, CertificateEntitlement, Brand } from '../app/lib/models';
 import { QuestionDifficulty, QuestionType } from '../app/lib/models/quiz-question';
 
 async function resetCourses() {
@@ -37,18 +37,36 @@ async function resetCourses() {
     const deletedCourses = await Course.deleteMany({});
     console.log(`   ✅ Deleted ${deletedCourses.deletedCount} courses\n`);
 
-    // Step 2: Create new course
+    // Step 2: Find or create brand
+    console.log('🏢 Finding Amanoba brand...\n');
+    
+    let brand = await Brand.findOne({ slug: 'amanoba' });
+    if (!brand) {
+      console.log('   ⚠️  Brand not found, creating it...');
+      brand = await Brand.create({
+        slug: 'amanoba',
+        name: 'Amanoba',
+        description: 'Unified flexible learning platform',
+        isActive: true,
+      });
+      console.log(`   ✅ Created brand: ${brand.slug}\n`);
+    } else {
+      console.log(`   ✅ Found brand: ${brand.slug} (ID: ${brand._id})\n`);
+    }
+
+    // Step 3: Create new course
     console.log('🎓 Creating "AI for dummies in a day" course...\n');
 
     const courseId = 'AI_DUMMIES_1DAY_EN';
     const language = 'en';
 
     const course = await Course.create({
+      brandId: brand._id,
       courseId,
       name: 'AI for dummies in a day',
       description: 'A friendly 1-day introduction to AI for complete beginners. Learn what AI is, how it works, and how to use it in your daily life without any technical background.',
       language,
-      thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800',
+      // thumbnail: null, // Omit to use brand default thumbnail
       durationDays: 1,
       isActive: true,
       requiresPremium: false,
@@ -99,7 +117,7 @@ async function resetCourses() {
 
     console.log(`   ✅ Created course: ${course.courseId}\n`);
 
-    // Step 3: Create lesson
+    // Step 4: Create lesson
     console.log('📝 Creating Day 1 lesson...\n');
 
     const lesson = await Lesson.create({
@@ -323,7 +341,7 @@ P.S. Remember - AI is just a tool, and you are learning to use it. No pressure, 
       pointsReward: 500,
       xpReward: 100,
       isActive: true,
-      displayOrder: 0,
+      displayOrder: 1,
       metadata: {
         estimatedMinutes: 60,
         difficulty: 'easy',
@@ -333,7 +351,7 @@ P.S. Remember - AI is just a tool, and you are learning to use it. No pressure, 
 
     console.log(`   ✅ Created lesson: ${lesson.lessonId}\n`);
 
-    // Step 4: Create quiz questions
+    // Step 5: Create quiz questions
     console.log('❓ Creating quiz questions...\n');
 
     const questions = [
@@ -348,7 +366,7 @@ P.S. Remember - AI is just a tool, and you are learning to use it. No pressure, 
         ],
         explanation: 'The correct answer uses simple, everyday language and concrete examples (understanding language, recognizing faces) that anyone can relate to, without technical jargon.',
         difficulty: QuestionDifficulty.EASY,
-        category: 'ai-basics',
+        category: 'Course Specific',
         questionType: QuestionType.APPLICATION,
         hashtags: ['#ai-definition', '#beginner', '#explanation'],
         isActive: true,
@@ -367,7 +385,7 @@ P.S. Remember - AI is just a tool, and you are learning to use it. No pressure, 
         ],
         explanation: 'The best prompt is specific (Friday off, family event), includes tone guidance (friendly, professional, brief), and gives clear context. Vague prompts get vague results.',
         difficulty: QuestionDifficulty.MEDIUM,
-        category: 'ai-usage',
+        category: 'Course Specific',
         questionType: QuestionType.APPLICATION,
         hashtags: ['#prompts', '#practical', '#communication'],
         isActive: true,
@@ -386,7 +404,7 @@ P.S. Remember - AI is just a tool, and you are learning to use it. No pressure, 
         ],
         explanation: 'The correct answer acknowledges real change while emphasizing AI as a tool that enhances human work. It encourages adaptation rather than fear or complacency.',
         difficulty: QuestionDifficulty.MEDIUM,
-        category: 'ai-understanding',
+        category: 'Course Specific',
         questionType: QuestionType.CRITICAL_THINKING,
         hashtags: ['#ai-impact', '#mindset', '#adaptation'],
         isActive: true,
@@ -405,7 +423,7 @@ P.S. Remember - AI is just a tool, and you are learning to use it. No pressure, 
         ],
         explanation: 'AI tools like ChatGPT explicitly warn against using them for medical advice. They can provide general info but lack the ability to examine you, consider your full history, or take legal/ethical responsibility.',
         difficulty: QuestionDifficulty.HARD,
-        category: 'ai-limitations',
+        category: 'Course Specific',
         questionType: QuestionType.CRITICAL_THINKING,
         hashtags: ['#safety', '#limitations', '#verification'],
         isActive: true,
@@ -424,7 +442,7 @@ P.S. Remember - AI is just a tool, and you are learning to use it. No pressure, 
         ],
         explanation: 'AI\'s output quality depends heavily on input quality. Adding specific context (goals, constraints, priorities) will get better results. This is how you learn to use AI effectively.',
         difficulty: QuestionDifficulty.MEDIUM,
-        category: 'ai-usage',
+        category: 'Course Specific',
         questionType: QuestionType.APPLICATION,
         hashtags: ['#prompts', '#improvement', '#problem-solving'],
         isActive: true,
@@ -443,7 +461,7 @@ P.S. Remember - AI is just a tool, and you are learning to use it. No pressure, 
         ],
         explanation: 'This explanation uses a relatable analogy (recognizing faces) and simple language while being technically accurate about pattern recognition and learning from examples.',
         difficulty: QuestionDifficulty.EASY,
-        category: 'ai-concepts',
+        category: 'Course Specific',
         questionType: QuestionType.CONCEPT,
         hashtags: ['#learning', '#explanation', '#understanding'],
         isActive: true,
@@ -462,7 +480,7 @@ P.S. Remember - AI is just a tool, and you are learning to use it. No pressure, 
         ],
         explanation: 'A good use case is specific and actionable. It names a clear area, specific task, exact tool to use, and a concrete first step you can take immediately.',
         difficulty: QuestionDifficulty.MEDIUM,
-        category: 'ai-planning',
+        category: 'Course Specific',
         questionType: QuestionType.APPLICATION,
         hashtags: ['#use-cases', '#planning', '#actionable'],
         isActive: true,
