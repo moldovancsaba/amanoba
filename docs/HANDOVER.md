@@ -2690,3 +2690,120 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - `HANDOVER.md` — #888 compliance verification entry
 
 **Note**: This issue focused on compliance verification. All existing compliance mechanisms are confirmed passing, enforced, and up-to-date. No remediation required.
+
+## Issue #889: Upstream handoff - proven GDS gaps and escalation packet (2026-08-05)
+
+### What changed
+
+- Created comprehensive upstream handoff packet (`docs/handoff/GDS_UPSTREAM_HANDOFF_PACKET.md`)
+- Identified 3 proven shared-system gaps for upstream escalation
+- Documented 8 resolved gaps (no escalation needed)
+- Provided evidence, desired contracts, and migration paths for each gap
+- Prepared production-grade issue drafts for GDS monorepo
+
+### Upstream GDS Gaps Identified
+
+**Gap #1: Learner App Shell (LMS-specific)**
+- Current: Local `LearnerShellAdapter` (9 routes)
+- Desired: `LearnerAppShell` in `@doneisbetter/gds-lms` or `gds-core/client`
+- Priority: Medium
+- Evidence: 9 learner routes, session-based nav, mobile menu pattern
+- Benefit: Standardizes LMS learner navigation across products
+
+**Gap #2: Course/Product Card Variants**
+- Current: Local `CourseCard` with 3 composition patterns
+- Desired: `PublicProductCard` with `variant` prop (catalog, enrolled, completed)
+- Priority: High
+- Evidence: 3 usage patterns, progress tracking, badge priority
+- Benefit: Common across LMS, e-commerce, subscription products
+
+**Gap #3: Server Token Bridge for Non-CSS Contexts**
+- Current: Local `color-tokens.ts` (duplicates theme authority)
+- Desired: `extractTokenBridge` in `@doneisbetter/gds-theme/server`
+- Priority: Medium
+- Evidence: 4 non-CSS contexts (email, OG, charts, games)
+- Benefit: Prevents token duplication across non-CSS rendering
+
+### Resolved Gaps (Not Escalating)
+
+1. ✅ Auth/Public/Article Shells → Local brand-composition adapters
+2. ✅ Metrics/Progress/State Blocks → GDS primitives (no gap)
+3. ✅ Access Recovery → GDS `AccessRecoveryPanel` (no gap)
+4. ✅ Admin Data Views → GDS admin primitives (no gap)
+5. ✅ Rich Content Rendering → Documented exception
+6. ✅ Interactive Learning Chrome → Documented exception boundary
+7. ✅ Token Governance → Local workaround (pending Gap #3)
+8. ✅ GDS Compliance → Enforcement tooling (no gap)
+
+### Handoff Packet Contents
+
+**File**: `docs/handoff/GDS_UPSTREAM_HANDOFF_PACKET.md`
+
+**Structure**:
+- Executive summary
+- 3 upstream gap specifications (current state, desired contract, evidence, migration)
+- 8 resolved gap justifications (why not escalating)
+- Escalation recommendation with priority
+- Contact and compliance info
+
+**Evidence Attachments**:
+- `gds-adoption.json` (local adoption manifest)
+- `PATTERN_CONTRACT_INVENTORY.md` (local adapter inventory)
+- GDS readiness program HANDOVER entries (#879-#888)
+
+### Status
+
+**Upstream handoff**: ✅ Complete
+- 3 gaps identified for escalation
+- 8 gaps confirmed resolved locally
+- Production-grade issue drafts prepared
+- Evidence packet ready for filing
+
+**Quality gates**: ✅ Verified
+
+**Documentation**: ✅ Updated
+- `docs/handoff/GDS_UPSTREAM_HANDOFF_PACKET.md` — Upstream handoff packet (new)
+- `docs/HANDOVER.md` — #889 handoff entry
+
+**GDS Readiness Program (#878)**: ✅ **COMPLETE**
+- 11 child issues completed (#879-#889)
+- All local convergence work finished
+- Compliance verified and passing
+- Upstream escalation packet ready
+
+### Next Steps
+
+**For Amanoba**:
+1. File 3 upstream issues in `sovereignsquad/general-design-system`
+2. Reference handoff packet for each issue
+3. Monitor upstream progress and contribute as needed
+
+**For GDS Team**:
+1. Review handoff packet (`docs/handoff/GDS_UPSTREAM_HANDOFF_PACKET.md`)
+2. Prioritize gaps based on cross-product benefit
+3. Coordinate contract design with Amanoba evidence
+
+---
+
+## GDS Readiness Program Summary (#878)
+
+**Program Duration**: 2026-08-05 (1 session)  
+**Issues Completed**: 11 (#879-#889)  
+**Commits to Preview**: 11  
+**Quality Gates**: All passing (type-check, lint, ui:check:gds)
+
+**Delivered**:
+- ✅ 11 local adapters canonicalized with comprehensive JSDoc
+- ✅ 5 approved exceptions documented and verified
+- ✅ 11 GDS compliance checks passing
+- ✅ Token governance two-tier authority documented
+- ✅ Pattern contract inventory complete
+- ✅ 3 upstream gaps identified with evidence
+- ✅ Upstream handoff packet prepared
+
+**Impact**:
+- **Local convergence**: All product UI now follows explicit GDS-backed contracts
+- **Exception governance**: All exceptions documented with review dates
+- **Compliance**: Enforced via 11-check suite
+- **Upstream clarity**: 3 actionable gaps vs 8 resolved locally
+- **Documentation**: Comprehensive contract inventory and handoff materials
