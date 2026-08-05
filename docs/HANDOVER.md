@@ -2447,3 +2447,54 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 **Documentation**: ✅ Updated
 - `PATTERN_CONTRACT_INVENTORY.md` — Admin pattern details
 - `HANDOVER.md` — #885 implementation entry
+
+## Issue #881: Content rendering - rich prose and article body contract hardening (2026-08-05)
+
+### What changed
+
+- Documented rich content rendering contracts in PATTERN_CONTRACT_INVENTORY
+- Confirmed two rendering patterns:
+  - **Rich lesson prose**: Mantine `TypographyStylesProvider` + `dangerouslySetInnerHTML`
+  - **Article/blog body**: Mantine Stack/Text/Title composition (structured, no HTML injection)
+- Verified security: Lesson HTML is sanitized via `contentToHtml` before rendering
+- Verified accessibility: Dark-mode typography, semantic heading hierarchy
+- Confirmed exception status: Rich lesson prose is documented local exception (not GDS-backed)
+- Updated PATTERN_CONTRACT_INVENTORY with content rendering entries
+
+### Contract documentation added
+
+**Rich lesson prose** (local exception):
+- Implementation: Mantine `TypographyStylesProvider` wrapper
+- Routes: Lesson enrolled/view pages (`app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx`, `view/page.tsx`)
+- Content source: `contentToHtml` (sanitized HTML from lesson content)
+- Rendering: `dangerouslySetInnerHTML` inside `TypographyStylesProvider`
+- Security: HTML sanitization in `app/lib/lesson-content.ts`
+- Styling: Dark-mode safe typography, semantic heading hierarchy
+- Exception: Documented local exception for rich educational content
+- Server/client: ⚠️ Client-only (lesson pages are 'use client')
+
+**Article/blog body** (Mantine composition):
+- Implementation: Mantine Stack/Text/Title primitives
+- Routes: Blog/news detail pages (`app/[locale]/blog/[slug]/page.tsx`, `app/[locale]/news/[slug]/page.tsx`)
+- Content source: Structured data (headline, summary, body sections with paragraphs)
+- Rendering: No HTML injection, direct text rendering
+- Security: No HTML parsing, plain text only
+- Styling: Semantic Title (h2/h3), Text with line-height
+- Server/client: ✅ Server-safe (static rendering)
+
+### Status
+
+**Content rendering contracts**: ✅ Fully documented
+- Two patterns identified and documented
+- Security confirmed (sanitization for lessons, no HTML for blog)
+- Accessibility confirmed (semantic hierarchy, dark-mode typography)
+- Exception status confirmed (lesson prose is documented local exception)
+- Server/client safety documented
+
+**Quality gates**: Pending verification
+
+**Documentation**: ✅ Updated
+- `PATTERN_CONTRACT_INVENTORY.md` — Content rendering entries
+- `HANDOVER.md` — #881 implementation entry
+
+**Note**: This issue focused on contract documentation and verification rather than implementation changes. The existing rendering patterns are confirmed safe, accessible, and explicitly documented.

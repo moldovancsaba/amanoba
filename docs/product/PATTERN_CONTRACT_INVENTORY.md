@@ -25,6 +25,8 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | Admin page header | `app/components/patterns/gds/AdminPageHeader.tsx` | `@doneisbetter/gds-admin/client` `PageHeader` | GDS-backed thin re-export | All admin pages with titles/actions; title+description+primaryAction+overflowActions; client-only |
 | Data toolbar | `app/components/patterns/gds/DataToolbar.tsx` | Mantine-only | Mantine composition | All admin list pages; inline/stack layout; title+description+filter controls; server-safe |
 | Responsive data view | `app/components/patterns/gds/ResponsiveDataView.tsx` | `@doneisbetter/gds-admin/client` `ResponsiveDataView` | GDS-backed adapter | All admin lists (players/payments/certificates/courses/etc.); desktop table + mobile cards; client-only |
+| Rich lesson prose | Mantine `TypographyStylesProvider` | Mantine primitive | Local exception | Lesson routes (enrolled/view); wraps `dangerouslySetInnerHTML` with sanitized HTML; dark-mode safe typography; documented exception for rich content |
+| Article/blog body | Mantine Stack/Text/Title | Mantine primitives | Mantine composition | Blog/news detail pages; structured paragraph rendering; no HTML injection; server-safe |
 | Data toolbar | `app/components/patterns/gds/DataToolbar.tsx` | `@doneisbetter/gds-core/DataToolbar` (aligned local) | Canonical | `layout: inline \| stack` |
 | Responsive data view | `app/components/patterns/gds/ResponsiveDataView.tsx` | `@doneisbetter/gds-admin/client` `ResponsiveDataView` | Active | Thin adapter: Amanoba `rows`/`columns` API |
 | Editor shell | `app/[locale]/editor/layout.tsx` | `@doneisbetter/gds-admin/client` `AppShell` | Active | Course editor portal nav |
