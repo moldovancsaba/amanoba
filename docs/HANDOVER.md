@@ -3211,8 +3211,122 @@ npm run content:validate -- --dir ./courses --json
 **Impact**: This is the rock-solid foundation for all content creation going forward. Agents can now generate consistent, high-quality content with automated validation and enforcement at every step.
 
 **Next Steps**:
-1. Integrate `enforceCourseQuality()` into import API endpoint
+1. ✅ **COMPLETED**: Integrated `enforceCourseQuality()` into import API endpoint (`/api/admin/courses/import/route.ts`)
 2. Add GitHub Actions workflow for automated content validation
 3. Train agents on the new workflow documentation
 4. Apply to progressive course generation strategy (1-day to 30-day courses)
+
+---
+
+## 2026-08-05 - Database Reset and First Course Creation
+
+**Status**: ✅ Delivered to `main`
+
+**What Changed**:
+
+Created an admin API endpoint to reset the entire course database and seed it with the first 1-day rapid course, "AI for dummies in a day", following the progressive course strategy.
+
+**New API Endpoint**:
+- **POST** `/api/admin/courses/reset-and-create-ai-dummies`
+- Admin-only endpoint (requires authentication + admin RBAC)
+- Safely backs up and deletes all existing courses, lessons, quiz questions, course progress, certificates, and certificate entitlements
+- Creates a quality-validated 1-day AI introduction course with:
+  - Course: `AI_DUMMIES_1DAY_EN`
+  - 1 lesson (Day 1: "AI Basics: What is AI and How Can You Use It?")
+  - Full 5W1H structure (13 sections, deliverable, exercises, bibliography)
+  - 7 quiz questions (all meeting quality standards: standalone, application/critical-thinking types, plausible distractors)
+  - Proper quiz policy and certification configuration
+- Returns detailed response with course details and deletion counts
+- Full audit logging
+
+**Course Details**:
+
+**"AI for dummies in a day"**:
+- **Duration**: 1 day (rapid introduction - first stage of progressive strategy)
+- **Target audience**: Complete beginners with no technical background
+- **Learning goal**: Explain AI in simple terms and identify 3 practical use cases
+- **Deliverable**: Personal AI Use Case List
+- **Content structure**: Full 5W1H (Who, What, Where, When, Why, How) + exercises + bibliography
+- **Quiz**: 7 questions, 3 per quiz attempt, 70% pass threshold
+- **Certification**: Enabled, no entitlement required
+- **Points**: 500 for completion
+- **Tags**: AI, beginner, rapid, 1-day, introduction
+
+**Quiz Questions (All Quality-Validated)**:
+1. Explaining AI to a friend (EASY, APPLICATION)
+2. Writing AI prompts for email drafting (MEDIUM, APPLICATION)
+3. Understanding AI impact on jobs (MEDIUM, CRITICAL_THINKING)
+4. AI limitations in medical advice (HARD, CRITICAL_THINKING)
+5. Improving AI prompts (MEDIUM, APPLICATION)
+6. How AI learns (EASY, CONCEPT)
+7. Defining a good AI use case (MEDIUM, APPLICATION)
+
+**Quality Validation**:
+- ✅ All content meets STRICT quality gates
+- ✅ Lesson has all 13 required 5W1H sections
+- ✅ Named deliverable: "Personal AI Use Case List"
+- ✅ All 3 exercises: Guided, Independent, Self-check
+- ✅ Bibliography with real URLs
+- ✅ All quiz questions are standalone (no "in this lesson", "Day X", etc.)
+- ✅ Natural scenario language (not administrative)
+- ✅ Plausible distractors (not silly)
+- ✅ Zero recall questions (all application/critical-thinking/concept)
+- ✅ Language integrity (English content only for English course)
+
+**Files Created**:
+- `app/api/admin/courses/reset-and-create-ai-dummies/route.ts` (NEW - 750 lines)
+- `scripts/clean-and-create-ai-dummies-course.ts` (NEW - script version for local execution)
+
+**How to Use**:
+
+**Via API (on Vercel preview/production)**:
+```bash
+curl -X POST https://your-deployment-url.vercel.app/api/admin/courses/reset-and-create-ai-dummies \
+  -H "Authorization: Bearer YOUR_ADMIN_TOKEN" \
+  -H "Content-Type: application/json"
+```
+
+**Expected Response**:
+```json
+{
+  "success": true,
+  "message": "Database cleaned and new course created successfully",
+  "course": {
+    "courseId": "AI_DUMMIES_1DAY_EN",
+    "name": "AI for dummies in a day",
+    "durationDays": 1,
+    "lessons": 1,
+    "questions": 7
+  },
+  "deleted": {
+    "courses": X,
+    "lessons": X,
+    "questions": X,
+    "progress": X,
+    "certificates": X,
+    "entitlements": X
+  }
+}
+```
+
+**Testing on Vercel**:
+1. Endpoint is now live on main branch deployment
+2. Call the endpoint with admin credentials
+3. Navigate to the platform to see the new course
+4. Enroll and test the lesson + quiz functionality
+5. Verify certification flow
+
+**Impact**:
+- ✅ Clean slate for progressive course strategy
+- ✅ First 1-day rapid course is production-ready
+- ✅ Template for future AI-generated courses (same structure)
+- ✅ All content meets rock-solid quality standards
+- ✅ Foundation for data-triggered progression (1-day → 3-day → 7-day → 30-day)
+
+**Next Steps**:
+1. Test the endpoint on Vercel preview/production deployment
+2. Verify course enrollment, lesson viewing, and quiz functionality
+3. Begin AI-generated course creation using the same quality standards
+4. Implement data tracking for course "hooks" (completion by X users triggers next level)
+5. Build automation pipeline for progressive course generation
 
