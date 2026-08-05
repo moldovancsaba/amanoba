@@ -3398,3 +3398,52 @@ curl -X POST https://your-deployment-url.vercel.app/api/admin/courses/reset-and-
 - `scripts/fix-british-to-us-english.sh` (NEW)
 - `START_HERE.md` (UPDATED — added style guide reference)
 
+---
+
+## 2026-08-05 — Lesson UI Improvements: Final Exam Visibility & Self-Check Styling
+
+**What Changed**: Fixed two UI issues reported by user - final exam button showing when no certification exists, and ugly double list styling in self-check sections
+
+**Why**: Improve UX by hiding irrelevant features and fixing visual layout issues
+
+**Changes Made**:
+
+1. **Final Exam Button Conditional Rendering**:
+   - Added `certificationEnabled` field to lesson API response (`/api/courses/[courseId]/day/[dayNumber]/route.ts`)
+   - Updated course detail page to return `null` for certification block when `certification.enabled` is `false`
+   - Updated lesson completion page to conditionally show final exam button based on `certificationEnabled`
+   - Removed duplicate condition in certification block logic
+
+2. **Self-Check List Styling Fixes**:
+   - Added CSS rules for nested lists in `app/globals.css`
+   - Fixed checkbox list styling (removes bullet points when checkbox is present)
+   - Improved spacing for nested lists within list items
+   - Added `:has()` selector for cleaner checkbox list rendering
+
+**Files Modified**:
+- `app/api/courses/[courseId]/day/[dayNumber]/route.ts` — Added `certificationEnabled` to API response
+- `app/[locale]/courses/[courseId]/page.tsx` — Return `null` when certification disabled, fixed duplicate condition
+- `app/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page.tsx` — Conditional final exam button rendering
+- `app/globals.css` — Added nested list and checkbox list CSS rules
+
+**Impact**:
+- ✅ Final exam button only appears for courses with certification enabled
+- ✅ Self-check sections render cleanly without double bullets or awkward spacing
+- ✅ Better UX - users don't see options that aren't available to them
+- ✅ Cleaner visual layout for lesson content with checkboxes
+
+**No Breaking Changes**:
+- API change is additive (new field `certificationEnabled`)
+- Frontend gracefully handles missing field (defaults to `false`)
+- CSS changes only affect nested lists and checkbox lists
+- No database schema changes
+
+**Quality Gates**:
+- ✅ Type checking: Pre-existing error (unrelated to these changes)
+- ✅ No new TypeScript errors introduced
+- ✅ CSS is backwards compatible
+
+**User Feedback Addressed**:
+- ❌ "Self check double list looks ugly" → ✅ Fixed with improved CSS
+- ❌ "Why do I have final exam option if no final exam" → ✅ Button now hidden when certification disabled
+
