@@ -1,1 +1,1 @@
-export { ArticleShell } from '@/app/components/patterns/gds/ArticleShell';
+export { ArticleShell, type ArticleShellProps } from '@/app/components/patterns/gds/ArticleShell';

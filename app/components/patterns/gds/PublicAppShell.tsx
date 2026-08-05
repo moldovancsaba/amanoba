@@ -2,7 +2,35 @@ import type { ReactNode } from 'react';
 import Image from 'next/image';
 import { Box, Container, Group, Paper, Stack, Text } from '@mantine/core';
 
-type PublicAppShellProps = {
+/**
+ * Props for {@link PublicAppShell} component.
+ * 
+ * @property {ReactNode} children - Main page content (hero, features, call-to-action)
+ * @property {ReactNode} headerActions - Navigation and action buttons (sign-in, language switcher)
+ * @property {string} [appName] - Application name displayed in header (e.g., "Amanoba")
+ * @property {string} [tagline] - Subtitle/tagline below app name
+ * @property {ReactNode} [brand] - Custom brand logo/content (overrides default logo + appName)
+ * @property {ReactNode} [footer] - Footer content (copyright, legal links, contact)
+ * 
+ * @example
+ * ```tsx
+ * <PublicAppShell
+ *   appName="Amanoba"
+ *   tagline="Learn Every Day"
+ *   headerActions={
+ *     <>
+ *       <Button href="/courses">Courses</Button>
+ *       <LanguageSwitcher />
+ *       <Button href="/signin">Sign In</Button>
+ *     </>
+ *   }
+ *   footer={<Text>© 2026 Amanoba</Text>}
+ * >
+ *   <Container><Title>Welcome</Title></Container>
+ * </PublicAppShell>
+ * ```
+ */
+export type PublicAppShellProps = {
   children: ReactNode;
   headerActions: ReactNode;
   appName?: string;
@@ -12,7 +40,41 @@ type PublicAppShellProps = {
 };
 
 /**
- * Shared public/marketing page shell: dark background, sticky header band, optional footer.
+ * Canonical public/marketing page shell with sticky header and dark background.
+ * 
+ * **Contract**: Provides consistent landing/marketing experience across public routes.
+ * 
+ * **Server/Client Safety**: ✅ Server-safe (no client-only hooks)
+ * 
+ * **Consuming Routes**:
+ * - `/[locale]` - Landing page (hero, features, CTA)
+ * - `/[locale]/partners` - Partner overview page
+ * 
+ * **Slots**:
+ * - `brand` (optional): Custom logo/branding (default: Amanoba logo + appName + tagline)
+ * - `headerActions` (required): Navigation links, language switcher, sign-in button
+ * - `children` (required): Main page content
+ * - `footer` (optional): Legal links, copyright, social links
+ * 
+ * **Accessibility**:
+ * - Semantic `<header>` and `<footer>` landmarks
+ * - Logo has alt text ("Amanoba Logo")
+ * - Header actions keyboard navigable
+ * - Sufficient contrast on dark shell
+ * - Visible focus states on interactive elements
+ * 
+ * **Performance**: Minimal bundle impact, renders on server, logo uses Next/Image priority
+ * 
+ * **Mobile Behavior**:
+ * - Header actions wrap on narrow viewports
+ * - AppName/tagline hidden below `xs` breakpoint
+ * - Logo remains visible at all sizes
+ * 
+ * @param props - {@link PublicAppShellProps}
+ * @returns Public marketing shell with sticky header
+ * 
+ * @see {@link AuthShell} for authentication pages
+ * @see {@link ArticleShell} for blog/news content
  */
 export function PublicAppShell({
   children,

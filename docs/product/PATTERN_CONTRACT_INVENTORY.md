@@ -13,7 +13,9 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | --- | --- | --- | --- | --- |
 | Theme | `app/lib/ui/amanoba-gds-theme.ts` | `@doneisbetter/gds-theme/server` + `extendGdsTheme` | Canonical | Dark product shell; `theme.other.brand` / `email` |
 | Learner shell / page header | `app/components/patterns/gds/LearnerShellAdapter.tsx` | — | Local adapter | Stable import remains `app/components/LearnerPageHeader.tsx`; direct shared shell blocked by GDS #80 |
-| Article shell | `app/components/patterns/gds/ArticleShell.tsx` | `@doneisbetter/gds-core` (brand-composition adapter) | Canonical | Re-export at `patterns/ArticleShell.tsx` |
+| Auth shell | `app/components/patterns/gds/AuthShell.tsx` | `@doneisbetter/gds-core` (brand-composition adapter) | Canonical | Re-export at `patterns/AuthShell.tsx`; server-safe; signin/error/onboarding routes |
+| Public shell | `app/components/patterns/gds/PublicAppShell.tsx` | `@doneisbetter/gds-core` (brand-composition adapter) | Canonical | Re-export at `patterns/PublicAppShell.tsx`; server-safe; landing/partners routes |
+| Article shell | `app/components/patterns/gds/ArticleShell.tsx` | `@doneisbetter/gds-core` (brand-composition adapter) | Canonical | Re-export at `patterns/ArticleShell.tsx`; server-safe; blog/news routes |
 | Product course card | `app/components/patterns/gds/CourseCard.tsx` | `@doneisbetter/gds-core/client` `PublicProductCard` | Thin adapter | Stable import remains `app/components/patterns/CourseCard.tsx` |
 | Metric card | `app/components/patterns/gds/MetricCard.tsx` | `@doneisbetter/gds-core/client` `MetricCard` | Thin adapter | Amanoba `label`/`value`/`detail` aliases |
 | Progress card | `app/components/patterns/gds/ProgressCard.tsx` | `@doneisbetter/gds-core/client` `ProgressCard` | Thin adapter | Quest/course progress |
@@ -21,8 +23,6 @@ This document is Amanoba's local adapter inventory for the GDS pattern service m
 | Course access recovery | `app/components/patterns/gds/CourseAccessRecoveryActions.tsx` | `@doneisbetter/gds-core/client` `AccessRecoveryPanel` | Thin adapter | Maps course API codes to panel state |
 | Admin shell | `app/[locale]/admin/layout.tsx` | `@doneisbetter/gds-admin/client` `AppShell` | Active | GDS admin shell + Amanoba nav |
 | Admin page header | `app/components/patterns/gds/AdminPageHeader.tsx` | `@doneisbetter/gds-admin/client` `PageHeader` | Active | All admin routes with list/detail titles |
-| Auth shell | `app/components/patterns/gds/AuthShell.tsx` | `@doneisbetter/gds-core/AuthShell` (Amanoba variant) | Canonical | Dark `ink.9` layout |
-| Public shell | `app/components/patterns/gds/PublicAppShell.tsx` | `@doneisbetter/gds-core/PublicShell` (Amanoba variant) | Canonical | Marketing header band |
 | Data toolbar | `app/components/patterns/gds/DataToolbar.tsx` | `@doneisbetter/gds-core/DataToolbar` (aligned local) | Canonical | `layout: inline \| stack` |
 | Responsive data view | `app/components/patterns/gds/ResponsiveDataView.tsx` | `@doneisbetter/gds-admin/client` `ResponsiveDataView` | Active | Thin adapter: Amanoba `rows`/`columns` API |
 | Editor shell | `app/[locale]/editor/layout.tsx` | `@doneisbetter/gds-admin/client` `AppShell` | Active | Course editor portal nav |

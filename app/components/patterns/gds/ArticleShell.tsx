@@ -3,7 +3,37 @@ import { Button, Container, Group, Paper, Stack, Text, Title } from '@mantine/co
 import { LocaleLink } from '@/components/LocaleLink';
 import Logo from '@/components/Logo';
 
-type ArticleShellProps = {
+/**
+ * Props for {@link ArticleShell} component.
+ * 
+ * @property {string} eyebrow - Small category label above title (e.g., "Amanoba blog", "What's new")
+ * @property {string} title - Section title in header (e.g., "Amanoba Blog", "Amanoba News")
+ * @property {string} logoHref - Click destination for logo (typically section index)
+ * @property {string} backHref - Navigation back to article list
+ * @property {string} backLabel - Text for back button (e.g., "All blog posts")
+ * @property {string} dashboardLabel - Text for dashboard button (e.g., "Dashboard")
+ * @property {ReactNode} [languageSwitcher] - Optional language switcher component
+ * @property {ReactNode} children - Article content (title, metadata, body)
+ * 
+ * @example
+ * ```tsx
+ * <ArticleShell
+ *   eyebrow="Amanoba blog"
+ *   title="Amanoba Blog"
+ *   logoHref="/blog"
+ *   backHref="/blog"
+ *   backLabel="All blog posts"
+ *   dashboardLabel="Dashboard"
+ *   languageSwitcher={<LanguageSwitcher />}
+ * >
+ *   <Paper component="article">
+ *     <Title>{post.headline}</Title>
+ *     <Text>{post.summary}</Text>
+ *   </Paper>
+ * </ArticleShell>
+ * ```
+ */
+export type ArticleShellProps = {
   eyebrow: string;
   title: string;
   logoHref: string;
@@ -14,6 +44,47 @@ type ArticleShellProps = {
   children: ReactNode;
 };
 
+/**
+ * Canonical article/blog post shell with branded header and navigation.
+ * 
+ * **Contract**: Provides consistent blog/news reading experience with clear navigation.
+ * 
+ * **Server/Client Safety**: ✅ Server-safe (no client-only hooks)
+ * 
+ * **Consuming Routes**:
+ * - `/[locale]/blog/[slug]` - Blog post detail pages
+ * - `/[locale]/news/[slug]` - News post detail pages
+ * 
+ * **Slots**:
+ * - `eyebrow` (required): Category label (uppercase, brand color)
+ * - `title` (required): Section title (h1 in header)
+ * - `logoHref` (required): Logo click destination
+ * - `languageSwitcher` (optional): Language switcher component
+ * - `backHref` + `backLabel` (required): Navigation back to list
+ * - `dashboardLabel` (required): Dashboard button text
+ * - `children` (required): Article content (Paper with headline, metadata, body)
+ * 
+ * **Accessibility**:
+ * - Semantic `<header>` landmark
+ * - Semantic `<main>` landmark with constrained measure
+ * - Logo alt text via Logo component
+ * - Keyboard-navigable back/dashboard buttons
+ * - Clear visual hierarchy (eyebrow → title → nav)
+ * - Sufficient contrast on dark header
+ * 
+ * **Performance**: Minimal bundle impact, renders on server
+ * 
+ * **Mobile Behavior**:
+ * - Header wraps navigation on narrow viewports
+ * - Logo remains visible
+ * - Button labels remain readable
+ * 
+ * @param props - {@link ArticleShellProps}
+ * @returns Article shell with branded header and constrained content measure
+ * 
+ * @see {@link AuthShell} for authentication pages
+ * @see {@link PublicAppShell} for marketing pages
+ */
 export function ArticleShell({
   eyebrow,
   title,

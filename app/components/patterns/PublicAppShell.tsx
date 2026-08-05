@@ -1,1 +1,1 @@
-export { PublicAppShell } from '@/app/components/patterns/gds/PublicAppShell';
+export { PublicAppShell, type PublicAppShellProps } from '@/app/components/patterns/gds/PublicAppShell';

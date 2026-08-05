@@ -1,7 +1,7 @@
 # Design System Adapter Status
 
-**Last Updated**: 2026-05-26
-**Status**: GDS 2.6.1 enforced via `@doneisbetter/*` from npm; thin local adapters only
+**Last Updated**: 2026-08-05
+**Status**: GDS 2.6.1 enforced via `@doneisbetter/*` from npm; thin local adapters only; auth/public/article shells canonicalized
 
 ---
 
@@ -102,7 +102,7 @@ Remaining (documented in `gds-adoption.json`, not duplicate GDS primitives):
 
 - **Learner shell** — `LearnerShellAdapter` keeps the swap boundary stable until GDS ships the learner shell contract ([#80](https://github.com/sovereignsquad/general-design-system/issues/80)).
 - **Course card variants** — `CourseCard` now maps to GDS `PublicProductCard`; richer course-specific variants can still be promoted upstream later.
-- **Brand-composition shells** — `AuthShell`, `PublicAppShell`, `ArticleShell`, `DataToolbar`, `ResponsiveDataView` (Amanoba dark marketing / admin row API).
+- **Brand-composition shells** — `AuthShell` (signin/error/onboarding), `PublicAppShell` (landing/partners), `ArticleShell` (blog/news), `DataToolbar`, `ResponsiveDataView` (Amanoba dark marketing / admin row API). All shells are now explicitly documented with TypeScript contracts, server/client safety guarantees, and consuming route lists.
 - Residual `className` on layout/fonts/prose (documented exceptions only).
 
 ## GDS-only enforcement

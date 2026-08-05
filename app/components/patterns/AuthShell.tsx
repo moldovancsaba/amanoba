@@ -1,1 +1,1 @@
-export { AuthShell } from '@/app/components/patterns/gds/AuthShell';
+export { AuthShell, type AuthShellProps } from '@/app/components/patterns/gds/AuthShell';

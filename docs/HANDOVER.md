@@ -2131,3 +2131,76 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - `npm run ui:check:foundation` ✅ — UI foundation clean
 - `npm run ui:gds:check` ✅ — GDS compliance verified
 - `npm run build` ✅ — Production build successful (38.0s)
+
+## Issue #879: UI shells convergence - auth/public/article canonical adapter contracts (2026-08-05)
+
+### What changed
+
+- Canonicalized auth/public/article shell adapters with explicit TypeScript contracts and comprehensive JSDoc documentation.
+- Added server/client safety guarantees to each shell component (all are server-safe).
+- Documented consuming routes for each shell:
+  - `AuthShell`: `/[locale]/auth/signin`, `/[locale]/auth/error`, `/[locale]/onboarding`
+  - `PublicAppShell`: `/[locale]` (landing), `/[locale]/partners`
+  - `ArticleShell`: `/[locale]/blog/[slug]`, `/[locale]/news/[slug]`
+- Exported TypeScript prop types (`AuthShellProps`, `PublicAppShellProps`, `ArticleShellProps`) from stable re-export layer.
+- Updated `docs/product/PATTERN_CONTRACT_INVENTORY.md` with explicit shell contracts, consuming routes, and server-safety confirmations.
+- Updated `docs/product/DESIGN_UPDATE.md` with shell canonicalization status and documentation completeness.
+
+### Contract documentation added
+
+**AuthShell**:
+- Props: `children`, `footer?`, `alert?`, `size?`
+- Slots: alert banner, main content card, footer marketing
+- Server/client: ✅ Server-safe (no client hooks)
+- Accessibility: Semantic layout, dark contrast, keyboard nav
+- Mobile: Responsive container sizes
+
+**PublicAppShell**:
+- Props: `children`, `headerActions`, `appName?`, `tagline?`, `brand?`, `footer?`
+- Slots: brand logo, header actions, main content, footer
+- Server/client: ✅ Server-safe (no client hooks)
+- Accessibility: Semantic header/footer, logo alt text, focus states
+- Mobile: Wrapping header, responsive logo
+
+**ArticleShell**:
+- Props: `eyebrow`, `title`, `logoHref`, `backHref`, `backLabel`, `dashboardLabel`, `languageSwitcher?`, `children`
+- Slots: eyebrow category, title, language switcher, navigation, article content
+- Server/client: ✅ Server-safe (no client hooks)
+- Accessibility: Semantic header/main, visual hierarchy, keyboard nav
+- Mobile: Wrapping navigation, readable content
+
+### Status
+
+**Shell contracts**: ✅ Fully documented
+- All shell props explicitly typed and exported
+- Server/client safety documented
+- Consuming routes listed
+- Accessibility requirements specified
+- Mobile behavior documented
+- Example usage provided in JSDoc
+
+**Quality gates**: ✅ All passing
+- `npm run type-check` ✅ — 13.0s
+- `npm run lint` ✅ — 10.9s
+- `npm run build` ✅ — 39.4s compile, 172 routes
+
+**Documentation**: ✅ Updated
+- `PATTERN_CONTRACT_INVENTORY.md` — Shell contracts canonicalized
+- `DESIGN_UPDATE.md` — Last updated 2026-08-05, shells documented
+
+### Verification
+
+- ✅ TypeScript compilation successful (all new types valid)
+- ✅ ESLint clean (no new warnings)
+- ✅ Production build successful (172 routes generated)
+- ✅ All existing routes use stable imports correctly
+- ✅ No duplicate shell implementations found
+- ✅ Shell adapter files have comprehensive JSDoc
+- ✅ Stable re-exports include prop types
+
+### Next steps
+
+**Enabled issues**:
+- #880 — Learner shell convergence (can proceed with auth/public/article pattern)
+- #881 — Content rendering hardening (can reference ArticleShell pattern)
+- #888 — GDS compliance hardening (shell contracts now explicit)
