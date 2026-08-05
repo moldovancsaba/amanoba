@@ -2343,3 +2343,48 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 **Documentation**: ✅ Updated
 - `PATTERN_CONTRACT_INVENTORY.md` — Access recovery taxonomy
 - `HANDOVER.md` — #883 implementation entry
+
+## Issue #884: Course cards - local variant contract extraction (2026-08-05)
+
+### What changed
+
+- Canonicalized course card contract with comprehensive JSDoc
+- Added detailed documentation to `CourseCard` GDS adapter
+- Documented 3 usage patterns (catalog, enrolled, progress)
+- Documented badge priority, progress calculation, and image handling
+- Confirmed consuming routes (courses, my-courses, dashboard)
+- Updated `PATTERN_CONTRACT_INVENTORY.md` with usage patterns
+
+### Contract documentation added
+
+**CourseCard**:
+- Props: `title`, `description?`, `thumbnail?`, `thumbnailAlt?`, `fallbackLabel?`, `badges?`, `metrics?`, `progress?`, `notice?`, `primaryAction?`, `secondaryAction?`, `compact?`
+- Server/client: ⚠️ Client-only (GDS client component)
+- Routes: 3 (courses catalog, my-courses, dashboard)
+- GDS: `@doneisbetter/gds-core/client` `PublicProductCard`
+- Usage patterns:
+  - **Catalog**: discovery, badges (premium/language/level), metrics (duration/lessons), "Enroll" action
+  - **Enrolled**: my-courses, badges (enrolled/in-progress/completed), progress bar, "Continue" action
+  - **Progress**: dashboard, same as enrolled, optional compact mode
+- Badge priority: Status first, then premium/language/level (max 2-3)
+- Progress: bounded [0, 100], displayed rounded
+- Image: Next.js Image (190px default, 128px compact) or IconBook fallback
+- Accessibility: semantic h3, progress not color-only, keyboard-navigable
+
+### Status
+
+**Course card contract**: ✅ Fully documented
+- TypeScript props explicitly typed (including CourseMetric, CourseProgress, CourseBadge)
+- Server/client safety documented (client-only)
+- 3 consuming routes verified
+- 3 usage patterns documented (catalog/enrolled/progress)
+- Badge priority and progress calculation explicit
+- Image handling documented
+- Accessibility requirements specified
+- Mobile behavior documented
+
+**Quality gates**: Pending verification
+
+**Documentation**: ✅ Updated
+- `PATTERN_CONTRACT_INVENTORY.md` — Course card usage patterns
+- `HANDOVER.md` — #884 implementation entry

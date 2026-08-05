@@ -7,17 +7,38 @@ import type { MantineColor } from '@mantine/core';
 import { IconBook } from '@tabler/icons-react';
 import { PublicProductCard } from '@doneisbetter/gds-core/client';
 
+/**
+ * Course metric (label-value pair).
+ * 
+ * @property {ReactNode} label - Metric label (e.g., "Duration")
+ * @property {ReactNode} value - Metric value (e.g., "30 days")
+ */
 type CourseMetric = {
   label: ReactNode;
   value: ReactNode;
 };
 
+/**
+ * Course progress data.
+ * 
+ * @property {ReactNode} [label="Progress"] - Progress label
+ * @property {number} value - Progress percentage (0-100)
+ * @property {ReactNode} [detail] - Optional detail text below progress bar
+ */
 type CourseProgress = {
   label?: ReactNode;
   value: number;
   detail?: ReactNode;
 };
 
+/**
+ * Course badge (premium, enrolled, completed, etc.).
+ * 
+ * @property {ReactNode} label - Badge text
+ * @property {MantineColor} [color="gray"] - Badge color
+ * @property {string} [variant="light"] - Badge variant
+ * @property {ReactNode} [leftSection] - Optional icon before text
+ */
 type CourseBadge = {
   label: ReactNode;
   color?: MantineColor;
@@ -25,6 +46,46 @@ type CourseBadge = {
   leftSection?: ReactNode;
 };
 
+/**
+ * Props for {@link CourseCard}.
+ * 
+ * @property {ReactNode} title - Course title
+ * @property {ReactNode} [description] - Course description
+ * @property {string | null} [thumbnail] - Course thumbnail URL
+ * @property {string} [thumbnailAlt="Course"] - Thumbnail alt text
+ * @property {ReactNode} [fallbackLabel] - Label for fallback icon when no thumbnail
+ * @property {CourseBadge[]} [badges=[]] - Status badges (premium, enrolled, etc.)
+ * @property {CourseMetric[]} [metrics=[]] - Course metrics (duration, lessons, etc.)
+ * @property {CourseProgress} [progress] - Progress data (if enrolled)
+ * @property {ReactNode} [notice] - Important notice (e.g., certification available)
+ * @property {ReactNode} [primaryAction] - Primary CTA button (e.g., "Enroll", "Continue")
+ * @property {ReactNode} [secondaryAction] - Secondary CTA button (e.g., "View Details")
+ * @property {boolean} [compact=false] - Compact layout (shorter image, less padding)
+ * 
+ * @example Catalog variant
+ * ```tsx
+ * <CourseCard
+ *   title="JavaScript Mastery"
+ *   description="Learn modern JavaScript"
+ *   thumbnail="/images/js-course.jpg"
+ *   badges={[{ label: "Premium", color: "yellow" }]}
+ *   metrics={[{ label: "Duration", value: "30 days" }]}
+ *   primaryAction={<Button>Enroll</Button>}
+ * />
+ * ```
+ * 
+ * @example Enrolled variant
+ * ```tsx
+ * <CourseCard
+ *   title="JavaScript Mastery"
+ *   description="Learn modern JavaScript"
+ *   thumbnail="/images/js-course.jpg"
+ *   badges={[{ label: "Enrolled", color: "green" }]}
+ *   progress={{ label: "Progress", value: 45, detail: "Day 14/30" }}
+ *   primaryAction={<Button>Continue</Button>}
+ * />
+ * ```
+ */
 export type CourseCardProps = {
   title: ReactNode;
   description?: ReactNode;
@@ -122,6 +183,91 @@ function renderProgress(progress?: CourseProgress) {
   );
 }
 
+/**
+ * Canonical course card adapter for catalog, enrolled, and progress contexts.
+ * 
+ * **Contract**: Unified course card for discovery, enrollment, and progress tracking.
+ * 
+ * **Server/Client Safety**: ⚠️ Client-only (uses GDS client component)
+ * 
+ * **Consuming Routes**:
+ * - `/[locale]/courses` - Course catalog (discovery)
+ * - `/[locale]/my-courses` - Enrolled courses (progress)
+ * - `/[locale]/dashboard` - Active course progress
+ * 
+ * **GDS Backing**: ✅ `@doneisbetter/gds-core/client` `PublicProductCard`
+ * 
+ * **Variant Usage Patterns**:
+ * 
+ * **Catalog variant** (discovery):
+ * - `badges`: Premium, language, level
+ * - `metrics`: Duration, lessons, difficulty
+ * - `primaryAction`: "Enroll" or "View Details"
+ * - `progress`: null (not enrolled)
+ * - `notice`: Optional special offer or featured label
+ * 
+ * **Enrolled variant** (my-courses):
+ * - `badges`: Enrolled, In Progress, Completed
+ * - `progress`: Current progress (days completed / total days)
+ * - `primaryAction`: "Continue" or "Resume"
+ * - `secondaryAction`: "View Certificate" (if completed)
+ * - `notice`: Optional milestone or achievement notice
+ * 
+ * **Progress variant** (dashboard):
+ * - Same as enrolled variant, optimized for dashboard context
+ * - Emphasizes progress and "Continue" action
+ * - Optional `compact={true}` for dense layouts
+ * 
+ * **Slots**:
+ * - `thumbnail` or fallback (IconBook + fallbackLabel)
+ * - `badges` (above description)
+ * - `title` (h3, from GDS)
+ * - `description` (below badges)
+ * - `metrics` (GDS metadata: label-value pairs)
+ * - `progress` (custom progress bar + detail)
+ * - `notice` (GDS pickupNote: important messages)
+ * - `primaryAction` + `secondaryAction` (CTAs)
+ * 
+ * **Progress Calculation**:
+ * - Must be bounded: `[0, 100]`
+ * - Displayed rounded: `Math.round(progress.value)`
+ * - Typically: `(completedDays / totalDays) * 100`
+ * 
+ * **Image Handling**:
+ * - If `thumbnail` provided: Next.js Image with fit="cover"
+ * - If null and `fallbackLabel` provided: IconBook + label on dark background
+ * - Height: 190px (default) or 128px (compact)
+ * 
+ * **Badge Priority**:
+ * - Catalog: Premium/Free first, then language/level
+ * - Enrolled: Status first (Enrolled/Completed), then others
+ * - Max 2-3 badges for readability
+ * 
+ * **Accessibility**:
+ * - Title is semantic h3 (from GDS)
+ * - Progress text not conveyed by color alone (includes label + percentage)
+ * - Badges readable by screen readers
+ * - Actions keyboard-navigable
+ * - Thumbnail has alt text
+ * 
+ * **Performance**: Client-only due to GDS dependency
+ * 
+ * **Mobile Behavior**:
+ * - Responsive card layout via GDS
+ * - Compact mode available for dense grids
+ * - Touch targets adequate (GDS enforced)
+ * 
+ * @param props - {@link CourseCardProps}
+ * @returns Course card backed by GDS PublicProductCard
+ * 
+ * @see {@link MetricCard} for standalone metrics
+ * @see {@link ProgressCard} for standalone progress display
+ * 
+ * @remarks
+ * Maps Amanoba course data to GDS `PublicProductCard`.
+ * Badges rendered above description. Progress rendered as inventoryNote.
+ * Metrics mapped to GDS metadata array. Notice mapped to pickupNote.
+ */
 export function CourseCard({
   title,
   description,
