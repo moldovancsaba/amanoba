@@ -7,10 +7,11 @@
 
 **Last Updated**: 2026-08-05
 **Scope**: `docs/**/*.md` (excluding `docs/_archive/**`)
-**Count**: 128
+**Count**: 133
 
 | Path | Title | Size |
 |------|-------|------|
+| `docs/agents/CONTENT_CREATION_WORKFLOW.md` | Content Creation Workflow for AI Agents | 19.2 KB |
 | `docs/architecture/ARCHITECTURE_FIX_QUICK_START.md` | ⚡ ARCHITECTURE FIX - ACTION CHECKLIST & QUICK START | 5.0 KB |
 | `docs/architecture/ARCHITECTURE_GAP_ANALYSIS.md` | ARCHITECTURE_GAP_ANALYSIS.md | 8.8 KB |
 | `docs/architecture/ARCHITECTURE.md` | Amanoba Architecture | 39.7 KB |
@@ -34,6 +35,7 @@
 | `docs/core/amanoba_system_outline.md` | Amanoba System Outline — Table of Contents | 24.2 KB |
 | `docs/core/CODING_STANDARDS.md` | Amanoba Coding Standards | 5.0 KB |
 | `docs/core/CONTRIBUTING.md` | Contributing to Amanoba | 14.0 KB |
+| `docs/core/COURSE_THUMBNAIL_MANAGEMENT.md` | Course Thumbnail Management | 9.4 KB |
 | `docs/core/CROSS_REPO_DOCS.md` | Cross-Repo Documentation References | 1.7 KB |
 | `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 19.2 KB |
 | `docs/core/DOCS_INDEX.md` | Documentation index | 6.9 KB |
@@ -46,6 +48,7 @@
 | `docs/core/PROJECT_STATE.md` | Amanoba Project State | 2.8 KB |
 | `docs/core/TECH_STACK.md` | Technology Stack | 4.1 KB |
 | `docs/core/templates/FEATURE_TEMPLATE.md` | YYYY-MM-DD Feature Title | 247 B |
+| `docs/core/US_ENGLISH_STYLE_GUIDE.md` | US English Style Guide | 10.0 KB |
 | `docs/core/WARP.DEV_AI_CONVERSATION.md` | Amanoba Development Planning Log | 17.1 KB |
 | `docs/core/WARP.md` | Amanoba AI Assistant Guide | 2.6 KB |
 | `docs/COURSE_PACKAGE_FORMAT.md` | Course Package Format | 874 B |
@@ -87,7 +90,7 @@
 | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 5.2 KB |
 | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | MVP Factory Project — one-time setup (grant project scope) | 1.2 KB |
 | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Prompt for Next Context Window | 2.8 KB |
-| `docs/HANDOVER.md` | Amanoba — Developer Handover | 176.2 KB |
+| `docs/HANDOVER.md` | Amanoba — Developer Handover | 200.8 KB |
 | `docs/i18n/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB |
 | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB |
 | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB |
@@ -103,6 +106,8 @@
 | `docs/product/NEXT_PHASES.md` | Next Phases: Detailed Implementation Plan | 13.6 KB |
 | `docs/product/P3_KNOWN_ISSUES_BACKLOG.md` | P3 Known Issues — Backlog | 2.0 KB |
 | `docs/product/PATTERN_CONTRACT_INVENTORY.md` | Amanoba Pattern Contract Inventory | 7.2 KB |
+| `docs/product/PROGRESSIVE_COURSE_IMPLEMENTATION_ROADMAP.md` | Progressive Course Generation - Implementation Roadmap | 22.0 KB |
+| `docs/product/PROGRESSIVE_COURSE_STRATEGY.md` | Progressive Course Generation Strategy | 34.0 KB |
 | `docs/product/RELEASE_NOTES.md` | Amanoba Release Notes | 176.7 KB |
 | `docs/product/ROADMAP_TASKLIST_SYSTEM_COMPARISON.md` | ROADMAP vs TASKLIST vs System Outline — Comparison | 5.7 KB |
 | `docs/product/ROADMAP.md` | Amanoba Roadmap — Future Vision & Client Benefits | 5.5 KB |
@@ -115,7 +120,7 @@
 | `docs/quality/QUALITY_SECURED_SYSTEM_COMPLETE.md` | 🔒 Quality-Secured Question Generation System - COMPLETE | 4.3 KB |
 | `docs/quality/QUALITY_VALIDATION_SYSTEM.md` | 🔒 Quality Validation System for Quiz Questions | 3.6 KB |
 | `docs/quality/UI_FOUNDATION_AUDIT.md` | UI Foundation Audit (Hard Rules) | 1.8 KB |
-| `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` | UI Layout Grammar Audit | 4.6 KB |
+| `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` | UI Layout Grammar Audit | 8.5 KB |
 | `docs/README.md` | Amanoba Docs | 3.0 KB |
 | `docs/seo/SEO_IMPROVEMENT_PLAN.md` | SEO Improvement Plan — Amanoba | 7.8 KB |
 | `docs/seo/SEO_SITEMAP_SUBMISSION.md` | Sitemap submission (GSC and Bing) | 4.1 KB |

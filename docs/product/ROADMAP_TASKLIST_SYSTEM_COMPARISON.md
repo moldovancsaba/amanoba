@@ -58,7 +58,7 @@
 
 - **Enrolment:** One course progress per player–course (`CourseProgress`); enroll via `POST /api/courses/[courseId]/enroll`; “My courses” via `GET /api/my-courses` and dashboard/my-courses page.
 - **Courses:** No `prerequisiteCourseIds` on Course; no “list my enrolments” as a first-class API (my-courses derives from progress).
-- **Email/scheduler:** `sendDailyLessons` / cron — behaviour w.r.t. multiple courses is per current design (single-course assumption or one lesson per course; needs confirmation for P2 #4).
+- **Email/scheduler:** `sendDailyLessons` / cron — behavior w.r.t. multiple courses is per current design (single-course assumption or one lesson per course; needs confirmation for P2 #4).
 
 **What P2 requires (not yet in outline):**
 

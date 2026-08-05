@@ -10,7 +10,7 @@
 ## 🎯 Action 1: Fix Profile Pages (BUG7) - P0 CRITICAL ✅ DONE
 
 **Priority**: P0 (Critical Bug)  
-**Status**: ✅ **DONE** (2026-01-27) — Admin can open profile from user list. Remaining behaviour (self-view, public/private, section-level visibility) is in Profile Visibility & Privacy tasks (TASKLIST PV1–PV4).  
+**Status**: ✅ **DONE** (2026-01-27) — Admin can open profile from user list. Remaining behavior (self-view, public/private, section-level visibility) is in Profile Visibility & Privacy tasks (TASKLIST PV1–PV4).  
 **Estimated**: 2-4 hours  
 **Impact**: HIGH - Blocks all user profile access
 

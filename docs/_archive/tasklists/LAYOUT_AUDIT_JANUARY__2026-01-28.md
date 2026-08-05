@@ -15,7 +15,7 @@
 
 ## P2 — UI / design tokens (replace inline hex)
 
-- [ ] **P2.1** rich-text-editor.tsx: Replace inline hex for brand/CTA and neutrals with design-system or Tailwind tokens. Use `var(--cta-bg)` or `var(--color-primary-500)` for CTA/primary; use `var(--color-neutral-*)` or design-system greys for `#000000`, `#374151`, `#9CA3AF` (or Tailwind `brand-black`, `brand-darkGrey` where applicable). File: `app/components/ui/rich-text-editor.tsx`.
+- [ ] **P2.1** rich-text-editor.tsx: Replace inline hex for brand/CTA and neutrals with design-system or Tailwind tokens. Use `var(--cta-bg)` or `var(--color-primary-500)` for CTA/primary; use `var(--color-neutral-*)` or design-system grays for `#000000`, `#374151`, `#9CA3AF` (or Tailwind `brand-black`, `brand-darkGray` where applicable). File: `app/components/ui/rich-text-editor.tsx`.
 - [ ] **P2.2** Certificate image route (revoked state): Replace `background: '#1a1a1a'` and `color: '#ef4444'` with design-system tokens (e.g. `var(--color-neutral-900)` or equivalent for background; `var(--color-error)` for error text). File: `app/api/certificates/[slug]/image/route.tsx`.
 
 ---

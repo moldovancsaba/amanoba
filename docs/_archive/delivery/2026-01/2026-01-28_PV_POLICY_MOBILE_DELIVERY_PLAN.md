@@ -112,7 +112,7 @@
 
 ## 5. Master task list (execution order)
 
-Use this order to minimise rework and dependencies.
+Use this order to minimize rework and dependencies.
 
 ### Phase 1 — Quick wins (Policy + LocaleLink)
 

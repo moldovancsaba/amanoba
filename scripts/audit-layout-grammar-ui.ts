@@ -258,7 +258,7 @@ function main() {
       severity: 'major',
       include: (file) => !file.startsWith('app/components/games/'),
       regex: /\b(?:bg|text|border|ring|from|to)-(?:gray|slate|zinc|neutral|stone)-\d{2,3}\b/g,
-      note: 'Prefer shared-theme semantics; while migrating, use adapter tokens (brand-darkGrey, brand-white, brand-black) and approved CSS variables.',
+      note: 'Prefer shared-theme semantics; while migrating, use adapter tokens (brand-darkGray, brand-white, brand-black) and approved CSS variables.',
     },
     {
       id: 'major:template-yellow-palette',

@@ -766,7 +766,7 @@ export default function CertificatePage({ params }: { params: Promise<{ slug: st
               <div className="flex gap-2">
                 <button
                   onClick={togglePrivacy}
-                  className="bg-brand-darkGrey text-white px-4 py-2 rounded-lg text-sm"
+                  className="bg-brand-darkGray text-white px-4 py-2 rounded-lg text-sm"
                 >
                   {cert.isPublic ? t('makePrivate') : t('makePublic')}
                 </button>
@@ -802,7 +802,7 @@ export default function CertificatePage({ params }: { params: Promise<{ slug: st
             </button>
             <button
               onClick={downloadImage}
-              className="bg-brand-darkGrey text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2"
+              className="bg-brand-darkGray text-white px-6 py-3 rounded-lg font-bold flex items-center gap-2"
             >
               <Download className="w-5 h-5" />
               {t('downloadImage')}

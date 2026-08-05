@@ -215,10 +215,10 @@ const LESSON_12: Record<string, {
 <h2>Öğrenme Hedefleri</h2>
 <ul>
 <li>Verimlikte muhasebeleştirmenin nasıl çalıştığını anlamak.</li>
-<li>Herkese açık hedefler ve kilometre taşları tanımlamak.</li>
+<li>Herkese açık hedefler ve kilometer taşları tanımlamak.</li>
 <li>Muhasebeleştirme ortakları seçmek ve sistemler kurmak.</li>
 <li>İlerlemeyi ölçmek için izleme sistemleri yaratmak.</li>
-<li>Kaçırılan kilometre taşlarını yapıcı bir şekilde yönetmek.</li>
+<li>Kaçırılan kilometer taşlarını yapıcı bir şekilde yönetmek.</li>
 </ul>
 <hr />
 <h2>Neden Önemli</h2>
@@ -233,7 +233,7 @@ const LESSON_12: Record<string, {
 <h3>1. Halka Açık Hedef Belirleme</h3>
 <ul>
 <li>Bir hedefi açıkça yazın ve en az bir kişiyle paylaşın.</li>
-<li>Bitiş tarihini ve kilometre taşlarını ekleyin.</li>
+<li>Bitiş tarihini ve kilometer taşlarını ekleyin.</li>
 <li>Araştırma: Herkese açık olarak belirtilen hedefler %65 daha başarılı olur.</li>
 <li><strong>Teknik</strong>: "Ben [HEDEF] [TARİH]'e kadar başaracağım çünkü [NEDEN]" yazın.</li>
 </ul>
@@ -241,19 +241,19 @@ const LESSON_12: Record<string, {
 <ul>
 <li>İlerlemeniz hakkında düzenli olarak soracak bir veya birden fazla kişi seçin.</li>
 <li>Ortak bir arkadaş, mentor veya yapılandırılmış grup olabilir.</li>
-<li><strong>Onların Sorusu</strong>: "Bu haftanın kilometre taşlarına ulaştı mı?"</li>
+<li><strong>Onların Sorusu</strong>: "Bu haftanın kilometer taşlarına ulaştı mı?"</li>
 <li><strong>Sıklık</strong>: Haftada en az bir kez.</li>
 </ul>
 <h3>3. İzleme Sistemi</h3>
 <ul>
-<li>Kilometre taşları ve tarihlerle bir tablo oluşturun.</li>
+<li>Kilometer taşları ve tarihlerle bir tablo oluşturun.</li>
 <li>Günlük veya haftalık olarak güncelleyin: Tamamlanma yüzdesi nedir?</li>
 <li>Araçlar: Elektronik tablo, proje yöneticisi veya kağıt günlüğü.</li>
 <li><strong>Spesifik olarak takip edin</strong>: Somut metrikler (örneğin, "3 bölüm tamamlandı", "ilerleme yapıyorum" değil).</li>
 </ul>
-<h3>4. Kaçırılan Kilometre Taşlarını Yönetmek</h3>
+<h3>4. Kaçırılan Kilometer Taşlarını Yönetmek</h3>
 <ul>
-<li>Bir kilometre taşını kaçırırsanız, hedefi terk etmeyin.</li>
+<li>Bir kilometer taşını kaçırırsanız, hedefi terk etmeyin.</li>
 <li>Sorun: "Sebebi ne? Öngörülemeyen bir olay mı vardı?"</li>
 <li>Hızlı bir 15 dakikalık geriye doğru inceleme yapın: ders, düzeltilmiş plan, yeniden deneme.</li>
 <li><strong>Ana Kural</strong>: Hedefi asla bırakmayın; sadece planı ayarlayın.</li>
@@ -261,14 +261,14 @@ const LESSON_12: Record<string, {
 <h3>5. Grup Muhasebeleştirmesi</h3>
 <ul>
 <li>Grup kontrolleri: Paylaşılan hedefleri olan birden fazla kişi.</li>
-<li>Haftalık toplantı: Kimler kilometre taşlarına ulaştı, kimler hayır ve neden.</li>
+<li>Haftalık toplantı: Kimler kilometer taşlarına ulaştı, kimler hayır ve neden.</li>
 <li><strong>Dinamik</strong>: Grup baskısı ve desteği güçlü motivasyon yaratır.</li>
 </ul>
 <hr />
 <h2>Pratik Egzersiz (45 dakika)</h2>
 <ol>
 <li><strong>Hedef Belirleyin</strong>: 4-8 haftalık bir hedef seçin (başarmak istediğiniz büyük bir verimlilik hedefi).</li>
-<li><strong>Kilometre Taşları</strong>: Haftalık veya iki haftalık kilometre taşlarına bölün (somut, ölçülebilir).</li>
+<li><strong>Kilometer Taşları</strong>: Haftalık veya iki haftalık kilometer taşlarına bölün (somut, ölçülebilir).</li>
 <li><strong>Bir Ortak Seçin</strong>: Bir arkadaş veya mentordan muhasebeleştirme ortağınız olmasını isteyin.</li>
 <li><strong>Bir İfade Yazın</strong>: "Ben [HEDEF] [TARİH]'e kadar başaracağım çünkü [NEDEN]."</li>
 <li><strong>İzleme Tablosu Oluşturun</strong>: Haftalık ilerlemeyi izlemek için basit bir tablo yapın.</li>
@@ -278,7 +278,7 @@ const LESSON_12: Record<string, {
 <h2>Kendi Kendine Kontrol</h2>
 <ul>
 <li>✅ Muhasebeleştirme için açık bir 4-8 haftalık hedefim var.</li>
-<li>✅ Bunu haftalık/iki haftalık kilometre taşlarına ayırdım.</li>
+<li>✅ Bunu haftalık/iki haftalık kilometer taşlarına ayırdım.</li>
 <li>✅ Bir muhasebeleştirme ortağım var.</li>
 <li>✅ Hedefimi basit bir ifadede yazdım.</li>
 <li>✅ Bir izleme sistemim var (tablo veya uygulama).</li>
@@ -971,7 +971,7 @@ const QUIZ_12: Record<string, any[]> = {
       correct: 1
     },
     {
-      q: 'Bir kilometre taşını kaçırırsanız ne yapmalısınız?',
+      q: 'Bir kilometer taşını kaçırırsanız ne yapmalısınız?',
       opts: ['Hedefi terk et', 'Retrospektif yap ve planı ayarla', 'Tamamen farklı bir hedef seç', 'Hiçbir şey yapma'],
       correct: 1
     },

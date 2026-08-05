@@ -45,7 +45,7 @@ Implement a premium-gated **Final Certification Exam** for Amanoba courses that:
 - If a course does not have a valid pool for certification:
   - Certification is unavailable and the UI shows: **Certification unavailable. Contact the course creator.**
 
-## Exam Behaviour
+## Exam Behavior
 
 ### Attempt lifecycle (strict)
 - The exam attempt must be completed in **one sitting**.

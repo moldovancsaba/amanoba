@@ -94,7 +94,7 @@ export default async function DataDeletionPage({
               <Stack gap="xs">
                 <Title order={3} size="h4">Method 2: Revoke SSO Access</Title>
                 <Text>
-                  If you signed in using SSO, such as Google, Microsoft, or your organisation&apos;s provider,
+                  If you signed in using SSO, such as Google, Microsoft, or your organization&apos;s provider,
                   you can revoke Amanoba&apos;s access in your provider account settings. That may trigger a
                   data-deletion request depending on the provider.
                 </Text>

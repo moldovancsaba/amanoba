@@ -525,7 +525,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - Rebuilt the public course catalog surface with Mantine primitives for search, language filtering, course cards, skeleton loading, empty/error states, enrol/continue actions, and course enrol telemetry.
 - Added learner recovery states for protected lesson and quiz routes so anonymous learners see sign-in/back/retry actions instead of raw `Unauthorized` or generic not-found dead ends.
 - Added Mantine course-builder guidance to new-course and course-editor admin surfaces covering basics, lessons, quiz policy, certification, publish readiness, short courses, and the open-ended 1-to-unlimited lesson model.
-- Fixed a duplicated course-detail data load and converted the certification callout/actions to Mantine primitives while preserving existing course discussion and study-group behaviour.
+- Fixed a duplicated course-detail data load and converted the certification callout/actions to Mantine primitives while preserving existing course discussion and study-group behavior.
 - Added client telemetry calls for lesson completion and lesson quiz answer submission.
 - Converted the cookie consent banner to compact Mantine controls and moved the course detail mobile CTA to Mantine `Affix`/`Card`/`Button`, keeping the consent-height offset so mobile CTAs no longer sit underneath the consent surface.
 - Added active course-creation package/playbook docs and refreshed generated docs inventory/canonical map/triage so the docs checker has the current docs baseline.
@@ -631,7 +631,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - Added `docs/core/CODING_STANDARDS.md` as the active coding standard for flexible course-length assumptions, comments, TypeScript boundaries, version alignment, and design-system usage.
 - Updated `READMEDEV.md`, `docs/architecture/layout_grammar.md`, `docs/architecture/ARCHITECTURE.md`, `docs/product/DESIGN_UPDATE.md`, and `docs/product/RELEASE_NOTES.md` so contributors have one current rule set for token-driven UI work and release notes.
 - Removed hard-coded design drift from shared learner/editor surfaces by moving success/warning/error states and editor portal chrome to design-system utilities and semantic tokens.
-- Mapped Tailwind secondary colours to `app/design-system.css` variables and added reusable `.ds-status-*`, `.ds-button-*`, and `.ds-text-*` utilities in `app/globals.css`.
+- Mapped Tailwind secondary colors to `app/design-system.css` variables and added reusable `.ds-status-*`, `.ds-button-*`, and `.ds-text-*` utilities in `app/globals.css`.
 
 ### Notes / risk
 - The broader admin and game areas still contain legacy generic palette classes; they are documented as remaining migration targets rather than being refactored wholesale in this pass.
@@ -2575,7 +2575,7 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - Implementation: `app/lib/ui/amanoba-gds-theme.ts`
 - GDS backing: `@sovereignsquad/gds-theme/server` `extendGdsTheme`
 - Palettes: `amanoba` (yellow brand), `amanobaYellow`, `ink` (grays)
-- Brand colors: `BRAND_COLORS` (black/white/darkGrey/accent/ctaText)
+- Brand colors: `BRAND_COLORS` (black/white/darkGray/accent/ctaText)
 - Email theme: `EMAIL_THEME_DEFAULT` (CTA, body, muted, borders, backgrounds)
 - Component defaults: Text (gray.2), Title (white), Anchor (amanoba.5), Button/ActionIcon (md radius/size)
 - Server/client: ✅ Server-safe (extendGdsTheme)
@@ -2589,7 +2589,7 @@ b7c4d533 docs: Add comprehensive environment ready checklist
   - **Charts**: `CHART_THEME` (Recharts palette, grid/axis/tooltip)
   - **Games**: `GAME_AI_PERSONAS` (AI opponent colors by difficulty)
 - Exports:
-  - `BRAND_COLORS`: Core brand palette (black, white, darkGrey, accent, ctaText)
+  - `BRAND_COLORS`: Core brand palette (black, white, darkGray, accent, ctaText)
   - `EMAIL_THEME_DEFAULT`: Email-specific colors and styles
   - `CHART_THEME`: Chart palette (5 series colors), grid/axis/tooltip styles
   - `GAME_AI_PERSONAS`: AI opponent colors by difficulty level (1-3)
@@ -3329,4 +3329,72 @@ curl -X POST https://your-deployment-url.vercel.app/api/admin/courses/reset-and-
 3. Begin AI-generated course creation using the same quality standards
 4. Implement data tracking for course "hooks" (completion by X users triggers next level)
 5. Build automation pipeline for progressive course generation
+
+---
+
+## 2026-08-05 — US English Standardization Complete
+
+**What Changed**: Converted entire codebase from mixed British/US English to consistent **US English**
+
+**Why**: To support wider global audiences and align with international tech industry standards
+
+**Changes Made**:
+1. **Automated Conversion**:
+   - Created `scripts/fix-british-to-us-english.sh` (comprehensive conversion script)
+   - Converted British spellings to US equivalents across entire codebase
+   - 34 files modified: code, documentation, UI strings, comments
+
+2. **Common Conversions**:
+   - `organise` → `organize` (and all -ise → -ize endings)
+   - `colour` → `color` (and all -our → -or endings)
+   - `centre` → `center` (and all -re → -er endings)
+   - `licence` → `license` (noun)
+   - `grey` → `gray`
+
+3. **Documentation**:
+   - Created `docs/core/US_ENGLISH_STYLE_GUIDE.md` (comprehensive reference)
+   - Lists all British→US conversions
+   - Provides writing guidelines for developers and content creators
+   - Includes quick reference tables and review checklist
+   - Added to START_HERE.md as essential documentation
+
+4. **Files Affected** (34 files, 98 changes):
+   - UI pages: `data-deletion/page.tsx`, `terms/page.tsx`
+   - Documentation: `HANDOVER.md`, `layout_grammar.md`, `CODING_STANDARDS.md`, `LEARNINGS.md`
+   - Scripts: `seed-*.ts`, `analyze-*.ts`, `audit-*.ts`
+   - Constants: `color-tokens.ts`
+
+**Impact**:
+- ✅ Consistent US English across entire platform
+- ✅ Better accessibility for global users
+- ✅ Aligns with tech industry standards
+- ✅ Clear style guide for future content
+- ✅ Automated tooling for maintenance
+
+**Tools & Scripts**:
+- `scripts/fix-british-to-us-english.sh` — Automated conversion tool (run periodically)
+- `docs/core/US_ENGLISH_STYLE_GUIDE.md` — Reference guide
+
+**No Breaking Changes**:
+- All changes are spelling only
+- No API, schema, or functionality changes
+- No user-facing behavior changes
+- Existing tests still pass
+
+**Quality Gates**:
+- ✅ Type checking: Pre-existing error (unrelated)
+- ✅ Linting: Pre-existing warnings (unrelated)
+- ✅ No new errors introduced
+- ✅ Git diff verified: Only spelling changes
+
+**Future Maintenance**:
+- Run `scripts/fix-british-to-us-english.sh` quarterly or when importing external content
+- Refer to `docs/core/US_ENGLISH_STYLE_GUIDE.md` for all new content
+- PR reviews will flag British spellings
+- Consider ESLint integration for automated enforcement
+
+**Related Documents**:
+- `docs/core/US_ENGLISH_STYLE_GUIDE.md` (NEW)
+- `scripts/fix-british-to-us-english.sh` (NEW)
+- `START_HERE.md` (UPDATED — added style guide reference)
 

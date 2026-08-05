@@ -40,7 +40,7 @@ async function analyzeDay1() {
     console.log('🔍 ANALYZING DAY 1 QUESTIONS ACROSS ALL LANGUAGES\n');
     console.log('═══════════════════════════════════════════════════════════════\n');
 
-    const analyses: QuestionAnalysis[] = [];
+    const analyzes: QuestionAnalysis[] = [];
 
     for (const lang of LANGUAGES) {
       const courseId = `${COURSE_BASE}_${lang}`;
@@ -95,7 +95,7 @@ async function analyzeDay1() {
         })),
       };
 
-      analyses.push(analysis);
+      analyzes.push(analysis);
 
       // Display questions
       questions.forEach((q, idx) => {
@@ -108,28 +108,28 @@ async function analyzeDay1() {
 
     console.log(`\n${'═'.repeat(60)}\n`);
     console.log(`📊 SUMMARY:\n`);
-    console.log(`   Languages analyzed: ${analyses.length}`);
-    console.log(`   Average questions per language: ${(analyses.reduce((sum, a) => sum + a.questionCount, 0) / analyses.length).toFixed(1)}`);
-    console.log(`   Languages with 5 questions: ${analyses.filter(a => a.questionCount === 5).length}`);
-    console.log(`   Languages with 7 questions: ${analyses.filter(a => a.questionCount === 7).length}`);
-    console.log(`   Languages needing enhancement: ${analyses.filter(a => a.questionCount < 7).length}`);
+    console.log(`   Languages analyzed: ${analyzes.length}`);
+    console.log(`   Average questions per language: ${(analyzes.reduce((sum, a) => sum + a.questionCount, 0) / analyzes.length).toFixed(1)}`);
+    console.log(`   Languages with 5 questions: ${analyzes.filter(a => a.questionCount === 5).length}`);
+    console.log(`   Languages with 7 questions: ${analyzes.filter(a => a.questionCount === 7).length}`);
+    console.log(`   Languages needing enhancement: ${analyzes.filter(a => a.questionCount < 7).length}`);
 
     // Save analysis to file for reference
     const fs = require('fs');
     const path = require('path');
     const outputPath = path.join(__dirname, '../docs/day1-analysis.json');
-    fs.writeFileSync(outputPath, JSON.stringify(analyses, null, 2));
+    fs.writeFileSync(outputPath, JSON.stringify(analyzes, null, 2));
     console.log(`\n💾 Analysis saved to: ${outputPath}`);
 
     // Return first lesson content for question creation
-    if (analyses.length > 0) {
-      const firstAnalysis = analyses.find(a => a.language === 'en') || analyses[0];
+    if (analyzes.length > 0) {
+      const firstAnalysis = analyzes.find(a => a.language === 'en') || analyzes[0];
       console.log(`\n📚 Using lesson content from: ${firstAnalysis.language.toUpperCase()}`);
       console.log(`   Title: ${firstAnalysis.lessonTitle}`);
       console.log(`   Content length: ${firstAnalysis.lessonContent.length} characters`);
       
       return {
-        analyses,
+        analyzes,
         referenceLesson: firstAnalysis,
       };
     }

@@ -47,7 +47,7 @@
 - [x] P3.1 Resolve or ticket: profile highestScore/perfectGames, admin settings save, system-info uptime, game status API, challenge retry queue — **done**: backlog in `docs/product/P3_KNOWN_ISSUES_BACKLOG.md`
 - [x] P3.2 Replace admin `<img>` with Next.js `<Image />` — **done**: admin settings, rewards, games, courses list, course editor
 - [x] P3.3 Audit CTA yellow usage (ensure only primary actions use #FAB908; badges/TOC use neutral) — **done**: `docs/_archive/delivery/2026-01/2026-01-28_CTA_YELLOW_AUDIT.md`; admin rewards/games badges → neutral
-- [x] P3.4 Standardise import alias (`@/` vs `@/app/`) and prefer `logger` over `console` in server code — **documented**: alias convention in P3 backlog; logger preference backlog
+- [x] P3.4 Standardize import alias (`@/` vs `@/app/`) and prefer `logger` over `console` in server code — **documented**: alias convention in P3 backlog; logger preference backlog
 - [x] P3.5 Remove unused imports and variables — **done**: removed Logo, Users, Lock, Trophy, Calendar, Award, TrendingUp, Play, MdGpsFixed/MdComplete/MdCalendar, redirect; _prefix for intentional unused
 
 ---

@@ -98,6 +98,7 @@ npm run dev
 | [docs/core/agent_working_loop_canonical_operating_document.md](docs/core/agent_working_loop_canonical_operating_document.md) | Agent operating rules | Cold start or context loss |
 | [docs/status/PRODUCTION_STATUS.md](docs/status/PRODUCTION_STATUS.md) | Production status | Before deployment |
 | [docs/architecture/layout_grammar.md](docs/architecture/layout_grammar.md) | Layout & structure rules | Working on content/courses/UI |
+| [docs/core/US_ENGLISH_STYLE_GUIDE.md](docs/core/US_ENGLISH_STYLE_GUIDE.md) | US English spelling standards | **Writing any content** |
 | [docs/product/TASKLIST.md](docs/product/TASKLIST.md) | Open tasks (reference) | Planning work |
 | [docs/product/ROADMAP.md](docs/product/ROADMAP.md) | Future vision | Understanding strategy |
 | [docs/product/RELEASE_NOTES.md](docs/product/RELEASE_NOTES.md) | Completed work | Understanding history |

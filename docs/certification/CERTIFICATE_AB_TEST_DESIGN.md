@@ -57,7 +57,7 @@ This document defines how we A/B test certificate **template variants**: assign 
 ## Config shape (for implementation)
 
 - **Course** `certification` (optional, for P1 #5 implementation):
-  - `templateId?: string` — single template (current behaviour when no A/B).
+  - `templateId?: string` — single template (current behavior when no A/B).
   - `templateVariantIds?: string[]` — list of template IDs for A/B (e.g. `['default_v1', 'minimal']`). If present and length > 1, use A/B; otherwise use single template.
   - Optional: `templateVariantWeights?: number[]` (same length as `templateVariantIds`; e.g. `[0.5, 0.5]` for 50/50).
 - **Global** `CertificationSettings`: same idea (single `templateId` or future `templateVariantIds` / weights) as fallback when course has nothing.

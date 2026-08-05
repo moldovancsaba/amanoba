@@ -188,7 +188,7 @@ All build must be
 - warning-free
 - error-free
 - deprecated-free
-- minimised dependency
+- minimized dependency
 
 TEAM:
 
@@ -203,7 +203,7 @@ TEAM:
 
 **You work here**: Amanoba repository. **`docs/product/ROADMAP.md`** = future vision and client benefits (what we want to build). **`docs/product/TASKLIST.md`** = actionable tasks broken down from the roadmap (what to do). Before starting work, read TASKLIST for the next action items and ROADMAP for context. For layout and structure, follow **`docs/architecture/layout_grammar.md`**.
 
-**Single-place rule:** Completed work → **`docs/product/RELEASE_NOTES.md`** only. When you complete a task from TASKLIST, add it to RELEASE_NOTES and remove it from TASKLIST. ROADMAP stays vision-only; do not put completed tasks there. **Only related items:** Each of these docs contains only what belongs there (ROADMAP = vision; TASKLIST = open tasks; RELEASE_NOTES = completed). No unrelated content. **Reuse via discriminator:** Same behaviour in 2+ places → one model, one API, one component; see **`docs/product/VOTING_AND_REUSE_PATTERN.md`** and **`docs/architecture/layout_grammar.md`** (§9).
+**Single-place rule:** Completed work → **`docs/product/RELEASE_NOTES.md`** only. When you complete a task from TASKLIST, add it to RELEASE_NOTES and remove it from TASKLIST. ROADMAP stays vision-only; do not put completed tasks there. **Only related items:** Each of these docs contains only what belongs there (ROADMAP = vision; TASKLIST = open tasks; RELEASE_NOTES = completed). No unrelated content. **Reuse via discriminator:** Same behavior in 2+ places → one model, one API, one component; see **`docs/product/VOTING_AND_REUSE_PATTERN.md`** and **`docs/architecture/layout_grammar.md`** (§9).
 
 ---
 

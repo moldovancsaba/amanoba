@@ -506,7 +506,7 @@ const termsContent: Record<string, TermsContent> = {
         id: "user-content",
         title: "8. Felhasználói tartalom",
         paragraphs: [
-          "Megadhatsz tartalmat (profiladatok, üzenetek, visszajelzés). A beküldött tartalomra nem kizárólagos, globális, jogdíjmentes licencet adsz számunkra, hogy:",
+          "Megadhatsz tartalmat (profiladatok, üzenetek, visszajelzés). A beküldött tartalomra nem kizárólagos, globális, jogdíjmentes licenset adsz számunkra, hogy:",
         ],
         bullets: [
           "Felhasználjuk, reprodukáljuk és megjelenítsük",

@@ -289,7 +289,7 @@ const DAY17_QUESTIONS: Record<string, Array<{
       question: "Derse göre uzun vadede motivasyonu sürdürmeye ne yardımcı olur?",
       options: [
         "İlerlemeyi görmezden gelmek",
-        "Düzenli ilerleme takibi, kilometre taşlarını kutlama ve amaca bağlantıyı koruma",
+        "Düzenli ilerleme takibi, kilometer taşlarını kutlama ve amaca bağlantıyı koruma",
         "Mola vermeden çalışmak",
         "Yansıtmaktan kaçınmak"
       ],
@@ -317,7 +317,7 @@ const DAY17_QUESTIONS: Record<string, Array<{
       question: "Bir kişi hevesle bir hedefe başlar ancak birkaç hafta sonra motivasyonunu kaybeder. Derse göre muhtemelen ne eksik?",
       options: [
         "Daha fazla hedef",
-        "İlerleme takibi, kilometre taşlarını kutlama ve amaca bağlantı",
+        "İlerleme takibi, kilometer taşlarını kutlama ve amaca bağlantı",
         "Daha az çaba",
         "Yapı gerekmez"
       ],
@@ -331,7 +331,7 @@ const DAY17_QUESTIONS: Record<string, Array<{
       question: "6 aylık bir proje için motivasyonu korumak istiyorsunuz. Derse göre ne kurmalısınız?",
       options: [
         "Sadece daha sıkı çalışın",
-        "Düzenli ilerleme takibi, kilometre taşlarını kutlama, amaç hatırlatıcıları ve momentumu korumak için kazançlar üzerine yansıtma",
+        "Düzenli ilerleme takibi, kilometer taşlarını kutlama, amaç hatırlatıcıları ve momentumu korumak için kazançlar üzerine yansıtma",
         "Sadece takip",
         "Sadece kutlamalar"
       ],
@@ -345,7 +345,7 @@ const DAY17_QUESTIONS: Record<string, Array<{
       question: "Bir kişi tutarlı olarak yüksek motivasyonla hedeflere başlar ancak ilk heves geçtikten sonra onları terk eder. Dersin çerçevesine göre temel sorun nedir?",
       options: [
         "Yeterli hedef yok",
-        "Motivasyon sürdürme uygulamalarının eksikliği - ilk hevesin ötesinde momentumu koruyan ilerleme takibi, kilometre taşlarını kutlama ve amaç bağlantısı eksik",
+        "Motivasyon sürdürme uygulamalarının eksikliği - ilk hevesin ötesinde momentumu koruyan ilerleme takibi, kilometer taşlarını kutlama ve amaç bağlantısı eksik",
         "Çok fazla motivasyon",
         "Motivasyon gereksiz"
       ],

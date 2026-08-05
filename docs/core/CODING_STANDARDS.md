@@ -18,9 +18,9 @@ This document defines the coding rules that apply when changing Amanoba applicat
 
 - Keep TypeScript strict and explicit at public boundaries: API handlers, models, server actions, and shared utilities.
 - Prefer existing models, helpers, and shared primitives over new one-off abstractions.
-- Reuse shared behaviour through discriminator fields when the same capability appears in multiple contexts.
+- Reuse shared behavior through discriminator fields when the same capability appears in multiple contexts.
 - Keep server-side state transitions in server code. Client components should handle presentation and interaction, not persistence rules.
-- Comments should explain intent, invariants, or non-obvious tradeoffs. Remove comments that restate code or contradict current behaviour.
+- Comments should explain intent, invariants, or non-obvious tradeoffs. Remove comments that restate code or contradict current behavior.
 
 ## 3. UI and design system
 
@@ -31,22 +31,22 @@ This document defines the coding rules that apply when changing Amanoba applicat
 - The local adoption contract lives in `docs/product/GDS_ADOPTION_MANIFEST.md` and `gds-adoption.json`. Update both when protected surfaces, banned stacks, or required contract paths change.
 - Approved exceptions must be registered in `docs/product/GDS_EXCEPTION_REGISTER.md`; undocumented exceptions are not allowed.
 - Transitional CSS class contracts are allowed only while legacy surfaces are being converted; do not add new Tailwind utility class usage or Tailwind dependencies.
-- Do not add raw hex colours or generic template palettes in touched UI code. Approved non-CSS token files are limited to server-rendered contexts such as emails, charts, certificates, and OG images.
+- Do not add raw hex colors or generic template palettes in touched UI code. Approved non-CSS token files are limited to server-rendered contexts such as emails, charts, certificates, and OG images.
 - CTA yellow remains reserved for primary actions only until the Mantine theme migration replaces the local adapter with shared-theme semantics.
 - If a visual pattern appears in more than one place, route it through the current adapter or the planned Mantine wrapper layer before duplicating it again.
 
 ## 4. Documentation and versioning
 
-- When behaviour, architecture, or process changes, update `docs/HANDOVER.md` in the same change.
+- When behavior, architecture, or process changes, update `docs/HANDOVER.md` in the same change.
 - Release-facing version numbers must stay aligned across `package.json`, `package-lock.json`, `README.md`, `docs/core/TECH_STACK.md`, `docs/architecture/ARCHITECTURE.md`, and `docs/product/RELEASE_NOTES.md`.
 - Use `npm run release:patch`, `npm run release:minor`, or `npm run release:major` for formal release bumps when the release script is appropriate. Manual `npm version --no-git-tag-version` is acceptable for controlled documentation/version alignment work.
-- `docs/product/RELEASE_NOTES.md` should describe shipped behaviour in user-facing language. Internal churn belongs in handover notes unless it changes behaviour or operations.
+- `docs/product/RELEASE_NOTES.md` should describe shipped behavior in user-facing language. Internal churn belongs in handover notes unless it changes behavior or operations.
 - Treat `docs/core/DOCS_INDEX.md` and `docs/HANDOVER.md` as the current doc entrypoints. Old handoff snapshots, migration reports, and planning variants are historical unless a current doc explicitly promotes them.
 - Do not add hard-coded local machine paths to new canonical docs unless the workflow still depends on that path and the portability risk is recorded.
 
 ## 5. Validation
 
-Run the smallest meaningful gate set for the change, then broaden it when shared behaviour or docs are touched.
+Run the smallest meaningful gate set for the change, then broaden it when shared behavior or docs are touched.
 
 - UI foundation: `npm run ui:check:foundation`
 - UI layout drift: `npm run ui:check:layout`

@@ -39,13 +39,13 @@ So the same model, API, and widget serve courses, lessons, questions, and discus
 3. **Widget**: Add that value to the `VoteTargetType` in `components/ContentVoteWidget.tsx`.
 4. **UI**: Render `<ContentVoteWidget targetType="your_type" targetId={entityId} playerId={playerId} label="…" />` where the entity is shown.
 
-No new collections, routes, or components. One behaviour, many targets.
+No new collections, routes, or components. One behavior, many targets.
 
 ---
 
 ## 2. How to reuse a feature in 2+ places (general pattern)
 
-When you want the **same behaviour** in multiple contexts (e.g. vote on courses, lessons, posts):
+When you want the **same behavior** in multiple contexts (e.g. vote on courses, lessons, posts):
 
 1. **One model**  
    One schema/collection with a **discriminator** field (e.g. `targetType`) so one document can refer to different kinds of entities (e.g. course vs lesson vs post). Optionally a second field for the entity id (e.g. `targetId`).

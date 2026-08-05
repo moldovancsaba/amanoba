@@ -2,7 +2,7 @@
 
 **Date**: 2026-01-30  
 **Scope**: Dependencies, deprecated modules, build/lint, known issues, code style, hardcoded values, consistency, security, UI best practices  
-**Status**: ACTIVE — Use for prioritised remediation
+**Status**: ACTIVE — Use for prioritized remediation
 
 ---
 
@@ -142,7 +142,7 @@
 - **any**: Replace with proper types in admin, gamification, i18n, and shared components.
 - **Unused code**: Remove unused imports and variables (or use underscore prefix if intentionally unused).
 - **Effect dependencies**: Fix or document exhaustive-deps exceptions; avoid stale closures.
-- **Import path alias**: Standardise on `@/` vs `@/app/` for app code (see `tsconfig.json` paths).
+- **Import path alias**: Standardize on `@/` vs `@/app/` for app code (see `tsconfig.json` paths).
 
 ---
 
@@ -194,7 +194,7 @@
 
 ---
 
-## 10. Recommended actions (prioritised)
+## 10. Recommended actions (prioritized)
 
 1. **Security**: Run `npm audit fix`; then plan Next.js upgrade/fix and next-auth update; restrict or remove debug API in production.
 2. **Lint/TypeScript**: Fix ESLint errors (undefined `Sparkles`, unescaped entities, critical `any`); then re-enable lint (and optionally TS) in build or CI.
@@ -203,7 +203,7 @@
 5. **TODOs**: Implement or ticket admin settings save, system-info uptime, game status API, and challenge retry queue.
 6. **Debug logging**: Remove or gate SSO and client debug logs for production.
 7. **UI**: Replace admin `<img>` with Next.js `<Image />`; audit CTA yellow usage against design rules.
-8. **Consistency**: Standardise import alias; replace `any` in hot paths; fix React Hook dependency warnings.
+8. **Consistency**: Standardize import alias; replace `any` in hot paths; fix React Hook dependency warnings.
 
 ---
 
@@ -263,7 +263,7 @@ Work in this order: **P0 → P1 → P2 → P3**. Track progress in **`docs/_arch
 | P3.1 | Resolve or ticket profile highestScore/perfectGames, admin settings save, system-info uptime, game status API, challenge retry queue | Clear TODOs or track in backlog. |
 | P3.2 | Replace admin `<img>` with Next.js `<Image />` | Better performance and consistency. |
 | P3.3 | Audit CTA yellow usage (only primary actions) | Align with DESIGN_UPDATE.md. |
-| P3.4 | Standardise import alias (`@/` vs `@/app/`) and prefer `logger` over `console` in server code | Consistency. |
+| P3.4 | Standardize import alias (`@/` vs `@/app/`) and prefer `logger` over `console` in server code | Consistency. |
 | P3.5 | Remove unused imports and variables | Cleaner codebase. |
 
 ---

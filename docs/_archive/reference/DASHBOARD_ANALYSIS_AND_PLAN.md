@@ -194,15 +194,15 @@ Update the "Assessments Completed" card in `app/[locale]/dashboard/page.tsx`:
 <div className="text-3xl font-bold text-brand-black">
   {progression?.totalGamesPlayed || 0}
 </div>
-<div className="text-brand-darkGrey">{t('assessmentsCompleted')}</div>
+<div className="text-brand-darkGray">{t('assessmentsCompleted')}</div>
 
 // To:
 <div className="text-3xl font-bold text-brand-black">
   {playerData?.courseStats?.quizzesCompleted || 0}
 </div>
-<div className="text-brand-darkGrey">{t('assessmentsCompleted')}</div>
+<div className="text-brand-darkGray">{t('assessmentsCompleted')}</div>
 {playerData?.courseStats && (
-  <div className="text-xs text-brand-darkGrey mt-4">
+  <div className="text-xs text-brand-darkGray mt-4">
     {playerData.courseStats.lessonsCompleted} {t('lessonsCompleted')} • 
     {playerData.courseStats.coursesEnrolled} {t('coursesEnrolled')}
   </div>

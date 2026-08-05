@@ -9,7 +9,7 @@
 
 - **design-system.css**: Added `--color-heading: #141414` so heading color is a single token (aligned with brand near-black).
 - **globals.css**: Replaced hardcoded `color: #141414` on h1–h4 with `color: var(--color-heading)`.
-- **Certificate image routes**: Introduced `SECONDARY_HEX` in `app/lib/constants/app-url.ts` (`#2D2D2D`, aligned with design-system `--color-secondary-800` and Tailwind `brand.darkGrey`). Both certificate image routes (`app/api/profile/[playerId]/certificate/[courseId]/image/route.tsx` and `app/api/certificates/[slug]/image/route.tsx`) now use `SECONDARY_HEX` for `bgMid` instead of inline `#2d2d2d`.
+- **Certificate image routes**: Introduced `SECONDARY_HEX` in `app/lib/constants/app-url.ts` (`#2D2D2D`, aligned with design-system `--color-secondary-800` and Tailwind `brand.darkGray`). Both certificate image routes (`app/api/profile/[playerId]/certificate/[courseId]/image/route.tsx` and `app/api/certificates/[slug]/image/route.tsx`) now use `SECONDARY_HEX` for `bgMid` instead of inline `#2d2d2d`.
 - **Per-page styles**: No separate per-page CSS files duplicate gold/black; `mobile-styles.css` only overrides responsive typography/spacing and is left as-is.
 
 ---
@@ -25,7 +25,7 @@
 - **Player model**: Already SSO-only (`authProvider: 'sso' | 'anonymous'`, no `facebookId`). No code changes.
 - **app/[locale]/data-deletion/page.tsx**:
   - “Account Information” list: “Facebook ID” → “SSO identifier”.
-  - “Method 3: Facebook Disconnection” replaced with “Method 3: Revoke SSO Access” and copy updated to SSO (e.g. Google, Microsoft, organisation provider).
+  - “Method 3: Facebook Disconnection” replaced with “Method 3: Revoke SSO Access” and copy updated to SSO (e.g. Google, Microsoft, organization provider).
   - “Third-Party Data” note: “Facebook or other services” → “SSO or other third-party services”.
 - **app/api/auth/anonymous/route.ts**: Comment “consistency with Facebook login” → “consistency with SSO login”.
 - **docs/sso/SSO_MIGRATION_COMPLETE.md**: Noted that data-deletion page and auth comments now use SSO wording (no Facebook copy).

@@ -7,7 +7,7 @@
 
 **Last Updated**: 2026-08-05
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=5, KEEP(unclassified)=83
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=5, KEEP(unclassified)=88
 
 This file is the “what to do next” view derived from `docs/core/DOCS_CANONICAL_MAP.md`.
 
@@ -23,9 +23,10 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/handoff/2026-05-25_RELOCATION_HANDOVER.md` — Amanoba Relocation Handover (14.8 KB)
 - `docs/product/COURSE_CREATION_PLAYBOOK.md` — Amanoba Course Creation Playbook (17.7 KB)
 - `docs/quality/UI_FOUNDATION_AUDIT.md` — UI Foundation Audit (Hard Rules) (1.8 KB)
-- `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` — UI Layout Grammar Audit (4.6 KB)
+- `docs/quality/UI_LAYOUT_GRAMMAR_AUDIT.md` — UI Layout Grammar Audit (8.5 KB)
 
 ## KEEP (needs review)
+- `docs/agents/CONTENT_CREATION_WORKFLOW.md` — Content Creation Workflow for AI Agents
 - `docs/architecture/ARCHITECTURE_FIX_QUICK_START.md` — ⚡ ARCHITECTURE FIX - ACTION CHECKLIST & QUICK START
 - `docs/architecture/ARCHITECTURE_GAP_ANALYSIS.md` — ARCHITECTURE_GAP_ANALYSIS.md
 - `docs/audit/generated/PRODUCTION_SMOKE.md` — Production smoke — https://www.amanoba.com
@@ -42,6 +43,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/certification/certification_final_exam_plan_v4.md` — certification_final_exam_plan_v4.md
 - `docs/certification/certification_final_exam_plan_v5.md` — certification_final_exam_plan_v5.md
 - `docs/core/amanoba_system_outline.md` — Amanoba System Outline — Table of Contents
+- `docs/core/COURSE_THUMBNAIL_MANAGEMENT.md` — Course Thumbnail Management
 - `docs/core/DOCS_CANONICAL_MAP.md` — Docs Canonicalization Map
 - `docs/core/DOCS_INVENTORY.md` — Docs Inventory
 - `docs/core/DOCS_TRIAGE.md` — Docs Triage
@@ -50,6 +52,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/core/OLLAMA_TASKLIST_FOR_AGENT.md` — Ollama setup task list (for agent)
 - `docs/core/PROJECT_STATE.md` — Amanoba Project State
 - `docs/core/templates/FEATURE_TEMPLATE.md` — YYYY-MM-DD Feature Title
+- `docs/core/US_ENGLISH_STYLE_GUIDE.md` — US English Style Guide
 - `docs/COURSE_PACKAGE_FORMAT.md` — Course Package Format
 - `docs/deployment/STRIPE_VERCEL_SETUP.md` — Stripe Setup Guide for Vercel
 - `docs/features/ASSESSMENT_GAME_ID_MIGRATION.md` — assessmentGameId Migration Plan
@@ -82,11 +85,8 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/product/MOBILE_STRATEGY.md` — Mobile Strategy & Scope (#12)
 - `docs/product/NEXT_PHASES.md` — Next Phases: Detailed Implementation Plan
 - `docs/product/P3_KNOWN_ISSUES_BACKLOG.md` — P3 Known Issues — Backlog
-- `docs/product/ROADMAP_TASKLIST_SYSTEM_COMPARISON.md` — ROADMAP vs TASKLIST vs System Outline — Comparison
-- `docs/product/VOTING_AND_REUSE_PATTERN.md` — Unified Voting and Reuse Pattern
-- `docs/quality/CODE_REVIEW_FINDINGS.md` — Code Review: Boolean Filter Logic Issues
-- `docs/quality/PHASE_1_AUDIT_WORKSHEET.md` — PHASE 1 EXECUTION AUDIT WORKSHEET
-- … +23 more
+- `docs/product/PROGRESSIVE_COURSE_IMPLEMENTATION_ROADMAP.md` — Progressive Course Generation - Implementation Roadmap
+- … +28 more
 
 ## Next suggested move
 - Review KEEP(unclassified) docs and either promote to canonical sections in `docs/core/DOCS_INDEX.md` or archive.

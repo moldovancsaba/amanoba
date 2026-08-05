@@ -117,24 +117,24 @@ Amanoba's local files are the current implementation adapter and migration surfa
 
 **Color tokens**:
 
-- **Backgrounds**: Black (`#000000`), Dark grey (`#2D2D2D`), White (`#FFFFFF`).
+- **Backgrounds**: Black (`#000000`), Dark gray (`#2D2D2D`), White (`#FFFFFF`).
 - **Accent / CTA**: Yellow/Gold `#FAB908` (Mantine theme `amanoba`, CSS support tokens `--cta-bg`, `--color-primary-500`).
 
 **CTA yellow exclusivity**:
 
 - **Primary actions only**: Buttons and links that are the main action (e.g. "Start", "Submit", "Save") use CTA yellow.
-- **Non-CTA elements** (badges, labels, table of contents numbers, secondary text) must **not** use CTA yellow; use neutral/secondary palette (e.g. `brand-darkGrey`, grey scale).
+- **Non-CTA elements** (badges, labels, table of contents numbers, secondary text) must **not** use CTA yellow; use neutral/secondary palette (e.g. `brand-darkGray`, gray scale).
 
 **Page layout pattern**:
 
-- **Shell**: Dark background (black/dark grey).
+- **Shell**: Dark background (black/dark gray).
 - **Content**: White or dark cards (`page-card-dark`, white cards with borders).
 - **Primary actions**: Accent yellow; hover per design tokens.
-- **Links**: Accent for primary links; grey for secondary.
+- **Links**: Accent for primary links; gray for secondary.
 
 **Components**: Use Mantine primitives or the approved thin pattern contracts in `app/components/patterns/*`. Avoid inline hex for brand/CTA colors; use the Mantine theme, the active pattern contract, or approved non-CSS token files for server-rendered contexts.
 
-**Hard-coded design rule**: touched UI code must not introduce raw colour literals or generic template palettes (`indigo-*`, `gray-*`, `red-*`, etc.) when a design-system token or shared utility exists. Use `semantic.*`, `brand.*`, `.ds-status-*`, `.ds-button-*`, `.ds-text-*`, or shared primitives instead.
+**Hard-coded design rule**: touched UI code must not introduce raw color literals or generic template palettes (`indigo-*`, `gray-*`, `red-*`, etc.) when a design-system token or shared utility exists. Use `semantic.*`, `brand.*`, `.ds-status-*`, `.ds-button-*`, `.ds-text-*`, or shared primitives instead.
 
 **Shared pattern-service rule**:
 
@@ -172,7 +172,7 @@ Amanoba's local files are the current implementation adapter and migration surfa
 
 ### English variant policy
 
-The **British English variant** is the canonical “English” experience for admins, docs, and the default UI. Treat `messages/en.json` as **British English (en-GB)**, and duplicate it to `messages/en-GB.json` so the `/en-GB` path is explicitly supported. This file uses British spellings (`enrol`, `favour`, etc.).
+The **British English variant** is the canonical “English” experience for admins, docs, and the default UI. Treat `messages/en.json` as **British English (en-GB)**, and duplicate it to `messages/en-GB.json` so the `/en-GB` path is explicitly supported. This file uses British spellings (`enrol`, `favor`, etc.).
 
 The **American variant** lives in `messages/en-US.json` and is only served when the locale is explicitly `en-US` (next-intl handles this via `locales/en-US`). Keep the keys identical between `en`, `en-GB`, and `en-US`; only adjust the spelled terms. When you edit a British string, update `messages/en.json`/`en-GB.json` first and then duplicate the updated key/value into `messages/en-US.json` with the American spelling.
 
@@ -183,7 +183,7 @@ All other locale files remain in their native language (no British/US split). Na
 ## 9. Reuse and coding patterns
 
 - **Reuse via discriminator**: When the same feature is needed in 2+ places (e.g. up/down vote on courses, lessons, discussion posts), implement **one model**, **one API**, and **one UI component**; use a discriminator field (e.g. `targetType`, `targetId`) to select context. Do not duplicate schemas, routes, or components. See **docs/product/VOTING_AND_REUSE_PATTERN.md** and **docs/architecture/ARCHITECTURE.md** (Core Principles).
-- **Extending a reused feature**: Add a new discriminator value (e.g. new `targetType`), allow-list it in the API, and render the same component with the new type; do not add new collections or routes for the same behaviour.
+- **Extending a reused feature**: Add a new discriminator value (e.g. new `targetType`), allow-list it in the API, and render the same component with the new type; do not add new collections or routes for the same behavior.
 
 ---
 
@@ -193,7 +193,7 @@ All other locale files remain in their native language (no British/US split). Na
 - **Creating or editing UI/pages**: Follow project layout (§1), UI layout (§6), `docs/core/CODING_STANDARDS.md`, and naming.
 - **Creating or editing docs**: Follow documentation layout (§2) and project layout (§1).
 - **Writing scripts** (seed, audit, backfill): Use same DB name as app (`process.env.DB_NAME || 'amanoba'`), follow naming and doc output paths under `/docs` and `/scripts/reports` as established.
-- **Implementing the same behaviour in 2+ places**: Follow reuse via discriminator (§9); read **docs/product/VOTING_AND_REUSE_PATTERN.md**.
+- **Implementing the same behavior in 2+ places**: Follow reuse via discriminator (§9); read **docs/product/VOTING_AND_REUSE_PATTERN.md**.
 
 ---
 

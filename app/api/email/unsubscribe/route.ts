@@ -82,7 +82,7 @@ function htmlErrorPage(m: UnsubscribeMessages, lang: string): string {
   <title>${escapeHtml(m.errorTitle)}</title>
   <style>
     body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: ${BRAND_COLORS.black}; color: ${BRAND_COLORS.white}; }
-    .container { text-align: center; padding: 2rem; background: ${BRAND_COLORS.darkGrey}; border-radius: 8px; border: 2px solid ${THEME_COLOR}; }
+    .container { text-align: center; padding: 2rem; background: ${BRAND_COLORS.darkGray}; border-radius: 8px; border: 2px solid ${THEME_COLOR}; }
     h1 { color: ${THEME_COLOR}; } .error { color: ${SEMANTIC_COLORS.error}; }
   </style>
 </head>
@@ -103,7 +103,7 @@ function htmlSuccessPage(m: UnsubscribeMessages, lang: string): string {
   <title>${escapeHtml(m.successTitle)}</title>
   <style>
     body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: ${BRAND_COLORS.black}; color: ${BRAND_COLORS.white}; }
-    .container { text-align: center; padding: 2rem; background: ${BRAND_COLORS.darkGrey}; border-radius: 8px; border: 2px solid ${THEME_COLOR}; }
+    .container { text-align: center; padding: 2rem; background: ${BRAND_COLORS.darkGray}; border-radius: 8px; border: 2px solid ${THEME_COLOR}; }
     h1 { color: ${THEME_COLOR}; }
   </style>
 </head>

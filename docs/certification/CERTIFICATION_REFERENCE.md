@@ -20,7 +20,7 @@ Current course-length rule: certificates and final exams must work with flexible
 
 ## Dated plans and logs (reference only)
 
-Point-in-time delivery plans, rollbacks, and audits. For current behaviour use the two docs above and RELEASE_NOTES.
+Point-in-time delivery plans, rollbacks, and audits. For current behavior use the two docs above and RELEASE_NOTES.
 
 - `2026-01-23_CERTIFICATION_SYSTEM.md`
 - `2026-01-25_CERTIFICATION_*` (implementation log, rollback, stabilization, handover, V1/V2 complete, baseline verification, failure root causes, enhancements plan, simple certification plan, admin certificate list, verification slug delivery)

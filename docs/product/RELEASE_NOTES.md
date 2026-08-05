@@ -252,7 +252,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 
 ## [v2.9.42] — 2026-02-03 🌍
 
-**Status**: Internationalization — Supported languages and locale behaviour
+**Status**: Internationalization — Supported languages and locale behavior
 **Type**: Feature (i18n)
 
 ### Supported languages (UI)
@@ -536,7 +536,7 @@ All completed tasks are documented here in reverse chronological order. This fil
 **Status**: Tasks 3, 9, 10, 11 — imports/logging, course achievements, course leaderboards, content voting
 **Type**: Quality + Feature (ROADMAP § Course achievements & leaderboards, Course and content voting)
 
-### Task 3: Standardise imports and logging
+### Task 3: Standardize imports and logging
 
 - **Achievement engine**: Logger import changed to `import { logger } from '@/lib/logger'`; criteria evaluation debug log gated to `NODE_ENV !== 'production'` (logger.debug).
 - **SSO callback**: DEBUG logs already gated with `process.env.NODE_ENV !== 'production'` (unchanged).
@@ -970,7 +970,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 ### Documentation updates
 
-- **BUG7 closed**: `/profile/[playerId]` marked DONE in TASKLIST. Admin can open user profile from user list (e.g. `https://www.amanoba.com/hu/profile/6970a39a4d9263663b412d96`). Self-view and public/private behaviour are tracked in Profile Visibility & Privacy tasks.
+- **BUG7 closed**: `/profile/[playerId]` marked DONE in TASKLIST. Admin can open user profile from user list (e.g. `https://www.amanoba.com/hu/profile/6970a39a4d9263663b412d96`). Self-view and public/private behavior are tracked in Profile Visibility & Privacy tasks.
 - **ROADMAP**: Added **Profile Visibility & Privacy (P1)** with four goals: (1) user can see their private profile, (2) user can set profile to public/private, (3) user can see their public profile, (4) user can set profile sections to public/private. Owner: Tribeca (dev); content: Katja.
 - **TASKLIST**: Added four task sections with deliverable breakdown (PV1.1–PV4.5). See `docs/product/TASKLIST.md` § P1: Profile Visibility & Privacy.
 - **Related docs**: ROADMAP and TASKLIST versions set to 2.9.12.
@@ -1018,7 +1018,7 @@ Completion email already had tracking (v2.9.28). Admin email analytics (`/api/ad
 
 **Delivered**:
 - ✅ **Test plan** (`docs/_archive/reference/PAYMENT_E2E_TEST_PLAN.md`): Flow diagram, scenarios (happy path, cancel, invalid session, webhook idempotency, admin list/filters), Stripe test cards, Stripe CLI instructions
-- ✅ **Contract test** (`scripts/payment-e2e-contract-test.ts`): Unauthed create-checkout → 401, success redirect behaviour; run with `npm run test:payment-contract` (app must be running, `BASE_URL` optional)
+- ✅ **Contract test** (`scripts/payment-e2e-contract-test.ts`): Unauthed create-checkout → 401, success redirect behavior; run with `npm run test:payment-contract` (app must be running, `BASE_URL` optional)
 - ✅ ROADMAP updated: “End-to-end payment flow testing” marked complete
 
 **Full E2E** (real payment + webhook): run manually or with Stripe CLI per the test plan.
@@ -2062,7 +2062,7 @@ const messages = await getMessages({ locale });
 - ✅ LocaleLink and LanguageSwitcher components
 
 #### 1.4 Design System Update ✅
-- ✅ New brand colors (Black, DarkGrey, White, Accent Yellow #FAB908)
+- ✅ New brand colors (Black, DarkGray, White, Accent Yellow #FAB908)
 - ✅ Logo component created and integrated
 - ✅ All core pages redesigned
 - ✅ Tailwind config updated

@@ -54,7 +54,7 @@
 | 2 | **Middleware: double-locale redirect** | Paths like `/id/en` or `/en-GB/ru` redirect to the second segment only (e.g. `/en`, `/ru`) to avoid 404 and wrong content. |
 | 3 | **LanguageSwitcher: next-intl navigation** | Replaced `next/navigation` with `@/app/lib/i18n/navigation` and `router.replace(pathname, { locale })` (later `router.push`) so locale switch keeps the same page. |
 | 4 | **Safe path and display value** | `safePath = (typeof pathname === 'string' ? pathname : '') || '/'`; `displayLocale = locales.includes(locale) ? locale : 'hu'` so the select never gets invalid path or value. |
-| 5 | **router.replace → router.push** | Use `router.push(safePath, { locale: newLocale })` in case replace had different behaviour. |
+| 5 | **router.replace → router.push** | Use `router.push(safePath, { locale: newLocale })` in case replace had different behavior. |
 | 6 | **Select stacking / clickability** | `relative z-10` and `cursor-pointer` on the `<select>`, `z-0` on the overlay div so the dropdown isn’t covered. |
 | 7 | **Full-page fallback** | After `router.push(...)`, setTimeout(150 ms): if `window.location.pathname !== targetPath`, set `window.location.href = targetPath` so language switch happens even if client nav doesn’t. |
 | 8 | **Pass locale to NextIntlClientProvider (root-cause fix)** | In `app/[locale]/layout.tsx`, use `<NextIntlClientProvider locale={validLocale} messages={messages}>` so client components receive the URL locale and `useLocale()` matches the page. |
@@ -65,8 +65,8 @@
 - Removing the custom arrow overlay entirely and using a plain native select to see if “dropdown doesn’t open” goes away.
 - Verifying in production (Vercel) that `usePathname()` from next-intl actually returns the path *without* locale on the first paint and after nav.
 - Checking whether `LanguageSwitcher` is rendered in a place where the Next.js App Router context (or next-intl provider) is missing or different (e.g. portaled UI, different layout tree).
-- Checking for middleware or cookie behaviour that could immediately redirect back after a client-side locale change (e.g. `NEXT_LOCALE` cookie or `localeDetection` overriding the new URL).
-- Testing with next-intl’s `<Link href="/" locale={newLocale} />` (or equivalent) instead of programmatic `router.push` to compare behaviour.
+- Checking for middleware or cookie behavior that could immediately redirect back after a client-side locale change (e.g. `NEXT_LOCALE` cookie or `localeDetection` overriding the new URL).
+- Testing with next-intl’s `<Link href="/" locale={newLocale} />` (or equivalent) instead of programmatic `router.push` to compare behavior.
 
 ---
 
@@ -85,14 +85,14 @@
 
 ### 4.1 If “dropdown doesn’t open” or “can’t select”
 
-- **Overlay blocking:** The custom arrow div (even with `pointer-events-none` and `z-0`) might still affect some browsers or focus behaviour so the native select doesn’t receive the click or doesn’t open.
+- **Overlay blocking:** The custom arrow div (even with `pointer-events-none` and `z-0`) might still affect some browsers or focus behavior so the native select doesn’t receive the click or doesn’t open.
 - **Layout/stacking:** Another ancestor (e.g. header, nav) might have `overflow: hidden` or a stacking context that clips or blocks the select’s dropdown.
 - **Controlled select:** In rare cases, `value={displayLocale}` with a mismatch (e.g. server/client locale mismatch at hydration) could leave the select in a bad state; we tried to avoid that with `displayLocale`.
 
 ### 4.2 If “selection doesn’t change language / URL”
 
 - **Router context:** `useRouter()` from `createNavigation(routing)` might not be the same router instance that owns the current layout (e.g. if the component is rendered in a different tree or after a boundary that doesn’t have the App Router context).
-- **next-intl internal behaviour:** The wrapped `router.push(href, { locale })` might not be applied correctly in our setup (e.g. routing config not fully in sync, or next-intl v4 expecting a different signature or usage).
+- **next-intl internal behavior:** The wrapped `router.push(href, { locale })` might not be applied correctly in our setup (e.g. routing config not fully in sync, or next-intl v4 expecting a different signature or usage).
 - **Middleware / cookie undoing the switch:** After client-side navigation to e.g. `/hu`, the next request might be sent with a cookie or header that makes middleware redirect back to another locale (e.g. `localeDetection` + cookie winning over the URL).
 - **getPathname vs actual URL:** `getPathname({ href: safePath, locale, forcePrefix: true })` might not match what middleware or next-intl expect (e.g. trailing slash, basePath, or segment order) so the fallback URL could be wrong or trigger another redirect.
 

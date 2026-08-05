@@ -15,7 +15,7 @@ import { SECONDARY_HEX, THEME_COLOR } from '@/app/lib/constants/app-url';
 export const BRAND_COLORS = {
   black: '#000000',
   white: '#ffffff',
-  darkGrey: SECONDARY_HEX,
+  darkGray: SECONDARY_HEX,
   accent: THEME_COLOR,
   ctaText: '#111827',
 } as const;
@@ -62,7 +62,7 @@ export const GAME_AI_PERSONAS = {
 
 export const DEFAULT_BRAND_THEME_COLORS = {
   primary: BRAND_COLORS.black,
-  secondary: BRAND_COLORS.darkGrey,
+  secondary: BRAND_COLORS.darkGray,
   accent: BRAND_COLORS.accent,
 } as const;
 

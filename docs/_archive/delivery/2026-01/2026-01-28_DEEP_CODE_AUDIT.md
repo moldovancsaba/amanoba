@@ -22,7 +22,7 @@ This audit identifies **inconsistencies**, **deprecated/obsolete references**, *
 | Source | Primary | Secondary | Accent | CTA |
 |--------|--------|-----------|--------|-----|
 | `app/design-system.css` | Indigo (#6366f1) | Pink (#ec4899) | Purple (#a855f7) | #FAB908 |
-| `app/globals.css` + `docs/product/DESIGN_UPDATE.md` | Gold (#FAB908) | Dark grey (#2D2D2D) | Gold (#FAB908) | #FAB908 |
+| `app/globals.css` + `docs/product/DESIGN_UPDATE.md` | Gold (#FAB908) | Dark gray (#2D2D2D) | Gold (#FAB908) | #FAB908 |
 | `tailwind.config.ts` | #FAB908 (primary) | #2D2D2D (secondary) | — | — |
 
 **Impact**: Components or pages importing `design-system.css` get indigo/pink/purple; rest of app uses gold/black. Recharts in admin analytics use indigo/pink/purple hex directly.
@@ -118,7 +118,7 @@ This audit identifies **inconsistencies**, **deprecated/obsolete references**, *
 - `app/api/admin/courses/route.ts`: `primary: '#000000', secondary: '#374151', accent: '#FAB908'` (export theme).  
 - `app/lib/utils/anonymous-auth.ts`: `primary: '#6366f1', secondary: '#ec4899', accent: '#a855f7'` (indigo/pink/purple).
 
-**Action**: Use a single theme constant derived from design system (e.g. brand black, dark grey, accent #FAB908); remove indigo/pink/purple from anonymous-auth so it matches brand.
+**Action**: Use a single theme constant derived from design system (e.g. brand black, dark gray, accent #FAB908); remove indigo/pink/purple from anonymous-auth so it matches brand.
 
 ---
 
@@ -166,7 +166,7 @@ This audit identifies **inconsistencies**, **deprecated/obsolete references**, *
 
 **Finding**: design-system.css defines indigo/pink/purple primary/secondary/accent and utility classes (e.g. `.btn-primary` using indigo). Tailwind and globals use gold/black. `.focus-ring:focus-visible` uses `--color-primary-500` (indigo).
 
-**Action**: Align design-system.css with brand: map primary/secondary/accent to gold/dark grey; update utility classes and focus ring to use brand tokens; remove or deprecate indigo/pink/purple from default theme.
+**Action**: Align design-system.css with brand: map primary/secondary/accent to gold/dark gray; update utility classes and focus ring to use brand tokens; remove or deprecate indigo/pink/purple from default theme.
 
 ---
 
@@ -252,7 +252,7 @@ This audit identifies **inconsistencies**, **deprecated/obsolete references**, *
 
 AUDIT1–AUDIT5 delivered:
 
-- **AUDIT1**: `design-system.css` primary/secondary/accent aligned to brand gold (#FAB908) and dark grey (#2D2D2D); CTA and utility classes use `--cta-bg` / brand tokens; shadows updated to gold.
+- **AUDIT1**: `design-system.css` primary/secondary/accent aligned to brand gold (#FAB908) and dark gray (#2D2D2D); CTA and utility classes use `--cta-bg` / brand tokens; shadows updated to gold.
 - **AUDIT2**: Quizzz Daily Challenges link → LocaleLink; Sudoku "Back to Games" → LocaleLink; data-deletion page → locale-prefixed Link hrefs; other pages already used LocaleLink.
 - **AUDIT3**: `EMAIL_TOKENS` added in `email-service.ts` (ctaBg, ctaText, bodyText, muted, border); lesson reminder CTA button uses #FAB908; unsubscribe/completion/payment footers use tokens.
 - **AUDIT4**: All client `console.log`/`console.warn` in dashboard, quizzz, achievements, challenges, madoku, sudoku, whackpop, MemoryGame, Icon guarded with `process.env.NODE_ENV === 'development'`.

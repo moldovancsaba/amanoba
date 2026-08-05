@@ -16,7 +16,7 @@
 
 - **APIs** now accept optional `locale` (query or player.locale) and return resolved name/description:
   - **GET /api/courses** — `?locale=hu` (or en, ar, …); when set, selects `translations` and returns resolved name/description; `translations` omitted from response.
-  - **GET /api/courses/[courseId]** — `?locale=hu`; same behaviour.
+  - **GET /api/courses/[courseId]** — `?locale=hu`; same behavior.
   - **GET /api/courses/recommendations** — `?locale=...` or player.locale; resolves name/description for each recommended course.
   - **GET /api/my-courses** — `?locale=...` or player.locale; populates course with `translations` when locale set and returns resolved name/description for each course.
 

@@ -314,7 +314,7 @@ const DAY12_QUESTIONS: Record<string, Array<{
       hashtags: ["#accountability", "#intermediate", "#application", "#tr", "#all-languages"]
     },
     {
-      question: "Derse göre bir kilometre taşını kaçırırsanız ne yapmalısınız?",
+      question: "Derse göre bir kilometer taşını kaçırırsanız ne yapmalısınız?",
       options: [
         "Hedefi terk et",
         "Retrospektif yap ve planı ayarla",
@@ -331,7 +331,7 @@ const DAY12_QUESTIONS: Record<string, Array<{
       question: "6 haftalık bir hedef için hesap verebilirlik sistemi kurmak istiyorsunuz. Derse göre ne içermelidir?",
       options: [
         "Sadece hedefi belirle",
-        "Tarih ve nedenle halka açık bir hedef beyanı, haftalık kilometre taşları, haftalık kontroller için bir hesap verebilirlik ortağı ve somut metriklerle bir takip sistemi",
+        "Tarih ve nedenle halka açık bir hedef beyanı, haftalık kilometer taşları, haftalık kontroller için bir hesap verebilirlik ortağı ve somut metriklerle bir takip sistemi",
         "Sadece bir hesap verebilirlik ortağı",
         "Sadece bir takip sistemi"
       ],
@@ -342,7 +342,7 @@ const DAY12_QUESTIONS: Record<string, Array<{
       hashtags: ["#accountability", "#intermediate", "#application", "#tr", "#all-languages"]
     },
     {
-      question: "Bir kişi hedefler belirliyor ancak tutarlı olarak kilometre taşlarını kaçırıyor, bu da hayal kırıklığına ve hedef terkine yol açıyor. Dersin çerçevesine göre muhtemelen ne eksik?",
+      question: "Bir kişi hedefler belirliyor ancak tutarlı olarak kilometer taşlarını kaçırıyor, bu da hayal kırıklığına ve hedef terkine yol açıyor. Dersin çerçevesine göre muhtemelen ne eksik?",
       options: [
         "Yeterli hedef yok",
         "Hesap verebilirlik yapılarının eksikliği - şeffaflık ve erken sorun tespiti yaratan halka açık taahhüt, hesap verebilirlik ortağı veya takip sistemi eksik",
