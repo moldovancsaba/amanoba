@@ -49,7 +49,7 @@ for (const scanRoot of scanRoots) {
 }
 
 if (findings.length) {
-  console.error('Legacy @gds/* imports or references found (use @doneisbetter/* only):');
+  console.error('Legacy @gds/* imports or references found (use @sovereignsquad/* only):');
   console.error(findings.join('\n'));
   process.exit(1);
 }

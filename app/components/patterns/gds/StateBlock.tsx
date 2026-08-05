@@ -5,7 +5,7 @@ import { Group } from '@mantine/core';
 import {
   StateBlock as GdsStateBlock,
   type StateBlockVariant,
-} from '@doneisbetter/gds-core/client';
+} from '@sovereignsquad/gds-core/client';
 
 /**
  * Re-exported GDS state block variant type.
@@ -62,7 +62,7 @@ type StateBlockProps = {
  * - `/[locale]/stats` - Loading stats
  * - Profile/quiz/course pages - Various loading and error states
  * 
- * **GDS Backing**: ✅ `@doneisbetter/gds-core/client` `StateBlock`
+ * **GDS Backing**: ✅ `@sovereignsquad/gds-core/client` `StateBlock`
  * 
  * **Variants**:
  * - `loading`: Spinner + "Loading..." (or custom title)
@@ -100,7 +100,7 @@ type StateBlockProps = {
  * @see {@link ProgressCard} for progress-focused metrics
  * 
  * @remarks
- * Amanoba API (`kind`) over canonical `@doneisbetter/gds-core` `StateBlock` (`variant`).
+ * Amanoba API (`kind`) over canonical `@sovereignsquad/gds-core` `StateBlock` (`variant`).
  * Actions are horizontally grouped and centered (full) or left-aligned (compact).
  */
 export function StateBlock({

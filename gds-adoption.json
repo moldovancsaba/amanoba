@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "gdsVersion": "2.6.1",
+  "gdsVersion": "3.14.17",
   "productArchetype": "lms-game",
   "supportedEntryPoints": [
-    "@doneisbetter/gds-theme/client",
-    "@doneisbetter/gds-theme/server",
-    "@doneisbetter/gds-core/client",
-    "@doneisbetter/gds-core/server",
-    "@doneisbetter/gds-admin/client",
-    "@doneisbetter/gds-admin/server"
+    "@sovereignsquad/gds-theme/client",
+    "@sovereignsquad/gds-theme/server",
+    "@sovereignsquad/gds-core/client",
+    "@sovereignsquad/gds-core/server",
+    "@sovereignsquad/gds-admin/client",
+    "@sovereignsquad/gds-admin/server"
   ],
   "requiredContracts": [
     "extendGdsTheme",
@@ -129,9 +129,9 @@
       "/Users/Shared/Projects/GENERAL_DESIGN_SYSTEM"
     ],
     "protectedSurfacePaths": ["app/lib/ui", "app/components/patterns/gds"],
-    "bannedImports": ["@gds/theme", "@gds/core", "@gds/admin", "@gds/compliance", "@gds/eslint-config"]
+    "bannedImports": ["@gds/theme", "@gds/core", "@gds/admin", "@gds/compliance", "@gds/eslint-config", "@doneisbetter/gds-theme", "@doneisbetter/gds-core", "@doneisbetter/gds-admin"]
   },
   "migrationStatus": "enforced",
   "owner": "amanoba-ui",
-  "lastReviewedAt": "2026-05-26"
+  "lastReviewedAt": "2026-08-05"
 }

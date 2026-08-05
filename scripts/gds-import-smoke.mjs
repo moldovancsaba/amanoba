@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { extendGdsTheme } from '@doneisbetter/gds-theme/server';
+import { extendGdsTheme } from '@sovereignsquad/gds-theme/server';
 
 const theme = extendGdsTheme({
   colors: {
@@ -24,4 +24,4 @@ if (!theme?.colors) {
   process.exit(1);
 }
 
-console.log('✅ @doneisbetter/gds-theme extendGdsTheme smoke passed');
+console.log('✅ @sovereignsquad/gds-theme extendGdsTheme smoke passed');

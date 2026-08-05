@@ -88,4 +88,4 @@ npm run audit:run
 
 Each remediation issue must include: architecture, runtime flow, contracts, acceptance criteria, rollback, tests, docs, dependencies.
 
-UI fixes: `@doneisbetter/*` only.
+UI fixes: `@sovereignsquad/*` only.

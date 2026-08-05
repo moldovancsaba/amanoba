@@ -369,7 +369,7 @@ No automated tests per project policy. Instead:
 
 ### Team Communication
 
-- **Project Lead**: Csaba Moldovan (csaba@doneisbetter.com)
+- **Project Lead**: Csaba Moldovan (csaba@sovereignsquad.com)
 - **GitHub Issues**: Use for bug reports and feature requests
 - **Pull Requests**: Use for code review and discussion
 

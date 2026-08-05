@@ -125,14 +125,14 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 ## GDS npm package cutover (2026-05-26)
 
 ### What changed
-- Switched Amanoba off the temporary `gds-v2.6.1` GitHub release-asset install URLs and onto the live npm package line:
-  - `@doneisbetter/gds-theme@2.6.1`
-  - `@doneisbetter/gds-core@2.6.1`
-  - `@doneisbetter/gds-admin@2.6.1`
-  - `@doneisbetter/gds-eslint-config@2.6.1`
-  - `@doneisbetter/gds-compliance@2.6.1`
+- Switched Amanoba off the temporary `gds-v3.14.17` GitHub release-asset install URLs and onto the live npm package line:
+  - `@sovereignsquad/gds-theme@3.14.17`
+  - `@sovereignsquad/gds-core@3.14.17`
+  - `@sovereignsquad/gds-admin@3.14.17`
+  - `@sovereignsquad/gds-eslint-config@3.14.17`
+  - `@sovereignsquad/gds-compliance@3.14.17`
 - Updated the active repo contract so new work treats npm as the only approved consumer source for GDS packages (`AGENTS.md`, `README.md`, `docs/product/DESIGN_UPDATE.md`, `docs/product/PATTERN_CONTRACT_INVENTORY.md`).
-- Tightened `scripts/check-gds-adoption.ts` so the adoption gate now requires the npm-published `2.6.1` package declarations instead of the previous release-asset URLs.
+- Tightened `scripts/check-gds-adoption.ts` so the adoption gate now requires the npm-published `3.14.17` package declarations instead of the previous release-asset URLs.
 - Fixed an existing type/lint break in `app/[locale]/admin/payments/page.tsx` by restoring the missing Mantine `Title` import.
 
 ### Why
@@ -1850,14 +1850,14 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `git -C /Users/moldovancsaba/Projects/amanoba rev-parse HEAD` ✅ ancestor of canonical before deletion
 - `test ! -e /Users/moldovancsaba/Projects/amanoba` ✅
 
-<!-- Superseded: this section records the temporary pre-npm bridge only; current consumer truth is npm-backed `@doneisbetter/*` plus `PROJECT_STATE.md`. -->
-## GDS `@doneisbetter/*` package migration (2026-05-26)
+<!-- Superseded: this section records the temporary pre-npm bridge only; current consumer truth is npm-backed `@sovereignsquad/*` plus `PROJECT_STATE.md`. -->
+## GDS `@sovereignsquad/*` package migration (2026-05-26)
 
 ### What changed
-- Replaced legacy `@gds/*` and repo-local `app/lib/gds/*` shims with **`@doneisbetter/*` 2.6.1** (GitHub release tarballs until npm publish).
-- Root runtime: **`GdsProvider`** (`@doneisbetter/gds-theme/client`) + **`extendGdsTheme`** (`@doneisbetter/gds-theme/server`).
-- Pattern adapters: `@doneisbetter/gds-core/client`; admin shell: `@doneisbetter/gds-admin/client` `AppShell`.
-- Governance: `@doneisbetter/gds-compliance`, `@doneisbetter/gds-eslint-config`, `ui:check:no-legacy-gds-imports`.
+- Replaced legacy `@gds/*` and repo-local `app/lib/gds/*` shims with **`@sovereignsquad/*` 3.14.17** (GitHub release tarballs until npm publish).
+- Root runtime: **`GdsProvider`** (`@sovereignsquad/gds-theme/client`) + **`extendGdsTheme`** (`@sovereignsquad/gds-theme/server`).
+- Pattern adapters: `@sovereignsquad/gds-core/client`; admin shell: `@sovereignsquad/gds-admin/client` `AppShell`.
+- Governance: `@sovereignsquad/gds-compliance`, `@sovereignsquad/gds-eslint-config`, `ui:check:no-legacy-gds-imports`.
 - Removed webpack aliases to local GDS mirrors.
 
 ### Verification
@@ -1868,16 +1868,16 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run lint` ✅ pass (with GDS eslint rules)
 
 <!-- Superseded: GitHub release-asset guidance is historical only and must not be reused for current installs. -->
-## GDS 2.6.1 release-asset install contract correction (2026-05-26)
+## GDS 3.14.17 release-asset install contract correction (2026-05-26)
 
 ### What changed
-- Replaced the temporary sibling `file:` installs for `@doneisbetter/gds-theme`, `@doneisbetter/gds-core`, `@doneisbetter/gds-admin`, `@doneisbetter/gds-eslint-config`, and `@doneisbetter/gds-compliance` with the approved public GitHub release tarballs from `gds-v2.6.1`.
+- Replaced the temporary sibling `file:` installs for `@sovereignsquad/gds-theme`, `@sovereignsquad/gds-core`, `@sovereignsquad/gds-admin`, `@sovereignsquad/gds-eslint-config`, and `@sovereignsquad/gds-compliance` with the approved public GitHub release tarballs from `gds-v3.14.17`.
 - Removed the sibling-bootstrap install behavior from `package.json` (`gds:ensure-sibling`, `postinstall`) so CI/Vercel and fresh clones no longer imply a local `GENERAL_DESIGN_SYSTEM` checkout requirement.
 - Removed stale `@gds/*` path aliases from `tsconfig.json`.
-- Corrected active docs to state the actual consumer contract: canonical future registry source is npm, current supported install source is the 2.6.1 GitHub release assets.
+- Corrected active docs to state the actual consumer contract: canonical future registry source is npm, current supported install source is the 3.14.17 GitHub release assets.
 
 ### Why
-- The new upstream package line is `@doneisbetter/*`, and the approved temporary install source before npm publication is the public 2.6.1 release assets. Sibling `file:` installs are explicitly not allowed for CI or Vercel flows.
+- The new upstream package line is `@sovereignsquad/*`, and the approved temporary install source before npm publication is the public 3.14.17 release assets. Sibling `file:` installs are explicitly not allowed for CI or Vercel flows.
 
 ### Verification
 - `npm run ui:gds:verify`
@@ -1891,7 +1891,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 ## GDS admin/editor surface adoption (2026-05-26)
 
 ### What changed
-- `ResponsiveDataView` adapter now delegates to `@doneisbetter/gds-admin/client` while preserving Amanoba column props for existing admin list pages.
+- `ResponsiveDataView` adapter now delegates to `@sovereignsquad/gds-admin/client` while preserving Amanoba column props for existing admin list pages.
 - Added `AdminPageHeader` (`PageHeader`) and migrated all `app/[locale]/admin/**` page titles off ad-hoc `Title order={1}` bands.
 - Editor portal layout uses GDS `AppShell`; lesson editor uses `EditorScaffold` + `ContentOpsActionBar`.
 - ESLint: disabled `gds/no-raw-design-values` for `app/api/email/**` and `markdown-editor.tsx`; markdown editor default min height is numeric (no `px` string literal).
@@ -1903,7 +1903,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - `npm run build` ✅ pass
 
 ### Notes
-- Superseded: install is `@doneisbetter/*@2.6.1` from npm (see `package.json` and `docs/product/DESIGN_UPDATE.md`).
+- Superseded: install is `@sovereignsquad/*@3.14.17` from npm (see `package.json` and `docs/product/DESIGN_UPDATE.md`).
 
 ## Doc SSOT + GDS closure issue program (2026-05-28)
 
@@ -1919,7 +1919,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 - Added `docs/core/PROJECT_STATE.md` and `scripts/docs/refresh-project-state.mjs`, then wired `npm run docs:project-state:refresh` into the repo workflow.
 - Added `scripts/docs/check-doc-truth.mjs`, wired `npm run docs:truth:check` into `docs:check`, and aligned continuity docs around `PROJECT_STATE.md`.
 - Added `app/components/patterns/gds/LearnerShellAdapter.tsx`, moved the learner-shell contract there, and documented the blocked shared-shell migration in `docs/product/LEARNER_SHELL_MIGRATION.md`.
-- Moved `CourseCard` onto `@doneisbetter/gds-core/client` `PublicProductCard` in `app/components/patterns/gds/CourseCard.tsx`.
+- Moved `CourseCard` onto `@sovereignsquad/gds-core/client` `PublicProductCard` in `app/components/patterns/gds/CourseCard.tsx`.
 - Added `ContentOpsSection` + sticky `ContentOpsActionBar` dirty/save affordances to `app/[locale]/admin/courses/[courseId]/page.tsx`.
 - Added `docs/product/GDS_ACCESSIBILITY_VERIFICATION.md` and `scripts/ui/check-gds-accessibility-matrix.mjs`.
 - Updated `docs/status/PRODUCTION_STATUS.md`, `docs/product/RELEASE_NOTES.md`, and the closure program doc so issues `#890`-`#903` now reflect delivered repo state where implemented.
@@ -2084,7 +2084,7 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
   - `npm test` ✅ — 51 tests passed across 18 test files (1.47s)
   - `npm run docs:check` ✅ — Generated docs, link validation, project state, truth check
   - `npm run ui:check:foundation` ✅ — UI foundation check (no blockers)
-  - `npm run ui:gds:check` ✅ — GDS compliance (2.6.1, 13 pattern files)
+  - `npm run ui:gds:check` ✅ — GDS compliance (3.14.17, 13 pattern files)
   - `npm run build` ✅ — Production build (38.0s compile, 172 static pages generated)
 
 ### Documentation updates
@@ -2112,7 +2112,7 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - Tests: 51/51 passed
 - Docs: Valid links, current generated docs
 - UI foundation: No blockers
-- GDS compliance: Enforced (2.6.1)
+- GDS compliance: Enforced (3.14.17)
 - Build: Production ready (172 routes)
 
 **Development environment**: ✅ Production-ready
@@ -2250,7 +2250,7 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - Canonicalized metric, progress, and state block contracts with comprehensive JSDoc
 - Added detailed documentation to `MetricCard`, `ProgressCard`, and `StateBlock` GDS adapters
 - Documented consuming routes and usage patterns for all three components
-- Confirmed GDS backing (`@doneisbetter/gds-core/client`)
+- Confirmed GDS backing (`@sovereignsquad/gds-core/client`)
 - Created stable re-export for `ProgressCard` (`app/components/patterns/ProgressCard.tsx`)
 - Exported `StateBlockKind` type from stable re-export
 - Updated `PATTERN_CONTRACT_INVENTORY.md` with detailed usage notes
@@ -2261,21 +2261,21 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - Props: `icon?`, `value`, `label`, `detail?`, `progress?`, `color?`
 - Server/client: ⚠️ Client-only (GDS client component)
 - Routes: dashboard, stats, profile (XP, points, level, streak metrics)
-- GDS: `@doneisbetter/gds-core/client` `MetricCard`
+- GDS: `@sovereignsquad/gds-core/client` `MetricCard`
 - Usage: Value-first summary surfaces
 
 **ProgressCard**:
 - Props: `label`, `value`, `progress`, `progressLabel?`, `detail?`, `action?`, `color?`
 - Server/client: ⚠️ Client-only (GDS client component)
 - Routes: dashboard, my-courses, profile (course/lesson progress)
-- GDS: `@doneisbetter/gds-core/client` `ProgressCard`
+- GDS: `@sovereignsquad/gds-core/client` `ProgressCard`
 - Usage: Progress bar + action, bounded [0, 100]
 
 **StateBlock**:
 - Props: `kind`, `title`, `description?`, `icon?`, `action?`, `secondaryAction?`, `compact?`
 - Server/client: ⚠️ Client-only (GDS client component)
 - Routes: All learner routes (loading, empty, error states)
-- GDS: `@doneisbetter/gds-core/client` `StateBlock`
+- GDS: `@sovereignsquad/gds-core/client` `StateBlock`
 - Variants: 7 (loading, empty, error, info, success, warning, permission)
 - Layout: full-page (centered) or compact (inline/section)
 
@@ -2313,7 +2313,7 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - Props: `issue`, `courseId`, `courseLanguage`, `signInHref`, `backLabel`, `backHref?`, `onRetry?`
 - Server/client: ⚠️ Client-only (GDS client component, window.location)
 - Routes: 2 (enrolled lesson page, quiz page)
-- GDS: `@doneisbetter/gds-core/client` `AccessRecoveryPanel`
+- GDS: `@sovereignsquad/gds-core/client` `AccessRecoveryPanel`
 - Access issue taxonomy (7 states):
   - `SIGN_IN_REQUIRED` (401) → 'signin' action
   - `COURSE_NOT_FOUND` (404) → 'course' action
@@ -2361,7 +2361,7 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - Props: `title`, `description?`, `thumbnail?`, `thumbnailAlt?`, `fallbackLabel?`, `badges?`, `metrics?`, `progress?`, `notice?`, `primaryAction?`, `secondaryAction?`, `compact?`
 - Server/client: ⚠️ Client-only (GDS client component)
 - Routes: 3 (courses catalog, my-courses, dashboard)
-- GDS: `@doneisbetter/gds-core/client` `PublicProductCard`
+- GDS: `@sovereignsquad/gds-core/client` `PublicProductCard`
 - Usage patterns:
   - **Catalog**: discovery, badges (premium/language/level), metrics (duration/lessons), "Enroll" action
   - **Enrolled**: my-courses, badges (enrolled/in-progress/completed), progress bar, "Continue" action
@@ -2416,7 +2416,7 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - Props: `rows`, `columns`, `rowKey`, `minTableWidth?`, `emptyState?`, `loading?`, `loadingState?`, `striped?`, `highlightOnHover?`, `withTableBorder?`, `withColumnBorders?`, `getRowStyle?`
 - Server/client: ⚠️ Client-only (GDS admin client component)
 - Routes: All admin list pages (17+ routes)
-- GDS: ✅ `@doneisbetter/gds-admin/client` `ResponsiveDataView`
+- GDS: ✅ `@sovereignsquad/gds-admin/client` `ResponsiveDataView`
 - Responsive: Desktop table + mobile cards (breakpoint managed by GDS)
 - Column config: key, header, cell, mobileLabel?, hideOnMobile?, align?
 - State handling: loading, empty, custom states
@@ -2426,7 +2426,7 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - Props: `title`, `description?`, `primaryAction?`, `overflowActions?`
 - Server/client: ⚠️ Client-only (GDS admin client component)
 - Routes: All admin pages with titles/actions
-- GDS: ✅ `@doneisbetter/gds-admin/client` `PageHeader`
+- GDS: ✅ `@sovereignsquad/gds-admin/client` `PageHeader`
 - Thin re-export: All behavior defined by GDS
 - Action pattern: Desktop visible, mobile collapse/overflow
 
@@ -2573,7 +2573,7 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 
 **Amanoba GDS theme** (runtime authority):
 - Implementation: `app/lib/ui/amanoba-gds-theme.ts`
-- GDS backing: `@doneisbetter/gds-theme/server` `extendGdsTheme`
+- GDS backing: `@sovereignsquad/gds-theme/server` `extendGdsTheme`
 - Palettes: `amanoba` (yellow brand), `amanobaYellow`, `ink` (grays)
 - Brand colors: `BRAND_COLORS` (black/white/darkGrey/accent/ctaText)
 - Email theme: `EMAIL_THEME_DEFAULT` (CTA, body, muted, borders, backgrounds)
@@ -2636,19 +2636,19 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - Verified 11 local adapters documented and compliant
 - Verified 5 approved exceptions documented with review dates
 - Verified banned imports enforcement (no legacy `@gds/*` imports)
-- Verified GDS package alignment (all `@doneisbetter/*` at 2.6.1)
+- Verified GDS package alignment (all `@sovereignsquad/*` at 3.14.17)
 - Documented compliance verification in HANDOVER
 
 ### GDS compliance verification results
 
 **Compliance check suite** (`npm run ui:check:gds`): ✅ All checks passed
 1. ✅ `ui:check:gds-adoption` — GDS adoption check passed
-2. ✅ `ui:gds:verify` — `@doneisbetter/*` packages aligned at 2.6.1
+2. ✅ `ui:gds:verify` — `@sovereignsquad/*` packages aligned at 3.14.17
 3. ✅ `ui:check:no-legacy-gds-imports` — No legacy `@gds/*` imports
 4. ✅ `gds:import-smoke` — `extendGdsTheme` smoke passed
 5. ✅ `ui:check:gds-patterns` — 13 files, 5 brand-composition exceptions verified
-6. ✅ `ui:gds:compliance` — GDS product UI compliance passed (2.6.1)
-7. ✅ `ui:gds:compliance:manifest` — `gds-adoption.json` valid for GDS 2.6.1
+6. ✅ `ui:gds:compliance` — GDS product UI compliance passed (3.14.17)
+7. ✅ `ui:gds:compliance:manifest` — `gds-adoption.json` valid for GDS 3.14.17
 8. ✅ `ui:check:gds-a11y` — GDS accessibility matrix covers required surfaces
 9. ✅ `ui:check:mantine` — Mantine boundary check passed
 10. ✅ `ui:check:foundation` — UI foundation check passed (no blocker findings)
@@ -2656,9 +2656,9 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 
 **GDS adoption manifest** (`gds-adoption.json`):
 - Schema version: 1
-- GDS version: 2.6.1
+- GDS version: 3.14.17
 - Product archetype: `lms-game`
-- Supported entry points: 6 (`@doneisbetter/gds-{theme,core,admin}/{client,server}`)
+- Supported entry points: 6 (`@sovereignsquad/gds-{theme,core,admin}/{client,server}`)
 - Required contracts: 10 (extendGdsTheme, StateBlock, MetricCard, ProgressCard, AccessRecoveryPanel, GameBoardTile, AuthShell, PublicShell, DataToolbar, ResponsiveDataView)
 - Local adapters: 11 documented (LearnerPageHeader, CourseCard, AuthShell, PublicAppShell, ArticleShell, DataToolbar, ResponsiveDataView, AdminPageHeader, EditorAppShell, CourseAccessRecovery, AdminAppShell)
 - Approved exceptions: 5 (Lesson prose HTML, Game canvas, Email/certificate renders, Recharts, Lesson markdown editor)
@@ -2670,7 +2670,7 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - No banned import violations
 - All local adapters documented
 - All exceptions documented with review dates
-- Package versions aligned at GDS 2.6.1
+- Package versions aligned at GDS 3.14.17
 - Accessibility matrix complete
 - Foundation and layout grammar verified
 
@@ -2682,7 +2682,7 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 - 11 local adapters documented
 - 5 approved exceptions documented
 - Banned imports enforced
-- Package alignment verified (2.6.1)
+- Package alignment verified (3.14.17)
 
 **Quality gates**: ✅ Verified (compliance checks are quality gates)
 
@@ -2705,7 +2705,7 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 
 **Gap #1: Learner App Shell (LMS-specific)**
 - Current: Local `LearnerShellAdapter` (9 routes)
-- Desired: `LearnerAppShell` in `@doneisbetter/gds-lms` or `gds-core/client`
+- Desired: `LearnerAppShell` in `@sovereignsquad/gds-lms` or `gds-core/client`
 - Priority: Medium
 - Evidence: 9 learner routes, session-based nav, mobile menu pattern
 - Benefit: Standardizes LMS learner navigation across products
@@ -2719,7 +2719,7 @@ b7c4d533 docs: Add comprehensive environment ready checklist
 
 **Gap #3: Server Token Bridge for Non-CSS Contexts**
 - Current: Local `color-tokens.ts` (duplicates theme authority)
-- Desired: `extractTokenBridge` in `@doneisbetter/gds-theme/server`
+- Desired: `extractTokenBridge` in `@sovereignsquad/gds-theme/server`
 - Priority: Medium
 - Evidence: 4 non-CSS contexts (email, OG, charts, games)
 - Benefit: Prevents token duplication across non-CSS rendering

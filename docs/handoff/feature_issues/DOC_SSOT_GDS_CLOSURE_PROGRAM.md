@@ -18,7 +18,7 @@
 | 7 | [#896](https://github.com/moldovancsaba/mvp-factory-control/issues/896) | Amanoba: Docs: PROJECT_STATE refresh - semi-automated read-only field generator | Delivered | #890 |
 | 8 | [#897](https://github.com/moldovancsaba/mvp-factory-control/issues/897) | Amanoba: Docs: Validation pipeline - truth guard wired into docs:check | Delivered | #895, #896 |
 | 9 | [#898](https://github.com/moldovancsaba/mvp-factory-control/issues/898) | Amanoba: Ops: Production status - post-GDS route smoke reconciliation | Delivered | — |
-| 10 | [#899](https://github.com/moldovancsaba/mvp-factory-control/issues/899) | Amanoba: Docs: Release notes governance - GDS 2.6.1 adoption entry decision | Delivered | #898 |
+| 10 | [#899](https://github.com/moldovancsaba/mvp-factory-control/issues/899) | Amanoba: Docs: Release notes governance - GDS 3.14.17 adoption entry decision | Delivered | #898 |
 | 11 | [#900](https://github.com/moldovancsaba/mvp-factory-control/issues/900) | Amanoba: UI: Learner shell adapter - future LearnerAppShell boundary defined | Delivered (adapter shipped; upstream shell still blocked on `general-design-system#80`) | general-design-system#80 |
 | 12 | [#901](https://github.com/moldovancsaba/mvp-factory-control/issues/901) | Amanoba: UI: Course cards - ProductCard migration for learner surfaces | Delivered | — |
 | 13 | [#902](https://github.com/moldovancsaba/mvp-factory-control/issues/902) | Amanoba: UI: Editor content ops - ContentOpsEditor and section adoption | Delivered | — |
@@ -31,7 +31,7 @@
 3. #897 wires the new doc-truth/project-state checks into the aggregate docs gate.
 4. #898 refreshes active production-status evidence; #899 records the release-note ship/N/A decision after that evidence exists.
 5. #900 remains IDEABANK and externally blocked on `sovereignsquad/general-design-system#80`.
-6. #901 and #902 close the actionable GDS 2.6.1 product gaps; #903 verifies shell accessibility/runtime behavior afterward.
+6. #901 and #902 close the actionable GDS 3.14.17 product gaps; #903 verifies shell accessibility/runtime behavior afterward.
 
 ## Notes
 

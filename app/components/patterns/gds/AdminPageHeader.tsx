@@ -4,12 +4,12 @@ import {
   PageHeader,
   type PageHeaderOverflowAction,
   type PageHeaderProps,
-} from '@doneisbetter/gds-admin/client';
+} from '@sovereignsquad/gds-admin/client';
 
 /**
  * Re-exported GDS admin page header props.
  * 
- * See `@doneisbetter/gds-admin/client` `PageHeaderProps` for full specification.
+ * See `@sovereignsquad/gds-admin/client` `PageHeaderProps` for full specification.
  * 
  * Common props:
  * - `title` (required): Page title
@@ -29,7 +29,7 @@ export type AdminPageHeaderProps = PageHeaderProps;
  * **Consuming Routes**:
  * - All admin pages with page-level titles and actions
  * 
- * **GDS Backing**: ✅ `@doneisbetter/gds-admin/client` `PageHeader`
+ * **GDS Backing**: ✅ `@sovereignsquad/gds-admin/client` `PageHeader`
  * 
  * **Slots**:
  * - `title` (required): Page title (h1)
@@ -57,7 +57,7 @@ export type AdminPageHeaderProps = PageHeaderProps;
  * @see {@link ResponsiveDataView} for data tables
  * 
  * @remarks
- * Admin workspace title band — `@doneisbetter/gds-admin` PageHeader with Amanoba import path.
+ * Admin workspace title band — `@sovereignsquad/gds-admin` PageHeader with Amanoba import path.
  * This is a thin re-export, all behavior defined by GDS.
  */
 export function AdminPageHeader(props: AdminPageHeaderProps) {

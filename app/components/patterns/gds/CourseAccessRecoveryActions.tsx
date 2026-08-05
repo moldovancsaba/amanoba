@@ -4,7 +4,7 @@ import {
   AccessRecoveryPanel,
   type AccessRecoveryAction,
   type AccessRecoveryState,
-} from '@doneisbetter/gds-core/client';
+} from '@sovereignsquad/gds-core/client';
 import type { CourseAccessRecoveryIssue } from '@/app/lib/course-access-recovery';
 
 /**
@@ -87,7 +87,7 @@ function continueAction(href: string): AccessRecoveryAction {
  * - `/[locale]/courses/[courseId]/day/[dayNumber]/(enrolled)/page` - Lesson access
  * - `/[locale]/courses/[courseId]/day/[dayNumber]/quiz/page` - Quiz access
  * 
- * **GDS Backing**: ✅ `@doneisbetter/gds-core/client` `AccessRecoveryPanel`
+ * **GDS Backing**: ✅ `@sovereignsquad/gds-core/client` `AccessRecoveryPanel`
  * 
  * **Access Issue Taxonomy** (from {@link resolveCourseAccessIssue}):
  * - `SIGN_IN_REQUIRED` (401) → 'signin' action → Sign in to continue

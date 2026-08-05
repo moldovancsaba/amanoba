@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { MetricCard as GdsMetricCard } from '@doneisbetter/gds-core/client';
+import { MetricCard as GdsMetricCard } from '@sovereignsquad/gds-core/client';
 
 /**
  * Props for {@link MetricCard}.
@@ -44,7 +44,7 @@ type MetricCardProps = {
  * - `/[locale]/stats` - Performance statistics
  * - `/[locale]/profile/[playerId]` - Player stats display
  * 
- * **GDS Backing**: ✅ `@doneisbetter/gds-core/client` `MetricCard`
+ * **GDS Backing**: ✅ `@sovereignsquad/gds-core/client` `MetricCard`
  * 
  * **Slots**:
  * - `icon` (optional): Icon above label
@@ -67,7 +67,7 @@ type MetricCardProps = {
  * @see {@link StateBlock} for loading/empty/error states
  * 
  * @remarks
- * Amanoba prop names over `@doneisbetter/gds-core` `MetricCard`.
+ * Amanoba prop names over `@sovereignsquad/gds-core` `MetricCard`.
  * Note: `progress` and `color` props are not currently passed to GDS.
  */
 export function MetricCard({ icon, value, label, detail }: MetricCardProps) {

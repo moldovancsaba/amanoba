@@ -7,7 +7,7 @@
 
 **Last Updated**: 2026-08-05
 **Scope**: `docs/**/*.md` (excluding `docs/_archive/**`)
-**Count**: 127
+**Count**: 128
 
 | Path | Title | Size |
 |------|-------|------|
@@ -35,9 +35,9 @@
 | `docs/core/CODING_STANDARDS.md` | Amanoba Coding Standards | 5.0 KB |
 | `docs/core/CONTRIBUTING.md` | Contributing to Amanoba | 14.0 KB |
 | `docs/core/CROSS_REPO_DOCS.md` | Cross-Repo Documentation References | 1.7 KB |
-| `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 19.0 KB |
+| `docs/core/DOCS_CANONICAL_MAP.md` | Docs Canonicalization Map | 19.2 KB |
 | `docs/core/DOCS_INDEX.md` | Documentation index | 6.9 KB |
-| `docs/core/DOCS_INVENTORY.md` | Docs Inventory | 11.3 KB |
+| `docs/core/DOCS_INVENTORY.md` | Docs Inventory | 11.4 KB |
 | `docs/core/DOCS_TRIAGE.md` | Docs Triage | 6.1 KB |
 | `docs/core/ENVIRONMENT_SETUP.md` | Environment Setup Guide | 4.8 KB |
 | `docs/core/LEARNINGS.md` | Amanoba Learnings | 76.8 KB |
@@ -80,19 +80,20 @@
 | `docs/handoff/feature_issues/gds-2.3-bodies/07-state-rollout.md` | 07-state-rollout | 2.8 KB |
 | `docs/handoff/feature_issues/gds-2.3-bodies/08-retire-local.md` | 08-retire-local | 2.3 KB |
 | `docs/handoff/feature_issues/gds-2.3-bodies/09-phase6-delete.md` | 09-phase6-delete | 3.3 KB |
+| `docs/handoff/GDS_UPSTREAM_HANDOFF_PACKET.md` | Amanoba GDS Upstream Handoff Packet | 10.4 KB |
 | `docs/handoff/HANDOFF_ARCHITECTURE_FIX_CRITICAL.md` | 📋 COMPREHENSIVE HANDOFF - ARCHITECTURAL GAP DISCOVERY & FIX PLAN | 17.4 KB |
 | `docs/handoff/HANDOFF_CONTEXT_WINDOW_2026-02-12.md` | Handover Snapshot — 2026-02-12 | 9.9 KB |
 | `docs/handoff/HANDOFF_DOCUMENT_COMPREHENSIVE.md` | 📋 QUIZ ENHANCEMENT PROJECT - COMPREHENSIVE STATUS & HANDOFF DOCUMENT | 15.6 KB |
 | `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` | Handoff Model — mvp-factory-control (Feature issues) | 5.2 KB |
 | `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` | MVP Factory Project — one-time setup (grant project scope) | 1.2 KB |
 | `docs/handoff/NEXT_WINDOW_PROMPT.md` | Prompt for Next Context Window | 2.8 KB |
-| `docs/HANDOVER.md` | Amanoba — Developer Handover | 143.6 KB |
+| `docs/HANDOVER.md` | Amanoba — Developer Handover | 176.2 KB |
 | `docs/i18n/ADMIN_LANGUAGE_SETUP.md` | Admin Language Configuration | 3.4 KB |
 | `docs/i18n/I18N_SETUP.md` | Amanoba i18n Reference | 3.9 KB |
 | `docs/i18n/INDEX_LANGUAGE_SEPARATION_PROJECT.md` | 📑 INDEX: Language Separation Project - Complete Documentation | 10.6 KB |
 | `docs/i18n/LANGUAGE_DROPDOWN_PROBLEM_LOG.md` | Language dropdown / i18n problem — collected information | 13.1 KB |
 | `docs/product/COURSE_CREATION_PLAYBOOK.md` | Amanoba Course Creation Playbook | 17.7 KB |
-| `docs/product/DESIGN_UPDATE.md` | Design System Adapter Status | 6.8 KB |
+| `docs/product/DESIGN_UPDATE.md` | Design System Adapter Status | 7.1 KB |
 | `docs/product/DEVELOPER_FEEDBACK_ANALYSIS.md` | Developer Feedback Analysis | 7.2 KB |
 | `docs/product/GDS_ACCESSIBILITY_VERIFICATION.md` | GDS Accessibility Verification | 2.1 KB |
 | `docs/product/GDS_ADOPTION_MANIFEST.md` | Amanoba GDS Adoption Manifest | 6.6 KB |
@@ -101,7 +102,7 @@
 | `docs/product/MOBILE_STRATEGY.md` | Mobile Strategy & Scope (#12) | 3.3 KB |
 | `docs/product/NEXT_PHASES.md` | Next Phases: Detailed Implementation Plan | 13.6 KB |
 | `docs/product/P3_KNOWN_ISSUES_BACKLOG.md` | P3 Known Issues — Backlog | 2.0 KB |
-| `docs/product/PATTERN_CONTRACT_INVENTORY.md` | Amanoba Pattern Contract Inventory | 4.4 KB |
+| `docs/product/PATTERN_CONTRACT_INVENTORY.md` | Amanoba Pattern Contract Inventory | 7.2 KB |
 | `docs/product/RELEASE_NOTES.md` | Amanoba Release Notes | 176.7 KB |
 | `docs/product/ROADMAP_TASKLIST_SYSTEM_COMPARISON.md` | ROADMAP vs TASKLIST vs System Outline — Comparison | 5.7 KB |
 | `docs/product/ROADMAP.md` | Amanoba Roadmap — Future Vision & Client Benefits | 5.5 KB |

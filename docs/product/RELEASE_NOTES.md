@@ -32,7 +32,7 @@
 - **Doc truth guard:** Added `npm run docs:truth:check` and wired it into `docs:check` to block stale legacy GDS references, duplicate local-repo path references, and old GitHub tarball install guidance in current-truth docs.
 - **Continuity docs simplified:** Rewrote `docs/core/amanoba_codex_brain_dump.md` as a pointer-only restore note and updated the agent operating document to start with `PROJECT_STATE.md`.
 - **Learner shell boundary:** Introduced `app/components/patterns/gds/LearnerShellAdapter.tsx` as the future swap point for the shared learner shell while keeping the existing `LearnerPageHeader` import contract stable pending GDS issue `#80`.
-- **Course card migration:** Moved the learner-facing course card implementation to `app/components/patterns/gds/CourseCard.tsx` on top of `@doneisbetter/gds-core/client` `PublicProductCard`, while preserving the existing product call sites through the thin re-export.
+- **Course card migration:** Moved the learner-facing course card implementation to `app/components/patterns/gds/CourseCard.tsx` on top of `@sovereignsquad/gds-core/client` `PublicProductCard`, while preserving the existing product call sites through the thin re-export.
 - **Admin/editor surface closure:** Added `ContentOpsSection` and a sticky `ContentOpsActionBar` to the admin course editor so dirty tracking and save status now use the same GDS admin language already adopted by the editor shell.
 - **Accessibility verification:** Added `docs/product/GDS_ACCESSIBILITY_VERIFICATION.md` plus `npm run ui:check:gds-a11y` to keep keyboard/focus/contrast checks explicit for admin shell, editor shell, learner header, and course card surfaces.
 

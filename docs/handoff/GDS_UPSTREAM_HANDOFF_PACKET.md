@@ -2,7 +2,7 @@
 
 **Generated**: 2026-08-05  
 **From**: Amanoba GDS Readiness Program (#878)  
-**GDS Version**: 2.6.1  
+**GDS Version**: 3.14.17  
 **Product Archetype**: `lms-game`
 
 ---
@@ -36,7 +36,7 @@ GDS does not currently provide an LMS-specific learner shell/header contract. Pr
 
 ### Desired Upstream Contract
 
-**Package**: `@doneisbetter/gds-lms` (new) or extension in `@doneisbetter/gds-core/client`
+**Package**: `@sovereignsquad/gds-lms` (new) or extension in `@sovereignsquad/gds-core/client`
 
 **Component**: `LearnerAppShell` or `LearnerHeader`
 
@@ -85,7 +85,7 @@ type LearnerAppShellProps = {
 
 ### Non-Goals
 
-- Generic admin shell (already solved by `@doneisbetter/gds-admin`)
+- Generic admin shell (already solved by `@sovereignsquad/gds-admin`)
 - Marketing shell (already solved by `PublicAppShell` local adapter)
 - Course-specific navigation (product-local)
 
@@ -122,7 +122,7 @@ GDS `PublicProductCard` provides a single product card variant. LMS and e-commer
 
 ### Desired Upstream Contract
 
-**Package**: `@doneisbetter/gds-core/client` (extension of existing `PublicProductCard`)
+**Package**: `@sovereignsquad/gds-core/client` (extension of existing `PublicProductCard`)
 
 **Component**: `PublicProductCard` with `variant` prop
 
@@ -206,13 +206,13 @@ GDS `extendGdsTheme` provides runtime theme authority for CSS/Mantine components
 
 ### Desired Upstream Contract
 
-**Package**: `@doneisbetter/gds-theme/server` (extension)
+**Package**: `@sovereignsquad/gds-theme/server` (extension)
 
 **Export**: `extractTokenBridge` or `getServerTokens`
 
 **API**:
 ```typescript
-import { extendGdsTheme, extractTokenBridge } from '@doneisbetter/gds-theme/server';
+import { extendGdsTheme, extractTokenBridge } from '@sovereignsquad/gds-theme/server';
 
 const theme = extendGdsTheme({ /* ... */ });
 
@@ -306,7 +306,7 @@ The following gaps were initially considered but **resolved locally** via docume
 
 **Product**: Amanoba (unified flexible learning platform)  
 **Owner**: amanoba-ui  
-**GDS Version**: 2.6.1  
+**GDS Version**: 3.14.17  
 **Local Adoption**: Enforced (11 adapters, 5 exceptions)  
 **Compliance**: ✅ Passing (11/11 checks)
 

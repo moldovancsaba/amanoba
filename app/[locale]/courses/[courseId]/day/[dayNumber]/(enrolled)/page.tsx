@@ -28,7 +28,6 @@ import {
   Text,
   ThemeIcon,
   Title,
-  TypographyStylesProvider,
 } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 import {
@@ -1029,8 +1028,9 @@ export default function DailyLessonPage({
             ) : null}
 
             <Card padding="xl" radius="md" withBorder>
-              <TypographyStylesProvider
-                className="lesson-prose lesson-prose-dark"
+              <Box
+                component="div"
+                className="lesson-prose lesson-prose-dark mantine-typography-styles"
                 dangerouslySetInnerHTML={{ __html: contentToHtml(lesson.content, { stripFirstH1: true }) }}
               />
               <Divider my="lg" />

@@ -208,7 +208,7 @@ export default function CourseStudyGroups({
                 {createLabel}
               </Button>
             ) : null}
-            <Collapse in={showCreate}>
+            <Collapse expanded={showCreate}>
               <Stack gap="sm">
                 <TextInput
                   value={newName}

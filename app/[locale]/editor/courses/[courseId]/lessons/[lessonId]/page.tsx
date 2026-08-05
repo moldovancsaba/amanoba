@@ -7,7 +7,7 @@ import { useLocale } from 'next-intl';
 import {
   ContentOpsActionBar,
   EditorScaffold,
-} from '@doneisbetter/gds-admin/client';
+} from '@sovereignsquad/gds-admin/client';
 import { Alert, Anchor, Badge, Box, Button, Group, Loader, Paper, Stack, Text, Textarea, TextInput } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 import { IconArrowLeft, IconDeviceFloppy, IconListCheck } from '@tabler/icons-react';

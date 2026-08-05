@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Badge, Box, Group, Image as MantineImage, Progress, Stack, Text } from '@mantine/core';
 import type { MantineColor } from '@mantine/core';
 import { IconBook } from '@tabler/icons-react';
-import { PublicProductCard } from '@doneisbetter/gds-core/client';
+import { PublicProductCard } from '@sovereignsquad/gds-core/client';
 
 /**
  * Course metric (label-value pair).
@@ -195,7 +195,7 @@ function renderProgress(progress?: CourseProgress) {
  * - `/[locale]/my-courses` - Enrolled courses (progress)
  * - `/[locale]/dashboard` - Active course progress
  * 
- * **GDS Backing**: ✅ `@doneisbetter/gds-core/client` `PublicProductCard`
+ * **GDS Backing**: ✅ `@sovereignsquad/gds-core/client` `PublicProductCard`
  * 
  * **Variant Usage Patterns**:
  * 

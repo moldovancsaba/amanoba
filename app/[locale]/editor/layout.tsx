@@ -1,5 +1,5 @@
 /**
- * Editor portal layout — `@doneisbetter/gds-admin` AppShell with Amanoba navigation.
+ * Editor portal layout — `@sovereignsquad/gds-admin` AppShell with Amanoba navigation.
  */
 
 'use client';
@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
-import { AppShell } from '@doneisbetter/gds-admin/client';
+import { AppShell } from '@sovereignsquad/gds-admin/client';
 import {
   Avatar,
   Box,

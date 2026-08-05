@@ -17,7 +17,6 @@ import {
   Stack,
   Text,
   Title,
-  TypographyStylesProvider,
 } from '@mantine/core';
 import { IconArrowLeft } from '@tabler/icons-react';
 import { getPublicLessonData } from '@/app/lib/public-lesson';
@@ -100,7 +99,7 @@ export default async function PublicLessonViewPage({ params }: ViewPageProps) {
       </Paper>
 
       <Container size="lg" py="xl">
-        <Grid gutter="xl">
+        <Grid gap="xl">
           <GridCol span={{ base: 12, lg: 8 }}>
             <Stack gap="lg">
               <Card padding="lg" withBorder>
@@ -112,14 +111,13 @@ export default async function PublicLessonViewPage({ params }: ViewPageProps) {
                 </Text>
               </Card>
               <Card padding="xl" withBorder>
-                <TypographyStylesProvider>
-                  <Box
-                    className="lesson-prose"
-                    dangerouslySetInnerHTML={{
-                      __html: contentToHtml(data.lesson.content, { stripFirstH1: true }),
-                    }}
-                  />
-                </TypographyStylesProvider>
+                <Box
+                  component="div"
+                  className="lesson-prose mantine-typography-styles"
+                  dangerouslySetInnerHTML={{
+                    __html: contentToHtml(data.lesson.content, { stripFirstH1: true }),
+                  }}
+                />
               </Card>
             </Stack>
           </GridCol>

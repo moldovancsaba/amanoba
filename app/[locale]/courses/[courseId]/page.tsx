@@ -1219,7 +1219,7 @@ export default function CourseDetailPage({
         <Container size="lg">
           <Stack gap="lg">
             <Skeleton height={76} radius="md" />
-            <Grid gutter="lg">
+            <Grid gap="lg">
               <Grid.Col span={{ base: 12, md: 8 }}>
                 <Stack gap="lg">
                   <Skeleton height={340} radius="md" />
@@ -1327,7 +1327,7 @@ export default function CourseDetailPage({
         py={{ base: 'lg', sm: 'xl' }}
         style={{ paddingBottom: MOBILE_COURSE_DETAIL_BOTTOM_PADDING }}
       >
-        <Grid gutter={{ base: 'lg', lg: 'xl' }}>
+        <Grid gap={{ base: 'lg', lg: 'xl' }}>
           <Grid.Col span={{ base: 12, lg: 8 }}>
             <Stack gap="lg">
             {course.thumbnail && !thumbnailError ? (

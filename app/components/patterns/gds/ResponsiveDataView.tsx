@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import {
   ResponsiveDataView as GdsResponsiveDataView,
   type DataTableColumn,
-} from '@doneisbetter/gds-admin/client';
+} from '@sovereignsquad/gds-admin/client';
 import { Box, Card, Group, Stack, Text } from '@mantine/core';
 
 /**
@@ -129,7 +129,7 @@ function DefaultMobileCard<T extends object>({
  * **Consuming Routes**:
  * - All admin list pages (players, payments, certificates, courses, rewards, quests, surveys, games, analytics, email-analytics, questions, achievements, votes, challenges, discussion, feature-flags, certificate-templates)
  * 
- * **GDS Backing**: ✅ `@doneisbetter/gds-admin/client` `ResponsiveDataView`
+ * **GDS Backing**: ✅ `@sovereignsquad/gds-admin/client` `ResponsiveDataView`
  * 
  * **Responsive Behavior**:
  * - **Desktop**: Data table with sortable columns
@@ -177,7 +177,7 @@ function DefaultMobileCard<T extends object>({
  * @see {@link AdminPageHeader} for page title
  * 
  * @remarks
- * Admin list contract — delegates table/card responsive layout to `@doneisbetter/gds-admin`.
+ * Admin list contract — delegates table/card responsive layout to `@sovereignsquad/gds-admin`.
  * Preserves Amanoba column API (`header` / `cell`, mobile labels) for existing admin pages.
  */
 export function ResponsiveDataView<T extends object>({

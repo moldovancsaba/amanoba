@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { ProgressCard as GdsProgressCard } from '@doneisbetter/gds-core/client';
+import { ProgressCard as GdsProgressCard } from '@sovereignsquad/gds-core/client';
 
 /**
  * Props for {@link ProgressCard}.
@@ -48,7 +48,7 @@ type ProgressCardProps = {
  * - `/[locale]/my-courses` - Enrolled course progress list
  * - `/[locale]/profile/[playerId]` - Player course progress summary
  * 
- * **GDS Backing**: ✅ `@doneisbetter/gds-core/client` `ProgressCard`
+ * **GDS Backing**: ✅ `@sovereignsquad/gds-core/client` `ProgressCard`
  * 
  * **Slots**:
  * - `label` (required): Course/item name
@@ -79,7 +79,7 @@ type ProgressCardProps = {
  * @see {@link StateBlock} for loading/empty/error states
  * 
  * @remarks
- * Amanoba prop aliases over `@doneisbetter/gds-core` `ProgressCard`.
+ * Amanoba prop aliases over `@sovereignsquad/gds-core` `ProgressCard`.
  * Note: `color` prop is not currently passed to GDS.
  */
 export function ProgressCard({

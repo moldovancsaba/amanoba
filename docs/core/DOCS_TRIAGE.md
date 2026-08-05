@@ -7,7 +7,7 @@
 
 **Last Updated**: 2026-08-05
 
-**Counts**: DELETE=0, MERGE=0, ARCHIVE=5, KEEP(unclassified)=82
+**Counts**: DELETE=0, MERGE=0, ARCHIVE=5, KEEP(unclassified)=83
 
 This file is the “what to do next” view derived from `docs/core/DOCS_CANONICAL_MAP.md`.
 
@@ -70,6 +70,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/handoff/feature_issues/gds-2.3-bodies/07-state-rollout.md` — 07-state-rollout
 - `docs/handoff/feature_issues/gds-2.3-bodies/08-retire-local.md` — 08-retire-local
 - `docs/handoff/feature_issues/gds-2.3-bodies/09-phase6-delete.md` — 09-phase6-delete
+- `docs/handoff/GDS_UPSTREAM_HANDOFF_PACKET.md` — Amanoba GDS Upstream Handoff Packet
 - `docs/handoff/HANDOFF_ARCHITECTURE_FIX_CRITICAL.md` — 📋 COMPREHENSIVE HANDOFF - ARCHITECTURAL GAP DISCOVERY & FIX PLAN
 - `docs/handoff/HANDOFF_DOCUMENT_COMPREHENSIVE.md` — 📋 QUIZ ENHANCEMENT PROJECT - COMPREHENSIVE STATUS & HANDOFF DOCUMENT
 - `docs/i18n/ADMIN_LANGUAGE_SETUP.md` — Admin Language Configuration
@@ -85,8 +86,7 @@ This file is the “what to do next” view derived from `docs/core/DOCS_CANONIC
 - `docs/product/VOTING_AND_REUSE_PATTERN.md` — Unified Voting and Reuse Pattern
 - `docs/quality/CODE_REVIEW_FINDINGS.md` — Code Review: Boolean Filter Logic Issues
 - `docs/quality/PHASE_1_AUDIT_WORKSHEET.md` — PHASE 1 EXECUTION AUDIT WORKSHEET
-- `docs/quality/PHASE_2_AUDIT_TRACKER.md` — PHASE 2 AUDIT - COURSES 2-8
-- … +22 more
+- … +23 more
 
 ## Next suggested move
 - Review KEEP(unclassified) docs and either promote to canonical sections in `docs/core/DOCS_INDEX.md` or archive.

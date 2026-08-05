@@ -66,7 +66,7 @@ export default function CookieConsentBanner() {
           </Text>
         </Stack>
 
-        <Collapse in={showDetails}>
+        <Collapse expanded={showDetails}>
           <Stack gap="sm">
             <Paper p="sm" withBorder>
               <Stack gap={6}>
