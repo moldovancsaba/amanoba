@@ -3717,3 +3717,87 @@ course.certification = {
 - ✅ Migration tested: Existing course already had certification enabled
 - ✅ Schema default verified: New courses will have certification.enabled = true
 
+---
+
+## 2026-08-06 - Add Quiz Questions to Meet Certification Pool Requirement
+
+**What Changed**: Added 43 high-quality quiz questions to "AI for dummies in a day" course, increasing the question pool from 7 to 50 questions. This meets the minimum requirement for final certification exams.
+
+**Why**: Final certification exams require at least 50 questions in the pool. The course previously had only 7 questions, preventing the certification feature from being available ("Certification unavailable - Pool size: 7").
+
+**Question Topics Added**:
+
+- **AI Fundamentals**: What is AI, narrow vs general AI, machine learning basics
+- **AI Techniques**: Neural networks, deep learning, NLP, computer vision
+- **Learning Types**: Supervised, unsupervised, reinforcement learning
+- **AI Applications**: Chatbots, recommendation systems, fraud detection, healthcare
+- **Key Concepts**: Training, inference, algorithms, data, models, automation
+- **Advanced Topics**: Transfer learning, overfitting, explainable AI, edge AI
+- **Industry Knowledge**: Turing Test, GPT, LLMs, generative AI, AI ethics
+- **Practical Skills**: Prompt engineering, sentiment analysis, computer vision
+
+**Question Quality**:
+
+- **Difficulty Levels**: Mix of EASY (basics) and MEDIUM (intermediate concepts)
+- **Question Type**: Recall (testing knowledge and understanding)
+- **Explanations**: Each question includes detailed explanation of the correct answer
+- **Relevance**: All questions aligned with "AI for dummies" beginner-friendly approach
+- **Variety**: Multiple-choice format with 4 options each
+
+**Example Questions**:
+
+1. "What does AI stand for?" (EASY)
+2. "What is machine learning?" (EASY)
+3. "What is deep learning?" (MEDIUM)
+4. "What is the Turing Test?" (MEDIUM)
+5. "What is prompt engineering?" (MEDIUM)
+
+**Impact**:
+
+✅ **Certification Now Available**: Final exam is now accessible for completed courses  
+✅ **Pool Requirement Met**: 50 questions >= 50 minimum threshold  
+✅ **Quality Learning**: Comprehensive coverage of AI basics for beginners  
+✅ **Proper Difficulty**: Questions matched to course level (1-day intro)  
+✅ **Student Value**: Certificate has credibility with substantive exam  
+
+**Technical Details**:
+
+- Total questions: 50 (7 original + 43 new)
+- Category: "Course Specific"
+- Difficulty: EASY (beginner concepts), MEDIUM (intermediate)
+- Question Type: `recall` (knowledge testing)
+- All questions: `isActive: true`, `isCourseSpecific: true`
+
+**Files Added**:
+- `scripts/add-quiz-questions-ai-dummies.ts` — Script to add 43 questions to course
+
+**Execution**:
+```bash
+npx tsx --env-file=.env.local scripts/add-quiz-questions-ai-dummies.ts
+```
+
+**Result**:
+```
+✅ Added 43 new questions
+📊 Total questions now: 50
+✅ Pool size requirement met! (>= 50 questions)
+```
+
+**Quality Gates**:
+- ✅ All questions validated with QuizQuestion model
+- ✅ Correct enum values: difficulty (EASY/MEDIUM), questionType (recall)
+- ✅ Database insert successful
+- ✅ Pool size verified: 50 questions
+
+**User Experience Before vs After**:
+
+**Before**:
+- ❌ "Certification unavailable"
+- ❌ "Pool size: 7. Certification is disabled until the pool has at least 50 questions"
+- ❌ No final exam button
+
+**After**:
+- ✅ "Start Final Exam" button visible
+- ✅ Certification available for completed students
+- ✅ 50-question pool ready for random exam generation
+
