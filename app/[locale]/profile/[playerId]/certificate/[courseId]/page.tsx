@@ -146,23 +146,42 @@ export default function CertificatePage({
     }
 
     try {
-      const imageUrl = `/api/profile/${playerId}/certificate/${courseId}/image?variant=${variant}&locale=${encodeURIComponent(locale)}`;
+      const cacheBuster = Date.now();
+      const imageUrl = `/api/profile/${playerId}/certificate/${courseId}/image?variant=${variant}&locale=${encodeURIComponent(locale)}&t=${cacheBuster}`;
       console.log('Fetching certificate image from:', imageUrl);
       
-      const response = await fetch(imageUrl);
+      const response = await fetch(imageUrl, {
+        method: 'GET',
+        cache: 'no-store',
+        headers: {
+          'Accept': 'image/png',
+        },
+      });
       console.log('Response status:', response.status, response.statusText);
+      console.log('Response headers:', Object.fromEntries([...response.headers.entries()]));
       
       if (!response.ok) {
         const errorText = await response.text();
         console.error('Image generation failed:', errorText);
-        throw new Error(`Failed to generate certificate image: ${response.status} - ${errorText}`);
+        throw new Error(`Failed to generate certificate image: ${response.status} - ${errorText.slice(0, 200)}`);
       }
 
       const contentType = response.headers.get('content-type');
       console.log('Content-Type:', contentType);
 
+      if (!contentType || !contentType.includes('image')) {
+        console.warn('Unexpected content type:', contentType);
+        const textPreview = await response.clone().text().then(t => t.slice(0, 500));
+        console.error('Response text preview:', textPreview);
+        throw new Error(`Expected image/png but got ${contentType}. This might be an error page.`);
+      }
+
       const blob = await response.blob();
       console.log('Blob size:', blob.size, 'type:', blob.type);
+      
+      if (blob.size === 0) {
+        throw new Error('Received empty image data');
+      }
       
       const url = window.URL.createObjectURL(blob);
       const anchor = document.createElement('a');
