@@ -14,7 +14,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/app/lib/mongodb';
 import { CourseProgress } from '@/app/lib/models';
-import { uploadBufferToImgBB } from '@/app/lib/imgbb/upload';
+import { uploadToImgBB } from '@/lib/utils/imgbb';
 
 export const dynamic = 'force-dynamic';
 
@@ -79,17 +79,23 @@ export async function POST(
       );
     }
 
-    const imageBuffer = Buffer.from(await imageResponse.arrayBuffer());
-
-    // Upload to ImgBB
-    const uploadResult = await uploadBufferToImgBB(
-      imageBuffer,
-      `certificate-${playerId}-${courseId}-${variant}`
-    );
-
-    if (!uploadResult.success || !uploadResult.url) {
+    const apiKey = process.env.IMGBB_API_KEY;
+    if (!apiKey) {
       return NextResponse.json(
-        { success: false, error: uploadResult.error || 'Failed to upload to ImgBB' },
+        { success: false, error: 'IMGBB_API_KEY not configured' },
+        { status: 500 }
+      );
+    }
+
+    const imageBuffer = Buffer.from(await imageResponse.arrayBuffer());
+    const base64Image = imageBuffer.toString('base64');
+
+    // Upload to ImgBB using existing utility
+    const uploadResult = await uploadToImgBB(base64Image, apiKey);
+
+    if (!uploadResult.success) {
+      return NextResponse.json(
+        { success: false, error: 'Failed to upload to ImgBB' },
         { status: 500 }
       );
     }
@@ -104,8 +110,8 @@ export async function POST(
       {
         $set: {
           [updateField]: {
-            url: uploadResult.url,
-            deleteUrl: uploadResult.deleteUrl,
+            url: uploadResult.data.url,
+            deleteUrl: uploadResult.data.delete_url,
             uploadedAt: new Date(),
           },
         },
@@ -115,9 +121,9 @@ export async function POST(
 
     return NextResponse.json({
       success: true,
-      url: uploadResult.url,
-      deleteUrl: uploadResult.deleteUrl,
-      viewerUrl: uploadResult.viewerUrl,
+      url: uploadResult.data.url,
+      deleteUrl: uploadResult.data.delete_url,
+      viewerUrl: uploadResult.data.url_viewer,
     });
   } catch (error) {
     console.error('Failed to generate and upload certificate:', error);
