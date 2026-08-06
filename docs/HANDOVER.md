@@ -3801,3 +3801,105 @@ npx tsx --env-file=.env.local scripts/add-quiz-questions-ai-dummies.ts
 - ✅ Certification available for completed students
 - ✅ 50-question pool ready for random exam generation
 
+---
+
+## 2026-08-06 - Set Certification Pass Threshold to 60% and Calculate at End
+
+**What Changed**: Updated certification exam defaults to use 60% pass threshold (instead of 50%) and removed immediate failure logic (calculate results only at the end of the exam).
+
+**Why**: Improve student experience and align with educational standards:
+1. **60% is industry standard** for passing assessments (vs previous 50%)
+2. **Calculate at end** gives students chance to complete all questions instead of failing early
+3. **Better UX** - students can see their full performance, not just "failed at 2%"
+
+**Changes**:
+
+1. **Course Model Schema** (`app/lib/models/course.ts`):
+   - `certification.passThresholdPercent` default: `undefined` → `60`
+   - `certification.maxErrorPercent` default: `undefined` → `null`
+
+2. **Database Update Script** (`scripts/update-certification-settings.ts`):
+   - Updated existing course to use new defaults
+   - AI for dummies course: pass threshold 60%, maxErrorPercent null
+
+**Behavior Changes**:
+
+**Pass Threshold (passThresholdPercent)**:
+- **Before**: 50% default (if not set)
+- **After**: 60% default
+- Student must score **60% or higher** to pass and earn certificate
+
+**Early Failure (maxErrorPercent)**:
+- **Before**: If set to e.g. 10%, exam fails immediately when error rate > 10%
+- **After**: `null` by default = no early failure
+- Student answers **all questions** regardless of performance
+- Final score calculated **at the end**
+
+**Impact**:
+
+✅ **Better UX**: Students complete full exam and see final score  
+✅ **Industry standard**: 60% pass threshold aligns with common practice  
+✅ **Fair assessment**: No premature failure, full question exposure  
+✅ **Clearer feedback**: "Passed 65%" vs "Not passed 2%"  
+✅ **Backward compatible**: Courses can still set custom thresholds  
+
+**Example Scenarios**:
+
+**Scenario 1: Student answers 40/50 questions correctly**
+- Score: 80%
+- Result: **Passed** (80% >= 60% threshold)
+- Certificate: Issued
+
+**Scenario 2: Student answers 28/50 questions correctly**
+- Score: 56%
+- Result: **Not passed** (56% < 60% threshold)
+- Certificate: Not issued (can retake)
+
+**Scenario 3: With old immediate fail logic (maxErrorPercent: 10)**
+- After 10 questions: 8 wrong, 2 correct
+- Error rate: 80% (exceeds 10% threshold)
+- Result: Exam failed immediately at question 10
+- **Problem**: Student never saw remaining 40 questions
+
+**Scenario 3: With new logic (maxErrorPercent: null)**
+- After 10 questions: 8 wrong, 2 correct
+- Exam continues to all 50 questions
+- Final score calculated at end
+- Student has chance to recover
+
+**Files Modified**:
+- `app/lib/models/course.ts` — Added default values for certification settings
+
+**Files Added**:
+- `scripts/update-certification-settings.ts` — Migration script to update existing courses
+
+**Database Update Result**:
+```
+✅ Updated 1 courses
+   AI_DUMMIES_1DAY_EN:
+      Pass threshold: 60%
+      Max error percent: null (calculate at end)
+```
+
+**Quality Gates**:
+- ✅ TypeScript: No type errors
+- ✅ Logic verified: Early fail check skipped when maxErrorPercent is null
+- ✅ Finalization logic: Uses passThresholdPercent (defaults to 60%)
+- ✅ Database updated: Existing course uses new settings
+
+**Configuration Options**:
+
+Courses can still customize these settings:
+```typescript
+course.certification = {
+  enabled: true,
+  passThresholdPercent: 70,        // Custom threshold (e.g., 70%)
+  maxErrorPercent: 15,              // Re-enable early fail (e.g., 15% max error)
+  // ... other settings
+};
+```
+
+**Related Code**:
+- Early fail logic: `app/api/certification/final-exam/answer/route.ts` (lines 103-116)
+- Finalization logic: `app/lib/certification/final-exam-finalize.ts` (line 57)
+
