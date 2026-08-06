@@ -33,19 +33,7 @@ async function migrateCertificates() {
       console.log(`   Player: ${cert.playerId}`);
       console.log(`   Course: ${cert.courseId}`);
 
-      // Check if already uploaded
-      const progress = await CourseProgress.findOne({
-        playerId: cert.playerId,
-        courseId: cert.courseId,
-      }).lean();
-
-      if (progress?.certificateImages?.share?.url && progress?.certificateImages?.print?.url) {
-        console.log(`   ⏭️  Skipped - already uploaded`);
-        skipped++;
-        continue;
-      }
-
-      // Fetch player and course data
+      // Fetch player and course data first
       const [player, course] = await Promise.all([
         Player.findById(cert.playerId).lean(),
         Course.findOne({ courseId: cert.courseId }).lean(),
@@ -57,6 +45,18 @@ async function migrateCertificates() {
         continue;
       }
 
+      // Check if already uploaded (use course._id, not courseId string)
+      const progress = await CourseProgress.findOne({
+        playerId: cert.playerId,
+        courseId: course._id,
+      }).lean();
+
+      if (progress?.certificateImages?.share?.url && progress?.certificateImages?.print?.url) {
+        console.log(`   ⏭️  Skipped - already uploaded`);
+        skipped++;
+        continue;
+      }
+
       // Generate and upload
       console.log(`   📤 Uploading to ImgBB...`);
       const result = await generateAndUploadCertificateImages({
@@ -64,8 +64,8 @@ async function migrateCertificates() {
         courseTitle: cert.courseTitle || course.name || course.courseId,
         finalExamScore: cert.finalExamScorePercentInteger,
         locale: cert.locale || course.language || 'en',
-        playerId: cert.playerId,
-        courseId: cert.courseId,
+        playerId: cert.playerId.toString(),
+        courseId: course._id.toString(), // Use course's MongoDB _id, not courseId string
       });
 
       if (result?.shareUrl && result?.printUrl) {

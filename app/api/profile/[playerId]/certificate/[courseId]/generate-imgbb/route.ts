@@ -13,7 +13,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/app/lib/mongodb';
-import { CourseProgress } from '@/app/lib/models';
+import { CourseProgress, Course } from '@/app/lib/models';
 import { uploadToImgBB } from '@/lib/utils/imgbb';
 
 export const dynamic = 'force-dynamic';
@@ -43,9 +43,20 @@ export async function POST(
 
     // Check if already uploaded
     await connectDB();
+    
+    // Look up Course by courseId string to get its MongoDB _id
+    const course = await Course.findOne({ courseId }).lean();
+    if (!course) {
+      return NextResponse.json(
+        { success: false, error: 'Course not found' },
+        { status: 404 }
+      );
+    }
+    
+    // Query CourseProgress using the course's _id
     const progress = await CourseProgress.findOne({
       playerId,
-      courseId,
+      courseId: course._id,
     }).lean();
 
     if (progress?.certificateImages) {
@@ -100,13 +111,13 @@ export async function POST(
       );
     }
 
-    // Store ImgBB URL in database
+    // Store ImgBB URL in database (using course._id)
     const updateField = variant === 'print_a4'
       ? 'certificateImages.print'
       : 'certificateImages.share';
 
     await CourseProgress.findOneAndUpdate(
-      { playerId, courseId },
+      { playerId, courseId: course._id },
       {
         $set: {
           [updateField]: {
