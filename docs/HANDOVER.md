@@ -4216,6 +4216,126 @@ curl -X POST "https://www.amanoba.com/api/profile/[playerId]/certificate/[course
 
 - Implement delete functionality for regenerating certificates
 - Add ImgBB URL to certificate verification page
-- Pre-generate certificates on exam completion
+- ~~Pre-generate certificates on exam completion~~ ✅ **IMPLEMENTED** (see below)
 - Add thumbnail variant for profile cards
+
+---
+
+## 2026-08-06: Automatic Certificate Upload on Exam Pass
+
+**Context**: User requested certificates be automatically generated and uploaded to ImgBB when exam is passed, not stored on our servers.
+
+**Problem**: 
+- Previous implementation uploaded certificates on-demand (when user clicked download)
+- Caused delay on certificate page
+- Certificates not ready immediately after passing exam
+
+**Solution**: Automatic upload during exam finalization
+
+**Implementation**:
+
+1. **Certificate Image Generator** (`app/lib/certification/generate-certificate-images.ts`)
+   - `generateAndUploadCertificateImages(data)` - Generates both share and print variants
+   - Uses Next.js `ImageResponse` for PNG generation
+   - Uploads both variants to ImgBB in parallel
+   - Stores URLs in `CourseProgress.certificateImages`
+   - Returns: `{ shareUrl, printUrl }`
+
+2. **Exam Finalization Hook** (`app/lib/certification/final-exam-finalize.ts`)
+   - Added automatic certificate upload after exam passed
+   - Triggers when `certificateEligible === true`
+   - Non-blocking: exam success not dependent on upload
+   - Logs errors but doesn't fail exam submission
+
+3. **Download Handler Update** (`app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx`)
+   - **Old**: Generated image on-demand from `/generate-imgbb` API
+   - **New**: Fetches pre-uploaded ImgBB URLs from certificate-status API
+   - Direct download from ImgBB CDN (instant)
+   - Fallback message if images not ready yet
+
+4. **Certificate Status API** (`app/api/profile/[playerId]/certificate-status/route.ts`)
+   - Added `certificateImages` field to response
+   - Includes both share and print variant URLs
+   - Frontend uses these for instant downloads
+
+5. **Migration Script** (`scripts/migrate-existing-certificates-to-imgbb.ts`)
+   - Backfills certificate images for existing certificates
+   - Finds all non-revoked certificates without ImgBB URLs
+   - Generates and uploads both variants
+   - Usage: `npx tsx --env-file=.env.local scripts/migrate-existing-certificates-to-imgbb.ts`
+   - Includes progress reporting and error handling
+
+**Flow**:
+
+```
+User submits final exam
+         ↓
+Calculate score & determine pass/fail
+         ↓
+If passed and eligible → Create Certificate document
+         ↓
+Automatically generate both certificate variants (share + print)
+         ↓
+Upload both to ImgBB in parallel
+         ↓
+Store URLs in CourseProgress.certificateImages
+         ↓
+Return exam result to user
+         ↓
+[Later] User visits certificate page
+         ↓
+Download buttons use pre-uploaded ImgBB URLs
+         ↓
+Instant download from CDN (no generation delay)
+```
+
+**Benefits**:
+
+1. **Zero Storage on Our Servers** - All images on ImgBB
+2. **Instant Downloads** - No waiting for generation
+3. **Better UX** - Certificates ready immediately after passing
+4. **Reliable** - ImgBB CDN handles delivery
+5. **Non-Blocking** - Exam success not dependent on upload
+6. **Automatic** - No manual intervention needed
+
+**Migration**:
+
+For existing certificates (passed before this implementation):
+
+```bash
+# Run migration script
+npx tsx --env-file=.env.local scripts/migrate-existing-certificates-to-imgbb.ts
+
+# Output shows:
+# - Total certificates found
+# - Successfully migrated
+# - Skipped (already uploaded)
+# - Failed (with reasons)
+```
+
+**Files Changed**:
+- ✅ `app/lib/certification/generate-certificate-images.ts` - New image generator
+- ✅ `app/lib/certification/final-exam-finalize.ts` - Added auto-upload hook
+- ✅ `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx` - Use pre-uploaded URLs
+- ✅ `app/api/profile/[playerId]/certificate-status/route.ts` - Include certificateImages
+- ✅ `scripts/migrate-existing-certificates-to-imgbb.ts` - Migration script
+
+**Testing**:
+
+1. **New Certificate Flow**:
+   - Complete course and pass final exam
+   - Check logs for "Certificate images uploaded to ImgBB successfully"
+   - Visit certificate page - downloads should be instant
+
+2. **Existing Certificates**:
+   - Run migration script
+   - Check database: `CourseProgress` documents should have `certificateImages`
+   - Test download on old certificates
+
+**Known Behavior**:
+
+- If ImgBB upload fails during exam, certificate is still issued
+- User can still view/verify certificate
+- Download buttons will show "not ready" message until manual trigger
+- Migration script can be run multiple times (skips already uploaded)
 
