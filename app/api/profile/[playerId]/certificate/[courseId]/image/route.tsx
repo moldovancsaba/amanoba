@@ -46,6 +46,7 @@ export async function GET(
     const { playerId, courseId } = await params;
 
     if (!playerId || !courseId) {
+      logger.error({ playerId, courseId }, 'Missing playerId or courseId');
       return new Response('Player ID and Course ID are required', { status: 400 });
     }
 
@@ -57,9 +58,10 @@ export async function GET(
       ? { width: 1200, height: 1697 } // A4 ratio (1:1.414)
       : { width: 1200, height: 627 }; // LinkedIn/social ratio (1.91:1)
 
-    logger.info({ playerId, courseId, variant }, 'Generating certificate image');
+    logger.info({ playerId, courseId, variant, dimensions }, 'Generating certificate image');
 
     await connectDB();
+    logger.info('Database connected for certificate image generation');
 
     // Fetch data (courseId in URL is the course's courseId string)
     const [player, course, certificate] = await Promise.all([
@@ -69,8 +71,11 @@ export async function GET(
     ]);
 
     if (!player || !course) {
+      logger.error({ playerId, courseId, hasPlayer: !!player, hasCourse: !!course }, 'Player or course not found');
       return new Response('Player or course not found', { status: 404 });
     }
+
+    logger.info({ playerName: player.displayName, courseName: course.name }, 'Found player and course for certificate');
 
     // Resolve colors: per-course certification.themeColors > Brand themeColors > defaults
     let certColors: CertColors = { ...CERT_COLORS_DEFAULT };
@@ -144,6 +149,8 @@ export async function GET(
     const certificateId = `${playerId.slice(-8)}-${courseId.slice(-8)}`.toUpperCase();
 
     const isMinimal = templateId === 'minimal';
+
+    logger.info({ templateId, dimensions, certColors }, 'Rendering certificate image');
 
     return new ImageResponse(
       (
@@ -311,10 +318,16 @@ export async function GET(
       ),
       {
         ...dimensions,
+        headers: {
+          'Content-Type': 'image/png',
+          'Cache-Control': 'public, max-age=31536000, immutable',
+        },
       }
     );
   } catch (error) {
-    logger.error({ error }, 'Failed to generate certificate image');
-    return new Response('Failed to generate certificate image', { status: 500 });
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    const errorStack = error instanceof Error ? error.stack : undefined;
+    logger.error({ error: errorMessage, stack: errorStack }, 'Failed to generate certificate image');
+    return new Response(`Failed to generate certificate image: ${errorMessage}`, { status: 500 });
   }
 }
