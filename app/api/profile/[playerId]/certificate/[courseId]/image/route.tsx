@@ -160,9 +160,7 @@ export async function GET(
               style={{
                 fontSize: variant === 'print_a4' ? (isMinimal ? 52 : 72) : (isMinimal ? 42 : 56),
                 fontWeight: 'bold',
-                background: `linear-gradient(90deg, ${certColors.accent} 0%, ${certColors.titleGradientEnd} 100%)`,
-                backgroundClip: 'text',
-                color: 'transparent',
+                color: certColors.accent,
                 marginBottom: isMinimal ? '24px' : '40px',
                 lineHeight: 1.2,
               }}
