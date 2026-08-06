@@ -10,9 +10,9 @@ import { updateAllStagesMetrics } from '@/app/lib/progressive-generation';
 import { logger } from '@/app/lib/logger';
 
 interface RouteParams {
-  params: {
+  params: Promise<{
     topicName: string;
-  };
+  }>;
 }
 
 /**
@@ -26,8 +26,9 @@ export async function POST(
 ) {
   try {
     await connectDB();
-
-    const topicName = decodeURIComponent(params.topicName);
+    
+    const { topicName: rawTopicName } = await params;
+    const topicName = decodeURIComponent(rawTopicName);
 
     const tracker = await updateAllStagesMetrics(topicName);
 
@@ -47,7 +48,7 @@ export async function POST(
       message: 'Metrics refreshed successfully',
     });
   } catch (error) {
-    logger.error({ error, topicName: params.topicName }, 'Error refreshing metrics');
+    logger.error({ error }, 'Error refreshing metrics');
     return NextResponse.json(
       {
         success: false,

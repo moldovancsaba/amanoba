@@ -10,9 +10,9 @@ import { getProgressionPath } from '@/app/lib/progressive-generation';
 import { logger } from '@/app/lib/logger';
 
 interface RouteParams {
-  params: {
+  params: Promise<{
     courseId: string;
-  };
+  }>;
 }
 
 /**
@@ -32,8 +32,9 @@ export async function GET(
 ) {
   try {
     await connectDB();
-
-    const courseId = params.courseId.toUpperCase();
+    
+    const { courseId: rawCourseId } = await params;
+    const courseId = rawCourseId.toUpperCase();
 
     const path = await getProgressionPath(courseId);
 
@@ -51,7 +52,7 @@ export async function GET(
       data: path,
     });
   } catch (error) {
-    logger.error({ error, courseId: params.courseId }, 'Error fetching course progression');
+    logger.error({ error }, 'Error fetching course progression');
     return NextResponse.json(
       {
         success: false,

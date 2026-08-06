@@ -15,9 +15,9 @@ import {
 import { logger } from '@/app/lib/logger';
 
 interface RouteParams {
-  params: {
+  params: Promise<{
     topicName: string;
-  };
+  }>;
 }
 
 /**
@@ -31,8 +31,9 @@ export async function GET(
 ) {
   try {
     await connectDB();
-
-    const topicName = decodeURIComponent(params.topicName);
+    
+    const { topicName: rawTopicName } = await params;
+    const topicName = decodeURIComponent(rawTopicName);
 
     const status = await getProgressionStatus(topicName);
 
@@ -51,7 +52,7 @@ export async function GET(
       data: status,
     });
   } catch (error) {
-    logger.error({ error, topicName: params.topicName }, 'Error fetching progression details');
+    logger.error({ error }, 'Error fetching progression details');
     return NextResponse.json(
       {
         success: false,
@@ -81,8 +82,9 @@ export async function PATCH(
 ) {
   try {
     await connectDB();
-
-    const topicName = decodeURIComponent(params.topicName);
+    
+    const { topicName: rawTopicName } = await params;
+    const topicName = decodeURIComponent(rawTopicName);
     const body = await request.json();
 
     const tracker = await CourseGenerationTracker.findOne({ topicName });
@@ -120,7 +122,7 @@ export async function PATCH(
       data: tracker,
     });
   } catch (error) {
-    logger.error({ error, topicName: params.topicName }, 'Error updating progression tracker');
+    logger.error({ error }, 'Error updating progression tracker');
     return NextResponse.json(
       {
         success: false,
@@ -142,8 +144,9 @@ export async function DELETE(
 ) {
   try {
     await connectDB();
-
-    const topicName = decodeURIComponent(params.topicName);
+    
+    const { topicName: rawTopicName } = await params;
+    const topicName = decodeURIComponent(rawTopicName);
 
     const tracker = await CourseGenerationTracker.findOne({ topicName });
 
@@ -165,7 +168,7 @@ export async function DELETE(
       message: 'Progression tracker paused',
     });
   } catch (error) {
-    logger.error({ error, topicName: params.topicName }, 'Error deleting progression tracker');
+    logger.error({ error }, 'Error deleting progression tracker');
     return NextResponse.json(
       {
         success: false,
