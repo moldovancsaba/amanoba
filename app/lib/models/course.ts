@@ -322,7 +322,7 @@ const CourseSchema = new Schema<ICourse>(
     certification: {
       enabled: {
         type: Boolean,
-        default: false,
+        default: true,
       },
       poolCourseId: {
         type: String,
