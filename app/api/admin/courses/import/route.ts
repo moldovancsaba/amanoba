@@ -185,7 +185,7 @@ export async function POST(request: NextRequest) {
       context: 'course_import',
     });
 
-    const qualityResult = enforceCourseQuality(lessons, {
+    const qualityResult = enforceCourseQuality(lessons as never, {
       level: enforcementLevel,
       context: 'api_import',
       enforcedBy: session.user.email || session.user.name || 'admin',
