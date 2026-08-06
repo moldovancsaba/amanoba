@@ -4001,3 +4001,80 @@ If image still returns HTML:
 - Certificate page with download buttons: `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx`
 - Certificate status API: `app/api/profile/[playerId]/certificate-status/route.ts`
 
+---
+
+## 2026-08-06: UI Consistency and Navigation Fixes
+
+**Context**: User reported multiple UI inconsistencies and navigation issues after completing certificates.
+
+**Issues Fixed**:
+
+1. **Enroll vs. Enrol Spelling (British vs. US English)**
+   - **Issue**: Mixed British ("Enrol") and US English ("Enroll") across the UI
+   - **Fix**: Standardized all instances to US English "Enroll" across all 19 locale files
+   - **Files**: `messages/*.json`
+   - **Commit**: `c7813427`
+
+2. **Certificate Image Download Diagnostics**
+   - **Issue**: User reported download still failing despite edge runtime fix
+   - **Root Cause**: Browser caching old error responses
+   - **Fix**: Added cache-busting with timestamp, explicit cache headers, and enhanced error diagnostics
+   - **Changes**:
+     - Added `cache: 'no-store'` to fetch
+     - Added cache-buster query param `t=${Date.now()}`
+     - Enhanced content-type validation
+     - Improved error logging with response preview
+   - **File**: `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx`
+   - **Commit**: `cc01135f`
+
+3. **Profile Page Layout Overlap**
+   - **Issue**: "View Certificate" button overlapped text on profile/dashboard
+   - **Root Cause**: Certificate cards used horizontal layout with flex justify-space-between, causing text and buttons to compete for space
+   - **Fix**: Changed certificate cards to vertical `Stack` layout with buttons at bottom
+   - **File**: `app/[locale]/profile/[playerId]/page.tsx`
+   - **Commit**: `a4b55bd0`
+
+4. **Course Status Display in Browse View**
+   - **Issue**: Completed/certified courses showed as "Available" with "Enroll" button instead of showing proper status
+   - **Root Cause**: No visual distinction between available, enrolled, in-progress, completed, and certified courses
+   - **Fix**: Added status badges to course cards:
+     - "In Progress" (blue) for enrolled but incomplete
+     - "Completed" (green) for finished courses without certification
+     - "Certified" (green with trophy icon) for courses with earned certificates
+   - **File**: `app/[locale]/courses/page.tsx`
+   - **Commit**: `5766ce1c`
+
+5. **Certificate Button Navigation**
+   - **Issue**: Clicking certificate button on completed courses went to final exam instead of certificate page
+   - **Root Cause**: `getCatalogCourseActionHref` sent completed users to `/final-exam` endpoint
+   - **Fix**: Updated to navigate to certificate page at `/profile/[playerId]/certificate/[courseId]`
+   - **Changes**:
+     - Modified `getCatalogCourseActionHref` to accept `playerId` parameter
+     - For completed courses with certification, route to certificate page
+     - Changed button text from generic "Certificate" to "View Certificate" for clarity
+   - **File**: `app/[locale]/courses/page.tsx`
+   - **Commit**: `5766ce1c`
+
+**Testing**:
+
+After deployment, verify:
+
+1. ✅ All UI text uses "Enroll" not "Enrol"
+2. ✅ Certificate image downloads successfully (check with cache-busted URL)
+3. ✅ Certificate cards on profile page have proper spacing, no overlaps
+4. ✅ Browse courses shows correct status badges for enrolled/completed/certified courses
+5. ✅ "View Certificate" button on completed courses navigates to certificate page, not final exam
+
+**Impact**:
+
+- **UX**: Clear status indicators help users understand course progression
+- **Navigation**: Users can now directly access certificates from course browse view
+- **Consistency**: Standardized US English improves international accessibility
+- **Reliability**: Cache-busting ensures fresh certificate image generation
+
+**Related Files**:
+- Course catalog: `app/[locale]/courses/page.tsx`
+- Profile page: `app/[locale]/profile/[playerId]/page.tsx`
+- Certificate page: `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx`
+- Locale files: `messages/*.json`
+
