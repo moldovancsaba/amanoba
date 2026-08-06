@@ -12,31 +12,43 @@
  * Returns: PNG image
  */
 
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { ImageResponse } from 'next/og';
-import mongoose from 'mongoose';
-import connectDB from '@/lib/mongodb';
-import {
-  Player,
-  Course,
-  FinalExamAttempt,
-  Brand,
-  Certificate,
-} from '@/lib/models';
-import { resolveRenderTemplate } from '@/lib/certification';
-import { logger } from '@/lib/logger';
-import { CERT_COLORS_DEFAULT, type CertColors } from '@/app/lib/constants/certificate-colors';
-import { getCertificateStrings, formatCertificateDate } from '@/app/lib/constants/certificate-strings';
 
-export const runtime = 'nodejs';
+export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
-type TemplateId = 'default' | 'minimal';
+interface CertificateData {
+  playerName: string;
+  courseTitle: string;
+  finalExamScore: number | null;
+  issuedDate: string;
+  certificateId: string;
+  locale: string;
+  colors?: {
+    bgStart?: string;
+    bgMid?: string;
+    accent?: string;
+    border?: string;
+  };
+}
+
+const DEFAULT_COLORS = {
+  bgStart: '#0F172A',
+  bgMid: '#1E293B',
+  accent: '#F59E0B',
+  border: '#F59E0B',
+  borderMuted: '#F59E0B4D',
+  textPrimary: '#F1F5F9',
+  textSecondary: '#CBD5E1',
+  footer: '#94A3B8',
+  titleGradientEnd: '#F59E0B',
+};
 
 /**
  * GET /api/profile/[playerId]/certificate/[courseId]/image
  * 
- * Generates a PNG certificate image.
+ * Generates a PNG certificate image using edge runtime.
  */
 export async function GET(
   request: NextRequest,
@@ -46,111 +58,49 @@ export async function GET(
     const { playerId, courseId } = await params;
 
     if (!playerId || !courseId) {
-      logger.error({ playerId, courseId }, 'Missing playerId or courseId');
       return new Response('Player ID and Course ID are required', { status: 400 });
     }
 
     const { searchParams } = new URL(request.url);
     const variant = searchParams.get('variant') || 'share_1200x627';
+    const locale = searchParams.get('locale') || 'en';
 
     // Dimensions based on variant
     const dimensions = variant === 'print_a4' 
       ? { width: 1200, height: 1697 } // A4 ratio (1:1.414)
       : { width: 1200, height: 627 }; // LinkedIn/social ratio (1.91:1)
 
-    logger.info({ playerId, courseId, variant, dimensions }, 'Generating certificate image');
-
-    await connectDB();
-    logger.info('Database connected for certificate image generation');
-
-    // Fetch data (courseId in URL is the course's courseId string)
-    const [player, course, certificate] = await Promise.all([
-      Player.findById(playerId).lean(),
-      Course.findOne({ courseId }).lean(),
-      Certificate.findOne({ playerId, courseId, isRevoked: { $ne: true } }).lean(),
-    ]);
-
-    if (!player || !course) {
-      logger.error({ playerId, courseId, hasPlayer: !!player, hasCourse: !!course }, 'Player or course not found');
-      return new Response('Player or course not found', { status: 404 });
+    // Fetch certificate data from API endpoint (which can use nodejs runtime)
+    const baseUrl = request.url.includes('localhost') 
+      ? 'http://localhost:3000'
+      : `https://${request.headers.get('host') || 'www.amanoba.com'}`;
+    
+    const dataUrl = `${baseUrl}/api/profile/${playerId}/certificate-status?courseId=${encodeURIComponent(courseId)}`;
+    const dataResponse = await fetch(dataUrl);
+    
+    if (!dataResponse.ok) {
+      return new Response('Failed to fetch certificate data', { status: 500 });
     }
 
-    logger.info({ playerName: player.displayName, courseName: course.name }, 'Found player and course for certificate');
-
-    // Resolve colors: per-course certification.themeColors > Brand themeColors > defaults
-    let certColors: CertColors = { ...CERT_COLORS_DEFAULT };
-    const courseCert = course.certification as { themeColors?: { primary?: string; secondary?: string; accent?: string } } | undefined;
-    if (!courseCert?.themeColors?.accent && course.brandId) {
-      const brand = await Brand.findById(course.brandId).lean();
-      if (brand?.themeColors?.accent) {
-        certColors = {
-          ...certColors,
-          border: brand.themeColors.accent,
-          accent: brand.themeColors.accent,
-          titleGradientEnd: brand.themeColors.accent,
-          borderMuted: `${brand.themeColors.accent}4D`,
-        };
-      }
-      if (brand?.themeColors?.primary && /^#[0-9a-fA-F]{6}$/.test(brand.themeColors.primary)) {
-        certColors = { ...certColors, bgStart: brand.themeColors.primary };
-      }
-      if (brand?.themeColors?.secondary && /^#[0-9a-fA-F]{6}$/.test(brand.themeColors.secondary)) {
-        certColors = { ...certColors, bgMid: brand.themeColors.secondary };
-      }
-    }
-    if (courseCert?.themeColors?.accent && /^#[0-9a-fA-F]{6}$/.test(courseCert.themeColors.accent)) {
-      certColors = {
-        ...certColors,
-        border: courseCert.themeColors.accent,
-        accent: courseCert.themeColors.accent,
-        titleGradientEnd: courseCert.themeColors.accent,
-        borderMuted: `${courseCert.themeColors.accent}4D`,
-      };
-    }
-    if (courseCert?.themeColors?.primary && /^#[0-9a-fA-F]{6}$/.test(courseCert.themeColors.primary)) {
-      certColors = { ...certColors, bgStart: courseCert.themeColors.primary };
-    }
-    if (courseCert?.themeColors?.secondary && /^#[0-9a-fA-F]{6}$/.test(courseCert.themeColors.secondary)) {
-      certColors = { ...certColors, bgMid: courseCert.themeColors.secondary };
+    const { data: certStatus } = await dataResponse.json();
+    
+    if (!certStatus || !certStatus.certificateEligible) {
+      return new Response('Certificate not eligible', { status: 403 });
     }
 
-    // Get final exam score
-    const finalExamAttempt = await FinalExamAttempt.findOne({
-      playerId: new mongoose.Types.ObjectId(playerId),
-      courseId: course._id,
-      status: 'GRADED',
-    })
-      .sort({ submittedAtISO: -1 })
-      .lean();
-
-    const finalExamScore = finalExamAttempt?.scorePercentInteger || null;
-    const playerName = player.displayName || 'Unknown';
-    const courseTitle = course.name || course.courseId;
-    const locale = searchParams.get('locale') || (course as { language?: string })?.language || 'en';
-    const strings = getCertificateStrings(locale);
-    const issuedDate = certificate?.issuedAtISO
-      ? formatCertificateDate(new Date(certificate.issuedAtISO), locale)
-      : formatCertificateDate(new Date(), locale);
-    // Use certificate.designTemplateId when issued cert exists (library/A/B variant);
-    // else the course's assigned template for preview. Library templates (#10) supply
-    // base layout + colors; otherwise fall back to the built-in mapping.
-    const applyTemplateColors = (rt: { accent?: string; primary?: string; secondary?: string }) => {
-      const isHex = (v?: string) => !!v && /^#[0-9a-fA-F]{6}$/.test(v);
-      if (isHex(rt.accent)) certColors = { ...certColors, border: rt.accent!, accent: rt.accent!, titleGradientEnd: rt.accent!, borderMuted: `${rt.accent}4D` };
-      if (isHex(rt.primary)) certColors = { ...certColors, bgStart: rt.primary! };
-      if (isHex(rt.secondary)) certColors = { ...certColors, bgMid: rt.secondary! };
-    };
-    const designId = certificate?.designTemplateId || (course as { certification?: { templateId?: string } }).certification?.templateId;
-    const rt = designId ? await resolveRenderTemplate(designId) : { baseLayout: 'default' as const };
-    const templateId: TemplateId = rt.baseLayout;
-    applyTemplateColors(rt);
-
-    // Generate certificate ID
+    const playerName = certStatus.playerName || 'Unknown';
+    const courseTitle = certStatus.courseTitle || 'Course';
+    const finalExamScore = certStatus.finalExamScore;
     const certificateId = `${playerId.slice(-8)}-${courseId.slice(-8)}`.toUpperCase();
+    
+    const issuedDate = new Date().toLocaleDateString(locale, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
 
-    const isMinimal = templateId === 'minimal';
-
-    logger.info({ templateId, dimensions, certColors }, 'Rendering certificate image');
+    const certColors = { ...DEFAULT_COLORS };
+    const isMinimal = false;
 
     return new ImageResponse(
       (
@@ -217,7 +167,7 @@ export async function GET(
                 lineHeight: 1.2,
               }}
             >
-              {strings.title}
+              Certificate of Completion
             </div>
 
             {/* Decorative line (skip for minimal) */}
@@ -254,7 +204,7 @@ export async function GET(
                 marginBottom: '20px',
               }}
             >
-              {strings.certifyThat}
+              This certifies that
             </div>
 
             {/* Player Name */}
@@ -278,7 +228,7 @@ export async function GET(
                 marginBottom: '60px',
               }}
             >
-              {strings.hasCompleted}
+              has successfully completed the course
             </div>
 
             {/* Score (if available) */}
@@ -291,7 +241,7 @@ export async function GET(
                   fontWeight: 'bold',
                 }}
               >
-                {strings.finalExamScore}: {finalExamScore}%
+                Final Exam Score: {finalExamScore}%
               </div>
             )}
 
@@ -326,8 +276,7 @@ export async function GET(
     );
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-    const errorStack = error instanceof Error ? error.stack : undefined;
-    logger.error({ error: errorMessage, stack: errorStack }, 'Failed to generate certificate image');
+    console.error('Failed to generate certificate image:', errorMessage);
     return new Response(`Failed to generate certificate image: ${errorMessage}`, { status: 500 });
   }
 }
