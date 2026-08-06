@@ -812,12 +812,12 @@ function CertificatesCard({
         ) : certificates.length > 0 ? (
           certificates.map((cert) => (
             <Paper key={cert.courseId} withBorder radius="md" p="md">
-              <Group justify="space-between" align="center">
-                <Box component="a" href={`/${locale}/profile/${playerId}/certificate/${cert.courseId}`} flex={1}>
+              <Stack gap="sm">
+                <Box component="a" href={`/${locale}/profile/${playerId}/certificate/${cert.courseId}`}>
                   <Text fw={700}>{cert.courseTitle}</Text>
                   {cert.score !== null && <Text size="sm" c="dimmed">Score: {cert.score}%</Text>}
                 </Box>
-                <Group gap="xs">
+                <Group gap="xs" justify="flex-end">
                   {cert.verificationSlug && (
                     <Button
                       type="button"
@@ -833,7 +833,7 @@ function CertificatesCard({
                     View Certificate
                   </Button>
                 </Group>
-              </Group>
+              </Stack>
             </Paper>
           ))
         ) : (
