@@ -1,0 +1,15 @@
+# Commit message template
+# 
+# Format:
+# <type>: <subject>
+# 
+# <body>
+# 
+# Types: feat, fix, docs, refactor, test, chore, perf, ci, build, revert
+# 
+# Guidelines:
+# - Subject: Imperative mood ("add feature" not "added feature")
+# - Body: Explain WHAT changed and WHY
+# - NO AI attribution, provider names, model names, or tool references
+# - NO Co-authored-by, Generated-by, or similar trailers
+# - Focus on technical changes only

@@ -192,9 +192,9 @@ All build must be
 
 TEAM:
 
-- Chappie, OpenAI ChatGPT High reasoning, Architect
-- Katja, OpenAI CODEX via Cursor, Content Creator, Developer
-- Tribeca, Auto Agent via Cursor, Developer
+- Chappie, Architect
+- Katja, Content Creator, Developer
+- Tribeca, Developer
 - Sultan, Product Owner, Decision maker
 
 **Handoff to mvp-factory-control:** When work is to be created as a Feature issue in mvp-factory-control, assign by instruction: tell the agent (Tribeca, Katja, Becca, Gwen, or Chappie): *"Create a Feature issue in mvp-factory-control using the Feature template for \<objective\>."* Agents create Issues only, never bypass templates; you approve by moving the card to `Todo (NEXT)`; work starts only after `Todo (NEXT)` or `In Progress (NOW)`. On the **Amanoba board** (GitHub Project 12), each card has fields: **Status** (`IDEABANK (SOMEDAY)` -> `Roadmap (LATER)` -> `Backlog (SOONER)` -> `Todo (NEXT)` -> `In Progress (NOW)` -> `Review (ALMOST)` -> `Done` / `Declined (NEVER)`), **Agent**, **Product** (e.g. amanoba), **Type** (e.g. Feature), **Priority** (P0–P3); set these in the project UI. See **`docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md`** (§ MVP Factory Board).

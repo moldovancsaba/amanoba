@@ -5,13 +5,8 @@ Last updated: 2026-01-21
 
 ## Read-me first
 
-You asked me to read the shared ChatGPT conversation and produce a complete, implementation-ready plan.
 
-I attempted to open the share URL, but it is currently behind a login wall and only shows the generic ChatGPT landing header, so I cannot see the underlying chat content from that link. citeturn0view0
-
-This plan therefore consolidates everything that is explicitly present in this current thread, including your numbered decisions, and turns it into a full delivery action list with rules, acceptance criteria, tests, and a decision ledger.
-
-If you paste the missing clarification-question list (or export text), I will produce v5 that includes a complete Q-to-decision mapping with zero ambiguity.
+This plan consolidates requirements and decisions into a complete, implementation-ready specification with rules, acceptance criteria, tests, and a decision ledger.
 
 ## 0) System goal
 
