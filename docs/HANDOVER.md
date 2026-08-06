@@ -4094,19 +4094,13 @@ After deployment, verify:
 
 **Implementation**:
 
-1. **Environment Configuration**
-   - Added `IMGBB_API_KEY` to `.env.local.example`
-   - Key should be obtained from https://api.imgbb.com/
+1. **Existing ImgBB Infrastructure** (Already in place)
+   - Used existing `IMGBB_API_KEY` environment variable (already configured)
+   - Reused existing `uploadToImgBB()` utility from `app/lib/utils/imgbb.ts`
+   - Same service used for course thumbnails - proven and reliable
+   - No new dependencies or configurations needed
 
-2. **ImgBB Upload Service** (`app/lib/imgbb/upload.ts`)
-   - `uploadToImgBB(base64Image, name?)` - Upload base64-encoded images
-   - `uploadBufferToImgBB(buffer, name?)` - Upload Buffer objects
-   - `uploadBlobToImgBB(blob, name?)` - Upload Blob objects
-   - Returns: `{ success, url, deleteUrl, viewerUrl, error? }`
-   - API endpoint: `https://api.imgbb.com/1/upload`
-   - Free tier: Unlimited uploads, permanent hosting
-
-3. **Database Schema** (`app/lib/models/course-progress.ts`)
+2. **Database Schema** (`app/lib/models/course-progress.ts`)
    - Added `certificateImages` field to `CourseProgress` model:
    ```typescript
    certificateImages?: {
@@ -4123,7 +4117,7 @@ After deployment, verify:
    }
    ```
 
-4. **Certificate Generation + Upload API** (`app/api/profile/[playerId]/certificate/[courseId]/generate-imgbb/route.ts`)
+3. **Certificate Generation + Upload API** (`app/api/profile/[playerId]/certificate/[courseId]/generate-imgbb/route.ts`)
    - **Endpoint**: `POST /api/profile/[playerId]/certificate/[courseId]/generate-imgbb`
    - **Body**: `{ variant: 'share_1200x627' | 'print_a4' }`
    - **Flow**:
@@ -4134,7 +4128,7 @@ After deployment, verify:
      5. Return ImgBB URL to client
    - **Caching**: Once uploaded, returns cached URL (no regeneration)
 
-5. **Certificate Download Update** (`app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx`)
+4. **Certificate Download Update** (`app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx`)
    - **Old Flow**: Fetch from `/image` endpoint → Download blob
    - **New Flow**: 
      1. Call `generate-imgbb` API to get/create ImgBB URL
@@ -4180,11 +4174,11 @@ Frontend downloads from ImgBB URL
 5. **Permanent**: Images hosted permanently (free tier)
 6. **Bandwidth**: Offloads bandwidth from Vercel
 
-**Configuration Required**:
+**Configuration**: ✅ Already Configured
 
-1. Get ImgBB API key from https://api.imgbb.com/
-2. Add to Vercel environment variables: `IMGBB_API_KEY`
-3. Add to local `.env.local`: `IMGBB_API_KEY=your_key_here`
+- ImgBB API key already exists in environment
+- Same key used for course thumbnails
+- No additional setup required
 
 **Testing**:
 
@@ -4206,11 +4200,11 @@ curl -X POST "https://www.amanoba.com/api/profile/[playerId]/certificate/[course
 ```
 
 **Files Changed**:
-- `.env.local.example` - Added IMGBB_API_KEY
-- `app/lib/imgbb/upload.ts` - New ImgBB upload service
-- `app/lib/models/course-progress.ts` - Added certificateImages field
-- `app/api/profile/[playerId]/certificate/[courseId]/generate-imgbb/route.ts` - New upload API
-- `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx` - Updated download handler
+- ✅ `.env.local.example` - Added IMGBB_API_KEY documentation
+- ✅ `app/lib/models/course-progress.ts` - Added certificateImages field
+- ✅ `app/api/profile/[playerId]/certificate/[courseId]/generate-imgbb/route.ts` - New API
+- ✅ `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx` - Updated UI
+- ✅ Reuses existing `app/lib/utils/imgbb.ts` - No duplicate code
 
 **Known Limitations**:
 
