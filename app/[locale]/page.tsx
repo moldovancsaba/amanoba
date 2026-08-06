@@ -16,6 +16,7 @@ import { IconBook, IconMail, IconTargetArrow, IconTrophy, IconTrendingUp, IconSt
 import { LocaleLink } from '@/components/LocaleLink';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { PublicAppShell } from '@/app/components/patterns/PublicAppShell';
+import { VersionDisplay } from '@/app/components/VersionDisplay';
 import { APP_URL } from '@/app/lib/constants/app-url';
 import { locales } from '@/app/lib/i18n/locales';
 
@@ -82,19 +83,24 @@ export default async function LandingPage({
       )}
       footer={(
         <Container size="xl" py="lg">
-          <Group justify="space-between" gap="md">
-            <Text c="gray.3" size="sm">
-              © 2026 {t('appName')}. {tLanding('footerRights')}
-            </Text>
-            <Group gap="md">
-              <Button component={LocaleLink} href="/terms" variant="subtle" color="gray" size="compact-sm">
-                {tLanding('terms')}
-              </Button>
-              <Button component={LocaleLink} href="/privacy" variant="subtle" color="gray" size="compact-sm">
-                {tLanding('privacy')}
-              </Button>
+          <Stack gap="md">
+            <Group justify="space-between" gap="md" wrap="wrap">
+              <Text c="gray.3" size="sm">
+                © 2026 {t('appName')}. {tLanding('footerRights')}
+              </Text>
+              <Group gap="md">
+                <Button component={LocaleLink} href="/terms" variant="subtle" color="gray" size="compact-sm">
+                  {tLanding('terms')}
+                </Button>
+                <Button component={LocaleLink} href="/privacy" variant="subtle" color="gray" size="compact-sm">
+                  {tLanding('privacy')}
+                </Button>
+              </Group>
             </Group>
-          </Group>
+            <Group justify="center">
+              <VersionDisplay />
+            </Group>
+          </Stack>
         </Container>
       )}
     >

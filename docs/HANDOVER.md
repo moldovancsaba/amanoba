@@ -4339,3 +4339,108 @@ npx tsx --env-file=.env.local scripts/migrate-existing-certificates-to-imgbb.ts
 - Download buttons will show "not ready" message until manual trigger
 - Migration script can be run multiple times (skips already uploaded)
 
+---
+
+## 2026-08-06 - Version Display System
+
+**What Changed**: Added visible version number and last updated information throughout the website.
+
+**Why**: Users can now verify they're seeing the latest version of the platform. Helps diagnose caching issues and provides transparency about deployments.
+
+**Features Implemented**:
+
+1. **Version API** (`/api/version`)
+   - Returns version, build time, commit SHA, branch, environment
+   - 5-minute cache for performance
+   - Available to all users
+
+2. **Version Display Component**
+   - Shows version badge with tooltip containing full details
+   - Full mode: version + timestamp + commit SHA
+   - Compact mode: version badge only
+   - Fetches from API on page load
+
+3. **UI Integration**
+   - Landing page footer: Full version display
+   - Dashboard: Version display at bottom
+   - Available platform-wide via `<VersionDisplay />` component
+
+4. **Version Library** (`app/lib/version.ts`)
+   - Reads version from `package.json`
+   - Provides formatted version strings
+   - Handles build timestamp from environment
+
+5. **Documentation** (`docs/VERSION.md`)
+   - Complete version management guide
+   - How to bump versions (patch/minor/major)
+   - Semantic versioning rules
+   - API documentation
+   - Troubleshooting guide
+
+**Current Version**: 2.10.0
+
+**Files Created**:
+- ✅ `app/lib/version.ts` - Version utility library
+- ✅ `app/api/version/route.ts` - Version API endpoint
+- ✅ `app/components/VersionDisplay.tsx` - Display component
+- ✅ `docs/VERSION.md` - Version management documentation
+
+**Files Modified**:
+- ✅ `app/[locale]/page.tsx` - Added version to landing footer
+- ✅ `app/[locale]/dashboard/page.tsx` - Added version to dashboard
+- ✅ `package.json` - Bumped to v2.10.0
+
+**Version Management**:
+
+```bash
+# Bump version (auto-updates package.json and docs)
+npm run release:patch  # Bug fixes
+npm run release:minor  # New features
+npm run release:major  # Breaking changes
+
+# Current version command
+node -p "require('./package.json').version"
+```
+
+**API Usage**:
+
+```bash
+# Check current deployment version
+curl https://amanoba.com/api/version
+
+# Returns:
+{
+  "success": true,
+  "data": {
+    "version": "2.10.0",
+    "buildTime": "2026-08-06T18:45:00.000Z",
+    "name": "amanoba",
+    "environment": "production",
+    "vercelEnv": "production",
+    "commitSha": "a1b2c3d",
+    "branch": "main"
+  }
+}
+```
+
+**User-Visible Changes**:
+
+- Version badge visible on landing page footer
+- Version badge visible at bottom of dashboard
+- Tooltip shows full build details (timestamp, commit)
+- Users can verify deployment version easily
+- Helps identify stale cache issues
+
+**Caching Behavior**:
+
+- Version API cached for 5 minutes (CDN)
+- Hard refresh (Ctrl+Shift+R) forces new version check
+- Version component only loads client-side (no SSR delay)
+
+**Known Behavior**:
+
+- Local development shows "local" for commit and branch
+- Build timestamp shows current time in local dev (not from environment)
+- Version display fetches on every page load (not stored in localStorage)
+- 5-minute API cache means version updates may take up to 5 minutes to reflect
+

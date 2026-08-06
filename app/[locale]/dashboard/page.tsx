@@ -17,6 +17,7 @@ import { LearnerPageHeader } from '@/app/components/LearnerPageHeader';
 import { CourseCard } from '@/app/components/patterns/CourseCard';
 import { MetricCard } from '@/app/components/patterns/MetricCard';
 import { StateBlock } from '@/app/components/patterns/StateBlock';
+import { VersionDisplay } from '@/app/components/VersionDisplay';
 import { trackGAEvent } from '@/app/lib/analytics/ga-events';
 import {
   Alert,
@@ -787,6 +788,10 @@ export default function Dashboard() {
               )}
             </Stack>
           </Card>
+
+          <Group justify="center" py="md">
+            <VersionDisplay />
+          </Group>
         </Stack>
       </Container>
     </Box>
