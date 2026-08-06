@@ -140,13 +140,30 @@ export default function CertificatePage({
   }, [certificateData?.verificationSlug, locale, playerId, courseId]);
 
   const handleDownloadImage = async (variant: 'share_1200x627' | 'print_a4' = 'share_1200x627') => {
-    if (!playerId || !courseId || !certificateData?.certificateEligible) return;
+    if (!playerId || !courseId || !certificateData?.certificateEligible) {
+      notifications.show({ color: 'yellow', title: 'Cannot download', message: 'Certificate not eligible or missing data.' });
+      return;
+    }
 
     try {
-      const response = await fetch(`/api/profile/${playerId}/certificate/${courseId}/image?variant=${variant}&locale=${encodeURIComponent(locale)}`);
-      if (!response.ok) throw new Error('Failed to generate certificate image');
+      const imageUrl = `/api/profile/${playerId}/certificate/${courseId}/image?variant=${variant}&locale=${encodeURIComponent(locale)}`;
+      console.log('Fetching certificate image from:', imageUrl);
+      
+      const response = await fetch(imageUrl);
+      console.log('Response status:', response.status, response.statusText);
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Image generation failed:', errorText);
+        throw new Error(`Failed to generate certificate image: ${response.status} - ${errorText}`);
+      }
+
+      const contentType = response.headers.get('content-type');
+      console.log('Content-Type:', contentType);
 
       const blob = await response.blob();
+      console.log('Blob size:', blob.size, 'type:', blob.type);
+      
       const url = window.URL.createObjectURL(blob);
       const anchor = document.createElement('a');
       anchor.href = url;
@@ -158,7 +175,8 @@ export default function CertificatePage({
       notifications.show({ color: 'green', title: 'Certificate download started', message: 'Your certificate image is being downloaded.' });
     } catch (error) {
       console.error('Failed to download certificate:', error);
-      notifications.show({ color: 'red', title: 'Download failed', message: 'Failed to download certificate. Please try again.' });
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      notifications.show({ color: 'red', title: 'Download failed', message: errorMessage });
     }
   };
 
