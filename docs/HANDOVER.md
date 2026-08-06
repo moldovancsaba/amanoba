@@ -4078,3 +4078,150 @@ After deployment, verify:
 - Certificate page: `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx`
 - Locale files: `messages/*.json`
 
+---
+
+## 2026-08-06: ImgBB Integration for Certificate Image Hosting
+
+**Context**: User requested to upload generated certificate images to ImgBB.com and serve downloads/shares via ImgBB URLs for improved reliability and sharing.
+
+**Problem**: 
+- Previously, certificate images were generated on-demand from Next.js edge runtime
+- Browser caching issues caused problems with fresh image generation
+- No permanent URL for sharing certificates on social media
+- Each download required regenerating the image
+
+**Solution**: Integrated ImgBB as external image hosting provider
+
+**Implementation**:
+
+1. **Environment Configuration**
+   - Added `IMGBB_API_KEY` to `.env.local.example`
+   - Key should be obtained from https://api.imgbb.com/
+
+2. **ImgBB Upload Service** (`app/lib/imgbb/upload.ts`)
+   - `uploadToImgBB(base64Image, name?)` - Upload base64-encoded images
+   - `uploadBufferToImgBB(buffer, name?)` - Upload Buffer objects
+   - `uploadBlobToImgBB(blob, name?)` - Upload Blob objects
+   - Returns: `{ success, url, deleteUrl, viewerUrl, error? }`
+   - API endpoint: `https://api.imgbb.com/1/upload`
+   - Free tier: Unlimited uploads, permanent hosting
+
+3. **Database Schema** (`app/lib/models/course-progress.ts`)
+   - Added `certificateImages` field to `CourseProgress` model:
+   ```typescript
+   certificateImages?: {
+     share?: {
+       url: string;          // ImgBB direct URL for 1200x627
+       deleteUrl?: string;   // ImgBB delete URL
+       uploadedAt: Date;
+     };
+     print?: {
+       url: string;          // ImgBB direct URL for A4
+       deleteUrl?: string;
+       uploadedAt: Date;
+     };
+   }
+   ```
+
+4. **Certificate Generation + Upload API** (`app/api/profile/[playerId]/certificate/[courseId]/generate-imgbb/route.ts`)
+   - **Endpoint**: `POST /api/profile/[playerId]/certificate/[courseId]/generate-imgbb`
+   - **Body**: `{ variant: 'share_1200x627' | 'print_a4' }`
+   - **Flow**:
+     1. Check if certificate image already uploaded (cached)
+     2. If not, generate image via existing `/image` endpoint
+     3. Upload buffer to ImgBB
+     4. Store ImgBB URL in `CourseProgress.certificateImages`
+     5. Return ImgBB URL to client
+   - **Caching**: Once uploaded, returns cached URL (no regeneration)
+
+5. **Certificate Download Update** (`app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx`)
+   - **Old Flow**: Fetch from `/image` endpoint → Download blob
+   - **New Flow**: 
+     1. Call `generate-imgbb` API to get/create ImgBB URL
+     2. Download directly from ImgBB URL
+     3. Show "Generating..." notification during upload
+     4. Show "Cached" notification if already uploaded
+   - **Benefits**:
+     - No browser caching issues (ImgBB has stable URLs)
+     - Faster downloads (CDN-backed)
+     - Shareable permanent URLs
+     - One-time generation per variant
+
+**Architecture**:
+
+```
+User clicks "Download Image"
+         ↓
+Frontend calls /generate-imgbb API
+         ↓
+Check CourseProgress.certificateImages cache
+         ↓
+   [If cached] → Return existing ImgBB URL
+         ↓
+   [If not cached]
+         ↓
+Generate image via /image endpoint (edge runtime)
+         ↓
+Upload Buffer to ImgBB API
+         ↓
+Store URL in CourseProgress.certificateImages
+         ↓
+Return ImgBB URL to frontend
+         ↓
+Frontend downloads from ImgBB URL
+```
+
+**Benefits**:
+
+1. **Reliability**: No more edge runtime or caching issues
+2. **Performance**: Images cached after first generation
+3. **Sharing**: Stable URLs perfect for social media, LinkedIn
+4. **CDN**: ImgBB provides global CDN for fast delivery
+5. **Permanent**: Images hosted permanently (free tier)
+6. **Bandwidth**: Offloads bandwidth from Vercel
+
+**Configuration Required**:
+
+1. Get ImgBB API key from https://api.imgbb.com/
+2. Add to Vercel environment variables: `IMGBB_API_KEY`
+3. Add to local `.env.local`: `IMGBB_API_KEY=your_key_here`
+
+**Testing**:
+
+```bash
+# Test certificate generation + upload
+curl -X POST "https://www.amanoba.com/api/profile/[playerId]/certificate/[courseId]/generate-imgbb" \
+  -H "Content-Type: application/json" \
+  -d '{"variant":"share_1200x627"}'
+
+# Should return:
+# {
+#   "success": true,
+#   "url": "https://i.ibb.co/...",
+#   "deleteUrl": "https://ibb.co/...",
+#   "cached": false
+# }
+
+# Second call should return cached: true
+```
+
+**Files Changed**:
+- `.env.local.example` - Added IMGBB_API_KEY
+- `app/lib/imgbb/upload.ts` - New ImgBB upload service
+- `app/lib/models/course-progress.ts` - Added certificateImages field
+- `app/api/profile/[playerId]/certificate/[courseId]/generate-imgbb/route.ts` - New upload API
+- `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx` - Updated download handler
+
+**Known Limitations**:
+
+- Requires ImgBB API key (free tier available)
+- Old certificates (before this change) won't have cached URLs
+- Delete URLs stored but not currently used (manual cleanup)
+
+**Future Enhancements**:
+
+- Implement delete functionality for regenerating certificates
+- Add ImgBB URL to certificate verification page
+- Pre-generate certificates on exam completion
+- Add thumbnail variant for profile cards
+
