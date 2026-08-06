@@ -337,11 +337,13 @@ const CourseSchema = new Schema<ICourse>(
         type: Number,
         min: [0, 'passThresholdPercent must be 0–100'],
         max: [100, 'passThresholdPercent must be 0–100'],
+        default: 60,
       },
       maxErrorPercent: {
         type: Number,
         min: [0, 'maxErrorPercent must be 0–100'],
         max: [100, 'maxErrorPercent must be 0–100'],
+        default: null,
       },
       requireAllLessonsCompleted: {
         type: Boolean,
