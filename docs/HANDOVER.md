@@ -3903,3 +3903,101 @@ course.certification = {
 - Early fail logic: `app/api/certification/final-exam/answer/route.ts` (lines 103-116)
 - Finalization logic: `app/lib/certification/final-exam-finalize.ts` (line 57)
 
+---
+
+## 2026-08-06 - Fix Certificate Image Download (Edge Runtime)
+
+**What Changed**: Fixed certificate image generation failing with 500 error by switching from nodejs runtime to edge runtime for ImageResponse.
+
+**Problem**: Certificate download and sharing buttons were not working. API was returning HTML 500 error page instead of PNG image.
+
+**Root Cause**: `ImageResponse` from `next/og` was failing in nodejs runtime with MongoDB connections. Vercel's ImageResponse is optimized for edge runtime and doesn't work well with heavy database operations in nodejs runtime.
+
+**Solution**:
+
+1. **Changed runtime from 'nodejs' to 'edge'**:
+   - Edge runtime is purpose-built for ImageResponse
+   - More reliable and faster for image generation
+   - No MongoDB connection overhead
+
+2. **Fetch data from API instead of direct database**:
+   - Call `/api/profile/[playerId]/certificate-status` endpoint (nodejs runtime)
+   - That endpoint handles all MongoDB lookups
+   - Image route only generates the visual certificate
+
+3. **Simplified edge-compatible code**:
+   - Removed MongoDB imports (not compatible with edge)
+   - Removed logger (not available in edge runtime)
+   - Hardcoded certificate strings
+   - Used only Web APIs
+
+**Files Modified**:
+- `app/api/profile/[playerId]/certificate/[courseId]/image/route.tsx` — Switched to edge runtime
+
+**Changes**:
+```typescript
+// Before
+export const runtime = 'nodejs';
+await connectDB();
+const player = await Player.findById(playerId);
+const course = await Course.findOne({ courseId });
+
+// After
+export const runtime = 'edge';
+const dataResponse = await fetch(`${baseUrl}/api/profile/${playerId}/certificate-status?courseId=${courseId}`);
+const { data } = await dataResponse.json();
+```
+
+**Benefits**:
+- ✅ Edge runtime optimized for ImageResponse
+- ✅ No MongoDB connection overhead in image generation
+- ✅ Faster image rendering
+- ✅ More reliable in production
+- ✅ Better caching with edge
+- ✅ Reduced cold start time
+
+**How It Works Now**:
+
+1. **User clicks "Download Image"**
+2. Frontend calls `/api/profile/[playerId]/certificate/[courseId]/image`
+3. **Image route** (edge runtime):
+   - Fetches certificate data from certificate-status API
+   - Generates PNG using ImageResponse
+   - Returns image with proper headers
+4. Browser downloads the PNG
+
+**Testing**:
+
+```bash
+# Test the endpoint
+curl -I "https://www.amanoba.com/api/profile/[playerId]/certificate/[courseId]/image?variant=share_1200x627&locale=en"
+
+# Should return:
+# HTTP/2 200
+# content-type: image/png
+```
+
+**Troubleshooting**:
+
+If image still returns HTML:
+1. **Check Vercel deployment** completed successfully
+2. **Clear CDN cache** (Vercel may cache the 500 error)
+3. **Check browser console** for detailed error logs
+4. **Verify certificate eligibility** (must pass all requirements)
+
+**Alternative Approaches Considered**:
+
+1. ❌ **Keep nodejs runtime**: ImageResponse doesn't work reliably
+2. ❌ **Generate on client**: Large bundle, slow rendering
+3. ✅ **Edge + API fetch**: Best of both worlds
+
+**Known Limitations**:
+
+- Edge runtime doesn't support all Node.js APIs
+- Cannot do direct MongoDB queries from edge
+- Must fetch data from separate API endpoint
+
+**Related**:
+- Certificate page with download buttons: `app/[locale]/profile/[playerId]/certificate/[courseId]/page.tsx`
+- Certificate status API: `app/api/profile/[playerId]/certificate-status/route.ts`
+
