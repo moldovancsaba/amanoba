@@ -3514,3 +3514,152 @@ A certificate is eligible if:
 - ❌ Screenshot 2: Button covering text → ✅ Clean layout with proper spacing
 - ❌ Conflicting states → ✅ Consistent certificate eligibility across all pages
 
+---
+
+## 2026-08-06 - Progressive Course Generation Phase 1 Foundation
+
+**What Changed**: Implemented core infrastructure for Progressive Course Generation system. This is Phase 1 of the strategy to automatically evolve courses from 1-day rapid introductions through 30-day comprehensive training based on learner engagement.
+
+**Why**: Enable data-driven content strategy where courses automatically progress through stages (1-day → 3-day → 7-day → 30-day) based on completion metrics, reducing upfront content creation costs and focusing investment on proven topics.
+
+**Components Implemented**:
+
+1. **CourseGenerationTracker Model** (`app/lib/models/course-generation-tracker.ts`):
+   - Tracks progression metrics across 4 stages for each topic
+   - Stage 1 (1-day): Threshold 50 completions → Stage 2
+   - Stage 2 (3-day): Threshold 30 completions → Stage 3
+   - Stage 3 (7-day): Threshold 20 completions → Stage 4
+   - Stage 4 (30-day): Final stage (mastery)
+   - Metrics: enrollments, completions, averageScore, averageTimeMinutes, completionRate
+   - Status: active, paused, completed
+   - Indexes: topicName (unique), currentStage, status, triggerMet flags
+
+2. **Course Model Extension** (`app/lib/models/course.ts`):
+   - Added `progressionMetadata` field:
+     - `generationType`: 'manual' | 'progressive'
+     - `generationStage`: 1 | 2 | 3 | 4
+     - `topicName`: Links to CourseGenerationTracker
+     - `isProgressionRoot`: True for Stage 1 courses
+     - `nextStageCourseId` / `previousStageCourseId`: Links between stages
+   - Indexes for efficient progression queries
+
+3. **Metrics Aggregation** (`app/lib/progressive-generation/metrics-aggregator.ts`):
+   - `calculateCourseMetrics(courseId)`: Aggregates enrollment, completion, and engagement data from CourseProgress
+   - `updateTrackerMetrics(topicName, stage)`: Updates specific stage metrics and checks trigger thresholds
+   - `refreshAllMetrics(limit?)`: Batch updates all active trackers
+   - `findNewlyMetTriggers()`: Identifies trackers with newly met triggers
+
+4. **Trigger Evaluation** (`app/lib/progressive-generation/trigger-evaluator.ts`):
+   - `evaluateTriggers(topicName)`: Determines if progression should trigger next stage
+   - `markTriggerMet(topicName, stage)`: Manual trigger marking for Phase 1
+   - `getDefaultTriggerThresholds()`: Returns standard thresholds
+   - `getProgressionStatus(topicName)`: Detailed progression status
+
+5. **Helper Functions** (`app/lib/progressive-generation/helpers.ts`):
+   - `linkCourseToProgression(topicName, stage, courseId)`: Associates course with progression
+   - `getProgressionPath(courseId)`: Returns all courses in a progression
+   - `isProgressionCourse(courseId)`: Checks if course is part of progression
+   - `createProgressionTracker(topicName, category, stage1CourseId?)`: Initialize new tracker
+   - `advanceToNextStage(topicName, nextStageCourseId)`: Move tracker to next stage
+   - `getProgressiveCourses(topicName)`: Get all courses for a topic
+
+6. **Admin API Endpoints**:
+   - `GET /api/admin/progressive-generation`: List all trackers (filters: status, stage, category, triggerMet, pagination)
+   - `POST /api/admin/progressive-generation`: Create new tracker
+   - `GET /api/admin/progressive-generation/[topicName]`: Get detailed progression status
+   - `PATCH /api/admin/progressive-generation/[topicName]`: Update tracker settings (status, thresholds)
+   - `DELETE /api/admin/progressive-generation/[topicName]`: Pause tracker (soft delete)
+   - `POST /api/admin/progressive-generation/[topicName]/refresh-metrics`: Force metrics refresh
+
+7. **Public API Endpoint**:
+   - `GET /api/courses/[courseId]/progression`: View course progression path for learners
+
+**Current Capabilities (Phase 1)**:
+
+✅ Track course metrics automatically  
+✅ Calculate completion rates and engagement  
+✅ Identify when trigger thresholds are met  
+✅ Link courses in multi-stage progressions  
+✅ View progression status via admin API  
+✅ Manual trigger marking and threshold adjustment  
+
+**Not Yet Implemented (Future Phases)**:
+
+⏳ **Phase 2**: Automated content generation when triggers met  
+⏳ **Phase 2**: AI-powered course creation pipeline  
+⏳ **Phase 2**: Quality validation and approval workflow  
+⏳ **Phase 3**: Fully automated triggers  
+⏳ **Phase 3**: Pricing and monetization integration  
+⏳ **Phase 3**: Analytics dashboard UI  
+⏳ **Phase 3**: A/B testing framework  
+
+**Usage Example**:
+
+```typescript
+// Create a new progression tracker
+const tracker = await createProgressionTracker(
+  'JavaScript Basics',
+  'Programming',
+  'JS_BASICS_1DAY'
+);
+
+// Link Stage 1 course
+await linkCourseToProgression('JavaScript Basics', 1, 'JS_BASICS_1DAY');
+
+// Update metrics (runs hourly in background)
+await updateAllStagesMetrics('JavaScript Basics');
+
+// Check if ready for Stage 2
+const evaluation = await evaluateTriggers('JavaScript Basics');
+if (evaluation.shouldTrigger) {
+  // Phase 2 will auto-generate Stage 2 course
+  // Phase 1: manual creation only
+}
+
+// View progression path
+const path = await getProgressionPath('JS_BASICS_1DAY');
+// Returns: { topicName, currentStage, courses: [...] }
+```
+
+**Files Added**:
+- `app/lib/models/course-generation-tracker.ts` — New model for tracking progressions
+- `app/lib/progressive-generation/metrics-aggregator.ts` — Metrics calculation
+- `app/lib/progressive-generation/trigger-evaluator.ts` — Trigger logic
+- `app/lib/progressive-generation/helpers.ts` — Utility functions
+- `app/lib/progressive-generation/index.ts` — Central export
+- `app/api/admin/progressive-generation/route.ts` — Admin list/create endpoints
+- `app/api/admin/progressive-generation/[topicName]/route.ts` — Admin detail endpoints
+- `app/api/admin/progressive-generation/[topicName]/refresh-metrics/route.ts` — Manual refresh
+- `app/api/courses/[courseId]/progression/route.ts` — Public progression endpoint
+- `docs/product/PROGRESSIVE_COURSE_GENERATION_PHASE1_PLAN.md` — Implementation plan
+
+**Files Modified**:
+- `app/lib/models/course.ts` — Added progressionMetadata field and indexes
+- `app/lib/models/index.ts` — Export CourseGenerationTracker model
+
+**Impact**:
+- ✅ Foundation for data-driven course content strategy
+- ✅ Infrastructure to track engagement across course stages
+- ✅ API endpoints for managing progressions
+- ✅ Zero breaking changes (all new features, existing courses unaffected)
+- ✅ Manual workflow for Phase 1 (automated generation in Phase 2)
+
+**Quality Gates**:
+- ✅ TypeScript: All new code type-safe
+- ✅ ESLint: No linting errors
+- ✅ Documentation: Phase 1 plan and HANDOVER updated
+
+**Next Steps** (Future):
+1. Phase 2: Integrate AI content generation pipeline
+2. Phase 2: Build automated course creation workflow
+3. Phase 3: Implement full automation and monetization
+4. Test with real courses and validate thresholds
+5. Build admin UI for managing progressions
+
+**Key Design Decisions**:
+- **Phase 1 = Foundation Only**: No content generation yet, establish metrics and triggers first
+- **Manual Triggers**: Phase 1 requires manual course creation when thresholds met
+- **Flexible Thresholds**: Can adjust per-topic or globally
+- **Non-Breaking**: All existing courses continue working normally
+- **Sparse Indexes**: progressionMetadata indexes use sparse:true (only index progressive courses)
+
