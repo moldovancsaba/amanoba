@@ -146,52 +146,48 @@ export default function CertificatePage({
     }
 
     try {
-      const cacheBuster = Date.now();
-      const imageUrl = `/api/profile/${playerId}/certificate/${courseId}/image?variant=${variant}&locale=${encodeURIComponent(locale)}&t=${cacheBuster}`;
-      console.log('Fetching certificate image from:', imageUrl);
+      notifications.show({ color: 'blue', title: 'Generating certificate...', message: 'Please wait while we prepare your certificate image.' });
       
-      const response = await fetch(imageUrl, {
-        method: 'GET',
-        cache: 'no-store',
+      // Generate and upload to ImgBB
+      const generateUrl = `/api/profile/${playerId}/certificate/${courseId}/generate-imgbb?locale=${encodeURIComponent(locale)}`;
+      console.log('Generating certificate and uploading to ImgBB:', generateUrl);
+      
+      const response = await fetch(generateUrl, {
+        method: 'POST',
         headers: {
-          'Accept': 'image/png',
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({ variant }),
       });
-      console.log('Response status:', response.status, response.statusText);
-      console.log('Response headers:', Object.fromEntries([...response.headers.entries()]));
       
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Image generation failed:', errorText);
-        throw new Error(`Failed to generate certificate image: ${response.status} - ${errorText.slice(0, 200)}`);
+        const errorData = await response.json();
+        throw new Error(errorData.error || `Failed to generate certificate: ${response.status}`);
       }
 
-      const contentType = response.headers.get('content-type');
-      console.log('Content-Type:', contentType);
-
-      if (!contentType || !contentType.includes('image')) {
-        console.warn('Unexpected content type:', contentType);
-        const textPreview = await response.clone().text().then(t => t.slice(0, 500));
-        console.error('Response text preview:', textPreview);
-        throw new Error(`Expected image/png but got ${contentType}. This might be an error page.`);
-      }
-
-      const blob = await response.blob();
-      console.log('Blob size:', blob.size, 'type:', blob.type);
+      const data = await response.json();
       
-      if (blob.size === 0) {
-        throw new Error('Received empty image data');
+      if (!data.success || !data.url) {
+        throw new Error(data.error || 'Failed to get certificate URL');
       }
+
+      console.log('Certificate uploaded to ImgBB:', data.url);
       
-      const url = window.URL.createObjectURL(blob);
+      // Download from ImgBB URL
       const anchor = document.createElement('a');
-      anchor.href = url;
+      anchor.href = data.url;
       anchor.download = `certificate-${courseId}-${variant}.png`;
+      anchor.target = '_blank';
+      anchor.rel = 'noopener noreferrer';
       document.body.appendChild(anchor);
       anchor.click();
       document.body.removeChild(anchor);
-      window.URL.revokeObjectURL(url);
-      notifications.show({ color: 'green', title: 'Certificate download started', message: 'Your certificate image is being downloaded.' });
+      
+      notifications.show({ 
+        color: 'green', 
+        title: 'Certificate ready', 
+        message: data.cached ? 'Your certificate is ready for download.' : 'Your certificate has been generated and uploaded.' 
+      });
     } catch (error) {
       console.error('Failed to download certificate:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';

@@ -44,6 +44,18 @@ export interface ICourseProgress extends Document {
     reminderCount?: number; // Number of reminder emails sent
     [key: string]: unknown;
   };
+  certificateImages?: {
+    share?: {
+      url: string; // ImgBB direct URL for 1200x627 share image
+      deleteUrl?: string; // ImgBB delete URL
+      uploadedAt: Date;
+    };
+    print?: {
+      url: string; // ImgBB direct URL for A4 print image
+      deleteUrl?: string; // ImgBB delete URL
+      uploadedAt: Date;
+    };
+  };
   createdAt: Date;
   updatedAt: Date;
 }
@@ -161,6 +173,30 @@ const CourseProgressSchema = new Schema<ICourseProgress>(
     metadata: {
       type: Schema.Types.Mixed,
       default: {},
+    },
+
+    // Certificate images stored on ImgBB
+    // Why: External hosting for reliable certificate sharing and downloads
+    certificateImages: {
+      type: {
+        share: {
+          type: {
+            url: { type: String, required: true },
+            deleteUrl: { type: String },
+            uploadedAt: { type: Date, required: true },
+          },
+          required: false,
+        },
+        print: {
+          type: {
+            url: { type: String, required: true },
+            deleteUrl: { type: String },
+            uploadedAt: { type: Date, required: true },
+          },
+          required: false,
+        },
+      },
+      required: false,
     },
   },
   {
