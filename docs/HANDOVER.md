@@ -3663,3 +3663,57 @@ const path = await getProgressionPath('JS_BASICS_1DAY');
 - **Non-Breaking**: All existing courses continue working normally
 - **Sparse Indexes**: progressionMetadata indexes use sparse:true (only index progressive courses)
 
+---
+
+## 2026-08-06 - Enable Final Exam and Certificate by Default
+
+**What Changed**: Changed Course schema default for `certification.enabled` from `false` to `true`. All new courses will now have final exam and certificate enabled by default.
+
+**Why**: Simplify course creation workflow and ensure consistent certification across all courses. Courses can still manually disable certification if needed.
+
+**Changes**:
+
+1. **Course Model** (`app/lib/models/course.ts`):
+   - Changed `certification.enabled` default from `false` to `true`
+   - All new courses will automatically have:
+     - Final exam enabled
+     - Certificate generation enabled
+     - Default requirements: all lessons completed, all quizzes passed (if enabled), final exam passed
+
+2. **Migration Script** (`scripts/enable-certification-all-courses.ts`):
+   - Updates existing courses to enable certification
+   - Run with: `npx tsx --env-file=.env.local scripts/enable-certification-all-courses.ts`
+   - Safe to run multiple times (idempotent)
+
+**Impact**:
+
+✅ **All new courses**: Automatically include final exam and certificate  
+✅ **Existing courses**: Migration script available to enable certification  
+✅ **Backward compatible**: Courses can still manually set `certification.enabled: false` if needed  
+✅ **Consistent UX**: Learners expect certificates for completed courses  
+✅ **No breaking changes**: Certificate eligibility logic unchanged  
+
+**Certificate Requirements** (Default):
+- All lessons completed (`certification.requireAllLessonsCompleted: true`)
+- All daily quizzes passed (`certification.requireAllQuizzesPassed: true`) — only if `lessonQuizPolicy.enabled: true`
+- Final exam passed (if `certification.enabled: true`)
+
+**To Disable Certification** (if needed):
+```typescript
+course.certification = {
+  enabled: false,
+  // ... other settings
+};
+```
+
+**Files Modified**:
+- `app/lib/models/course.ts` — Changed default value
+
+**Files Added**:
+- `scripts/enable-certification-all-courses.ts` — Migration script for existing courses
+
+**Quality Gates**:
+- ✅ TypeScript: No new type errors
+- ✅ Migration tested: Existing course already had certification enabled
+- ✅ Schema default verified: New courses will have certification.enabled = true
+
