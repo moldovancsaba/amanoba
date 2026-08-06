@@ -110,6 +110,21 @@ export interface ICourse extends Document {
     templateVariantWeights?: number[];
     credentialTitleId?: string;
   };
+  /** Progressive course generation metadata. Null/undefined for manually created courses. */
+  progressionMetadata?: {
+    /** How was this course created? 'manual' or 'progressive' */
+    generationType: 'manual' | 'progressive';
+    /** Which stage in the progression? 1 (1-day), 2 (3-day), 3 (7-day), 4 (30-day) */
+    generationStage: 1 | 2 | 3 | 4;
+    /** Topic name linking to CourseGenerationTracker */
+    topicName: string;
+    /** Is this the first course in a progression? True for Stage 1 courses. */
+    isProgressionRoot: boolean;
+    /** Link to next stage course ID (if exists) */
+    nextStageCourseId?: string;
+    /** Link to previous stage course ID (if exists) */
+    previousStageCourseId?: string;
+  };
   createdAt: Date;
   updatedAt: Date;
 }
@@ -378,6 +393,44 @@ const CourseSchema = new Schema<ICourse>(
       },
     },
 
+    // Progressive course generation metadata
+    progressionMetadata: {
+      generationType: {
+        type: String,
+        enum: {
+          values: ['manual', 'progressive'],
+          message: 'Generation type must be manual or progressive',
+        },
+        trim: true,
+      },
+      generationStage: {
+        type: Number,
+        enum: {
+          values: [1, 2, 3, 4],
+          message: 'Generation stage must be 1, 2, 3, or 4',
+        },
+      },
+      topicName: {
+        type: String,
+        trim: true,
+        maxlength: [200, 'Topic name cannot exceed 200 characters'],
+      },
+      isProgressionRoot: {
+        type: Boolean,
+        default: false,
+      },
+      nextStageCourseId: {
+        type: String,
+        uppercase: true,
+        trim: true,
+      },
+      previousStageCourseId: {
+        type: String,
+        uppercase: true,
+        trim: true,
+      },
+    },
+
     // Flexible metadata field for course-specific config
     // Why: Allows adding course-specific settings without schema changes
     metadata: {
@@ -411,6 +464,9 @@ CourseSchema.index({ language: 1 }, { name: 'course_language' });
 CourseSchema.index({ isActive: 1, requiresPremium: 1 }, { name: 'course_active_premium' });
 CourseSchema.index({ brandId: 1, isActive: 1 }, { name: 'course_brand_active' });
 CourseSchema.index({ brandId: 1, language: 1, isActive: 1 }, { name: 'course_brand_language_active' });
+CourseSchema.index({ 'progressionMetadata.generationType': 1 }, { name: 'course_generation_type', sparse: true });
+CourseSchema.index({ 'progressionMetadata.topicName': 1 }, { name: 'course_topic_name', sparse: true });
+CourseSchema.index({ 'progressionMetadata.generationStage': 1 }, { name: 'course_generation_stage', sparse: true });
 
 /**
  * Pre-save hook to validate duration

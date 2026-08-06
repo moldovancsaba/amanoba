@@ -87,13 +87,14 @@ export {
 } from './quiz-question';
 export { default as WhackPopEmoji, type IWhackPopEmoji } from './whackpop-emoji';
 
-// Learning Platform Models (5)
+// Learning Platform Models (6)
 export { default as CCS, type ICCS, type IRelatedDocument } from './ccs';
 export { default as Course, type ICourse } from './course';
 export { default as Lesson, type ILesson } from './lesson';
 export { default as CourseProgress, type ICourseProgress, CourseProgressStatus } from './course-progress';
 export { default as LiveSession, type ILiveSession, type LiveSessionProvider, type LiveSessionStatus } from './live-session';
 export { default as AssessmentResult, type IAssessmentResult } from './assessment-result';
+export { default as CourseGenerationTracker, type ICourseGenerationTracker, type IStageMetrics } from './course-generation-tracker';
 
 // Translation Model (1)
 export { default as Translation, type ITranslation } from './translation';
@@ -116,4 +117,4 @@ export { default as PushSubscription, type IPushSubscription } from './push-subs
 export { default as StudyGroup, type IStudyGroup } from './study-group';
 export { default as StudyGroupMembership, type IStudyGroupMembership, type StudyGroupRole } from './study-group-membership';
 
-// Total: 37 models
+// Total: 38 models
