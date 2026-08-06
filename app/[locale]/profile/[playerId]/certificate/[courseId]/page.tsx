@@ -146,36 +146,36 @@ export default function CertificatePage({
     }
 
     try {
-      notifications.show({ color: 'blue', title: 'Generating certificate...', message: 'Please wait while we prepare your certificate image.' });
+      // Fetch certificate images from API (should already be uploaded to ImgBB)
+      const statusUrl = `/api/profile/${playerId}/certificate-status?courseId=${encodeURIComponent(courseId)}`;
+      const statusResponse = await fetch(statusUrl);
       
-      // Generate and upload to ImgBB
-      const generateUrl = `/api/profile/${playerId}/certificate/${courseId}/generate-imgbb?locale=${encodeURIComponent(locale)}`;
-      console.log('Generating certificate and uploading to ImgBB:', generateUrl);
-      
-      const response = await fetch(generateUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ variant }),
-      });
-      
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || `Failed to generate certificate: ${response.status}`);
+      if (!statusResponse.ok) {
+        throw new Error('Failed to fetch certificate data');
       }
 
-      const data = await response.json();
+      const statusData = await statusResponse.json();
+      const certificateImages = statusData.data?.certificateImages;
       
-      if (!data.success || !data.url) {
-        throw new Error(data.error || 'Failed to get certificate URL');
+      // Get the appropriate variant URL
+      const variantKey = variant === 'print_a4' ? 'print' : 'share';
+      const imageUrl = certificateImages?.[variantKey]?.url;
+
+      if (!imageUrl) {
+        // Certificate image not uploaded yet - this shouldn't happen but fallback to generation
+        notifications.show({ 
+          color: 'yellow', 
+          title: 'Certificate not ready', 
+          message: 'Please try again in a moment. The certificate is being prepared.' 
+        });
+        return;
       }
 
-      console.log('Certificate uploaded to ImgBB:', data.url);
+      console.log('Downloading certificate from ImgBB:', imageUrl);
       
-      // Download from ImgBB URL
+      // Download directly from ImgBB URL
       const anchor = document.createElement('a');
-      anchor.href = data.url;
+      anchor.href = imageUrl;
       anchor.download = `certificate-${courseId}-${variant}.png`;
       anchor.target = '_blank';
       anchor.rel = 'noopener noreferrer';
@@ -186,7 +186,7 @@ export default function CertificatePage({
       notifications.show({ 
         color: 'green', 
         title: 'Certificate ready', 
-        message: data.cached ? 'Your certificate is ready for download.' : 'Your certificate has been generated and uploaded.' 
+        message: 'Your certificate is downloading from our CDN.' 
       });
     } catch (error) {
       console.error('Failed to download certificate:', error);

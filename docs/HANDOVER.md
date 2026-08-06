@@ -4208,9 +4208,9 @@ curl -X POST "https://www.amanoba.com/api/profile/[playerId]/certificate/[course
 
 **Known Limitations**:
 
-- Requires ImgBB API key (free tier available)
-- Old certificates (before this change) won't have cached URLs
-- Delete URLs stored but not currently used (manual cleanup)
+- ✅ ImgBB API key already configured (existing infrastructure)
+- Old certificates (before this change) won't have cached URLs (will generate on first download)
+- Delete URLs stored but not currently used (manual cleanup if needed)
 
 **Future Enhancements**:
 

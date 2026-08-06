@@ -215,6 +215,7 @@ export async function GET(
         playerName: player.displayName || 'Unknown',
         verificationSlug, // Include verificationSlug if certificate exists
         designTemplateId, // A/B variant for analytics (certificate_viewed)
+        certificateImages: progress?.certificateImages, // Include ImgBB URLs
       },
     }, {
       headers: {

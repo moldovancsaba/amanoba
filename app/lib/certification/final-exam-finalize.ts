@@ -12,6 +12,7 @@ import { resolveTemplateVariantAtIssue } from '@/lib/certification';
 import { resolveCourseLength } from '@/lib/course-helpers';
 import { hasAssessmentResultsForEveryDay } from '@/lib/course-progress-assessment-results';
 import { checkAndUnlockCourseAchievements } from '@/lib/gamification';
+import { generateAndUploadCertificateImages } from '@/lib/certification/generate-certificate-images';
 import { logger } from '@/lib/logger';
 
 type DocWithId = { _id: { toString(): string } };
@@ -123,6 +124,21 @@ export async function finalizeFinalExamAttempt(
         isPublic: true,
       });
       certificateUpdated = true;
+    }
+
+    // Automatically generate and upload certificate images to ImgBB
+    try {
+      await generateAndUploadCertificateImages({
+        playerName: player.displayName || player.email || 'Learner',
+        courseTitle: course.name || course.courseId,
+        finalExamScore: scorePercentInteger,
+        locale: course.language || 'en',
+        playerId: (player as DocWithId)._id.toString(),
+        courseId: course.courseId,
+      });
+    } catch (uploadError) {
+      // Don't fail the exam if image upload fails
+      logger.error({ uploadError, playerId, courseId: course.courseId }, 'Certificate image upload failed');
     }
   } else if (existing) {
     existing.finalExamScorePercentInteger = scorePercentInteger;
