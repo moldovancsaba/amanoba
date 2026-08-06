@@ -129,16 +129,17 @@ function formatPrice(amount: number, currency: string): string {
   return formatter.format(normalized === 'HUF' ? amount : amount / 100);
 }
 
-function getCatalogCourseActionHref(course: Course, myCourse?: MyCourseProgress) {
+function getCatalogCourseActionHref(course: Course, myCourse?: MyCourseProgress, playerId?: string) {
   const language = myCourse?.course.language ?? course.language;
   if (!myCourse) return `/${language}/courses/${course.courseId}`;
 
   const totalDays = Math.max(myCourse.progress.totalDays || course.durationDays || 1, 1);
   const completed = myCourse.progress.isCompleted || myCourse.progress.completedDays >= totalDays;
   if (completed) {
-    return course.certification?.enabled
-      ? `/${language}/courses/${course.courseId}/final-exam`
-      : `/${language}/courses/${course.courseId}`;
+    if (course.certification?.enabled && playerId) {
+      return `/${language}/profile/${playerId}/certificate/${course.courseId}`;
+    }
+    return `/${language}/courses/${course.courseId}`;
   }
 
   const currentDay = Math.min(Math.max(myCourse.progress.currentDay || 1, 1), totalDays);
@@ -171,6 +172,9 @@ export default function CoursesPage() {
   const t = useTranslations('courses');
   const tAuth = useTranslations('auth');
   const signInHref = `/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}/courses`)}`;
+  
+  const user = session?.user as { id?: string; playerId?: string } | undefined;
+  const playerId = user?.playerId || user?.id;
 
   const [courses, setCourses] = useState<Course[]>([]);
   const [myCourses, setMyCourses] = useState<MyCourseProgress[]>([]);
@@ -417,6 +421,7 @@ export default function CoursesPage() {
                 const prereqBlocked = Boolean(session) && unmetPrereqs.length > 0 && prereqEnforcement === 'hard';
                 const apiPrereqs = enrollErrors[courseKey] ?? [];
                 const progress = myCourse?.progress.progressPercentage ?? 0;
+                const isCompleted = myCourse?.progress.isCompleted || ((myCourse?.progress.completedDays ?? 0) >= (myCourse?.progress.totalDays ?? course.durationDays));
 
                 return (
                   <CourseCard
@@ -439,6 +444,9 @@ export default function CoursesPage() {
                         color: course.certification?.enabled ? 'amanoba' : 'gray',
                         leftSection: course.certification?.enabled ? <IconCertificate size={12} /> : undefined,
                       },
+                      ...(isEnrolled && !isCompleted ? [{ label: 'In Progress', color: 'blue', variant: 'light' as const }] : []),
+                      ...(isCompleted && course.certification?.enabled ? [{ label: 'Certified', color: 'green', variant: 'filled' as const, leftSection: <IconTrophy size={12} /> }] : []),
+                      ...(isCompleted && !course.certification?.enabled ? [{ label: 'Completed', color: 'green', variant: 'light' as const }] : []),
                     ]}
                     metrics={[
                       { label: 'Length', value: `${course.durationDays} ${courseTexts.lessons}` },
@@ -488,12 +496,12 @@ export default function CoursesPage() {
                     primaryAction={isEnrolled ? (
                       <Button
                         component={LocaleLink}
-                        href={getCatalogCourseActionHref(course, myCourse)}
+                        href={getCatalogCourseActionHref(course, myCourse, playerId)}
                         color="amanoba"
                         leftSection={<IconTrophy size={18} />}
                       >
-                        {(myCourse?.progress.isCompleted || ((myCourse?.progress.completedDays ?? 0) >= (myCourse?.progress.totalDays ?? course.durationDays)))
-                          ? (course.certification?.enabled ? courseTexts.certificate : courseTexts.view)
+                        {isCompleted
+                          ? (course.certification?.enabled ? 'View Certificate' : courseTexts.view)
                           : courseTexts.continue}
                       </Button>
                     ) : (
