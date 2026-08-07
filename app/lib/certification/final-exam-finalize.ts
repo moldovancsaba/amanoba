@@ -128,6 +128,13 @@ export async function finalizeFinalExamAttempt(
 
     // Automatically generate and upload certificate images to ImgBB
     try {
+      // Fetch the certificate to get the verification slug
+      const certificate = await Certificate.findOne({
+        playerId: (player as DocWithId)._id.toString(),
+        courseId: course.courseId,
+        isRevoked: { $ne: true },
+      }).lean();
+
       await generateAndUploadCertificateImages({
         playerName: player.displayName || player.email || 'Learner',
         courseTitle: course.name || course.courseId,
@@ -135,6 +142,7 @@ export async function finalizeFinalExamAttempt(
         locale: course.language || 'en',
         playerId: (player as DocWithId)._id.toString(),
         courseId: (course as DocWithId)._id.toString(),
+        verificationSlug: certificate?.verificationSlug,
       });
     } catch (uploadError) {
       // Don't fail the exam if image upload fails

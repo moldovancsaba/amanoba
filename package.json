@@ -159,6 +159,7 @@
     "@sovereignsquad/gds-a11y": "https://github.com/sovereignsquad/general-design-system/releases/download/gds-v3.14.17/sovereignsquad-gds-a11y-3.14.17.tgz",
     "@sovereignsquad/gds-compliance": "https://github.com/sovereignsquad/general-design-system/releases/download/gds-v3.14.17/sovereignsquad-gds-compliance-3.14.17.tgz",
     "@sovereignsquad/gds-eslint-config": "https://github.com/sovereignsquad/general-design-system/releases/download/gds-v3.14.17/sovereignsquad-gds-eslint-config-3.14.17.tgz",
+    "@types/qrcode": "^1.5.6",
     "@types/turndown": "^5.0.6",
     "@types/web-push": "^3.6.3",
     "commander": "^15.0.0",
