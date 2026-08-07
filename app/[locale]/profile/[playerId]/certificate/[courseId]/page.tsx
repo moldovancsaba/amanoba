@@ -13,6 +13,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import {
   Badge,
+  Box,
   Button,
   Card,
   Center,
@@ -302,8 +303,19 @@ export default function CertificatePage({
           </Button>
         </Group>
 
-        <Card padding="xl">
+        <Card padding="xl" style={{ position: 'relative' }}>
           <Stack gap="xl" align="center">
+            {/* Amanoba Logo */}
+            <Box style={{ position: 'absolute', top: 20, left: 20 }}>
+              <Image
+                src="/amanoba_logo.png"
+                alt="Amanoba"
+                width={120}
+                height={40}
+                style={{ objectFit: 'contain' }}
+              />
+            </Box>
+
             <Stack gap="sm" align="center">
               <Badge color="amanobaYellow" size="lg">Certificate of Completion</Badge>
               <Title order={1} ta="center">{courseTitle}</Title>
@@ -400,6 +412,12 @@ export default function CertificatePage({
                 </Stack>
               </Stack>
             )}
+
+            {/* Website Branding Footer */}
+            <Stack gap={4} align="center" mt="xl">
+              <Text fw={700} c="amanobaYellow.5" size="lg">www.amanoba.com</Text>
+              <Text size="sm" c="dimmed">Unified Flexible Learning Platform</Text>
+            </Stack>
           </Stack>
         </Card>
       </Stack>
