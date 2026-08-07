@@ -19,18 +19,6 @@ interface CertificateData {
   courseId: string;
 }
 
-const DEFAULT_COLORS = {
-  bgStart: '#0F172A',
-  bgMid: '#1E293B',
-  accent: '#F59E0B',
-  border: '#F59E0B',
-  borderMuted: '#F59E0B4D',
-  textPrimary: '#F1F5F9',
-  textSecondary: '#CBD5E1',
-  footer: '#94A3B8',
-  titleGradientEnd: '#F59E0B',
-};
-
 /**
  * Generate certificate image as PNG buffer
  */
@@ -42,15 +30,6 @@ async function generateCertificateImage(
     ? { width: 1200, height: 1697 } 
     : { width: 1200, height: 627 };
 
-  const isMinimal = false;
-  const certColors = DEFAULT_COLORS;
-  const certificateId = `${data.playerId.slice(-8)}-${data.courseId.slice(-8)}`.toUpperCase();
-  const issuedDate = new Date().toLocaleDateString(data.locale, {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-
   const imageResponse = new ImageResponse(
     (
       <div
@@ -61,147 +40,24 @@ async function generateCertificateImage(
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: `linear-gradient(135deg, ${certColors.bgStart} 0%, ${certColors.bgMid} 50%, ${certColors.bgStart} 100%)`,
-          position: 'relative',
-          padding: '80px',
+          background: '#0F172A',
+          padding: '60px',
         }}
       >
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            border: `${isMinimal ? 4 : 8}px solid ${certColors.border}`,
-            borderRadius: isMinimal ? '8px' : '16px',
-          }}
-        />
-        {!isMinimal && (
-          <div
-            style={{
-              position: 'absolute',
-              top: '8px',
-              left: '8px',
-              right: '8px',
-              bottom: '8px',
-              border: `4px solid ${certColors.borderMuted}`,
-              borderRadius: '12px',
-            }}
-          />
-        )}
-
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '100%',
-            height: '100%',
-            textAlign: 'center',
-          }}
-        >
-          <div
-            style={{
-              fontSize: variant === 'print_a4' ? (isMinimal ? 52 : 72) : (isMinimal ? 42 : 56),
-              fontWeight: 'bold',
-              background: `linear-gradient(90deg, ${certColors.accent} 0%, ${certColors.titleGradientEnd} 100%)`,
-              backgroundClip: 'text',
-              color: 'transparent',
-              marginBottom: isMinimal ? '24px' : '40px',
-              lineHeight: 1.2,
-            }}
-          >
-            Certificate of Completion
-          </div>
-
-          {!isMinimal && (
-            <div
-              style={{
-                width: '200px',
-                height: '4px',
-                background: `linear-gradient(90deg, transparent 0%, ${certColors.accent} 50%, transparent 100%)`,
-                marginBottom: '60px',
-              }}
-            />
-          )}
-
-          <div
-            style={{
-              fontSize: variant === 'print_a4' ? 48 : 36,
-              fontWeight: 'bold',
-              color: certColors.textPrimary,
-              marginBottom: '40px',
-              lineHeight: 1.3,
-              maxWidth: '90%',
-            }}
-          >
-            {data.courseTitle}
-          </div>
-
-          <div
-            style={{
-              fontSize: variant === 'print_a4' ? 32 : 24,
-              color: certColors.textSecondary,
-              marginBottom: '20px',
-            }}
-          >
-            This certifies that
-          </div>
-
-          <div
-            style={{
-              fontSize: variant === 'print_a4' ? 56 : 42,
-              fontWeight: 'bold',
-              color: certColors.accent,
-              marginBottom: '20px',
-              lineHeight: 1.2,
-            }}
-          >
-            {data.playerName}
-          </div>
-
-          <div
-            style={{
-              fontSize: variant === 'print_a4' ? 32 : 24,
-              color: certColors.textSecondary,
-              marginBottom: '60px',
-            }}
-          >
-            has successfully completed the course
-          </div>
-
-          {data.finalExamScore !== null && (
-            <div
-              style={{
-                fontSize: variant === 'print_a4' ? 40 : 32,
-                color: certColors.accent,
-                marginBottom: '40px',
-                fontWeight: 'bold',
-              }}
-            >
-              Final Exam Score: {data.finalExamScore}%
-            </div>
-          )}
-
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '60px',
-              left: 0,
-              right: 0,
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              padding: '0 80px',
-              fontSize: variant === 'print_a4' ? 20 : 16,
-              color: certColors.footer,
-            }}
-          >
-            <div>ID: {certificateId}</div>
-            <div>{issuedDate}</div>
-          </div>
+        <div style={{ display: 'flex', fontSize: 48, fontWeight: 'bold', color: '#F59E0B', marginBottom: '40px' }}>
+          Certificate of Completion
+        </div>
+        <div style={{ display: 'flex', fontSize: 32, color: '#F1F5F9', marginBottom: '30px', textAlign: 'center', maxWidth: '90%' }}>
+          {data.courseTitle}
+        </div>
+        <div style={{ display: 'flex', fontSize: 20, color: '#CBD5E1', marginBottom: '20px' }}>
+          This certifies that
+        </div>
+        <div style={{ display: 'flex', fontSize: 40, fontWeight: 'bold', color: '#F59E0B', marginBottom: '20px' }}>
+          {data.playerName}
+        </div>
+        <div style={{ display: 'flex', fontSize: 18, color: '#CBD5E1' }}>
+          has successfully completed the course{data.finalExamScore !== null ? ` with ${data.finalExamScore}%` : ''}
         </div>
       </div>
     ),
@@ -222,31 +78,45 @@ export async function generateAndUploadCertificateImages(
   data: CertificateData
 ): Promise<{ shareUrl?: string; printUrl?: string } | null> {
   try {
+    logger.info({ playerId: data.playerId, courseId: data.courseId }, 'Starting certificate image generation');
+    
     const apiKey = process.env.IMGBB_API_KEY;
     if (!apiKey) {
       logger.error({}, 'IMGBB_API_KEY not configured for certificate upload');
       return null;
     }
 
+    logger.info({}, 'Generating certificate images...');
     // Generate both variants
     const [shareBuffer, printBuffer] = await Promise.all([
       generateCertificateImage(data, 'share_1200x627'),
       generateCertificateImage(data, 'print_a4'),
     ]);
 
+    logger.info({ shareSize: shareBuffer.length, printSize: printBuffer.length }, 'Images generated, uploading to ImgBB...');
+    
     // Upload both to ImgBB
     const [shareResult, printResult] = await Promise.all([
       uploadToImgBB(shareBuffer.toString('base64'), apiKey),
       uploadToImgBB(printBuffer.toString('base64'), apiKey),
     ]);
 
+    logger.info({ 
+      shareSuccess: shareResult.success, 
+      printSuccess: printResult.success,
+      shareUrl: shareResult.data?.url,
+      printUrl: printResult.data?.url,
+    }, 'ImgBB upload completed');
+
     if (!shareResult.success || !printResult.success) {
       logger.error({ shareResult, printResult }, 'Failed to upload certificate images to ImgBB');
       return null;
     }
 
+    logger.info({ playerId: data.playerId, courseId: data.courseId }, 'Storing URLs in CourseProgress...');
+    
     // Store URLs in CourseProgress
-    await CourseProgress.findOneAndUpdate(
+    const updated = await CourseProgress.findOneAndUpdate(
       { playerId: data.playerId, courseId: data.courseId },
       {
         $set: {
@@ -265,6 +135,11 @@ export async function generateAndUploadCertificateImages(
       { new: true }
     );
 
+    if (!updated) {
+      logger.error({ playerId: data.playerId, courseId: data.courseId }, 'CourseProgress not found for update');
+      return null;
+    }
+
     logger.info(
       { 
         playerId: data.playerId, 
@@ -280,7 +155,14 @@ export async function generateAndUploadCertificateImages(
       printUrl: printResult.data.url,
     };
   } catch (error) {
-    logger.error({ error, playerId: data.playerId, courseId: data.courseId }, 'Failed to generate certificate images');
+    const errorMsg = error instanceof Error ? error.message : 'Unknown error';
+    const errorStack = error instanceof Error ? error.stack : undefined;
+    logger.error({ 
+      error: errorMsg, 
+      stack: errorStack,
+      playerId: data.playerId, 
+      courseId: data.courseId 
+    }, 'Failed to generate certificate images');
     return null;
   }
 }
