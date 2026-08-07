@@ -4618,3 +4618,5 @@ npx tsx --env-file=.env.local scripts/migrate-existing-certificates-to-imgbb.ts
 - ✅ Professional branding maintained across all certificate images
 - ✅ Automatic generation for new certificates passing exams
 
+**Frontend Preview**: The certificate HTML preview page now also displays the logo and branding for visual consistency, though the actual downloaded PNG files are the authoritative branded certificates with embedded QR codes.
+
