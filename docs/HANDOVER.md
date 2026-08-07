@@ -4478,3 +4478,58 @@ Visit profile page at `/[locale]/profile/[playerId]` and verify:
 - Layout looks good on mobile, tablet, and desktop
 - Certificate title and score text are readable
 
+---
+
+## 2026-08-07 - Certificate Image Generation Fixed (Critical Build Issue)
+
+**What Changed**: Fixed certificate image download by resolving Next.js build configuration issue.
+
+**ROOT CAUSE**: The `--webpack` flag in `package.json` build script was preventing nested `.tsx` API routes with ImageResponse from building/deploying correctly in Next.js 16.
+
+**Why This Matters**: Next.js 16 uses Turbopack by default, which correctly handles ImageResponse in nested API routes. The `--webpack` flag was forcing the legacy webpack bundler, which failed to compile these routes properly, resulting in 404s or empty (0-byte) responses.
+
+**Solution**:
+1. Removed `--webpack` flag from build script
+2. Installed `@vercel/og` package (required in Next.js 16+)
+3. Updated all `ImageResponse` imports from `next/og` to `@vercel/og`
+4. Certificate images now generate correctly
+
+**Files Changed**:
+- ✅ `package.json` - Removed `--webpack` flag, added `@vercel/og` dependency
+- ✅ `app/api/profile/[playerId]/certificate/[courseId]/image/route.tsx` - Fixed ImageResponse
+- ✅ `app/api/certificates/[slug]/image/route.tsx` - Updated import
+- ✅ `app/lib/certification/generate-certificate-images.tsx` - Updated import
+- ✅ `app/api/test-image/route.tsx` - Test route (can be removed)
+
+**Technical Details**:
+
+- **Package**: `@vercel/og` is now required for ImageResponse in Next.js 16+
+- **Bundler**: Turbopack (default) handles edge runtime ImageResponse correctly
+- **Import**: Must use `import { ImageResponse } from '@vercel/og'` not `next/og`
+- **Edge Runtime**: Certificate images generate in edge runtime for performance
+- **Query Params**: Certificate data passed via query params (playerName, courseTitle, score)
+
+**Impact**:
+
+- ✅ Certificate images now generate correctly as PNG
+- ✅ Download and share features work
+- ✅ ImgBB upload integration functional
+- ✅ All existing certificate routes now work
+
+**Testing**:
+
+```bash
+# Test certificate image generation
+curl "https://www.amanoba.com/api/profile/{playerId}/certificate/{courseId}/image?playerName=Test&courseTitle=Course&score=95" --output cert.png
+
+# Should return valid PNG image, not empty or 404
+file cert.png  # Should show "PNG image data, 1200 x 627"
+```
+
+**Known Behavior**:
+
+- Certificate images require query params for playerName, courseTitle, score
+- Edge runtime cannot easily fetch data from other API routes
+- Frontend must pass this data when calling image generation endpoint
+- Default placeholders used if query params not provided
+
