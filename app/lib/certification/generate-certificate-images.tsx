@@ -5,6 +5,7 @@
  * Why: Automatically creates shareable certificate images when exam is passed
  */
 
+import React from 'react';
 import { ImageResponse } from '@vercel/og';
 import { uploadToImgBB } from '@/lib/utils/imgbb';
 import { CourseProgress } from '@/lib/models';
