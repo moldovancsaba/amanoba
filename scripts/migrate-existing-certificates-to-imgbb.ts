@@ -9,7 +9,7 @@
 
 import connectDB from '../app/lib/mongodb';
 import { Certificate, Course, Player, CourseProgress } from '../app/lib/models';
-import { generateAndUploadCertificateImages } from '../app/lib/certification/generate-certificate-images';
+import { generateAndUploadCertificateImages } from '../app/lib/certification/generate-certificate-images-canvas';
 
 async function migrateCertificates() {
   console.log('🚀 Starting certificate migration to ImgBB...\n');

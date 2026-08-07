@@ -12,7 +12,7 @@ import { resolveTemplateVariantAtIssue } from '@/lib/certification';
 import { resolveCourseLength } from '@/lib/course-helpers';
 import { hasAssessmentResultsForEveryDay } from '@/lib/course-progress-assessment-results';
 import { checkAndUnlockCourseAchievements } from '@/lib/gamification';
-import { generateAndUploadCertificateImages } from '@/lib/certification/generate-certificate-images';
+import { generateAndUploadCertificateImages } from '@/lib/certification/generate-certificate-images-canvas';
 import { logger } from '@/lib/logger';
 
 type DocWithId = { _id: { toString(): string } };

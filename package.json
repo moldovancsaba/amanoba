@@ -119,6 +119,7 @@
     "@types/react-dom": "^19.2.3",
     "@vercel/og": "^0.11.1",
     "axios": "^1.7.9",
+    "canvas": "^3.2.3",
     "date-fns": "^4.1.0",
     "dayjs": "^1.11.21",
     "dotenv": "^17.2.3",
