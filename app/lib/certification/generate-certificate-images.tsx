@@ -5,7 +5,7 @@
  * Why: Automatically creates shareable certificate images when exam is passed
  */
 
-import { ImageResponse } from 'next/og';
+import { ImageResponse } from '@vercel/og';
 import { uploadToImgBB } from '@/lib/utils/imgbb';
 import { CourseProgress } from '@/lib/models';
 import { logger } from '@/lib/logger';

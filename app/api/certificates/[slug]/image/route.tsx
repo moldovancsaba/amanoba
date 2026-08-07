@@ -9,7 +9,7 @@
  */
 
 import { NextRequest } from 'next/server';
-import { ImageResponse } from 'next/og';
+import { ImageResponse } from '@vercel/og';
 import connectDB from '@/lib/mongodb';
 import { Certificate, Course, Brand } from '@/lib/models';
 import { logger } from '@/lib/logger';

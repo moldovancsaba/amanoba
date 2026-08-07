@@ -5,7 +5,7 @@
  */
 
 import { NextRequest } from 'next/server';
-import { ImageResponse } from 'next/og';
+import { ImageResponse } from '@vercel/og';
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';

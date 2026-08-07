@@ -2,7 +2,7 @@
  * Test Image Generation
  */
 
-import { ImageResponse } from 'next/og';
+import { ImageResponse } from '@vercel/og';
 
 export const runtime = 'edge';
 
