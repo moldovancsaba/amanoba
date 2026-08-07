@@ -4571,3 +4571,50 @@ npx tsx --env-file=.env.local scripts/migrate-existing-certificates-to-imgbb.ts
 - `app/lib/certification/final-exam-finalize.ts` - Fixed courseId parameter
 - `scripts/migrate-existing-certificates-to-imgbb.ts` - Backfill script for existing certificates
 
+---
+
+## [2026-08-07] Certificate Branding Enhancements
+
+**Context**: User requested to add QR code, Amanoba logo, and website URL to certificates for better branding and verification.
+
+**Implementation**:
+1. Added QR code generation using `qrcode` library
+   - QR code links to certificate verification URL (`https://www.amanoba.com/certificates/{slug}`)
+   - Styled with Amanoba brand colors (#F59E0B on #0F172A)
+   - 150x150px size for optimal scanning
+   - Positioned in footer with "Scan to verify" label
+
+2. Added Amanoba logo
+   - Logo loaded from `public/amanoba_logo.png` as base64 data URL
+   - Positioned at top-left corner (120x40px)
+   - Visible on both share and print variants
+
+3. Added website branding
+   - "www.amanoba.com" displayed prominently in footer
+   - Tagline: "Unified Flexible Learning Platform"
+   - Styled with brand accent color
+
+**Files Modified**:
+- `app/lib/certification/generate-certificate-images.tsx` - Added QR code, logo, and URL to layout
+- `app/lib/certification/final-exam-finalize.ts` - Fetches certificate to pass verificationSlug
+- `package.json` - Added `@types/qrcode` for TypeScript support
+
+**Testing**:
+
+```bash
+# Clear existing certificate images and regenerate
+npx tsx --env-file=.env.local scripts/clear-cert-images.ts
+npx tsx --env-file=.env.local scripts/migrate-existing-certificates-to-imgbb.ts
+
+# View new certificate images
+# Share: https://i.ibb.co/JRvPDYj6/44b6d410a5b4.png
+# Print: https://i.ibb.co/6RQBB45D/8758bc27f81d.png
+```
+
+**Result**:
+- ✅ QR codes are scannable and link to verification page
+- ✅ Logo displays correctly on certificates
+- ✅ Website URL and tagline visible
+- ✅ Professional branding maintained across all certificate images
+- ✅ Automatic generation for new certificates passing exams
+
