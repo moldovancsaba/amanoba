@@ -4620,3 +4620,9 @@ npx tsx --env-file=.env.local scripts/migrate-existing-certificates-to-imgbb.ts
 
 **Frontend Preview**: The certificate HTML preview page now also displays the logo and branding for visual consistency, though the actual downloaded PNG files are the authoritative branded certificates with embedded QR codes.
 
+**Important Note on Image Rendering**: ImageResponse (Vercel OG) does not reliably support data URL images in Node.js runtime. The implementation uses external URLs:
+- Logo: `https://www.amanoba.com/amanoba_logo.png`
+- QR Code: `https://api.qrserver.com/v1/create-qr-code/` (with brand colors #F59E0B on #0F172A)
+
+This ensures consistent rendering across all certificate generation contexts.
+
