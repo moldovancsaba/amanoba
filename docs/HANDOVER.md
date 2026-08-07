@@ -4620,9 +4620,14 @@ npx tsx --env-file=.env.local scripts/migrate-existing-certificates-to-imgbb.ts
 
 **Frontend Preview**: The certificate HTML preview page now also displays the logo and branding for visual consistency, though the actual downloaded PNG files are the authoritative branded certificates with embedded QR codes.
 
-**Important Note on Image Rendering**: ImageResponse (Vercel OG) does not reliably support data URL images in Node.js runtime. The implementation uses external URLs:
-- Logo: `https://www.amanoba.com/amanoba_logo.png`
-- QR Code: `https://api.qrserver.com/v1/create-qr-code/` (with brand colors #F59E0B on #0F172A)
+**Critical Implementation Note**: ImageResponse from `@vercel/og` **does not support external images** in Node.js runtime. After multiple attempts, switched to **node-canvas** for certificate generation.
 
-This ensures consistent rendering across all certificate generation contexts.
+**Final Implementation** (`generate-certificate-images-canvas.ts`):
+- Uses **Canvas API** for proper image compositing
+- Logo loaded from filesystem (`public/amanoba_logo.png`)
+- QR code generated with `qrcode` library
+- Full control over rendering, fonts, and layout
+- Produces correct certificates with all branding elements
+
+This is the only approach that works reliably for certificate image generation with embedded logos and QR codes.
 
