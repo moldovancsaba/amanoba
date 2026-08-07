@@ -9,9 +9,6 @@ import { ImageResponse } from '@vercel/og';
 import { uploadToImgBB } from '@/lib/utils/imgbb';
 import { CourseProgress } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import QRCode from 'qrcode';
-import { readFileSync } from 'fs';
-import { join } from 'path';
 
 interface CertificateData {
   playerName: string;
@@ -34,33 +31,13 @@ async function generateCertificateImage(
     ? { width: 1200, height: 1697 } 
     : { width: 1200, height: 627 };
 
-  // Generate QR code as data URL if verification slug is available
-  let qrCodeDataUrl = '';
-  if (data.verificationSlug) {
-    const verificationUrl = `https://www.amanoba.com/certificates/${data.verificationSlug}`;
-    try {
-      qrCodeDataUrl = await QRCode.toDataURL(verificationUrl, {
-        width: 150,
-        margin: 1,
-        color: {
-          dark: '#F59E0B',
-          light: '#0F172A',
-        },
-      });
-    } catch (error) {
-      logger.error({ error }, 'Failed to generate QR code');
-    }
-  }
+  // Generate QR code URL using external service (ImageResponse doesn't support data URLs well)
+  const qrCodeUrl = data.verificationSlug 
+    ? `https://api.qrserver.com/v1/create-qr-code/?size=150x150&bgcolor=0F172A&color=F59E0B&data=${encodeURIComponent(`https://www.amanoba.com/certificates/${data.verificationSlug}`)}`
+    : '';
 
-  // Load logo as base64
-  let logoDataUrl = '';
-  try {
-    const logoPath = join(process.cwd(), 'public', 'amanoba_logo.png');
-    const logoBuffer = readFileSync(logoPath);
-    logoDataUrl = `data:image/png;base64,${logoBuffer.toString('base64')}`;
-  } catch (error) {
-    logger.error({ error }, 'Failed to load logo');
-  }
+  // Use public logo URL instead of data URL
+  const logoUrl = 'https://www.amanoba.com/amanoba_logo.png';
 
   const imageResponse = new ImageResponse(
     (
@@ -78,9 +55,9 @@ async function generateCertificateImage(
         }}
       >
         {/* Logo at top */}
-        {logoDataUrl && (
+        {logoUrl && (
           <div style={{ display: 'flex', position: 'absolute', top: '30px', left: '30px' }}>
-            <img src={logoDataUrl} alt="Amanoba" width="120" height="40" />
+            <img src={logoUrl} alt="Amanoba" width={120} height={40} />
           </div>
         )}
 
@@ -106,9 +83,9 @@ async function generateCertificateImage(
         {/* Footer with QR code and URL */}
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
           {/* QR Code */}
-          {qrCodeDataUrl && (
+          {qrCodeUrl && (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <img src={qrCodeDataUrl} alt="QR Code" width="100" height="100" />
+              <img src={qrCodeUrl} alt="QR Code" width={100} height={100} />
               <div style={{ display: 'flex', fontSize: 12, color: '#94A3B8', marginTop: '8px' }}>
                 Scan to verify
               </div>
