@@ -4533,3 +4533,41 @@ file cert.png  # Should show "PNG image data, 1200 x 627"
 - Frontend must pass this data when calling image generation endpoint
 - Default placeholders used if query params not provided
 
+---
+
+## [2026-08-07] Certificate ImgBB Upload Fix
+
+**Context**: Certificate images were not being automatically uploaded to ImgBB after exam completion.
+
+**Root Cause**: Two issues:
+1. `generateAndUploadCertificateImages` was receiving `courseId` as a string, but `CourseProgress.courseId` is a MongoDB ObjectId
+2. `ImageResponse` JSX structure lacked explicit `display: flex` on all `<div>` elements, which is required in Node.js runtime (stricter than Edge runtime)
+
+**Fix**:
+1. Changed `final-exam-finalize.ts` to pass `course._id.toString()` instead of `course.courseId`
+2. Simplified certificate image template to minimal working design with explicit `display: flex` on all divs
+3. Added detailed logging to helper function for easier debugging
+
+**Result**:
+- ✅ Certificates now automatically upload to ImgBB when exam is passed
+- ✅ `certificate-status` API returns `certificateImages` with ImgBB URLs
+- ✅ Frontend downloads certificates directly from ImgBB CDN
+- ✅ Migration script successfully backfilled existing certificates
+
+**Testing**:
+
+```bash
+# Check certificate ImgBB URLs
+curl "https://www.amanoba.com/api/profile/{playerId}/certificate-status?courseId={courseId}" | jq '.data.certificateImages'
+
+# Should return object with share.url and print.url pointing to i.ibb.co
+
+# Backfill existing certificates
+npx tsx --env-file=.env.local scripts/migrate-existing-certificates-to-imgbb.ts
+```
+
+**Implementation**:
+- `app/lib/certification/generate-certificate-images.tsx` - Simplified ImageResponse template
+- `app/lib/certification/final-exam-finalize.ts` - Fixed courseId parameter
+- `scripts/migrate-existing-certificates-to-imgbb.ts` - Backfill script for existing certificates
+
