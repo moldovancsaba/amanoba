@@ -162,11 +162,24 @@ export default function CertificatePage({
       const imageUrl = certificateImages?.[variantKey]?.url;
 
       if (!imageUrl) {
-        // Certificate image not uploaded yet - this shouldn't happen but fallback to generation
+        // Certificate image not uploaded yet - generate it now via direct image endpoint
+        console.log('Certificate not in ImgBB yet, downloading directly from image endpoint');
+        
+        const imageEndpoint = `/api/profile/${playerId}/certificate/${courseId}/image?variant=${variant}&playerName=${encodeURIComponent(certificateData.playerName)}&courseTitle=${encodeURIComponent(certificateData.courseTitle)}&score=${certificateData.finalExamScore || ''}`;
+        
+        const anchor = document.createElement('a');
+        anchor.href = imageEndpoint;
+        anchor.download = `certificate-${courseId}-${variant}.png`;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        document.body.appendChild(anchor);
+        anchor.click();
+        document.body.removeChild(anchor);
+        
         notifications.show({ 
-          color: 'yellow', 
-          title: 'Certificate not ready', 
-          message: 'Please try again in a moment. The certificate is being prepared.' 
+          color: 'green', 
+          title: 'Certificate ready', 
+          message: 'Your certificate is downloading.' 
         });
         return;
       }
