@@ -33,7 +33,7 @@ export function GET(
           }}
         >
           <div style={{ fontSize: 48, color: '#F59E0B' }}>
-            Certificate for {courseId}
+            Certificate Test
           </div>
         </div>
       ),
