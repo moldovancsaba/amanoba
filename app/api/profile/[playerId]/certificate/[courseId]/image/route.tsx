@@ -19,16 +19,6 @@ export async function GET(
     const { searchParams } = new URL(request.url);
     const variant = searchParams.get('variant') || 'share_1200x627';
 
-    // Dimensions
-    const dimensions = variant === 'print_a4' 
-      ? { width: 1200, height: 1697 }
-      : { width: 1200, height: 627 };
-
-    // Hardcode data for now to test
-    const playerName = 'Test User';
-    const courseTitle = 'Test Course';
-    const score = 95;
-
     return new ImageResponse(
       (
         <div
@@ -36,31 +26,20 @@ export async function GET(
             height: '100%',
             width: '100%',
             display: 'flex',
-            flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            background: '#0F172A',
-            padding: '60px',
+            backgroundColor: '#0F172A',
           }}
         >
-          <div style={{ fontSize: 48, fontWeight: 'bold', color: '#F59E0B', marginBottom: '40px' }}>
-            Certificate of Completion
-          </div>
-          <div style={{ fontSize: 32, color: '#F1F5F9', marginBottom: '30px', textAlign: 'center' }}>
-            {courseTitle}
-          </div>
-          <div style={{ fontSize: 20, color: '#CBD5E1', marginBottom: '20px' }}>
-            This certifies that
-          </div>
-          <div style={{ fontSize: 40, fontWeight: 'bold', color: '#F59E0B', marginBottom: '20px' }}>
-            {playerName}
-          </div>
-          <div style={{ fontSize: 18, color: '#CBD5E1' }}>
-            has successfully completed the course{score ? ` with ${score}%` : ''}
+          <div style={{ fontSize: 48, color: '#F59E0B' }}>
+            Certificate for {courseId}
           </div>
         </div>
       ),
-      dimensions
+      {
+        width: 1200,
+        height: 627,
+      }
     );
   } catch (error) {
     const msg = error instanceof Error ? error.message : 'Unknown';
