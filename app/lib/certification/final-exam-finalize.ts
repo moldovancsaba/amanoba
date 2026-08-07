@@ -134,7 +134,7 @@ export async function finalizeFinalExamAttempt(
         finalExamScore: scorePercentInteger,
         locale: course.language || 'en',
         playerId: (player as DocWithId)._id.toString(),
-        courseId: course.courseId,
+        courseId: (course as DocWithId)._id.toString(),
       });
     } catch (uploadError) {
       // Don't fail the exam if image upload fails
