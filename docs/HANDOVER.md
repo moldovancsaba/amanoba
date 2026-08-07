@@ -4444,3 +4444,37 @@ curl https://amanoba.com/api/version
 - Version display fetches on every page load (not stored in localStorage)
 - 5-minute API cache means version updates may take up to 5 minutes to reflect
 
+---
+
+## 2026-08-07 - Certificate Card Layout Fix
+
+**What Changed**: Fixed text overlap issue in certificate cards on profile page.
+
+**Why**: The "View Certificate" button was overlapping with certificate title and score text, making the profile page difficult to read.
+
+**Changes Made**:
+
+1. **Increased Spacing**: Changed gap from `sm` to `md` for better visual separation
+2. **Removed Link Wrapper**: Certificate title is no longer wrapped in a clickable link to prevent interference with button layout
+3. **Added Button Wrapping**: Added `wrap="wrap"` property to button group so buttons wrap to next line on small screens instead of overflowing
+4. **Non-clickable Title**: Certificate title area is now static text (buttons provide navigation)
+
+**Files Modified**:
+- ✅ `app/[locale]/profile/[playerId]/page.tsx` - CertificatesCard component layout
+
+**User-Visible Changes**:
+
+- Certificate cards now have proper spacing
+- No text overlap on any screen size
+- Buttons wrap gracefully on mobile devices
+- Certificate title and score remain clearly visible
+- "View Certificate" and "Copy link" buttons always accessible
+
+**Testing**:
+
+Visit profile page at `/[locale]/profile/[playerId]` and verify:
+- Certificate cards display without overlap
+- Buttons are fully visible and clickable
+- Layout looks good on mobile, tablet, and desktop
+- Certificate title and score text are readable
+
