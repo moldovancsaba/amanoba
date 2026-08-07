@@ -10,15 +10,16 @@ import { ImageResponse } from '@vercel/og';
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: Promise<{ playerId: string; courseId: string }> }
+export function GET(
+  request: NextRequest
 ) {
   try {
-    const { playerId, courseId } = await params;
-    const { searchParams } = new URL(request.url);
-    const variant = searchParams.get('variant') || 'share_1200x627';
-
+    // Extract params from URL path instead of awaiting Promise
+    const url = new URL(request.url);
+    const pathParts = url.pathname.split('/');
+    const playerId = pathParts[3]; // /api/profile/[playerId]/...
+    const courseId = pathParts[5]; // .../certificate/[courseId]/image
+    
     return new ImageResponse(
       (
         <div
