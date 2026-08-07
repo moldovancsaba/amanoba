@@ -24,24 +24,10 @@ export async function GET(
       ? { width: 1200, height: 1697 }
       : { width: 1200, height: 627 };
 
-    // Fetch certificate data
-    const baseUrl = `https://${request.headers.get('host') || 'www.amanoba.com'}`;
-    const dataUrl = `${baseUrl}/api/profile/${playerId}/certificate-status?courseId=${encodeURIComponent(courseId)}`;
-    const dataResponse = await fetch(dataUrl);
-    
-    if (!dataResponse.ok) {
-      return new Response('Failed to fetch data', { status: 500 });
-    }
-
-    const { data: certStatus } = await dataResponse.json();
-    
-    if (!certStatus?.certificateEligible) {
-      return new Response('Not eligible', { status: 403 });
-    }
-
-    const playerName = certStatus.playerName || 'Unknown';
-    const courseTitle = certStatus.courseTitle || 'Course';
-    const score = certStatus.finalExamScore;
+    // Hardcode data for now to test
+    const playerName = 'Test User';
+    const courseTitle = 'Test Course';
+    const score = 95;
 
     return new ImageResponse(
       (
