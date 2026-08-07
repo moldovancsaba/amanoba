@@ -60,13 +60,7 @@ export async function GET(
           </div>
         </div>
       ),
-      {
-        ...dimensions,
-        headers: {
-          'Content-Type': 'image/png',
-          'Cache-Control': 'public, max-age=31536000, immutable',
-        },
-      }
+      dimensions
     );
   } catch (error) {
     const msg = error instanceof Error ? error.message : 'Unknown';
