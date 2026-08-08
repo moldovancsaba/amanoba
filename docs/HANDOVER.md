@@ -4808,3 +4808,59 @@ This is the only approach that works reliably for certificate image generation w
 **Files:**
 - scripts/add-lesson-self-checks.ts - Implementation script
 - docs/courses/COURSE_CREATION_REQUIREMENTS.md - Updated requirements
+
+## 2026-08-08: Critical Course Creation Standards Documentation
+
+**What Changed:**
+- Added comprehensive "Where to Find Information & How to Build Courses" section to COURSE_CREATION_REQUIREMENTS.md
+- Documents mandatory reading order and SSOT locations
+- Provides step-by-step course building process
+- Includes complete 5W1H lesson template
+- Lists quality validation requirements and forbidden patterns
+
+**Why:**
+- User feedback: "Add to your requirements where to find the information and how to build the courses"
+- Previous Stage 2 lessons were placeholder garbage that violated all standards
+- Need clear, definitive guidance to prevent future quality issues
+- Must document the proper workflow and validation requirements
+
+**What's Documented:**
+
+1. **Mandatory Reading Order**:
+   - docs/agents/CONTENT_CREATION_WORKFLOW.md (READ FIRST)
+   - docs/core/agent_working_loop_canonical_operating_document.md (SSOT section)
+   - docs/architecture/layout_grammar.md (Structure grammar)
+
+2. **Reference Locations**:
+   - Content quality enforcement: app/lib/content-quality/enforcement.ts
+   - Validation standards: app/lib/validators/content-standards.ts
+   - External repo: amanoba_courses (Trinity Architecture)
+
+3. **Information Sources**:
+   - Where to find authoritative sources by topic
+   - How to document bibliography
+   - Example sources for AI, business, programming topics
+
+4. **Step-by-Step Process**:
+   - Research and gather information from credible sources
+   - Follow complete 5W1H structure (13 mandatory sections)
+   - Create standalone scenario-based quiz questions
+   - Validate every piece of content before saving
+   - Run batch validation on complete courses
+
+5. **Quality Requirements**:
+   - Lesson quality score ≥70 (strict) or ≥50 (blocking)
+   - Quiz question score ≥75 (strict) or ≥60 (blocking)
+   - Overall course score ≥80 (recommended)
+   - Zero forbidden patterns
+   - Complete bibliography with real sources
+
+**Impact:**
+- All future course creation must follow this documented process
+- No more placeholder or garbage content
+- Clear standards prevent quality issues
+- Agents have definitive reference for proper course creation
+- Validation is mandatory, not optional
+
+**Files:**
+- docs/courses/COURSE_CREATION_REQUIREMENTS.md - Updated with critical section
