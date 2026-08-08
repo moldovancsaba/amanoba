@@ -4631,3 +4631,59 @@ npx tsx --env-file=.env.local scripts/migrate-existing-certificates-to-imgbb.ts
 
 This is the only approach that works reliably for certificate image generation with embedded logos and QR codes.
 
+---
+
+## [2026-08-08] Progressive Course Generation System
+
+**Context**: User requested automation for building next-stage courses that reuse existing content (lessons and questions) while adding harder, more advanced material.
+
+**Recommendation**: **AI Essentials - 3 Days to Practical Skills** (Stage 2)
+
+**Implementation**:
+1. **Course Progression Strategy** (`docs/courses/AI_COURSE_PROGRESSION_PLAN.md`):
+   - Stage 1: AI for Dummies (1 day, beginner)
+   - Stage 2: AI Essentials (3 days, intermediate) ← **Next to build**
+   - Stage 3: AI Mastery (7 days, advanced)
+   - Stage 4: AI Expert (30 days, expert)
+
+2. **Progressive Course Builder** (`app/lib/course-generation/progressive-course-builder.ts`):
+   - `extractQuestionPool()` - Extract all questions from source course
+   - `filterQuestionsByDifficulty()` - Filter questions by difficulty level
+   - `distributeReuseQuestions()` - Distribute reused questions across lessons with spaced repetition
+   - `calculateDifficultyDistribution()` - Auto-calculate difficulty mix based on stage
+   - `generateProgression()` - Generate complete course outline
+   - `ProgressiveCourseBuilder.buildNextStage()` - Main orchestration function
+
+3. **Content Reuse Strategy**:
+   - **Questions**: All Stage 1 questions (50) + 50 new harder questions = 100 total
+   - **Difficulty Scaling**: Stage 2 = 30% EASY, 50% MEDIUM, 20% HARD
+   - **Distribution**: Early lessons have more reused questions (review), later lessons have more new questions (advancement)
+   - **Spaced Repetition**: Questions distributed to optimize learning retention
+
+4. **Quality Assurance**:
+   - Minimum 100 questions for Stage 2 certification
+   - Prerequisite chain enforcement (Stage 2 requires Stage 1 completion)
+   - Automatic difficulty progression validation
+   - Question pool diversity checks
+
+**Files Created**:
+- `docs/courses/AI_COURSE_PROGRESSION_PLAN.md` - Complete progression strategy
+- `app/lib/course-generation/progressive-course-builder.ts` - Automation system
+- `scripts/demo-progressive-course-generation.ts` - Demo showing full workflow
+- `scripts/analyze-current-course.ts` - Course analysis tool
+
+**Next Steps**:
+1. Monitor Stage 1 completions (trigger at 50+)
+2. Generate Stage 2 lesson content (15 lessons)
+3. Create 50 new quiz questions (15 EASY, 25 MEDIUM, 10 HARD)
+4. Link prerequisite chain
+5. Enable certification
+6. Deploy and monitor progression metrics
+
+**Benefits**:
+- ✅ Faster course development (reuse existing quality content)
+- ✅ Consistent learning experience (smooth difficulty curve)
+- ✅ Better retention (spaced repetition of concepts)
+- ✅ Scalable to Stage 3, Stage 4, and beyond
+- ✅ Data-driven triggers (auto-generate when 50+ completions)
+
