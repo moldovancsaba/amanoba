@@ -98,6 +98,16 @@ Every course must have at least one lesson.
 - `emailSubject`: Email delivery subject
 - `emailBody`: Email delivery body
 - `language`: Same as course language
+- `selfCheck`: ✅ **REQUIRED** Self-check questionnaire object with:
+  - `instruction`: String guiding the learner
+  - `questions`: Array of reflection questions (minimum 3, recommended 4-5)
+
+**Self-Check Purpose**:
+- Helps learners reflect on what they've learned
+- Reinforces key concepts
+- Identifies knowledge gaps
+- Provides active learning opportunities
+- No right/wrong answers - focused on comprehension and application
 
 ### 4. Quiz Questions (RECOMMENDED)
 
@@ -184,6 +194,8 @@ Before creating a course, verify:
 - [ ] XP and points configurations are set
 - [ ] At least one lesson exists
 - [ ] Lessons have email subject and body
+- [ ] ✅ **Each lesson has selfCheck with instruction and questions array**
+- [ ] Self-check questions are meaningful and promote reflection (3-5 per lesson)
 - [ ] Quiz questions meet minimum requirements
 - [ ] If certification enabled, pool size ≥ 100 questions
 - [ ] Prerequisites are valid course ObjectIds (if applicable)
@@ -225,9 +237,30 @@ async function createCourse() {
     // ... other fields
   });
   
-  // Create lessons...
+  // Create lessons with self-check questions
+  await Lesson.create({
+    lessonId: 'YOUR_LESSON_ID',
+    courseId: course._id,
+    dayNumber: 1,
+    language: 'en',
+    title: 'Your Lesson Title',
+    displayOrder: 1,
+    emailSubject: 'Day 1: Your Lesson',
+    emailBody: 'Ready for Day 1? Let\'s learn!',
+    content: '# Your Lesson Content\n\nLesson markdown here...',
+    selfCheck: {
+      instruction: 'Review the concepts covered and reflect on your understanding.',
+      questions: [
+        'Can you explain the main concept in your own words?',
+        'How would you apply this to your work?',
+        'What questions do you still have?',
+        'What will you do differently now?',
+      ],
+    },
+    quizQuestions: [ /* quiz questions array */ ],
+  });
   
-  console.log('✅ Course created with thumbnail!');
+  console.log('✅ Course created with thumbnail and self-checks!');
 }
 ```
 
