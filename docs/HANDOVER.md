@@ -4687,3 +4687,38 @@ This is the only approach that works reliably for certificate image generation w
 - ✅ Scalable to Stage 3, Stage 4, and beyond
 - ✅ Data-driven triggers (auto-generate when 50+ completions)
 
+
+## 2026-08-08: Progressive Course Generation - Stage 2 Complete
+
+**What Changed:**
+- Created "AI Essentials - 3 Days to Practical Skills" (Stage 2 course)
+- Course ID: `AI_ESSENTIALS_3DAY_EN`
+- 15 lessons with practical AI content
+- 100 quiz questions with difficulty scaling (30% EASY, 50% MEDIUM, 20% HARD)
+- Prerequisites: Requires completion of "AI for Dummies in a Day" (Stage 1)
+- Certification enabled (60% pass threshold, no early failure)
+- Progressive course generation metadata linked to Stage 1
+
+**Why:**
+- Implements the progressive course generation strategy
+- Demonstrates automated content scaling and difficulty distribution
+- Provides natural progression path for learners
+- Question pool exceeds 100 minimum for certification eligibility
+
+**Impact:**
+- Users who complete Stage 1 can now access Stage 2
+- Prerequisite enforcement ensures learning progression
+- Certification system fully functional for Stage 2
+- Foundation for Stage 3 (7-day) and Stage 4 (30-day) courses
+
+**Technical Details:**
+- Used separate Lesson model (not embedded in Course)
+- Questions distributed evenly across 15 lessons (~7 per lesson)
+- Progression metadata: generationType progressive, generationStage 2
+- Course linked via prerequisiteCourseIds and progressionMetadata.previousStageCourseId
+
+**Files:**
+- scripts/create-ai-essentials-stage2.ts - Course creation
+- scripts/create-stage2-complete.ts - Complete lesson and question setup
+- docs/courses/AI_COURSE_PROGRESSION_PLAN.md - Strategy document
+- app/lib/course-generation/progressive-course-builder.ts - Automation system
