@@ -4727,3 +4727,46 @@ This is the only approach that works reliably for certificate image generation w
 - Set thumbnail for AI_ESSENTIALS_3DAY_EN course
 - Selected image: https://i.ibb.co/DDpm7xg5/9-D06-E9-E9-5421-4000-8170-EA863-BB10-E5-B.png (blue/tech themed)
 - Course card now displays with proper thumbnail image
+
+## 2026-08-08: Thumbnail Now Required for All Courses
+
+**What Changed:**
+- Course thumbnail field changed from optional to required
+- Updated Course model schema with validation
+- Updated TypeScript interface (thumbnail is no longer optional)
+- Created comprehensive course creation requirements documentation
+
+**Why:**
+- User feedback: "Every course requires a thumbnail please add it to the requirements"
+- Ensures consistent, professional appearance in course catalog
+- Visual content improves engagement and UX
+- Prevents courses from being created without proper visual representation
+
+**Impact:**
+- All NEW courses must include a thumbnail URL
+- Mongoose validation will reject courses without thumbnails
+- Course creation scripts must select from thumbnail pool
+- TypeScript compiler will enforce thumbnail presence
+
+**Migration:**
+- Checked existing courses: All 2 courses already have thumbnails
+- Created migration script for future use: ensure-all-courses-have-thumbnails.ts
+- No immediate migration needed
+
+**Documentation:**
+- Created: docs/courses/COURSE_CREATION_REQUIREMENTS.md
+- Documents all required fields for course creation
+- Includes thumbnail selection guidelines
+- Provides script templates and examples
+- Lists approved thumbnail pool
+
+**Technical Details:**
+- Schema: thumbnail field now has required: true and validator
+- Interface: ICourse.thumbnail changed from optional (?) to required
+- Validation: Non-empty URL string enforced
+- Fallback: Brand default thumbnail still available for legacy data
+
+**Files Modified:**
+- app/lib/models/course.ts - Schema and interface updated
+- docs/courses/COURSE_CREATION_REQUIREMENTS.md - New documentation
+- scripts/ensure-all-courses-have-thumbnails.ts - Migration script

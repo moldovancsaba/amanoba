@@ -17,7 +17,7 @@ export interface ICourse extends Document {
   name: string;
   description: string;
   language: string; // Language code (hu, en, etc.)
-  thumbnail?: string;
+  thumbnail: string; // REQUIRED: Visual representation for course card
   durationDays: number; // Planned/fallback lesson count; actual length is derived from lessons
   isActive: boolean;
   requiresPremium: boolean;
@@ -188,10 +188,17 @@ const CourseSchema = new Schema<ICourse>(
     },
 
     // Thumbnail image URL
-    // Why: Visual representation in course listing
+    // Why: Visual representation in course listing (REQUIRED for all courses)
     thumbnail: {
       type: String,
+      required: [true, 'Course thumbnail is required'],
       trim: true,
+      validate: {
+        validator: function(v: string) {
+          return v && v.length > 0;
+        },
+        message: 'Thumbnail URL cannot be empty',
+      },
     },
 
     // Course duration in days
