@@ -4770,3 +4770,41 @@ This is the only approach that works reliably for certificate image generation w
 - app/lib/models/course.ts - Schema and interface updated
 - docs/courses/COURSE_CREATION_REQUIREMENTS.md - New documentation
 - scripts/ensure-all-courses-have-thumbnails.ts - Migration script
+
+## 2026-08-08: Self-Check Questions Added to All Lessons
+
+**What Changed:**
+- Added comprehensive self-check questionnaires to all 15 Stage 2 lessons
+- Each lesson now has 4 meaningful reflection questions
+- Updated course creation requirements to mandate self-checks
+
+**Why:**
+- User feedback: "There are no lesson related questionary added for the lessons end"
+- Self-check questions improve learning outcomes through active reflection
+- Helps learners assess their own understanding
+- Identifies knowledge gaps
+- Reinforces key concepts without being graded
+
+**Self-Check Question Types:**
+- Days 1-3: Foundational understanding and application
+- Days 4-7: Best practices and implementation strategies
+- Days 8-10: Data quality and performance evaluation
+- Days 11-13: Production deployment and advanced patterns
+- Days 14-15: Future trends and action planning
+
+**Impact:**
+- Better learning experience with structured reflection
+- Learners can self-assess comprehension
+- Non-graded, low-pressure knowledge checks
+- Promotes active learning vs passive consumption
+
+**Technical Details:**
+- selfCheck object structure:
+  - instruction: String guiding the reflection process
+  - questions: Array of 3-5 open-ended questions
+- No right/wrong answers - focused on understanding and application
+- Questions progress from basic recall to advanced synthesis
+
+**Files:**
+- scripts/add-lesson-self-checks.ts - Implementation script
+- docs/courses/COURSE_CREATION_REQUIREMENTS.md - Updated requirements
