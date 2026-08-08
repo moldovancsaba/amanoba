@@ -4722,3 +4722,8 @@ This is the only approach that works reliably for certificate image generation w
 - scripts/create-stage2-complete.ts - Complete lesson and question setup
 - docs/courses/AI_COURSE_PROGRESSION_PLAN.md - Strategy document
 - app/lib/course-generation/progressive-course-builder.ts - Automation system
+
+### Update: Course Thumbnail Added
+- Set thumbnail for AI_ESSENTIALS_3DAY_EN course
+- Selected image: https://i.ibb.co/DDpm7xg5/9-D06-E9-E9-5421-4000-8170-EA863-BB10-E5-B.png (blue/tech themed)
+- Course card now displays with proper thumbnail image
