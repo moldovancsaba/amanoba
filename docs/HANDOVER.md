@@ -6409,3 +6409,153 @@ await ccs.addCourseToLevel(3, 'AI_INTERMEDIATE_7DAY_ES', 'es', 'translation-agen
 ✅ **Type Safety:** Full TypeScript support  
 
 **Status:** PRODUCTION READY AND OPERATIONAL 🎯
+
+---
+
+## 2026-08-09: Course Matrix Rules - Rigid Validation System
+
+### What Was Done
+
+Implemented a rigid rule system that enforces the correct order for building the course matrix, preventing invalid or incomplete learning paths.
+
+### The Four Matrix Rules
+
+**Rule 1: Origin Rule**
+- Every course family MUST start with English Level 1 (beginner)
+- This is the anchor point of the entire matrix
+- No other courses can exist without this origin
+
+**Rule 2: Level Prerequisite Rule**
+- Level N can only be created if Level N-1 exists in English
+- Level N-1 must be in `published` status
+- Applies to English courses creating new levels
+
+**Rule 3: Language Variant Rule**
+- A language variant at level N requires English at level N to be published
+- Cannot translate to Spanish L2 if English L2 doesn't exist
+- Ensures horizontal completeness
+
+**Rule 4: Vertical Language Progression Rule**
+- A language at level N requires the same language at level N-1 to be published
+- Cannot create Spanish L2 if Spanish L1 doesn't exist
+- Ensures vertical completeness within each language
+
+### Implementation
+
+**CCS Model Validation:**
+Enhanced `CCSSchema.methods.addCourseToLevel()` in `app/lib/models/ccs.ts` with 4-rule validation. All violations throw clear errors:
+
+```
+MATRIX RULE VIOLATION: [specific rule explanation]
+```
+
+**Verification Script:**
+Created `scripts/verify-matrix-rules-production.ts` to verify rules are enforced and show current matrix state.
+
+**Run:** `npm run verify:matrix-rules`
+
+### Current Matrix State
+
+```
+AI_LEARNING_PATH_2026:
+
+                EN          ES          ZH
+Level 1         ●  ────────→ ●           ○
+                ↓           ?           
+Level 2         ●           ○           ○
+
+Legend: 
+  ● = Published
+  ○ = Not created
+  → = Horizontal (requires EN at same level)
+  ↓ = Vertical (requires previous level in same language)
+```
+
+**What's Allowed Next:**
+- ✅ Spanish L2 (both Spanish L1 and English L2 exist)
+- ✅ Chinese L1 (English L1 exists)
+- ✅ English L3 (English L2 exists)
+
+**What's Blocked:**
+- ❌ Chinese L2 (Chinese L1 doesn't exist)
+- ❌ Spanish L3 (English L3 doesn't exist)
+
+### Validation Results
+
+All rules tested and verified:
+- ✅ Origin Rule: English L1 required for all other courses
+- ✅ Level Prerequisite: English L(N-1) required for Level N
+- ✅ Language Variant: English at level N required for other languages
+- ✅ Vertical Progression: Same language L(N-1) required for L(N)
+
+### Documentation
+
+**Rules Documentation:**
+- `COURSE_MATRIX_RULES.md` - Comprehensive rules, examples, and validation logic
+- `MATRIX_RULES_IMPLEMENTATION.md` - Implementation details and verification
+
+**Scripts:**
+- `scripts/verify-matrix-rules-production.ts` - Verify rules on production data
+- `scripts/cleanup-test-courses.ts` - Remove test courses
+- `scripts/inspect-ai-learning-path.ts` - Inspect CCS data
+
+### Benefits
+
+**For Content Team:**
+- Clear, unambiguous build order
+- No confusion about what can be created next
+- Prevents incomplete learning paths
+
+**For Developers:**
+- Simple, predictable validation logic
+- Clear error messages
+- Prevents data inconsistencies
+
+**For Users:**
+- Complete learning paths guaranteed
+- No dead-end translations
+- Reliable language switching
+
+### Key Learnings
+
+**Rigid Rules Create Predictability:**
+- Matrix construction must follow logical order
+- Published status is required for all prerequisites
+- Rules prevent orphaned or incomplete courses
+- Clear error messages guide correct usage
+
+**Validation at CCS Level:**
+- Enforcement happens at model level (not UI or API)
+- Consistent validation across all entry points
+- Single source of truth for rules
+- Easy to test and verify
+
+**Future Integration Points:**
+- Translation import script validation (TODO)
+- Admin UI button enabling/disabling (TODO)
+- API endpoint validation (TODO)
+- Migration script safety checks (TODO)
+
+### Commands
+
+```bash
+# Verify matrix rules
+npm run verify:matrix-rules
+
+# Clean up test courses
+npx tsx --env-file=.env.local scripts/cleanup-test-courses.ts
+
+# Inspect current matrix
+npx tsx --env-file=.env.local scripts/inspect-ai-learning-path.ts
+```
+
+### Success Metrics
+
+✅ **Rules Defined:** All 4 rules documented and implemented  
+✅ **Validation Working:** CCS.addCourseToLevel enforces rules  
+✅ **Production Verified:** Existing data follows all rules  
+✅ **Tests Passing:** Invalid courses correctly rejected  
+✅ **Clear Errors:** User-friendly violation messages  
+✅ **Predictable:** Deterministic matrix construction order  
+
+**Status:** PRODUCTION READY - RULES ENFORCED 🔒

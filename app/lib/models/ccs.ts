@@ -419,6 +419,68 @@ CCSSchema.methods.addCourseToLevel = async function(
     throw new Error(`Language '${language}' already exists at level ${level} in CCS ${this.ccsId}`);
   }
   
+  // MATRIX RULE VALIDATION
+  
+  // Rule 1: Origin Rule - If not creating English L1, validate origin exists
+  if (!(level === 1 && language === 'en')) {
+    const level1 = this.getLevelByNumber(1);
+    if (!level1) {
+      throw new Error('MATRIX RULE VIOLATION: English Level 1 must be created first. Start with the origin course.');
+    }
+    
+    const englishL1 = level1.courseVariants.find((v: ICourseVariantInLevel) => 
+      v.language === 'en' && v.translationStatus === 'published'
+    );
+    
+    if (!englishL1) {
+      throw new Error('MATRIX RULE VIOLATION: English Level 1 must exist and be published before creating other courses.');
+    }
+  }
+  
+  // Rule 2: Level Prerequisite - Previous level in English must be published
+  if (level > 1 && language === 'en') {
+    const previousLevel = this.getLevelByNumber(level - 1);
+    if (!previousLevel) {
+      throw new Error(`MATRIX RULE VIOLATION: English Level ${level - 1} must exist before creating Level ${level}.`);
+    }
+    
+    const englishPrevious = previousLevel.courseVariants.find((v: ICourseVariantInLevel) => 
+      v.language === 'en' && v.translationStatus === 'published'
+    );
+    
+    if (!englishPrevious) {
+      throw new Error(`MATRIX RULE VIOLATION: English Level ${level - 1} must be published before creating English Level ${level}.`);
+    }
+  }
+  
+  // Rule 3: Language Variant Rule - English version at same level must be published
+  if (language !== 'en') {
+    const englishVersion = levelData.courseVariants.find((v: ICourseVariantInLevel) => 
+      v.language === 'en' && v.translationStatus === 'published'
+    );
+    
+    if (!englishVersion) {
+      throw new Error(`MATRIX RULE VIOLATION: English version of Level ${level} must exist and be published before creating ${language} variant.`);
+    }
+  }
+  
+  // Rule 4: Vertical Language Progression - Previous level in same language must be published
+  if (level > 1 && language !== 'en') {
+    const previousLevel = this.getLevelByNumber(level - 1);
+    if (!previousLevel) {
+      throw new Error(`MATRIX RULE VIOLATION: Level ${level - 1} must exist before creating Level ${level}.`);
+    }
+    
+    const previousInSameLanguage = previousLevel.courseVariants.find((v: ICourseVariantInLevel) => 
+      v.language === language && v.translationStatus === 'published'
+    );
+    
+    if (!previousInSameLanguage) {
+      throw new Error(`MATRIX RULE VIOLATION: ${language.toUpperCase()} Level ${level - 1} must exist and be published before creating ${language.toUpperCase()} Level ${level}.`);
+    }
+  }
+  
+  // All validation passed - add the course
   levelData.courseVariants.push({
     language,
     courseId,

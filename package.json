@@ -63,6 +63,7 @@
     "translate:seed-glossary": "tsx --env-file=.env.local scripts/translate/seed-glossary.ts",
     "migrate:ccs-language-variants": "tsx --env-file=.env.local scripts/migrate-ccs-language-variants.ts",
     "migrate:course-matrix": "tsx --env-file=.env.local scripts/migrate-course-matrix.ts",
+    "verify:matrix-rules": "tsx --env-file=.env.local scripts/verify-matrix-rules-production.ts",
     "audit:quiz": "tsx --env-file=.env.local scripts/audit-quiz-questions.ts",
     "audit:quiz:enhanced": "tsx --env-file=.env.local scripts/audit-quiz-questions-enhanced.ts",
     "test": "vitest run",
