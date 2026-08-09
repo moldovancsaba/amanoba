@@ -2,10 +2,13 @@
 
 import type { ReactNode } from 'react';
 import Image from 'next/image';
-import { Badge, Box, Group, Image as MantineImage, Progress, Stack, Text } from '@mantine/core';
+import { Badge, Box, Group, Progress, Stack, Text, Image as MantineImage } from '@mantine/core';
 import type { MantineColor } from '@mantine/core';
 import { IconBook } from '@tabler/icons-react';
-import { PublicProductCard } from '@sovereignsquad/gds-core/client';
+import {
+  PublicProductCard,
+  GdsMediaFrame,
+} from '@sovereignsquad/gds-core/client';
 
 /**
  * Course metric (label-value pair).
@@ -129,14 +132,16 @@ function renderBadgeRow(badges: CourseBadge[]) {
 function renderImage(thumbnail: string | null | undefined, thumbnailAlt: string, fallbackLabel?: ReactNode, compact?: boolean) {
   if (thumbnail) {
     return (
-      <MantineImage
-        component={Image}
-        src={thumbnail}
-        alt={thumbnailAlt}
-        height={compact ? 128 : 190}
-        width={640}
-        fit="cover"
-      />
+      <GdsMediaFrame fit="cover" aspectRatio="wide">
+        <MantineImage
+          component={Image}
+          src={thumbnail}
+          alt={thumbnailAlt}
+          width={640}
+          height={360}
+          fit="cover"
+        />
+      </GdsMediaFrame>
     );
   }
 
@@ -234,9 +239,9 @@ function renderProgress(progress?: CourseProgress) {
  * - Typically: `(completedDays / totalDays) * 100`
  * 
  * **Image Handling**:
- * - If `thumbnail` provided: Next.js Image with fit="cover"
+ * - If `thumbnail` provided: GDS GdsMediaFrame with fit="cover" and "wide" aspect ratio
  * - If null and `fallbackLabel` provided: IconBook + label on dark background
- * - Height: 190px (default) or 128px (compact)
+ * - Height: Automatic based on GDS media frame aspect ratio
  * 
  * **Badge Priority**:
  * - Catalog: Premium/Free first, then language/level
@@ -265,6 +270,8 @@ function renderProgress(progress?: CourseProgress) {
  * 
  * @remarks
  * Maps Amanoba course data to GDS `PublicProductCard`.
+ * Uses GDS v6.0.0 GdsMediaFrame for responsive thumbnails with proper aspect ratios.
+ * Badges use Mantine Badge (GDS badge system integration planned).
  * Badges rendered above description. Progress rendered as inventoryNote.
  * Metrics mapped to GDS metadata array. Notice mapped to pickupNote.
  */
