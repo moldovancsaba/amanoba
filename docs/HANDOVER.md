@@ -5189,3 +5189,100 @@ Upon completion of all 9 issues:
 - Email delivery in student's preferred language
 - Full accessibility compliance (WCAG 2.1 AA)
 - Platform ready for international expansion
+
+---
+
+## 2026-08-09 16:30 UTC - Agent Execution Guides for Autonomous Delivery
+
+**Context:** Updated all 9 multi-language issues to be fully agent-executable with autonomous delivery mode. System designed for content generation, translation, validation, and deployment with minimal human intervention.
+
+**Outcome:** Comprehensive agent execution documentation created to enable sovereign, self-sufficient delivery.
+
+**Agent Execution System:**
+
+**Autonomous Delivery Mode:**
+- All content is generated through automated processes (no manual content creation)
+- All translations handled by automated pipelines with validation
+- All quality gates enforced by code (STRICT validation, automated testing)
+- All deployments executed programmatically (no manual steps)
+- Human involvement minimal: Native speaker validation (2-4 hours per language) and final production approval only
+
+**Agent-First Design Principles:**
+1. **No Human Blockers** - All tasks executable without waiting for human input
+2. **Self-Validation** - Agents verify their own work programmatically via automated tests
+3. **Clear Success Criteria** - Every acceptance criterion is measurable by code execution
+4. **Collaborative Execution** - Multiple agents can work on same issue in parallel with clear module boundaries
+
+**Agent Capabilities:**
+- **Research:** Query authoritative sources, extract terminology, cross-reference translations
+- **Implementation:** Write extraction/validation/generation scripts, UI components, database schemas
+- **Testing:** Run unit/integration/accessibility tests, interpret results, fix failures
+- **Documentation:** Generate architecture docs, API references, troubleshooting guides
+- **Deployment:** Execute database migrations, run generation scripts, verify production state
+- **Self-Certification:** Verify all acceptance criteria met, tests pass, documentation complete
+
+**Quality Gates (Agent Self-Validation):**
+Every issue must pass automated checks:
+- Linting: `npm run lint` (exit code 0)
+- Type checking: `npm run type-check` (exit code 0)
+- Unit tests: `npm test` (exit code 0, coverage ≥80%)
+- Integration tests: `npm run test:integration` (exit code 0)
+- Accessibility (UI): Lighthouse score ≥95
+- Documentation: Second agent can understand (verification by peer agent)
+
+**Agent Decision Trees:**
+- Translation quality <70: Retry with adjusted prompt (max 3 attempts) → Escalate if still failing
+- Human reviewer unavailable >48h: Mark as "Tier 3" quality, deploy, create follow-up issue
+- Script rendering failure: Auto-install fonts → Re-translate with encoding fix → Escalate if unresolved
+- Any blocker: 3 retry attempts → Escalate to human with detailed logs and attempted solutions
+
+**Collaboration Workflow:**
+Multiple agents can execute in parallel:
+- Week 1-2: Agent Alpha (Issue #909 Infrastructure)
+- Week 2-3: Agent Beta (Issue #910 Spanish) + Agent Gamma (Issue #911 UI, parallel)
+- Week 3-4: Agent Delta (Issue #912 Chinese) + Agent Epsilon (Issue #913 Hindi)
+- Week 4-7: Agent Zeta (Issue #914 Scale) + Agent Eta (Issue #916 Certs) + Agent Theta (Issue #917 Emails, all parallel)
+- Week 7-14: Agent Iota (Issue #915 Stage 2)
+
+**Escalation Protocol (Minimal):**
+Agents escalate to human only when:
+1. Blocker cannot be resolved after 3 automated retry attempts
+2. Translation quality <70 after 3 retries with adjusted prompts
+3. Infrastructure failure (database down, API quota exceeded)
+4. Issue specification ambiguous after consulting all documentation
+
+Escalation creates GitHub issue tagged `needs-human-review` with:
+- Detailed error logs
+- All attempted solutions with results
+- Blocked tasks identified
+- Workaround plan while waiting for resolution
+
+**Files Created:**
+- docs/agents/AGENT_EXECUTION_GUIDE_MULTI_LANGUAGE.md - Comprehensive agent execution strategies for all 9 issues
+- docs/agents/AGENT_ISSUE_CHECKLIST_TEMPLATE.md - Checklist template for agents to track progress, verify ACs, self-certify completion
+
+**Agent Execution Readiness:**
+- All 9 issues have agent-executable specifications
+- All acceptance criteria are programmatically verifiable
+- All quality gates automated (no subjective human review)
+- All decision trees defined (retry logic, fallback strategies)
+- All collaboration boundaries clear (no merge conflicts)
+- Agents can start immediately on Issue #909 and proceed autonomously through dependency chain
+
+**Success Metrics (Agent-Measurable):**
+All metrics have objective, programmatic verification:
+- Translation quality: STRICT validation score ≥70
+- Language leakage: Regex detection = 0 English words (except whitelist)
+- Script integrity: Character range validation = 100% correct script
+- Test coverage: Jest/Vitest report ≥80%
+- Accessibility: Lighthouse score ≥95
+- Performance: Certificate generation <5s
+- Cost efficiency: ≤$310/language tracked in database
+
+**Agent Philosophy:**
+- **Trust but verify** - Agents are trusted to deliver, but must verify their own work
+- **Fail fast** - Agents detect issues early and escalate quickly (not wait days)
+- **Iterate rapidly** - Agents retry with adjusted strategies, not wait for humans
+- **Document obsessively** - Agents leave clear trails for humans and other agents
+
+**Ready for Autonomous Execution:** All 9 issues can be executed by agents with minimal human oversight. System designed for sovereign, self-sufficient delivery of complete multi-language course adoption.
