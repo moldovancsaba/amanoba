@@ -96,8 +96,9 @@ export { default as LiveSession, type ILiveSession, type LiveSessionProvider, ty
 export { default as AssessmentResult, type IAssessmentResult } from './assessment-result';
 export { default as CourseGenerationTracker, type ICourseGenerationTracker, type IStageMetrics } from './course-generation-tracker';
 
-// Translation Model (1)
+// Translation Models (2)
 export { default as Translation, type ITranslation } from './translation';
+export { default as GlossaryEntry, type IGlossaryEntry } from './translation-glossary';
 
 // Feature Flags Model (1)
 export { default as FeatureFlags, type IFeatureFlags } from './feature-flags';
