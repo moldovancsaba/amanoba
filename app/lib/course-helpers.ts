@@ -372,3 +372,283 @@ export async function isOriginalCourse(courseId: string): Promise<boolean> {
   
   return ccs?.originalCourseId === courseId;
 }
+
+// ==============================================================================
+// Course Matrix: Level Navigation Helper Functions
+// ==============================================================================
+
+import type { ICourseLevel } from './models/ccs';
+
+export interface LevelInfo {
+  level: number;
+  levelType: string;
+  difficulty?: string;
+  estimatedHours?: number;
+  description?: string;
+  languages: string[];
+  ccsId: string;
+}
+
+export interface CourseMatrix {
+  ccsId: string;
+  name: string;
+  totalLevels: number;
+  levels: {
+    level: number;
+    levelType: string;
+    difficulty?: string;
+    estimatedHours?: number;
+    description?: string;
+    courseVariants: {
+      language: string;
+      courseId: string;
+      translationStatus: string;
+    }[];
+  }[];
+  availableLanguages: string[];
+}
+
+/**
+ * Get the level number for a course
+ */
+export async function getCourseLevel(courseId: string): Promise<number | null> {
+  const course = await Course.findOne({ courseId }).lean();
+  
+  if (!course?.ccsId) {
+    return null;
+  }
+
+  const ccs = await CCS.findOne({ ccsId: course.ccsId }).lean();
+  
+  if (!ccs?.courseLevels) {
+    return null;
+  }
+
+  const result = ccs.courseLevels.find((level: any) => 
+    level.courseVariants.some((v: any) => v.courseId === courseId)
+  );
+
+  return result?.level || null;
+}
+
+/**
+ * Get next level course in the same language
+ */
+export async function getNextLevelCourse(
+  courseId: string,
+  language?: string
+): Promise<string | null> {
+  const course = await Course.findOne({ courseId }).lean();
+  
+  if (!course?.ccsId) {
+    return null;
+  }
+
+  const ccs = await CCS.findOne({ ccsId: course.ccsId }).lean();
+  
+  if (!ccs?.courseLevels) {
+    return null;
+  }
+
+  const currentLevelData = ccs.courseLevels.find((level: any) => 
+    level.courseVariants.some((v: any) => v.courseId === courseId)
+  );
+
+  if (!currentLevelData) {
+    return null;
+  }
+
+  const currentLang = language || course.language || 'en';
+  const sortedLevels = [...ccs.courseLevels].sort((a: any, b: any) => a.level - b.level);
+  const currentIndex = sortedLevels.findIndex((l: any) => l.level === currentLevelData.level);
+
+  if (currentIndex === -1 || currentIndex === sortedLevels.length - 1) {
+    return null;
+  }
+
+  const nextLevel = sortedLevels[currentIndex + 1];
+  const nextVariant = nextLevel.courseVariants.find((v: any) => v.language === currentLang);
+
+  return nextVariant?.courseId || null;
+}
+
+/**
+ * Get previous level course in the same language
+ */
+export async function getPreviousLevelCourse(
+  courseId: string,
+  language?: string
+): Promise<string | null> {
+  const course = await Course.findOne({ courseId }).lean();
+  
+  if (!course?.ccsId) {
+    return null;
+  }
+
+  const ccs = await CCS.findOne({ ccsId: course.ccsId }).lean();
+  
+  if (!ccs?.courseLevels) {
+    return null;
+  }
+
+  const currentLevelData = ccs.courseLevels.find((level: any) => 
+    level.courseVariants.some((v: any) => v.courseId === courseId)
+  );
+
+  if (!currentLevelData) {
+    return null;
+  }
+
+  const currentLang = language || course.language || 'en';
+  const sortedLevels = [...ccs.courseLevels].sort((a: any, b: any) => a.level - b.level);
+  const currentIndex = sortedLevels.findIndex((l: any) => l.level === currentLevelData.level);
+
+  if (currentIndex <= 0) {
+    return null;
+  }
+
+  const prevLevel = sortedLevels[currentIndex - 1];
+  const prevVariant = prevLevel.courseVariants.find((v: any) => v.language === currentLang);
+
+  return prevVariant?.courseId || null;
+}
+
+/**
+ * Get all level courses for a specific language
+ */
+export async function getAllLevelsForLanguage(
+  courseId: string,
+  language: string
+): Promise<string[]> {
+  const course = await Course.findOne({ courseId }).lean();
+  
+  if (!course?.ccsId) {
+    return [];
+  }
+
+  const ccs = await CCS.findOne({ ccsId: course.ccsId }).lean();
+  
+  if (!ccs?.courseLevels) {
+    return [];
+  }
+
+  const sortedLevels = [...ccs.courseLevels].sort((a: any, b: any) => a.level - b.level);
+  const courses: string[] = [];
+
+  for (const level of sortedLevels) {
+    const variant = level.courseVariants.find((v: any) => v.language === language);
+    if (variant) {
+      courses.push(variant.courseId);
+    }
+  }
+
+  return courses;
+}
+
+/**
+ * Get course at specific level and language
+ */
+export async function getCourseAtLevelAndLanguage(
+  ccsId: string,
+  level: number,
+  language: string
+): Promise<string | null> {
+  const ccs = await CCS.findOne({ ccsId }).lean();
+  
+  if (!ccs?.courseLevels) {
+    return null;
+  }
+
+  const levelData = ccs.courseLevels.find((l: any) => l.level === level);
+  
+  if (!levelData) {
+    return null;
+  }
+
+  const variant = levelData.courseVariants.find((v: any) => v.language === language);
+  
+  return variant?.courseId || null;
+}
+
+/**
+ * Get complete course matrix for a CCS
+ */
+export async function getCourseMatrix(ccsId: string): Promise<CourseMatrix | null> {
+  const ccs = await CCS.findOne({ ccsId }).lean();
+  
+  if (!ccs) {
+    return null;
+  }
+
+  if (!ccs.courseLevels) {
+    return {
+      ccsId: ccs.ccsId,
+      name: ccs.name || ccs.ccsId,
+      totalLevels: 0,
+      levels: [],
+      availableLanguages: ccs.availableLanguages || [],
+    };
+  }
+
+  const allLanguages = new Set<string>();
+  
+  ccs.courseLevels.forEach((level: any) => {
+    level.courseVariants.forEach((v: any) => {
+      allLanguages.add(v.language);
+    });
+  });
+
+  return {
+    ccsId: ccs.ccsId,
+    name: ccs.name || ccs.ccsId,
+    totalLevels: ccs.courseLevels.length,
+    levels: ccs.courseLevels.map((level: any) => ({
+      level: level.level,
+      levelType: level.levelType,
+      difficulty: level.difficulty,
+      estimatedHours: level.estimatedHours,
+      description: level.description,
+      courseVariants: level.courseVariants.map((v: any) => ({
+        language: v.language,
+        courseId: v.courseId,
+        translationStatus: v.translationStatus,
+      })),
+    })),
+    availableLanguages: Array.from(allLanguages),
+  };
+}
+
+/**
+ * Get level information for a course
+ */
+export async function getLevelInfo(courseId: string): Promise<LevelInfo | null> {
+  const course = await Course.findOne({ courseId }).lean();
+  
+  if (!course?.ccsId) {
+    return null;
+  }
+
+  const ccs = await CCS.findOne({ ccsId: course.ccsId }).lean();
+  
+  if (!ccs?.courseLevels) {
+    return null;
+  }
+
+  const levelData = ccs.courseLevels.find((level: any) => 
+    level.courseVariants.some((v: any) => v.courseId === courseId)
+  );
+
+  if (!levelData) {
+    return null;
+  }
+
+  return {
+    level: levelData.level,
+    levelType: levelData.levelType,
+    difficulty: levelData.difficulty,
+    estimatedHours: levelData.estimatedHours,
+    description: levelData.description,
+    languages: levelData.courseVariants.map((v: any) => v.language),
+    ccsId: ccs.ccsId,
+  };
+}
