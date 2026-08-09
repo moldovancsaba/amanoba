@@ -184,6 +184,30 @@ async function importTranslatedCourse(translatedJSON: TranslatedCourse, dryRun: 
       }
     }
 
+    // 8. Validate quiz question count
+    const lessonQuizCount = course.lessonQuizPolicy?.questionCount || 3;
+    const minRequired = lessonQuizCount + 10;
+    const actualCount = quizImportedCount;
+
+    console.log('\n' + '='.repeat(70));
+    console.log('Quiz Question Validation');
+    console.log('='.repeat(70));
+    console.log(`Lesson Quiz Policy: ${lessonQuizCount} questions per lesson`);
+    console.log(`Minimum Required: ${minRequired} (${lessonQuizCount} lesson + 10 exam)`);
+    console.log(`Actual Imported: ${actualCount}`);
+    
+    if (actualCount < minRequired) {
+      const shortage = minRequired - actualCount;
+      console.log(`\n❌ INSUFFICIENT QUIZ QUESTIONS`);
+      console.log(`   Shortage: ${shortage} questions needed`);
+      console.log(`   Formula: lessonQuizPolicy.questionCount + 10`);
+      console.log(`   Why: Lesson quizzes need ${lessonQuizCount}, final exam needs 10 minimum`);
+      console.log(`\n⚠️  WARNING: Course imported but lacks sufficient quiz questions for proper assessment.`);
+      console.log(`   Generate ${shortage} more questions before publishing this course.`);
+    } else {
+      console.log(`\n✅ Quiz question count is sufficient`);
+    }
+
     console.log('\n' + '='.repeat(70));
     console.log('Import Complete');
     console.log('='.repeat(70));

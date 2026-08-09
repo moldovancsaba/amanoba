@@ -425,11 +425,40 @@ Every course must have at least one lesson.
 - Provides active learning opportunities
 - No right/wrong answers - focused on comprehension and application
 
-### 4. Quiz Questions (RECOMMENDED)
+### 4. Quiz Questions (REQUIRED)
 
-**Minimum Pool Size**:
-- Regular courses: At least 10 questions per lesson
-- Certification courses: At least 100 questions total
+**Minimum Pool Size Calculation**:
+
+Quiz questions serve two purposes:
+1. **Lesson Quizzes**: Optional formative assessment during the course
+2. **Final Certification Exam**: Summative assessment to earn certificate
+
+**Formula for Minimum Questions Required**:
+
+```
+MIN_QUESTIONS = lessonQuizPolicy.questionCount + 10
+```
+
+Where:
+- `lessonQuizPolicy.questionCount` = questions shown in lesson quiz (typically 3-5)
+- `10` = minimum questions needed for a proper final certification exam
+
+**Examples**:
+- Course with 3-question lesson quizzes: **Minimum 13 questions** (3 + 10)
+- Course with 5-question lesson quizzes: **Minimum 15 questions** (5 + 10)
+- Course without lesson quizzes (0): **Minimum 10 questions** (0 + 10)
+
+**Why 10 questions for final exam?**
+- With 60% passing threshold, learners need to answer 6/10 correctly
+- Provides enough variation to test different concepts
+- Allows for adequate assessment of course mastery
+- Prevents exam from being too short or trivial
+
+**Recommended Pool Sizes**:
+- **Minimum (REQUIRED)**: `lessonQuizPolicy.questionCount + 10`
+- **Good**: `lessonQuizPolicy.questionCount + 20` (allows for question rotation)
+- **Excellent**: `lessonQuizPolicy.questionCount + 50` (provides rich question pool)
+- **Certification courses**: 100+ questions total for maximum variety
 
 **Question Requirements**:
 - `difficulty`: EASY | MEDIUM | HARD | EXPERT
@@ -512,8 +541,10 @@ Before creating a course, verify:
 - [ ] Lessons have email subject and body
 - [ ] ✅ **Each lesson has selfCheck with instruction and questions array**
 - [ ] Self-check questions are meaningful and promote reflection (3-5 per lesson)
-- [ ] Quiz questions meet minimum requirements
-- [ ] If certification enabled, pool size ≥ 100 questions
+- [ ] ✅ **Quiz questions meet minimum requirements: `lessonQuizPolicy.questionCount + 10`**
+- [ ] Example: If lessonQuizPolicy.questionCount = 3, need minimum 13 quiz questions
+- [ ] Example: If lessonQuizPolicy.questionCount = 5, need minimum 15 quiz questions
+- [ ] Recommended: Add 20-50 extra questions for question pool rotation
 - [ ] Prerequisites are valid course ObjectIds (if applicable)
 - [ ] Progressive metadata is complete (if applicable)
 
@@ -640,7 +671,71 @@ async function addThumbnails() {
 - **Course Creation Scripts**: `scripts/create-*.ts`
 - **Progressive Generation**: `app/lib/course-generation/progressive-course-builder.ts`
 
+## Quiz Question Validation
+
+### Automated Validation Script
+
+Use `scripts/audit-quiz-questions.ts` to validate all courses:
+
+```bash
+npx tsx --env-file=.env.local scripts/audit-quiz-questions.ts
+```
+
+This script will:
+- ✅ Check each course's quiz question count
+- ✅ Calculate minimum required based on lessonQuizPolicy
+- ✅ Report any courses with insufficient questions
+- ✅ Show exactly how many more questions are needed
+
+### Example Output
+
+```
+📊 ALL PUBLISHED COURSES - QUIZ QUESTION AUDIT
+===============================================
+
+✅ AI_DUMMIES_1DAY_EN
+   Name: AI for dummies in a day
+   Language: en
+   Quiz Questions: 50
+   Certification: Enabled (60% passing)
+   Lesson Quiz: 3 questions per lesson
+   Min Needed: 13 (3 lesson + 10 exam)
+
+❌ AI_DUMMIES_1DAY_EN_ES
+   Name: IA para principiantes en un día
+   Language: es
+   Quiz Questions: 7
+   Certification: Enabled (60% passing)
+   Lesson Quiz: 3 questions per lesson
+   Min Needed: 13 (3 lesson + 10 exam)
+   ⚠️  SHORTAGE: 6 questions needed
+```
+
+### Manual Validation
+
+When creating or importing a course, verify:
+
+```typescript
+const quizCount = await QuizQuestion.countDocuments({ courseId: course._id });
+const minRequired = (course.lessonQuizPolicy?.questionCount || 3) + 10;
+
+if (quizCount < minRequired) {
+  throw new Error(
+    `Insufficient quiz questions: ${quizCount}/${minRequired} ` +
+    `(need ${minRequired - quizCount} more)`
+  );
+}
+```
+
 ## Change History
+
+### 2026-08-09: Quiz Question Requirements Clarified
+- Added clear formula for minimum quiz questions: `lessonQuizPolicy.questionCount + 10`
+- Explained why 10 questions are needed for final exam
+- Added validation script (`scripts/audit-quiz-questions.ts`)
+- Updated validation checklist with specific examples
+- Changed quiz questions from RECOMMENDED to REQUIRED
+- Added automated validation guidance
 
 ### 2026-08-08: Thumbnail Made Required
 - Changed `thumbnail` from optional to required in Course model
@@ -652,5 +747,5 @@ async function addThumbnails() {
 ---
 
 **Policy Status**: ✅ Active and Enforced  
-**Last Reviewed**: 2026-08-08  
+**Last Reviewed**: 2026-08-09  
 **Next Review**: When adding new course creation workflows
