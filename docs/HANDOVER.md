@@ -4991,3 +4991,95 @@ NEVER create course content without:
 
 **Next Phase:**
 Stage 2 is now complete and live. When Stage 2 reaches completion threshold (50 completions), the progressive generation system will automatically recommend Stage 3: "AI Advanced Applications - 7 Days to SME Level".
+
+---
+
+## 2026-08-09 15:00 UTC - Multi-Language Course Adoption POC Issues Created
+
+**Context:** Decomposed the multi-language course adoption strategy into production-grade engineering issues following the canonical format from GDS Issue #81.
+
+**Outcome:** 3 independent, executable issues created in mvp-factory-control repository.
+
+**Issues Created:**
+
+1. **Issue #909: Translation Infrastructure Foundation**
+   - URL: https://github.com/moldovancsaba/mvp-factory-control/issues/909
+   - Type: Infrastructure (P0, Blocking)
+   - Scope: AI/ML glossary (100+ terms × 17 languages), content extraction pipeline, quality validation (STRICT + language leakage), course variant generation
+   - Deliverables: MongoDB glossary collection, extraction/validation/generation scripts, documentation
+   - Dependencies: None (foundation work)
+   - Estimated: 3-5 days
+
+2. **Issue #910: Spanish Translation Pilot (POC)**
+   - URL: https://github.com/moldovancsaba/mvp-factory-control/issues/910
+   - Type: Translation Workflow (P1, High Priority)
+   - Scope: Translate Stage 1 (AI for Dummies) into Spanish using Tier 2 approach (GPT-4 + native speaker review)
+   - Deliverables: `AI_DUMMIES_1DAY_ES` course in production, pilot report with cost/time/quality metrics
+   - Dependencies: **Blocks on Issue #909** (infrastructure must complete first)
+   - Estimated: 1-2 days AI + 2-4 hours human review
+
+3. **Issue #911: Multi-Language Course Discovery UI (GDS)**
+   - URL: https://github.com/moldovancsaba/mvp-factory-control/issues/911
+   - Type: UI/UX (P1, High Priority)
+   - Scope: Language filter (GDS SegmentedControl), language badges (GDS Badge), "Also available in" indicators, browser language detection
+   - Deliverables: Multi-language course catalog, language filtering, accessibility compliance (WCAG 2.1 AA, Lighthouse ≥95)
+   - Dependencies: Can run parallel with #910 (use mock data)
+   - Estimated: 2-3 days
+
+**Quality Standards Met:**
+- All issues follow canonical GDS Issue #81 format (18 required sections)
+- Architecture diagrams, runtime flows, component trees provided
+- 10+ measurable acceptance criteria per issue
+- Unit/integration/accessibility tests with code examples
+- Edge cases with mitigation strategies documented
+- Retries, timeouts, rollback strategies specified
+- GDS-only requirement enforced for UI work (Issue #911)
+- Accessibility mandatory (WCAG 2.1 AA)
+- All issues optimized for independent execution, low clarification overhead, production safety
+
+**Cost & Timeline:**
+- **POC Cost:** ~$125-250 (Spanish translation only: $0.50 API + $60-200 human review)
+- **POC Duration:** 3-4 weeks (with parallel execution of #910 and #911)
+- **Full 16-language rollout:** ~$4,000 estimated (based on POC validation)
+
+**Execution Order:**
+1. Issue #909 (Infrastructure) - **must complete first**
+2. Issue #910 (Spanish Pilot) - **blocks on #909**
+3. Issue #911 (UI) - **can run parallel with #910**
+
+**Files Created:**
+- docs/product/MULTI_LANGUAGE_COURSE_ADOPTION_PLAN.md - Comprehensive translation strategy
+- docs/product/MULTI_LANGUAGE_POC_ISSUES.md - Issue decomposition summary and execution plan
+
+**Repository Artifacts:**
+All issues created directly in GitHub repository project board. No scope dumped into chat. Issues mutate repository artifacts directly with:
+- Architecture
+- Runtime flow
+- Contracts/APIs
+- Pseudo-code
+- UX states
+- Accessibility requirements
+- Observability
+- Retries/timeouts
+- Rollback/recovery
+- Testing strategy
+- Documentation requirements
+- Dependencies
+- Execution order
+- Edge cases
+- Operational behavior
+
+**Success Criteria:**
+- Spanish course achieves ≥4.5/5 native speaker rating
+- Translation completed in ≤4 hours (AI + review)
+- Cost ≤$250 per course
+- Zero English leakage detected
+- UI passes accessibility tests (Lighthouse ≥95)
+- Students can discover and enroll in translated courses
+
+**Next Steps:**
+Upon POC completion, if successful:
+- Scale to Chinese and Hindi (separate issues)
+- Then remaining 13 languages (batch processing)
+- Translate Stage 2 course (AI Essentials - 3 Days) for all languages
+- Extend certificate generation and email templates to support all languages
