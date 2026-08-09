@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "gdsVersion": "3.14.17",
+  "gdsVersion": "6.0.0",
   "productArchetype": "lms-game",
   "supportedEntryPoints": [
     "@sovereignsquad/gds-theme/client",
@@ -133,5 +133,5 @@
   },
   "migrationStatus": "enforced",
   "owner": "amanoba-ui",
-  "lastReviewedAt": "2026-08-05"
+  "lastReviewedAt": "2026-08-09"
 }

@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const expected = process.env.GDS_VERSION_EXPECTED ?? '3.14.17';
+const expected = process.env.GDS_VERSION_EXPECTED ?? '6.0.0';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const pkgs = [
   '@sovereignsquad/gds-theme',
