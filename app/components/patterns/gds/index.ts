@@ -11,3 +11,6 @@ export { DataToolbar } from './DataToolbar';
 export { ResponsiveDataView, type ResponsiveColumn } from './ResponsiveDataView';
 export { AdminPageHeader, type AdminPageHeaderProps, type PageHeaderOverflowAction } from './AdminPageHeader';
 export { GameBoardCard } from './GameBoardCard';
+export { CourseCard, type CourseCardProps } from './CourseCard';
+export { LanguageBadge, type LanguageBadgeProps, type LanguageCode, LANGUAGE_REGISTRY } from './LanguageBadge';
+export { LanguageFilter, type LanguageFilterProps } from './LanguageFilter';
