@@ -122,7 +122,7 @@ const glossaryTerms = [
       pl: 'Dane treningowe',
       ru: 'Обучающие данные',
       sw: 'Data ya Mafunzo',
-      fr: 'Données d\\'entraînement',
+      fr: "Données d'entraînement",
       bn: 'প্রশিক্ষণ ডেটা',
       ur: 'تربیتی ڈیٹا',
       id: 'Data Pelatihan',

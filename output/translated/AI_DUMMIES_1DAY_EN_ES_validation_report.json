@@ -1,0 +1,537 @@
+{
+  "language": "es",
+  "overall_status": "fail",
+  "lessons": [
+    {
+      "lessonId": "AI_DUMMIES_1DAY_EN_L01",
+      "title": "[ES] AI Basics: What is AI and How Can You Use It?",
+      "quality_score": 70,
+      "enforcement_action": "block",
+      "language_leakage": {
+        "detected": true,
+        "suspicious_words": [
+          "what",
+          "how",
+          "can",
+          "will",
+          "have",
+          "where",
+          "who",
+          "are",
+          "that",
+          "when"
+        ]
+      },
+      "errors": [
+        "English leakage detected in es content: is, and, have, or, but, are, does, do, did, were"
+      ],
+      "warnings": [
+        "Content may be too short (6 min estimated, target 20-30 min)",
+        "Content contains potentially problematic patterns: \\byou (learned|saw)\\b, Low-quality pattern: \\b(always|never|impossible|definitely)\\b"
+      ]
+    }
+  ],
+  "quiz_questions": [
+    {
+      "uuid": "6a736eb19353b68032127f76",
+      "question_preview": "[ES] A friend asks you, \"What is AI?\" Which explanation is t",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID"
+      ]
+    },
+    {
+      "uuid": "6a736eb19353b68032127f7a",
+      "question_preview": "[ES] You tried asking AI to help plan your week, but the res",
+      "quality_score": 30,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "English leakage detected in es question: but, the, was, and, do"
+      ]
+    },
+    {
+      "uuid": "6a736eb19353b68032127f77",
+      "question_preview": "[ES] You want to use AI to help write an email to your boss ",
+      "quality_score": 45,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID"
+      ]
+    },
+    {
+      "uuid": "6a736eb19353b68032127f7b",
+      "question_preview": "[ES] A beginner asks, \"How does AI actually learn?\" Which ex",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID"
+      ]
+    },
+    {
+      "uuid": "6a736eb19353b68032127f78",
+      "question_preview": "[ES] Your coworker says, \"AI will steal my job and replace m",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID"
+      ]
+    },
+    {
+      "uuid": "6a736eb19353b68032127f79",
+      "question_preview": "[ES] You are using ChatGPT to research health symptoms. What",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID"
+      ]
+    },
+    {
+      "uuid": "6a736eb19353b68032127f7c",
+      "question_preview": "[ES] You want to create your Personal AI Use Case List. Whic",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db510",
+      "question_preview": "[ES] What is Aprendizaje Automático?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db511",
+      "question_preview": "[ES] Which company developed ChatGPT?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db518",
+      "question_preview": "[ES] What is computer vision?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db514",
+      "question_preview": "[ES] What is natural language processing (NLP)?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db515",
+      "question_preview": "[ES] Which of these is NOT a common application of AI?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db51a",
+      "question_preview": "[ES] What is the Turing Test?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db527",
+      "question_preview": "[ES] What is automation in AI?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db50e",
+      "question_preview": "[ES] What does AI stand for?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db51c",
+      "question_preview": "[ES] What is unsupervised learning?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db521",
+      "question_preview": "[ES] What is a chatbot?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db516",
+      "question_preview": "[ES] What is Aprendizaje Profundo?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db52a",
+      "question_preview": "[ES] What is transfer learning?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db52b",
+      "question_preview": "[ES] What is overfitting in Aprendizaje Automático?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db532",
+      "question_preview": "[ES] What is edge AI?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db517",
+      "question_preview": "[ES] What does 'training' mean in AI?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db51f",
+      "question_preview": "[ES] What is data in the context of AI?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db538",
+      "question_preview": "[ES] What is synthetic data?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db51d",
+      "question_preview": "[ES] What is reinforcement learning?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db51e",
+      "question_preview": "[ES] What is an AI algorithm?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db520",
+      "question_preview": "[ES] What is bias in AI?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db529",
+      "question_preview": "[ES] What is AI inference?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db530",
+      "question_preview": "[ES] What is a use case for AI in healthcare?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db536",
+      "question_preview": "[ES] What is prompt engineering?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db537",
+      "question_preview": "[ES] What is AI governance?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db524",
+      "question_preview": "[ES] What is GPT?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "question: Question must be at least 20 characters",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db526",
+      "question_preview": "[ES] What is an AI model?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db52e",
+      "question_preview": "[ES] What is explainable AI (XAI)?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db534",
+      "question_preview": "[ES] What is AI model accuracy?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db512",
+      "question_preview": "[ES] What type of AI is used in recommendation systems like ",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db525",
+      "question_preview": "[ES] What is the primary purpose of AI ethics?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db535",
+      "question_preview": "[ES] What is the AI winter?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db523",
+      "question_preview": "[ES] What is a Large Language Model (LLM)?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db52f",
+      "question_preview": "[ES] What is the difference between AI and automation?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db528",
+      "question_preview": "[ES] What is sentiment analysis?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db531",
+      "question_preview": "[ES] What is AI-powered fraud detection?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db50f",
+      "question_preview": "[ES] Which of the following is an example of narrow AI?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db519",
+      "question_preview": "[ES] Which AI technique is used for image recognition?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db52c",
+      "question_preview": "[ES] What is a dataset?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db533",
+      "question_preview": "[ES] What is a confusion matrix in AI?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db513",
+      "question_preview": "[ES] What is a Red Neuronal inspired by?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db51b",
+      "question_preview": "[ES] What is supervised learning?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db522",
+      "question_preview": "[ES] What is generative AI?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    },
+    {
+      "uuid": "6a7462f97f5019f8c49db52d",
+      "question_preview": "[ES] What is an AI agent?",
+      "quality_score": 60,
+      "enforcement_action": "block",
+      "errors": [
+        "uuid: Invalid UUID",
+        "root: Must have either (options + correctIndex) or (correctAnswer + wrongAnswers)"
+      ]
+    }
+  ],
+  "summary": {
+    "total_units": 51,
+    "passed": 0,
+    "failed": 51,
+    "avg_quality_score": 59
+  }
+}

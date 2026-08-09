@@ -1,0 +1,829 @@
+{
+  "courseId": "AI_DUMMIES_1DAY_EN",
+  "ccsId": "AI_DUMMIES_1DAY_EN",
+  "source_language": "en",
+  "units": [
+    {
+      "type": "course_metadata",
+      "id": "6a736eb09353b68032127f55",
+      "source_language": "en",
+      "content": {
+        "name": "AI for dummies in a day",
+        "description": "A friendly 1-day introduction to AI for complete beginners. Learn what AI is, how it works, and how to use it in your daily life without any technical background."
+      },
+      "metadata": {
+        "courseId": "AI_DUMMIES_1DAY_EN"
+      }
+    },
+    {
+      "type": "lesson_content",
+      "id": "6a736eb19353b68032127f67",
+      "source_language": "en",
+      "content": {
+        "title": "AI Basics: What is AI and How Can You Use It?",
+        "content": "# Lesson 1: AI Basics: What is AI and How Can You Use It?\n\n**One-liner:** Understand what AI is and discover practical ways to use it in your daily life.  \n**Time:** 45–60 min  \n**Deliverable:** Personal AI Use Case List\n\n## Learning goal\n\nYou will be able to: **Explain what AI is in simple terms and identify 3 practical ways to use AI tools in your daily life.**\n\n### Success criteria (observable)\n- [ ] You can explain AI to a friend without using technical jargon\n- [ ] You have tried at least one AI tool (ChatGPT, image generator, or voice assistant)\n- [ ] You have created your Personal AI Use Case List with 3 specific examples\n\n### Output you will produce\n- **Deliverable:** Personal AI Use Case List\n- **Format:** Simple text document with 3 use cases\n- **Where saved:** Your notes or a text file on your device\n\n## Who\n\n**Primary persona:** Complete beginner with no technical background  \n**Secondary persona(s):** Anyone curious about AI but intimidated by technology  \n**Stakeholders (optional):** Family or friends who want to understand what you are learning\n\n## What\n\n### What it is\nAI (Artificial Intelligence) is technology that can perform tasks that normally require human intelligence, like understanding language, recognizing images, or making decisions.\n\n### What it is not\nAI is not magic, it is not sentient, and it does not have feelings or consciousness. It is software trained on data to recognize patterns and make predictions.\n\n### 2-minute theory\n- **AI learns from examples**: Just like you learned to recognize cats by seeing many cats, AI learns by processing millions of examples\n- **AI is everywhere**: Your phone autocorrect, Netflix recommendations, and spam filters all use AI\n- **AI is a tool**: It is designed to help humans, not replace them\n\n### Key terms\n- **AI (Artificial Intelligence):** Technology that can perform tasks requiring human-like intelligence\n- **Machine Learning:** AI ability to improve from experience without being explicitly programmed\n- **ChatGPT/LLM:** AI tools that can understand and generate human-like text\n- **Prompt:** Instructions or questions you give to an AI tool\n\n## Where\n\n### Applies in\n- Daily communication (writing emails, messages)\n- Creative work (generating ideas, images, content)\n- Personal productivity (organizing tasks, research)\n- Learning and education (explanations, tutoring)\n\n### Does not apply in\n- Situations requiring human judgment and empathy\n- High-stakes decisions without human oversight\n- Tasks needing physical presence\n\n### Touchpoints\n- ChatGPT and similar text AI tools\n- Image generators (DALL-E, Midjourney)\n- Voice assistants (Siri, Alexa, Google Assistant)\n- Email and writing assistants\n- Photo editing apps with AI features\n\n## When\n\n### Use it when\n- You need quick information or explanations\n- You are brainstorming ideas or solving problems\n- You want to automate repetitive tasks\n- You are learning something new\n\n### Frequency\nDaily - AI tools can become part of your regular routine\n\n### Late signals\n- You are spending hours on tasks AI could do in minutes\n- You are stuck on a problem and not asking for help\n- You are avoiding technology because it seems too complicated\n\n## Why it matters\n\n### Practical benefits\n- **Save time**: Automate repetitive tasks and get quick answers\n- **Boost creativity**: Generate ideas and explore possibilities faster\n- **Learn faster**: Get personalized explanations and instant feedback\n- **Stay relevant**: AI is becoming essential in work and daily life\n\n### Risks of ignoring\n- **Falling behind**: Others using AI will be more productive\n- **Missed opportunities**: AI can solve problems you did not know were solvable\n- **Complexity**: The longer you wait, the more overwhelming it may seem\n\n### Expectations\n- **Improves**: Productivity, learning speed, creative output\n- **Does not guarantee**: Perfect answers, replacing human skills, or solving all problems\n\n## How\n\n### Step-by-step method\n1. **Choose one AI tool to try** (recommended: ChatGPT at chat.openai.com - free account)\n2. **Start with a simple question** (e.g., \"Explain photosynthesis like I am 10 years old\")\n3. **Experiment with different prompts** - be specific and clear\n4. **Try a practical task** (e.g., \"Help me write a friendly email to reschedule a meeting\")\n5. **Document your use cases** - write down 3 ways AI could help you\n\n### Do and don't\n\n**Do**\n- Start with simple, low-stakes tasks\n- Be specific in your questions and requests\n- Experiment and have fun - you cannot break anything\n- Verify important information from AI with other sources\n\n**Don't**\n- Share private or sensitive information with AI tools\n- Trust AI blindly - always review and edit outputs\n- Expect perfection - AI makes mistakes\n- Give up after one try - learning takes practice\n\n### Common mistakes\n- **Mistake 1**: Vague prompts → **Fix**: Be specific (instead of \"write email\", say \"write a friendly email to my boss asking for Friday off\")\n- **Mistake 2**: Expecting AI to read your mind → **Fix**: Provide context and details\n- **Mistake 3**: Using AI for everything → **Fix**: Use AI as a tool, not a replacement for thinking\n\n## Guided exercise\n\n**Your first AI conversation:**\n\n1. Go to chat.openai.com (ChatGPT) or any free AI chat tool\n2. Create a free account (takes 2 minutes)\n3. Type this prompt: \"Explain what artificial intelligence is using only simple words, as if you are talking to someone who has never heard of it before\"\n4. Read the response\n5. Ask a follow-up question: \"Give me 3 examples of how I might already be using AI without knowing it\"\n6. Try one more: \"Help me understand the difference between AI and a regular computer program\"\n\n**Expected result:** You have had your first AI conversation and understand the basics!\n\n## Independent exercise\n\n**Create your Personal AI Use Case List:**\n\n**Your task:** Identify 3 specific ways you could use AI in your life this week\n\n**Instructions:**\n1. Think about your daily activities (work, hobbies, learning, communication)\n2. Pick 3 areas where you could try using AI\n3. Write them down with this format:\n   - **Area**: (e.g., Work, Cooking, Learning)\n   - **Task**: (e.g., Write meeting notes, Find recipes, Learn Spanish)\n   - **AI Tool**: (e.g., ChatGPT, Google AI search, Duolingo AI)\n   - **First Step**: (e.g., \"Ask ChatGPT to summarize my meeting notes\")\n\n**Deliverable:** Personal AI Use Case List with 3 examples\n\n**Time:** 15-20 minutes\n\n## Self-check\n\nUse this checklist to verify your work:\n\n- [ ] I have tried at least one AI tool (ChatGPT or similar)\n- [ ] I can explain AI to someone without using technical words\n- [ ] I have written down 3 specific ways I could use AI\n- [ ] Each use case includes: area, task, tool, and first step\n- [ ] I understand AI is a tool to help me, not magic\n\n## Bibliography\n\n**Sources used:**\n- OpenAI. What is ChatGPT? https://openai.com/chatgpt\n- Stanford University. AI4ALL Introduction to AI. https://ai4all.stanford.edu\n- MIT Technology Review. What is AI? https://www.technologyreview.com/topic/artificial-intelligence\n\n## Read more\n\n**For deeper learning:**\n- AI Basics for Everyone – https://www.elementsofai.com – Free course by University of Helsinki\n- ChatGPT Tutorial – https://www.youtube.com/results?search_query=chatgpt+for+beginners – Video tutorials\n- AI News for Non-Technical People – https://www.technologyreview.com – Accessible AI news",
+        "emailSubject": "Day 1: Discover AI - Your Journey Starts Today! 🚀",
+        "emailBody": "# Welcome to AI for dummies in a day! 🎉\n\nToday you will discover what AI really is (no technical jargon, we promise!) and learn how to use it in your daily life.\n\n**What you will learn:**\n- What AI is in simple terms (no computer science degree needed!)\n- How to have your first conversation with ChatGPT\n- 3 practical ways YOU can use AI this week\n\n**Your mission today:**\nCreate your Personal AI Use Case List - 3 specific ways you will use AI tools.\n\n**Time needed:** 45-60 minutes (take breaks if you need!)\n\n**Ready to start?** Let's dive in!\n\nYou have got this! 💪\n\n---\nThe Amanoba Team\nP.S. Remember - AI is just a tool, and you are learning to use it. No pressure, just progress!"
+      },
+      "metadata": {
+        "dayNumber": 1,
+        "lessonId": "AI_DUMMIES_1DAY_EN_L01",
+        "courseId": "AI_DUMMIES_1DAY_EN"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a736eb19353b68032127f76",
+      "source_language": "en",
+      "content": {
+        "question": "A friend asks you, \"What is AI?\" Which explanation is the clearest for someone with no technical background?",
+        "correctAnswer": "AI is technology that can do tasks that normally need human intelligence, like understanding language or recognizing faces.",
+        "wrongAnswers": [
+          "AI is a complex neural network that processes data through multiple layers of algorithms.",
+          "AI is artificial intelligence which uses machine learning and deep learning models.",
+          "AI is software code that runs on servers using advanced mathematical computations."
+        ],
+        "explanation": "The correct answer uses simple, everyday language and concrete examples (understanding language, recognizing faces) that anyone can relate to, without technical jargon."
+      },
+      "metadata": {
+        "lessonId": "AI_DUMMIES_1DAY_EN_L01",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a736eb19353b68032127f7a",
+      "source_language": "en",
+      "content": {
+        "question": "You tried asking AI to help plan your week, but the response was generic and not helpful. What should you do NEXT?",
+        "correctAnswer": "Give AI more specific details: your goals, time constraints, priorities, and what kind of help you need. Treat it like giving instructions to an assistant.",
+        "wrongAnswers": [
+          "Give up - AI probably cannot help with personal planning tasks like this.",
+          "Try the exact same prompt again and hope for a better answer.",
+          "Complain to customer support that the AI is not working correctly."
+        ],
+        "explanation": "AI's output quality depends heavily on input quality. Adding specific context (goals, constraints, priorities) will get better results. This is how you learn to use AI effectively."
+      },
+      "metadata": {
+        "lessonId": "AI_DUMMIES_1DAY_EN_L01",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a736eb19353b68032127f77",
+      "source_language": "en",
+      "content": {
+        "question": "You want to use AI to help write an email to your boss requesting time off. What is the BEST prompt to get a useful result?",
+        "correctAnswer": "Write a friendly, professional email to my boss asking for Friday off because I have a family event. Keep it brief and polite.",
+        "wrongAnswers": [
+          "Write an email about time off.",
+          "Help me with an email.",
+          "Generate a formal business communication regarding absence request utilizing appropriate corporate terminology."
+        ],
+        "explanation": "The best prompt is specific (Friday off, family event), includes tone guidance (friendly, professional, brief), and gives clear context. Vague prompts get vague results."
+      },
+      "metadata": {
+        "lessonId": "AI_DUMMIES_1DAY_EN_L01",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a736eb19353b68032127f7b",
+      "source_language": "en",
+      "content": {
+        "question": "A beginner asks, \"How does AI actually learn?\" Which explanation is most accurate AND understandable?",
+        "correctAnswer": "AI learns by looking at millions of examples, finding patterns, and adjusting itself to get better - similar to how you learned to recognize your friends' faces by seeing them many times.",
+        "wrongAnswers": [
+          "AI uses backpropagation through hidden layers of perceptrons to minimize the loss function.",
+          "AI reads books and studies like humans do, memorizing facts and rules.",
+          "AI is programmed with all the answers by developers who write explicit instructions for every situation."
+        ],
+        "explanation": "This explanation uses a relatable analogy (recognizing faces) and simple language while being technically accurate about pattern recognition and learning from examples."
+      },
+      "metadata": {
+        "lessonId": "AI_DUMMIES_1DAY_EN_L01",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a736eb19353b68032127f78",
+      "source_language": "en",
+      "content": {
+        "question": "Your coworker says, \"AI will steal my job and replace me.\" Which response shows the most balanced understanding of AI?",
+        "correctAnswer": "AI is a tool that will change how we work. People who learn to use AI effectively will be more valuable, not replaced. It is better to learn now than avoid it.",
+        "wrongAnswers": [
+          "You are right to worry - AI will definitely replace most jobs in the next few years.",
+          "AI is completely harmless and will never affect anyone's job, so there is nothing to worry about.",
+          "AI is too complicated for most people to understand, so only tech experts will benefit from it."
+        ],
+        "explanation": "The correct answer acknowledges real change while emphasizing AI as a tool that enhances human work. It encourages adaptation rather than fear or complacency."
+      },
+      "metadata": {
+        "lessonId": "AI_DUMMIES_1DAY_EN_L01",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a736eb19353b68032127f79",
+      "source_language": "en",
+      "content": {
+        "question": "You are using ChatGPT to research health symptoms. What is the MOST important thing to remember?",
+        "correctAnswer": "AI can provide general information, but you must verify medical advice with a real doctor. Never use AI as a substitute for professional medical consultation.",
+        "wrongAnswers": [
+          "ChatGPT has access to all medical databases, so its diagnosis is as good as a doctor's.",
+          "AI cannot make mistakes in medical information because it is trained on scientific data.",
+          "You should trust AI's medical advice more than a doctor's because AI has no biases."
+        ],
+        "explanation": "AI tools like ChatGPT explicitly warn against using them for medical advice. They can provide general info but lack the ability to examine you, consider your full history, or take legal/ethical responsibility."
+      },
+      "metadata": {
+        "lessonId": "AI_DUMMIES_1DAY_EN_L01",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "HARD",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a736eb19353b68032127f7c",
+      "source_language": "en",
+      "content": {
+        "question": "You want to create your Personal AI Use Case List. Which of these is the BEST example of a well-defined use case?",
+        "correctAnswer": "Area: Work emails | Task: Draft responses to customer questions | AI Tool: ChatGPT | First Step: Copy a customer email and ask ChatGPT to draft a friendly, helpful response",
+        "wrongAnswers": [
+          "Area: Work | Task: Do stuff with AI | AI Tool: The internet | First Step: Maybe try something",
+          "Area: Everything | Task: Use AI for all tasks | AI Tool: All AI tools | First Step: Start using AI",
+          "Area: Productivity | Task: Be more productive | AI Tool: Technology | First Step: Learn more about AI"
+        ],
+        "explanation": "A good use case is specific and actionable. It names a clear area, specific task, exact tool to use, and a concrete first step you can take immediately."
+      },
+      "metadata": {
+        "lessonId": "AI_DUMMIES_1DAY_EN_L01",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db510",
+      "source_language": "en",
+      "content": {
+        "question": "What is machine learning?",
+        "explanation": "Machine learning is a subset of AI that enables systems to learn and improve from experience without being explicitly programmed."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db511",
+      "source_language": "en",
+      "content": {
+        "question": "Which company developed ChatGPT?",
+        "explanation": "ChatGPT was developed by OpenAI, an AI research company founded in 2015."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db518",
+      "source_language": "en",
+      "content": {
+        "question": "What is computer vision?",
+        "explanation": "Computer vision is a field of AI that trains computers to interpret and understand visual information from images and videos."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db514",
+      "source_language": "en",
+      "content": {
+        "question": "What is natural language processing (NLP)?",
+        "explanation": "NLP is a branch of AI that helps computers understand, interpret, and generate human language."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db515",
+      "source_language": "en",
+      "content": {
+        "question": "Which of these is NOT a common application of AI?",
+        "explanation": "Manual typing is a human task and not an application of AI. The other options are all common AI applications."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db51a",
+      "source_language": "en",
+      "content": {
+        "question": "What is the Turing Test?",
+        "explanation": "The Turing Test, proposed by Alan Turing, evaluates a machine's ability to exhibit intelligent behavior equivalent to human intelligence."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db527",
+      "source_language": "en",
+      "content": {
+        "question": "What is automation in AI?",
+        "explanation": "Automation involves using AI to perform tasks automatically without requiring constant human oversight."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db50e",
+      "source_language": "en",
+      "content": {
+        "question": "What does AI stand for?",
+        "explanation": "AI stands for Artificial Intelligence, which refers to computer systems designed to perform tasks that typically require human intelligence."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db51c",
+      "source_language": "en",
+      "content": {
+        "question": "What is unsupervised learning?",
+        "explanation": "Unsupervised learning is when AI finds patterns and relationships in data without predefined labels or categories."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db521",
+      "source_language": "en",
+      "content": {
+        "question": "What is a chatbot?",
+        "explanation": "A chatbot is an AI-powered program designed to simulate human conversation through text or voice interactions."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db516",
+      "source_language": "en",
+      "content": {
+        "question": "What is deep learning?",
+        "explanation": "Deep learning is a subset of machine learning that uses multi-layered neural networks to process data."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db52a",
+      "source_language": "en",
+      "content": {
+        "question": "What is transfer learning?",
+        "explanation": "Transfer learning involves taking a model trained on one task and adapting it for a different but related task."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db52b",
+      "source_language": "en",
+      "content": {
+        "question": "What is overfitting in machine learning?",
+        "explanation": "Overfitting occurs when a model memorizes training data instead of learning generalizable patterns, leading to poor performance on new data."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db532",
+      "source_language": "en",
+      "content": {
+        "question": "What is edge AI?",
+        "explanation": "Edge AI processes data locally on devices (phones, IoT devices) rather than sending it to the cloud, enabling faster responses and better privacy."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db517",
+      "source_language": "en",
+      "content": {
+        "question": "What does 'training' mean in AI?",
+        "explanation": "Training in AI refers to the process of feeding data to a model so it can learn patterns and make predictions."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db51f",
+      "source_language": "en",
+      "content": {
+        "question": "What is data in the context of AI?",
+        "explanation": "In AI, data is the information (text, images, numbers, etc.) used to train models and enable them to make predictions or decisions."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db538",
+      "source_language": "en",
+      "content": {
+        "question": "What is synthetic data?",
+        "explanation": "Synthetic data is artificially generated data that mimics real-world data, used to train AI models when real data is limited or sensitive."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db51d",
+      "source_language": "en",
+      "content": {
+        "question": "What is reinforcement learning?",
+        "explanation": "Reinforcement learning is a type of machine learning where an agent learns by interacting with its environment and receiving rewards or penalties."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db51e",
+      "source_language": "en",
+      "content": {
+        "question": "What is an AI algorithm?",
+        "explanation": "An algorithm is a set of step-by-step instructions or rules that AI systems follow to solve problems or make decisions."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db520",
+      "source_language": "en",
+      "content": {
+        "question": "What is bias in AI?",
+        "explanation": "AI bias occurs when a system produces unfair or discriminatory results, often due to biased or unrepresentative training data."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db529",
+      "source_language": "en",
+      "content": {
+        "question": "What is AI inference?",
+        "explanation": "Inference is the process of using a trained AI model to make predictions or decisions on new, unseen data."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db530",
+      "source_language": "en",
+      "content": {
+        "question": "What is a use case for AI in healthcare?",
+        "explanation": "AI is widely used in healthcare for analyzing medical images, assisting diagnosis, drug discovery, and personalized treatment plans."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db536",
+      "source_language": "en",
+      "content": {
+        "question": "What is prompt engineering?",
+        "explanation": "Prompt engineering is the practice of designing and refining inputs to AI language models to get optimal responses."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db537",
+      "source_language": "en",
+      "content": {
+        "question": "What is AI governance?",
+        "explanation": "AI governance involves establishing policies, regulations, and ethical guidelines for developing and deploying AI systems responsibly."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db524",
+      "source_language": "en",
+      "content": {
+        "question": "What is GPT?",
+        "explanation": "GPT stands for Generative Pre-trained Transformer, a type of language model developed by OpenAI."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db526",
+      "source_language": "en",
+      "content": {
+        "question": "What is an AI model?",
+        "explanation": "An AI model is a mathematical representation (like a neural network) that has been trained on data to perform specific tasks."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db52e",
+      "source_language": "en",
+      "content": {
+        "question": "What is explainable AI (XAI)?",
+        "explanation": "Explainable AI aims to make AI decision-making processes transparent and understandable to human users."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db534",
+      "source_language": "en",
+      "content": {
+        "question": "What is AI model accuracy?",
+        "explanation": "Accuracy measures what percentage of the model's predictions are correct out of all predictions made."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db512",
+      "source_language": "en",
+      "content": {
+        "question": "What type of AI is used in recommendation systems like Netflix and Spotify?",
+        "explanation": "Recommendation systems use machine learning algorithms to analyze user behavior and suggest relevant content."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db525",
+      "source_language": "en",
+      "content": {
+        "question": "What is the primary purpose of AI ethics?",
+        "explanation": "AI ethics focuses on ensuring AI systems are developed and deployed in ways that are fair, transparent, and beneficial to society."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db535",
+      "source_language": "en",
+      "content": {
+        "question": "What is the AI winter?",
+        "explanation": "AI winters refer to historical periods when AI research funding and optimism declined due to unmet expectations."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db523",
+      "source_language": "en",
+      "content": {
+        "question": "What is a Large Language Model (LLM)?",
+        "explanation": "LLMs are AI models trained on massive text datasets that can understand and generate human-like text."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db52f",
+      "source_language": "en",
+      "content": {
+        "question": "What is the difference between AI and automation?",
+        "explanation": "AI can learn and adapt from data, while traditional automation follows predetermined rules without learning capability."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db528",
+      "source_language": "en",
+      "content": {
+        "question": "What is sentiment analysis?",
+        "explanation": "Sentiment analysis uses NLP to identify and categorize opinions and emotions expressed in text (positive, negative, neutral)."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db531",
+      "source_language": "en",
+      "content": {
+        "question": "What is AI-powered fraud detection?",
+        "explanation": "AI fraud detection analyzes patterns in financial transactions to identify anomalies and potential fraudulent activity."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db50f",
+      "source_language": "en",
+      "content": {
+        "question": "Which of the following is an example of narrow AI?",
+        "explanation": "Narrow AI is designed to perform specific tasks, like playing chess. Current AI systems are examples of narrow AI."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db519",
+      "source_language": "en",
+      "content": {
+        "question": "Which AI technique is used for image recognition?",
+        "explanation": "Convolutional Neural Networks (CNNs) are specifically designed for processing visual data and are widely used in image recognition."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db52c",
+      "source_language": "en",
+      "content": {
+        "question": "What is a dataset?",
+        "explanation": "A dataset is a structured collection of data (examples, labels, features) used to train and evaluate AI models."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db533",
+      "source_language": "en",
+      "content": {
+        "question": "What is a confusion matrix in AI?",
+        "explanation": "A confusion matrix is a table used to evaluate classification model performance by showing correct and incorrect predictions."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db513",
+      "source_language": "en",
+      "content": {
+        "question": "What is a neural network inspired by?",
+        "explanation": "Neural networks are inspired by the structure and function of biological neural networks in the human brain."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db51b",
+      "source_language": "en",
+      "content": {
+        "question": "What is supervised learning?",
+        "explanation": "Supervised learning is a machine learning approach where the model learns from labeled training data."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db522",
+      "source_language": "en",
+      "content": {
+        "question": "What is generative AI?",
+        "explanation": "Generative AI creates new content (text, images, music, code) based on patterns learned from training data."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "EASY",
+        "category": "Course Specific"
+      }
+    },
+    {
+      "type": "quiz_question",
+      "id": "6a7462f97f5019f8c49db52d",
+      "source_language": "en",
+      "content": {
+        "question": "What is an AI agent?",
+        "explanation": "An AI agent is a system that can perceive its environment through sensors and act upon it to achieve specific goals."
+      },
+      "metadata": {
+        "lessonId": "6a736eb19353b68032127f67",
+        "courseId": "AI_DUMMIES_1DAY_EN",
+        "difficulty": "MEDIUM",
+        "category": "Course Specific"
+      }
+    }
+  ],
+  "word_count": 3163,
+  "estimated_cost_usd": 0.13
+}
