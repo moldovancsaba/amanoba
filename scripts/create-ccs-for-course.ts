@@ -21,11 +21,10 @@ import { Course, CCS } from '../app/lib/models';
     ccs = await CCS.create({
       ccsId: 'AI_DUMMIES_1DAY_EN',
       name: course.name,
-      description: course.description || 'AI for dummies in a day',
-      category: course.category || 'Professional Development',
-      defaultLanguage: 'en',
-      supportedLanguages: ['en', 'es'],
-      isActive: true,
+      originalLanguage: course.language || 'en',
+      originalCourseId: course.courseId,
+      availableLanguages: [course.language || 'en'],
+      languageVariants: [],
     });
     console.log(`✓ Created CCS: ${ccs.ccsId}`);
   } else {

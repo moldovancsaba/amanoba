@@ -196,3 +196,179 @@ export async function resolveLessonForChildDay(
   const lesson = await Lesson.findById(lessonId).lean();
   return lesson as { _id: unknown; lessonId: string; courseId: unknown; dayNumber: number; title: string; content?: string; [k: string]: unknown } | null;
 }
+
+// ==============================================================================
+// Language Variant Helper Functions
+// ==============================================================================
+
+import { CCS } from './models';
+import type { ILanguageVariantRef } from './models/ccs';
+
+export interface CourseLanguageVariants {
+  original: {
+    language: string;
+    courseId: string;
+  } | null;
+  variants: ILanguageVariantRef[];
+  available: string[];
+}
+
+/**
+ * Get all language variants for a course
+ */
+export async function getCourseLanguageVariants(
+  courseId: string
+): Promise<CourseLanguageVariants> {
+  const course = await Course.findOne({ courseId }).lean();
+  
+  if (!course?.ccsId) {
+    return {
+      original: null,
+      variants: [],
+      available: [],
+    };
+  }
+
+  const ccs = await CCS.findOne({ ccsId: course.ccsId }).lean();
+  
+  if (!ccs) {
+    return {
+      original: null,
+      variants: [],
+      available: [],
+    };
+  }
+
+  return {
+    original: {
+      language: ccs.originalLanguage,
+      courseId: ccs.originalCourseId,
+    },
+    variants: ccs.languageVariants || [],
+    available: ccs.availableLanguages || [ccs.originalLanguage],
+  };
+}
+
+/**
+ * Check if a course has language variants (translations)
+ */
+export async function hasLanguageVariants(courseId: string): Promise<boolean> {
+  const course = await Course.findOne({ courseId }).lean();
+  
+  if (!course?.ccsId) {
+    return false;
+  }
+
+  const ccs = await CCS.findOne({ ccsId: course.ccsId }).lean();
+  
+  return (ccs?.availableLanguages?.length || 0) > 1;
+}
+
+/**
+ * Get the original (source) course for any course variant
+ */
+export async function getOriginalCourse(courseId: string): Promise<{
+  courseId: string;
+  language: string;
+} | null> {
+  const course = await Course.findOne({ courseId }).lean();
+  
+  if (!course?.ccsId) {
+    return null;
+  }
+
+  const ccs = await CCS.findOne({ ccsId: course.ccsId }).lean();
+  
+  if (!ccs) {
+    return null;
+  }
+
+  return {
+    courseId: ccs.originalCourseId,
+    language: ccs.originalLanguage,
+  };
+}
+
+/**
+ * Get a specific language variant of a course
+ */
+export async function getVariantCourse(
+  courseId: string,
+  targetLanguage: string
+): Promise<string | null> {
+  const course = await Course.findOne({ courseId }).lean();
+  
+  if (!course?.ccsId) {
+    return null;
+  }
+
+  const ccs = await CCS.findOne({ ccsId: course.ccsId }).lean();
+  
+  if (!ccs) {
+    return null;
+  }
+
+  if (ccs.originalLanguage === targetLanguage) {
+    return ccs.originalCourseId;
+  }
+
+  const variant = ccs.languageVariants?.find(v => v.language === targetLanguage);
+  
+  return variant?.courseId || null;
+}
+
+/**
+ * Get array of available language codes for a course
+ */
+export async function getAvailableLanguagesForCourse(
+  courseId: string
+): Promise<string[]> {
+  const course = await Course.findOne({ courseId }).lean();
+  
+  if (!course?.ccsId) {
+    return [];
+  }
+
+  const ccs = await CCS.findOne({ ccsId: course.ccsId }).lean();
+  
+  return ccs?.availableLanguages || [];
+}
+
+/**
+ * Get translation status for a specific language variant
+ */
+export async function getTranslationStatus(
+  courseId: string,
+  language: string
+): Promise<'draft' | 'review' | 'published' | null> {
+  const course = await Course.findOne({ courseId }).lean();
+  
+  if (!course?.ccsId) {
+    return null;
+  }
+
+  const ccs = await CCS.findOne({ ccsId: course.ccsId }).lean();
+  
+  if (!ccs) {
+    return null;
+  }
+
+  const variant = ccs.languageVariants?.find(v => v.language === language);
+  
+  return variant?.translationStatus || null;
+}
+
+/**
+ * Check if a course is the original (not a translation)
+ */
+export async function isOriginalCourse(courseId: string): Promise<boolean> {
+  const course = await Course.findOne({ courseId }).lean();
+  
+  if (!course?.ccsId) {
+    return false;
+  }
+
+  const ccs = await CCS.findOne({ ccsId: course.ccsId }).lean();
+  
+  return ccs?.originalCourseId === courseId;
+}

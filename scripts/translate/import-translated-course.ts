@@ -208,6 +208,20 @@ async function importTranslatedCourse(translatedJSON: TranslatedCourse, dryRun: 
       console.log(`\n✅ Quiz question count is sufficient`);
     }
 
+    // 9. Update CCS with language variant tracking
+    try {
+      await ccs.addLanguageVariant(
+        newCourse.courseId,
+        translatedJSON.target_language,
+        'translation-agent'
+      );
+      console.log(`\n✓ Added ${translatedJSON.target_language} variant to CCS ${ccs.ccsId}`);
+    } catch (error) {
+      const errMsg = error instanceof Error ? error.message : String(error);
+      console.warn(`\n⚠️  Failed to update CCS with variant: ${errMsg}`);
+      console.warn(`   The course was created successfully but CCS tracking may be incomplete.`);
+    }
+
     console.log('\n' + '='.repeat(70));
     console.log('Import Complete');
     console.log('='.repeat(70));
