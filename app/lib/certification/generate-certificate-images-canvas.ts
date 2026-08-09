@@ -11,6 +11,7 @@ import { CourseProgress } from '@/lib/models';
 import { logger } from '@/lib/logger';
 import QRCode from 'qrcode';
 import { join } from 'path';
+import { getCertificateStrings, formatCertificateDate } from '@/lib/constants/certificate-strings';
 
 interface CertificateData {
   playerName: string;
@@ -46,13 +47,16 @@ async function generateCertificateImage(
     logger.error({ error }, 'Failed to load logo');
   }
 
+  // Get localized strings
+  const strings = getCertificateStrings(data.locale || 'en');
+
   // Main content
   ctx.textAlign = 'center';
   
   // Title
   ctx.fillStyle = '#F59E0B';
   ctx.font = 'bold 48px sans-serif';
-  ctx.fillText('Certificate of Completion', dimensions.width / 2, 180);
+  ctx.fillText(strings.title, dimensions.width / 2, 180);
 
   // Course title
   ctx.fillStyle = '#F1F5F9';
@@ -62,7 +66,7 @@ async function generateCertificateImage(
   // "This certifies that"
   ctx.fillStyle = '#CBD5E1';
   ctx.font = '20px sans-serif';
-  ctx.fillText('This certifies that', dimensions.width / 2, 290);
+  ctx.fillText(strings.certifyThat, dimensions.width / 2, 290);
 
   // Player name
   ctx.fillStyle = '#F59E0B';
@@ -73,8 +77,8 @@ async function generateCertificateImage(
   ctx.fillStyle = '#CBD5E1';
   ctx.font = '18px sans-serif';
   const completionText = data.finalExamScore !== null 
-    ? `has successfully completed the course with ${data.finalExamScore}%`
-    : 'has successfully completed the course';
+    ? `${strings.hasCompleted} (${strings.finalExamScore}: ${data.finalExamScore}%)`
+    : strings.hasCompleted;
   ctx.fillText(completionText, dimensions.width / 2, 390);
 
   // Footer - QR Code

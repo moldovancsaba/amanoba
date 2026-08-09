@@ -3,7 +3,7 @@
  * Used by certificate image APIs (profile and slug) for locale-aware labels
  */
 
-export type CertificateLocale = 'en' | 'hu' | 'ar' | 'ru' | 'pt' | 'vi' | 'id' | 'hi' | 'tr' | 'bg' | 'pl' | 'sw';
+export type CertificateLocale = 'en' | 'hu' | 'ar' | 'ru' | 'pt' | 'vi' | 'id' | 'hi' | 'tr' | 'bg' | 'pl' | 'sw' | 'es' | 'zh' | 'fr' | 'bn' | 'ur';
 
 export interface CertificateStrings {
   title: string;
@@ -97,6 +97,41 @@ const certificateStrings: Record<CertificateLocale, CertificateStrings> = {
     hasCompleted: 'amemaliza kwa mafanikio kozi',
     finalExamScore: 'Matokeo ya Mtihani wa Mwisho',
     revoked: 'Cheti kimebatilishwa',
+  },
+  es: {
+    title: 'Certificado de Finalización',
+    certifyThat: 'Esto certifica que',
+    hasCompleted: 'ha completado exitosamente el curso',
+    finalExamScore: 'Puntuación del examen final',
+    revoked: 'Certificado revocado',
+  },
+  zh: {
+    title: '完成证书',
+    certifyThat: '特此证明',
+    hasCompleted: '已成功完成课程',
+    finalExamScore: '期末考试成绩',
+    revoked: '证书已撤销',
+  },
+  fr: {
+    title: 'Certificat d\'achèvement',
+    certifyThat: 'Ceci certifie que',
+    hasCompleted: 'a complété avec succès le cours',
+    finalExamScore: 'Note de l\'examen final',
+    revoked: 'Certificat révoqué',
+  },
+  bn: {
+    title: 'সমাপ্তি সনদপত্র',
+    certifyThat: 'এই প্রত্যয়ন করা হয় যে',
+    hasCompleted: 'সফলভাবে কোর্স সম্পন্ন করেছেন',
+    finalExamScore: 'চূড়ান্ত পরীক্ষার স্কোর',
+    revoked: 'সনদপত্র বাতিল করা হয়েছে',
+  },
+  ur: {
+    title: 'تکمیل کی سند',
+    certifyThat: 'یہ تصدیق کی جاتی ہے کہ',
+    hasCompleted: 'نے کامیابی سے کورس مکمل کیا',
+    finalExamScore: 'حتمی امتحان کا اسکور',
+    revoked: 'سند منسوخ کر دی گئی',
   },
 };
 
