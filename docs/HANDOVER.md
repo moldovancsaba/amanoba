@@ -5083,3 +5083,109 @@ Upon POC completion, if successful:
 - Then remaining 13 languages (batch processing)
 - Translate Stage 2 course (AI Essentials - 3 Days) for all languages
 - Extend certificate generation and email templates to support all languages
+
+---
+
+## 2026-08-09 16:00 UTC - Complete Multi-Language Delivery System Issues Created
+
+**Context:** Extended POC issues to complete end-to-end multi-language delivery system. Created 6 additional production-grade issues covering script validation, scale-up, Stage 2 translation, certificates, and email templates.
+
+**Outcome:** 9 total independent, executable issues created (3 POC + 6 delivery) representing complete multi-language system.
+
+**Additional Issues Created:**
+
+4. **Issue #912: Chinese Translation Pilot**
+   - URL: https://github.com/moldovancsaba/mvp-factory-control/issues/912
+   - Type: Translation POC (P1)
+   - Scope: Validate CJK script, UTF-8 encoding, Asia-Pacific cultural adaptation
+   - Deliverables: `AI_DUMMIES_1DAY_ZH` course, Chinese pilot report
+   - Dependencies: Blocks on #909, #910
+
+5. **Issue #913: Hindi Translation Pilot**
+   - URL: https://github.com/moldovancsaba/mvp-factory-control/issues/913
+   - Type: Translation POC (P1)
+   - Scope: Validate Devanagari script, Indian market adaptation, English loanword strategy
+   - Deliverables: `AI_DUMMIES_1DAY_HI` course, Hindi pilot report
+   - Dependencies: Blocks on #909, #910, #912
+
+6. **Issue #914: Scale Stage 1 to 13 Remaining Languages**
+   - URL: https://github.com/moldovancsaba/mvp-factory-control/issues/914
+   - Type: Batch Translation (P1)
+   - Scope: AR, PT, VI, TR, BG, PL, RU, SW, FR, BN, UR, ID (RTL, Cyrillic, Bengali validated)
+   - Deliverables: 13 Stage 1 variants, 100% coverage (17/17 languages)
+   - Dependencies: Blocks on #909, #910, #912, #913
+   - Estimated: 3-4 weeks, ~$3,500
+
+7. **Issue #915: Translate Stage 2 to All 16 Languages**
+   - URL: https://github.com/moldovancsaba/mvp-factory-control/issues/915
+   - Type: Batch Translation (P1)
+   - Scope: 3 lessons + 20 quizzes per language (~40,000 words per language)
+   - Deliverables: 16 Stage 2 variants, progressive path complete (Stage 1 → Stage 2)
+   - Dependencies: Blocks on #914
+   - Estimated: 6-8 weeks, ~$5,000
+
+8. **Issue #916: Multi-Language Certificate Generation**
+   - URL: https://github.com/moldovancsaba/mvp-factory-control/issues/916
+   - Type: Infrastructure (P1)
+   - Scope: Noto fonts (7 scripts), RTL layout (Arabic/Urdu), cultural date/name formatting, ImgBB upload
+   - Deliverables: Certificates for all 17 languages, visual quality verified
+   - Dependencies: Can start after #910 (parallel with scale-up)
+   - Estimated: 1-2 weeks
+
+9. **Issue #917: Multi-Language Email Templates**
+   - URL: https://github.com/moldovancsaba/mvp-factory-control/issues/917
+   - Type: Infrastructure (P1)
+   - Scope: 68 templates (17 languages × 4 types), locale detection, RTL email layout, cultural greetings
+   - Deliverables: Email delivery in native language (lesson + notifications)
+   - Dependencies: Can start after #910 (parallel with scale-up)
+   - Estimated: 1-2 weeks
+
+**Complete System Scope:**
+- **Phase 1:** Foundation & POC (Issues #909-911) - 3-4 weeks
+- **Phase 2:** Multi-Script Validation (Issues #912-913) - 1-2 weeks (parallel)
+- **Phase 3:** Stage 1 Scale-Up (Issue #914) - 3-4 weeks
+- **Phase 4:** Stage 2 Translation (Issue #915) - 6-8 weeks
+- **Phase 5:** Multi-Language Assets (Issues #916-917) - 2-3 weeks (parallel)
+
+**Total Cost Estimate:**
+- Translation costs: ~$9,100-10,000 (32 course variants across 2 stages)
+- Development costs: Internal (infrastructure, UI, certificates, emails)
+- **Grand Total: ~$10,000-15,000 for complete system**
+
+**Total Duration:**
+- Sequential: ~50+ weeks
+- Parallel (optimized): **10-12 weeks** (80% time savings)
+
+**Quality Standards:**
+All 9 issues follow canonical GDS Issue #81 format with:
+- 18 required sections per issue (Executive Summary → Definition of Done)
+- Architecture diagrams, runtime flows, component trees
+- 10+ measurable acceptance criteria
+- Unit/integration/accessibility test examples with code
+- Edge cases with mitigation strategies
+- Retries, timeouts, rollback documented
+- GDS-only for UI work, accessibility mandatory (WCAG 2.1 AA, Lighthouse ≥95)
+- Independent execution ready (low clarification overhead, production safety)
+
+**Files Created:**
+- docs/product/COMPLETE_MULTI_LANGUAGE_DELIVERY_ISSUES.md - All 9 delivery issues documented
+
+**Repository Artifacts:**
+All 9 issues created directly in mvp-factory-control repository:
+- https://github.com/moldovancsaba/mvp-factory-control/issues/909-917
+
+**Success Criteria (Complete System):**
+- **Coverage:** 17/17 languages (100%), Stage 1 + Stage 2 courses
+- **Quality:** ≥4.0/5 average translation quality, 75% ≥4.5/5
+- **Cost:** ≤$15,000 total (translation + development)
+- **Duration:** 10-12 weeks with parallel execution
+- **Student Experience:** Complete path in native language (Discovery → Stage 1 → Stage 2 → Certificate → Emails)
+
+**System Readiness:**
+Upon completion of all 9 issues:
+- Students can discover courses in 17 languages
+- Complete learning paths (Stage 1 → Stage 2) in all languages
+- Native-language certificates for social sharing
+- Email delivery in student's preferred language
+- Full accessibility compliance (WCAG 2.1 AA)
+- Platform ready for international expansion
