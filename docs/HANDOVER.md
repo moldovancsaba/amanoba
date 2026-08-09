@@ -6559,3 +6559,49 @@ npx tsx --env-file=.env.local scripts/inspect-ai-learning-path.ts
 ✅ **Predictable:** Deterministic matrix construction order  
 
 **Status:** PRODUCTION READY - RULES ENFORCED 🔒
+
+---
+
+## 2026-08-09: GDS Update to v6.0.0
+
+### What Was Done
+
+Updated all GDS packages from v3.14.17 to v6.0.0 and updated AGENTS.md to clarify GitHub releases are the canonical source.
+
+### Changes
+
+**Package Updates:**
+- `@sovereignsquad/gds-admin`: 3.14.17 → 6.0.0
+- `@sovereignsquad/gds-core`: 3.14.17 → 6.0.0
+- `@sovereignsquad/gds-theme`: 3.14.17 → 6.0.0
+
+**Configuration Updates:**
+- Updated `gds-adoption.json` gdsVersion to 6.0.0
+- Updated `scripts/verify-gds-version.mjs` expected version to 6.0.0
+- Updated `AGENTS.md` to clarify GitHub releases policy
+
+**AGENTS.md Rule:**
+> **GDS packages:** consume `@sovereignsquad/gds-*` from GitHub releases only. Use the latest stable release from `https://github.com/sovereignsquad/general-design-system/releases`. Do not use legacy `@gds/*` or `@doneisbetter/*` names, npm registry packages, or sibling `file:` installs in product code, CI, or Vercel flows.
+
+### Verification
+
+All verification checks passing:
+```bash
+✅ npm run ui:gds:verify         # Version alignment check
+✅ npm run gds:import-smoke       # Import smoke test
+✅ npm run type-check             # TypeScript compilation
+```
+
+### Source
+
+GDS v6.0.0 Release: https://github.com/sovereignsquad/general-design-system/releases/tag/gds-v6.0.0
+
+### Success Metrics
+
+✅ **Packages Updated:** All 3 GDS packages at 6.0.0  
+✅ **Verification Passing:** ui:gds:verify ✓  
+✅ **Imports Working:** gds:import-smoke ✓  
+✅ **Type Safety:** type-check ✓  
+✅ **Documentation Updated:** AGENTS.md clarified  
+
+**Status:** UPDATED AND VERIFIED ✅
