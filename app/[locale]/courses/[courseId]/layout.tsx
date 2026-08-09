@@ -82,13 +82,13 @@ export async function generateMetadata({
       const brand = await Brand.findOne({ slug: 'amanoba' }).lean();
       if (brand?.metadata) {
         const defaultThumb = (brand.metadata as Record<string, unknown>)?.defaultCourseThumbnail;
-        thumbnailUrl = typeof defaultThumb === 'string' ? defaultThumb : undefined;
+        thumbnailUrl = typeof defaultThumb === 'string' ? defaultThumb : '';
       }
     }
 
     // Ensure absolute URL for image (required for Open Graph)
     // IMGBB URLs are already absolute, but we need to handle all cases
-    let absoluteImageUrl: string;
+    let absoluteImageUrl: string = '';
     if (thumbnailUrl) {
       // If already absolute URL (starts with http:// or https://)
       if (thumbnailUrl.startsWith('http://') || thumbnailUrl.startsWith('https://')) {
@@ -207,12 +207,12 @@ export default async function CourseDetailLayout({
 
   const courseLocale = course.language || _locale;
   const courseUrl = `${baseUrl}/${courseLocale}/courses/${courseId}`;
-  let thumbnailUrl = course.thumbnail;
+  let thumbnailUrl = course.thumbnail || '';
   if (!thumbnailUrl) {
     const brand = await Brand.findOne({ slug: 'amanoba' }).lean();
     if (brand?.metadata) {
       const defaultThumb = (brand.metadata as Record<string, unknown>)?.defaultCourseThumbnail;
-      thumbnailUrl = typeof defaultThumb === 'string' ? defaultThumb : undefined;
+      thumbnailUrl = typeof defaultThumb === 'string' ? defaultThumb : '';
     }
   }
   if (thumbnailUrl && !thumbnailUrl.startsWith('http')) {

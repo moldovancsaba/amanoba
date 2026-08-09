@@ -5,9 +5,8 @@
  * Why: Enables scalable, data-driven course progression with consistent quality
  */
 
-import { Course, CourseGenerationTracker } from '@/lib/models';
+import { Course, Lesson, QuizQuestion, CourseGenerationTracker, type ILesson, type IQuizQuestion } from '@/lib/models';
 import { logger } from '@/lib/logger';
-import type { ILesson, IQuizQuestion } from '@/lib/models/course';
 
 export interface ProgressiveCourseConfig {
   sourceStage: number;
@@ -60,25 +59,31 @@ export interface CourseOutline {
 export async function extractQuestionPool(sourceCourseId: string): Promise<IQuizQuestion[]> {
   const course = await Course.findOne({ courseId: sourceCourseId }).lean();
   
-  if (!course || !course.lessons) {
-    logger.warn({ sourceCourseId }, 'Source course not found or has no lessons');
+  if (!course) {
+    logger.warn({ sourceCourseId }, 'Source course not found');
+    return [];
+  }
+
+  // Fetch lessons separately (lessons are in separate collection)
+  const lessons = await Lesson.find({ courseId: course._id }).lean();
+  
+  if (!lessons || lessons.length === 0) {
+    logger.warn({ sourceCourseId }, 'Source course has no lessons');
     return [];
   }
 
   const questionPool: IQuizQuestion[] = [];
   
-  course.lessons.forEach((lesson: ILesson) => {
-    if (lesson.quizQuestions && lesson.quizQuestions.length > 0) {
-      lesson.quizQuestions.forEach((question: IQuizQuestion) => {
-        questionPool.push({
-          ...question,
-          // @ts-ignore - Add metadata for tracking
-          _sourceLesson: lesson.title,
-          _sourceCourse: sourceCourseId,
-          _isReused: true,
-        });
-      });
-    }
+  // Fetch quiz questions separately (quiz questions are in separate collection)
+  const quizQuestions = await QuizQuestion.find({ courseId: course._id }).lean();
+  
+  quizQuestions.forEach((question) => {
+    questionPool.push({
+      ...question,
+      // @ts-ignore - Add metadata for tracking
+      _sourceCourse: sourceCourseId,
+      _isReused: true,
+    } as unknown as IQuizQuestion);
   });
 
   logger.info({ 
@@ -165,9 +170,10 @@ export async function generateProgression(config: ProgressiveCourseConfig): Prom
 
   // Calculate content distribution
   const totalLessons = config.additions.newLessons;
-  const totalReuseQuestions = config.reuseContent.questions 
-    ? sourceCourse.lessons?.reduce((sum: number, l: ILesson) => sum + (l.quizQuestions?.length || 0), 0) || 0
-    : 0;
+  
+  // Fetch quiz questions separately
+  const sourceQuizQuestions = await QuizQuestion.find({ courseId: sourceCourse._id }).lean();
+  const totalReuseQuestions = config.reuseContent.questions ? sourceQuizQuestions.length : 0;
   const totalNewQuestions = config.additions.newQuestions;
 
   // Create lesson outline
@@ -228,17 +234,18 @@ export async function validateProgressiveCourse(
     return { valid: false, errors };
   }
 
-  // Check question pool size
-  const totalQuestions = course.lessons?.reduce((sum: number, l: ILesson) => 
-    sum + (l.quizQuestions?.length || 0), 0) || 0;
+  // Check question pool size (fetch from separate collection)
+  const quizQuestions = await QuizQuestion.find({ courseId: course._id }).lean();
+  const totalQuestions = quizQuestions.length;
   
   if (totalQuestions < requiredQuestionPool) {
     errors.push(`Question pool too small: ${totalQuestions} < ${requiredQuestionPool} required`);
   }
 
-  // Check lesson count
-  if (!course.lessons || course.lessons.length < 10) {
-    errors.push(`Too few lessons: ${course.lessons?.length || 0} < 10 required`);
+  // Check lesson count (fetch from separate collection)
+  const lessons = await Lesson.find({ courseId: course._id }).lean();
+  if (!lessons || lessons.length < 10) {
+    errors.push(`Too few lessons: ${lessons.length} < 10 required`);
   }
 
   // Check prerequisite chain

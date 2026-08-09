@@ -195,7 +195,7 @@ const CourseSchema = new Schema<ICourse>(
       trim: true,
       validate: {
         validator: function(v: string) {
-          return v && v.length > 0;
+          return !!(v && v.length > 0);
         },
         message: 'Thumbnail URL cannot be empty',
       },
