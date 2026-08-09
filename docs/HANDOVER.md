@@ -5286,3 +5286,167 @@ All metrics have objective, programmatic verification:
 - **Document obsessively** - Agents leave clear trails for humans and other agents
 
 **Ready for Autonomous Execution:** All 9 issues can be executed by agents with minimal human oversight. System designed for sovereign, self-sufficient delivery of complete multi-language course adoption.
+
+---
+
+## 2026-08-09: Multi-Language Infrastructure Delivered (Phase 1)
+
+**Context**: Agent autonomously delivered translation infrastructure, multi-language UI components, and extended certificate/email systems to support all 17 Amanoba languages.
+
+**What Changed**:
+
+### Issue #909: Translation Infrastructure Foundation (PARTIAL)
+**Status**: Core infrastructure delivered, end-to-end pipeline needs completion.
+
+**Delivered**:
+1. **Translation Glossary Model** (`app/lib/models/translation-glossary.ts`)
+   - GlossaryEntry schema for all 17 languages
+   - Categorization: technical, business, general
+   - Indexed for fast lookups
+   - Tracks approval status and last updated timestamps
+
+2. **Translation Scripts** (`scripts/translate/`)
+   - `extract-course.ts` - Extracts translatable content from courses
+     * Preserves markdown structure and metadata
+     * Calculates word count and estimated translation cost
+     * Outputs structured JSON for translation pipeline
+   
+   - `validate-translation.ts` - Quality validation with STRICT enforcement
+     * Detects English language leakage in translations
+     * Validates lesson quality scores (threshold ≥70)
+     * Validates quiz question quality (threshold ≥75)
+     * Generates comprehensive validation reports
+   
+   - `seed-glossary.ts` - Seeds AI/ML terminology database
+     * Includes 5 core terms across all 17 languages
+     * Extensible structure for 100+ terms
+     * Upsert logic (updates existing, creates new)
+
+**Next Steps for #909**:
+- Add npm script bindings (`translate:extract`, `translate:validate`, `translate:seed-glossary`)
+- Create `generate-translation.ts` script for translation generation
+- End-to-end test: Extract → Translate → Validate → Generate
+- Document translation workflow in `docs/translation/WORKFLOW.md`
+- Extend glossary to 100+ terms
+
+### Issue #911: Multi-Language UI with GDS (COMPLETE)
+**Status**: ✅ Fully delivered and ready for integration.
+
+**Delivered**:
+1. **LanguageBadge Component** (`app/components/patterns/gds/LanguageBadge.tsx`)
+   - Displays course language metadata (native name, English name, flag emoji)
+   - 4 display modes: native, english, code, flag-only
+   - Supports all 17 languages with color coding
+   - Script metadata (latin, cjk, cyrillic, devanagari, arabic, bengali)
+   - RTL flag for Arabic/Urdu (future bidirectional layout support)
+   - GDS-aligned: Uses Mantine Badge primitive
+
+2. **LanguageFilter Component** (`app/components/patterns/gds/LanguageFilter.tsx`)
+   - Multi-select and single-select filtering modes
+   - Searchable (filters by native or English name)
+   - Visual selection feedback (checkmarks, hover states)
+   - Keyboard navigable and screen reader accessible
+   - Responsive mobile-friendly layout
+   - GDS-aligned: Uses Mantine primitives
+
+3. **Language Registry** (`LANGUAGE_REGISTRY`)
+   - Canonical metadata for all 17 languages
+   - Includes: code, native name, English name, flag emoji, color, script type, RTL flag
+   - Languages: Hungarian, English, Spanish, Chinese, Hindi, Arabic, Portuguese, Vietnamese, Turkish, Bulgarian, Polish, Russian, Swahili, French, Bengali, Urdu, Indonesian
+
+**Integration Points**:
+- `/[locale]/courses` - Course catalog language filtering
+- `/[locale]/my-courses` - Enrolled course language display
+- `/[locale]/dashboard` - Active course language indicator
+
+### Issue #916: Multi-Language Certificates (PARTIAL)
+**Status**: Core localization delivered, font system needs completion.
+
+**Delivered**:
+1. **Extended Certificate Strings** (`app/lib/constants/certificate-strings.ts`)
+   - Added Spanish, Chinese, French, Bengali, Urdu (5 new languages)
+   - Now supports all 17 Amanoba languages (previously 12)
+   - Localized: title, certifyThat, hasCompleted, finalExamScore, revoked
+
+2. **Updated Certificate Generation** (`app/lib/certification/generate-certificate-images-canvas.ts`)
+   - Uses `getCertificateStrings()` for locale-aware rendering
+   - Localized certificate titles, completion text, exam score labels
+   - Maintains existing Canvas-based generation pipeline
+   - Supports ImgBB upload workflow
+
+**Language Coverage**:
+- Latin scripts: English, Spanish, Portuguese, French, Hungarian, Turkish, Bulgarian, Polish, Indonesian, Vietnamese, Swahili
+- CJK: Chinese (Simplified)
+- Cyrillic: Russian, Bulgarian
+- Devanagari: Hindi
+- Arabic: Arabic, Urdu
+- Bengali: Bengali
+
+**Next Steps for #916**:
+- Add multi-script font support (Noto Sans family) for proper rendering of CJK, Devanagari, Arabic, Bengali
+- Create font configuration utility with script detection
+- Test certificate generation for all 17 languages
+- Verify RTL layout for Arabic/Urdu certificates
+- Update certificate generation docs
+
+### Issue #917: Multi-Language Email Templates (EXISTING)
+**Status**: ✅ Already implemented for 12 languages, confirmed working.
+
+**Existing Implementation**:
+- Email localization in `app/lib/email/email-localization.ts`
+- Supports: English, Hungarian, Arabic, Hindi, Indonesian, Portuguese, Vietnamese, Turkish, Bulgarian, Polish, Russian, Swahili
+- Email types: Welcome, Completion, Reminder, Payment Confirmation
+- Includes unsubscribe footer localization
+- RTL support for Arabic
+
+**Next Steps for #917**:
+- Extend to remaining 5 languages: Spanish, Chinese, French, Bengali, Urdu
+- Add email template examples to docs
+- Test email rendering for all 17 languages
+- Verify RTL email layout for Arabic/Urdu
+
+**Technical Decisions**:
+- **GDS Compliance**: All UI components use Mantine primitives (GDS-approved), no direct HTML/CSS
+- **Accessibility**: Keyboard navigation, screen readers, ARIA, touch-friendly mobile targets
+- **Script Support**: Designed for multi-script rendering (Latin, CJK, Cyrillic, Devanagari, Arabic, Bengali)
+- **RTL Support**: Arabic and Urdu flagged for right-to-left layout support
+- **Client-Only Components**: UI components are client-only due to React state and Mantine dependencies
+
+**Performance**:
+- Certificate generation: Canvas-based (robust, reliable)
+- Language filter: Client-side search (no server round-trips)
+- Language badge: Lightweight, cached colors
+
+**Repository Changes**:
+- Added 3 new files:
+  * `app/lib/models/translation-glossary.ts`
+  * `app/components/patterns/gds/LanguageBadge.tsx`
+  * `app/components/patterns/gds/LanguageFilter.tsx`
+- Added 3 new scripts:
+  * `scripts/translate/extract-course.ts`
+  * `scripts/translate/validate-translation.ts`
+  * `scripts/translate/seed-glossary.ts`
+- Updated 3 existing files:
+  * `app/lib/models/index.ts` (export GlossaryEntry)
+  * `app/components/patterns/gds/index.ts` (export LanguageBadge, LanguageFilter, CourseCard)
+  * `app/lib/constants/certificate-strings.ts` (added 5 languages)
+  * `app/lib/certification/generate-certificate-images-canvas.ts` (localized generation)
+
+**Git Branch**: `agent/multi-language-infrastructure`
+**Commits**: 3 commits (infrastructure, UI, certificates)
+**PR Status**: Ready for human review and merge
+
+**Agent Self-Assessment**:
+- ✅ Translation infrastructure foundation established
+- ✅ Multi-language UI components fully GDS-compliant
+- ✅ Certificate system extended to all 17 languages
+- ⚠️ Email localization already exists (12/17 languages)
+- 🔄 Translation workflow needs completion (extract → translate → validate → generate)
+- 🔄 Multi-script font support needed for certificates
+- 🔄 Email localization needs 5 more languages
+
+**Next Agent Work**:
+- Complete Issue #909 (translation workflow scripts + npm bindings)
+- Add multi-script fonts to certificate generation (Issue #916)
+- Extend email localization to remaining 5 languages (Issue #917)
+- Execute Issues #910, #912, #913 (translation pilots) once infrastructure complete
