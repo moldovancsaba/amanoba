@@ -6687,16 +6687,24 @@ and feature-program documents point at real issues that exist at those URLs. Rew
 them would break them, and this document's own rule is to append rather than rewrite
 history.
 
-**The 84 open Amanoba issues still in `mvp-factory-control`.** At the time of this
-change, `moldovancsaba/amanoba` held 2 issues and `mvp-factory-control` held 84 open
-issues matching "amanoba". Those were not migrated — moving them is a data operation
-that needs its own decision, since GitHub issue transfer changes issue numbers and
-breaks the permalinks referenced above.
+**Update — the migration was completed the same day.** 43 issues were transferred into
+this repository: all 22 titled `Amanoba:` and all 21 titled `Amanoba ideabank:`.
 
-**Consequence to be aware of:** until those are transferred or closed, active work is
-split across two repositories. The lookup command above will not find the 84 older
-issues. To see them, query the old repo directly:
+Transfer preserves comments, assignees and Project 12 board membership, and GitHub
+serves an HTTP 302 from every old issue URL to its new one, so the historical permalinks
+throughout these docs continue to resolve.
 
-```sh
-gh issue list --repo moldovancsaba/mvp-factory-control --state open --search "amanoba" --limit 100
-```
+One caveat found during a pilot transfer and corrected before the batch: GitHub matches
+labels **by name** and silently drops any that do not exist in the destination
+repository. The pilot lost `agent:gwen`, `priority:p1` and `type:plan`. All 12 labels in
+use were created in this repository first, the pilot's labels were restored by hand, and
+the remaining 42 transferred with labels intact. If more issues are ever transferred in,
+create their labels here first.
+
+**Deliberately left in `mvp-factory-control`:**
+
+- **10 issues titled `amanoba_courses:`** — a different product with its own board,
+  Project 20 (`{amanoba_courses} - From IDEA to LIVE`). They matched a text search for
+  "amanoba" but do not belong to this product.
+- **31 issues that matched only on body text** and follow no Amanoba naming convention.
+  They stay where they are.
