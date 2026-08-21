@@ -6605,3 +6605,50 @@ GDS v6.0.0 Release: https://github.com/sovereignsquad/general-design-system/rele
 ✅ **Documentation Updated:** AGENTS.md clarified  
 
 **Status:** UPDATED AND VERIFIED ✅
+
+---
+
+## 2026-08-21: SSO Scope Documentation Corrected
+
+### What was wrong
+
+Three documents under `docs/sso/` asserted that the `roles` scope is "not a standard
+OIDC scope" and "causes `invalid_scope` errors", and instructed setting
+`SSO_SCOPES=openid profile email`:
+
+- `docs/sso/SSO_SCOPE_FIX.md`
+- `docs/sso/SSO_INTEGRATION_REQUIREMENTS.md` (section 2.2)
+- `docs/sso/SSO_ENVIRONMENT_VARIABLES.md`
+
+The claim is false. Production requests `openid profile email roles` and the SSO accepts
+it. Following that guidance would have removed a scope that works.
+
+### How it was verified
+
+Called the SSO authorization endpoint directly with Amanoba's real `client_id` and the
+exact scope strings:
+
+```
+scope=openid+profile+email+roles   ->  302  location: /login?oauth_request=...   (accepted)
+scope=openid+profile+email+admin   ->  302  error=invalid_scope&error_description=Invalid+scopes:+admin
+```
+
+`roles` is a registered scope on the provider. What actually triggers `invalid_scope` is
+a scope the provider does not define at all; `admin` is the live example.
+
+### The substantive finding
+
+`roles` is accepted but **inert**. In the SSO's ID-token builder, role information is
+attached under the **`profile`** scope as a singular `role` claim, and no plural `roles`
+claim is emitted under any scope.
+
+- `claims.role` is populated and comes from `profile`.
+- `claims.roles` is always `undefined`. It appears only in a development-only debug log
+  in `app/api/auth/sso/callback/route.ts`, so nothing functional depends on it.
+- `profile` must stay in `SSO_SCOPES`. Whether `roles` stays makes no difference.
+
+### Scope of the change
+
+Documentation only — no code and no environment variables were changed, and no runtime
+behavior is affected. Amanoba's SSO login was working before this change and is
+unaffected by it.

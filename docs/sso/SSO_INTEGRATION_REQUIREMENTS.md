@@ -29,7 +29,7 @@ The following environment variables must be configured in the SSO provider:
 | `SSO_USERINFO_URL` | UserInfo endpoint | `https://sso.doneisbetter.com/userinfo` | ✅ |
 | `SSO_JWKS_URL` | JWKS endpoint for token verification | `https://sso.doneisbetter.com/.well-known/jwks.json` | ✅ |
 | `SSO_REDIRECT_URI` | Callback URL | `https://www.amanoba.com/api/auth/sso/callback` | ✅ |
-| `SSO_SCOPES` | Requested scopes | `openid profile email` | ✅ |
+| `SSO_SCOPES` | Requested scopes | `openid profile email roles` (production value; `roles` is inert — see 2.2) | ✅ |
 
 ### 1.2 Redirect URIs
 
@@ -62,13 +62,23 @@ https://amanoba.com/api/auth/sso/callback
 SSO_SCOPES=openid profile email
 ```
 
-### 2.2 Unsupported Scopes
+### 2.2 Scope Rules
 
-**DO NOT REQUEST:**
-- ❌ `roles` - This is **not** a standard OIDC scope and will cause `invalid_scope` errors
-- ❌ Custom scopes that are not standard OIDC scopes
+**Corrected 2026-08-21.** This section previously claimed `roles` would cause
+`invalid_scope`. That is false — production sends `openid profile email roles` and the
+authorization endpoint accepts it. See [SSO_SCOPE_FIX.md](SSO_SCOPE_FIX.md) for the
+verification.
 
-**Note:** If role information is needed, it should be included in the ID token claims (see Section 3.2).
+**Accepted by this provider:** `openid`, `profile`, `email`, `offline_access`, `roles`.
+
+**Will cause `invalid_scope`:**
+- ❌ Any scope the provider does not define — `admin` is the confirmed live example
+- ❌ Any scope missing from this client's registered `allowed_scopes`
+
+**`roles` is accepted but inert.** Role information reaches the ID token under the
+**`profile`** scope as a singular `role` claim; no plural `roles` claim is ever emitted.
+So keep `profile` — that is what actually carries the role. Whether `roles` stays in
+`SSO_SCOPES` makes no difference to the token.
 
 ---
 

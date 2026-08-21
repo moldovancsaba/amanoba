@@ -1,96 +1,55 @@
-# SSO Scope Error Fix
+# SSO Scopes — What This Provider Actually Accepts
 
-## Error: `invalid_scope`
+**Corrected 2026-08-21.** An earlier version of this document stated that the `roles`
+scope is "not a standard OIDC scope" and would cause `invalid_scope`, and instructed
+setting `SSO_SCOPES=openid profile email`. **That was wrong**, and following it would
+have removed a scope production has been sending successfully.
 
-The error `invalid_scope` indicates that the SSO provider doesn't support one or more of the requested scopes.
+## Verified behaviour
 
-## Problem
-
-We were requesting: `openid profile email roles`
-
-The `roles` scope is **not a standard OIDC scope** and many providers don't support it.
-
-## Solution
-
-### Option 1: Remove `roles` from scopes (Recommended)
-
-**Update `SSO_SCOPES` in Vercel:**
+Production requests `openid profile email roles` and the authorization endpoint accepts
+it. Confirmed by calling `/authorize` directly with amanoba's real `client_id` and that
+exact scope string:
 
 ```
-SSO_SCOPES=openid profile email
+scope=openid+profile+email+roles   ->  302  location: /login?oauth_request=...   (accepted)
+scope=openid+profile+email+admin   ->  302  error=invalid_scope&error_description=Invalid+scopes:+admin
 ```
 
-**Why this works:**
-- `openid` - Required for OIDC
-- `profile` - Standard scope for user profile (name)
-- `email` - Standard scope for email address
-- Roles may be included in the token by default, or accessible via a different method
+So `roles` is a registered scope on this SSO. What actually triggers `invalid_scope` is
+requesting a scope the provider does not define at all — `admin` is the live example.
 
-### Option 2: Check SSO Provider Documentation
+## The real catch: `roles` does nothing
 
-Check your SSO provider's documentation for:
-- Supported scopes list
-- How roles are provided (might be in token claims by default)
-- Alternative scope names (e.g., `groups`, `permissions`)
+The scope is accepted, but requesting it has **no effect on the token**. In the SSO's
+ID-token builder (`lib/oauth/tokens.mjs`), role information is attached under the
+**`profile`** scope, not `roles`:
 
-## Updated Code
+- `profile` adds `name`, `updated_at`, `user_type`, and **`role`** (singular)
+- there is no code path that emits a plural `roles` claim, under any scope
 
-The code has been updated to default to standard OIDC scopes:
-- Default: `openid profile email` (if `SSO_SCOPES` not set)
-- Custom: Use `SSO_SCOPES` environment variable if set
+Consequences for this repo:
 
-## Steps to Fix
+- `claims.role` is populated, and comes from `profile`.
+- `claims.roles` is always `undefined`. It appears only in a development-only debug log
+  in `app/api/auth/sso/callback/route.ts`, so nothing functional depends on it.
+- Keeping `roles` in `SSO_SCOPES` is harmless but buys nothing. Dropping it is equally
+  safe. Do not drop `profile` — that is where the role actually arrives.
 
-1. **Update Vercel Environment Variable:**
-   ```
-   SSO_SCOPES=openid profile email
-   ```
+## Which scopes this SSO defines
 
-2. **Redeploy:**
-   - Vercel should auto-redeploy, or trigger manually
+`openid`, `profile`, `email`, `offline_access`, `roles`, plus app-specific scopes for
+other tenants and a machine-only `manage_permissions` that is obtainable solely through
+the `client_credentials` grant and is rejected on `/authorize` by design.
 
-3. **Test:**
-   - Visit: `https://www.amanoba.com/auth/signin`
-   - Click "Sign in with SSO"
-   - Should no longer show `invalid_scope` error
+Anything outside that set returns `invalid_scope`. A scope also has to be present in
+this client's registered `allowed_scopes`, or it is rejected separately.
 
-## Role Information
+## If you see `invalid_scope`
 
-Even without the `roles` scope, roles might still be available:
-- In the ID token claims (check token after login)
-- Via a different scope name (check provider docs)
-- Via userinfo endpoint (if configured)
+1. Read the `error_description` — it names the offending scopes verbatim.
+2. Check the scope is one the provider defines (list above).
+3. Check it is in this client's `allowed_scopes` registration.
 
-## Verify Token Claims
-
-After successful login, check the ID token to see what claims are included:
-- `sub` - Subject (user identifier)
-- `email` - Email address
-- `name` - Display name
-- `roles` or `groups` - May be included by default
-
-If roles are in the token but not accessible, we may need to:
-1. Update the token validation to extract roles from different claim names
-2. Use userinfo endpoint to fetch roles
-3. Map roles differently based on provider
-
-## Testing
-
-After updating `SSO_SCOPES`:
-
-1. **Test Login:**
-   - Should redirect to SSO provider without `invalid_scope` error
-   - Should complete login successfully
-
-2. **Check Token:**
-   - After login, check logs for token claims
-   - Verify if roles are present in token
-
-3. **Verify Role Assignment:**
-   - Check if user role is assigned correctly
-   - Test admin access if applicable
-
----
-
-**Status:** Code updated to use standard OIDC scopes
-**Action Required:** Update `SSO_SCOPES` in Vercel to `openid profile email`
+Do not "fix" it by blindly trimming scopes until the error stops; that is how a working
+scope gets removed and how this document became wrong in the first place.

@@ -82,10 +82,18 @@ SSO_POST_LOGOUT_REDIRECT_URI=https://amanoba.com  # Optional
   - `profile` - **Required** for role claim (includes name, user_type, role)
   - `email` - **Required** for email address
   - `offline_access` - **Recommended** for refresh tokens
-- **Non-Standard Scopes**:
-  - ❌ `roles` - **DO NOT USE** - Not a standard OIDC scope, causes `invalid_scope` errors
-  
-**Note:** Role information is included in the ID token's `role` claim when `profile` scope is requested. The `roles` scope is NOT standard OIDC and should not be used.
+- **Accepted but inert**:
+  - `roles` - accepted by this provider (it is a registered scope), but requesting it
+    changes nothing about the token. Corrected 2026-08-21: this previously claimed it
+    causes `invalid_scope`, which is false — production sends it successfully. See
+    [SSO_SCOPE_FIX.md](SSO_SCOPE_FIX.md).
+- **Will cause `invalid_scope`**:
+  - ❌ Any scope the provider does not define — `admin` is the confirmed live example
+
+**Note:** Role information is included in the ID token's `role` claim when the `profile`
+scope is requested. That is the only place it comes from — no plural `roles` claim is
+ever emitted, under any scope. Keep `profile`; `roles` is optional and makes no
+difference either way.
 
 ### `SSO_LOGOUT_URL` (Optional)
 - **What**: SSO provider logout endpoint
