@@ -40,7 +40,7 @@ If you're new to Amanoba or returning after a break, **start here**:
 git fetch origin && git status -sb
 
 # 2. Check for assigned work
-gh issue list --repo moldovancsaba/mvp-factory-control --state open --assignee "@me" --search "amanoba" --limit 10
+gh issue list --repo moldovancsaba/amanoba --state open --assignee "@me" --limit 10
 
 # 3. Create feature branch
 git checkout -b sentinel-squad/<feature-name>
@@ -121,10 +121,10 @@ npm run dev
 
 ## 🎯 Work Tracking
 
-### MVP Factory Board (SSOT)
+### Amanoba Board (SSOT)
 
 **Board**: https://github.com/users/moldovancsaba/projects/12/views/1  
-**Issues**: https://github.com/moldovancsaba/mvp-factory-control/issues  
+**Issues**: https://github.com/moldovancsaba/amanoba/issues  
 **Product**: amanoba
 
 ### Board Workflow
@@ -137,7 +137,7 @@ IDEABANK → Roadmap → Backlog → Todo → In Progress → Review → Done
 ### Find Your Work
 
 ```bash
-gh issue list --repo moldovancsaba/mvp-factory-control --state open --assignee "@me" --search "amanoba" --limit 10
+gh issue list --repo moldovancsaba/amanoba --state open --assignee "@me" --limit 10
 ```
 
 ---
@@ -267,7 +267,7 @@ Every change requires:
 git fetch origin && git status -sb
 
 # Check assigned work
-gh issue list --repo moldovancsaba/mvp-factory-control --state open --assignee "@me" --search "amanoba" --limit 10
+gh issue list --repo moldovancsaba/amanoba --state open --assignee "@me" --limit 10
 
 # Read latest handover
 tail -100 docs/HANDOVER.md
@@ -338,7 +338,7 @@ git push -u origin <branch-name>
 ### Repositories
 
 - **Product**: https://github.com/moldovancsaba/amanoba
-- **Issues**: https://github.com/moldovancsaba/mvp-factory-control
+- **Issues**: https://github.com/moldovancsaba/amanoba
 - **Board**: https://github.com/users/moldovancsaba/projects/12/views/1
 - **Design System**: https://github.com/sovereignsquad/general-design-system
 

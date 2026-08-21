@@ -12,19 +12,19 @@ Before making changes, read in this order:
 4. `docs/status/PRODUCTION_STATUS.md`
 
 If the task touches docs, architecture, lessons, quizzes, or UI layout, also read `docs/architecture/layout_grammar.md`.
-If the task touches GitHub Project 12 workflow or board field updates, also read `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` and `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md`.
+If the task touches GitHub Project 12 workflow or board field updates, also read `docs/handoff/HANDOFF_MVP_FACTORY_CONTROL.md` and `docs/handoff/MVP_FACTORY_PROJECT_SETUP.md` (both describe the board mechanics, which are unchanged; only the issues repo moved).
 
 ## 2. Repo Workflow
 
 - **Canonical local checkout:** `/Users/Shared/Projects/amanoba` (do not recreate the old mistaken duplicate checkout path).
 - **GDS packages:** consume `@sovereignsquad/gds-*` from GitHub releases only. Use the latest stable release from `https://github.com/sovereignsquad/general-design-system/releases`. Do not use legacy `@gds/*` or `@doneisbetter/*` names, npm registry packages, or sibling `file:` installs in product code, CI, or Vercel flows.
-- The work-tracking SSOT is the MVP Factory board, not this repo.
-- Amanoba work items live in `moldovancsaba/mvp-factory-control`.
+- The work-tracking SSOT is the Amanoba board, GitHub Project 12 (`{amanoba} - From IDEA to LIVE`).
+- Amanoba work items live in this repository, `moldovancsaba/amanoba`.
 - Start each session with `git fetch origin && git status -sb` to confirm the latest baseline.
 - Find assigned Amanoba issues with:
 
 ```sh
-gh issue list --repo moldovancsaba/mvp-factory-control --state open --assignee "@me" --search "amanoba" --limit 10
+gh issue list --repo moldovancsaba/amanoba --state open --assignee "@me" --limit 10
 ```
 
 - Use the `sentinel-squad/` prefix for local branch names before making changes.

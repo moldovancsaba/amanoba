@@ -1,5 +1,11 @@
 # Handoff Model — mvp-factory-control (Feature issues)
 
+> **Superseded in part, 2026-08-21.** Amanoba issues now live in this product repository,
+> `moldovancsaba/amanoba`, not in `moldovancsaba/mvp-factory-control`. The Project 12 board
+> mechanics described below (field names, status values, update tooling) are still accurate
+> and still apply. Only the repository that holds the issues has changed. Issue permalinks
+> in this document point at real historical issues and are intentionally left as-is.
+
 **Version**: 1.0  
 **Last Updated**: 2026-02-07
 

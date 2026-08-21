@@ -1,7 +1,7 @@
 # Amanoba Task List
 
 **Last Updated**: 2026-05-28
-**Status**: Reference mirror only. The live work-tracking source of truth is the [Amanoba Project 12 board](https://github.com/users/moldovancsaba/projects/12/views/1) and issues in `moldovancsaba/mvp-factory-control`.
+**Status**: Reference mirror only. The live work-tracking source of truth is the [Amanoba Project 12 board](https://github.com/users/moldovancsaba/projects/12/views/1) and issues in this repository, `moldovancsaba/amanoba`.
 
 ---
 
@@ -9,7 +9,7 @@
 
 Use this file to understand the current high-level backlog shape from inside the Amanoba repo. Do not treat it as the live task board.
 
-- Create and update work items in `moldovancsaba/mvp-factory-control`.
+- Create and update work items in this repository, `moldovancsaba/amanoba`.
 - Use Project 12 statuses: `IDEABANK (SOMEDAY)`, `Roadmap (LATER)`, `Backlog (SOONER)`, `Todo (NEXT)`, `In Progress (NOW)`, `Review (ALMOST)`, `Done`, `Declined (NEVER)`.
 - Move completed work into `docs/product/RELEASE_NOTES.md` only when it is shipped.
 - Keep future vision in `docs/product/ROADMAP.md`.

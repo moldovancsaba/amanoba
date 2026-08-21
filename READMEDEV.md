@@ -1,13 +1,13 @@
 # Amanoba dev kit README
 
-This is the **Brain Boost** every developer must read before touching Amanoba code. It collects the repeatable rituals, SSOT rules, and quality gates that keep this repo aligned with the project board (`mvp-factory-control`) and the production reality documented under `docs/status/PRODUCTION_STATUS.md`.
+This is the **Brain Boost** every developer must read before touching Amanoba code. It collects the repeatable rituals, SSOT rules, and quality gates that keep this repo aligned with its project board (GitHub Project 12) and the production reality documented under `docs/status/PRODUCTION_STATUS.md`.
 
 ## 1. Brain Boost ritual (start every work session)
 0. Work only from the canonical checkout at `/Users/Shared/Projects/amanoba`; do not recreate the old mistaken duplicate checkout path.
 1. `git fetch origin && git status -sb` to ensure you are working on the latest baseline.
 2. Confirm the active SSOT card:
-   - Issues live only in `moldovancsaba/mvp-factory-control`.
-   - Search for your assignment with `gh issue list --repo moldovancsaba/mvp-factory-control --state open --assignee "@me" --search "amanoba" --limit 10`.
+   - Issues live in this repository, `moldovancsaba/amanoba`.
+   - Search for your assignment with `gh issue list --repo moldovancsaba/amanoba --state open --assignee "@me" --limit 10`.
    - If nothing is assigned, ask the PO before proceeding.
 3. Scan `docs/HANDOVER.md` and the active issue’s latest comments before writing code or docs.
 4. Update your local branch name with the `sentinel-squad/` prefix before making changes.
@@ -15,7 +15,7 @@ This is the **Brain Boost** every developer must read before touching Amanoba co
 ## 2. SSOT discipline and governance
 - **Board**: https://github.com/users/moldovancsaba/projects/12/views/1 (Amanoba board; this is the live project SSOT).
 - **Naming**: Issues that belong to this product are titled `Amanoba: <short description>`.
-- **Product repo ≠ project repo**: Always execute work through the project repo (`mvp-factory-control`). Do not create issues in `moldovancsaba/amanoba`.
+- **Issues belong to this repo**: create and execute work items in `moldovancsaba/amanoba`, and track them on Project 12. Do not open new Amanoba issues in `moldovancsaba/mvp-factory-control`.
 - **Cadence**:
   - Start: move the SSOT card to `In Progress (NOW)` and add a start note (objective + quick approach).
   - Milestones/blocks: update the card status and comment with next steps or blockers.

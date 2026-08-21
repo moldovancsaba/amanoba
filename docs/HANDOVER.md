@@ -7,9 +7,9 @@ This document is the single-stop operational snapshot for Amanoba. Keep it curre
 **Status**: Production stable, SSO-only auth, daily lessons + gamified learning live.
 
 ## SSOT (Work Tracking)
-- **Board**: https://github.com/users/moldovancsaba/projects/12/views/1. This Amanoba GitHub Project board is the single source of truth; no local task files.
-- **Issues repo**: `moldovancsaba/mvp-factory-control`. All Amanoba work (P1–P4) is tracked there. Issue titles follow `Amanoba: <short description>`.
-- **Product repo ≠ project repo**: Do not raise issues in `moldovancsaba/amanoba`. Find or request the related card in the board before coding.
+- **Board**: https://github.com/users/moldovancsaba/projects/12/views/1. This Amanoba GitHub Project board (`{amanoba} - From IDEA to LIVE`) is the single source of truth; no local task files.
+- **Issues repo**: `moldovancsaba/amanoba` — this repository. Amanoba work is raised and tracked here and linked to Project 12. Issue titles follow `Amanoba: <short description>`.
+- **Changed 2026-08-21**: issues previously lived in `moldovancsaba/mvp-factory-control`. New work belongs in this repository. Existing open issues still in `mvp-factory-control` have not been moved — see the 2026-08-21 entry below.
 - **Workflow**:
   1. Start: `gh issue list --repo moldovancsaba/mvp-factory-control --state open --assignee "@me" --search "amanoba" --limit 10`, pick the assigned card, move it to _In Progress_, note objective.
   2. During work: update card status for blockers/milestones, keep `docs/HANDOVER.md` + relevant docs updated.
@@ -6652,3 +6652,51 @@ claim is emitted under any scope.
 Documentation only — no code and no environment variables were changed, and no runtime
 behavior is affected. Amanoba's SSO login was working before this change and is
 unaffected by it.
+
+---
+
+## 2026-08-21: Work Tracking Moved To This Repository
+
+### What changed
+
+Amanoba issues now belong in `moldovancsaba/amanoba` — this repository — instead of
+`moldovancsaba/mvp-factory-control`. The board is unchanged: GitHub Project 12 is
+`{amanoba} - From IDEA to LIVE`, already Amanoba's own board, and remains the SSOT for
+status.
+
+Governing documents updated to match:
+
+- `AGENTS.md` — SSOT statement and the assigned-issue lookup command
+- `READMEDEV.md` — Brain Boost ritual, SSOT discipline section; the
+  "Product repo ≠ project repo" rule is inverted, issues now belong to this repo
+- `START_HERE.md` — board section heading, issue links, and three lookup commands
+- `docs/product/TASKLIST.md` — SSOT pointer and work-item creation rule
+
+The assigned-issue lookup no longer needs a text search, since the repository is now
+Amanoba-specific:
+
+```sh
+gh issue list --repo moldovancsaba/amanoba --state open --assignee "@me" --limit 10
+```
+
+### Deliberately not changed
+
+**Historical issue permalinks.** Links of the form
+`https://github.com/moldovancsaba/mvp-factory-control/issues/NNN` throughout the handoff
+and feature-program documents point at real issues that exist at those URLs. Rewriting
+them would break them, and this document's own rule is to append rather than rewrite
+history.
+
+**The 84 open Amanoba issues still in `mvp-factory-control`.** At the time of this
+change, `moldovancsaba/amanoba` held 2 issues and `mvp-factory-control` held 84 open
+issues matching "amanoba". Those were not migrated — moving them is a data operation
+that needs its own decision, since GitHub issue transfer changes issue numbers and
+breaks the permalinks referenced above.
+
+**Consequence to be aware of:** until those are transferred or closed, active work is
+split across two repositories. The lookup command above will not find the 84 older
+issues. To see them, query the old repo directly:
+
+```sh
+gh issue list --repo moldovancsaba/mvp-factory-control --state open --search "amanoba" --limit 100
+```
